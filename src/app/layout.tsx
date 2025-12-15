@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Crimson_Text } from "next/font/google";
 import "./globals.css";
 import "katex/dist/katex.min.css";
+import Navbar from "@/components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  weight: ["700", "900"],
+  variable: "--font-playfair",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const crimson = Crimson_Text({
   subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-crimson",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +29,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="fr" className={`${playfair.variable} ${crimson.variable}`}>
+      <body className="antialiased bg-[#fafafa]">
+        <Navbar />
         {children}
       </body>
     </html>

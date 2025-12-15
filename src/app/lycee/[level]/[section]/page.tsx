@@ -16,39 +16,67 @@ export default async function SectionChaptersPage({
   const { level, section } = await params;
   const levelDisplay = LEVEL_DISPLAY[level];
   
-  // Get chapters for this level and section
   const chapters = getChaptersByLevel('lycee', level, section);
   
+  // Format section name
+  const sectionDisplay = section
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <Link 
-          href={`/lycee/${level}`} 
-          className="text-gray-600 hover:text-black mb-8 inline-block"
-        >
-          ← {levelDisplay}
-        </Link>
-        
-        <h1 className="text-5xl font-bold mb-12 capitalize">
-          {section.replace('-', ' ')}
-        </h1>
-        
+    <div className="min-h-screen bg-[#fafafa]">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Breadcrumb */}
+        <nav className="mb-12 flex items-center gap-3 text-sm uppercase tracking-wider font-semibold">
+          <Link href="/" className="text-[#999999] hover:text-[#ff6b35]">Accueil</Link>
+          <span className="text-[#e0e0e0]">→</span>
+          <Link href="/lycee" className="text-[#999999] hover:text-[#ff6b35]">Lycée</Link>
+          <span className="text-[#e0e0e0]">→</span>
+          <Link href={`/lycee/${level}`} className="text-[#999999] hover:text-[#ff6b35]">{levelDisplay}</Link>
+          <span className="text-[#e0e0e0]">→</span>
+          <span className="text-[#ff6b35]">{sectionDisplay}</span>
+        </nav>
+
+        {/* Page Header */}
+        <div className="mb-16">
+          <div className="inline-block px-4 py-2 bg-[#2196f3] text-white font-mono text-xs uppercase tracking-widest mb-6">
+            {levelDisplay} Année
+          </div>
+          <h1 className="text-6xl sm:text-7xl font-black mb-6 text-black leading-none">
+            {sectionDisplay.toUpperCase()}
+          </h1>
+          <p className="text-2xl text-[#666666] font-serif">
+            {chapters.length} chapitre{chapters.length > 1 ? 's' : ''} disponible{chapters.length > 1 ? 's' : ''}
+          </p>
+        </div>
+
+        {/* Chapter Cards */}
         {chapters.length === 0 ? (
-          <p className="text-gray-600 text-xl">Aucun chapitre disponible.</p>
+          <div className="bg-white border-2 border-[#e0e0e0] p-12 text-center">
+            <p className="text-xl text-[#666666]">Aucun chapitre disponible pour cette section.</p>
+          </div>
         ) : (
-          <div className="space-y-4">
-            {chapters.map((chapter) => {
-              // Create URL-safe slug
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {chapters.map((chapter, idx) => {
               const slug = chapter.toLowerCase().replace(/\s+/g, '-');
               
               return (
                 <Link 
                   key={chapter} 
                   href={`/lycee/${level}/${section}/${encodeURIComponent(slug)}`}
-                  className="block"
+                  className="group block"
                 >
-                  <div className="border-2 border-black rounded-lg p-8 hover:bg-gray-50 transition-colors cursor-pointer">
-                    <h2 className="text-3xl font-semibold">{chapter}</h2>
+                  <div className="bg-white border-2 border-[#e0e0e0] p-8 h-full hover:border-[#2196f3] hover:shadow-xl hover:-translate-y-2">
+                    <div className="text-4xl font-black text-[#2196f3] mb-4">
+                      {String(idx + 1).padStart(2, '0')}
+                    </div>
+                    <h3 className="text-2xl font-black mb-4 text-black group-hover:text-[#2196f3] leading-tight">
+                      {chapter}
+                    </h3>
+                    <div className="inline-block px-4 py-2 border-2 border-black group-hover:bg-[#2196f3] group-hover:text-white group-hover:border-[#2196f3] font-bold text-sm uppercase tracking-wider">
+                      Voir exercices →
+                    </div>
                   </div>
                 </Link>
               );

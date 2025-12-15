@@ -17,30 +17,55 @@ export default async function ChapterExercisesPage({
   const { level, section, chapter } = await params;
   const levelDisplay = LEVEL_DISPLAY[level];
   
-  // Decode and convert URL slug back to chapter name
   const decodedChapter = decodeURIComponent(chapter);
   const chapterName = decodedChapter
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
   
-  // Get exercises for this chapter
+  const sectionDisplay = section
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  
   const exercises = getExercisesByChapter('lycee', level, section, chapterName);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#fafafa]">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <Link
-          href={`/lycee/${level}/${section}`}
-          className="text-gray-600 hover:text-black mb-8 inline-block"
-        >
-          ← {section.replace('-', ' ').toUpperCase()}
-        </Link>
+        {/* Breadcrumb */}
+        <nav className="mb-12 flex items-center gap-3 text-sm uppercase tracking-wider font-semibold flex-wrap">
+          <Link href="/" className="text-[#999999] hover:text-[#ff6b35]">Accueil</Link>
+          <span className="text-[#e0e0e0]">→</span>
+          <Link href="/lycee" className="text-[#999999] hover:text-[#ff6b35]">Lycée</Link>
+          <span className="text-[#e0e0e0]">→</span>
+          <Link href={`/lycee/${level}`} className="text-[#999999] hover:text-[#ff6b35]">{levelDisplay}</Link>
+          <span className="text-[#e0e0e0]">→</span>
+          <Link href={`/lycee/${level}/${section}`} className="text-[#999999] hover:text-[#ff6b35]">{sectionDisplay}</Link>
+          <span className="text-[#e0e0e0]">→</span>
+          <span className="text-[#ff6b35]">{chapterName}</span>
+        </nav>
 
-        <h1 className="text-5xl font-bold mb-12">{chapterName}</h1>
+        {/* Page Header */}
+        <div className="mb-16">
+          <div className="inline-block px-4 py-2 bg-[#2196f3] text-white font-mono text-xs uppercase tracking-widest mb-6">
+            {exercises.length} Exercice{exercises.length > 1 ? 's' : ''}
+          </div>
+          <h1 className="text-6xl sm:text-7xl font-black mb-6 text-black leading-none">
+            {chapterName.toUpperCase()}
+          </h1>
+          <p className="text-2xl text-[#666666] font-serif">
+            {sectionDisplay} • {levelDisplay} Année
+          </p>
+        </div>
 
+        {/* Exercises */}
         {exercises.length === 0 ? (
-          <p className="text-gray-600 text-xl">Aucun exercice disponible pour ce chapitre.</p>
+          <div className="bg-white border-2 border-[#e0e0e0] p-16 text-center">
+            <div className="text-6xl mb-6">📚</div>
+            <h2 className="text-3xl font-black mb-4">Aucun exercice disponible</h2>
+            <p className="text-xl text-[#666666]">Les exercices pour ce chapitre seront bientôt ajoutés.</p>
+          </div>
         ) : (
           <ExerciseTable exercises={exercises} />
         )}
