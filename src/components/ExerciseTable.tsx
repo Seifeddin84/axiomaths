@@ -29,8 +29,8 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
 
   return (
     <div className="w-full">
-      {/* Table Header */}
-      <div className="border-b-2 border-black pb-4 mb-4">
+      {/* Desktop Table Header - Hidden on mobile */}
+      <div className="hidden md:block border-b-2 border-black pb-4 mb-4">
         <div className="grid grid-cols-[80px_1fr_120px_120px_80px_80px_50px] gap-4 px-4 font-semibold">
           <div>#</div>
           <div>Source</div>
@@ -42,17 +42,17 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
         </div>
       </div>
 
-      {/* Table Rows */}
-      <div className="space-y-2">
+      {/* Exercise Rows */}
+      <div className="space-y-4">
         {exercises.map((exercise) => {
           const isExpanded = expandedId === exercise.uid;
           const isSolutionShown = showSolution === exercise.uid;
 
           return (
             <div key={exercise.uid} className="border-2 border-black rounded-lg overflow-hidden">
-              {/* Row Header */}
+              {/* Desktop Row Header */}
               <div
-                className="grid grid-cols-[80px_1fr_120px_120px_80px_80px_50px] gap-4 px-4 py-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                className="hidden md:grid grid-cols-[80px_1fr_120px_120px_80px_80px_50px] gap-4 px-4 py-6 cursor-pointer hover:bg-gray-50 transition-colors"
                 onClick={() => toggleExercise(exercise.uid)}
               >
                 <div className="font-mono">{exercise.uid}</div>
@@ -66,9 +66,31 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                 </div>
               </div>
 
+              {/* Mobile Card Header */}
+              <div
+                className="md:hidden p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                onClick={() => toggleExercise(exercise.uid)}
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <div className="font-mono text-sm text-gray-600">#{exercise.uid}</div>
+                  <div className="text-2xl">{isExpanded ? '▲' : '▼'}</div>
+                </div>
+                <div className="text-xl font-semibold mb-2">{exercise.source}</div>
+                <div className="flex gap-4 text-sm text-gray-600">
+                  <span>{getDifficultyStars(exercise.difficulty)}</span>
+                  <span>•</span>
+                  <span>{exercise.points} pts</span>
+                  <span>•</span>
+                  <span>{exercise.country}</span>
+                </div>
+                {exercise.professor && (
+                  <div className="text-sm text-gray-500 mt-1">{exercise.professor}</div>
+                )}
+              </div>
+
               {/* Expanded Content */}
               {isExpanded && (
-                <div className="px-8 py-6 bg-gray-50 border-t-2 border-black">
+                <div className="px-6 md:px-8 py-6 bg-gray-50 border-t-2 border-black">
                   <MathRenderer content={exercise.content} />
 
                   {/* Solution Toggle */}
@@ -86,7 +108,7 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                       </button>
 
                       {isSolutionShown && (
-                        <div className="mt-4 pl-6">
+                        <div className="mt-4 pl-4 md:pl-6">
                           <MathRenderer content={exercise.solution} />
                         </div>
                       )}

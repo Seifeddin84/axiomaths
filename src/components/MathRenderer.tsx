@@ -20,7 +20,11 @@ export default function MathRenderer({ content }: MathRendererProps) {
     // Replace inline math $...$ with KaTeX rendering
     processedContent = processedContent.replace(/\$([^\$]+)\$/g, (match, math) => {
       try {
-        return katex.renderToString(math, { throwOnError: false, displayMode: false });
+        return katex.renderToString(math, { 
+          throwOnError: false, 
+          displayMode: false,
+          strict: false
+        });
       } catch (e) {
         return match;
       }
@@ -29,7 +33,11 @@ export default function MathRenderer({ content }: MathRendererProps) {
     // Replace display math $$...$$ with KaTeX rendering
     processedContent = processedContent.replace(/\$\$([^\$]+)\$\$/g, (match, math) => {
       try {
-        return katex.renderToString(math, { throwOnError: false, displayMode: true });
+        return katex.renderToString(math, { 
+          throwOnError: false, 
+          displayMode: true,
+          strict: false
+        });
       } catch (e) {
         return match;
       }
@@ -45,7 +53,7 @@ export default function MathRenderer({ content }: MathRendererProps) {
   return (
     <div 
       ref={containerRef} 
-      className="prose prose-lg max-w-none"
+      className="prose prose-sm sm:prose-lg max-w-none overflow-x-auto"
       style={{ lineHeight: '1.8' }}
     />
   );
