@@ -183,3 +183,31 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;  /* Changed: make everything bold */
   padding: 2rem;
 }
+
+/* Remove horizontal lines from math displays */
+.katex-display {
+  margin: 2rem 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-bottom: none !important;
+  overflow: visible !important;
+}
+
+/* Style equation tags/numbers */
+.katex-display .tag {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Remove any borders or lines from math containers */
+.prose .katex-display::before,
+.prose .katex-display::after {
+  display: none !important;
+}
+
+/* Ensure no borders on math wrappers */
+.prose .katex-html {
+  border: none !important;
+}

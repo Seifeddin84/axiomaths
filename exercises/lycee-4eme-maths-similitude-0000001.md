@@ -2,7 +2,7 @@
 uid: "0000001"
 school: "lycee"
 level: "4eme"
-section: "maths"
+section: "Maths"
 chapter: "Similitude"
 source: "Bac Tunisie 1984"
 title: "Similitude complexe"

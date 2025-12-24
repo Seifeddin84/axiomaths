@@ -27,10 +27,13 @@ export function parseExercise(fileContent: string, filename: string): Exercise {
 }
 
 export function getDifficultyStars(difficulty: string): string {
+  // Normalize to capitalized first letter
+  const normalized = difficulty.charAt(0).toUpperCase() + difficulty.slice(1).toLowerCase();
+  
   const map: Record<string, string> = {
     'Facile': '⭐',
     'Moyen': '⭐⭐',
     'Difficile': '⭐⭐⭐',
   };
-  return map[difficulty] || '⭐';
+  return map[normalized] || '⭐';
 }
