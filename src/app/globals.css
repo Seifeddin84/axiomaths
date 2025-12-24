@@ -175,3 +175,11 @@ h1, h2, h3, h4, h5, h6 {
 .exercise-content strong, .exercise-content b {
   font-weight: 800;
 }
+
+.exercise-content {
+  background: linear-gradient(135deg, #e8edf2 0%, #dde4eb 100%);
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  line-height: 1.7;
+  font-weight: 700;  /* Changed: make everything bold */
+  padding: 2rem;
+}
