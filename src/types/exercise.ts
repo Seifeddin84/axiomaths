@@ -5,7 +5,9 @@ export interface Exercise {
   section: string | null;
   chapter: string;
   source: string;
+  title?: string;  // Made optional for backward compatibility
   country: string;
+  year?: number;   // Made optional for backward compatibility
   professor: string | null;
   difficulty: 'Facile' | 'Moyen' | 'Difficile';
   points: number;
@@ -21,7 +23,9 @@ export interface ExerciseMetadata {
   section: string | null;
   chapter: string;
   source: string;
+  title?: string;  // Added
   country: string;
+  year?: number;   // Added
   professor: string | null;
   difficulty: string;
   points: number;

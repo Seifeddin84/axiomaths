@@ -5,7 +5,9 @@ level: "7eme"
 section: null
 chapter: "Géométrie"
 source: "Devoir Maison 2023"
+title: "Triangles"
 country: "Tunisie"
+year: 2024
 professor: "M. Khalil"
 difficulty: "Facile"
 points: 3

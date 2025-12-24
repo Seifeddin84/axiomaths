@@ -5,7 +5,9 @@ level: "4eme"
 section: "maths"
 chapter: "Similitude"
 source: "Bac Tunisie 1984"
+title: "Similitude complexe"
 country: "Tunisie"
+year: 1984
 professor: null
 difficulty: "Facile"
 points: 4

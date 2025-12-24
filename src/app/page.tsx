@@ -1,6 +1,10 @@
 import Link from 'next/link';
+import { getAllExercises } from '@/lib/fileReader';
 
 export default function HomePage() {
+  const exercises = getAllExercises();
+  const exerciseCount = exercises.length;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-6xl mx-auto px-6 py-20">
@@ -10,16 +14,24 @@ export default function HomePage() {
             <span className="w-2 h-2 bg-orange-500 animate-pulse"></span>
             Plateforme éducative tunisienne
           </div>
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent leading-tight">
+          
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent leading-tight">
             Axiomaths
           </h1>
+          
+          <div className="flex justify-center mb-6">
+            <div className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-black text-xl border-4 border-orange-700 shadow-xl">
+              {exerciseCount} EXERCICES
+            </div>
+          </div>
+          
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-serif">
             Maîtrisez les mathématiques avec des milliers d'exercices pour collège et lycée
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-20">
+        <div className="grid md:grid-cols-2 gap-6">
           <Link href="/college" className="group block">
             <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-200 h-full">
               <div className="flex items-center justify-between mb-6">
@@ -68,28 +80,6 @@ export default function HomePage() {
               </div>
             </div>
           </Link>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
-          <div className="text-center">
-            <div className="text-4xl font-black bg-gradient-to-br from-orange-500 to-orange-600 bg-clip-text text-transparent mb-2">
-              1000+
-            </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 font-semibold uppercase tracking-wider">Exercices</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-black bg-gradient-to-br from-blue-500 to-blue-600 bg-clip-text text-transparent mb-2">
-              7
-            </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 font-semibold uppercase tracking-wider">Niveaux</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-black bg-gradient-to-br from-green-500 to-green-600 bg-clip-text text-transparent mb-2">
-              100%
-            </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400 font-semibold uppercase tracking-wider">Gratuit</div>
-          </div>
         </div>
       </div>
     </div>

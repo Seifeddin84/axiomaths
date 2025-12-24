@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getExercisesByChapter } from '@/lib/fileReader';
-import ExerciseTable from '@/components/ExerciseTable';
+import ExercisesView from '@/components/ExercisesView';  // CHANGED THIS LINE
 
 const LEVEL_DISPLAY: Record<string, string> = {
   '7eme': '7ème',
@@ -59,7 +59,7 @@ export default async function CollegeChapterExercisesPage({
             <p className="text-xl text-[#666666]">Les exercices pour ce chapitre seront bientôt ajoutés.</p>
           </div>
         ) : (
-          <ExerciseTable exercises={exercises} />
+          <ExercisesView exercises={exercises} />
         )}
       </div>
     </div>

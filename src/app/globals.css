@@ -99,3 +99,79 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1.5rem 0;
   overflow-x: auto;
 }
+
+/* LaTeX-inspired typography - ENHANCED */
+.exercise-content {
+  background: linear-gradient(135deg, #e8edf2 0%, #dde4eb 100%);
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  padding: 2rem;
+}
+
+.dark .exercise-content {
+  background: linear-gradient(135deg, #2d3848 0%, #1f2937 100%);
+}
+
+/* Bolder mathematical content */
+.exercise-content .katex {
+  font-size: 1.15em !important;
+  font-weight: 700 !important;
+}
+
+/* LaTeX-style ordered lists */
+.exercise-content ol {
+  counter-reset: item;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.exercise-content ol > li {
+  counter-increment: item;
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-left: 2.8rem;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+.exercise-content ol > li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  color: #f97316;
+  font-size: 1.1em;
+}
+
+/* Nested lists (a, b, c) */
+.exercise-content ol ol {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.exercise-content ol ol > li {
+  padding-left: 2.5rem;
+  font-weight: 500;
+  font-size: 0.98em;
+}
+
+.exercise-content ol ol > li::before {
+  content: counter(item, lower-alpha) ")";
+  font-weight: 700;
+  font-size: 1em;
+  color: #3b82f6;
+}
+
+/* Paragraph spacing */
+.exercise-content p {
+  margin-bottom: 1rem;
+  font-size: 1.05em;
+}
+
+/* Bold text */
+.exercise-content strong, .exercise-content b {
+  font-weight: 800;
+}

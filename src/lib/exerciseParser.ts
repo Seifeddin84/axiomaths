@@ -14,7 +14,9 @@ export function parseExercise(fileContent: string, filename: string): Exercise {
     section: data.section,
     chapter: data.chapter,
     source: data.source,
+    title: data.title,           // ADD THIS LINE
     country: data.country,
+    year: data.year,             // ADD THIS LINE
     professor: data.professor,
     difficulty: data.difficulty,
     points: data.points,
