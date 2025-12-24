@@ -27,17 +27,17 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
   const [showSolution, setShowSolution] = useState<string | null>(null);
   const { addExercise, removeExercise, isSelected } = useExerciseBasket();
 
-  // Get unique values for filters
-  const filterOptions = useMemo(() => {
-    const countries = [...new Set(exercises.map(e => e.country))].filter(Boolean).sort();
-    const professors = [...new Set(exercises.map(e => e.professor).filter(Boolean))].sort();
-    const difficulties = [...new Set(exercises.map(e => e.difficulty))].sort();
-    const tags = [...new Set(exercises.flatMap(e => e.tags))].sort();
-    const sources = [...new Set(exercises.map(e => e.source))].filter(Boolean).sort();
-    const years = [...new Set(exercises.map(e => e.year).filter(Boolean))].sort((a, b) => (b as number) - (a as number));
-    
-    return { countries, professors, difficulties, tags, sources, years };
-  }, [exercises]);
+// Get unique values for filters
+const filterOptions = useMemo(() => {
+  const countries = [...new Set(exercises.map(e => e.country))].filter(Boolean).sort();
+  const professors = [...new Set(exercises.map(e => e.professor).filter((p): p is string => Boolean(p)))].sort();
+  const difficulties = [...new Set(exercises.map(e => e.difficulty))].sort();
+  const tags = [...new Set(exercises.flatMap(e => e.tags))].sort();
+  const sources = [...new Set(exercises.map(e => e.source))].filter(Boolean).sort();
+  const years = [...new Set(exercises.map(e => e.year).filter((y): y is number => Boolean(y)))].sort((a, b) => b - a);
+  
+  return { countries, professors, difficulties, tags, sources, years };
+}, [exercises]);
 
   // Filter and sort exercises
   const filteredAndSortedExercises = useMemo(() => {
