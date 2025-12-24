@@ -37,7 +37,7 @@ const filterOptions = useMemo(() => {
   const years = [...new Set(exercises.map(e => e.year).filter((y): y is number => Boolean(y)))].sort((a, b) => b - a);
   
   return { countries, professors, difficulties, tags, sources, years };
-}, [exercises]);git 
+}, [exercises]);
 
   // Filter and sort exercises
   const filteredAndSortedExercises = useMemo(() => {
