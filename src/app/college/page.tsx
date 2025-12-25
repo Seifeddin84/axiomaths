@@ -1,12 +1,19 @@
 import Link from 'next/link';
-
-const levels = [
-  { id: '7eme', name: '7ème Année', description: 'Première année du collège' },
-  { id: '8eme', name: '8ème Année', description: 'Deuxième année du collège' },
-  { id: '9eme', name: '9ème Année', description: 'Troisième année du collège' },
-];
+import { getAllExercises } from '@/lib/fileReader';
 
 export default function CollegePage() {
+  const exercises = getAllExercises();
+  
+  // Count exercises per level
+  const countByLevel = (level: string) => 
+    exercises.filter(ex => ex.school === 'college' && ex.level === level).length;
+
+  const levels = [
+    { id: '7eme', name: '7ème Année', description: 'Première année du collège', count: countByLevel('7eme') },
+    { id: '8eme', name: '8ème Année', description: 'Deuxième année du collège', count: countByLevel('8eme') },
+    { id: '9eme', name: '9ème Année', description: 'Dernière année du collège', count: countByLevel('9eme') },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-6xl mx-auto px-6 py-20">
@@ -31,11 +38,15 @@ export default function CollegePage() {
           {levels.map((level) => (
             <Link key={level.id} href={`/college/${level.id}`} className="group block">
               <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-200">
-                <h2 className="text-5xl font-black mb-3 text-orange-500 group-hover:text-orange-600 transition-colors">
+                <h2 className="text-5xl font-black mb-1 text-orange-500 group-hover:text-orange-600 transition-colors">
                   {level.name}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                <div className="h-px bg-gray-300 dark:bg-gray-600 mb-3"></div>
+                <p className="text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
                   {level.description}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-500 mb-4">
+                  {level.count} exercice{level.count !== 1 ? 's' : ''} disponible{level.count !== 1 ? 's' : ''}
                 </p>
                 <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-bold">
                   ACCÉDER

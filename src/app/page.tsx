@@ -21,22 +21,26 @@ export default function HomePage() {
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 dark:bg-orange-900/30 border-2 border-orange-200 dark:border-orange-700 text-orange-700 dark:text-orange-300 text-sm font-semibold mb-6">
             <span className="w-2 h-2 bg-orange-500 animate-pulse"></span>
-            Encyclopédie des Exercices de Mathématiques
+            Plateforme éducative tunisienne
           </div>
           
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent leading-tight">
             Axiomaths
           </h1>
           
-          <div className="flex justify-center mb-6">
-            <div className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-black text-xl border-4 border-orange-700 shadow-xl">
-              {exerciseCount} EXERCICES
-            </div>
-          </div>
-          
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-serif">
+          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-serif mb-8">
             Maîtrisez les mathématiques avec des milliers d'exercices pour collège et lycée
           </p>
+          
+          {/* Large Exercise Count Display */}
+          <div className="mb-8">
+            <div className="text-7xl sm:text-8xl font-black text-orange-500 mb-2">
+              {exerciseCount}
+            </div>
+            <div className="text-xl font-bold text-gray-700 dark:text-gray-300">
+              exercices disponibles
+            </div>
+          </div>
         </div>
 
         {/* Main Content Grid */}
@@ -44,15 +48,16 @@ export default function HomePage() {
           {/* Sidebar - Cards */}
           <div className="lg:col-span-1 space-y-6">
             <Link href="/college" className="group block">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-200">
-                <div className="flex items-center justify-between mb-2">
+              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-md hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:scale-[1.02] transition-all duration-200">
+                <div className="flex items-center justify-between mb-3">
                   <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors">
                     Collège
                   </h2>
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-orange-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-orange-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
+                <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   7ème, 8ème et 9ème année
                 </p>
@@ -60,15 +65,16 @@ export default function HomePage() {
             </Link>
 
             <Link href="/lycee" className="group block">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-200">
-                <div className="flex items-center justify-between mb-2">
+              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-md hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:scale-[1.02] transition-all duration-200">
+                <div className="flex items-center justify-between mb-3">
                   <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors">
                     Lycée
                   </h2>
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-orange-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-orange-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
+                <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   1ère, 2ème, 3ème et 4ème année
                 </p>
@@ -76,15 +82,16 @@ export default function HomePage() {
             </Link>
 
             <Link href="/blog" className="group block">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-xl hover:border-purple-500 dark:hover:border-purple-500 transition-all duration-200">
-                <div className="flex items-center justify-between mb-2">
+              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-md hover:shadow-xl hover:border-purple-500 dark:hover:border-purple-500 hover:scale-[1.02] transition-all duration-200">
+                <div className="flex items-center justify-between mb-3">
                   <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors">
                     Blog
                   </h2>
-                  <svg className="w-5 h-5 text-gray-400 group-hover:text-purple-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-purple-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
+                <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   Tous les articles
                 </p>

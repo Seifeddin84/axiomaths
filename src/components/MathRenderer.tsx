@@ -1,7 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import katex from 'katex';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import remarkGfm from 'remark-gfm';
 import 'katex/dist/katex.min.css';
 
 interface MathRendererProps {
@@ -9,52 +11,64 @@ interface MathRendererProps {
 }
 
 export default function MathRenderer({ content }: MathRendererProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const container = containerRef.current;
-    let processedContent = content;
-
-    // Replace inline math $...$ with KaTeX rendering
-    processedContent = processedContent.replace(/\$([^\$]+)\$/g, (match, math) => {
-      try {
-        return katex.renderToString(math, { 
-          throwOnError: false, 
-          displayMode: false,
-          strict: false
-        });
-      } catch (e) {
-        return match;
-      }
-    });
-
-    // Replace display math $$...$$ with KaTeX rendering
-    processedContent = processedContent.replace(/\$\$([^\$]+)\$\$/g, (match, math) => {
-      try {
-        return katex.renderToString(math, { 
-          throwOnError: false, 
-          displayMode: true,
-          strict: false
-        });
-      } catch (e) {
-        return match;
-      }
-    });
-
-    // Convert markdown-style line breaks to <br>
-    processedContent = processedContent.replace(/\n\n/g, '<br><br>');
-    processedContent = processedContent.replace(/\n/g, '<br>');
-
-    container.innerHTML = processedContent;
-  }, [content]);
-
   return (
-    <div 
-      ref={containerRef} 
-      className="prose prose-sm sm:prose-lg max-w-none overflow-x-auto"
-      style={{ lineHeight: '1.8' }}
-    />
+    <ReactMarkdown
+      remarkPlugins={[remarkMath, remarkGfm]}
+      rehypePlugins={[rehypeKatex]}
+      components={{
+        h1: ({ children }) => (
+          <h1 className="text-3xl font-black mb-4 text-gray-900 dark:text-white">{children}</h1>
+        ),
+        h2: ({ children }) => (
+          <h2 className="text-2xl font-black mb-3 mt-6 text-gray-900 dark:text-white">{children}</h2>
+        ),
+        h3: ({ children }) => (
+          <h3 className="text-xl font-black mb-2 mt-4 text-gray-900 dark:text-white">{children}</h3>
+        ),
+        p: ({ children }) => (
+          <p className="mb-4 leading-relaxed text-gray-800 dark:text-gray-200">{children}</p>
+        ),
+        ul: ({ children }) => (
+          <ul className="list-disc list-inside mb-4 space-y-2 text-gray-800 dark:text-gray-200">{children}</ul>
+        ),
+        ol: ({ children }) => (
+          <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-800 dark:text-gray-200">{children}</ol>
+        ),
+        li: ({ children }) => (
+          <li className="ml-4">{children}</li>
+        ),
+        strong: ({ children }) => (
+          <strong className="font-black text-gray-900 dark:text-white">{children}</strong>
+        ),
+        em: ({ children }) => (
+          <em className="italic text-gray-800 dark:text-gray-200">{children}</em>
+        ),
+        code: ({ children, className }) => {
+          const isInline = !className;
+          if (isInline) {
+            return (
+              <code className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 text-orange-600 dark:text-orange-400 font-mono text-sm">
+                {children}
+              </code>
+            );
+          }
+          return (
+            <code className={`${className} block p-4 bg-gray-100 dark:bg-gray-800 overflow-x-auto font-mono text-sm`}>
+              {children}
+            </code>
+          );
+        },
+        pre: ({ children }) => (
+          <pre className="mb-4 overflow-x-auto">{children}</pre>
+        ),
+        blockquote: ({ children }) => (
+          <blockquote className="border-l-4 border-orange-500 pl-4 my-4 italic text-gray-700 dark:text-gray-300">
+            {children}
+          </blockquote>
+        ),
+      }}
+    >
+      {content}
+    </ReactMarkdown>
   );
 }

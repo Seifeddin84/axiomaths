@@ -84,14 +84,31 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-black text-gray-900 dark:text-white mb-2">
-                    {exercise.title || exercise.source}
+                  
+                  {/* Title with Country and Year on same line */}
+                  <h3 className="text-xl font-black text-gray-900 dark:text-white mb-2 flex items-center gap-2 flex-wrap">
+                    <span>{exercise.title || exercise.source}</span>
+                    {exercise.title && exercise.country && (
+                      <>
+                        <span className="text-gray-400 dark:text-gray-500">,</span>
+                        <span className="text-gray-900 dark:text-white">{exercise.country}</span>
+                      </>
+                    )}
+                    {exercise.title && exercise.year && (
+                      <>
+                        <span className="text-gray-400 dark:text-gray-500">,</span>
+                        <span className="text-purple-600 dark:text-purple-400">{exercise.year}</span>
+                      </>
+                    )}
                   </h3>
+                  
+                  {/* Source line (only if title exists) */}
                   {exercise.title && (
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 font-semibold">
                       {exercise.source}
                     </p>
                   )}
+                  
                   <div className="flex flex-wrap gap-3 text-sm text-gray-600 dark:text-gray-400">
                     <span className="flex items-center gap-1 font-semibold">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

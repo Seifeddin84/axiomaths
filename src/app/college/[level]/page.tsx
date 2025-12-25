@@ -1,8 +1,5 @@
 import Link from 'next/link';
-import { getChaptersByLevel } from '@/lib/fileReader';
-import { notFound } from 'next/navigation';
-
-const VALID_LEVELS = ['7eme', '8eme', '9eme'];
+import { getAllExercises } from '@/lib/fileReader';
 
 const LEVEL_DISPLAY: Record<string, string> = {
   '7eme': '7ème',
@@ -10,71 +7,80 @@ const LEVEL_DISPLAY: Record<string, string> = {
   '9eme': '9ème',
 };
 
-export default async function CollegeLevelPage({ 
-  params 
-}: { 
-  params: Promise<{ level: string }> 
+export default async function CollegeLevelPage({
+  params,
+}: {
+  params: Promise<{ level: string }>;
 }) {
   const { level } = await params;
-  
-  if (!VALID_LEVELS.includes(level)) {
-    notFound();
-  }
-  
   const levelDisplay = LEVEL_DISPLAY[level];
-  const chapters = getChaptersByLevel('college', level, null);
   
+  const exercises = getAllExercises().filter(
+    ex => ex.school === 'college' && ex.level === level
+  );
+  
+  // Get unique chapters
+  const chapters = [...new Set(exercises.map(ex => ex.chapter))].sort();
+
   return (
-    <div className="min-h-screen bg-[#fafafa]">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="max-w-6xl mx-auto px-6 py-20">
         {/* Breadcrumb */}
-        <nav className="mb-12 flex items-center gap-3 text-sm uppercase tracking-wider font-semibold">
-          <Link href="/" className="text-[#999999] hover:text-[#ff6b35]">Accueil</Link>
-          <span className="text-[#e0e0e0]">→</span>
-          <Link href="/college" className="text-[#999999] hover:text-[#ff6b35]">Collège</Link>
-          <span className="text-[#e0e0e0]">→</span>
-          <span className="text-[#ff6b35]">{levelDisplay}</span>
+        <nav className="mb-12 flex items-center gap-3 text-sm uppercase tracking-wider font-semibold flex-wrap">
+          <Link href="/" className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400">Accueil</Link>
+          <span className="text-gray-300 dark:text-gray-600">→</span>
+          <Link href="/college" className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400">Collège</Link>
+          <span className="text-gray-300 dark:text-gray-600">→</span>
+          <span className="text-orange-500 dark:text-orange-400">{levelDisplay}</span>
         </nav>
 
         {/* Page Header */}
         <div className="mb-16">
-          <div className="inline-block px-4 py-2 bg-[#ff6b35] text-white font-mono text-xs uppercase tracking-widest mb-6">
-            {levelDisplay} Année
+          <div className="inline-block px-4 py-2 bg-orange-500 text-white font-mono text-xs uppercase tracking-widest mb-6">
+            {levelDisplay} ANNÉE
           </div>
-          <h1 className="text-6xl sm:text-7xl font-black mb-6 text-black leading-none">
-            {levelDisplay.toUpperCase()} ANNÉE
+          <h1 className="text-6xl sm:text-7xl font-black mb-6 text-gray-900 dark:text-white leading-none uppercase">
+            {levelDisplay} ANNÉE
           </h1>
-          <p className="text-2xl text-[#666666] font-serif">
+          <p className="text-2xl text-gray-600 dark:text-gray-400 font-serif">
             {chapters.length} chapitre{chapters.length > 1 ? 's' : ''} disponible{chapters.length > 1 ? 's' : ''}
           </p>
         </div>
 
         {/* Chapter Cards */}
         {chapters.length === 0 ? (
-          <div className="bg-white border-2 border-[#e0e0e0] p-12 text-center">
-            <p className="text-xl text-[#666666]">Aucun chapitre disponible.</p>
+          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-16 text-center">
+            <div className="text-6xl mb-6">📚</div>
+            <h2 className="text-3xl font-black mb-4 text-gray-900 dark:text-white">Aucun chapitre disponible</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">Les chapitres pour cette année seront bientôt ajoutés.</p>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {chapters.map((chapter, idx) => {
-              const slug = chapter.toLowerCase().replace(/\s+/g, '-');
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {chapters.map((chapter) => {
+              const chapterExercises = exercises.filter(ex => ex.chapter === chapter);
+              const chapterSlug = chapter.toLowerCase().replace(/\s+/g, '-');
               
               return (
-                <Link 
-                  key={chapter} 
-                  href={`/college/${level}/${encodeURIComponent(slug)}`}
+                <Link
+                  key={chapter}
+                  href={`/college/${level}/${chapterSlug}`}
                   className="group block"
                 >
-                  <div className="bg-white border-2 border-[#e0e0e0] p-8 h-full hover:border-[#ff6b35] hover:shadow-xl hover:-translate-y-2">
-                    <div className="text-4xl font-black text-[#ff6b35] mb-4">
-                      {String(idx + 1).padStart(2, '0')}
+                  <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-200 h-full">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="text-4xl font-black text-orange-500 dark:text-orange-400">
+                        {String(chapters.indexOf(chapter) + 1).padStart(2, '0')}
+                      </div>
+                      <svg className="w-6 h-6 text-gray-400 dark:text-gray-500 group-hover:text-orange-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
                     </div>
-                    <h3 className="text-2xl font-black mb-4 text-black group-hover:text-[#ff6b35] leading-tight">
+                    <h2 className="text-xl font-black mb-3 text-gray-900 dark:text-white group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">
                       {chapter}
-                    </h3>
-                    <div className="inline-block px-4 py-2 border-2 border-black group-hover:bg-[#ff6b35] group-hover:text-white group-hover:border-[#ff6b35] font-bold text-sm uppercase tracking-wider">
-                      Voir exercices →
-                    </div>
+                    </h2>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {chapterExercises.length} exercice{chapterExercises.length > 1 ? 's' : ''}
+                    </p>
                   </div>
                 </Link>
               );

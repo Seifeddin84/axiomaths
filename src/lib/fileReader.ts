@@ -75,3 +75,19 @@ export function getChaptersByLevel(
   
   return [...new Set(chapters)];
 }
+
+export function getExercisesBySection(
+  school: string,
+  level: string,
+  section: string
+): Exercise[] {
+  const allExercises = getAllExercises();
+  
+  return allExercises.filter((exercise) => {
+    const matchesSchool = exercise.school === school;
+    const matchesLevel = exercise.level === level;
+    const matchesSection = exercise.section === section;
+    
+    return matchesSchool && matchesLevel && matchesSection;
+  });
+}

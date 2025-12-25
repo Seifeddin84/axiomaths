@@ -27,17 +27,17 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
   const [showSolution, setShowSolution] = useState<string | null>(null);
   const { addExercise, removeExercise, isSelected } = useExerciseBasket();
 
-// Get unique values for filters
-const filterOptions = useMemo(() => {
-  const countries = [...new Set(exercises.map(e => e.country))].filter(Boolean).sort();
-  const professors = [...new Set(exercises.map(e => e.professor).filter((p): p is string => Boolean(p)))].sort();
-  const difficulties = [...new Set(exercises.map(e => e.difficulty))].sort();
-  const tags = [...new Set(exercises.flatMap(e => e.tags))].sort();
-  const sources = [...new Set(exercises.map(e => e.source))].filter(Boolean).sort();
-  const years = [...new Set(exercises.map(e => e.year).filter((y): y is number => Boolean(y)))].sort((a, b) => b - a);
-  
-  return { countries, professors, difficulties, tags, sources, years };
-}, [exercises]);
+  // Get unique values for filters
+  const filterOptions = useMemo(() => {
+    const countries = [...new Set(exercises.map(e => e.country))].filter(Boolean).sort();
+    const professors = [...new Set(exercises.map(e => e.professor).filter((p): p is string => Boolean(p)))].sort();
+    const difficulties = [...new Set(exercises.map(e => e.difficulty))].sort();
+    const tags = [...new Set(exercises.flatMap(e => e.tags))].sort();
+    const sources = [...new Set(exercises.map(e => e.source))].filter(Boolean).sort();
+    const years = [...new Set(exercises.map(e => e.year).filter((y): y is number => Boolean(y)))].sort((a, b) => b - a);
+    
+    return { countries, professors, difficulties, tags, sources, years };
+  }, [exercises]);
 
   // Filter and sort exercises
   const filteredAndSortedExercises = useMemo(() => {
@@ -262,37 +262,37 @@ const filterOptions = useMemo(() => {
       <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+            <thead className="bg-gradient-to-r from-orange-400 to-orange-500 text-white">
               <tr>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">
                   <button onClick={() => handleSort('uid')} className="flex items-center gap-2 hover:opacity-80">
                     UID <SortIcon field="uid" />
                   </button>
                 </th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">Titre</th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">Source</th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">Chapitre</th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">Titre</th>
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">Source</th>
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">Chapitre</th>
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">
                   <button onClick={() => handleSort('year')} className="flex items-center gap-2 hover:opacity-80">
                     Année <SortIcon field="year" />
                   </button>
                 </th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">Pays</th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">Professeur</th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">Pays</th>
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">Professeur</th>
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">
                   <button onClick={() => handleSort('difficulty')} className="flex items-center gap-2 hover:opacity-80">
                     Difficulté <SortIcon field="difficulty" />
                   </button>
                 </th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">
                   <button onClick={() => handleSort('points')} className="flex items-center gap-2 hover:opacity-80">
                     Points <SortIcon field="points" />
                   </button>
                 </th>
-                <th className="px-4 py-4 text-left text-sm font-black uppercase tracking-wide">Tags</th>
+                <th className="px-4 py-3 text-left text-sm font-black uppercase tracking-wide">Tags</th>
               </tr>
             </thead>
-            <tbody className="divide-y-2 divide-gray-200 dark:divide-gray-700">
+            <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
               {filteredAndSortedExercises.map((exercise, idx) => {
                 const isExpanded = expandedId === exercise.uid;
                 const isSolutionShown = showSolution === exercise.uid;
@@ -303,13 +303,13 @@ const filterOptions = useMemo(() => {
                     <tr 
                       key={exercise.uid}
                       onClick={() => toggleExercise(exercise.uid)}
-                      className={`cursor-pointer transition-colors ${
+                      className={`cursor-pointer transition-colors h-14 ${
                         idx % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-900'
                       } hover:bg-orange-50 dark:hover:bg-gray-700 ${
                         isExpanded ? 'ring-2 ring-orange-500' : ''
                       } ${selected ? 'ring-2 ring-green-500' : ''}`}
                     >
-                      <td className="px-4 py-4 text-sm">
+                      <td className="px-4 py-3 text-sm">
                         <div className="flex items-center gap-2">
                           <input
                             type="checkbox"
@@ -323,27 +323,27 @@ const filterOptions = useMemo(() => {
                           </span>
                         </div>
                       </td>
-                      <td className="px-4 py-4 text-sm font-black max-w-xs truncate">
+                      <td className="px-4 py-3 text-sm font-black max-w-xs truncate">
                         {exercise.title || exercise.source}
                       </td>
-                      <td className="px-4 py-4 text-sm font-semibold max-w-xs truncate text-gray-600 dark:text-gray-400">
+                      <td className="px-4 py-3 text-sm font-semibold max-w-xs truncate text-gray-600 dark:text-gray-400">
                         {exercise.title ? exercise.source : '-'}
                       </td>
-                      <td className="px-4 py-4 text-sm font-semibold">{exercise.chapter}</td>
-                      <td className="px-4 py-4 text-sm">
+                      <td className="px-4 py-3 text-sm font-semibold">{exercise.chapter}</td>
+                      <td className="px-4 py-3 text-sm">
                         <span className="inline-flex items-center px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs font-black">
                           {exercise.year || '-'}
                         </span>
                       </td>
-                      <td className="px-4 py-4 text-sm">
+                      <td className="px-4 py-3 text-sm">
                         <span className="inline-flex items-center px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-black">
                           {exercise.country}
                         </span>
                       </td>
-                      <td className="px-4 py-4 text-sm font-semibold">
+                      <td className="px-4 py-3 text-sm font-semibold">
                         {exercise.professor || '-'}
                       </td>
-                      <td className="px-4 py-4 text-sm">
+                      <td className="px-4 py-3 text-sm">
                         <span className={`inline-flex items-center px-3 py-1 text-xs font-black ${
                           exercise.difficulty === 'Facile' 
                             ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
@@ -354,23 +354,23 @@ const filterOptions = useMemo(() => {
                           {exercise.difficulty}
                         </span>
                       </td>
-                      <td className="px-4 py-4 text-sm">
+                      <td className="px-4 py-3 text-sm">
                         <span className="font-black text-orange-600 dark:text-orange-400">
                           {exercise.points} pts
                         </span>
                       </td>
-                      <td className="px-4 py-4 text-sm">
+                      <td className="px-4 py-3 text-sm">
                         <div className="flex flex-wrap gap-1">
                           {exercise.tags.slice(0, 2).map(tag => (
                             <span 
                               key={tag}
-                              className="inline-flex items-center px-2 py-1 text-xs bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 font-semibold"
+                              className="inline-flex items-center px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-semibold"
                             >
                               {tag}
                             </span>
                           ))}
                           {exercise.tags.length > 2 && (
-                            <span className="text-xs text-gray-500 font-black">
+                            <span className="text-xs text-gray-400 font-black self-center">
                               +{exercise.tags.length - 2}
                             </span>
                           )}
