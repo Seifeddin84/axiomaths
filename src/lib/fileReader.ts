@@ -36,11 +36,16 @@ export function getExercisesByChapter(
 ): Exercise[] {
   const allExercises = getAllExercises();
   const normalizedChapter = normalizeForComparison(chapter);
+  const normalizedSection = section ? normalizeForComparison(section) : null;
   
   return allExercises.filter((exercise) => {
     const matchesSchool = exercise.school === school;
     const matchesLevel = exercise.level === level;
-    const matchesSection = section === null || exercise.section === section;
+    
+    // Normalize section comparison
+    const exerciseSection = exercise.section ? normalizeForComparison(exercise.section) : null;
+    const matchesSection = normalizedSection === null || exerciseSection === normalizedSection;
+    
     const matchesChapter = normalizeForComparison(exercise.chapter) === normalizedChapter;
     
     return matchesSchool && matchesLevel && matchesSection && matchesChapter;
@@ -83,10 +88,16 @@ export function getExercisesBySection(
 ): Exercise[] {
   const allExercises = getAllExercises();
   
+  // Normalize the section parameter from URL
+  const normalizedSection = normalizeForComparison(section);
+  
   return allExercises.filter((exercise) => {
     const matchesSchool = exercise.school === school;
     const matchesLevel = exercise.level === level;
-    const matchesSection = exercise.section === section;
+    
+    // Normalize the exercise section for comparison
+    const exerciseSection = exercise.section ? normalizeForComparison(exercise.section) : '';
+    const matchesSection = exerciseSection === normalizedSection;
     
     return matchesSchool && matchesLevel && matchesSection;
   });

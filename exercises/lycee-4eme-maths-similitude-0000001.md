@@ -2,13 +2,13 @@
 uid: "0000001"
 school: "lycee"
 level: "4eme"
-section: "Maths"
+section: "Mathématiques"
 chapter: "Similitude"
 source: "Bac Tunisie 1984"
 title: "Similitude complexe"
 country: "Tunisie"
 year: 1984
-professor: null
+professor: Bac
 difficulty: "Facile"
 points: 4
 tags: ["complex-numbers", "geometry"]

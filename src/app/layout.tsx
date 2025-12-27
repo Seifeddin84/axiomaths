@@ -1,28 +1,26 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Crimson_Text } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "katex/dist/katex.min.css";
 import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "@/context/ThemeContext";
-import { ExerciseBasketProvider } from "@/context/ExerciseBasketContext";
+import { ExerciseBasketProvider } from '@/context/ExerciseBasketContext';
 
-const playfair = Playfair_Display({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["700", "900"],
-  variable: "--font-playfair",
-  display: "swap",
 });
 
-const crimson = Crimson_Text({
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["400", "600"],
-  variable: "--font-crimson",
-  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Axiomaths - Exercices de Mathématiques",
-  description: "Plateforme d'exercices de mathématiques pour collège et lycée en Tunisie",
+  title: "Axiomaths - Plateforme éducative tunisienne",
+  description: "Maîtrisez les mathématiques avec des milliers d'exercices pour collège et lycée",
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -31,14 +29,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${playfair.variable} ${crimson.variable}`}>
-      <body className="antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-        <ThemeProvider>
-          <ExerciseBasketProvider>
-            <Navbar />
-            {children}
-          </ExerciseBasketProvider>
-        </ThemeProvider>
+    <html lang="fr">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ExerciseBasketProvider>
+          <Navbar />
+          {children}
+        </ExerciseBasketProvider>
       </body>
     </html>
   );

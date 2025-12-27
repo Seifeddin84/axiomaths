@@ -1,72 +1,82 @@
 import Link from 'next/link';
-import { getAllExercises } from '@/lib/fileReader';
+import { getUniqueSections } from '@/lib/fileReader';
 
 const LEVEL_DISPLAY: Record<string, string> = {
-  '1ere': '1ère',
-  '2eme': '2ème',
-  '3eme': '3ème',
-  '4eme': '4ème',
+  '1ere': '1ère Année',
+  '2eme': '2ème Année',
+  '3eme': '3ème Année',
+  '4eme': '4ème Année',
 };
 
-export default function LyceePage() {
-  const exercises = getAllExercises();
-  
-  // Count exercises per level
-  const countByLevel = (level: string) => 
-    exercises.filter(ex => ex.school === 'lycee' && ex.level === level).length;
+const LEVEL_COLORS: Record<string, { from: string; to: string; border: string; dark: string }> = {
+  '1ere': { from: 'from-blue-500', to: 'to-indigo-600', border: 'border-blue-700', dark: 'bg-blue-900' },
+  '2eme': { from: 'from-orange-500', to: 'to-red-600', border: 'border-orange-700', dark: 'bg-orange-900' },
+  '3eme': { from: 'from-green-500', to: 'to-emerald-600', border: 'border-green-700', dark: 'bg-green-900' },
+  '4eme': { from: 'from-purple-500', to: 'to-indigo-600', border: 'border-purple-700', dark: 'bg-purple-900' },
+};
 
-  const levels = [
-    { id: '1ere', name: '1ère Année', description: 'Tronc commun', count: countByLevel('1ere') },
-    { id: '2eme', name: '2ème Année', description: '5 sections disponibles', count: countByLevel('2eme') },
-    { id: '3eme', name: '3ème Année', description: 'Spécialisation avancée', count: countByLevel('3eme') },
-    { id: '4eme', name: '4ème Année', description: 'Préparation au Bac', count: countByLevel('4eme') },
-  ];
+export default async function LyceePage() {
+  const levels = ['1ere', '2eme', '3eme', '4eme'];
+  const levelCounts = levels.map(level => ({
+    level,
+    count: getUniqueSections('lycee', level).length
+  }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-6xl mx-auto px-6 py-20">
-        {/* Header */}
-        <div className="mb-16">
-          <div className="inline-block px-4 py-2 bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300 text-sm font-semibold mb-6">
-            <span className="w-2 h-2 bg-blue-500 animate-pulse inline-block mr-2"></span>
-            Enseignement secondaire
-          </div>
-          
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent leading-tight">
-            Lycée
+    <div className="min-h-screen">
+      {/* Hero Section with Gradient */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 py-20">
+          <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black mb-4 leading-none">
+            LYCÉE
           </h1>
-          
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl font-serif">
-            Programmes de 1ère, 2ème, 3ème et 4ème année
+          <p className="text-2xl sm:text-3xl text-gray-300 font-light">
+            Choisissez votre année
           </p>
         </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900"></div>
+      </section>
 
-        {/* Level Cards */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {levels.map((level) => (
-            <Link key={level.id} href={`/lycee/${level.id}`} className="group block">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-xl hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-200">
-                <h2 className="text-5xl font-black mb-1 text-orange-500 group-hover:text-blue-500 transition-colors">
-                  {level.name}
-                </h2>
-                <div className="h-px bg-gray-300 dark:bg-gray-600 mb-3"></div>
-                <p className="text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-                  {level.description}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mb-4">
-                  {level.count} exercice{level.count !== 1 ? 's' : ''} disponible{level.count !== 1 ? 's' : ''}
-                </p>
-                <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold">
-                  ACCÉDER
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          ))}
+      {/* Level Cards with Colors */}
+      <section className="bg-white dark:bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {levels.map((level) => {
+              const colors = LEVEL_COLORS[level];
+              const levelInfo = levelCounts.find(l => l.level === level);
+              
+              return (
+                <Link
+                  key={level}
+                  href={`/lycee/${level}`}
+                  className="group block relative overflow-hidden"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${colors.from} ${colors.to} transform group-hover:scale-105 transition-transform duration-300`}></div>
+                  <div className={`relative p-8 border-4 ${colors.border}`}>
+                    <div className="flex items-start justify-between mb-4">
+                      <h2 className="text-4xl font-black text-white leading-tight">
+                        {LEVEL_DISPLAY[level]}
+                      </h2>
+                      <svg className="w-10 h-10 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </div>
+                    
+                    <div className="h-1 w-20 bg-white mb-6"></div>
+                    
+                    <p className="text-white text-opacity-90 text-lg">
+                      {levelInfo?.count || 0} section{(levelInfo?.count || 0) > 1 ? 's' : ''} disponible{(levelInfo?.count || 0) > 1 ? 's' : ''}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

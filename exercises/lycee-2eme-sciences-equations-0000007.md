@@ -8,7 +8,6 @@ source: "Livre scolaire 1985"
 title: "Équation second degré"
 country: "Tunisie"
 year: 1985
-professor: ""
 difficulty: "difficile"
 points: 4
 tags: ["équation", "paramètre"]

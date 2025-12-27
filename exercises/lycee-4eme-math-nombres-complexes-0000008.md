@@ -2,7 +2,7 @@
 uid: "0000008"
 school: "lycee"
 level: "4eme"
-section: "Maths"
+section: "Mathématiques"
 chapter: "Nombres Complexes"
 source: "Examen Terminale, Clermont-Ferrand & Grenoble remplacement, série E, 1973"
 title: "Équation polynomiale et somme trigonométrique"

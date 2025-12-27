@@ -129,7 +129,7 @@ def create_exercise_file():
         )
         section = prompt_field(
             "Section",
-            options=["sciences", "math", "lettres", "economie-et-services", "sport", "informatique", "technique", "sciences-experimentales"]
+            options=["sciences", "maths", "lettres", "economie-et-services", "sport", "informatique", "technique", "sciences-experimentales"]
         )
     
     chapter = prompt_field("Chapter", required=True)

@@ -1,187 +1,258 @@
 import Link from 'next/link';
 import { getAllExercises } from '@/lib/fileReader';
-import { getLatestBlogPost } from '@/lib/blogReader';
-import BlogMarkdownRenderer from '@/components/BlogMarkdownRenderer';
+import { getAllBlogPosts } from '@/lib/blogReader';
 
-export default function HomePage() {
+export default function Home() {
   const exercises = getAllExercises();
-  const exerciseCount = exercises.length;
-  const latestPost = getLatestBlogPost();
-
-  // Get first 2-3 paragraphs for preview
-  const getPreview = (content: string) => {
-    const paragraphs = content.split('\n\n').filter(p => p.trim() && !p.startsWith('#') && !p.startsWith('$$'));
-    return paragraphs.slice(0, 3).join('\n\n');
-  };
+  const totalExercises = exercises.length;
+  const posts = getAllBlogPosts();
+  const latestPost = posts[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        {/* Hero */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 dark:bg-orange-900/30 border-2 border-orange-200 dark:border-orange-700 text-orange-700 dark:text-orange-300 text-sm font-semibold mb-6">
-            <span className="w-2 h-2 bg-orange-500 animate-pulse"></span>
-            Plateforme éducative tunisienne
-          </div>
-          
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent leading-tight">
-            Axiomaths
-          </h1>
-          
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-serif mb-8">
-            Maîtrisez les mathématiques avec des milliers d'exercices pour collège et lycée
-          </p>
-          
-          {/* Large Exercise Count Display */}
-          <div className="mb-8">
-            <div className="text-7xl sm:text-8xl font-black text-orange-500 mb-2">
-              {exerciseCount}
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 py-20">
+          <div className="flex items-center gap-16">
+            {/* Exercise Count - LEFT SIDE */}
+            <div className="flex-shrink-0">
+              <div className="text-[12rem] sm:text-[16rem] font-black text-orange-500 leading-none">
+                {totalExercises}
+              </div>
+              <div className="text-xl text-gray-400 font-light">
+                exercices disponibles
+              </div>
             </div>
-            <div className="text-xl font-bold text-gray-700 dark:text-gray-300">
-              exercices disponibles
+            
+            {/* Title and Description - RIGHT SIDE */}
+            <div className="flex-1">
+              <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black mb-6 leading-none">
+                AXIOMATHS
+              </h1>
+              
+              <p className="text-2xl sm:text-3xl text-gray-300 leading-relaxed font-light">
+                Maîtrisez les mathématiques avec des milliers d'exercices pour collège et lycée
+              </p>
             </div>
           </div>
         </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900"></div>
+      </section>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          {/* Sidebar - Cards */}
-          <div className="lg:col-span-1 space-y-6">
-            <Link href="/college" className="group block">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-md hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:scale-[1.02] transition-all duration-200">
-                <div className="flex items-center justify-between mb-3">
-                  <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors">
-                    Collège
+      {/* Main Navigation Cards */}
+      <section className="bg-white dark:bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Collège Card */}
+            <Link
+              href="/college"
+              className="group block relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 transform group-hover:scale-105 transition-transform duration-300"></div>
+              <div className="relative p-8 border-4 border-blue-700">
+                <div className="flex items-start justify-between mb-4">
+                  <h2 className="text-4xl font-black text-white leading-tight">
+                    COLLÈGE
                   </h2>
-                  <svg className="w-6 h-6 text-orange-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg className="w-10 h-10 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </div>
-                <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  7ème, 8ème et 9ème année
+                
+                <div className="h-1 w-20 bg-white mb-6"></div>
+                
+                <p className="text-blue-100 text-lg leading-relaxed mb-6">
+                  Exercices pour 7ème, 8ème et 9ème année
                 </p>
+                
+                <div className="flex items-center gap-3">
+                  <span className="px-4 py-2 bg-blue-900 text-white text-sm font-black">
+                    7ÈME
+                  </span>
+                  <span className="px-4 py-2 bg-blue-900 text-white text-sm font-black">
+                    8ÈME
+                  </span>
+                  <span className="px-4 py-2 bg-blue-900 text-white text-sm font-black">
+                    9ÈME
+                  </span>
+                </div>
               </div>
             </Link>
 
-            <Link href="/lycee" className="group block">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-md hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:scale-[1.02] transition-all duration-200">
-                <div className="flex items-center justify-between mb-3">
-                  <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-orange-500 transition-colors">
-                    Lycée
+            {/* Lycée Card */}
+            <Link
+              href="/lycee"
+              className="group block relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-red-600 transform group-hover:scale-105 transition-transform duration-300"></div>
+              <div className="relative p-8 border-4 border-orange-700">
+                <div className="flex items-start justify-between mb-4">
+                  <h2 className="text-4xl font-black text-white leading-tight">
+                    LYCÉE
                   </h2>
-                  <svg className="w-6 h-6 text-orange-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg className="w-10 h-10 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </div>
-                <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  1ère, 2ème, 3ème et 4ème année
+                
+                <div className="h-1 w-20 bg-white mb-6"></div>
+                
+                <p className="text-orange-100 text-lg leading-relaxed mb-6">
+                  Exercices pour 1ère, 2ème, 3ème et 4ème année
                 </p>
+                
+                <div className="grid grid-cols-2 gap-2">
+                  <span className="px-3 py-2 bg-orange-900 text-white text-sm font-black text-center">
+                    1ÈRE
+                  </span>
+                  <span className="px-3 py-2 bg-orange-900 text-white text-sm font-black text-center">
+                    2ÈME
+                  </span>
+                  <span className="px-3 py-2 bg-orange-900 text-white text-sm font-black text-center">
+                    3ÈME
+                  </span>
+                  <span className="px-3 py-2 bg-orange-900 text-white text-sm font-black text-center">
+                    4ÈME
+                  </span>
+                </div>
               </div>
             </Link>
 
-            <Link href="/blog" className="group block">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-6 shadow-md hover:shadow-xl hover:border-purple-500 dark:hover:border-purple-500 hover:scale-[1.02] transition-all duration-200">
-                <div className="flex items-center justify-between mb-3">
-                  <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-purple-500 transition-colors">
-                    Blog
-                  </h2>
-                  <svg className="w-6 h-6 text-purple-500 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-                <div className="h-px bg-gray-200 dark:bg-gray-700 mb-3"></div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Tous les articles
-                </p>
-              </div>
-            </Link>
-          </div>
-
-          {/* Main Content - Latest Blog Post */}
-          <div className="lg:col-span-2">
-            {latestPost ? (
-              <article className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg">
-                {/* Header */}
-                <div className="bg-gradient-to-r from-purple-500 to-indigo-600 p-6 border-b-4 border-purple-700">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="px-3 py-1 bg-white text-purple-600 text-xs font-black">
-                      DERNIER ARTICLE
-                    </span>
-                    <span className="text-sm text-purple-100">
-                      {new Date(latestPost.date).toLocaleDateString('fr-FR', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}
-                    </span>
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
-                    {latestPost.title}
-                  </h2>
-                  <div className="flex items-center gap-4 text-sm text-purple-100">
-                    <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                      {latestPost.author}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      {latestPost.readTime} min
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Preview */}
-                <div className="p-8">
-                  <div className="prose prose-lg dark:prose-invert max-w-none mb-6">
-                    <BlogMarkdownRenderer content={getPreview(latestPost.content)} />
-                  </div>
-
-                  {/* Continue Reading Button */}
-                  <Link 
-                    href={`/blog/${latestPost.slug}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-black hover:shadow-lg hover:shadow-purple-500/50 transition-all"
-                  >
-                    Continuer la lecture
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            {/* Latest Blog Post Card */}
+            {latestPost && (
+              <Link
+                href={`/blog/${latestPost.slug}`}
+                className="group block relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-rose-600 transform group-hover:scale-105 transition-transform duration-300"></div>
+                <div className="relative p-8 border-4 border-pink-700">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <div className="text-xs font-black text-pink-200 mb-2">DERNIER ARTICLE</div>
+                      <h3 className="text-2xl font-black text-white leading-tight line-clamp-2">
+                        {latestPost.title}
+                      </h3>
+                    </div>
+                    <svg className="w-8 h-8 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                  </Link>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t-2 border-gray-200 dark:border-gray-700">
-                    {latestPost.tags.map(tag => (
-                      <span 
-                        key={tag}
-                        className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-black"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  </div>
+                  <p className="text-pink-100 text-sm leading-relaxed mb-4 line-clamp-3">
+                    {latestPost.description}
+                  </p>
+                  <div className="text-xs text-pink-200">
+                    {new Date(latestPost.date).toLocaleDateString('fr-FR', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
                   </div>
                 </div>
-              </article>
-            ) : (
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-12 text-center">
-                <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-                <h3 className="text-xl font-black text-gray-600 dark:text-gray-400 mb-2">
-                  Aucun article pour le moment
-                </h3>
-                <p className="text-gray-500 dark:text-gray-500">
-                  Revenez bientôt pour découvrir nos articles sur les mathématiques !
-                </p>
-              </div>
+              </Link>
             )}
+
+            {/* Liens Utiles Card */}
+            <Link
+              href="/resources/useful-links"
+              className="group block relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-cyan-600 transform group-hover:scale-105 transition-transform duration-300"></div>
+              <div className="relative p-8 border-4 border-teal-700">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-3xl font-black text-white leading-tight">
+                    LIENS UTILES
+                  </h3>
+                  <svg className="w-8 h-8 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </div>
+                <p className="text-teal-100 text-lg leading-relaxed mb-6">
+                  Ressources mathématiques externes, outils en ligne et sites recommandés
+                </p>
+                <div className="h-1 w-16 bg-white"></div>
+              </div>
+            </Link>
+
+            {/* Mathématiciens Card */}
+            <Link
+              href="/resources/mathematicians"
+              className="group block relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-indigo-600 transform group-hover:scale-105 transition-transform duration-300"></div>
+              <div className="relative p-8 border-4 border-purple-700">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="text-3xl font-black text-white leading-tight">
+                    MATHÉMATICIENS
+                  </h3>
+                  <svg className="w-8 h-8 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </div>
+                <p className="text-purple-100 text-lg leading-relaxed mb-6">
+                  Index alphabétique des grands mathématiciens qui ont marqué l'histoire
+                </p>
+                <div className="h-1 w-16 bg-white"></div>
+              </div>
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="bg-gray-50 dark:bg-gray-800 py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-black text-gray-900 dark:text-white mb-16 text-center">
+            POURQUOI AXIOMATHS ?
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 mx-auto mb-6 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4">
+                Contenu Tunisien
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                Exercices adaptés au programme tunisien du collège et du lycée
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 mx-auto mb-6 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4">
+                Mobile-First
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                Interface optimisée pour les smartphones et tablettes
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 mx-auto mb-6 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-4">
+                LaTeX Intégré
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                Rendu mathématique professionnel avec notation LaTeX
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,64 +1,68 @@
 import Link from 'next/link';
-import { getAllExercises } from '@/lib/fileReader';
+
+const LEVEL_COLORS: Record<string, { from: string; to: string; border: string }> = {
+  '7eme': { from: 'from-blue-500', to: 'to-indigo-600', border: 'border-blue-700' },
+  '8eme': { from: 'from-green-500', to: 'to-emerald-600', border: 'border-green-700' },
+  '9eme': { from: 'from-purple-500', to: 'to-pink-600', border: 'border-purple-700' },
+};
 
 export default function CollegePage() {
-  const exercises = getAllExercises();
-  
-  // Count exercises per level
-  const countByLevel = (level: string) => 
-    exercises.filter(ex => ex.school === 'college' && ex.level === level).length;
-
   const levels = [
-    { id: '7eme', name: '7ème Année', description: 'Première année du collège', count: countByLevel('7eme') },
-    { id: '8eme', name: '8ème Année', description: 'Deuxième année du collège', count: countByLevel('8eme') },
-    { id: '9eme', name: '9ème Année', description: 'Dernière année du collège', count: countByLevel('9eme') },
+    { id: '7eme', name: '7ème Année' },
+    { id: '8eme', name: '8ème Année' },
+    { id: '9eme', name: '9ème Année' },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-6xl mx-auto px-6 py-20">
-        {/* Header */}
-        <div className="mb-16">
-          <div className="inline-block px-4 py-2 bg-orange-50 dark:bg-orange-900/30 border-2 border-orange-200 dark:border-orange-700 text-orange-700 dark:text-orange-300 text-sm font-semibold mb-6">
-            <span className="w-2 h-2 bg-orange-500 animate-pulse inline-block mr-2"></span>
-            Enseignement de base
-          </div>
-          
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent leading-tight">
-            Collège
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 py-20">
+          <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black mb-4 leading-none">
+            COLLÈGE
           </h1>
-          
-          <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl font-serif">
-            Programmes de 7ème, 8ème et 9ème année
+          <p className="text-2xl sm:text-3xl text-gray-300 font-light">
+            Choisissez votre année
           </p>
         </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900"></div>
+      </section>
 
-        {/* Level Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {levels.map((level) => (
-            <Link key={level.id} href={`/college/${level.id}`} className="group block">
-              <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-8 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-200">
-                <h2 className="text-5xl font-black mb-1 text-orange-500 group-hover:text-orange-600 transition-colors">
-                  {level.name}
-                </h2>
-                <div className="h-px bg-gray-300 dark:bg-gray-600 mb-3"></div>
-                <p className="text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-                  {level.description}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-500 mb-4">
-                  {level.count} exercice{level.count !== 1 ? 's' : ''} disponible{level.count !== 1 ? 's' : ''}
-                </p>
-                <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-bold">
-                  ACCÉDER
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          ))}
+      {/* Level Cards */}
+      <section className="bg-white dark:bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8">
+            {levels.map((level) => {
+              const colors = LEVEL_COLORS[level.id];
+              
+              return (
+                <Link
+                  key={level.id}
+                  href={`/college/${level.id}`}
+                  className="group block relative overflow-hidden"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${colors.from} ${colors.to} transform group-hover:scale-105 transition-transform duration-300`}></div>
+                  <div className={`relative p-8 border-4 ${colors.border}`}>
+                    <div className="flex items-start justify-between mb-4">
+                      <h2 className="text-4xl font-black text-white leading-tight">
+                        {level.name}
+                      </h2>
+                      <svg className="w-10 h-10 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </div>
+                    
+                    <div className="h-1 w-20 bg-white"></div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
