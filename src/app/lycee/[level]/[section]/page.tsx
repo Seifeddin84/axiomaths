@@ -48,16 +48,16 @@ export default async function SectionPage({
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         
-        <div className="relative max-w-7xl mx-auto px-6 py-20">
+        <div className="relative max-w-7xl mx-auto px-6 py-16">
           <div className="mb-6">
-            <Link href={`/lycee/${level}`} className="text-orange-400 hover:text-orange-300 font-semibold">
+            <Link href={`/lycee/${level}`} className="text-orange-400 hover:text-orange-300 font-semibold text-sm uppercase tracking-wide">
               ← Retour à {levelDisplay}
             </Link>
           </div>
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-4 leading-none uppercase">
+          <h1 className="text-5xl sm:text-6xl font-black mb-4 leading-tight uppercase">
             {sectionDisplay}
           </h1>
-          <p className="text-2xl sm:text-3xl text-gray-300 font-light">
+          <p className="text-xl sm:text-2xl text-gray-300 font-light">
             {levelDisplay} Année • {chapters.length} chapitre{chapters.length > 1 ? 's' : ''}
           </p>
         </div>

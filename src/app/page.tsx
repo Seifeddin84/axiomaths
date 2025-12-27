@@ -14,25 +14,25 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         
-        <div className="relative max-w-7xl mx-auto px-6 py-20">
+        <div className="relative max-w-7xl mx-auto px-6 py-16">
           <div className="flex items-center gap-16">
             {/* Title and Description - LEFT SIDE */}
             <div className="flex-1">
-              <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black mb-6 leading-none">
+              <h1 className="text-6xl sm:text-7xl font-black mb-6 leading-tight">
                 AXIOMATHS
               </h1>
               
-              <p className="text-2xl sm:text-3xl text-gray-300 leading-relaxed font-light">
+              <p className="text-xl sm:text-2xl text-gray-300 leading-relaxed font-light max-w-2xl">
                 Maîtrisez les mathématiques avec des milliers d'exercices pour collège et lycée
               </p>
             </div>
             
             {/* Exercise Count - RIGHT SIDE */}
-            <div className="flex-shrink-0">
-              <div className="text-[12rem] sm:text-[16rem] font-black text-orange-500 leading-none">
+            <div className="flex-shrink-0 text-right">
+              <div className="text-8xl sm:text-9xl font-black text-orange-500 leading-none mb-3">
                 {totalExercises}
               </div>
-              <div className="text-xl text-gray-400 font-light">
+              <div className="text-lg text-gray-400 font-medium">
                 exercices disponibles
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function Home() {
                 <div className="relative p-8 border-4 border-pink-700">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <div className="text-xs font-black text-pink-200 mb-2">DERNIER ARTICLE</div>
+                      <div className="text-xs font-black text-pink-200 mb-2 uppercase tracking-wide">DERNIER ARTICLE</div>
                       <h3 className="text-2xl font-black text-white leading-tight">
                         {latestPost.title}
                       </h3>
@@ -200,9 +200,9 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="bg-gray-50 dark:bg-gray-800 py-20">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-5xl font-black text-gray-900 dark:text-white mb-16 text-center">
+          <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-12 text-center">
             POURQUOI AXIOMATHS ?
           </h2>
           

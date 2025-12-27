@@ -15,10 +15,13 @@ tags: ["équation", "paramètre"]
 
 Résoudre dans $\mathbb{R}$, selon le paramètre réel $m$, les équations suivantes: 
     
-    (a) $(3m+1)x^2-2(m+1)x+1-m=0$
-    (b) $(2m+5)x^2-4x-2m=0$
-    (c) $4x^2+4x+5m^2-4m=0$
-    (d) $4x^2-(m^4+2m^2)x+4=0$
+* $(3m+1)x^2-2(m+1)x+1-m=0$
+
+* $(2m+5)x^2-4x-2m=0$
+
+* $4x^2+4x+5m^2-4m=0$
+
+* $4x^2-(m^4+2m^2)x+4=0$
 
 ---
 

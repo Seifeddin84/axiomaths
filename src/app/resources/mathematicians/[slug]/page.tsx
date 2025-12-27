@@ -1,13 +1,21 @@
-import Link from 'next/link';
-import { getMathematicianBySlug } from '@/lib/mathematicianReader';
+import { getMathematicianBySlug, getAllMathematicians } from '@/lib/mathematicianReader';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
 import 'katex/dist/katex.min.css';
+import MathematicianPortrait from '@/components/MathematicianPortrait';
 
-export default async function MathematicianProfilePage({
+export async function generateStaticParams() {
+  const mathematicians = getAllMathematicians();
+  return mathematicians.map((mathematician) => ({
+    slug: mathematician.slug,
+  }));
+}
+
+export default async function MathematicianPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -20,86 +28,118 @@ export default async function MathematicianProfilePage({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        {/* Breadcrumb */}
-        <nav className="mb-12 flex items-center gap-3 text-sm uppercase tracking-wider font-semibold flex-wrap">
-          <Link href="/" className="text-gray-500 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400">Accueil</Link>
-          <span className="text-gray-300 dark:text-gray-600">→</span>
-          <Link href="/resources/mathematicians" className="text-gray-500 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400">Mathématiciens</Link>
-          <span className="text-gray-300 dark:text-gray-600">→</span>
-          <span className="text-purple-500 dark:text-purple-400">{mathematician.name}</span>
-        </nav>
-
-        {/* Header */}
-        <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden mb-8">
-          <div className="bg-gradient-to-r from-purple-500 to-indigo-600 p-8 border-b-4 border-purple-700">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="px-3 py-1 bg-white text-purple-600 text-xs font-black">
-                {mathematician.letter}
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-black text-white mb-3">
-              {mathematician.name}
-            </h1>
-            <div className="flex items-center gap-4 text-sm text-purple-100">
-              <span className="flex items-center gap-1">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                {mathematician.birth} - {mathematician.death}
-              </span>
-              <span className="flex items-center gap-1">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                {mathematician.nationality}
-              </span>
-            </div>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Hero Section with Portrait */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        
+        <div className="relative max-w-4xl mx-auto px-6 py-16">
+          <div className="mb-6">
+            <Link href="/resources/mathematicians" className="text-orange-400 hover:text-orange-300 font-semibold text-sm uppercase tracking-wide">
+              ← Retour aux Mathématiciens
+            </Link>
           </div>
-
-          {/* Fields */}
-          <div className="p-6">
-            <h3 className="text-sm font-black text-gray-600 dark:text-gray-400 mb-3 uppercase tracking-wider">
-              Domaines de recherche
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {mathematician.fields.map(field => (
-                <span
-                  key={field}
-                  className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-black"
-                >
-                  {field}
+          
+          <div className="flex items-center gap-12">
+            {/* Left: Title and Info */}
+            <div className="flex-1">
+              <h1 className="text-5xl sm:text-6xl font-black mb-4 leading-tight">
+                {mathematician.name}
+              </h1>
+              
+              <div className="flex flex-wrap items-center gap-4 text-lg mb-6">
+                <span className="text-gray-300">
+                  {mathematician.birth}–{mathematician.death || 'présent'}
                 </span>
-              ))}
+                {mathematician.nationality && (
+                  <>
+                    <span className="text-gray-500">•</span>
+                    <span className="text-gray-300">{mathematician.nationality}</span>
+                  </>
+                )}
+              </div>
+
+              {mathematician.fields && mathematician.fields.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {mathematician.fields.map((field, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-purple-600 text-white text-sm font-semibold"
+                    >
+                      {field}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
+
+            {/* Right: Portrait */}
+            {mathematician.portrait && (
+              <div className="flex-shrink-0">
+                <MathematicianPortrait
+                  src={mathematician.portrait}
+                  alt={mathematician.name}
+                  className="w-64 h-80 object-cover rounded-lg shadow-2xl border-4 border-gray-200 dark:border-gray-700"
+                />
+              </div>
+            )}
           </div>
         </div>
+        
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900"></div>
+      </section>
 
-        {/* Content */}
-        <article className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-8">
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            <ReactMarkdown
-              remarkPlugins={[remarkMath, remarkGfm]}
-              rehypePlugins={[rehypeKatex]}
-            >
-              {mathematician.content}
-            </ReactMarkdown>
-          </div>
-        </article>
-
-        {/* Back Link */}
-        <div className="mt-8">
-          <Link
-            href="/resources/mathematicians"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-black hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+      {/* Biography */}
+      <article className="max-w-4xl mx-auto px-6 py-12">
+        <div className="prose-exercise prose-lg max-w-none font-serif">
+          <ReactMarkdown
+            remarkPlugins={[remarkMath, remarkGfm]}
+            rehypePlugins={[rehypeKatex]}
+            components={{
+              h1: ({ children }) => (
+                <h1 className="text-4xl font-black mb-6 mt-12 font-sans">{children}</h1>
+              ),
+              h2: ({ children }) => (
+                <h2 className="text-3xl font-black mb-5 mt-10 font-sans">{children}</h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="text-2xl font-bold mb-4 mt-8 font-sans">{children}</h3>
+              ),
+              p: ({ children }) => (
+                <p className="mb-6 leading-relaxed text-lg text-gray-800 dark:text-gray-200">{children}</p>
+              ),
+              ul: ({ children }) => (
+                <ul className="list-disc pl-8 mb-6 space-y-3 text-lg text-gray-800 dark:text-gray-200">{children}</ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="list-decimal pl-8 mb-6 space-y-3 text-lg text-gray-800 dark:text-gray-200">{children}</ol>
+              ),
+              li: ({ children }) => (
+                <li className="leading-relaxed">{children}</li>
+              ),
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 border-purple-500 pl-6 my-6 italic text-lg text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 py-4">
+                  {children}
+                </blockquote>
+              ),
+            }}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Retour à l'index
-          </Link>
+            {mathematician.content}
+          </ReactMarkdown>
         </div>
+      </article>
+
+      {/* Back to Index */}
+      <div className="max-w-4xl mx-auto px-6 pb-12">
+        <Link
+          href="/resources/mathematicians"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-black hover:shadow-lg hover:shadow-purple-500/50 transition-all"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Tous les mathématiciens
+        </Link>
       </div>
     </div>
   );

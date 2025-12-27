@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { getUniqueSections } from '@/lib/fileReader';
 
 const LEVEL_DISPLAY: Record<string, string> = {
-  '1ere': '1ère Année',
-  '2eme': '2ème Année',
-  '3eme': '3ème Année',
-  '4eme': '4ème Année',
+  '1ere': '1ère',
+  '2eme': '2ème',
+  '3eme': '3ème',
+  '4eme': '4ème',
 };
 
 const LEVEL_COLORS: Record<string, { from: string; to: string; border: string; dark: string }> = {
@@ -28,11 +28,11 @@ export default async function LyceePage() {
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         
-        <div className="relative max-w-7xl mx-auto px-6 py-20">
-          <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black mb-4 leading-none">
+        <div className="relative max-w-7xl mx-auto px-6 py-16">
+          <h1 className="text-6xl sm:text-7xl font-black mb-4 leading-tight">
             LYCÉE
           </h1>
-          <p className="text-2xl sm:text-3xl text-gray-300 font-light">
+          <p className="text-xl sm:text-2xl text-gray-300 font-light">
             Choisissez votre année
           </p>
         </div>
@@ -58,7 +58,7 @@ export default async function LyceePage() {
                   <div className={`relative p-8 border-4 ${colors.border}`}>
                     <div className="flex items-start justify-between mb-4">
                       <h2 className="text-4xl font-black text-white leading-tight">
-                        {LEVEL_DISPLAY[level]}
+                          {LEVEL_DISPLAY[level]} Année
                       </h2>
                       <svg className="w-10 h-10 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -68,7 +68,7 @@ export default async function LyceePage() {
                     <div className="h-1 w-20 bg-white mb-6"></div>
                     
                     <p className="text-white text-opacity-90 text-lg">
-                      {levelInfo?.count || 0} section{(levelInfo?.count || 0) > 1 ? 's' : ''} disponible{(levelInfo?.count || 0) > 1 ? 's' : ''}
+                      {levelInfo?.count || 0} section{(levelInfo?.count || 0) > 1 ? 's' : ''}
                     </p>
                   </div>
                 </Link>

@@ -23,7 +23,8 @@ est considérée par comme la plus belle équation des mathématiques. Mais pour
 
 <img src="/blog/images/euler.jpg" alt="Leonhard Euler 1707-1783" width="300" style="display: block; margin: 0 auto;" />
 
-Leonhard Euler (1707–1783) était un mathématicien et physicien suisse, considéré comme l'un des plus grands et des plus prolifiques scientifiques de l'histoire.
+> Leonhard Euler (1707–1783) était un mathématicien et physicien suisse, considéré comme l'un des plus grands et des plus prolifiques scientifiques de l'histoire.
+
 - **Innovateur prolifique** : Il a produit une quantité immense de travaux, continuant même après être devenu aveugle.
 - **Maître de la notation** : C'est lui qui a standardisé la plupart des écritures mathématiques modernes, introduisant notamment la notion de fonction $f(x)$ et les symboles $e$, $i$, $\Sigma$ et l'utilisation de la lettre grecque $\pi$.
 - **Pionnier** : Il a fondé la théorie des graphes (problème des ponts de *Königsberg*) et a révolutionné l'analyse mathématique.

@@ -40,16 +40,16 @@ export default async function CollegeLevelPage({
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         
-        <div className="relative max-w-7xl mx-auto px-6 py-20">
+        <div className="relative max-w-7xl mx-auto px-6 py-16">
           <div className="mb-6">
-            <Link href="/college" className="text-orange-400 hover:text-orange-300 font-semibold">
+            <Link href="/college" className="text-orange-400 hover:text-orange-300 font-semibold text-sm uppercase tracking-wide">
               ← Retour au Collège
             </Link>
           </div>
-          <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black mb-4 leading-none">
+          <h1 className="text-6xl sm:text-7xl font-black mb-4 leading-tight">
             {levelDisplay} ANNÉE
           </h1>
-          <p className="text-2xl sm:text-3xl text-gray-300 font-light">
+          <p className="text-xl sm:text-2xl text-gray-300 font-light">
             {chapters.length} chapitre{chapters.length > 1 ? 's' : ''} disponible{chapters.length > 1 ? 's' : ''}
           </p>
         </div>
