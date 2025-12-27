@@ -16,17 +16,7 @@ export default function Home() {
         
         <div className="relative max-w-7xl mx-auto px-6 py-20">
           <div className="flex items-center gap-16">
-            {/* Exercise Count - LEFT SIDE */}
-            <div className="flex-shrink-0">
-              <div className="text-[12rem] sm:text-[16rem] font-black text-orange-500 leading-none">
-                {totalExercises}
-              </div>
-              <div className="text-xl text-gray-400 font-light">
-                exercices disponibles
-              </div>
-            </div>
-            
-            {/* Title and Description - RIGHT SIDE */}
+            {/* Title and Description - LEFT SIDE */}
             <div className="flex-1">
               <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black mb-6 leading-none">
                 AXIOMATHS
@@ -35,6 +25,16 @@ export default function Home() {
               <p className="text-2xl sm:text-3xl text-gray-300 leading-relaxed font-light">
                 Maîtrisez les mathématiques avec des milliers d'exercices pour collège et lycée
               </p>
+            </div>
+            
+            {/* Exercise Count - RIGHT SIDE */}
+            <div className="flex-shrink-0">
+              <div className="text-[12rem] sm:text-[16rem] font-black text-orange-500 leading-none">
+                {totalExercises}
+              </div>
+              <div className="text-xl text-gray-400 font-light">
+                exercices disponibles
+              </div>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function Home() {
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="text-xs font-black text-pink-200 mb-2">DERNIER ARTICLE</div>
-                      <h3 className="text-2xl font-black text-white leading-tight line-clamp-2">
+                      <h3 className="text-2xl font-black text-white leading-tight">
                         {latestPost.title}
                       </h3>
                     </div>
@@ -140,10 +140,8 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </div>
-                  <p className="text-pink-100 text-sm leading-relaxed mb-4 line-clamp-3">
-                    {latestPost.description}
-                  </p>
-                  <div className="text-xs text-pink-200">
+                  <div className="h-1 w-16 bg-white mb-4"></div>
+                  <div className="text-sm text-pink-200">
                     {new Date(latestPost.date).toLocaleDateString('fr-FR', { 
                       year: 'numeric', 
                       month: 'long', 

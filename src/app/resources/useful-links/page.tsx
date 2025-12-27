@@ -15,6 +15,12 @@ const resources: ResourceLink[] = [
     description: "Cours vidéo gratuits et exercices interactifs pour tous les niveaux",
     category: "Cours et Tutoriels"
   },
+    {
+    title: "CNP - Livres Scolaires",
+    url: "  https://www.cnp.com.tn/CNP1/web/french/biblio/man-eleves.jsp",
+    description: "Téléchargement des livres scolaires officiels tunisiens",
+    category: "Cours et Tutoriels"
+  },
   {
     title: "Bibmath",
     url: "https://www.bibmath.net",
