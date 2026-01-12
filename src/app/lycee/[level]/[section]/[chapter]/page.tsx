@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getExercisesByChapter } from '@/lib/fileReader';
 import ExercisesView from '@/components/ExercisesView';
+import { getCheatSheet } from '@/lib/cheatsheets';
 
 const LEVEL_DISPLAY: Record<string, string> = {
   '1ere': '1ère',
@@ -29,6 +30,7 @@ export default async function ChapterExercisesPage({
     .join(' ');
   
   const exercises = getExercisesByChapter('lycee', level, section, chapterName);
+  const cheatSheetFile = getCheatSheet('lycee', level, section, decodedChapter);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
@@ -58,6 +60,35 @@ export default async function ChapterExercisesPage({
             {sectionDisplay} • {levelDisplay} Année
           </p>
         </div>
+
+        {/* Cheat Sheet Banner */}
+        {cheatSheetFile && (
+          <div className="mb-12 p-8 bg-gradient-to-r from-orange-50 to-teal-50 dark:from-orange-900/20 dark:to-teal-900/20 border-2 border-orange-300 dark:border-orange-700 shadow-lg">
+            <div className="flex items-center justify-between flex-wrap gap-6">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-4xl">📋</span>
+                  <h2 className="text-3xl font-black text-gray-900 dark:text-white uppercase">
+                    Fiche Récapitulative
+                  </h2>
+                </div>
+                <p className="text-lg text-gray-700 dark:text-gray-300">
+                  Toutes les formules et définitions essentielles du chapitre
+                </p>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                <a href={`/fiches/${cheatSheetFile}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold uppercase tracking-wide hover:bg-orange-600 transition-all shadow-md">
+                  <span>📄</span>
+                  Consulter
+                </a>
+                <a href={`/fiches/${cheatSheetFile}`} download className="inline-flex items-center gap-2 px-6 py-3 bg-teal-500 text-white font-bold uppercase tracking-wide hover:bg-teal-600 transition-all shadow-md">
+                  <span>⬇️</span>
+                  Télécharger
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Exercises */}
         {exercises.length === 0 ? (
