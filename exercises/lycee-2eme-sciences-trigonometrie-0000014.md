@@ -1,11 +1,11 @@
 ---
-uid: "0000013"
+uid: "0000014"
 school: "lycee"
 level: "2eme"
 section: "Sciences"
 chapter: "Trigonométrie"
 source: "Livre: Methods of Solving Problems in High School Mathematics"
-title: "Équations avec Racine Carrée"
+title: "Multiple Identités Trigonométriques"
 country: "Russie"
 year: 1986
 professor: "A.G Tsypkin & A.I Pinsky"

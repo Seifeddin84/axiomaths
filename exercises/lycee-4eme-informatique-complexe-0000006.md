@@ -2,7 +2,7 @@
 uid: "0000006"
 school: "lycee"
 level: "4eme"
-section: "informatique"
+section: "Informatique"
 chapter: "Nombres Complexes"
 source: "Révision hiver 2025"
 title: "Équation second degré"
