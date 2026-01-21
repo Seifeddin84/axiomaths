@@ -57,7 +57,7 @@ export default async function CollegeLevelPage({
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900"></div>
       </section>
 
-      {/* Chapter Cards */}
+      {/* Chapter Cards - SLIM HORIZONTAL VERSION */}
       <section className="bg-white dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-6">
           {chapters.length === 0 ? (
@@ -67,7 +67,7 @@ export default async function CollegeLevelPage({
               <p className="text-xl text-gray-600 dark:text-gray-400">Les chapitres seront bientôt ajoutés.</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-4 max-w-6xl mx-auto">
               {chapters.map((chapter, index) => {
                 const chapterSlug = slugify(chapter);
                 const exerciseCount = getExercisesByChapter('college', level, null, chapter).length;
@@ -77,25 +77,29 @@ export default async function CollegeLevelPage({
                   <Link
                     key={chapter}
                     href={`/college/${level}/${chapterSlug}`}
-                    className="group block relative overflow-hidden"
+                    className="group block"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${colors.from} ${colors.to} transform group-hover:scale-105 transition-transform duration-300`}></div>
-                    <div className={`relative p-8 border-4 ${colors.border}`}>
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="text-5xl font-black text-white opacity-50">
-                          {String(index + 1).padStart(2, '0')}
+                    <div className={`relative overflow-hidden bg-gradient-to-r ${colors.from} ${colors.to} hover:shadow-xl transition-all duration-300 hover:scale-[1.02] p-5 border-l-8 ${colors.border}`}>
+                      <div className="flex items-center justify-between">
+                        {/* Left: Number + Title */}
+                        <div className="flex items-center gap-4 flex-1">
+                          <div className="text-4xl font-black text-white opacity-40 min-w-[3rem]">
+                            {String(index + 1).padStart(2, '0')}
+                          </div>
+                          <div className="flex-1">
+                            <h2 className="text-xl font-black text-white mb-1 leading-tight">
+                              {chapter}
+                            </h2>
+                            <p className="text-white text-opacity-80 text-sm">
+                              {exerciseCount} exercice{exerciseCount > 1 ? 's' : ''}
+                            </p>
+                          </div>
                         </div>
-                        <svg className="w-8 h-8 text-white transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {/* Right: Arrow */}
+                        <svg className="w-7 h-7 text-white transform group-hover:translate-x-2 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                       </div>
-                      <h2 className="text-2xl font-black text-white mb-4 leading-tight">
-                        {chapter}
-                      </h2>
-                      <div className="h-1 w-16 bg-white mb-4"></div>
-                      <p className="text-white text-opacity-90">
-                        {exerciseCount} exercice{exerciseCount > 1 ? 's' : ''}
-                      </p>
                     </div>
                   </Link>
                 );

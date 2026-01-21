@@ -5,12 +5,13 @@ import { Exercise } from '@/types/exercise';
 
 const exercisesDirectory = path.join(process.cwd(), 'exercises');
 
-// Add this helper function to normalize strings (remove accents for comparison)
-function normalizeForComparison(str: string): string {
+// Make this defensive - handle undefined/null
+function normalizeForComparison(str: string | undefined | null): string {
+  if (!str) return ''; // Return empty string for undefined/null
   return str
     .toLowerCase()
-    .normalize('NFD') // Decompose accented characters
-    .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
     .trim();
 }
 
@@ -42,7 +43,6 @@ export function getExercisesByChapter(
     const matchesSchool = exercise.school === school;
     const matchesLevel = exercise.level === level;
     
-    // Normalize section comparison
     const exerciseSection = exercise.section ? normalizeForComparison(exercise.section) : null;
     const matchesSection = normalizedSection === null || exerciseSection === normalizedSection;
     
@@ -76,7 +76,8 @@ export function getChaptersByLevel(
       ex.level === level &&
       ex.section === section
     )
-    .map(ex => ex.chapter);
+    .map(ex => ex.chapter)
+    .filter((chapter): chapter is string => chapter !== null && chapter !== undefined); // Add this filter!
   
   return [...new Set(chapters)];
 }
@@ -88,14 +89,12 @@ export function getExercisesBySection(
 ): Exercise[] {
   const allExercises = getAllExercises();
   
-  // Normalize the section parameter from URL
   const normalizedSection = normalizeForComparison(section);
   
   return allExercises.filter((exercise) => {
     const matchesSchool = exercise.school === school;
     const matchesLevel = exercise.level === level;
     
-    // Normalize the exercise section for comparison
     const exerciseSection = exercise.section ? normalizeForComparison(exercise.section) : '';
     const matchesSection = exerciseSection === normalizedSection;
     

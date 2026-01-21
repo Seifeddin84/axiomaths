@@ -8,7 +8,7 @@ source: "Livre scolaire 1985"
 title: "Équations second degré avec paramètre réel"
 country: "Tunisie"
 year: 1985
-difficulty: "difficile"
+difficulty: "Difficile"
 points: 4
 tags: ["équation", "paramètre"]
 ---
