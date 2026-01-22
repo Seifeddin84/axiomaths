@@ -5,6 +5,9 @@ import DevoirsSearchTable from '@/components/DevoirsSearchTable';
 export default function DevoirsPage() {
   const allExams = getAllExams();
   const filterOptions = getExamFilterOptions(allExams);
+  // To debug
+  // console.log('🎯 Exams loaded in page component:', allExams); // ADD THIS LINE
+  // console.log('🎯 Filter options:', filterOptions); // ADD THIS LINE
   
   return (
     <div className="min-h-screen bg-gray-50">
@@ -23,3 +26,4 @@ export default function DevoirsPage() {
     </div>
   );
 }
+

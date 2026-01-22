@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import yaml from 'js-yaml';
 
 export interface Exam {
   uid: string;
@@ -45,7 +45,6 @@ export function getAllExams(): Exam[] {
   
   // Check if directory exists
   if (!fs.existsSync(examsDir)) {
-    console.warn('Exams directory not found:', examsDir);
     return [];
   }
   
@@ -58,7 +57,9 @@ export function getAllExams(): Exam[] {
     try {
       const filePath = path.join(examsDir, file);
       const fileContent = fs.readFileSync(filePath, 'utf-8');
-      const { data } = matter(fileContent);
+      
+      // Use js-yaml for pure YAML files
+      const data = yaml.load(fileContent) as any;
       
       // Construct PDF URL
       const pdfUrl = `/exams/${data.filename}`;

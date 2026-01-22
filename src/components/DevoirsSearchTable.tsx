@@ -27,9 +27,8 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
     exam_type: '',
     year: '',
     chapter: '',
-    school: '',
   });
-  
+
   // Search text
   const [searchText, setSearchText] = useState('');
   
@@ -162,18 +161,6 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             <option value="">Tous les chapitres</option>
             {(filterOptions.chapters || []).map(chapter => (
               <option key={chapter} value={chapter}>{chapter}</option>
-            ))}
-          </select>
-          
-          {/* School */}
-          <select
-            value={filters.school}
-            onChange={(e) => setFilters({ ...filters, school: e.target.value })}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-          >
-            <option value="">Toutes les écoles</option>
-            {(filterOptions.schools || []).map(school => (
-              <option key={school} value={school}>{school}</option>
             ))}
           </select>
           
