@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Exercise } from '@/types/exercise';
 import SearchTable from '@/components/SearchTable';
 
-export default function RecherchePage() {
+function RechercheContent() {
   const searchParams = useSearchParams();
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +24,6 @@ export default function RecherchePage() {
 
   // Load all exercises on mount and initialize search from URL
   useEffect(() => {
-    // Get search query from URL
     const queryFromUrl = searchParams.get('q');
     if (queryFromUrl) {
       setSearchText(queryFromUrl);
@@ -48,7 +47,6 @@ export default function RecherchePage() {
       .finally(() => setLoading(false));
   }, [searchParams]);
 
-  // Get unique values for filter dropdowns (with type predicates to fix TypeScript)
   const uniqueSchools = useMemo(() => 
     [...new Set(exercises.map(ex => ex.school?.toLowerCase()))].filter((school): school is string => Boolean(school)).sort(),
     [exercises]
@@ -108,10 +106,8 @@ export default function RecherchePage() {
     return [...new Set(allTags)].filter((tag): tag is string => Boolean(tag)).sort();
   }, [exercises]);
 
-  // Filter exercises based on search and filters
   const filteredExercises = useMemo(() => {
     return exercises.filter(ex => {
-      // Text search
       const searchLower = searchText.toLowerCase();
       const matchesSearch = searchText === '' || 
         ex.title?.toLowerCase().includes(searchLower) ||
@@ -120,7 +116,6 @@ export default function RecherchePage() {
         ex.tags?.some(tag => tag.toLowerCase().includes(searchLower)) ||
         ex.chapter?.toLowerCase().includes(searchLower);
 
-      // Filter matching (with normalization)
       const matchesSchool = filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool;
       const matchesLevel = filterLevel === 'all' || ex.level === filterLevel;
       const matchesSection = filterSection === 'all' || ex.section === filterSection;
@@ -137,7 +132,6 @@ export default function RecherchePage() {
   }, [exercises, searchText, filterSchool, filterLevel, filterSection, filterChapter, 
       filterCountry, filterYear, filterDifficulty, filterProfessor, filterTag]);
 
-  // Reset all filters
   const resetFilters = () => {
     setSearchText('');
     setFilterSchool('all');
@@ -151,7 +145,6 @@ export default function RecherchePage() {
     setFilterTag('all');
   };
 
-  // Helper to display school name properly
   const displaySchoolName = (school: string) => {
     if (school === 'college') return 'Collège';
     if (school === 'lycee') return 'Lycée';
@@ -185,7 +178,6 @@ export default function RecherchePage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
-      {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         
@@ -206,15 +198,12 @@ export default function RecherchePage() {
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900"></div>
       </section>
 
-      {/* Search & Filters Section */}
       <section className="bg-white dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Debug Info */}
           <div className="mb-4 p-3 bg-gray-100 dark:bg-gray-800 text-sm font-mono">
             <strong>Debug:</strong> Total: {exercises.length} | Schools: {uniqueSchools.length} | Filtered: {filteredExercises.length}
           </div>
 
-          {/* Search Bar */}
           <div className="mb-8">
             <div className="relative">
               <input
@@ -230,16 +219,13 @@ export default function RecherchePage() {
             </div>
           </div>
 
-          {/* "OU" Divider */}
           <div className="flex items-center gap-4 mb-8">
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-700"></div>
             <span className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">OU</span>
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-700"></div>
           </div>
 
-          {/* Filter Grid - Row 1 */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-            {/* École */}
             <select 
               value={filterSchool}
               onChange={(e) => {
@@ -258,7 +244,6 @@ export default function RecherchePage() {
               ))}
             </select>
 
-            {/* Niveau */}
             <select 
               value={filterLevel}
               onChange={(e) => {
@@ -275,7 +260,6 @@ export default function RecherchePage() {
               ))}
             </select>
 
-            {/* Section */}
             <select 
               value={filterSection}
               onChange={(e) => {
@@ -291,7 +275,6 @@ export default function RecherchePage() {
               ))}
             </select>
 
-            {/* Chapitre */}
             <select 
               value={filterChapter}
               onChange={(e) => setFilterChapter(e.target.value)}
@@ -305,9 +288,7 @@ export default function RecherchePage() {
             </select>
           </div>
 
-          {/* Filter Grid - Row 2 */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-            {/* Pays */}
             <select 
               value={filterCountry}
               onChange={(e) => setFilterCountry(e.target.value)}
@@ -319,7 +300,6 @@ export default function RecherchePage() {
               ))}
             </select>
 
-            {/* Année */}
             <select 
               value={filterYear}
               onChange={(e) => setFilterYear(e.target.value)}
@@ -331,7 +311,6 @@ export default function RecherchePage() {
               ))}
             </select>
 
-            {/* Difficulté */}
             <select 
               value={filterDifficulty}
               onChange={(e) => setFilterDifficulty(e.target.value)}
@@ -343,7 +322,6 @@ export default function RecherchePage() {
               ))}
             </select>
 
-            {/* Professeur */}
             <select 
               value={filterProfessor}
               onChange={(e) => setFilterProfessor(e.target.value)}
@@ -355,7 +333,6 @@ export default function RecherchePage() {
               ))}
             </select>
 
-            {/* Tag */}
             <select 
               value={filterTag}
               onChange={(e) => setFilterTag(e.target.value)}
@@ -368,7 +345,6 @@ export default function RecherchePage() {
             </select>
           </div>
 
-          {/* Results Counter */}
           <div className="flex items-center justify-between mb-6 p-4 bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500">
             <p className="text-lg font-bold text-gray-900 dark:text-white">
               ✨ <span className="text-orange-500">{filteredExercises.length}</span> exercice{filteredExercises.length !== 1 ? 's' : ''} trouvé{filteredExercises.length !== 1 ? 's' : ''}
@@ -381,10 +357,24 @@ export default function RecherchePage() {
             </button>
           </div>
 
-          {/* Results Table */}
           <SearchTable exercises={filteredExercises} />
         </div>
       </section>
     </div>
+  );
+}
+
+export default function RecherchePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-6xl mb-4">⏳</div>
+          <p className="text-xl text-gray-600 dark:text-gray-400">Chargement...</p>
+        </div>
+      </div>
+    }>
+      <RechercheContent />
+    </Suspense>
   );
 }

@@ -1,0 +1,41 @@
+uid: "exam-00001"
+type: "exam"
+
+# Classification
+establishment_type: "lycee"
+level: "2eme"
+section: "Économie et Services"
+year: "2024/2025"
+
+# Exam Details
+exam_type: "Devoir de contrôle"
+exam_number: 3
+date: "2024-12-15"
+duration: "1h 30min"
+total_points: 20
+
+# School Information
+school: "Lycée Majida Boulila"
+professor: ""  # Optional, empty if unknown
+country: "Tunisie"
+
+# Content
+chapters:
+  - "Suites géométriques"
+  - "Statistiques"
+  - "Systèmes linéaires"
+
+# Exercises breakdown (optional)
+exercises:
+  - number: 1
+    points: 4
+    topic: "Suites géométriques"
+  - number: 2
+    points: 8
+    topic: "Statistiques descriptives"
+  - number: 3
+    points: 8
+    topic: "Systèmes linéaires"
+
+# File reference
+filename: "lycee-2eme-eco-devoir-controle-3-00001.pdf"
