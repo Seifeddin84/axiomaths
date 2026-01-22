@@ -90,7 +90,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
         normalizeStr(ex.chapter) === normalizeStr(tableFilterChapter);
       
       const matchesYear = tableFilterYear === 'all' || 
-        normalizeStr(ex.year) === normalizeStr(tableFilterYear);
+        normalizeStr(ex.year?.toString()) === normalizeStr(tableFilterYear);
       
       const matchesDifficulty = tableFilterDifficulty === 'all' || 
         normalizeStr(ex.difficulty) === normalizeStr(tableFilterDifficulty);
