@@ -126,7 +126,7 @@ export default function RecherchePage() {
       const matchesSection = filterSection === 'all' || ex.section === filterSection;
       const matchesChapter = filterChapter === 'all' || ex.chapter === filterChapter;
       const matchesCountry = filterCountry === 'all' || ex.country === filterCountry;
-      const matchesYear = filterYear === 'all' || ex.year === filterYear;
+      const matchesYear = filterYear === 'all' || ex.year?.toString() === filterYear;
       const matchesDifficulty = filterDifficulty === 'all' || ex.difficulty === filterDifficulty;
       const matchesProfessor = filterProfessor === 'all' || ex.professor === filterProfessor;
       const matchesTag = filterTag === 'all' || ex.tags?.includes(filterTag);
