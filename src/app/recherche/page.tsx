@@ -68,7 +68,7 @@ export default function RecherchePage() {
         (filterLevel === 'all' || ex.level === filterLevel) &&
         ex.section
       )
-      .map(ex => ex.section))].filter(Boolean).sort(),
+      .map(ex => ex.section))].filter((section): section is string => Boolean(section)).sort(),
     [exercises, filterSchool, filterLevel]
   );
 
