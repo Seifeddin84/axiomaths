@@ -39,34 +39,34 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     setShowSolution(showSolution === uid ? null : uid);
   };
 
-  // Get unique values for inline filters
+  // Get unique values for inline filters (with type predicates)
   const uniqueSchools = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.school))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.school))].filter((school): school is string => Boolean(school)).sort(),
     [exercises]
   );
 
   const uniqueLevels = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.level))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.level))].filter((level): level is string => Boolean(level)).sort(),
     [exercises]
   );
 
   const uniqueSections = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.section))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.section))].filter((section): section is string => Boolean(section)).sort(),
     [exercises]
   );
 
   const uniqueChapters = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.chapter))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.chapter))].filter((chapter): chapter is string => Boolean(chapter)).sort(),
     [exercises]
   );
 
   const uniqueYears = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.year))].filter(Boolean).sort().reverse(),
+    [...new Set(exercises.map(ex => ex.year))].filter((year): year is number => Boolean(year)).sort().reverse(),
     [exercises]
   );
 
   const uniqueDifficulties = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.difficulty))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.difficulty).filter(Boolean))].sort(),
     [exercises]
   );
 
