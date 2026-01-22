@@ -35,6 +35,8 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
   
   // Filtered exams
   const filteredExams = useMemo(() => {
+    if (!exams || exams.length === 0) return [];
+    
     return exams.filter(exam => {
       // Apply filters
       if (filters.establishment && exam.establishment_type !== filters.establishment) return false;
@@ -43,15 +45,15 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
       if (filters.exam_type && exam.exam_type !== filters.exam_type) return false;
       if (filters.year && exam.year !== filters.year) return false;
       if (filters.school && exam.school !== filters.school) return false;
-      if (filters.chapter && !exam.chapters.includes(filters.chapter)) return false;
+      if (filters.chapter && !(exam.chapters || []).includes(filters.chapter)) return false;
       
       // Apply search text
       if (searchText) {
         const searchLower = searchText.toLowerCase();
         const matchesSearch = 
-          exam.school.toLowerCase().includes(searchLower) ||
-          exam.chapters.some(c => c.toLowerCase().includes(searchLower)) ||
-          exam.level.toLowerCase().includes(searchLower);
+          (exam.school || '').toLowerCase().includes(searchLower) ||
+          (exam.chapters || []).some(c => c.toLowerCase().includes(searchLower)) ||
+          (exam.level || '').toLowerCase().includes(searchLower);
         if (!matchesSearch) return false;
       }
       
@@ -96,7 +98,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Tous les établissements</option>
-            {filterOptions.establishments.map(est => (
+            {(filterOptions.establishments || []).map(est => (
               <option key={est} value={est}>
                 {est === 'lycee' ? 'Lycée' : 'Collège'}
               </option>
@@ -110,7 +112,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Tous les niveaux</option>
-            {filterOptions.levels.map(level => (
+            {(filterOptions.levels || []).map(level => (
               <option key={level} value={level}>{level}</option>
             ))}
           </select>
@@ -122,7 +124,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Toutes les sections</option>
-            {filterOptions.sections.map(section => (
+            {(filterOptions.sections || []).map(section => (
               <option key={section} value={section}>{section}</option>
             ))}
           </select>
@@ -134,7 +136,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Tous les types</option>
-            {filterOptions.exam_types.map(type => (
+            {(filterOptions.exam_types || []).map(type => (
               <option key={type} value={type}>{type}</option>
             ))}
           </select>
@@ -146,7 +148,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Toutes les années</option>
-            {filterOptions.years.map(year => (
+            {(filterOptions.years || []).map(year => (
               <option key={year} value={year}>{year}</option>
             ))}
           </select>
@@ -158,7 +160,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Tous les chapitres</option>
-            {filterOptions.chapters.map(chapter => (
+            {(filterOptions.chapters || []).map(chapter => (
               <option key={chapter} value={chapter}>{chapter}</option>
             ))}
           </select>
@@ -170,7 +172,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Toutes les écoles</option>
-            {filterOptions.schools.map(school => (
+            {(filterOptions.schools || []).map(school => (
               <option key={school} value={school}>{school}</option>
             ))}
           </select>
@@ -250,7 +252,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
                     </td>
                     <td className="px-4 py-3 text-sm text-gray-900">
                       <div className="flex flex-wrap gap-1">
-                        {exam.chapters.map(chapter => (
+                        {(exam.chapters || []).map(chapter => (
                           <span
                             key={chapter}
                             className="inline-block px-2 py-1 text-xs bg-orange-100 text-orange-800 rounded"

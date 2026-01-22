@@ -84,13 +84,26 @@ export function getAllExams(): Exam[] {
  * Get unique values for filters
  */
 export function getExamFilterOptions(exams: Exam[]) {
+  // Handle empty exams array
+  if (!exams || exams.length === 0) {
+    return {
+      establishments: [],
+      levels: [],
+      sections: [],
+      exam_types: [],
+      years: [],
+      chapters: [],
+      schools: [],
+    };
+  }
+  
   return {
     establishments: Array.from(new Set(exams.map(e => e.establishment_type))).sort(),
     levels: Array.from(new Set(exams.map(e => e.level))).sort(),
     sections: Array.from(new Set(exams.map(e => e.section))).sort(),
     exam_types: Array.from(new Set(exams.map(e => e.exam_type))).sort(),
     years: Array.from(new Set(exams.map(e => e.year))).sort().reverse(), // newest first
-    chapters: Array.from(new Set(exams.flatMap(e => e.chapters))).sort(),
+    chapters: Array.from(new Set(exams.flatMap(e => e.chapters || []))).sort(),
     schools: Array.from(new Set(exams.map(e => e.school))).sort(),
   };
 }
