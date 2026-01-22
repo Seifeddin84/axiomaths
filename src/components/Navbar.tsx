@@ -89,7 +89,7 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <div className="flex items-center gap-2">
-                        <Link
+            <Link
               href="/recherche"
               className={`px-4 py-2 font-black text-sm tracking-wide transition-all ${
                 isActive('/recherche')
@@ -118,6 +118,16 @@ export default function Navbar() {
               }`}
             >
               LYCÉE
+            </Link>
+            <Link
+              href="/devoirs"
+              className={`px-4 py-2 font-black text-sm tracking-wide transition-all ${
+                isActive('/devoirs')
+                  ? 'bg-white text-orange-600'
+                  : 'text-white hover:bg-orange-400'
+              }`}
+            >
+              DEVOIRS
             </Link>
             <Link
               href="/blog"
