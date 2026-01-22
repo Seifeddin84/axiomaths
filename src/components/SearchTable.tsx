@@ -39,9 +39,12 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     setShowSolution(showSolution === uid ? null : uid);
   };
 
-  // Get unique values for inline filters (with type predicates)
+  // Get unique values for inline filters
+  // Note: Use .filter(Boolean) inside map for literal unions (school, difficulty)
+  // Use type predicates for generic types (level, section, chapter, year)
+  
   const uniqueSchools = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.school))].filter((school): school is string => Boolean(school)).sort(),
+    [...new Set(exercises.map(ex => ex.school).filter(Boolean))].sort(),
     [exercises]
   );
 
