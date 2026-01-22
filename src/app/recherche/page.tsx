@@ -48,16 +48,16 @@ export default function RecherchePage() {
       .finally(() => setLoading(false));
   }, [searchParams]);
 
-  // Get unique values for filter dropdowns (with normalization)
+  // Get unique values for filter dropdowns (with type predicates to fix TypeScript)
   const uniqueSchools = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.school?.toLowerCase()))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.school?.toLowerCase()))].filter((school): school is string => Boolean(school)).sort(),
     [exercises]
   );
 
   const uniqueLevels = useMemo(() => 
     [...new Set(exercises
       .filter(ex => filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool)
-      .map(ex => ex.level))].filter(Boolean).sort(),
+      .map(ex => ex.level))].filter((level): level is string => Boolean(level)).sort(),
     [exercises, filterSchool]
   );
 
@@ -79,33 +79,33 @@ export default function RecherchePage() {
         (filterLevel === 'all' || ex.level === filterLevel) &&
         (filterSection === 'all' || ex.section === filterSection)
       )
-      .map(ex => ex.chapter))].filter(Boolean).sort(),
+      .map(ex => ex.chapter))].filter((chapter): chapter is string => Boolean(chapter)).sort(),
     [exercises, filterSchool, filterLevel, filterSection]
   );
 
   const uniqueCountries = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.country))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.country))].filter((country): country is string => Boolean(country)).sort(),
     [exercises]
   );
 
   const uniqueYears = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.year))].filter(Boolean).sort().reverse(),
+    [...new Set(exercises.map(ex => ex.year))].filter((year): year is number => Boolean(year)).sort().reverse(),
     [exercises]
   );
 
   const uniqueDifficulties = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.difficulty))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.difficulty))].filter((difficulty): difficulty is string => Boolean(difficulty)).sort(),
     [exercises]
   );
 
   const uniqueProfessors = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.professor))].filter(Boolean).sort(),
+    [...new Set(exercises.map(ex => ex.professor))].filter((professor): professor is string => Boolean(professor)).sort(),
     [exercises]
   );
 
   const uniqueTags = useMemo(() => {
     const allTags = exercises.flatMap(ex => ex.tags || []);
-    return [...new Set(allTags)].filter(Boolean).sort();
+    return [...new Set(allTags)].filter((tag): tag is string => Boolean(tag)).sort();
   }, [exercises]);
 
   // Filter exercises based on search and filters
