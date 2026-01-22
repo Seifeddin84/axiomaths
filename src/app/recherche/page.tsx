@@ -94,7 +94,7 @@ export default function RecherchePage() {
   );
 
   const uniqueDifficulties = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.difficulty))].filter((difficulty): difficulty is string => Boolean(difficulty)).sort(),
+    [...new Set(exercises.map(ex => ex.difficulty).filter(Boolean))].sort(),
     [exercises]
   );
 
