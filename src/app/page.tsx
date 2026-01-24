@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllExercises } from '@/lib/fileReader';
 import { getAllBlogPosts } from '@/lib/blogReader';
+import HomeSearchBar from '@/components/HomeSearchBar';
 
 export default function Home() {
   const exercises = getAllExercises();
@@ -34,24 +35,7 @@ export default function Home() {
           
           {/* Search Bar */}
           <div className="mt-6">
-            <Link href="/recherche">
-              <div className="relative group cursor-pointer">
-                <input
-                  type="text"
-                  placeholder="Rechercher des exercices par niveau, chapitre, difficulté..."
-                  className="w-full px-6 py-4 rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-800 text-lg focus:outline-none focus:ring-4 focus:ring-orange-500 transition-all placeholder-gray-500 dark:placeholder-gray-400"
-                  readOnly
-                />
-                <svg 
-                  className="absolute right-5 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400 dark:text-gray-500 group-hover:text-orange-500 transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-            </Link>
+            <HomeSearchBar />
           </div>
         </div>
       </div>
