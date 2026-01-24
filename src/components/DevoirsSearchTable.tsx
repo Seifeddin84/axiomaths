@@ -1,16 +1,15 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import type { Exam } from '@/lib/exams';
+import { Exam } from '@/lib/exams';
 
 interface FilterOptions {
-  establishments: string[];
-  levels: string[];
-  sections: string[];
-  exam_types: string[];
-  years: string[];
-  chapters: string[];
-  schools: string[];
+  establishments: Array<{ value: string; label: string }>;
+  levels: Array<{ value: string; label: string }>;
+  sections: Array<{ value: string; label: string }>;
+  exam_types: Array<{ value: string; label: string }>;
+  years: Array<{ value: string; label: string }>;
+  chapters: Array<{ value: string; label: string }>;
 }
 
 interface Props {
@@ -19,6 +18,9 @@ interface Props {
 }
 
 export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
+  // Search state
+  const [searchText, setSearchText] = useState('');
+  
   // Filter states
   const [filters, setFilters] = useState({
     establishment: '',
@@ -29,9 +31,6 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
     chapter: '',
   });
 
-  // Search text
-  const [searchText, setSearchText] = useState('');
-  
   // Filtered exams
   const filteredExams = useMemo(() => {
     if (!exams || exams.length === 0) return [];
@@ -43,7 +42,6 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
       if (filters.section && exam.section !== filters.section) return false;
       if (filters.exam_type && exam.exam_type !== filters.exam_type) return false;
       if (filters.year && exam.year !== filters.year) return false;
-      if (filters.school && exam.school !== filters.school) return false;
       if (filters.chapter && !(exam.chapters || []).includes(filters.chapter)) return false;
       
       // Apply search text
@@ -59,7 +57,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
       return true;
     });
   }, [exams, filters, searchText]);
-  
+
   // Reset filters
   const resetFilters = () => {
     setFilters({
@@ -69,14 +67,13 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
       exam_type: '',
       year: '',
       chapter: '',
-      school: '',
     });
     setSearchText('');
   };
-  
+
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
         {/* Search Bar */}
         <div className="mb-4">
           <input
@@ -87,7 +84,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
         </div>
-        
+
         {/* Filters Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {/* Establishment Type */}
@@ -97,9 +94,9 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Tous les établissements</option>
-            {(filterOptions.establishments || []).map(est => (
-              <option key={est} value={est}>
-                {est === 'lycee' ? 'Lycée' : 'Collège'}
+            {filterOptions.establishments.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
               </option>
             ))}
           </select>
@@ -111,8 +108,8 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Tous les niveaux</option>
-            {(filterOptions.levels || []).map(level => (
-              <option key={level} value={level}>{level}</option>
+            {filterOptions.levels.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
           
@@ -123,8 +120,8 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Toutes les sections</option>
-            {(filterOptions.sections || []).map(section => (
-              <option key={section} value={section}>{section}</option>
+            {filterOptions.sections.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
           
@@ -135,8 +132,8 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Tous les types</option>
-            {(filterOptions.exam_types || []).map(type => (
-              <option key={type} value={type}>{type}</option>
+            {filterOptions.exam_types.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
           
@@ -147,8 +144,8 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="">Toutes les années</option>
-            {(filterOptions.years || []).map(year => (
-              <option key={year} value={year}>{year}</option>
+            {filterOptions.years.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
           
@@ -157,35 +154,72 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             value={filters.chapter}
             onChange={(e) => setFilters({ ...filters, chapter: e.target.value })}
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            disabled={filterOptions.chapters.length === 0}
           >
-            <option value="">Tous les chapitres</option>
-            {(filterOptions.chapters || []).map(chapter => (
-              <option key={chapter} value={chapter}>{chapter}</option>
+            <option value="">
+              {filterOptions.chapters.length === 0 ? 'Chapitres (aucun pour le moment)' : 'Tous les chapitres'}
+            </option>
+            {filterOptions.chapters.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
           
           {/* Reset Button */}
           <button
             onClick={resetFilters}
-            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium"
           >
             Réinitialiser
           </button>
         </div>
         
         {/* Results Count */}
-        <div className="mt-4 text-sm text-gray-600">
-          {filteredExams.length} devoir{filteredExams.length !== 1 ? 's' : ''} trouvé{filteredExams.length !== 1 ? 's' : ''}
+        <div className="mt-4 text-sm">
+          {exams.length === 0 ? (
+            <div className="flex items-center gap-2 text-gray-500">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Base de données en cours de construction - Contenu ajouté régulièrement</span>
+            </div>
+          ) : filteredExams.length === exams.length ? (
+            <span className="text-gray-600">
+              <span className="font-semibold text-orange-600">{filteredExams.length}</span> devoir{filteredExams.length !== 1 ? 's' : ''} disponible{filteredExams.length !== 1 ? 's' : ''}
+            </span>
+          ) : (
+            <span className="text-gray-600">
+              <span className="font-semibold text-orange-600">{filteredExams.length}</span> devoir{filteredExams.length !== 1 ? 's' : ''} trouvé{filteredExams.length !== 1 ? 's' : ''} sur {exams.length} au total
+            </span>
+          )}
         </div>
       </div>
       
-      {/* Results Table */}
-      {filteredExams.length === 0 ? (
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
-          <p className="text-gray-500">Aucun devoir trouvé avec ces critères</p>
-        </div>
-      ) : (
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      {/* Results Table or Empty State */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        {filteredExams.length === 0 ? (
+          <div className="p-12 text-center">
+            <div className="max-w-md mx-auto">
+              <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Aucun devoir disponible pour le moment
+              </h3>
+              <p className="text-gray-600">
+                La base de données contient actuellement <span className="font-semibold text-orange-600">{exams.length}</span> devoir{exams.length !== 1 ? 's' : ''}.
+                {exams.length === 0 ? (
+                  <span className="block mt-2 text-sm">
+                    📚 Nouveau contenu ajouté régulièrement - Revenez bientôt !
+                  </span>
+                ) : (
+                  <span className="block mt-2 text-sm">
+                    Essayez de modifier vos critères de recherche.
+                  </span>
+                )}
+              </p>
+            </div>
+          </div>
+        ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-50 border-b border-gray-200">
@@ -277,8 +311,8 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
               </tbody>
             </table>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

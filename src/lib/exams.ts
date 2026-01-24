@@ -45,11 +45,15 @@ export function getAllExams(): Exam[] {
   
   // Check if directory exists
   if (!fs.existsSync(examsDir)) {
+    console.warn('⚠️ Exams directory not found:', examsDir);
     return [];
   }
   
   const files = fs.readdirSync(examsDir);
+  console.log('📁 Files in exams directory:', files);
+  
   const yamlFiles = files.filter(file => file.endsWith('.yaml') || file.endsWith('.yml'));
+  console.log('📄 YAML files found:', yamlFiles);
   
   const exams: Exam[] = [];
   
@@ -57,9 +61,11 @@ export function getAllExams(): Exam[] {
     try {
       const filePath = path.join(examsDir, file);
       const fileContent = fs.readFileSync(filePath, 'utf-8');
+      console.log(`\n📖 Parsing ${file}...`);
+      console.log('Content length:', fileContent.length);
       
-      // Use js-yaml for pure YAML files
-      const data = yaml.load(fileContent) as any;
+      const data = yaml.load(fileContent) as any; 
+      console.log('✅ Parsed data:', JSON.stringify(data, null, 2));
       
       // Construct PDF URL
       const pdfUrl = `/exams/${data.filename}`;
@@ -69,9 +75,11 @@ export function getAllExams(): Exam[] {
         pdfUrl,
       } as Exam);
     } catch (error) {
-      console.error(`Error loading exam ${file}:`, error);
+      console.error(`❌ Error loading exam ${file}:`, error);
     }
   }
+  
+  console.log(`\n✅ Total exams loaded: ${exams.length}`);
   
   // Sort by year (newest first), then by exam number
   return exams.sort((a, b) => {
@@ -82,29 +90,66 @@ export function getAllExams(): Exam[] {
 }
 
 /**
- * Get unique values for filters
+ * Get filter options - returns all possible values, not just what's in database
  */
-export function getExamFilterOptions(exams: Exam[]) {
-  // Handle empty exams array
+export function getExamFilterOptions() {
+  return {
+    // All establishment types
+    establishments: [
+      { value: 'college', label: 'Collège' },
+      { value: 'lycee', label: 'Lycée' },
+    ],
+    
+    // All levels (collège: 7-9ème, lycée: 1-4ème)
+    levels: [
+      { value: '7eme', label: '7ème' },
+      { value: '8eme', label: '8ème' },
+      { value: '9eme', label: '9ème' },
+      { value: '1ere', label: '1ère' },
+      { value: '2eme', label: '2ème' },
+      { value: '3eme', label: '3ème' },
+      { value: '4eme', label: '4ème' },
+    ],
+    
+    // All sections - VALUES MUST MATCH YAML DATA EXACTLY
+    sections: [
+      { value: 'Mathématiques', label: 'Mathématiques' },
+      { value: 'Sciences Expérimentales', label: 'Sciences Expérimentales' },
+      { value: 'Sciences Techniques', label: 'Sciences Techniques' },
+      { value: 'Sciences Informatiques', label: 'Sciences Informatiques' },
+      { value: 'Économie et Services', label: 'Économie et Services' },
+      { value: 'Lettres', label: 'Lettres' },
+      { value: 'Sport', label: 'Sport' },
+    ],
+    
+    // Exam types
+    exam_types: [
+      { value: 'Devoir de contrôle', label: 'Devoir de contrôle' },
+      { value: 'Devoir de synthèse', label: 'Devoir de synthèse' },
+    ],
+    
+   years: Array.from({ length: 10 }, (_, i) => {
+  const endYear = new Date().getFullYear() + 1 - i; // 2026, 2025, 2024...
+  const startYear = endYear - 1;
+  return {
+    value: `${startYear}/${endYear}`, // Still match YAML format for filtering
+    label: `${endYear}`, // Display only ending year
+  };
+}),
+    
+    // Chapters - we'll keep this dynamic since there are too many
+    chapters: [],
+  };
+}
+
+/**
+ * Get chapters from existing exams (dynamic)
+ */
+export function getExamChapters(exams: Exam[]): Array<{ value: string; label: string }> {
   if (!exams || exams.length === 0) {
-    return {
-      establishments: [],
-      levels: [],
-      sections: [],
-      exam_types: [],
-      years: [],
-      chapters: [],
-      schools: [],
-    };
+    return [];
   }
   
-  return {
-    establishments: Array.from(new Set(exams.map(e => e.establishment_type))).sort(),
-    levels: Array.from(new Set(exams.map(e => e.level))).sort(),
-    sections: Array.from(new Set(exams.map(e => e.section))).sort(),
-    exam_types: Array.from(new Set(exams.map(e => e.exam_type))).sort(),
-    years: Array.from(new Set(exams.map(e => e.year))).sort().reverse(), // newest first
-    chapters: Array.from(new Set(exams.flatMap(e => e.chapters || []))).sort(),
-    schools: Array.from(new Set(exams.map(e => e.school))).sort(),
-  };
+  const chapters = Array.from(new Set(exams.flatMap(e => e.chapters || []))).sort();
+  return chapters.map(ch => ({ value: ch, label: ch }));
 }

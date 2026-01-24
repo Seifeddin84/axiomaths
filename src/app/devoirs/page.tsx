@@ -1,13 +1,11 @@
-import { getAllExams, getExamFilterOptions } from '@/lib/exams';
+import { getAllExams, getExamFilterOptions, getExamChapters } from '@/lib/exams';
 import DevoirsSearchTable from '@/components/DevoirsSearchTable';
 
 // Server component - fetches data at build time
 export default function DevoirsPage() {
   const allExams = getAllExams();
-  const filterOptions = getExamFilterOptions(allExams);
-  // To debug
-  // console.log('🎯 Exams loaded in page component:', allExams); // ADD THIS LINE
-  // console.log('🎯 Filter options:', filterOptions); // ADD THIS LINE
+  const filterOptions = getExamFilterOptions(); // No longer needs exams parameter
+  const chapters = getExamChapters(allExams); // Get chapters from actual exams
   
   return (
     <div className="min-h-screen bg-gray-50">
@@ -22,8 +20,10 @@ export default function DevoirsPage() {
       </div>
       
       {/* Client component with search and filtering */}
-      <DevoirsSearchTable exams={allExams} filterOptions={filterOptions} />
+      <DevoirsSearchTable 
+        exams={allExams} 
+        filterOptions={{...filterOptions, chapters}} 
+      />
     </div>
   );
 }
-
