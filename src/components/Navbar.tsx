@@ -1,15 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
   const [isDark, setIsDark] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const darkMode = document.documentElement.classList.contains('dark');
@@ -38,16 +36,6 @@ export default function Navbar() {
     return pathname.startsWith(path);
   };
 
-  // Handle search submission
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/recherche?q=${encodeURIComponent(searchQuery.trim())}`);
-    } else {
-      router.push('/recherche');
-    }
-  };
-
   return (
     <nav className="bg-gradient-to-r from-orange-500 to-orange-600 border-b-4 border-orange-700 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
@@ -68,25 +56,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Search Bar */}
-          <form onSubmit={handleSearch} className="flex-1 max-w-md mx-8 relative">
-            <input
-              type="text"
-              placeholder="Rechercher des exercices..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 bg-white/90 dark:bg-gray-800/90 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
-            />
-            <button
-              type="submit"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-500 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
-          </form>
-
           {/* Navigation Links */}
           <div className="flex items-center gap-2">
             <Link
@@ -97,7 +66,7 @@ export default function Navbar() {
                   : 'text-white hover:bg-orange-400'
               }`}
             >
-              RECHERCHE
+              LISTE DES EXERCICES
             </Link>
             <Link
               href="/college"

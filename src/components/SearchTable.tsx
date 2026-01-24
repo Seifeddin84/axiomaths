@@ -40,9 +40,6 @@ export default function SearchTable({ exercises }: SearchTableProps) {
   };
 
   // Get unique values for inline filters
-  // Note: Use .filter(Boolean) inside map for literal unions (school, difficulty)
-  // Use type predicates for generic types (level, section, chapter, year)
-  
   const uniqueSchools = useMemo(() => 
     [...new Set(exercises.map(ex => ex.school).filter(Boolean))].sort(),
     [exercises]
@@ -73,10 +70,9 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     [exercises]
   );
 
-  // Apply inline filters (NORMALIZED VERSION)
+  // Apply inline filters
   const tableFilteredExercises = useMemo(() => {
     return exercises.filter(ex => {
-      // Normalize strings for comparison
       const normalizeStr = (str: string | undefined | null) => 
         str?.toLowerCase().trim() || '';
 
@@ -240,9 +236,9 @@ export default function SearchTable({ exercises }: SearchTableProps) {
               />
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('uid')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('difficulty')}>
               <div className="flex items-center gap-2">
-                UID <SortArrow field="uid" />
+                Difficulté <SortArrow field="difficulty" />
               </div>
             </th>
 
@@ -282,13 +278,14 @@ export default function SearchTable({ exercises }: SearchTableProps) {
               </div>
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('difficulty')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('uid')}>
               <div className="flex items-center gap-2">
-                Difficulté <SortArrow field="difficulty" />
+                UID <SortArrow field="uid" />
               </div>
             </th>
 
-            <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 w-40">
+            {/* STICKY COLUMN - Always visible */}
+            <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 w-40 sticky right-0 bg-gray-50 dark:bg-gray-900 border-l-2 border-gray-300 dark:border-gray-600 shadow-[-4px_0_8px_rgba(0,0,0,0.1)] dark:shadow-[-4px_0_8px_rgba(0,0,0,0.3)] z-10">
               Voir Exercice
             </th>
           </tr>
@@ -296,7 +293,21 @@ export default function SearchTable({ exercises }: SearchTableProps) {
           {/* Filter row */}
           <tr className="bg-gray-100 dark:bg-gray-800 border-b-2 border-gray-200 dark:border-gray-700">
             <th className="px-2 py-2"></th>
-            <th className="px-2 py-2"></th>
+            
+            {/* Difficulté filter - moved to position 2 */}
+            <th className="px-2 py-2">
+              <select
+                value={tableFilterDifficulty}
+                onChange={(e) => setTableFilterDifficulty(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none"
+              >
+                <option value="all">Tous</option>
+                {uniqueDifficulties.map((difficulty, idx) => (
+                  <option key={idx} value={difficulty}>{difficulty}</option>
+                ))}
+              </select>
+            </th>
+            
             <th className="px-2 py-2"></th>
 
             {/* École filter */}
@@ -371,21 +382,11 @@ export default function SearchTable({ exercises }: SearchTableProps) {
               </select>
             </th>
 
-            {/* Difficulté filter */}
-            <th className="px-2 py-2">
-              <select
-                value={tableFilterDifficulty}
-                onChange={(e) => setTableFilterDifficulty(e.target.value)}
-                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none"
-              >
-                <option value="all">Tous</option>
-                {uniqueDifficulties.map((difficulty, idx) => (
-                  <option key={idx} value={difficulty}>{difficulty}</option>
-                ))}
-              </select>
-            </th>
-
+            {/* Empty cell for UID - no filter needed */}
             <th className="px-2 py-2"></th>
+
+            {/* Empty cell for sticky column */}
+            <th className="px-2 py-2 sticky right-0 bg-gray-100 dark:bg-gray-800 border-l-2 border-gray-300 dark:border-gray-600 z-10"></th>
           </tr>
         </thead>
 
@@ -416,8 +417,10 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     />
                   </td>
 
-                  <td className="px-4 py-3 text-sm font-mono text-gray-900 dark:text-white font-bold">
-                    {exercise.uid}
+                  <td className="px-4 py-3 text-sm">
+                    <span className={`px-2 py-1 text-xs font-bold uppercase tracking-wider ${getDifficultyColor(exercise.difficulty)}`}>
+                      {exercise.difficulty || '-'}
+                    </span>
                   </td>
 
                   <td className="px-4 py-3 text-sm text-gray-900 dark:text-white max-w-xs">
@@ -447,14 +450,15 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     {exercise.year || '-'}
                   </td>
 
-                  <td className="px-4 py-3 text-sm">
-                    <span className={`px-2 py-1 text-xs font-bold uppercase tracking-wider ${getDifficultyColor(exercise.difficulty)}`}>
-                      {exercise.difficulty || '-'}
-                    </span>
+                  <td className="px-4 py-3 text-sm font-mono text-gray-900 dark:text-white font-bold">
+                    {exercise.uid}
                   </td>
 
-                  <td className="px-4 py-3 text-sm text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-sm uppercase tracking-wide">
+                  {/* STICKY CELL - Always visible */}
+                  <td className={`px-4 py-3 text-sm text-center sticky right-0 border-l-2 border-gray-300 dark:border-gray-600 z-10 ${
+                    idx % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-900'
+                  } shadow-[-4px_0_8px_rgba(0,0,0,0.05)] dark:shadow-[-4px_0_8px_rgba(0,0,0,0.2)]`}>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-sm uppercase tracking-wide hover:bg-orange-600 transition-colors">
                       {isExpanded ? 'Masquer' : 'Voir'}
                       <svg
                         className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
@@ -473,7 +477,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                   <tr className="bg-gray-100 dark:bg-gray-800">
                     <td colSpan={10} className="p-0">
                       <div className="p-6 border-t-4 border-orange-500">
-                        {/* Exercise Content - MATCHES CARDS EXACTLY */}
+                        {/* Exercise Content */}
                         <div className="exercise-content border-t-4 border-gray-300 dark:border-gray-600">
                           <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
                             <MathRenderer content={exercise.content} />

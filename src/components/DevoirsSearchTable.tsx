@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Exam } from '@/lib/exams';
+import type { Exam } from '@/lib/exams';
 
 interface FilterOptions {
   establishments: Array<{ value: string; label: string }>;
@@ -18,9 +18,6 @@ interface Props {
 }
 
 export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
-  // Search state
-  const [searchText, setSearchText] = useState('');
-  
   // Filter states
   const [filters, setFilters] = useState({
     establishment: '',
@@ -30,7 +27,10 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
     year: '',
     chapter: '',
   });
-
+  
+  // Search text
+  const [searchText, setSearchText] = useState('');
+  
   // Filtered exams
   const filteredExams = useMemo(() => {
     if (!exams || exams.length === 0) return [];
@@ -57,7 +57,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
       return true;
     });
   }, [exams, filters, searchText]);
-
+  
   // Reset filters
   const resetFilters = () => {
     setFilters({
@@ -70,10 +70,10 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
     });
     setSearchText('');
   };
-
+  
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+    <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
         {/* Search Bar */}
         <div className="mb-4">
           <input
@@ -81,17 +81,17 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
             placeholder="Rechercher par école, chapitre, niveau..."
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
           />
         </div>
-
+        
         {/* Filters Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {/* Establishment Type */}
           <select
             value={filters.establishment}
             onChange={(e) => setFilters({ ...filters, establishment: e.target.value })}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="">Tous les établissements</option>
             {filterOptions.establishments.map(option => (
@@ -105,7 +105,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
           <select
             value={filters.level}
             onChange={(e) => setFilters({ ...filters, level: e.target.value })}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="">Tous les niveaux</option>
             {filterOptions.levels.map(option => (
@@ -117,7 +117,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
           <select
             value={filters.section}
             onChange={(e) => setFilters({ ...filters, section: e.target.value })}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="">Toutes les sections</option>
             {filterOptions.sections.map(option => (
@@ -129,7 +129,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
           <select
             value={filters.exam_type}
             onChange={(e) => setFilters({ ...filters, exam_type: e.target.value })}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="">Tous les types</option>
             {filterOptions.exam_types.map(option => (
@@ -141,7 +141,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
           <select
             value={filters.year}
             onChange={(e) => setFilters({ ...filters, year: e.target.value })}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="">Toutes les années</option>
             {filterOptions.years.map(option => (
@@ -153,7 +153,7 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
           <select
             value={filters.chapter}
             onChange={(e) => setFilters({ ...filters, chapter: e.target.value })}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={filterOptions.chapters.length === 0}
           >
             <option value="">
@@ -176,37 +176,37 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
         {/* Results Count */}
         <div className="mt-4 text-sm">
           {exams.length === 0 ? (
-            <div className="flex items-center gap-2 text-gray-500">
+            <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>Base de données en cours de construction - Contenu ajouté régulièrement</span>
             </div>
           ) : filteredExams.length === exams.length ? (
-            <span className="text-gray-600">
-              <span className="font-semibold text-orange-600">{filteredExams.length}</span> devoir{filteredExams.length !== 1 ? 's' : ''} disponible{filteredExams.length !== 1 ? 's' : ''}
+            <span className="text-gray-600 dark:text-gray-400">
+              <span className="font-semibold text-orange-600 dark:text-orange-500">{filteredExams.length}</span> devoir{filteredExams.length !== 1 ? 's' : ''} disponible{filteredExams.length !== 1 ? 's' : ''}
             </span>
           ) : (
-            <span className="text-gray-600">
-              <span className="font-semibold text-orange-600">{filteredExams.length}</span> devoir{filteredExams.length !== 1 ? 's' : ''} trouvé{filteredExams.length !== 1 ? 's' : ''} sur {exams.length} au total
+            <span className="text-gray-600 dark:text-gray-400">
+              <span className="font-semibold text-orange-600 dark:text-orange-500">{filteredExams.length}</span> devoir{filteredExams.length !== 1 ? 's' : ''} trouvé{filteredExams.length !== 1 ? 's' : ''} sur {exams.length} au total
             </span>
           )}
         </div>
       </div>
       
       {/* Results Table or Empty State */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
         {filteredExams.length === 0 ? (
           <div className="p-12 text-center">
             <div className="max-w-md mx-auto">
-              <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-16 h-16 mx-auto mb-4 text-gray-400 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                 Aucun devoir disponible pour le moment
               </h3>
-              <p className="text-gray-600">
-                La base de données contient actuellement <span className="font-semibold text-orange-600">{exams.length}</span> devoir{exams.length !== 1 ? 's' : ''}.
+              <p className="text-gray-600 dark:text-gray-400">
+                La base de données contient actuellement <span className="font-semibold text-orange-600 dark:text-orange-500">{exams.length}</span> devoir{exams.length !== 1 ? 's' : ''}.
                 {exams.length === 0 ? (
                   <span className="block mt-2 text-sm">
                     📚 Nouveau contenu ajouté régulièrement - Revenez bientôt !
@@ -222,61 +222,61 @@ export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
                 <tr>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     École
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Niveau
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Section
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Type
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     N°
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Année
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     Chapitres
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     PDF
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                 {filteredExams.map(exam => (
-                  <tr key={exam.uid} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-4 py-3 text-sm text-gray-900">
+                  <tr key={exam.uid} className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                       {exam.school}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-900">
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                       {exam.level}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-900">
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                       {exam.section}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-900">
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                       {exam.exam_type === 'Devoir de contrôle' ? 'Contrôle' : 'Synthèse'}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-900">
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                       {exam.exam_number}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-900">
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                       {exam.year}
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-900">
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100">
                       <div className="flex flex-wrap gap-1">
                         {(exam.chapters || []).map(chapter => (
                           <span
                             key={chapter}
-                            className="inline-block px-2 py-1 text-xs bg-orange-100 text-orange-800 rounded"
+                            className="inline-block px-2 py-1 text-xs bg-orange-100 dark:bg-orange-900/50 text-orange-800 dark:text-orange-300 rounded"
                           >
                             {chapter}
                           </span>
