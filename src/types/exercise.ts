@@ -1,31 +1,34 @@
+// Exercise type definition
 export interface Exercise {
   uid: string;
-  school: 'college' | 'lycee';
-  level: string;
-  section: string | null;
-  chapter: string;
-  source: string;
-  title?: string;  // Made optional for backward compatibility
-  country: string;
-  year?: number;   // Made optional for backward compatibility
-  professor: string | null;
-  difficulty: 'Facile' | 'Moyen' | 'Difficile';
-  points: number;
-  tags: string[];
+  title?: string;
   content: string;
-  solution: string;
+  solution?: string;
+  school?: string;
+  level?: string;
+  section?: string;        // Single section (backward compatibility)
+  sections?: string[];     // Multiple sections (new feature)
+  chapter?: string;
+  source?: string;
+  country?: string;
+  year?: number;
+  professor?: string;
+  difficulty?: string;
+  points?: number;
+  tags?: string[];
 }
 
 export interface ExerciseMetadata {
   uid: string;
   school: string;
   level: string;
-  section: string | null;
+  section: string | null;      // Primary section (backward compatibility)
+  sections?: string[];         // Multiple sections (NEW - added)
   chapter: string;
   source: string;
-  title?: string;  // Added
+  title?: string;
   country: string;
-  year?: number;   // Added
+  year?: number;
   professor: string | null;
   difficulty: string;
   points: number;

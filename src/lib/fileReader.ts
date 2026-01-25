@@ -8,11 +8,10 @@ const exercisesDirectory = path.join(process.cwd(), 'exercises');
 // Make this defensive - handle undefined/null
 function normalizeForComparison(str: string | undefined | null): string {
   if (!str) return ''; // Return empty string for undefined/null
-  return str
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .trim();
+  return
+    str.toLowerCase().trim();
+    str.normalize('NFD')
+    str.replace(/[\u0300-\u036f]/g, '')
 }
 
 export function getAllExercises(): Exercise[] {

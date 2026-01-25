@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Exercise } from '@/types/exercise';
 import MathRenderer from './MathRenderer';
 import { useExerciseBasket } from '@/context/ExerciseBasketContext';
 
-type SortField = 'uid' | 'title' | 'school' | 'level' | 'section' | 'chapter' | 'country' | 'year' | 'difficulty' | 'points';
+type SortField = 'uid' | 'title' | 'school' | 'level' | 'section' | 'chapter' | 'country' | 'year' | 'difficulty' | 'points' | 'professor';
 type SortOrder = 'asc' | 'desc';
 
 interface SearchTableProps {
@@ -31,7 +31,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
   // Toggle expansion
   const toggleRow = (uid: string) => {
     setExpandedId(expandedId === uid ? null : uid);
-    setShowSolution(null); // Reset solution when switching
+    setShowSolution(null);
   };
 
   const toggleSolution = (uid: string, e: React.MouseEvent) => {
@@ -50,10 +50,32 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     [exercises]
   );
 
-  const uniqueSections = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.section))].filter((section): section is string => Boolean(section)).sort(),
-    [exercises]
-  );
+  const uniqueSections = useMemo(() => {
+    // FIXED: Properly handle both array and single section
+    const sectionsSet = new Set<string>();
+    
+    exercises.forEach(ex => {
+      // Handle sections array (NEW FORMAT)
+      if (ex.sections && Array.isArray(ex.sections)) {
+        ex.sections.forEach(section => {
+          if (section && typeof section === 'string') {
+            sectionsSet.add(section.trim());
+          }
+        });
+      }
+      // Handle single section (OLD FORMAT)
+      else if (ex.section && typeof ex.section === 'string') {
+        sectionsSet.add(ex.section.trim());
+      }
+    });
+    
+    // Filter out invalid entries
+    const validSections = [...sectionsSet].filter(s => 
+      s && s !== 'null' && s !== 'undefined'
+    );
+    
+    return validSections.sort();
+  }, [exercises]);
 
   const uniqueChapters = useMemo(() => 
     [...new Set(exercises.map(ex => ex.chapter))].filter((chapter): chapter is string => Boolean(chapter)).sort(),
@@ -82,7 +104,9 @@ export default function SearchTable({ exercises }: SearchTableProps) {
       const matchesLevel = tableFilterLevel === 'all' || 
         normalizeStr(ex.level) === normalizeStr(tableFilterLevel);
       
+      // Section filter - handle both array and single value
       const matchesSection = tableFilterSection === 'all' || 
+        (ex.sections && ex.sections.some(s => normalizeStr(s) === normalizeStr(tableFilterSection))) ||
         normalizeStr(ex.section) === normalizeStr(tableFilterSection);
       
       const matchesChapter = tableFilterChapter === 'all' || 
@@ -137,7 +161,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     }
   };
 
-  // Toggle individual selection with basket integration
+  // Toggle individual selection
   const toggleSelect = (exercise: Exercise) => {
     if (isSelected(exercise.uid)) {
       removeExercise(exercise.uid);
@@ -225,9 +249,9 @@ export default function SearchTable({ exercises }: SearchTableProps) {
 
       <table className="w-full border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-900">
-          {/* Header row with sort */}
+          {/* Header row */}
           <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-            <th className="px-4 py-3 text-left">
+            <th className="px-4 py-3 text-left w-12">
               <input
                 type="checkbox"
                 checked={selectedIds.length === sortedExercises.length && sortedExercises.length > 0}
@@ -236,57 +260,57 @@ export default function SearchTable({ exercises }: SearchTableProps) {
               />
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('difficulty')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-32" onClick={() => handleSort('difficulty')}>
               <div className="flex items-center gap-2">
                 Difficulté <SortArrow field="difficulty" />
               </div>
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('title')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 min-w-[250px]" onClick={() => handleSort('title')}>
               <div className="flex items-center gap-2">
                 Titre <SortArrow field="title" />
               </div>
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('school')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-24" onClick={() => handleSort('school')}>
               <div className="flex items-center gap-2">
                 École <SortArrow field="school" />
               </div>
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('level')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-20" onClick={() => handleSort('level')}>
               <div className="flex items-center gap-2">
                 Niveau <SortArrow field="level" />
               </div>
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('section')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-40" onClick={() => handleSort('section')}>
               <div className="flex items-center gap-2">
                 Section <SortArrow field="section" />
               </div>
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('chapter')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 min-w-[180px]" onClick={() => handleSort('chapter')}>
               <div className="flex items-center gap-2">
                 Chapitre <SortArrow field="chapter" />
               </div>
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('year')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-20" onClick={() => handleSort('year')}>
               <div className="flex items-center gap-2">
                 Année <SortArrow field="year" />
               </div>
             </th>
 
-            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => handleSort('uid')}>
+            <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-36" onClick={() => handleSort('professor')}>
               <div className="flex items-center gap-2">
-                UID <SortArrow field="uid" />
+                Professeur <SortArrow field="professor" />
               </div>
             </th>
 
-            {/* STICKY COLUMN - Always visible */}
-            <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 w-40 sticky right-0 bg-gray-50 dark:bg-gray-900 border-l-2 border-gray-300 dark:border-gray-600 shadow-[-4px_0_8px_rgba(0,0,0,0.1)] dark:shadow-[-4px_0_8px_rgba(0,0,0,0.3)] z-10">
-              Voir Exercice
+            {/* STICKY COLUMN */}
+            <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 w-32 sticky right-0 bg-gray-50 dark:bg-gray-900 border-l-2 border-gray-300 dark:border-gray-600 shadow-[-4px_0_8px_rgba(0,0,0,0.1)] dark:shadow-[-4px_0_8px_rgba(0,0,0,0.3)] z-10">
+              Voir
             </th>
           </tr>
 
@@ -294,7 +318,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
           <tr className="bg-gray-100 dark:bg-gray-800 border-b-2 border-gray-200 dark:border-gray-700">
             <th className="px-2 py-2"></th>
             
-            {/* Difficulté filter - moved to position 2 */}
+            {/* Difficulté filter */}
             <th className="px-2 py-2">
               <select
                 value={tableFilterDifficulty}
@@ -382,7 +406,6 @@ export default function SearchTable({ exercises }: SearchTableProps) {
               </select>
             </th>
 
-            {/* Empty cell for UID - no filter needed */}
             <th className="px-2 py-2"></th>
 
             {/* Empty cell for sticky column */}
@@ -397,8 +420,8 @@ export default function SearchTable({ exercises }: SearchTableProps) {
             const selected = isSelected(exercise.uid);
 
             return (
-              <>
-                {/* Main Row - Clickable */}
+              <React.Fragment key={exercise.uid}>
+                {/* Main Row */}
                 <tr 
                   key={exercise.uid}
                   onClick={() => toggleRow(exercise.uid)}
@@ -423,10 +446,15 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     </span>
                   </td>
 
-                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-white max-w-xs">
-                    <div className="font-semibold truncate">{exercise.title || 'Sans titre'}</div>
+                  {/* Title - can wrap */}
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                    <div className="font-semibold leading-tight line-clamp-2">
+                      {exercise.title || 'Sans titre'}
+                    </div>
                     {exercise.source && (
-                      <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{exercise.source}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        {exercise.source}
+                      </div>
                     )}
                   </td>
 
@@ -438,23 +466,40 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     {exercise.level}
                   </td>
 
+                  {/* Section - show array as badges */}
                   <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    {exercise.section || '-'}
+                    {exercise.sections && exercise.sections.length > 0 ? (
+                      <div className="flex flex-wrap gap-1">
+                        {exercise.sections.map((section, sidx) => (
+                          <span 
+                            key={sidx}
+                            className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded font-semibold"
+                          >
+                            {section}
+                          </span>
+                        ))}
+                      </div>
+                    ) : (
+                      exercise.section || '-'
+                    )}
                   </td>
 
-                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-white max-w-xs truncate">
-                    {exercise.chapter || '-'}
+                  {/* Chapter - can wrap */}
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                    <div className="line-clamp-2">
+                      {exercise.chapter || '-'}
+                    </div>
                   </td>
 
                   <td className="px-4 py-3 text-sm text-purple-600 dark:text-purple-400 font-semibold">
                     {exercise.year || '-'}
                   </td>
 
-                  <td className="px-4 py-3 text-sm font-mono text-gray-900 dark:text-white font-bold">
-                    {exercise.uid}
+                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                    {exercise.professor || '-'}
                   </td>
 
-                  {/* STICKY CELL - Always visible */}
+                  {/* STICKY CELL */}
                   <td className={`px-4 py-3 text-sm text-center sticky right-0 border-l-2 border-gray-300 dark:border-gray-600 z-10 ${
                     idx % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-900'
                   } shadow-[-4px_0_8px_rgba(0,0,0,0.05)] dark:shadow-[-4px_0_8px_rgba(0,0,0,0.2)]`}>
@@ -518,7 +563,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     </td>
                   </tr>
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </tbody>

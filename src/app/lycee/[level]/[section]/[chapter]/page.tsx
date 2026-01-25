@@ -1,106 +1,94 @@
-import Link from 'next/link';
-import { getExercisesByChapter } from '@/lib/fileReader';
+import { getAllExercises } from '@/lib/fileReader';
 import ExercisesView from '@/components/ExercisesView';
-import { getCheatSheet } from '@/lib/cheatsheets';
+import Link from 'next/link';
 
-const LEVEL_DISPLAY: Record<string, string> = {
-  '1ere': '1ère',
-  '2eme': '2ème',
-  '3eme': '3ème',
-  '4eme': '4ème',
-};
+// FIXED: Handle null/undefined values
+function slugify(text: string | undefined | null): string {
+  if (!text) return '';
+  if (typeof text !== 'string') return '';
+  
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 
-export default async function ChapterExercisesPage({
+export default async function ChapterPage({
   params,
 }: {
   params: Promise<{ level: string; section: string; chapter: string }>;
 }) {
   const { level, section, chapter } = await params;
-  const levelDisplay = LEVEL_DISPLAY[level];
   
-  const decodedChapter = decodeURIComponent(chapter);
-  const chapterName = decodedChapter
+  const allExercises = await getAllExercises();
+  
+  // CRITICAL FIX: Filter exercises that match level, section (in array OR single), and chapter
+  const chapterExercises = allExercises.filter(ex => {
+    // Match level
+    const levelMatch = slugify(ex.level) === slugify(level);
+    
+    // FIXED: Match section - check BOTH array and single section
+const sectionMatch = 
+  (ex.sections && Array.isArray(ex.sections) && 
+   // ✅ NEW: Type check before slugify
+   ex.sections.some(s => s && typeof s === 'string' && slugify(s) === slugify(section))) ||
+  slugify(ex.section) === slugify(section);
+    
+    // Match chapter
+    const chapterMatch = slugify(ex.chapter) === slugify(chapter);
+    
+    return levelMatch && sectionMatch && chapterMatch;
+  });
+
+  // Format chapter name for display
+  const chapterName = chapter
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
-  
-  const sectionDisplay = section
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-  
-  const exercises = getExercisesByChapter('lycee', level, section, chapterName);
-  const cheatSheetFile = getCheatSheet('lycee', level, section, decodedChapter);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        {/* Breadcrumb */}
-        <nav className="mb-12 flex items-center gap-3 text-sm uppercase tracking-wider font-semibold flex-wrap">
-          <Link href="/" className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400">Accueil</Link>
-          <span className="text-gray-300 dark:text-gray-600">→</span>
-          <Link href="/lycee" className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400">Lycée</Link>
-          <span className="text-gray-300 dark:text-gray-600">→</span>
-          <Link href={`/lycee/${level}`} className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400">{levelDisplay}</Link>
-          <span className="text-gray-300 dark:text-gray-600">→</span>
-          <Link href={`/lycee/${level}/${section}`} className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400">{sectionDisplay}</Link>
-          <span className="text-gray-300 dark:text-gray-600">→</span>
-          <span className="text-orange-500 dark:text-orange-400">{chapterName}</span>
-        </nav>
+    <div className="container mx-auto px-4 py-8">
+      {/* Breadcrumb */}
+      <div className="mb-6 text-sm">
+        <Link href="/lycee" className="text-orange-500 hover:text-orange-600">
+          Lycée
+        </Link>
+        {' '}/{' '}
+        <Link href={`/lycee/${level}`} className="text-orange-500 hover:text-orange-600">
+          {level}
+        </Link>
+        {' '}/{' '}
+        <Link href={`/lycee/${level}/${section}`} className="text-orange-500 hover:text-orange-600">
+          {section}
+        </Link>
+        {' '}/{' '}
+        <span className="text-gray-600 dark:text-gray-400">{chapterName}</span>
+      </div>
 
-        {/* Page Header */}
-        <div className="mb-16">
-          <div className="inline-block px-4 py-2 bg-blue-500 text-white font-mono text-xs uppercase tracking-widest mb-6">
-            {exercises.length} Exercice{exercises.length > 1 ? 's' : ''}
-          </div>
-          <h1 className="text-6xl sm:text-7xl font-black mb-6 text-gray-900 dark:text-white leading-none uppercase">
-            {chapterName}
-          </h1>
-          <p className="text-2xl text-gray-600 dark:text-gray-400 font-serif">
-            {sectionDisplay} • {levelDisplay} Année
+      {/* Header */}
+      <h1 className="text-4xl font-black text-gray-900 dark:text-white mb-2">
+        {chapterName}
+      </h1>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">
+        {chapterExercises.length} exercice{chapterExercises.length > 1 ? 's' : ''} disponible{chapterExercises.length > 1 ? 's' : ''}
+      </p>
+
+      {/* Exercises */}
+      {chapterExercises.length > 0 ? (
+        <ExercisesView exercises={chapterExercises} />
+      ) : (
+        <div className="text-center py-12">
+          <div className="text-6xl mb-4">📭</div>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            Aucun exercice disponible
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400">
+            Il n'y a pas encore d'exercices pour ce chapitre.
           </p>
         </div>
-
-        {/* Cheat Sheet Banner */}
-        {cheatSheetFile && (
-          <div className="mb-12 p-8 bg-gradient-to-r from-orange-50 to-teal-50 dark:from-orange-900/20 dark:to-teal-900/20 border-2 border-orange-300 dark:border-orange-700 shadow-lg">
-            <div className="flex items-center justify-between flex-wrap gap-6">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-4xl">📋</span>
-                  <h2 className="text-3xl font-black text-gray-900 dark:text-white uppercase">
-                    Fiche Récapitulative
-                  </h2>
-                </div>
-                <p className="text-lg text-gray-700 dark:text-gray-300">
-                  Toutes les formules et définitions essentielles du chapitre
-                </p>
-              </div>
-              <div className="flex gap-3 flex-wrap">
-                <a href={`/fiches/${cheatSheetFile}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold uppercase tracking-wide hover:bg-orange-600 transition-all shadow-md">
-                  <span>📄</span>
-                  Consulter
-                </a>
-                <a href={`/fiches/${cheatSheetFile}`} download className="inline-flex items-center gap-2 px-6 py-3 bg-teal-500 text-white font-bold uppercase tracking-wide hover:bg-teal-600 transition-all shadow-md">
-                  <span>⬇️</span>
-                  Télécharger
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Exercises */}
-        {exercises.length === 0 ? (
-          <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 p-16 text-center">
-            <div className="text-6xl mb-6">📚</div>
-            <h2 className="text-3xl font-black mb-4 text-gray-900 dark:text-white">Aucun exercice disponible</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400">Les exercices pour ce chapitre seront bientôt ajoutés.</p>
-          </div>
-        ) : (
-          <ExercisesView exercises={exercises} />
-        )}
-      </div>
+      )}
     </div>
   );
 }

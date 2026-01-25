@@ -20,7 +20,9 @@ export default function Home() {
                 AXIOMATHS
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed font-light max-w-2xl">
-                Maîtrisez les mathématiques avec des milliers d'exercices pour collège et lycée
+                Exercices de mathématiques pour le collège et le lycée (Tunisie)<br></br>
+
+                Énoncés gratuits · Exercices classés · Solutions détaillées
               </p>
             </div>
             <div className="text-right">
@@ -151,8 +153,13 @@ export default function Home() {
                 <div>
                   <h2 className="text-3xl font-black text-gray-900 dark:text-white mb-3">Qu'est-ce qu'Axiomaths ?</h2>
                   <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                    Axiomaths est votre plateforme gratuite d'exercices de mathématiques pour le système éducatif tunisien. 
-                    Que vous soyez au collège ou au lycée, trouvez des milliers d'exercices classés par niveau, chapitre et difficulté.
+                    Axiomaths est une archive d’exercices de mathématiques alignée sur le programme tunisien du collège et du lycée.<br></br>
+                    Les exercices sont classés par niveau, chapitre et difficulté, avec des indications méthodologiques et des solutions détaillées.
+                    <ul>
+                      <li>📘 Exercices conformes au programme tunisien</li>
+                      <li>🧠 Indications (hints) et solutions complètes</li>
+                      <li>🆓 Accès libre aux énoncés</li>
+                    </ul>
                   </p>
                 </div>
               </div>
