@@ -1,107 +1,109 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
+        // Primary - Teal/Blue (React docs inspired)
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',  // Main teal
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+          950: '#042f2e',
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
+        // Accent - Orange (for navbar, highlights)
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',  // Main orange
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+          950: '#431407',
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
-        },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        // Add serif for exercise content
-        serif: [
-          'Charter', 
-          'Bitstream Charter', 
-          'Georgia', 
-          'Cambria',
-          'Times New Roman',
-          'serif'
-        ],
-        // Keep existing sans
+        /**
+         * SANS — Default UI / Body fonts
+         * 
+         * OPTIONS:
+         * 1. "Optimistic Text" - Clean, modern (needs local files or CDN)
+         * 2. "Satoshi" - Clean geometric, premium feel (loaded via Fontshare)
+         * 3. System fonts - Fast, native look
+         */
         sans: [
+          // === CUSTOM FONTS ===
+          //'"Optimistic Text"',    // If you have local files in /public/fonts/
+          //'Satoshi',              // ✅ Loaded from Fontshare CDN
+          
+          // === GOOGLE FONTS (comment out if using custom) ===
+          // 'Inter',
+           'Roboto',
+          // 'Montserrat',
+          
+          // === SYSTEM FONTS (ALWAYS KEEP!) ===
           '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
-          'Arial',
+          'ui-sans-serif',
+          'system-ui',
           'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
+        ],
+        
+        /**
+         * SERIF — Editorial / Academic
+         */
+        serif: [
+          'Playfair Display',
+          'Lora',
+          //'Georgia',
+          //'Times New Roman',
+          'serif',
+        ],
+        
+        /**
+         * MONO — Code, data
+         */
+        mono: [
+          'JetBrains Mono',
+          'Fira Code',
+          'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'Monaco',
+          'Consolas',
+          '"Liberation Mono"',
+          '"Courier New"',
+          'monospace',
         ],
       },
-      fontSize: {
-        // Keep existing sizes
-        'xs': ['0.75rem', { lineHeight: '1.25' }],
-        'sm': ['0.875rem', { lineHeight: '1.375' }],
-        'base': ['1rem', { lineHeight: '1.5' }],
-        'lg': ['1.125rem', { lineHeight: '1.5' }],
-        'xl': ['1.25rem', { lineHeight: '1.5' }],
-        '2xl': ['1.5rem', { lineHeight: '1.375' }],
-        '3xl': ['1.875rem', { lineHeight: '1.25' }],
-        '4xl': ['2.25rem', { lineHeight: '1.25' }],
-        '5xl': ['3rem', { lineHeight: '1.2' }],
-        '6xl': ['3.75rem', { lineHeight: '1.1' }],
-        '7xl': ['4.5rem', { lineHeight: '1.1' }],
-        '8xl': ['6rem', { lineHeight: '1.05' }],
-        '9xl': ['8rem', { lineHeight: '1' }],
-      },
-      lineHeight: {
-        'relaxed': '1.625', // For math-heavy content
-        'loose': '1.75',    // For dense proofs
-      },
-      spacing: {
-        // Additional spacing values
-        '18': '4.5rem',  // 72px
-        '22': '5.5rem',  // 88px
+      fontWeight: {
+        // Bolder weights for professional look
+        normal: '500',
+        medium: '600',
+        semibold: '700',
+        bold: '800',
+        black: '900',
       },
     },
   },
   plugins: [],
-};
+}

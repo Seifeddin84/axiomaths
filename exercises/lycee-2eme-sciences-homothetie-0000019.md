@@ -14,7 +14,7 @@ points: 8
 tags: ["barycentre", "homothetie", "vecteurs", "transformation-du-plan"]
 ---
 
-**Soit $ABC$ un triangle tel que $AB = 2AC$ et $I$ le barycentre des points pondérés $(A, 2)$ et $(B, 1)$.**
+Soit $ABC$ un triangle tel que $AB = 2AC$ et $I$ le barycentre des points pondérés $(A, 2)$ et $(B, 1)$.
 
 Soit l'application $h$ définie par :
 $$

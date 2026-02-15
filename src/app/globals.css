@@ -2,57 +2,284 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================
+   KATEX FONT CUSTOMIZATION
+   ======================================== */
+
+/* Default: Computer Modern (traditional LaTeX look) */
+.katex {
+  font-family: 'KaTeX_Main', 'Latin Modern Math', 'Computer Modern', serif !important;
+  font-size: 1.05em;
+}
+
+.katex-display {
+  font-size: 1.15em;
+  margin: 1.5em 0;
+}
+
+/* FIX: Dark mode math text color */
+.dark .katex {
+  color: #e5e7eb !important;  /* Light gray text in dark mode */
+}
+
+.dark .katex * {
+  color: inherit;  /* Inherit light color for all math elements */
+}
+
+/* ========================================
+   MARKDOWN EXERCISE STYLING
+   ======================================== */
+
+.exercise-content {
+  font-family: 'Latin Modern Math', 'Computer Modern', serif;
+  line-height: 1.8;
+  color: inherit;
+}
+
+.exercise-content p {
+  margin-bottom: 1em;
+  font-size: 1rem;
+  font-weight: 500;
+  color: inherit;
+}
+
+/* Dark mode text colors */
+.dark .exercise-content {
+  color: #e5e7eb;
+}
+
+.exercise-content h1,
+.exercise-content h2,
+.exercise-content h3 {
+  font-weight: 800;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.exercise-content h1 {
+  font-size: 1.75rem;
+}
+
+.exercise-content h2 {
+  font-size: 1.5rem;
+}
+
+.exercise-content h3 {
+  font-size: 1.25rem;
+}
+
+/* ========================================
+   NUMBERED LISTS - PROPER INLINE FORMAT WITH INDENTED CONTENT!
+   ======================================== */
+
+/* Main numbered list (1., 2., 3.) */
+.exercise-content ol {
+  margin-left: 0;
+  margin-bottom: 1.5em;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: item;
+}
+
+.exercise-content ol > li {
+  margin-bottom: 1.5em;
+  padding-left: 0;
+  counter-increment: item;
+  position: relative;
+}
+
+/* Orange number INLINE with text */
+.exercise-content ol > li::before {
+  content: counter(item) ". ";
+  font-weight: 800;
+  font-size: 1em;
+  color: #ea580c;
+  position: absolute;
+  left: 0;
+}
+
+.dark .exercise-content ol > li::before {
+  color: #2dd4bf;
+}
+
+/* Content should be indented to align after the number */
+.exercise-content ol > li {
+  padding-left: 2em;  /* Indent all content */
+}
+
+/* First line paragraph should NOT add extra indent */
+.exercise-content ol > li > p:first-child {
+  text-indent: -2em;
+  padding-left: 2em;
+  margin-bottom: 0.5em;
+}
+
+/* Math blocks and other content keep normal flow */
+.exercise-content ol > li > .katex-display {
+  margin-left: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* Nested ordered lists (a., b., c.) */
+.exercise-content ol ol {
+  margin-top: 0.75em;
+  margin-left: 0;
+  margin-bottom: 0.75em;
+  counter-reset: subitem;
+}
+
+.exercise-content ol ol > li {
+  counter-increment: subitem;
+  margin-bottom: 0.75em;
+  padding-left: 2em;
+}
+
+.exercise-content ol ol > li::before {
+  content: counter(subitem, lower-alpha) ". ";
+  font-weight: 700;
+  font-size: 1em;
+  color: #ea580c;
+  position: absolute;
+  left: 0;
+}
+
+.dark .exercise-content ol ol > li::before {
+  color: #2dd4bf;
+}
+
+.exercise-content ol ol > li > p:first-child {
+  text-indent: -2em;
+  padding-left: 2em;
+}
+
+/* Even deeper nesting (i., ii., iii.) */
+.exercise-content ol ol ol {
+  margin-left: 0;
+  counter-reset: subsubitem;
+}
+
+.exercise-content ol ol ol > li {
+  counter-increment: subsubitem;
+  margin-bottom: 0.5em;
+  padding-left: 2.5em;
+}
+
+.exercise-content ol ol ol > li::before {
+  content: counter(subsubitem, lower-roman) ". ";
+  color: #ea580c;
+  position: absolute;
+  left: 0;
+}
+
+.dark .exercise-content ol ol ol > li::before {
+  color: #2dd4bf;
+}
+
+/* Unordered lists (bullets) */
+.exercise-content ul {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+  list-style-type: disc;
+}
+
+.exercise-content ul > li {
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+
+.exercise-content ul ul {
+  margin-top: 0.25em;
+  list-style-type: circle;
+}
+
+/* ========================================
+   CODE BLOCKS
+   ======================================== */
+
+.exercise-content code {
+  background-color: rgba(100, 100, 100, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.9em;
+}
+
+.exercise-content pre {
+  background-color: rgba(100, 100, 100, 0.1);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+
+.exercise-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* ========================================
+   BLOCKQUOTES & TABLES
+   ======================================== */
+
+.exercise-content blockquote {
+  border-left: 4px solid var(--accent-500);
+  padding-left: 1em;
+  margin-left: 0;
+  margin-bottom: 1em;
+  font-style: italic;
+  color: rgba(100, 100, 100, 0.8);
+}
+
+.dark .exercise-content blockquote {
+  color: rgba(229, 231, 235, 0.8);
+}
+
+.exercise-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+.exercise-content th,
+.exercise-content td {
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  padding: 0.5em;
+  text-align: left;
+}
+
+.dark .exercise-content th,
+.dark .exercise-content td {
+  border-color: rgba(229, 231, 235, 0.2);
+}
+
+.exercise-content th {
+  background-color: rgba(100, 100, 100, 0.05);
+  font-weight: 700;
+}
+
+.dark .exercise-content th {
+  background-color: rgba(229, 231, 235, 0.05);
+}
+
+/* ========================================
+   THEME VARIABLES
+   ======================================== */
+
 :root {
-  --bg-primary: #fefefe;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #111111;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
-  --accent: #f97316;
-  --accent-hover: #ea580c;
-  --blue: #3b82f6;
-  --blue-hover: #2563eb;
-  --border: #e5e7eb;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --accent-500: #ea580c;
+  --primary-500: #14b8a6;
 }
 
 .dark {
-  --bg-primary: #111827;
-  --bg-secondary: #1f2937;
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --text-muted: #9ca3af;
-  --border: #374151;
+  --accent-500: #ea580c;
+  --primary-500: #2dd4bf;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border-radius: 0 !important; /* ANGULAR DESIGN */
-}
+/* ========================================
+   CUSTOM SCROLLBAR
+   ======================================== */
 
-body {
-  font-family: var(--font-crimson), Georgia, serif;
-  color: var(--text-primary);
-  background: var(--bg-primary);
-  line-height: 1.7;
-  font-size: 17px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-}
-
-/* Modern scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -63,258 +290,72 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: rgba(100, 100, 100, 0.5);
 }
 
-/* Smooth transitions */
-* {
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(200, 200, 200, 0.2);
 }
 
-/* Selection */
-::selection {
-  background: #fef3c7;
-  color: #92400e;
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 200, 200, 0.3);
 }
 
-.dark ::selection {
-  background: #7c2d12;
-  color: #fed7aa;
-}
+/* ========================================
+   FONT EXPERIMENTATION SECTION
+   ======================================== */
 
-/* Better math rendering */
+/*
+ * To change the math font, uncomment ONE of these sections:
+ */
+
+/* === OPTION A: Computer Modern (Classic LaTeX) === */
+/* Already active by default! */
+
+/* === OPTION B: Lora (Elegant serif) === */
+/*
 .katex {
-  font-size: 1.1em !important;
-}
-
-.katex-display {
-  margin: 1.5rem 0;
-  overflow-x: auto;
-}
-
-/* LaTeX-inspired typography - ENHANCED */
-.exercise-content {
-  background: linear-gradient(135deg, #e8edf2 0%, #dde4eb 100%);
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-  line-height: 1.7;
-  letter-spacing: 0.01em;
-  font-weight: 500;
-  padding: 2rem;
-}
-
-.dark .exercise-content {
-  background: linear-gradient(135deg, #2d3848 0%, #1f2937 100%);
-}
-
-/* Bolder mathematical content */
-.exercise-content .katex {
-  font-size: 1.15em !important;
-  font-weight: 700 !important;
-}
-
-/* LaTeX-style ordered lists */
-.exercise-content ol {
-  counter-reset: item;
-  list-style-type: none;
-  padding-left: 0;
-  margin: 1.5rem 0;
-}
-
-.exercise-content ol > li {
-  counter-increment: item;
-  margin-bottom: 1.2rem;
-  position: relative;
-  padding-left: 2.8rem;
-  font-weight: 600;
-  font-size: 1.05em;
-}
-
-.exercise-content ol > li::before {
-  content: counter(item) ".";
-  position: absolute;
-  left: 0;
-  font-weight: 900;
-  color: #f97316;
+  font-family: 'Lora', 'Georgia', serif !important;
   font-size: 1.1em;
 }
+*/
 
-/* Nested lists (a, b, c) */
-.exercise-content ol ol {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+/* === OPTION C: Playfair Display (High contrast) === */
+/*
+.katex {
+  font-family: 'Playfair Display', 'Georgia', serif !important;
+  font-size: 1.1em;
 }
+*/
 
-.exercise-content ol ol > li {
-  padding-left: 2.5rem;
-  font-weight: 500;
-  font-size: 0.98em;
+/* === OPTION D: Georgia (Web-safe serif) === */
+/*
+.katex {
+  font-family: 'Georgia', serif !important;
+  font-size: 1.1em;
 }
+*/
 
-.exercise-content ol ol > li::before {
-  content: counter(item, lower-alpha) ")";
-  font-weight: 700;
-  font-size: 1em;
-  color: #3b82f6;
+/* === OPTION E: Use site font (Modern look) === */
+/*
+.katex * {
+  font-family: inherit !important;
 }
+.katex .mathdefault {
+  font-family: inherit !important;
+  font-style: italic;
+}
+*/
 
-/* Paragraph spacing */
-.exercise-content p {
-  margin-bottom: 1rem;
+/* === OPTION F: Times New Roman (Traditional) === */
+/*
+.katex {
+  font-family: 'Times New Roman', serif !important;
   font-size: 1.05em;
 }
-
-/* Bold text */
-.exercise-content strong, .exercise-content b {
-  font-weight: 800;
-}
-
-.exercise-content {
-  background: linear-gradient(135deg, #e8edf2 0%, #dde4eb 100%);
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-  line-height: 1.7;
-  font-weight: 700;  /* Changed: make everything bold */
-  padding: 2rem;
-}
-
-/* Remove horizontal lines from math displays */
-.katex-display {
-  margin: 2rem 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  border-bottom: none !important;
-  overflow: visible !important;
-}
-
-/* Style equation tags/numbers */
-.katex-display .tag {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* Remove any borders or lines from math containers */
-.prose .katex-display::before,
-.prose .katex-display::after {
-  display: none !important;
-}
-
-/* Ensure no borders on math wrappers */
-.prose .katex-html {
-  border: none !important;
-}
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
-
-/* Typography Utilities - New additions */
-@layer utilities {
-  /* Exercise content - serif for readability */
-  .prose-exercise {
-    @apply font-serif text-base leading-relaxed;
-  }
-  
-  /* Math-specific spacing */
-  .math-display {
-    @apply my-8;
-  }
-  
-  .math-inline {
-    @apply px-0.5;
-  }
-  
-  /* Exercise structure */
-  .exercise-container {
-    @apply mb-12 last:mb-0;
-  }
-  
-  .exercise-header {
-    @apply text-2xl font-bold mb-4 leading-tight;
-  }
-  
-  .exercise-metadata {
-    @apply flex flex-wrap gap-3 mb-6 text-sm;
-  }
-  
-  .exercise-statement {
-    @apply text-base leading-relaxed mb-8 font-serif;
-  }
-  
-  .solution-section {
-    @apply mt-8 pt-8 border-t-2;
-  }
-  
-  .solution-header {
-    @apply text-xl font-semibold mb-4;
-  }
-  
-  /* Numbered lists in exercises - more spacing */
-  .exercise-list {
-    @apply my-6 pl-8 space-y-4;
-  }
-  
-  .exercise-list-item {
-    @apply leading-relaxed;
-  }
-}
-
+*/
