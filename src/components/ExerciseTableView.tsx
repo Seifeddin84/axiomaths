@@ -40,16 +40,17 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
   }, [exercises]);
 
   // Filter and sort exercises
-  const filteredAndSortedExercises = useMemo(() => {
-    let filtered = exercises.filter(exercise => {
-      if (filters.country && exercise.country !== filters.country) return false;
-      if (filters.professor && exercise.professor !== filters.professor) return false;
-      if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
-      if (filters.tag && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
-      if (filters.source && !exercise.source.toLowerCase().includes(filters.source.toLowerCase())) return false;
-      if (filters.year && exercise.year?.toString() !== filters.year) return false;
-      return true;
-    });
+  const filteredExercises = exercises.filter(exercise => {
+    if (filters.level && exercise.level !== filters.level) return false;
+    if (filters.section && exercise.section !== filters.section) return false;
+    if (filters.chapter && exercise.chapter !== filters.chapter) return false;
+    if (filters.professor && exercise.professor !== filters.professor) return false;
+    if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
+    if (filters.tag && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
+    if (filters.source && (!exercise.source || !exercise.source.toLowerCase().includes(filters.source.toLowerCase()))) return false;
+    if (filters.year && exercise.year?.toString() !== filters.year) return false;
+  return true;
+  });
 
     // Apply sorting
     if (sortField) {
