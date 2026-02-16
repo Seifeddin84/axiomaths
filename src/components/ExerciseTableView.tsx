@@ -45,7 +45,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
       if (filters.country && exercise.country !== filters.country) return false;
       if (filters.professor && exercise.professor !== filters.professor) return false;
       if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
-      if (filters.tag && !exercise.tags.includes(filters.tag)) return false;
+      if (filters.tag && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
       if (filters.source && !exercise.source.toLowerCase().includes(filters.source.toLowerCase())) return false;
       if (filters.year && exercise.year?.toString() !== filters.year) return false;
       return true;
