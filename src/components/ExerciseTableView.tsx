@@ -39,49 +39,49 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
     return { countries, professors, difficulties, tags, sources, years };
   }, [exercises]);
 
-  // Filter and sort exercises
-  const filteredExercises = exercises.filter(exercise => {
-    if (filters.level && exercise.level !== filters.level) return false;
-    if (filters.section && exercise.section !== filters.section) return false;
-    if (filters.chapter && exercise.chapter !== filters.chapter) return false;
+// Filter and sort exercises
+const filteredAndSortedExercises = useMemo(() => {
+  // Filter exercises
+  let filtered = exercises.filter(exercise => {
+    if (filters.country && exercise.country !== filters.country) return false;
     if (filters.professor && exercise.professor !== filters.professor) return false;
     if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
     if (filters.tag && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
     if (filters.source && (!exercise.source || !exercise.source.toLowerCase().includes(filters.source.toLowerCase()))) return false;
     if (filters.year && exercise.year?.toString() !== filters.year) return false;
-  return true;
+    return true;
   });
 
-    // Apply sorting
-    if (sortField) {
-      filtered = [...filtered].sort((a, b) => {
-        let aVal: any, bVal: any;
-        
-        if (sortField === 'difficulty') {
-          const difficultyOrder = { 'Facile': 1, 'Moyen': 2, 'Difficile': 3 };
-          aVal = difficultyOrder[a.difficulty as keyof typeof difficultyOrder] || 0;
-          bVal = difficultyOrder[b.difficulty as keyof typeof difficultyOrder] || 0;
-        } else if (sortField === 'points') {
-          aVal = a.points;
-          bVal = b.points;
-        } else if (sortField === 'year') {
-          aVal = a.year || 0;
-          bVal = b.year || 0;
-        } else if (sortField === 'uid') {
-          aVal = a.uid;
-          bVal = b.uid;
-        }
+  // Apply sorting
+  if (sortField) {
+    filtered = [...filtered].sort((a, b) => {
+      let aVal: any, bVal: any;
+      
+      if (sortField === 'difficulty') {
+        const difficultyOrder = { 'Facile': 1, 'Moyen': 2, 'Difficile': 3 };
+        aVal = difficultyOrder[a.difficulty as keyof typeof difficultyOrder] || 0;
+        bVal = difficultyOrder[b.difficulty as keyof typeof difficultyOrder] || 0;
+      } else if (sortField === 'points') {
+        aVal = a.points;
+        bVal = b.points;
+      } else if (sortField === 'year') {
+        aVal = a.year || 0;
+        bVal = b.year || 0;
+      } else if (sortField === 'uid') {
+        aVal = a.uid;
+        bVal = b.uid;
+      }
 
-        if (sortOrder === 'asc') {
-          return aVal > bVal ? 1 : -1;
-        } else {
-          return aVal < bVal ? 1 : -1;
-        }
-      });
-    }
+      if (sortOrder === 'asc') {
+        return aVal > bVal ? 1 : -1;
+      } else {
+        return aVal < bVal ? 1 : -1;
+      }
+    });
+  }
 
-    return filtered;
-  }, [exercises, filters, sortField, sortOrder]);
+  return filtered;
+}, [exercises, filters, sortField, sortOrder]);
 
   const clearFilters = () => {
     setFilters({ country: '', professor: '', difficulty: '', tag: '', source: '', year: '' });
