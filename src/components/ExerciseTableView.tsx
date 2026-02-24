@@ -364,7 +364,7 @@ const filteredAndSortedExercises = useMemo(() => {
                       </td>
                       <td className="px-4 py-3 text-sm">
                         <div className="flex flex-wrap gap-1">
-                          {exercise.tags.slice(0, 2).map(tag => (
+                          {exercise.tags?.slice(0, 2).map(tag => (
                             <span 
                               key={tag}
                               className="inline-flex items-center px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-semibold"
@@ -372,9 +372,9 @@ const filteredAndSortedExercises = useMemo(() => {
                               {tag}
                             </span>
                           ))}
-                          {exercise.tags.length > 2 && (
+                          {(exercise.tags?.length ?? 0) > 2 && (
                             <span className="text-xs text-gray-400 font-black self-center">
-                              +{exercise.tags.length - 2}
+                              +{(exercise.tags?.length ?? 0) - 2}
                             </span>
                           )}
                         </div>
