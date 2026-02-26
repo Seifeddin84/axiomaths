@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Exercise } from '@/types/exercise';
 import MathRenderer from './MathRenderer';
 import { useExerciseBasket } from '@/context/ExerciseBasketContext';
@@ -39,49 +39,49 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
     return { countries, professors, difficulties, tags, sources, years };
   }, [exercises]);
 
-// Filter and sort exercises
-const filteredAndSortedExercises = useMemo(() => {
-  // Filter exercises
-  let filtered = exercises.filter(exercise => {
-    if (filters.country && exercise.country !== filters.country) return false;
-    if (filters.professor && exercise.professor !== filters.professor) return false;
-    if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
-    if (filters.tag && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
-    if (filters.source && (!exercise.source || !exercise.source.toLowerCase().includes(filters.source.toLowerCase()))) return false;
-    if (filters.year && exercise.year?.toString() !== filters.year) return false;
-    return true;
-  });
-
-  // Apply sorting
-  if (sortField) {
-    filtered = [...filtered].sort((a, b) => {
-      let aVal: any, bVal: any;
-      
-      if (sortField === 'difficulty') {
-        const difficultyOrder = { 'Facile': 1, 'Moyen': 2, 'Difficile': 3 };
-        aVal = difficultyOrder[a.difficulty as keyof typeof difficultyOrder] || 0;
-        bVal = difficultyOrder[b.difficulty as keyof typeof difficultyOrder] || 0;
-      } else if (sortField === 'points') {
-        aVal = a.points;
-        bVal = b.points;
-      } else if (sortField === 'year') {
-        aVal = a.year || 0;
-        bVal = b.year || 0;
-      } else if (sortField === 'uid') {
-        aVal = a.uid;
-        bVal = b.uid;
-      }
-
-      if (sortOrder === 'asc') {
-        return aVal > bVal ? 1 : -1;
-      } else {
-        return aVal < bVal ? 1 : -1;
-      }
+  // Filter and sort exercises
+  const filteredAndSortedExercises = useMemo(() => {
+    // Filter exercises
+    let filtered = exercises.filter(exercise => {
+      if (filters.country && exercise.country !== filters.country) return false;
+      if (filters.professor && exercise.professor !== filters.professor) return false;
+      if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
+      if (filters.tag && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
+      if (filters.source && (!exercise.source || !exercise.source.toLowerCase().includes(filters.source.toLowerCase()))) return false;
+      if (filters.year && exercise.year?.toString() !== filters.year) return false;
+      return true;
     });
-  }
 
-  return filtered;
-}, [exercises, filters, sortField, sortOrder]);
+    // Apply sorting
+    if (sortField) {
+      filtered = [...filtered].sort((a, b) => {
+        let aVal: any, bVal: any;
+        
+        if (sortField === 'difficulty') {
+          const difficultyOrder = { 'Facile': 1, 'Moyen': 2, 'Difficile': 3 };
+          aVal = difficultyOrder[a.difficulty as keyof typeof difficultyOrder] || 0;
+          bVal = difficultyOrder[b.difficulty as keyof typeof difficultyOrder] || 0;
+        } else if (sortField === 'points') {
+          aVal = a.points;
+          bVal = b.points;
+        } else if (sortField === 'year') {
+          aVal = a.year || 0;
+          bVal = b.year || 0;
+        } else if (sortField === 'uid') {
+          aVal = a.uid;
+          bVal = b.uid;
+        }
+
+        if (sortOrder === 'asc') {
+          return aVal > bVal ? 1 : -1;
+        } else {
+          return aVal < bVal ? 1 : -1;
+        }
+      });
+    }
+
+    return filtered;
+  }, [exercises, filters, sortField, sortOrder]);
 
   const clearFilters = () => {
     setFilters({ country: '', professor: '', difficulty: '', tag: '', source: '', year: '' });
@@ -300,9 +300,8 @@ const filteredAndSortedExercises = useMemo(() => {
                 const selected = isSelected(exercise.uid);
 
                 return (
-                  <>
+                  <React.Fragment key={exercise.uid}>
                     <tr 
-                      key={exercise.uid}
                       onClick={() => toggleExercise(exercise.uid)}
                       className={`cursor-pointer transition-colors h-14 ${
                         idx % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-900'
@@ -385,7 +384,7 @@ const filteredAndSortedExercises = useMemo(() => {
                     {isExpanded && (
                       <tr>
                         <td colSpan={10} className="p-0 bg-gray-50 dark:bg-gray-900">
-                          <div className="exercise-content border-t-4 border-orange-300 dark:border-orange-600">
+                          <div className="exercise-content border-t-4 border-orange-300 dark:border-orange-600 p-8">
                             <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
                               <MathRenderer content={exercise.content} />
                             </div>
@@ -427,7 +426,7 @@ const filteredAndSortedExercises = useMemo(() => {
                         </td>
                       </tr>
                     )}
-                  </>
+                  </React.Fragment>
                 );
               })}
             </tbody>
