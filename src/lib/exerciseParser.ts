@@ -18,10 +18,10 @@ export function parseExercise(content: string, filename: string): Exercise {
     // New format: sections array
     if (Array.isArray(frontmatter.sections)) {
       // FIXED: Flatten nested arrays
-      sections = frontmatter.sections.flatMap(s => {
+      sections = frontmatter.sections.flatMap((s: any) => {
         // If s is an array (nested), flatten it
         if (Array.isArray(s)) {
-          return s.filter(item => item && typeof item === 'string').map(item => item.trim());
+          return s.filter((item: any) => item && typeof item === 'string').map((item: string) => item.trim());
         }
         // If s is a string, keep it
         if (s && typeof s === 'string') {
@@ -33,24 +33,24 @@ export function parseExercise(content: string, filename: string): Exercise {
     } else if (typeof frontmatter.sections === 'string') {
       // String format - could be comma-separated or single value
       if (frontmatter.sections.includes(',')) {
-        sections = frontmatter.sections.split(',').map(s => s.trim()).filter(Boolean);
+        sections = frontmatter.sections.split(',').map((s: string) => s.trim()).filter(Boolean);
       } else {
         sections = [frontmatter.sections.trim()];
       }
     }
     primarySection = sections.length > 0 ? sections[0] : undefined;
-    } else if (frontmatter.section) {
+  } else if (frontmatter.section) {
     // Handle both single string and array in "section" field
     if (Array.isArray(frontmatter.section)) {
       // Already an array
-      sections = frontmatter.section.filter(s => s && typeof s === 'string').map(s => s.trim());
+      sections = frontmatter.section.filter((s: any) => s && typeof s === 'string').map((s: string) => s.trim());
       primarySection = sections[0];
     } else if (typeof frontmatter.section === 'string') {
       // Single string
       primarySection = frontmatter.section;
       sections = [frontmatter.section];
     }
-    }
+  }
 
   console.log('Parsed sections:', sections);
 
@@ -100,7 +100,7 @@ function parseFrontmatter(content: string): { frontmatter: any; markdownContent:
         const arrayContent = value.slice(1, -1);
         value = arrayContent
           .split(',')
-          .map(v => v.trim().replace(/^["']|["']$/g, ''))
+          .map((v: string) => v.trim().replace(/^["']|["']$/g, ''))
           .filter(Boolean);
       }
       // Handle quoted strings
