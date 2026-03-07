@@ -31,7 +31,6 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
   const filterOptions = useMemo(() => {
     const countries = [...new Set(exercises.map(e => e.country))].filter(Boolean).sort();
     const professors = [...new Set(exercises.flatMap(e => e.professor ?? []))].filter(Boolean).sort();
-    const difficulties = [...new Set(exercises.map(e => e.difficulty))].sort();
     const tags = [...new Set(exercises.flatMap(e => e.tags))].sort();
     const sources = [...new Set(exercises.map(e => e.source))].filter(Boolean).sort();
     const years = [...new Set(exercises.map(e => e.year).filter((y): y is number => Boolean(y)))].sort((a, b) => b - a);
@@ -44,7 +43,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
     // Filter exercises
     let filtered = exercises.filter(exercise => {
       if (filters.country && exercise.country !== filters.country) return false;
-      if (filters.professor && exercise.professor !== filters.professor) return false;
+      if (filters.professor && !(exercise.professor?.includes(filters.professor))) return false;
       if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
       if (filters.tag && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
       if (filters.source && (!exercise.source || !exercise.source.toLowerCase().includes(filters.source.toLowerCase()))) return false;

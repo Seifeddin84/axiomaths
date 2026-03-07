@@ -273,8 +273,8 @@ function RechercheContent() {
             </select>
           </div>
 
-          {/* Row 2: metadata filters + pilote toggle */}
-          <div className="flex flex-wrap items-center gap-4 mb-8">
+          {/* Row 2: metadata filters */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">
             <select
               value={filterCountry}
               onChange={(e) => setFilterCountry(e.target.value)}
@@ -329,17 +329,33 @@ function RechercheContent() {
                 <option key={`tag-${idx}`} value={tag}>{tag}</option>
               ))}
             </select>
+          </div>
 
-            {/* Lycée Pilote toggle — button, not dropdown */}
-            {piloteCount > 0 && (
+          {/* Row 3: Lycée Pilote toggle — clearly labelled checkbox-style button */}
+          {piloteCount > 0 && (
+            <div className="flex items-center gap-3 mb-8">
+              <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                Établissement :
+              </span>
               <button
                 onClick={() => setFilterPiloteOnly(!filterPiloteOnly)}
-                className={`inline-flex items-center gap-2 px-4 py-3 border-2 font-bold text-sm transition-all ${
+                title={filterPiloteOnly ? 'Retirer le filtre Lycée Pilote' : 'Afficher uniquement les Lycées Pilotes'}
+                className={`inline-flex items-center gap-2 px-4 py-3 border-2 font-bold text-sm transition-all select-none ${
                   filterPiloteOnly
-                    ? 'border-purple-500 bg-purple-500 text-white'
-                    : 'border-purple-300 dark:border-purple-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-purple-500'
+                    ? 'border-purple-500 bg-purple-500 text-white shadow-lg shadow-purple-500/30'
+                    : 'border-purple-300 dark:border-purple-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400'
                 }`}
               >
+                {/* Checkbox indicator */}
+                <span className={`w-4 h-4 border-2 flex items-center justify-center flex-shrink-0 ${
+                  filterPiloteOnly ? 'border-white bg-white' : 'border-current'
+                }`}>
+                  {filterPiloteOnly && (
+                    <svg className="w-3 h-3 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </span>
                 🏆 Lycée Pilote
                 <span className={`px-1.5 py-0.5 text-xs font-black rounded ${
                   filterPiloteOnly
@@ -349,8 +365,8 @@ function RechercheContent() {
                   {piloteCount}
                 </span>
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Results count + reset */}
           <div className="flex items-center justify-between mb-6 p-4 bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500">
