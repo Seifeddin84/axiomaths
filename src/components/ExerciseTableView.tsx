@@ -27,35 +27,30 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
   const [showSolution, setShowSolution] = useState<string | null>(null);
   const { addExercise, removeExercise, isSelected } = useExerciseBasket();
 
-  // Get unique values for filters
   const filterOptions = useMemo(() => {
-    const countries = [...new Set(exercises.map(e => e.country))].filter(Boolean).sort();
-    const professors = [...new Set(exercises.flatMap(e => e.professor ?? []))].filter(Boolean).sort();
-    const tags = [...new Set(exercises.flatMap(e => e.tags))].sort();
-    const sources = [...new Set(exercises.map(e => e.source))].filter(Boolean).sort();
-    const years = [...new Set(exercises.map(e => e.year).filter((y): y is number => Boolean(y)))].sort((a, b) => b - a);
-    
+    const countries    = [...new Set(exercises.map(e => e.country))].filter(Boolean).sort();
+    const professors   = [...new Set(exercises.flatMap(e => e.professor ?? []))].filter(Boolean).sort();
+    const difficulties = [...new Set(exercises.map(e => e.difficulty))].filter(Boolean).sort();
+    const tags         = [...new Set(exercises.flatMap(e => e.tags ?? []))].filter(Boolean).sort();
+    const sources      = [...new Set(exercises.map(e => e.source))].filter(Boolean).sort();
+    const years        = [...new Set(exercises.map(e => e.year).filter((y): y is number => Boolean(y)))].sort((a, b) => b - a);
     return { countries, professors, difficulties, tags, sources, years };
   }, [exercises]);
 
-  // Filter and sort exercises
   const filteredAndSortedExercises = useMemo(() => {
-    // Filter exercises
     let filtered = exercises.filter(exercise => {
-      if (filters.country && exercise.country !== filters.country) return false;
-      if (filters.professor && !(exercise.professor?.includes(filters.professor))) return false;
+      if (filters.country    && exercise.country !== filters.country) return false;
+      if (filters.professor  && !(exercise.professor?.includes(filters.professor))) return false;
       if (filters.difficulty && exercise.difficulty !== filters.difficulty) return false;
-      if (filters.tag && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
-      if (filters.source && (!exercise.source || !exercise.source.toLowerCase().includes(filters.source.toLowerCase()))) return false;
-      if (filters.year && exercise.year?.toString() !== filters.year) return false;
+      if (filters.tag        && (!exercise.tags || !exercise.tags.includes(filters.tag))) return false;
+      if (filters.source     && (!exercise.source || !exercise.source.toLowerCase().includes(filters.source.toLowerCase()))) return false;
+      if (filters.year       && exercise.year?.toString() !== filters.year) return false;
       return true;
     });
 
-    // Apply sorting
     if (sortField) {
       filtered = [...filtered].sort((a, b) => {
         let aVal: any, bVal: any;
-        
         if (sortField === 'difficulty') {
           const difficultyOrder = { 'Facile': 1, 'Moyen': 2, 'Difficile': 3 };
           aVal = difficultyOrder[a.difficulty as keyof typeof difficultyOrder] || 0;
@@ -70,12 +65,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
           aVal = a.uid;
           bVal = b.uid;
         }
-
-        if (sortOrder === 'asc') {
-          return aVal > bVal ? 1 : -1;
-        } else {
-          return aVal < bVal ? 1 : -1;
-        }
+        return sortOrder === 'asc' ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
       });
     }
 
@@ -151,10 +141,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
             Filtres
           </h3>
           {hasActiveFilters && (
-            <button
-              onClick={clearFilters}
-              className="text-sm text-red-600 hover:text-red-700 font-black flex items-center gap-1"
-            >
+            <button onClick={clearFilters} className="text-sm text-red-600 hover:text-red-700 font-black flex items-center gap-1">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -164,14 +151,10 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-          {/* Country Filter */}
           <div>
             <label className="block text-sm font-black mb-2">Pays</label>
-            <select
-              value={filters.country}
-              onChange={(e) => setFilters({ ...filters, country: e.target.value })}
-              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold"
-            >
+            <select value={filters.country} onChange={(e) => setFilters({ ...filters, country: e.target.value })}
+              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold">
               <option value="">Tous</option>
               {filterOptions.countries.map(country => (
                 <option key={country} value={country}>{country}</option>
@@ -179,26 +162,17 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
             </select>
           </div>
 
-          {/* Source Filter */}
           <div>
             <label className="block text-sm font-black mb-2">Source</label>
-            <input
-              type="text"
-              placeholder="Rechercher..."
-              value={filters.source}
+            <input type="text" placeholder="Rechercher..." value={filters.source}
               onChange={(e) => setFilters({ ...filters, source: e.target.value })}
-              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700"
-            />
+              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700" />
           </div>
 
-          {/* Year Filter */}
           <div>
             <label className="block text-sm font-black mb-2">Année</label>
-            <select
-              value={filters.year}
-              onChange={(e) => setFilters({ ...filters, year: e.target.value })}
-              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold"
-            >
+            <select value={filters.year} onChange={(e) => setFilters({ ...filters, year: e.target.value })}
+              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold">
               <option value="">Toutes</option>
               {filterOptions.years.map(year => (
                 <option key={year} value={year}>{year}</option>
@@ -206,14 +180,10 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
             </select>
           </div>
 
-          {/* Difficulty Filter */}
           <div>
             <label className="block text-sm font-black mb-2">Difficulté</label>
-            <select
-              value={filters.difficulty}
-              onChange={(e) => setFilters({ ...filters, difficulty: e.target.value })}
-              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold"
-            >
+            <select value={filters.difficulty} onChange={(e) => setFilters({ ...filters, difficulty: e.target.value })}
+              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold">
               <option value="">Toutes</option>
               {filterOptions.difficulties.map(difficulty => (
                 <option key={difficulty} value={difficulty}>{difficulty}</option>
@@ -221,14 +191,10 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
             </select>
           </div>
 
-          {/* Professor Filter */}
           <div>
             <label className="block text-sm font-black mb-2">Professeur</label>
-            <select
-              value={filters.professor}
-              onChange={(e) => setFilters({ ...filters, professor: e.target.value })}
-              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold"
-            >
+            <select value={filters.professor} onChange={(e) => setFilters({ ...filters, professor: e.target.value })}
+              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold">
               <option value="">Tous</option>
               {filterOptions.professors.map(professor => (
                 <option key={professor} value={professor}>{professor}</option>
@@ -236,14 +202,10 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
             </select>
           </div>
 
-          {/* Tag Filter */}
           <div>
             <label className="block text-sm font-black mb-2">Tag</label>
-            <select
-              value={filters.tag}
-              onChange={(e) => setFilters({ ...filters, tag: e.target.value })}
-              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold"
-            >
+            <select value={filters.tag} onChange={(e) => setFilters({ ...filters, tag: e.target.value })}
+              className="w-full px-3 py-2 border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 font-semibold">
               <option value="">Tous</option>
               {filterOptions.tags.map(tag => (
                 <option key={tag} value={tag}>{tag}</option>
@@ -300,7 +262,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
 
                 return (
                   <React.Fragment key={exercise.uid}>
-                    <tr 
+                    <tr
                       onClick={() => toggleExercise(exercise.uid)}
                       className={`cursor-pointer transition-colors h-14 ${
                         idx % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-900'
@@ -323,9 +285,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
                         </div>
                       </td>
                       <td className="px-4 py-3 text-sm font-black" style={{ maxWidth: '300px' }}>
-                        <div className="break-words">
-                          {exercise.title || exercise.source}
-                        </div>
+                        <div className="break-words">{exercise.title || exercise.source}</div>
                       </td>
                       <td className="px-4 py-3 text-sm font-semibold max-w-xs truncate text-gray-600 dark:text-gray-400">
                         {exercise.title ? exercise.source : '-'}
@@ -342,11 +302,13 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
                         </span>
                       </td>
                       <td className="px-4 py-3 text-sm font-semibold">
-                        {exercise.professor || '-'}
+                        {exercise.professor && exercise.professor.length > 0
+                          ? exercise.professor.join(', ')
+                          : '-'}
                       </td>
                       <td className="px-4 py-3 text-sm">
                         <span className={`inline-flex items-center px-3 py-1 text-xs font-black ${
-                          exercise.difficulty === 'Facile' 
+                          exercise.difficulty === 'Facile'
                             ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
                             : exercise.difficulty === 'Moyen'
                             ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
@@ -363,10 +325,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
                       <td className="px-4 py-3 text-sm">
                         <div className="flex flex-wrap gap-1">
                           {exercise.tags?.slice(0, 2).map(tag => (
-                            <span 
-                              key={tag}
-                              className="inline-flex items-center px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-semibold"
-                            >
+                            <span key={tag} className="inline-flex items-center px-2 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-semibold">
                               {tag}
                             </span>
                           ))}
@@ -378,25 +337,20 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
                         </div>
                       </td>
                     </tr>
-                    
-                    {/* Expanded Exercise Content */}
+
                     {isExpanded && (
                       <tr>
                         <td colSpan={10} className="p-0 bg-gray-50 dark:bg-gray-900">
-                          <div className="exercise-content border-t-4 border-orange-300 dark:border-orange-600 p-8">
+                          <div className="border-t-4 border-orange-300 dark:border-orange-600 p-8">
                             <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
                               <MathRenderer content={exercise.content} />
                             </div>
                           </div>
-                          
-                          {/* Solution */}
+
                           {exercise.solution && (
                             <div className="p-6 bg-white dark:bg-gray-800">
                               <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  toggleSolution(exercise.uid);
-                                }}
+                                onClick={(e) => { e.stopPropagation(); toggleSolution(exercise.uid); }}
                                 className="px-6 py-3 font-black text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-lg hover:shadow-orange-500/50 transition-all flex items-center gap-2"
                               >
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
