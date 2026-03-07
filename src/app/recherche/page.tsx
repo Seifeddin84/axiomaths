@@ -21,7 +21,7 @@ function RechercheContent() {
   const [filterDifficulty, setFilterDifficulty] = useState('all');
   const [filterProfessor, setFilterProfessor] = useState('all');
   const [filterTag, setFilterTag] = useState('all');
-  const [filterSchoolType, setFilterSchoolType] = useState('all');
+  const [filterPiloteOnly, setFilterPiloteOnly] = useState(false);
 
   useEffect(() => {
     const queryFromUrl = searchParams.get('q');
@@ -34,117 +34,104 @@ function RechercheContent() {
         return res.json();
       })
       .then(data => {
-        console.log('Loaded exercises:', data.length);
         setExercises(data);
         setError(null);
       })
-      .catch(err => {
-        console.error('Error loading exercises:', err);
-        setError(err.message);
-      })
+      .catch(err => setError(err.message))
       .finally(() => setLoading(false));
   }, [searchParams]);
 
-  const uniqueSchools = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.school?.toLowerCase()))].filter((school): school is string => Boolean(school)).sort(),
+  const uniqueSchools = useMemo(() =>
+    [...new Set(exercises.map(ex => ex.school?.toLowerCase()))].filter((s): s is string => Boolean(s)).sort(),
     [exercises]
   );
 
-  const uniqueLevels = useMemo(() => 
+  const uniqueLevels = useMemo(() =>
     [...new Set(exercises
       .filter(ex => filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool)
-      .map(ex => ex.level))].filter((level): level is string => Boolean(level)).sort(),
+      .map(ex => ex.level))].filter((l): l is string => Boolean(l)).sort(),
     [exercises, filterSchool]
   );
 
-  const uniqueSections = useMemo(() => 
+  const uniqueSections = useMemo(() =>
     [...new Set(exercises
-      .filter(ex => 
+      .filter(ex =>
         (filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool) &&
         (filterLevel === 'all' || ex.level === filterLevel) &&
         ex.section
       )
-      .map(ex => ex.section))].filter((section): section is string => Boolean(section)).sort(),
+      .map(ex => ex.section))].filter((s): s is string => Boolean(s)).sort(),
     [exercises, filterSchool, filterLevel]
   );
 
-  const uniqueChapters = useMemo(() => 
+  const uniqueChapters = useMemo(() =>
     [...new Set(exercises
-      .filter(ex => 
+      .filter(ex =>
         (filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool) &&
         (filterLevel === 'all' || ex.level === filterLevel) &&
         (filterSection === 'all' || ex.section === filterSection)
       )
-      .map(ex => ex.chapter))].filter((chapter): chapter is string => Boolean(chapter)).sort(),
+      .map(ex => ex.chapter))].filter((c): c is string => Boolean(c)).sort(),
     [exercises, filterSchool, filterLevel, filterSection]
   );
 
-  const uniqueCountries = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.country))].filter((country): country is string => Boolean(country)).sort(),
+  const uniqueCountries = useMemo(() =>
+    [...new Set(exercises.map(ex => ex.country))].filter((c): c is string => Boolean(c)).sort(),
     [exercises]
   );
 
-  const uniqueYears = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.year))].filter((year): year is number => Boolean(year)).sort().reverse(),
+  const uniqueYears = useMemo(() =>
+    [...new Set(exercises.map(ex => ex.year))].filter((y): y is number => Boolean(y)).sort().reverse(),
     [exercises]
   );
 
-  const uniqueDifficulties = useMemo(() => 
+  const uniqueDifficulties = useMemo(() =>
     [...new Set(exercises.map(ex => ex.difficulty).filter(Boolean))].sort(),
     [exercises]
   );
 
   const uniqueProfessors = useMemo(() =>
-    [...new Set(exercises.flatMap(ex => ex.professor ?? []))]
-      .filter(Boolean)
-      .sort(),
+    [...new Set(exercises.flatMap(ex => ex.professor ?? []))].filter(Boolean).sort(),
     [exercises]
   );
 
-  const uniqueTags = useMemo(() => {
-    const allTags = exercises.flatMap(ex => ex.tags || []);
-    return [...new Set(allTags)].filter((tag): tag is string => Boolean(tag)).sort();
-  }, [exercises]);
-
-  // Unique school types — only show values that actually exist in the data
-  const uniqueSchoolTypes = useMemo(() =>
-    [...new Set(exercises.map(ex => ex.schoolType).filter(Boolean))].sort() as string[],
+  const uniqueTags = useMemo(() =>
+    [...new Set(exercises.flatMap(ex => ex.tags || []))].filter((t): t is string => Boolean(t)).sort(),
     [exercises]
   );
 
-  const schoolTypeLabels: Record<string, string> = {
-    pilote: '🏆 Lycée Pilote',
-    prepa: '🎓 Prépa Intégrée',
-    prive: '🏫 Privé',
-  };
+  const piloteCount = useMemo(() =>
+    exercises.filter(ex => ex.schoolType === 'pilote').length,
+    [exercises]
+  );
 
   const filteredExercises = useMemo(() => {
     return exercises.filter(ex => {
       const searchLower = searchText.toLowerCase();
-      const matchesSearch = searchText === '' || 
+      const matchesSearch = searchText === '' ||
         ex.title?.toLowerCase().includes(searchLower) ||
         ex.source?.toLowerCase().includes(searchLower) ||
         ex.professor?.some(p => p.toLowerCase().includes(searchLower)) ||
         ex.tags?.some(tag => tag.toLowerCase().includes(searchLower)) ||
         ex.chapter?.toLowerCase().includes(searchLower);
 
-      const matchesSchool = filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool;
-      const matchesLevel = filterLevel === 'all' || ex.level === filterLevel;
-      const matchesSection = filterSection === 'all' || ex.section === filterSection;
-      const matchesChapter = filterChapter === 'all' || ex.chapter === filterChapter;
-      const matchesCountry = filterCountry === 'all' || ex.country === filterCountry;
-      const matchesYear = filterYear === 'all' || ex.year?.toString() === filterYear;
+      const matchesSchool     = filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool;
+      const matchesLevel      = filterLevel === 'all' || ex.level === filterLevel;
+      const matchesSection    = filterSection === 'all' || ex.section === filterSection;
+      const matchesChapter    = filterChapter === 'all' || ex.chapter === filterChapter;
+      const matchesCountry    = filterCountry === 'all' || ex.country === filterCountry;
+      const matchesYear       = filterYear === 'all' || ex.year?.toString() === filterYear;
       const matchesDifficulty = filterDifficulty === 'all' || ex.difficulty === filterDifficulty;
-      const matchesProfessor = filterProfessor === 'all' || (ex.professor?.includes(filterProfessor) ?? false);
-      const matchesTag = filterTag === 'all' || ex.tags?.includes(filterTag);
-      const matchesSchoolType = filterSchoolType === 'all' || ex.schoolType === filterSchoolType;
+      const matchesProfessor  = filterProfessor === 'all' || (ex.professor?.includes(filterProfessor) ?? false);
+      const matchesTag        = filterTag === 'all' || ex.tags?.includes(filterTag);
+      const matchesPilote     = !filterPiloteOnly || ex.schoolType === 'pilote';
 
       return matchesSearch && matchesSchool && matchesLevel && matchesSection && matchesChapter &&
              matchesCountry && matchesYear && matchesDifficulty && matchesProfessor && matchesTag &&
-             matchesSchoolType;
+             matchesPilote;
     });
-  }, [exercises, searchText, filterSchool, filterLevel, filterSection, filterChapter, 
-      filterCountry, filterYear, filterDifficulty, filterProfessor, filterTag, filterSchoolType]);
+  }, [exercises, searchText, filterSchool, filterLevel, filterSection, filterChapter,
+      filterCountry, filterYear, filterDifficulty, filterProfessor, filterTag, filterPiloteOnly]);
 
   const resetFilters = () => {
     setSearchText('');
@@ -157,7 +144,7 @@ function RechercheContent() {
     setFilterDifficulty('all');
     setFilterProfessor('all');
     setFilterTag('all');
-    setFilterSchoolType('all');
+    setFilterPiloteOnly(false);
   };
 
   const displaySchoolName = (school: string) => {
@@ -213,10 +200,8 @@ function RechercheContent() {
 
       <section className="bg-white dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-4 p-3 bg-gray-100 dark:bg-gray-800 text-sm font-mono">
-            <strong>Debug:</strong> Total: {exercises.length} | Schools: {uniqueSchools.length} | Filtered: {filteredExercises.length}
-          </div>
 
+          {/* Search bar */}
           <div className="mb-8">
             <div className="relative">
               <input
@@ -238,8 +223,9 @@ function RechercheContent() {
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-700"></div>
           </div>
 
+          {/* Row 1: hierarchical filters */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-            <select 
+            <select
               value={filterSchool}
               onChange={(e) => { setFilterSchool(e.target.value); setFilterLevel('all'); setFilterSection('all'); setFilterChapter('all'); }}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold"
@@ -250,7 +236,7 @@ function RechercheContent() {
               ))}
             </select>
 
-            <select 
+            <select
               value={filterLevel}
               onChange={(e) => { setFilterLevel(e.target.value); setFilterSection('all'); setFilterChapter('all'); }}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
@@ -262,7 +248,7 @@ function RechercheContent() {
               ))}
             </select>
 
-            <select 
+            <select
               value={filterSection}
               onChange={(e) => { setFilterSection(e.target.value); setFilterChapter('all'); }}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
@@ -274,7 +260,7 @@ function RechercheContent() {
               ))}
             </select>
 
-            <select 
+            <select
               value={filterChapter}
               onChange={(e) => setFilterChapter(e.target.value)}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
@@ -287,8 +273,9 @@ function RechercheContent() {
             </select>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-8">
-            <select 
+          {/* Row 2: metadata filters + pilote toggle */}
+          <div className="flex flex-wrap items-center gap-4 mb-8">
+            <select
               value={filterCountry}
               onChange={(e) => setFilterCountry(e.target.value)}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold"
@@ -299,7 +286,7 @@ function RechercheContent() {
               ))}
             </select>
 
-            <select 
+            <select
               value={filterYear}
               onChange={(e) => setFilterYear(e.target.value)}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold"
@@ -310,7 +297,7 @@ function RechercheContent() {
               ))}
             </select>
 
-            <select 
+            <select
               value={filterDifficulty}
               onChange={(e) => setFilterDifficulty(e.target.value)}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold"
@@ -321,7 +308,7 @@ function RechercheContent() {
               ))}
             </select>
 
-            <select 
+            <select
               value={filterProfessor}
               onChange={(e) => setFilterProfessor(e.target.value)}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold"
@@ -332,7 +319,7 @@ function RechercheContent() {
               ))}
             </select>
 
-            <select 
+            <select
               value={filterTag}
               onChange={(e) => setFilterTag(e.target.value)}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold"
@@ -343,24 +330,35 @@ function RechercheContent() {
               ))}
             </select>
 
-            {/* School type filter — only rendered if any exercises have a schoolType */}
-            <select
-              value={filterSchoolType}
-              onChange={(e) => setFilterSchoolType(e.target.value)}
-              className="px-4 py-3 border-2 border-purple-300 dark:border-purple-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-purple-500 dark:focus:border-purple-500 focus:outline-none font-semibold"
-            >
-              <option value="all">Établissement ({uniqueSchoolTypes.length})</option>
-              {uniqueSchoolTypes.map((type, idx) => (
-                <option key={`schooltype-${idx}`} value={type}>
-                  {schoolTypeLabels[type] ?? type}
-                </option>
-              ))}
-            </select>
+            {/* Lycée Pilote toggle — button, not dropdown */}
+            {piloteCount > 0 && (
+              <button
+                onClick={() => setFilterPiloteOnly(!filterPiloteOnly)}
+                className={`inline-flex items-center gap-2 px-4 py-3 border-2 font-bold text-sm transition-all ${
+                  filterPiloteOnly
+                    ? 'border-purple-500 bg-purple-500 text-white'
+                    : 'border-purple-300 dark:border-purple-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-purple-500'
+                }`}
+              >
+                🏆 Lycée Pilote
+                <span className={`px-1.5 py-0.5 text-xs font-black rounded ${
+                  filterPiloteOnly
+                    ? 'bg-purple-700 text-white'
+                    : 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300'
+                }`}>
+                  {piloteCount}
+                </span>
+              </button>
+            )}
           </div>
 
+          {/* Results count + reset */}
           <div className="flex items-center justify-between mb-6 p-4 bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500">
             <p className="text-lg font-bold text-gray-900 dark:text-white">
               ✨ <span className="text-orange-500">{filteredExercises.length}</span> exercice{filteredExercises.length !== 1 ? 's' : ''} trouvé{filteredExercises.length !== 1 ? 's' : ''}
+              {filterPiloteOnly && (
+                <span className="ml-2 text-purple-500 text-sm font-semibold">• Lycée Pilote uniquement</span>
+              )}
             </p>
             <button onClick={resetFilters} className="text-sm font-bold text-orange-500 hover:text-orange-600 uppercase tracking-wider">
               Réinitialiser

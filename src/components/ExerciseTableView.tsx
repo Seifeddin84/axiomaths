@@ -30,7 +30,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
   // Get unique values for filters
   const filterOptions = useMemo(() => {
     const countries = [...new Set(exercises.map(e => e.country))].filter(Boolean).sort();
-    const professors = [...new Set(exercises.map(e => e.professor ?? []).filter((p): p is string => Boolean(p)))].sort();
+    const professors = [...new Set(exercises.flatMap(e => e.professor ?? []))].filter(Boolean).sort();
     const difficulties = [...new Set(exercises.map(e => e.difficulty))].sort();
     const tags = [...new Set(exercises.flatMap(e => e.tags))].sort();
     const sources = [...new Set(exercises.map(e => e.source))].filter(Boolean).sort();
