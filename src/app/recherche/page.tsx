@@ -21,13 +21,11 @@ function RechercheContent() {
   const [filterDifficulty, setFilterDifficulty] = useState('all');
   const [filterProfessor, setFilterProfessor] = useState('all');
   const [filterTag, setFilterTag] = useState('all');
+  const [filterSchoolType, setFilterSchoolType] = useState('all');
 
-  // Load all exercises on mount and initialize search from URL
   useEffect(() => {
     const queryFromUrl = searchParams.get('q');
-    if (queryFromUrl) {
-      setSearchText(queryFromUrl);
-    }
+    if (queryFromUrl) setSearchText(queryFromUrl);
 
     setLoading(true);
     fetch('/api/exercises')
@@ -96,8 +94,10 @@ function RechercheContent() {
     [exercises]
   );
 
-  const uniqueProfessors = useMemo(() => 
-    [...new Set(exercises.map(ex => ex.professor))].filter((professor): professor is string => Boolean(professor)).sort(),
+  const uniqueProfessors = useMemo(() =>
+    [...new Set(exercises.flatMap(ex => ex.professor ?? []))]
+      .filter(Boolean)
+      .sort(),
     [exercises]
   );
 
@@ -106,13 +106,25 @@ function RechercheContent() {
     return [...new Set(allTags)].filter((tag): tag is string => Boolean(tag)).sort();
   }, [exercises]);
 
+  // Unique school types — only show values that actually exist in the data
+  const uniqueSchoolTypes = useMemo(() =>
+    [...new Set(exercises.map(ex => ex.schoolType).filter(Boolean))].sort() as string[],
+    [exercises]
+  );
+
+  const schoolTypeLabels: Record<string, string> = {
+    pilote: '🏆 Lycée Pilote',
+    prepa: '🎓 Prépa Intégrée',
+    prive: '🏫 Privé',
+  };
+
   const filteredExercises = useMemo(() => {
     return exercises.filter(ex => {
       const searchLower = searchText.toLowerCase();
       const matchesSearch = searchText === '' || 
         ex.title?.toLowerCase().includes(searchLower) ||
         ex.source?.toLowerCase().includes(searchLower) ||
-        ex.professor?.toLowerCase().includes(searchLower) ||
+        ex.professor?.some(p => p.toLowerCase().includes(searchLower)) ||
         ex.tags?.some(tag => tag.toLowerCase().includes(searchLower)) ||
         ex.chapter?.toLowerCase().includes(searchLower);
 
@@ -123,14 +135,16 @@ function RechercheContent() {
       const matchesCountry = filterCountry === 'all' || ex.country === filterCountry;
       const matchesYear = filterYear === 'all' || ex.year?.toString() === filterYear;
       const matchesDifficulty = filterDifficulty === 'all' || ex.difficulty === filterDifficulty;
-      const matchesProfessor = filterProfessor === 'all' || ex.professor === filterProfessor;
+      const matchesProfessor = filterProfessor === 'all' || (ex.professor?.includes(filterProfessor) ?? false);
       const matchesTag = filterTag === 'all' || ex.tags?.includes(filterTag);
+      const matchesSchoolType = filterSchoolType === 'all' || ex.schoolType === filterSchoolType;
 
       return matchesSearch && matchesSchool && matchesLevel && matchesSection && matchesChapter &&
-             matchesCountry && matchesYear && matchesDifficulty && matchesProfessor && matchesTag;
+             matchesCountry && matchesYear && matchesDifficulty && matchesProfessor && matchesTag &&
+             matchesSchoolType;
     });
   }, [exercises, searchText, filterSchool, filterLevel, filterSection, filterChapter, 
-      filterCountry, filterYear, filterDifficulty, filterProfessor, filterTag]);
+      filterCountry, filterYear, filterDifficulty, filterProfessor, filterTag, filterSchoolType]);
 
   const resetFilters = () => {
     setSearchText('');
@@ -143,6 +157,7 @@ function RechercheContent() {
     setFilterDifficulty('all');
     setFilterProfessor('all');
     setFilterTag('all');
+    setFilterSchoolType('all');
   };
 
   const displaySchoolName = (school: string) => {
@@ -180,7 +195,6 @@ function RechercheContent() {
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        
         <div className="relative max-w-7xl mx-auto px-6 py-16">
           <div className="mb-6">
             <Link href="/" className="text-orange-400 hover:text-orange-300 font-semibold text-sm uppercase tracking-wide">
@@ -194,7 +208,6 @@ function RechercheContent() {
             Trouvez rapidement les exercices dont vous avez besoin
           </p>
         </div>
-        
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900"></div>
       </section>
 
@@ -228,29 +241,18 @@ function RechercheContent() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
             <select 
               value={filterSchool}
-              onChange={(e) => {
-                setFilterSchool(e.target.value);
-                setFilterLevel('all');
-                setFilterSection('all');
-                setFilterChapter('all');
-              }}
+              onChange={(e) => { setFilterSchool(e.target.value); setFilterLevel('all'); setFilterSection('all'); setFilterChapter('all'); }}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold"
             >
               <option value="all">École ({uniqueSchools.length})</option>
               {uniqueSchools.map((school, idx) => (
-                <option key={`school-${idx}`} value={school}>
-                  {displaySchoolName(school)}
-                </option>
+                <option key={`school-${idx}`} value={school}>{displaySchoolName(school)}</option>
               ))}
             </select>
 
             <select 
               value={filterLevel}
-              onChange={(e) => {
-                setFilterLevel(e.target.value);
-                setFilterSection('all');
-                setFilterChapter('all');
-              }}
+              onChange={(e) => { setFilterLevel(e.target.value); setFilterSection('all'); setFilterChapter('all'); }}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={filterSchool === 'all'}
             >
@@ -262,10 +264,7 @@ function RechercheContent() {
 
             <select 
               value={filterSection}
-              onChange={(e) => {
-                setFilterSection(e.target.value);
-                setFilterChapter('all');
-              }}
+              onChange={(e) => { setFilterSection(e.target.value); setFilterChapter('all'); }}
               className="px-4 py-3 border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-orange-500 dark:focus:border-orange-500 focus:outline-none font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={filterLevel === 'all' || uniqueSections.length === 0}
             >
@@ -288,7 +287,7 @@ function RechercheContent() {
             </select>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-8">
             <select 
               value={filterCountry}
               onChange={(e) => setFilterCountry(e.target.value)}
@@ -343,16 +342,27 @@ function RechercheContent() {
                 <option key={`tag-${idx}`} value={tag}>{tag}</option>
               ))}
             </select>
+
+            {/* School type filter — only rendered if any exercises have a schoolType */}
+            <select
+              value={filterSchoolType}
+              onChange={(e) => setFilterSchoolType(e.target.value)}
+              className="px-4 py-3 border-2 border-purple-300 dark:border-purple-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:border-purple-500 dark:focus:border-purple-500 focus:outline-none font-semibold"
+            >
+              <option value="all">Établissement ({uniqueSchoolTypes.length})</option>
+              {uniqueSchoolTypes.map((type, idx) => (
+                <option key={`schooltype-${idx}`} value={type}>
+                  {schoolTypeLabels[type] ?? type}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="flex items-center justify-between mb-6 p-4 bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500">
             <p className="text-lg font-bold text-gray-900 dark:text-white">
               ✨ <span className="text-orange-500">{filteredExercises.length}</span> exercice{filteredExercises.length !== 1 ? 's' : ''} trouvé{filteredExercises.length !== 1 ? 's' : ''}
             </p>
-            <button 
-              onClick={resetFilters}
-              className="text-sm font-bold text-orange-500 hover:text-orange-600 uppercase tracking-wider"
-            >
+            <button onClick={resetFilters} className="text-sm font-bold text-orange-500 hover:text-orange-600 uppercase tracking-wider">
               Réinitialiser
             </button>
           </div>

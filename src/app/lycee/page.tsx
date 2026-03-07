@@ -6,25 +6,25 @@ export default function LyceePage() {
       id: '1ere',
       title: '1ère Année',
       description: 'Exercices de mathématiques pour la 1ère année du lycée',
-      sections: ['Toutes sections'],
+      sections: ['Tronc Commun'],
     },
     {
       id: '2eme',
       title: '2ème Année',
       description: 'Exercices de mathématiques pour la 2ème année du lycée',
-      sections: ['Sciences', 'Économie', 'Lettres'],
+      sections: ['Sciences', 'Économie et Service', 'Informatique', 'Lettres'],
     },
     {
       id: '3eme',
       title: '3ème Année',
       description: 'Exercices de mathématiques pour la 3ème année du lycée',
-      sections: ['Mathématiques', 'Sciences expérimentales', 'Économie', 'Technique'],
+      sections: ['Mathématiques', 'Sciences expérimentales', 'Économie et Gestion', 'Informatique', 'Technique', 'Lettres'],
     },
     {
       id: '4eme',
       title: '4ème Année (BAC)',
       description: 'Exercices de préparation au baccalauréat',
-      sections: ['Mathématiques', 'Sciences expérimentales', 'Économie', 'Technique', 'Informatique'],
+      sections: ['Mathématiques', 'Sciences expérimentales', 'Économie et Gestion', 'Informatique', 'Technique', 'Lettres'],
     },
   ];
 

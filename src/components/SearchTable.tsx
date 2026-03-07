@@ -28,7 +28,6 @@ export default function SearchTable({ exercises }: SearchTableProps) {
   const [tableFilterYear, setTableFilterYear] = useState('all');
   const [tableFilterDifficulty, setTableFilterDifficulty] = useState('all');
 
-  // Toggle expansion
   const toggleRow = (uid: string) => {
     setExpandedId(expandedId === uid ? null : uid);
     setShowSolution(null);
@@ -39,7 +38,6 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     setShowSolution(showSolution === uid ? null : uid);
   };
 
-  // Get unique values for inline filters
   const uniqueSchools = useMemo(() => 
     [...new Set(exercises.map(ex => ex.school).filter(Boolean))].sort(),
     [exercises]
@@ -51,30 +49,17 @@ export default function SearchTable({ exercises }: SearchTableProps) {
   );
 
   const uniqueSections = useMemo(() => {
-    // FIXED: Properly handle both array and single section
     const sectionsSet = new Set<string>();
-    
     exercises.forEach(ex => {
-      // Handle sections array (NEW FORMAT)
       if (ex.sections && Array.isArray(ex.sections)) {
         ex.sections.forEach(section => {
-          if (section && typeof section === 'string') {
-            sectionsSet.add(section.trim());
-          }
+          if (section && typeof section === 'string') sectionsSet.add(section.trim());
         });
-      }
-      // Handle single section (OLD FORMAT)
-      else if (ex.section && typeof ex.section === 'string') {
+      } else if (ex.section && typeof ex.section === 'string') {
         sectionsSet.add(ex.section.trim());
       }
     });
-    
-    // Filter out invalid entries
-    const validSections = [...sectionsSet].filter(s => 
-      s && s !== 'null' && s !== 'undefined'
-    );
-    
-    return validSections.sort();
+    return [...sectionsSet].filter(s => s && s !== 'null' && s !== 'undefined').sort();
   }, [exercises]);
 
   const uniqueChapters = useMemo(() => 
@@ -92,45 +77,35 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     [exercises]
   );
 
-  // Apply inline filters
   const tableFilteredExercises = useMemo(() => {
     return exercises.filter(ex => {
-      const normalizeStr = (str: string | undefined | null) => 
-        str?.toLowerCase().trim() || '';
+      const normalizeStr = (str: string | undefined | null) => str?.toLowerCase().trim() || '';
 
-      const matchesSchool = tableFilterSchool === 'all' || 
-        normalizeStr(ex.school) === normalizeStr(tableFilterSchool);
-      
-      const matchesLevel = tableFilterLevel === 'all' || 
-        normalizeStr(ex.level) === normalizeStr(tableFilterLevel);
-      
-      // Section filter - handle both array and single value
+      const matchesSchool = tableFilterSchool === 'all' || normalizeStr(ex.school) === normalizeStr(tableFilterSchool);
+      const matchesLevel = tableFilterLevel === 'all' || normalizeStr(ex.level) === normalizeStr(tableFilterLevel);
       const matchesSection = tableFilterSection === 'all' || 
         (ex.sections && ex.sections.some(s => normalizeStr(s) === normalizeStr(tableFilterSection))) ||
         normalizeStr(ex.section) === normalizeStr(tableFilterSection);
-      
-      const matchesChapter = tableFilterChapter === 'all' || 
-        normalizeStr(ex.chapter) === normalizeStr(tableFilterChapter);
-      
-      const matchesYear = tableFilterYear === 'all' || 
-        normalizeStr(ex.year?.toString()) === normalizeStr(tableFilterYear);
-      
-      const matchesDifficulty = tableFilterDifficulty === 'all' || 
-        normalizeStr(ex.difficulty) === normalizeStr(tableFilterDifficulty);
+      const matchesChapter = tableFilterChapter === 'all' || normalizeStr(ex.chapter) === normalizeStr(tableFilterChapter);
+      const matchesYear = tableFilterYear === 'all' || normalizeStr(ex.year?.toString()) === normalizeStr(tableFilterYear);
+      const matchesDifficulty = tableFilterDifficulty === 'all' || normalizeStr(ex.difficulty) === normalizeStr(tableFilterDifficulty);
 
       return matchesSchool && matchesLevel && matchesSection && matchesChapter && matchesYear && matchesDifficulty;
     });
   }, [exercises, tableFilterSchool, tableFilterLevel, tableFilterSection, tableFilterChapter, tableFilterYear, tableFilterDifficulty]);
 
-  // Sort exercises
   const sortedExercises = useMemo(() => {
-    const sorted = [...tableFilteredExercises].sort((a, b) => {
+    return [...tableFilteredExercises].sort((a, b) => {
       let aValue: any = a[sortField];
       let bValue: any = b[sortField];
 
+      if (sortField === 'professor') {
+        aValue = Array.isArray(aValue) ? aValue[0] ?? '' : aValue ?? '';
+        bValue = Array.isArray(bValue) ? bValue[0] ?? '' : bValue ?? '';
+      }
+
       if (aValue === undefined || aValue === null) aValue = '';
       if (bValue === undefined || bValue === null) bValue = '';
-
       if (typeof aValue === 'string') aValue = aValue.toLowerCase();
       if (typeof bValue === 'string') bValue = bValue.toLowerCase();
 
@@ -138,11 +113,8 @@ export default function SearchTable({ exercises }: SearchTableProps) {
       if (aValue > bValue) return sortOrder === 'asc' ? 1 : -1;
       return 0;
     });
-
-    return sorted;
   }, [tableFilteredExercises, sortField, sortOrder]);
 
-  // Toggle sort
   const handleSort = (field: SortField) => {
     if (sortField === field) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
@@ -152,7 +124,6 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     }
   };
 
-  // Select/deselect all
   const toggleSelectAll = () => {
     if (selectedIds.length === sortedExercises.length) {
       setSelectedIds([]);
@@ -161,7 +132,6 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     }
   };
 
-  // Toggle individual selection
   const toggleSelect = (exercise: Exercise) => {
     if (isSelected(exercise.uid)) {
       removeExercise(exercise.uid);
@@ -172,7 +142,6 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     }
   };
 
-  // Reset table filters
   const resetTableFilters = () => {
     setTableFilterSchool('all');
     setTableFilterLevel('all');
@@ -182,7 +151,6 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     setTableFilterDifficulty('all');
   };
 
-  // Difficulty badge colors
   const getDifficultyColor = (difficulty?: string) => {
     switch (difficulty?.toLowerCase()) {
       case 'facile': return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
@@ -192,18 +160,14 @@ export default function SearchTable({ exercises }: SearchTableProps) {
     }
   };
 
-  // Sort arrow component
   const SortArrow = ({ field }: { field: SortField }) => {
-    if (sortField !== field) {
-      return <span className="text-gray-400">↕</span>;
-    }
+    if (sortField !== field) return <span className="text-gray-400">↕</span>;
     return <span className="text-orange-500">{sortOrder === 'asc' ? '↑' : '↓'}</span>;
   };
 
-  // Check if any table filters are active
   const hasActiveTableFilters = tableFilterSchool !== 'all' || tableFilterLevel !== 'all' || 
-                                  tableFilterSection !== 'all' || tableFilterChapter !== 'all' || 
-                                  tableFilterYear !== 'all' || tableFilterDifficulty !== 'all';
+    tableFilterSection !== 'all' || tableFilterChapter !== 'all' || 
+    tableFilterYear !== 'all' || tableFilterDifficulty !== 'all';
 
   if (exercises.length === 0) {
     return (
@@ -217,31 +181,23 @@ export default function SearchTable({ exercises }: SearchTableProps) {
 
   return (
     <div className="overflow-x-auto">
-      {/* Selected counter */}
       {selectedIds.length > 0 && (
         <div className="mb-4 p-4 bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 flex items-center justify-between">
           <p className="text-sm font-bold text-gray-900 dark:text-white">
             ☑️ <span className="text-teal-600 dark:text-teal-400">{selectedIds.length}</span> exercice{selectedIds.length > 1 ? 's' : ''} sélectionné{selectedIds.length > 1 ? 's' : ''}
           </p>
-          <button 
-            onClick={() => setSelectedIds([])}
-            className="text-sm font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 uppercase"
-          >
+          <button onClick={() => setSelectedIds([])} className="text-sm font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 uppercase">
             Désélectionner
           </button>
         </div>
       )}
 
-      {/* Active table filters indicator */}
       {hasActiveTableFilters && (
         <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 flex items-center justify-between">
           <p className="text-sm font-bold text-gray-900 dark:text-white">
             🔽 Filtres de table actifs • {sortedExercises.length} résultat{sortedExercises.length > 1 ? 's' : ''}
           </p>
-          <button 
-            onClick={resetTableFilters}
-            className="text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 uppercase"
-          >
+          <button onClick={resetTableFilters} className="text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 uppercase">
             Réinitialiser filtres table
           </button>
         </div>
@@ -259,55 +215,30 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                 className="w-4 h-4 cursor-pointer accent-orange-500"
               />
             </th>
-
             <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-32" onClick={() => handleSort('difficulty')}>
-              <div className="flex items-center gap-2">
-                Difficulté <SortArrow field="difficulty" />
-              </div>
+              <div className="flex items-center gap-2">Difficulté <SortArrow field="difficulty" /></div>
             </th>
-
             <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 min-w-[250px]" onClick={() => handleSort('title')}>
-              <div className="flex items-center gap-2">
-                Titre <SortArrow field="title" />
-              </div>
+              <div className="flex items-center gap-2">Titre <SortArrow field="title" /></div>
             </th>
-
             <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-24" onClick={() => handleSort('school')}>
-              <div className="flex items-center gap-2">
-                École <SortArrow field="school" />
-              </div>
+              <div className="flex items-center gap-2">École <SortArrow field="school" /></div>
             </th>
-
             <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-20" onClick={() => handleSort('level')}>
-              <div className="flex items-center gap-2">
-                Niveau <SortArrow field="level" />
-              </div>
+              <div className="flex items-center gap-2">Niveau <SortArrow field="level" /></div>
             </th>
-
             <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-40" onClick={() => handleSort('section')}>
-              <div className="flex items-center gap-2">
-                Section <SortArrow field="section" />
-              </div>
+              <div className="flex items-center gap-2">Section <SortArrow field="section" /></div>
             </th>
-
             <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 min-w-[180px]" onClick={() => handleSort('chapter')}>
-              <div className="flex items-center gap-2">
-                Chapitre <SortArrow field="chapter" />
-              </div>
+              <div className="flex items-center gap-2">Chapitre <SortArrow field="chapter" /></div>
             </th>
-
             <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-20" onClick={() => handleSort('year')}>
-              <div className="flex items-center gap-2">
-                Année <SortArrow field="year" />
-              </div>
+              <div className="flex items-center gap-2">Année <SortArrow field="year" /></div>
             </th>
-
             <th className="px-4 py-3 text-left text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 w-36" onClick={() => handleSort('professor')}>
-              <div className="flex items-center gap-2">
-                Professeur <SortArrow field="professor" />
-              </div>
+              <div className="flex items-center gap-2">Professeur <SortArrow field="professor" /></div>
             </th>
-
             {/* STICKY COLUMN */}
             <th className="px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-gray-700 dark:text-gray-300 w-32 sticky right-0 bg-gray-50 dark:bg-gray-900 border-l-2 border-gray-300 dark:border-gray-600 shadow-[-4px_0_8px_rgba(0,0,0,0.1)] dark:shadow-[-4px_0_8px_rgba(0,0,0,0.3)] z-10">
               Voir
@@ -317,98 +248,62 @@ export default function SearchTable({ exercises }: SearchTableProps) {
           {/* Filter row */}
           <tr className="bg-gray-100 dark:bg-gray-800 border-b-2 border-gray-200 dark:border-gray-700">
             <th className="px-2 py-2"></th>
-            
-            {/* Difficulté filter */}
             <th className="px-2 py-2">
-              <select
-                value={tableFilterDifficulty}
-                onChange={(e) => setTableFilterDifficulty(e.target.value)}
-                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none"
-              >
+              <select value={tableFilterDifficulty} onChange={(e) => setTableFilterDifficulty(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none">
                 <option value="all">Tous</option>
                 {uniqueDifficulties.map((difficulty, idx) => (
                   <option key={idx} value={difficulty}>{difficulty}</option>
                 ))}
               </select>
             </th>
-            
             <th className="px-2 py-2"></th>
-
-            {/* École filter */}
             <th className="px-2 py-2">
-              <select
-                value={tableFilterSchool}
-                onChange={(e) => setTableFilterSchool(e.target.value)}
-                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none"
-              >
+              <select value={tableFilterSchool} onChange={(e) => setTableFilterSchool(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none">
                 <option value="all">Tous</option>
                 {uniqueSchools.map((school, idx) => (
-                  <option key={idx} value={school}>
-                    {school === 'college' ? 'Collège' : 'Lycée'}
-                  </option>
+                  <option key={idx} value={school}>{school === 'college' ? 'Collège' : 'Lycée'}</option>
                 ))}
               </select>
             </th>
-
-            {/* Niveau filter */}
             <th className="px-2 py-2">
-              <select
-                value={tableFilterLevel}
-                onChange={(e) => setTableFilterLevel(e.target.value)}
-                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none"
-              >
+              <select value={tableFilterLevel} onChange={(e) => setTableFilterLevel(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none">
                 <option value="all">Tous</option>
                 {uniqueLevels.map((level, idx) => (
                   <option key={idx} value={level}>{level}</option>
                 ))}
               </select>
             </th>
-
-            {/* Section filter */}
             <th className="px-2 py-2">
-              <select
-                value={tableFilterSection}
-                onChange={(e) => setTableFilterSection(e.target.value)}
-                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none"
-              >
+              <select value={tableFilterSection} onChange={(e) => setTableFilterSection(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none">
                 <option value="all">Tous</option>
                 {uniqueSections.map((section, idx) => (
                   <option key={idx} value={section}>{section}</option>
                 ))}
               </select>
             </th>
-
-            {/* Chapitre filter */}
             <th className="px-2 py-2">
-              <select
-                value={tableFilterChapter}
-                onChange={(e) => setTableFilterChapter(e.target.value)}
-                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none"
-              >
+              <select value={tableFilterChapter} onChange={(e) => setTableFilterChapter(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none">
                 <option value="all">Tous</option>
                 {uniqueChapters.map((chapter, idx) => (
                   <option key={idx} value={chapter}>{chapter}</option>
                 ))}
               </select>
             </th>
-
-            {/* Année filter */}
             <th className="px-2 py-2">
-              <select
-                value={tableFilterYear}
-                onChange={(e) => setTableFilterYear(e.target.value)}
-                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none"
-              >
+              <select value={tableFilterYear} onChange={(e) => setTableFilterYear(e.target.value)}
+                className="w-full px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:border-orange-500 focus:outline-none">
                 <option value="all">Tous</option>
                 {uniqueYears.map((year, idx) => (
                   <option key={idx} value={year}>{year}</option>
                 ))}
               </select>
             </th>
-
             <th className="px-2 py-2"></th>
-
-            {/* Empty cell for sticky column */}
             <th className="px-2 py-2 sticky right-0 bg-gray-100 dark:bg-gray-800 border-l-2 border-gray-300 dark:border-gray-600 z-10"></th>
           </tr>
         </thead>
@@ -421,9 +316,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
 
             return (
               <React.Fragment key={exercise.uid}>
-                {/* Main Row */}
-                <tr 
-                  key={exercise.uid}
+                <tr
                   onClick={() => toggleRow(exercise.uid)}
                   className={`cursor-pointer transition-all ${
                     idx % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-900'
@@ -446,15 +339,17 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     </span>
                   </td>
 
-                  {/* Title - can wrap */}
                   <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    <div className="font-semibold leading-tight line-clamp-2">
+                    <div className="font-semibold leading-tight line-clamp-2 flex items-center gap-2 flex-wrap">
                       {exercise.title || 'Sans titre'}
+                      {exercise.schoolType === 'pilote' && (
+                        <span className="px-1.5 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs font-bold uppercase tracking-wide rounded">
+                          🏆 Pilote
+                        </span>
+                      )}
                     </div>
                     {exercise.source && (
-                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                        {exercise.source}
-                      </div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{exercise.source}</div>
                     )}
                   </td>
 
@@ -466,15 +361,11 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     {exercise.level}
                   </td>
 
-                  {/* Section - show array as badges */}
                   <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                     {exercise.sections && exercise.sections.length > 0 ? (
                       <div className="flex flex-wrap gap-1">
                         {exercise.sections.map((section, sidx) => (
-                          <span 
-                            key={sidx}
-                            className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded font-semibold"
-                          >
+                          <span key={sidx} className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded font-semibold">
                             {section}
                           </span>
                         ))}
@@ -484,11 +375,8 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     )}
                   </td>
 
-                  {/* Chapter - can wrap */}
                   <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    <div className="line-clamp-2">
-                      {exercise.chapter || '-'}
-                    </div>
+                    <div className="line-clamp-2">{exercise.chapter || '-'}</div>
                   </td>
 
                   <td className="px-4 py-3 text-sm text-purple-600 dark:text-purple-400 font-semibold">
@@ -496,7 +384,9 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                   </td>
 
                   <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    {exercise.professor || '-'}
+                    {exercise.professor && exercise.professor.length > 0
+                      ? exercise.professor.join(', ')
+                      : '-'}
                   </td>
 
                   {/* STICKY CELL */}
@@ -505,31 +395,23 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                   } shadow-[-4px_0_8px_rgba(0,0,0,0.05)] dark:shadow-[-4px_0_8px_rgba(0,0,0,0.2)]`}>
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-sm uppercase tracking-wide hover:bg-orange-600 transition-colors">
                       {isExpanded ? 'Masquer' : 'Voir'}
-                      <svg
-                        className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
                   </td>
                 </tr>
 
-                {/* Expanded Content Row */}
                 {isExpanded && (
                   <tr className="bg-gray-100 dark:bg-gray-800">
                     <td colSpan={10} className="p-0">
                       <div className="p-6 border-t-4 border-orange-500">
-                        {/* Exercise Content */}
                         <div className="exercise-content border-t-4 border-gray-300 dark:border-gray-600">
                           <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
                             <MathRenderer content={exercise.content} />
                           </div>
                         </div>
 
-                        {/* Solution */}
                         {exercise.solution && (
                           <div className="p-6 bg-white dark:bg-gray-800 border-t-2 border-gray-200 dark:border-gray-700">
                             <button

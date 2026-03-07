@@ -47,7 +47,7 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
         return (
           <div
             key={exercise.uid}
-            className={`bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
+            className={`bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
               isExpanded ? 'ring-4 ring-orange-500' : ''
             } ${selected ? 'ring-4 ring-green-500' : ''}`}
           >
@@ -85,9 +85,15 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                     )}
                   </div>
                   
-                  {/* Title with Country and Year on same line */}
-                  <h3 className="text-xl font-black text-gray-900 dark:text-white mb-2 flex items-center gap-2 flex-wrap">
-                    <span>{exercise.title || exercise.source}</span>
+                  {/* FIXED: Title with RTL support */}
+                  <h3 
+                    className="text-xl font-black text-gray-900 dark:text-white mb-2 flex items-center gap-2 flex-wrap"
+                    dir="auto"
+                    style={{ unicodeBidi: 'plaintext', textAlign: 'start' }}
+                  >
+                    <span dir="auto" style={{ unicodeBidi: 'plaintext' }}>
+                      {exercise.title || exercise.source}
+                    </span>
                     {exercise.title && exercise.country && (
                       <>
                         <span className="text-gray-400 dark:text-gray-500">,</span>
@@ -102,9 +108,13 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                     )}
                   </h3>
                   
-                  {/* Source line (only if title exists) */}
+                  {/* FIXED: Source line with RTL support */}
                   {exercise.title && (
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 font-semibold">
+                    <p 
+                      className="text-sm text-gray-600 dark:text-gray-400 mb-2 font-semibold"
+                      dir="auto"
+                      style={{ unicodeBidi: 'plaintext', textAlign: 'start' }}
+                    >
                       {exercise.source}
                     </p>
                   )}
@@ -118,7 +128,11 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                       {exercise.country}
                     </span>
                     {exercise.professor && (
-                      <span className="flex items-center gap-1 font-semibold">
+                      <span 
+                        className="flex items-center gap-1 font-semibold"
+                        dir="auto"
+                        style={{ unicodeBidi: 'plaintext' }}
+                      >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
@@ -146,9 +160,13 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
             {/* Expanded Content */}
             {isExpanded && (
               <>
-                {/* Exercise - LaTeX Style Background */}
+                {/* FIXED: Exercise content with RTL support */}
                 <div className="exercise-content border-t-4 border-gray-300 dark:border-gray-600">
-                  <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
+                  <div 
+                    className="max-w-4xl mx-auto prose prose-lg dark:prose-invert"
+                    dir="auto"
+                    style={{ unicodeBidi: 'plaintext' }}
+                  >
                     <MathRenderer content={exercise.content} />
                   </div>
                 </div>
@@ -179,7 +197,11 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                           </div>
                           <h4 className="text-2xl font-black text-green-900 dark:text-green-100">Solution</h4>
                         </div>
-                        <div className="prose prose-lg dark:prose-invert max-w-none">
+                        <div 
+                          className="prose prose-lg dark:prose-invert max-w-none"
+                          dir="auto"
+                          style={{ unicodeBidi: 'plaintext' }}
+                        >
                           <MathRenderer content={exercise.solution} />
                         </div>
                       </div>

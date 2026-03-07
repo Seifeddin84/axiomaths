@@ -5,6 +5,7 @@ level: "4eme"
 section: "Mathématiques"
 chapter: "Fonctions réciproques"
 source: "Facebook: Tunisiamaths / Lycée Pilote de Tunis"
+schoolType: "pilote"
 title: "Fonction tangente hyperbolique inverse et suites complexes"
 country: "Tunisie"
 year: 2025

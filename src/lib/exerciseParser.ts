@@ -15,23 +15,17 @@ export function parseExercise(content: string, filename: string): Exercise {
   let primarySection: string | undefined;
 
   if (frontmatter.sections) {
-    // New format: sections array
     if (Array.isArray(frontmatter.sections)) {
-      // FIXED: Flatten nested arrays
       sections = frontmatter.sections.flatMap((s: any) => {
-        // If s is an array (nested), flatten it
         if (Array.isArray(s)) {
           return s.filter((item: any) => item && typeof item === 'string').map((item: string) => item.trim());
         }
-        // If s is a string, keep it
         if (s && typeof s === 'string') {
           return [s.trim()];
         }
-        // Skip invalid items
         return [];
       });
     } else if (typeof frontmatter.sections === 'string') {
-      // String format - could be comma-separated or single value
       if (frontmatter.sections.includes(',')) {
         sections = frontmatter.sections.split(',').map((s: string) => s.trim()).filter(Boolean);
       } else {
@@ -40,19 +34,30 @@ export function parseExercise(content: string, filename: string): Exercise {
     }
     primarySection = sections.length > 0 ? sections[0] : undefined;
   } else if (frontmatter.section) {
-    // Handle both single string and array in "section" field
     if (Array.isArray(frontmatter.section)) {
-      // Already an array
       sections = frontmatter.section.filter((s: any) => s && typeof s === 'string').map((s: string) => s.trim());
       primarySection = sections[0];
     } else if (typeof frontmatter.section === 'string') {
-      // Single string
       primarySection = frontmatter.section;
       sections = [frontmatter.section];
     }
   }
 
+  // Normalize professor to string[] — handles both old string and new array format
+  let professors: string[] = [];
+  if (Array.isArray(frontmatter.professor)) {
+    professors = frontmatter.professor
+      .map((p: any) => (typeof p === 'string' ? p.trim() : ''))
+      .filter(Boolean);
+  } else if (typeof frontmatter.professor === 'string' && frontmatter.professor.trim()) {
+    professors = frontmatter.professor
+      .split(',')
+      .map((p: string) => p.trim())
+      .filter(Boolean);
+  }
+
   console.log('Parsed sections:', sections);
+  console.log('Parsed professors:', professors);
 
   return {
     uid: frontmatter.uid || filename.replace('.md', ''),
@@ -67,10 +72,11 @@ export function parseExercise(content: string, filename: string): Exercise {
     source: frontmatter.source,
     country: frontmatter.country,
     year: frontmatter.year ? parseInt(frontmatter.year) : undefined,
-    professor: frontmatter.professor,
+    professor: professors.length > 0 ? professors : undefined,
     difficulty: frontmatter.difficulty,
     points: frontmatter.points ? parseInt(frontmatter.points) : undefined,
     tags: frontmatter.tags || [],
+    schoolType: frontmatter.schoolType,
   };
 }
 

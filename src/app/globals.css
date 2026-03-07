@@ -6,7 +6,6 @@
    KATEX FONT CUSTOMIZATION
    ======================================== */
 
-/* Default: Computer Modern (traditional LaTeX look) */
 .katex {
   font-family: 'KaTeX_Main', 'Latin Modern Math', 'Computer Modern', serif !important;
   font-size: 1.05em;
@@ -17,13 +16,12 @@
   margin: 1.5em 0;
 }
 
-/* FIX: Dark mode math text color */
 .dark .katex {
-  color: #e5e7eb !important;  /* Light gray text in dark mode */
+  color: #e5e7eb !important;
 }
 
 .dark .katex * {
-  color: inherit;  /* Inherit light color for all math elements */
+  color: inherit;
 }
 
 /* ========================================
@@ -43,7 +41,6 @@
   color: inherit;
 }
 
-/* Dark mode text colors */
 .dark .exercise-content {
   color: #e5e7eb;
 }
@@ -56,23 +53,14 @@
   margin-bottom: 0.75em;
 }
 
-.exercise-content h1 {
-  font-size: 1.75rem;
-}
-
-.exercise-content h2 {
-  font-size: 1.5rem;
-}
-
-.exercise-content h3 {
-  font-size: 1.25rem;
-}
+.exercise-content h1 { font-size: 1.75rem; }
+.exercise-content h2 { font-size: 1.5rem; }
+.exercise-content h3 { font-size: 1.25rem; }
 
 /* ========================================
-   NUMBERED LISTS - PROPER INLINE FORMAT WITH INDENTED CONTENT!
+   NUMBERED LISTS — LTR (French/Latin, default)
    ======================================== */
 
-/* Main numbered list (1., 2., 3.) */
 .exercise-content ol {
   margin-left: 0;
   margin-bottom: 1.5em;
@@ -83,12 +71,12 @@
 
 .exercise-content ol > li {
   margin-bottom: 1.5em;
-  padding-left: 0;
+  padding-left: 2em;
+  padding-right: 0;
   counter-increment: item;
   position: relative;
 }
 
-/* Orange number INLINE with text */
 .exercise-content ol > li::before {
   content: counter(item) ". ";
   font-weight: 800;
@@ -96,32 +84,26 @@
   color: #ea580c;
   position: absolute;
   left: 0;
+  right: auto;
 }
 
 .dark .exercise-content ol > li::before {
   color: #2dd4bf;
 }
 
-/* Content should be indented to align after the number */
-.exercise-content ol > li {
-  padding-left: 2em;  /* Indent all content */
-}
-
-/* First line paragraph should NOT add extra indent */
 .exercise-content ol > li > p:first-child {
   text-indent: -2em;
   padding-left: 2em;
   margin-bottom: 0.5em;
 }
 
-/* Math blocks and other content keep normal flow */
 .exercise-content ol > li > .katex-display {
   margin-left: 0;
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-/* Nested ordered lists (a., b., c.) */
+/* Nested: a. b. c. */
 .exercise-content ol ol {
   margin-top: 0.75em;
   margin-left: 0;
@@ -133,6 +115,7 @@
   counter-increment: subitem;
   margin-bottom: 0.75em;
   padding-left: 2em;
+  padding-right: 0;
 }
 
 .exercise-content ol ol > li::before {
@@ -142,6 +125,7 @@
   color: #ea580c;
   position: absolute;
   left: 0;
+  right: auto;
 }
 
 .dark .exercise-content ol ol > li::before {
@@ -153,7 +137,7 @@
   padding-left: 2em;
 }
 
-/* Even deeper nesting (i., ii., iii.) */
+/* Deeper nesting: i. ii. iii. */
 .exercise-content ol ol ol {
   margin-left: 0;
   counter-reset: subsubitem;
@@ -163,6 +147,7 @@
   counter-increment: subsubitem;
   margin-bottom: 0.5em;
   padding-left: 2.5em;
+  padding-right: 0;
 }
 
 .exercise-content ol ol ol > li::before {
@@ -170,17 +155,76 @@
   color: #ea580c;
   position: absolute;
   left: 0;
+  right: auto;
 }
 
 .dark .exercise-content ol ol ol > li::before {
   color: #2dd4bf;
 }
 
-/* Unordered lists (bullets) */
+/* ========================================
+   NUMBERED LISTS — RTL (Arabic)
+   Selector: [dir="rtl"].exercise-content (NO space)
+   = an element that IS BOTH dir=rtl AND has .exercise-content
+   This is what MathRenderer now outputs.
+   ======================================== */
+
+[dir="rtl"].exercise-content ol > li {
+  padding-left: 0;
+  padding-right: 2em;
+  text-align: right;
+}
+
+[dir="rtl"].exercise-content ol > li::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"].exercise-content ol > li > p:first-child {
+  text-indent: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+[dir="rtl"].exercise-content ol ol > li {
+  padding-left: 0;
+  padding-right: 2em;
+  text-align: right;
+}
+
+[dir="rtl"].exercise-content ol ol > li::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"].exercise-content ol ol > li > p:first-child {
+  text-indent: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+[dir="rtl"].exercise-content ol ol ol > li {
+  padding-left: 0;
+  padding-right: 2.5em;
+  text-align: right;
+}
+
+[dir="rtl"].exercise-content ol ol ol > li::before {
+  left: auto;
+  right: 0;
+}
+
+/* Unordered lists */
 .exercise-content ul {
   margin-left: 1.5em;
   margin-bottom: 1em;
   list-style-type: disc;
+}
+
+[dir="rtl"].exercise-content ul {
+  margin-left: 0;
+  margin-right: 1.5em;
+  text-align: right;
 }
 
 .exercise-content ul > li {
@@ -280,82 +324,51 @@
    CUSTOM SCROLLBAR
    ======================================== */
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(100, 100, 100, 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 100, 100, 0.5);
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: rgba(200, 200, 200, 0.2);
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 200, 200, 0.3);
-}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(100, 100, 100, 0.3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(100, 100, 100, 0.5); }
+.dark ::-webkit-scrollbar-thumb { background: rgba(200, 200, 200, 0.2); }
+.dark ::-webkit-scrollbar-thumb:hover { background: rgba(200, 200, 200, 0.3); }
 
 /* ========================================
-   FONT EXPERIMENTATION SECTION
+   DIRECTION & ARABIC SUPPORT
    ======================================== */
 
-/*
- * To change the math font, uncomment ONE of these sections:
- */
-
-/* === OPTION A: Computer Modern (Classic LaTeX) === */
-/* Already active by default! */
-
-/* === OPTION B: Lora (Elegant serif) === */
-/*
-.katex {
-  font-family: 'Lora', 'Georgia', serif !important;
-  font-size: 1.1em;
+/* Auto-detect direction for text elements */
+h1, h2, h3, h4, h5, h6, p, li {
+  direction: auto;
+  unicode-bidi: plaintext;
 }
-*/
 
-/* === OPTION C: Playfair Display (High contrast) === */
-/*
-.katex {
-  font-family: 'Playfair Display', 'Georgia', serif !important;
-  font-size: 1.1em;
+/* Exercise cards and headings */
+.group h3,
+.exercise-card h3 {
+  direction: auto !important;
+  unicode-bidi: plaintext !important;
+  text-align: start !important;
 }
-*/
 
-/* === OPTION D: Georgia (Web-safe serif) === */
-/*
-.katex {
-  font-family: 'Georgia', serif !important;
-  font-size: 1.1em;
+/* MATH: Always LTR */
+.katex,
+.katex-display,
+.katex-html,
+.math-inline,
+.math-display {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
 }
-*/
 
-/* === OPTION E: Use site font (Modern look) === */
-/*
-.katex * {
-  font-family: inherit !important;
+.katex-display {
+  text-align: center !important;
 }
-.katex .mathdefault {
-  font-family: inherit !important;
-  font-style: italic;
-}
-*/
 
-/* === OPTION F: Times New Roman (Traditional) === */
-/*
-.katex {
-  font-family: 'Times New Roman', serif !important;
-  font-size: 1.05em;
+/* Breadcrumb nav: always LTR */
+nav.flex {
+  direction: ltr !important;
 }
-*/
+
+/* Buttons: LTR */
+button, .btn, a.button {
+  direction: ltr;
+}

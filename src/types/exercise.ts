@@ -12,10 +12,11 @@ export interface Exercise {
   source?: string;
   country?: string;
   year?: number;
-  professor?: string;
+  professor?: string[];    // Array of professors
   difficulty?: string;
   points?: number;
   tags?: string[];
+  schoolType?: string;     // e.g. "pilote", "prepa", "prive"
 }
 
 export interface ExerciseMetadata {
@@ -23,14 +24,15 @@ export interface ExerciseMetadata {
   school: string;
   level: string;
   section: string | null;      // Primary section (backward compatibility)
-  sections?: string[];         // Multiple sections (NEW - added)
+  sections?: string[];         // Multiple sections
   chapter: string;
   source: string;
   title?: string;
   country: string;
   year?: number;
-  professor: string | null;
+  professor: string[] | null;  // Array of professors (or null if none)
   difficulty: string;
   points: number;
   tags: string[];
+  schoolType?: string;         // e.g. "pilote", "prepa", "prive"
 }

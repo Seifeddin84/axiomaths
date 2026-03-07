@@ -21,7 +21,7 @@ export default function ExercisesView({ exercises }: ExercisesViewProps) {
           className={`px-4 py-2 font-black flex items-center gap-2 transition-all ${
             viewMode === 'cards'
               ? 'bg-orange-500 text-white shadow-lg'
-              : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+              : 'bg-gray-400 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
           }`}
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

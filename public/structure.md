@@ -1,4 +1,7 @@
-── README.md
+@Seifeddin84 ➜ /workspaces/axiomaths (main) $ tree -L 5 -I 'node_modules|.next|.git'
+.
+├── README.md
+├── axiomaths@0.1.0
 ├── blog
 │   └── euler-identity.md
 ├── create_exercise.py
@@ -16,6 +19,7 @@
 │   ├── lycee-2eme-sciences-homothetie-0000019.md
 │   ├── lycee-2eme-sciences-homothetie-0000035.md
 │   ├── lycee-2eme-sciences-homothetie-0000036.md
+│   ├── lycee-2eme-sciences-homothetie-0000037.md
 │   ├── lycee-2eme-sciences-second-degré-0000010.md
 │   ├── lycee-2eme-sciences-second-degré-0000011.md
 │   ├── lycee-2eme-sciences-second-degré-0000012.md
@@ -45,6 +49,7 @@
 │   ├── carlfriedrichgauss.md
 │   ├── hugosteinhaus.md
 │   └── leonhardeuler.md
+├── next
 ├── next-env.d.ts
 ├── next.config.ts
 ├── package-lock.json
@@ -62,6 +67,7 @@
 │   ├── exercises
 │   │   └── images
 │   │       ├── lycee-2eme-sciences-homothetie-0000019.png
+│   │       ├── lycee-2eme-sciences-homothetie-0000037.png
 │   │       ├── lycee-4eme-informatique-complexe-0000004.png
 │   │       ├── lycee-4eme-informatique-complexe-0000005.png
 │   │       └── lycee-4eme-math-fonctions-reciproques-0000031.png
@@ -107,6 +113,7 @@
 │   │   │   │   └── page.tsx
 │   │   │   ├── page.tsx
 │   │   │   └── page.tsx.backup
+│   │   ├── not-found.tsx
 │   │   ├── page.tsx
 │   │   ├── page.tsx.backup
 │   │   ├── recherche
@@ -152,4 +159,4 @@
 ├── tailwind.config.js.backup
 └── tsconfig.json
 
-37 directories, 117 files
+37 directories, 122 files
