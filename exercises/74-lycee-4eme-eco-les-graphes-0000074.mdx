@@ -1,0 +1,157 @@
+---
+uid: "0000074"
+school: "lycee"
+level: "4eme"
+section: "Economie et Gestion"
+chapter: "Les graphes"
+source: "Inconnu"
+title: "Chaînes eulériennes, plus court chemin et nombre chromatique"
+country: "Tunisie"
+year: 2026
+professor: "Habib Gammaru"
+difficulty: "Moyen"
+points: 8
+tags: ["graphes", "chaîne-eulérienne", "matrice-adjacence", "plus-court-chemin", "nombre-chromatique", "dijkstra"]
+---
+
+
+Une ville est munie d'un réseau de trains, représenté par le graphe ($\Gamma$) ci-dessous.
+Les stations sont symbolisées par les sommets $A, B, C, D, E, F$ et $G$.
+Chaque arête représente une ligne reliant deux gares.
+Les temps de parcours en minutes entre chaque sommet ont été rajoutés sur le graphe.
+
+<div class="graph-container" style="display: flex; justify-content: center; padding: 20px;">
+<svg width="500" height="250" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg">
+<line x1="50" y1="100" x2="130" y2="50" stroke="currentColor" stroke-width="2" />
+<line x1="50" y1="100" x2="140" y2="180" stroke="currentColor" stroke-width="2" />
+<line x1="130" y1="50" x2="140" y2="180" stroke="currentColor" stroke-width="2" />
+<line x1="130" y1="50" x2="330" y2="30" stroke="currentColor" stroke-width="2" />
+<line x1="130" y1="50" x2="260" y2="120" stroke="currentColor" stroke-width="2" />
+<line x1="140" y1="180" x2="260" y2="120" stroke="currentColor" stroke-width="2" />
+<line x1="140" y1="180" x2="350" y2="220" stroke="currentColor" stroke-width="2" />
+<line x1="260" y1="120" x2="330" y2="30" stroke="currentColor" stroke-width="2" />
+<line x1="260" y1="120" x2="350" y2="220" stroke="currentColor" stroke-width="2" />
+<line x1="260" y1="120" x2="440" y2="130" stroke="currentColor" stroke-width="2" />
+<line x1="330" y1="30" x2="350" y2="220" stroke="currentColor" stroke-width="2" />
+<line x1="330" y1="30" x2="440" y2="130" stroke="currentColor" stroke-width="2" />
+<line x1="350" y1="220" x2="440" y2="130" stroke="currentColor" stroke-width="2" />
+<circle cx="50" cy="100" r="5" fill="blue" />
+<circle cx="130" cy="50" r="5" fill="blue" />
+<circle cx="140" cy="180" r="5" fill="blue" />
+<circle cx="260" cy="120" r="5" fill="blue" />
+<circle cx="330" cy="30" r="5" fill="blue" />
+<circle cx="350" cy="220" r="5" fill="blue" />
+<circle cx="440" cy="130" r="5" fill="blue" />
+<text x="85" y="70" fill="currentColor" font-family="Arial" font-size="12">4</text>
+<text x="85" y="150" fill="currentColor" font-family="Arial" font-size="12">8</text>
+<text x="145" y="120" fill="currentColor" font-family="Arial" font-size="12">7</text>
+<text x="230" y="35" fill="currentColor" font-family="Arial" font-size="12">21</text>
+<text x="190" y="80" fill="currentColor" font-family="Arial" font-size="12">18</text>
+<text x="195" y="160" fill="currentColor" font-family="Arial" font-size="12">10</text>
+<text x="245" y="210" fill="currentColor" font-family="Arial" font-size="12">25</text>
+<text x="275" y="80" fill="currentColor" font-family="Arial" font-size="12">15</text>
+<text x="310" y="175" fill="currentColor" font-family="Arial" font-size="12">12</text>
+<text x="370" y="125" fill="currentColor" font-family="Arial" font-size="12">31</text>
+<text x="340" y="90" fill="currentColor" font-family="Arial" font-size="12">10</text>
+<text x="390" y="70" fill="currentColor" font-family="Arial" font-size="12">17</text>
+<text x="405" y="190" fill="currentColor" font-family="Arial" font-size="12">7</text>
+<text x="30" y="95" fill="currentColor" font-family="Arial" font-size="14" font-weight="bold">A</text>
+<text x="125" y="40" fill="currentColor" font-family="Arial" font-size="14" font-weight="bold">B</text>
+<text x="130" y="200" fill="currentColor" font-family="Arial" font-size="14" font-weight="bold">C</text>
+<text x="255" y="110" fill="currentColor" font-family="Arial" font-size="14" font-weight="bold">D</text>
+<text x="335" y="25" fill="currentColor" font-family="Arial" font-size="14" font-weight="bold">E</text>
+<text x="355" y="240" fill="currentColor" font-family="Arial" font-size="14" font-weight="bold">F</text>
+<text x="450" y="135" fill="currentColor" font-family="Arial" font-size="14" font-weight="bold">G</text>
+</svg>
+</div>
+
+1. Recopier le tableau suivant et le compléter :
+
+| Sommet | A | B | C | D | E | F | G |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Degré | | | | | | | |
+
+2. Le graphe ($\Gamma$) admet-il une chaîne eulérienne ? Si oui donner une telle chaîne.
+
+3. Le graphe ($\Gamma$) admet-il un cycle eulérien ? Si oui donner un tel cycle.
+
+4. Donner la matrice $M$ associée au graphe ($\Gamma$).
+
+Les sommets seront pris dans l'ordre alphabétique : $A, B, C, D, E, F, G$.
+
+5. On donne :
+$$
+M^3 = \begin{pmatrix}
+2 & 6 & 6 & 4 & 4 & 4 & 4 \\
+6 & 6 & 10 & 12 & 11 & 7 & 6 \\
+6 & 10 & 6 & 12 & 7 & 11 & 6 \\
+4 & 12 & 12 & 12 & 12 & 12 & 11 \\
+4 & 11 & 7 & 12 & 8 & 12 & 9 \\
+4 & 7 & 11 & 12 & 12 & 8 & 9 \\
+4 & 6 & 6 & 11 & 9 & 9 & 6
+\end{pmatrix}
+$$
+
+  a. Combien de chaînes de longueur 3 relient-elles le sommet $A$ au sommet $G$ ?
+
+  b. Donner toutes les chaînes de longueur 3 reliant $A$ à $G$.
+
+6. Déterminer le plus court chemin en minutes, reliant la gare $B$ à la gare $G$.
+
+7. Déterminer le nombre chromatique du graphe en expliquant clairement la démarche.
+
+---
+
+## Solution
+
+1. **Tableau des degrés :**
+On compte le nombre d'arêtes incidentes à chaque sommet.
+
+| Sommet | A | B | C | D | E | F | G |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Degré | 2 | 4 | 4 | 5 | 4 | 4 | 3 |
+
+2. **Chaîne eulérienne :**
+Oui, le graphe est connexe et possède exactement deux sommets de degré impair ($D$ et $G$). D'après le théorème d'Euler, il admet une chaîne eulérienne dont les extrémités sont $D$ et $G$.
+Exemple de chaîne : $D - B - A - C - B - E - C - F - E - D - F - G - D$
+
+3. **Cycle eulérien :**
+Non, le graphe n'admet pas de cycle eulérien car il contient au moins un sommet de degré impair (les sommets $D$ et $G$ sont de degrés impairs).
+
+4. **Matrice $M$ d'adjacence :**
+$$
+M = \begin{pmatrix}
+0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 1 & 1 & 1 & 0 & 0 \\
+1 & 1 & 0 & 1 & 0 & 1 & 0 \\
+0 & 1 & 1 & 0 & 1 & 1 & 1 \\
+0 & 1 & 0 & 1 & 0 & 1 & 1 \\
+0 & 0 & 1 & 1 & 1 & 0 & 1 \\
+0 & 0 & 0 & 1 & 1 & 1 & 0
+\end{pmatrix}
+$$
+
+5. a. Le nombre de chaînes de longueur 3 reliant $A$ (1er sommet) à $G$ (7ème sommet) correspond au coefficient situé sur la 1ère ligne et la 7ème colonne de la matrice $M^3$. Ce coefficient est **4**.
+   b. Les 4 chaînes de longueur 3 reliant $A$ à $G$ sont :
+   - $A - B - D - G$
+   - $A - B - E - G$
+   - $A - C - D - G$
+   - $A - C - F - G$
+
+6. **Plus court chemin de $B$ à $G$ (Algorithme de Dijkstra) :**
+- $B \to C = 7$
+- $B \to D = 18$
+- $B \to C \to D = 7 + 10 = 17$ (plus court que l'arête directe B-D)
+- $B \to C \to D \to F = 17 + 12 = 29$
+- $B \to C \to D \to F \to G = 29 + 7 = 36$
+Le plus court chemin est **B - C - D - F - G** pour un temps de parcours de **36 minutes**.
+
+7. **Nombre chromatique :**
+- Le sous-graphe formé par les sommets $\{D, E, F, G\}$ est un graphe complet d'ordre 4 ($K_4$). En effet, tous ces sommets sont reliés deux à deux. Le nombre chromatique est donc au moins égal à 4 ($\chi \ge 4$).
+- Le degré maximum du graphe est $\Delta = 5$ (sommet D), donc $\chi \le 5 + 1 = 6$.
+- On peut colorier le graphe avec 4 couleurs :
+  - Couleur 1 : D, A
+  - Couleur 2 : E, C
+  - Couleur 3 : F, B
+  - Couleur 4 : G
+Aucun sommet adjacent ne partage la même couleur. Le nombre chromatique du graphe est donc **4**.

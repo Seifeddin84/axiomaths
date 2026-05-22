@@ -3,7 +3,7 @@ uid: "0000019"
 school: "lycee"
 level: "2eme"
 section: "Sciences"
-chapter: "Homothétie"
+chapter: "Homothéties"
 source: "Facebook: Tunisiamaths - Devoir de contrôle N°3"
 title: "Homothétie définie par application affine et lieux géométriques"
 country: "Tunisie"
@@ -53,4 +53,4 @@ $$
 
 ### Figure
 
-![Description of the figure](/exercises/images/lycee-2eme-sciences-homothetie-0000019.png)
+![Description of the figure](/exercises/images/19-lycee-2eme-sciences-homothetie-0000019.png)

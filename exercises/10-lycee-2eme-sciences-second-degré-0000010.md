@@ -70,6 +70,6 @@ tags: ["équations", "factorisation", "fraction"]
 
 ---
 
-## Indication
+## Solution
 
 5- Penser à compléter un produit remarquable.

@@ -41,7 +41,6 @@ Le plan est muni d'un repère orthonormé $(O ; \overrightarrow{OA} ; \overright
    c. Calculer $\sin(2\alpha)$ puis déduire la valeur de $\alpha$.
 
 ---
-
 ## Solution
 
-*(Solution to be added)*
+Pas de solution encore.

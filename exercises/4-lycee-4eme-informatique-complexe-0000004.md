@@ -22,4 +22,4 @@ Placer dans le plan complexe les points A, B, C et D d'affixes respectives $z$, 
 
 ## Solution
 
-![Description of the figure](/exercises/images/lycee-4eme-informatique-complexe-0000004.png)
+![Description of the figure](/exercises/images/4-lycee-4eme-informatique-complexe-0000004.png)

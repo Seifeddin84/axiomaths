@@ -1,19 +1,23 @@
 ---
-uid: "0000023"
-school: "lycee"
-level: "2eme"
-section: ["Sciences", "Informatique"]
-chapter: "Suites Réelles"
-source: "Lycée ElriAdh: Marsa"
-title: "Suite récurrente homographique"
-country: "Tunisie"
+uid: '0000023'
+school: lycee
+level: 2eme
+section: ["Sciences", "Technologies de l'Informatique"]
+chapter: Suites arithmétiques et géométriques
+source: 'Lycée ElriAdh: Marsa'
+title: Suite récurrente homographique
+country: Tunisie
 year: 2026
-professor: "Zribi Foued"
-difficulty: "Difficile"
+professor: Zribi Foued
+difficulty: Difficile
 points: 7
-tags: ["suite", "suite géométrique", "suite auxiliaire", "somme", "fraction"]
+tags:
+- suite
+- suite géométrique
+- suite auxiliaire
+- somme
+- fraction
 ---
-
 Soit $U$ la suite définie sur $\mathbb{N}^*$ par :
 
 $$

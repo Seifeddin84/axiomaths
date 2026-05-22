@@ -1,19 +1,23 @@
 ---
-uid: "0000024"
-school: "lycee"
-level: "2eme"
-section: ["Sciences", "Informatique"]
-chapter: "Suites Réelles"
-source: "Lycée ElriAdh: Marsa"
-title: "Suite homographique avec radicaux"
-country: "Tunisie"
+uid: '0000024'
+school: lycee
+level: 2eme
+section: ["Sciences", "Technologies de l'Informatique"]
+chapter: Suites arithmétiques et géométriques
+source: 'Lycée ElriAdh: Marsa'
+title: Suite homographique avec radicaux
+country: Tunisie
 year: 2026
-professor: "Zribi Foued"
-difficulty: "Difficile"
+professor: Zribi Foued
+difficulty: Difficile
 points: 7
-tags: ["suite", "suite géométrique", "suite homographique", "somme", "radicaux"]
+tags:
+- suite
+- suite géométrique
+- suite homographique
+- somme
+- radicaux
 ---
-
 Soit $U$ la suite définie sur $\mathbb{N}^*$ par :
 
 $$

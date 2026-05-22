@@ -40,3 +40,8 @@ $Z_A = 2$, $\quad Z_B = 1+i\sqrt{3}$, $\quad Z_C = -2i$ \quad et \quad $Z_D = -\
     a. Montrer que : $OM' \cdot CM = \sqrt{2}MD$.
     
     b. En déduire que si $M$ décrit la médiatrice de $[CD]$ alors $M'$ décrit un cercle à préciser.
+
+---
+## Solution
+
+Pas de solution encore.

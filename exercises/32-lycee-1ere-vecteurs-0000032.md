@@ -3,7 +3,7 @@ uid: "0000032"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Vecteurs et Calcul Algébrique"
+chapter: "Vecteurs et Translations"
 source: "Lycée Rafeha MNIHLA - Devoir de Contrôle N°3"
 title: "Vrai ou Faux : Vecteurs et calculs"
 country: "Tunisie"

@@ -3,7 +3,7 @@ uid: "0000045"
 school: "lycee"
 level: "2eme"
 section: "Sciences"
-chapter: "Fonctions"
+chapter: "Fonctions de référence"
 source: "Devoir de synthèse N°2 - Lycée Pilote Sakiet Ezzit - Sfax 2"
 schoolType: "pilote"
 title: "Lecture graphique et variations de fonctions"
@@ -20,7 +20,7 @@ Dans la figure suivante, on donne :
 * $(C)$ est la courbe représentative d'une fonction $f$ selon un repère orthonormé.
 * La courbe $(C)$ passe par le point $L$ de coordonnées $\left(\dfrac{9}{2}, \dfrac{63}{8}\right)$.
 
-![Description of the figure](/exercises/images/lycee-2eme-sciences-fonctions-0000045.png)
+![Description of the figure](/exercises/images/45-lycee-2eme-sciences-fonctions-0000045.png)
 
 1. En exploitant le graphique, déterminer l'ensemble de définition $\mathscr{D}$ et le sens de variation de la fonction $f$ (aucune justification n'est demandée).
 
@@ -42,4 +42,4 @@ Dans la figure suivante, on donne :
 
 ## Solution
 
-*(Solution to be added)*
+Pas de solution encore.

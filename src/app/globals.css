@@ -372,3 +372,26 @@ nav.flex {
 button, .btn, a.button {
   direction: ltr;
 }
+
+/* Sign table */
+.sign-table .zero {
+  width: 0;
+  padding: 0;
+  overflow: visible;
+  border-left: 1.5px solid currentColor;
+  border-right: none;
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+}
+
+.sign-table .zero span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white; /* or your dark bg color */
+  padding: 0 2px;
+  z-index: 1;
+}

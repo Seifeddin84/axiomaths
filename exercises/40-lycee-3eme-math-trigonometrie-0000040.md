@@ -34,3 +34,8 @@ On pose pour tout réel $x$, $A(x) = \cos(2x) - \sqrt{3}\sin(2x)$.
     c. Calculer $B(0)$. Déduire que $\tan\left(\dfrac{\pi}{12}\right) = 2 - \sqrt{3}$.
     
     d. Déterminer les coordonnées polaires du point $E(1, 2-\sqrt{3})$.
+
+---
+## Solution
+
+Pas de solution encore.

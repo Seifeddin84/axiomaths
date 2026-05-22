@@ -3,7 +3,7 @@ uid: "0000020"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Applications Linéaires"
+chapter: "Fonctions linéaires et Affines"
 source: "Lycée la Soukra : Ariana"
 title: "Détermination d'une fonction linéaire par une équation"
 country: "Tunisie"
@@ -29,4 +29,17 @@ $$(f(1))^2 - f(1) + \frac{1}{4} = 0$$
 ---
 
 ## Solution
-Pas de solution encore.
+
+1. L'équation est une identité remarquable : $(f(1) - \frac{1}{2})^2 = 0$. 
+
+   Donc $f(1) = \frac{1}{2}$. Comme $f$ est linéaire ($f(x) = ax$), alors $a = \frac{1}{2}$ et **$f(x) = \frac{1}{2}x$**.
+
+2. La droite passe par $O(0,0)$ et par le point $(2, 1)$.
+
+3. $f(x) > 0$ si $x > 0$ ; $f(x) < 0$ si $x < 0$ ; $f(x) = 0$ si $x = 0$.
+
+4. $f(a) - f(b) = f(a - b) = \frac{1}{2}(a - b) = \frac{1}{2}\left(\frac{2 - \sqrt{5}}{4}\right) = \frac{2 - \sqrt{5}}{8}$.
+
+   Comme $2 < \sqrt{5}$ (car $4 < 5$), alors $2 - \sqrt{5} < 0$.
+   
+   Donc $f(a) - f(b) < 0$, d'où **$f(a) < f(b)$**.

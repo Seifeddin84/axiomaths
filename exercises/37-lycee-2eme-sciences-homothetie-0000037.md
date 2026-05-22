@@ -3,7 +3,7 @@ uid: "0000037"
 school: "lycee"
 level: "2eme"
 section: "Sciences"
-chapter: "Homothétie"
+chapter: "Homothéties"
 source: "PROBLEMS IN PLANE AND SOLID GEOMETRY v.1 Plane Geometry"
 title: "Cercles tangentes et Homothétie"
 country: "Russie"
@@ -32,4 +32,4 @@ Soit deux cercles $\mathscr{C}_1$ de centre O et $\mathscr{C}_2$ de centre O', d
 
 ## Solution
 
-![Description of the figure](/exercises/images/lycee-2eme-sciences-homothetie-0000037.png)
+![Description of the figure](/exercises/images/37-lycee-2eme-sciences-homothetie-0000037.png)

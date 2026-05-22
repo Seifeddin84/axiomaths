@@ -3,7 +3,7 @@ uid: "0000047"
 school: "college"
 level: "8eme"
 section: null
-chapter: "الأعداد الكسرية"
+chapter: "العمليات والحساب على الأعداد الكسرية"
 source: "فرض تأليفي عدد 2 - المدرسة الإعدادية ع فرحات رادس"
 title: "أسئلة متعددة الاختيارات"
 country: "Tunisie"
@@ -41,7 +41,6 @@ tags: ["qcm", "nombres-rationnels"]
    - [ ] $-\dfrac{3}{2}$
 
 ---
-
 ## Solution
 
-*(Solution to be added)*
+Pas de solution encore.

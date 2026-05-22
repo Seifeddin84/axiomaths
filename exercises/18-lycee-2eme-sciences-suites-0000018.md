@@ -2,8 +2,8 @@
 uid: "0000018"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
-chapter: "Suites Réelles"
+section: ["Sciences", "Technologies de l'Informatique"]
+chapter: "Suites arithmétiques et géométriques"
 source: "Facebook: Tunisiamaths - Devoir de contrôle N°3"
 title: "Étude d'une suite arithmétique et suite auxiliaire"
 country: "Tunisie"
@@ -30,3 +30,8 @@ tags: ["suites-arithmetiques", "sommes", "changement-de-suite"]
     c.  Écrire le terme général de la suite $(v_n)$.
 
 3.  Pour tout $n \in \mathbb{N}$ on donne $S_n = v_n + v_{n+1} + \dots + v_{2n+5}$. Calculer $S_{10}$.
+
+---
+## Solution
+
+Pas de solution encore.

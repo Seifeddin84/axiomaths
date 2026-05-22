@@ -3,7 +3,7 @@ uid: "0000041"
 school: "lycee"
 level: "3eme"
 section: "Mathématiques"
-chapter: "Étude de fonctions"
+chapter: "Exemples d’étude de fonctions"
 source: "Lycée Pilote Kebili - Devoir de contrôle n°2"
 schoolType: "pilote"
 title: "Étude d'une fonction rationnelle et fonctions associées"
@@ -54,3 +54,8 @@ Soit la fonction $f$ définie par $f(x) = \dfrac{x^2 - 3x + 3}{x - 2}$ et $(C)$ 
     a. Etudier la dérivabilité de $h$ à droite et à gauche en $1$. Interpréter graphiquement les résultats.
     
     b. Dresser le tableau de variation de $h$.
+
+---
+## Solution
+
+Pas de solution encore.

@@ -3,7 +3,7 @@ uid: "0000048"
 school: "college"
 level: "8eme"
 section: null
-chapter: "الحساب الحرفي"
+chapter: "العمليات والحساب على الأعداد الكسرية"
 source: "فرض تأليفي عدد 2 - المدرسة الإعدادية ع فرحات رادس"
 title: "نشر واختصار العبارات الجبرية"
 country: "Tunisie"
@@ -33,7 +33,6 @@ $A = -7\left(\dfrac{3}{14}x - \dfrac{3}{2}y + 2\right) + \dfrac{6}{5}\left(-\dfr
    ب. قارن معللا جوابك $x$ و $y+1$ إذا علمت أن $A < B$
 
 ---
-
 ## Solution
 
-*(Solution to be added)*
+Pas de solution encore.

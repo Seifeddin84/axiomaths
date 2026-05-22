@@ -4,6 +4,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
 import 'katex/dist/katex.min.css';
+import rehypeRaw from 'rehype-raw';
 
 interface MathRendererProps {
   content: string;
@@ -26,7 +27,7 @@ export default function MathRenderer({ content }: MathRendererProps) {
     >
       <ReactMarkdown
         remarkPlugins={[remarkMath, remarkGfm]}
-        rehypePlugins={[rehypeKatex]}
+        rehypePlugins={[rehypeKatex, rehypeRaw]}
         components={{
           div: ({ node, className, children, ...props }) => {
             if (className === 'math math-display') {

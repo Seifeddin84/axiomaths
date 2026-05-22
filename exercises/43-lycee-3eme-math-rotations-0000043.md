@@ -43,7 +43,7 @@ $$AB = AD \quad \text{et} \quad \angle BAD = \frac{\pi}{2}$$
 
 L'angle en $A$ est inscrit dans $(\mathscr{C})$ et vaut $\frac{\pi}{2}$, donc **$BD$ est un diamètre de $(\mathscr{C})$**. On en déduit $\angle ABD = \angle ADB = \frac{\pi}{4}$.
 
-![Description of the figure](/exercises/images/lycee-3eme-math-rotations-0000043.png)
+![Description of the figure](/exercises/images/43-lycee-3eme-math-rotations-0000043.png)
 
 **Question 1 — $\Omega \in \overset{\frown}{DA}$**
 

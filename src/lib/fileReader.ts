@@ -19,7 +19,7 @@ export function getAllExercises(): Exercise[] {
   const filenames = fs.readdirSync(exercisesDirectory);
   
   const exercises = filenames
-    .filter(filename => filename.endsWith('.md'))
+    .filter(filename => filename.endsWith('.md')|| filename.endsWith('.mdx'))
     .map(filename => {
       const filePath = path.join(exercisesDirectory, filename);
       const fileContent = fs.readFileSync(filePath, 'utf8');

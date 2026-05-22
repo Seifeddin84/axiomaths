@@ -147,4 +147,4 @@ $$\dfrac{n}{t_n} = \dfrac{\pi}{2h} \tan(h) = \dfrac{\pi}{2} \times \dfrac{\tan(h
 Comme $\lim_{h \to 0} \frac{\tan(h)}{h} = 1$, alors $\lim_{n \to +\infty} \dfrac{n}{t_n} = \dfrac{\pi}{2}$.
 
 **Annexe : Figure**
-![Description of the figure](/exercises/images/lycee-4eme-math-fonctions-reciproques-0000031.png)
+![Description of the figure](/exercises/images/31-lycee-4eme-math-fonctions-reciproques-0000031.png)

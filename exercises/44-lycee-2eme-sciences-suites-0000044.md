@@ -2,8 +2,8 @@
 uid: "0000044"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
-chapter: "Suites Réelles"
+section: ["Sciences", "Technologies de l'Informatique"]
+chapter: "Suites arithmétiques et géométriques"
 source: "Devoir de synthèse N°2 - Lycée Pilote Sakiet Ezzit - Sfax 2"
 schoolType: "pilote"
 title: "Suites arithmétiques et géométriques"
@@ -15,7 +15,6 @@ points: 7
 tags: ["suites-arithmetiques", "suites-geometriques"]
 ---
 
-**Exercice 1 : 7 points**
 
 Soit $(U_n)$ la suite arithmétique définie sur $\mathbb{N}$ et de raison $r < 0$ tels que $U_3 + U_7 = -10$ et $U_3 \cdot U_7 = 9$.
 
@@ -39,7 +38,6 @@ Soit $(U_n)$ la suite arithmétique définie sur $\mathbb{N}$ et de raison $r < 
       Déterminer $n$ pour que $P_n = 625\sqrt{5}$.
 
 ---
-
 ## Solution
 
-*(Solution to be added)*
+Pas de solution encore.

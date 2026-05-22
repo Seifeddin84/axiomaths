@@ -3,7 +3,7 @@ uid: "0000021"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Applications Linéaires"
+chapter: "Fonctions linéaires et Affines"
 source: "Lycée la Soukra : Ariana"
 title: "Images, antécédents et alignement de points"
 country: "Tunisie"
@@ -36,4 +36,13 @@ Soit $f$ la fonction linéaire qui vérifie $f(-2) = 1$.
 ---
 
 ## Solution
-Pas de solution encore.
+
+1. a) $f$ est linéaire donc $f(x) = ax$. $a = \frac{f(-2)}{-2} = -\frac{1}{2}$. 
+
+   $f(1-\sqrt{3}) = -\frac{1}{2}(1-\sqrt{3}) = \frac{\sqrt{3}-1}{2}$.
+
+   $f(1+\sqrt{3}) = -\frac{1}{2}(1+\sqrt{3}) = \frac{-1-\sqrt{3}}{2}$.
+
+   $f(2) = f(1-\sqrt{3} + 1+\sqrt{3}) = f(1-\sqrt{3}) + f(1+\sqrt{3}) = \frac{\sqrt{3}-1-1-\sqrt{3}}{2} = -1$.
+   
+2. a) $g(x) = bx + b - 2$. Pour que $g$ soit linéaire, l'ordonnée à l'origine doit être nulle : $b - 2 = 0 \implies b = 2$.

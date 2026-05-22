@@ -28,7 +28,7 @@ $b=-1-i$, $c=2i$ et $d=2-2i$.
 ## Solution
 
 1. Placement des points dans le plan complexe
-![Description of the figure](/exercises/images/lycee-4eme-informatique-complexe-0000005.png)
+![Description of the figure](/exercises/images/5-lycee-4eme-informatique-complexe-0000005.png)
 
 2.  $$\dfrac{c-a}{d-a}=\dfrac{2i-(-1+i)}{(2-2i)-(-1+i)}=\dfrac{2i+1-i}{2-2i+1-i}=\dfrac{1+i}{3-3i}=\dfrac{(1+i)(3+3i)}{|3-3i|^2}$$
 

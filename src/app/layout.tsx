@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import Navbar from '@/components/Navbar';
 import LayoutShell from '@/components/LayoutShell';
 import { ExerciseBasketProvider } from '@/context/ExerciseBasketContext';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 export const metadata = {
   title: 'Axiomaths - Exercices de mathématiques',
@@ -29,17 +30,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="antialiased font-sans bg-white dark:bg-gray-950 text-gray-900 dark:text-white">
-        <ExerciseBasketProvider>
-          <div className="min-h-screen bg-white dark:bg-gray-950">
-            {/* Top Navbar - full width, always on top */}
-            <Navbar />
-
-            {/* Below navbar: sidebar + content handled by LayoutShell */}
-            <LayoutShell>
-              {children}
-            </LayoutShell>
-          </div>
-        </ExerciseBasketProvider>
+        <ThemeProvider>
+          <ExerciseBasketProvider>
+            <div className="min-h-screen bg-white dark:bg-gray-950">
+              <Navbar />
+              <LayoutShell>
+                {children}
+              </LayoutShell>
+            </div>
+          </ExerciseBasketProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

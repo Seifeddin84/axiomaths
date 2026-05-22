@@ -17,7 +17,7 @@ tags: ["lecture graphique", "limite", "dérivation", "tangente", "approximation 
 
 **A.** On a représenté dans un plan rapporté à un repère orthonormé la courbe $(C)$ d'une fonction $f$ définie et dérivable sur $\mathbb{R}$. On sait que $f(0) = -\dfrac{4}{9}$.
 
-![Description of the figure](/exercises/images/lycee-3eme-math-derivee-0000039.png)
+![Description of the figure](/exercises/images/39-lycee-3eme-math-derivee-0000039.png)
 
 1.  Par une lecture graphique :
 
@@ -46,3 +46,8 @@ On désigne par $(C')$ sa courbe représentative dans un plan rapporté à un re
     b. Écrire une équation cartésienne de la tangente $(T)$ à $(C')$ au point d'abscisse $0$.
 
     c. Existe-t-il une autre tangente à $(C')$ qui est parallèle à $(T)$ ?
+
+---
+## Solution
+
+Pas de solution encore.

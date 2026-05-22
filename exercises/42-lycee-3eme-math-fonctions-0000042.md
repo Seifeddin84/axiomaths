@@ -45,3 +45,8 @@ $z_A = 1$, $z_M = 1 + \cos\theta - i\sin\theta$ et $z_N = 1 - \cos\theta + i\sin
     b. Montrer que l'aire du triangle $OMM'$ est $\mathcal{A} = 2\sqrt{3}\cos^2\left(\dfrac{\theta}{2}\right)$.
     
     c. Déterminer les valeurs de $\theta$ pour lesquelles $\mathcal{A} \leq \dfrac{\sqrt{3}}{2}$.
+
+---
+## Solution
+
+Pas de solution encore.

@@ -3,7 +3,7 @@ uid: "0000016"
 school: "college"
 level: "9eme"
 section: null
-chapter: "الحساب الجبري والأسس"
+chapter: "الجذاءات المعتبرة والعبارات الجبرية"
 source: "فرض مراقبة عدد 3"
 title: "صواب أو خطأ: المتطابقات الشهيرة والأسس"
 country: "Tunisie"

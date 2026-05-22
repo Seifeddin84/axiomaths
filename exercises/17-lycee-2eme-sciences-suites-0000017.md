@@ -2,8 +2,8 @@
 uid: "0000017"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
-chapter: "Suites Réelles"
+section: ["Sciences", "Technologies de l'Informatique"]
+chapter: "Suites arithmétiques et géométriques"
 source: "Facebook: Tunisiamaths - Devoir de contrôle N°3"
 title: "Suite télescopique à radicaux"
 country: "Tunisie"
@@ -28,3 +28,8 @@ tags: ["suites", "calcul-de-termes", "somme-telescopique"]
     b.  Montrer que pour tout $n \in \mathbb{N}^*$, on a : $S_n = \sqrt{n+1}$.
 
     c.  En déduire la valeur de $S_{120}$.
+
+---
+## Solution
+
+Pas de solution encore.
