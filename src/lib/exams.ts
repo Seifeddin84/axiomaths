@@ -45,42 +45,34 @@ export function getAllExams(): Exam[] {
   
   // Check if directory exists
   if (!fs.existsSync(examsDir)) {
-    console.warn('⚠️ Exams directory not found:', examsDir);
     return [];
   }
-  
+
   const files = fs.readdirSync(examsDir);
-  console.log('📁 Files in exams directory:', files);
-  
+
   const yamlFiles = files.filter(file => file.endsWith('.yaml') || file.endsWith('.yml'));
-  console.log('📄 YAML files found:', yamlFiles);
-  
+
   const exams: Exam[] = [];
-  
+
   for (const file of yamlFiles) {
     try {
       const filePath = path.join(examsDir, file);
       const fileContent = fs.readFileSync(filePath, 'utf-8');
-      console.log(`\n📖 Parsing ${file}...`);
-      console.log('Content length:', fileContent.length);
-      
-      const data = yaml.load(fileContent) as any; 
-      console.log('✅ Parsed data:', JSON.stringify(data, null, 2));
-      
+
+      const data = yaml.load(fileContent) as any;
+
       // Construct PDF URL
       const pdfUrl = `/exams/${data.filename}`;
-      
+
       exams.push({
         ...data,
         pdfUrl,
       } as Exam);
-    } catch (error) {
-      console.error(`❌ Error loading exam ${file}:`, error);
+    } catch {
+      // Skip files that fail to parse
     }
   }
-  
-  console.log(`\n✅ Total exams loaded: ${exams.length}`);
-  
+
   // Sort by year (newest first), then by exam number
   return exams.sort((a, b) => {
     const yearCompare = b.year.localeCompare(a.year);

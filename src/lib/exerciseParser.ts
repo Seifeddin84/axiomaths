@@ -56,9 +56,6 @@ export function parseExercise(content: string, filename: string): Exercise {
       .filter(Boolean);
   }
 
-  console.log('Parsed sections:', sections);
-  console.log('Parsed professors:', professors);
-
   return {
     uid: frontmatter.uid || filename.replace('.md', ''),
     title: frontmatter.title,
@@ -118,8 +115,6 @@ function parseFrontmatter(content: string): { frontmatter: any; markdownContent:
       frontmatter[key] = value;
     }
   }
-
-  console.log('Parsed frontmatter:', frontmatter);
 
   return { frontmatter, markdownContent };
 }
