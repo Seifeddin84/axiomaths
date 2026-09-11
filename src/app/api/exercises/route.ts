@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getAllExercises } from '@/lib/fileReader';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const exercises = getAllExercises();
