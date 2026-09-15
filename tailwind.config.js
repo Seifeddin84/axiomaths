@@ -1,3 +1,5 @@
+const { siteTheme } = require('./src/lib/siteTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,10 +17,10 @@ module.exports = {
           100: '#ccfbf1',
           200: '#99f6e4',
           300: '#5eead4',
-          400: '#2dd4bf',
-          500: '#14b8a6',  // Main teal
+          400: siteTheme.primary.light,
+          500: siteTheme.primary.DEFAULT,  // Main teal
           600: '#0d9488',
-          700: '#0f766e',
+          700: siteTheme.primary.dark,
           800: '#115e59',
           900: '#134e4a',
           950: '#042f2e',
@@ -29,10 +31,10 @@ module.exports = {
           100: '#ffedd5',
           200: '#fed7aa',
           300: '#fdba74',
-          400: '#fb923c',
+          400: siteTheme.accent.light,
           500: '#f97316',  // Main orange
-          600: '#ea580c',
-          700: '#c2410c',
+          600: siteTheme.accent.DEFAULT,
+          700: siteTheme.accent.dark,
           800: '#9a3412',
           900: '#7c2d12',
           950: '#431407',

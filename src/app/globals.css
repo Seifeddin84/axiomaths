@@ -311,12 +311,16 @@
    ======================================== */
 
 :root {
+  /* siteTheme.accent.DEFAULT — keep in sync with src/lib/siteTheme.ts */
   --accent-500: #ea580c;
+  /* siteTheme.primary.DEFAULT — keep in sync with src/lib/siteTheme.ts */
   --primary-500: #14b8a6;
 }
 
 .dark {
+  /* siteTheme.accent.DEFAULT — keep in sync with src/lib/siteTheme.ts */
   --accent-500: #ea580c;
+  /* siteTheme.primary.light — keep in sync with src/lib/siteTheme.ts */
   --primary-500: #2dd4bf;
 }
 
@@ -394,4 +398,8 @@ button, .btn, a.button {
   background: white; /* or your dark bg color */
   padding: 0 2px;
   z-index: 1;
+}
+
+.dark .sign-table .zero span {
+  background: var(--bg-page, #0a0a0a);
 }

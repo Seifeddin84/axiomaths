@@ -47,8 +47,8 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
         return (
           <div
             key={exercise.uid}
-            className={`bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
-              isExpanded ? 'ring-4 ring-orange-500' : ''
+            className={`rounded-lg bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
+              isExpanded ? 'ring-4 ring-accent-600' : ''
             } ${selected ? 'ring-4 ring-green-500' : ''}`}
           >
             {/* Header */}
@@ -75,7 +75,7 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs font-mono font-black text-gray-500 dark:text-gray-400">#{exercise.uid}</span>
                     <span className="text-lg">{getDifficultyStars(exercise.difficulty)}</span>
-                    <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-black">
+                    <span className="px-3 py-1 bg-gradient-to-r from-accent-600 to-accent-700 text-white text-xs font-black">
                       {exercise.points} pts
                     </span>
                     {exercise.year && (
@@ -179,7 +179,7 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                         e.stopPropagation();
                         toggleSolution(exercise.uid);
                       }}
-                      className="px-6 py-3 font-black text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-lg hover:shadow-orange-500/50 transition-all flex items-center gap-2"
+                      className="px-6 py-3 font-black text-white bg-gradient-to-r from-accent-600 to-accent-700 hover:shadow-lg hover:shadow-accent-600/50 transition-all flex items-center gap-2"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -188,7 +188,7 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                     </button>
 
                     {isSolutionShown && (
-                      <div className="mt-6 p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-4 border-green-300 dark:border-green-700">
+                      <div className="rounded-lg mt-6 p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-4 border-green-300 dark:border-green-700">
                         <div className="flex items-center gap-3 mb-6">
                           <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
                             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { cache } from 'react';
 import { parseExercise } from './exerciseParser';
 import { Exercise } from '@/types/exercise';
 
@@ -15,9 +16,9 @@ function normalizeForComparison(str: string | undefined | null): string {
     .replace(/[\u0300-\u036f]/g, '');
 }
 
-export function getAllExercises(): Exercise[] {
+export const getAllExercises = cache(function getAllExercises(): Exercise[] {
   const filenames = fs.readdirSync(exercisesDirectory);
-  
+
   const exercises = filenames
     .filter(filename => filename.endsWith('.md')|| filename.endsWith('.mdx'))
     .map(filename => {
@@ -25,9 +26,9 @@ export function getAllExercises(): Exercise[] {
       const fileContent = fs.readFileSync(filePath, 'utf8');
       return parseExercise(fileContent, filename);
     });
-  
+
   return exercises;
-}
+})
 
 export function getExercisesByChapter(
   school: string,
