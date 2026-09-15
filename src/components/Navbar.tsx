@@ -2,21 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTheme } from '@/context/ThemeContext';
 
 export default function Navbar() {
-  const [darkMode, setDarkMode] = useState(true);
+  const { theme, toggleTheme } = useTheme();
+  const darkMode = theme === 'dark';
   const router = useRouter();
-
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle('dark');
-  };
 
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
@@ -75,7 +67,7 @@ export default function Navbar() {
 
             {/* Dark mode toggle */}
             <button
-              onClick={toggleDarkMode}
+              onClick={toggleTheme}
               className="p-2 text-gray-600 dark:text-gray-400 hover:text-accent-500 dark:hover:text-primary-400 transition-colors"
               aria-label="Toggle dark mode"
             >
