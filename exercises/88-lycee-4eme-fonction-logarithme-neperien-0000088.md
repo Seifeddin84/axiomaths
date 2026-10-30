@@ -32,7 +32,7 @@ tags: ["logarithme-neperien", "suites-reelles", "inegalites", "somme-de-riemann"
 5. On considère la suite $(u_n)$ définie pour tout $n \in \mathbb{N}^*$ par : $u_n = \left(1+\dfrac{1}{n}\right)^n$.
    Montrer que la suite $(u_n)$ est croissante et qu'elle converge vers $e$.
 
-6. On pose : $v_n = \dfrac{1}{n} \displaystyle\sum_{i=1}^n u_n , n \in \mathbb{N}^*$
+6. On pose : $v_n = \dfrac{1}{n} \displaystyle\sum_{i=1}^n u_i , n \in \mathbb{N}^*$
    Montrer que pour tout $n \in \mathbb{N}^* ; v_n \le e$
 
 7. a. Montrer que pour tout $i \in \{2, 3, \dots, n\}$ ;

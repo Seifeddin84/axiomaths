@@ -395,3 +395,12 @@ button, .btn, a.button {
   padding: 0 2px;
   z-index: 1;
 }
+/* Links between exercises (e.g. /lycee/4eme/mathematiques/integrales#ex-0000116) */
+.exercise-content a {
+  color: #ea580c;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+.exercise-content a:hover { color: #c2410c; }
+.dark .exercise-content a { color: #fb923c; }

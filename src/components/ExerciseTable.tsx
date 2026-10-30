@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Exercise } from '@/types/exercise';
 import { getDifficultyStars } from '@/lib/exerciseParser';
 import MathRenderer from './MathRenderer';
@@ -25,6 +25,22 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
     }
   };
 
+  // Deep links: /lycee/4eme/mathematiques/integrales#ex-0000116 opens and scrolls to that exercise
+  useEffect(() => {
+    const openFromHash = () => {
+      const m = window.location.hash.match(/^#ex-(\d+)$/);
+      if (!m || !exercises.some(ex => ex.uid === m[1])) return;
+      setExpandedId(m[1]);
+      setShowSolution(null);
+      requestAnimationFrame(() =>
+        document.getElementById(`ex-${m[1]}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      );
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+    return () => window.removeEventListener('hashchange', openFromHash);
+  }, [exercises]);
+
   const toggleSolution = (uid: string) => {
     setShowSolution(showSolution === uid ? null : uid);
   };
@@ -47,7 +63,8 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
         return (
           <div
             key={exercise.uid}
-            className={`bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
+            id={`ex-${exercise.uid}`}
+            className={`scroll-mt-24 bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
               isExpanded ? 'ring-4 ring-orange-500' : ''
             } ${selected ? 'ring-4 ring-green-500' : ''}`}
           >
@@ -75,9 +92,11 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs font-mono font-black text-gray-500 dark:text-gray-400">#{exercise.uid}</span>
                     <span className="text-lg">{getDifficultyStars(exercise.difficulty)}</span>
-                    <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-black">
-                      {exercise.points} pts
-                    </span>
+                    {exercise.points != null && (
+                      <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-black">
+                        {exercise.points} pts
+                      </span>
+                    )}
                     {exercise.year && (
                       <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs font-black">
                         {exercise.year}

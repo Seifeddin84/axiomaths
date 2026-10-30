@@ -2,7 +2,7 @@
 uid: '0000024'
 school: lycee
 level: 2eme
-section: ["Sciences", "Technologies de l'Informatique"]
+section: ["Sciences", "Informatique"]
 chapter: Suites arithmétiques et géométriques
 source: 'Lycée ElriAdh: Marsa'
 title: Suite homographique avec radicaux

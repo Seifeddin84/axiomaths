@@ -6,7 +6,7 @@ section: "Mathématiques"
 chapter: "Fonctions réciproques"
 source: "Facebook: Tunisiamaths / Lycée Pilote de Tunis"
 schoolType: "pilote"
-title: "Fonction tangente hyperbolique inverse et suites complexes"
+title: "Fonction tangente, fonction réciproque et suites"
 country: "Tunisie"
 year: 2025
 professor: null
@@ -51,7 +51,7 @@ Soit la fonction $f$ définie sur $]2, +\infty[$ par : $f(x) = \tan\left(\dfrac{
 
     b) Déterminer la partie réelle et la partie imaginaire de $S_n$.
 
-    c) En déduire que $t_n = \dfrac{1}{f(2n)}$ pour tout entier naturel $n$ non nul.
+    c) En déduire que $t_n = \dfrac{1}{f(2n)}$ pour tout entier naturel $n \geq 2$.
 
     d) calculer $\lim_{n \to +\infty} \dfrac{n}{t_n}$.
 

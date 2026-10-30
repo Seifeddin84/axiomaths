@@ -25,7 +25,7 @@ On donne les points $A(1,0)$, $B(-1,0)$ et $C(-1,-1)$.
 
 1. Calculer $z_1$ et $z_2$ en fonction de $z$.
 
-2. Soit $H'$ le milieu de $[M_1 M_2]$.
+2. Soit $M'$ le milieu de $[M_1 M_2]$.
    
    a. Calculer l'affixe $z'$ du point $M'$ en fonction de $z$.
    
@@ -41,8 +41,14 @@ On donne les points $A(1,0)$, $B(-1,0)$ et $C(-1,-1)$.
    - Homothétie $h(A,2)$ : $z_1 - z_A = 2(z - z_A) \implies z_1 = 2z - 1$.
    - Similitude $s(B, 2, \frac{\pi}{2})$ : $z_2 - z_B = 2e^{i\frac{\pi}{2}}(z - z_B) \implies z_2 = 2iz + 2i - 1$.
 
-2. a. Milieu $H'$ : $z' = \frac{z_1 + z_2}{2} = (1+i)z - 1 + i$.
+2. a. Milieu $M'$ : $z' = \frac{z_1 + z_2}{2} = (1+i)z - 1 + i$.
    
-   b. $T$ est une similitude directe de rapport $\sqrt{2}$ et d'angle $\frac{\pi}{4}$.
+   b. $z' = az + b$ avec $a = 1+i$, $|a| = \sqrt{2}$ et $\arg(a) \equiv \frac{\pi}{4}\ [2\pi]$. Le centre est le point fixe : $z = (1+i)z - 1 + i \iff iz = 1 - i \iff z = -1 - i = z_C$.
 
-3. On trouve $Q = \frac{z' - z_C}{z - z_C} = 1+i$ donc $|Q| = \sqrt{2}$ et $\arg(Q) = \frac{\pi}{4}$.
+   $T$ est la similitude directe de centre $C$, de rapport $\sqrt{2}$ et d'angle $\frac{\pi}{4}$.
+
+3. Comme $C$ est le centre de $T$ : $Q = \frac{z' - z_C}{z - z_C} = 1+i$, donc $CM' = \sqrt{2}\,CM$ et $(\overrightarrow{CM}, \overrightarrow{CM'}) \equiv \frac{\pi}{4}\ [2\pi]$.
+
+   Par Al-Kashi : $MM'^2 = CM^2 + 2CM^2 - 2\sqrt{2}\,CM^2\cos\frac{\pi}{4} = CM^2$, donc $MM' = CM$ et $CM'^2 = CM^2 + MM'^2$.
+
+   Le triangle $CMM'$ est rectangle isocèle en $M$.
