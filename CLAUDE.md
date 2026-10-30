@@ -162,3 +162,6 @@ Section rules:
   were already in the repo (#31, #32–34) → duplicate check is step 1.
   #32 had silently lost a question at extraction → after extracting, re-count
   the questions against the photo.
+- 2026-10-30 (Seifeddine): **change of variable** is not a theorem in the Bac program but is used as a
+  technique and accepted in solutions. Use it when it is the natural route (e.g. $t = 1/u$, $x = \tan\theta$);
+  when a derivative-based proof also exists, give it as the main proof or as *Autre méthode*.

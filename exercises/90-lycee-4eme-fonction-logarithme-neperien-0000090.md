@@ -76,6 +76,8 @@ tags: ["logarithme-neperien", "integration", "suites-reelles", "encadrement"]
 
    $H$ est constante, égale à $H(1) = 0$.
 
+   *Autre méthode* (changement de variable $t = \dfrac{1}{u}$, $dt = -\dfrac{du}{u^2}$) : $F\left(\dfrac{1}{x}\right) = \displaystyle\int_1^{x} \dfrac{\ln\frac{1}{u}}{1 + \frac{1}{u^2}}\left(-\dfrac{du}{u^2}\right) = \int_1^x \dfrac{\ln u}{1 + u^2}\,du = F(x)$.
+
    c. $\psi(x) = \sqrt{x} - \ln x$ : $\psi'(x) = \dfrac{1}{2\sqrt{x}} - \dfrac{1}{x} = \dfrac{\sqrt{x} - 2}{2x}$, minimum en $x = 4$ : $\psi(4) = 2 - 2\ln 2 > 0$. Donc $\ln x \le \sqrt{x}$.
 
    Pour $x \ge 1$ : $0 \le \ln x \le \sqrt{x}$ et $1 + x^2 \ge x^2$, donc $f(x) \le \dfrac{\sqrt{x}}{x^2} = \dfrac{1}{x\sqrt{x}}$.
