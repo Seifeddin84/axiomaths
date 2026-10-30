@@ -42,7 +42,7 @@ tags: ["logarithme-neperien", "integration", "suites-reelles", "encadrement"]
 
    c. Montrer que pour tout $n \in \mathbb{N}$ : $|u_n - \beta| \le \dfrac{1}{(2n+3)^2}$. En déduire $\lim\limits_{n \to +\infty} u_n$.
 
-*Pour aller plus loin : le réel $\beta$ est la **constante de Catalan** $G \approx 0{,}916$. Voir l'exercice [n°116 « La constante de Catalan »](/lycee/4eme/mathematiques/integrales#ex-0000116) et l'[exercice n°112](/lycee/4eme/mathematiques/integrales#ex-0000112).*
+*Pour aller plus loin : le réel $\beta$ est la **constante de Catalan** $G \approx 0{,}916$. Voir l'exercice [n°116 « La constante de Catalan »](/lycee/4eme/mathematiques/integrales#ex-0000116), l'[exercice n°112](/lycee/4eme/mathematiques/integrales#ex-0000112) et l'[exercice n°117](/lycee/4eme/mathematiques/integrales#ex-0000117).*
 
 ---
 

@@ -109,4 +109,4 @@ On considère la fonction $F$ définie sur $]0, +\infty[$ par $F(x) = \displayst
 
    e. $\lim\limits_{x \to +\infty} J(x) = \ln 2$ et $\lim\limits_{x \to +\infty} I(x) = 1$ ; le passage à la limite conserve les inégalités larges : $\ln 2 \leq L \leq 1$.
 
-   *Remarque : on peut montrer que $L = \displaystyle\sum_{k \geq 0} \dfrac{(-1)^k}{(2k+1)^2} \approx 0{,}916$ (constante de Catalan) — voir l'[exercice n°90](/lycee/4eme/mathematiques/fonction-logarithme-neperien#ex-0000090) et l'exercice [n°116 « La constante de Catalan »](/lycee/4eme/mathematiques/integrales#ex-0000116).*
+   *Remarque : on peut montrer que $L = \displaystyle\sum_{k \geq 0} \dfrac{(-1)^k}{(2k+1)^2} \approx 0{,}916$ (constante de Catalan) — voir l'[exercice n°90](/lycee/4eme/mathematiques/fonction-logarithme-neperien#ex-0000090) et l'exercice [n°116 « La constante de Catalan »](/lycee/4eme/mathematiques/integrales#ex-0000116) (suite : [n°117](/lycee/4eme/mathematiques/integrales#ex-0000117)).*

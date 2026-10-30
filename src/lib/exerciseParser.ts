@@ -4,7 +4,7 @@ export function parseExercise(content: string, filename: string): Exercise {
   const { frontmatter, markdownContent } = parseFrontmatter(content);
   
   // Extract solution
-  const solutionMatch = markdownContent.match(/##\s*Solution\s*\n([\s\S]*?)(?=\n##|$)/i);
+  const solutionMatch = markdownContent.match(/##\s*Solution\s*\n([\s\S]*?)(?=\n##[^#]|$)/i);
   const exerciseContent = solutionMatch 
     ? markdownContent.substring(0, solutionMatch.index).trim()
     : markdownContent.trim();
