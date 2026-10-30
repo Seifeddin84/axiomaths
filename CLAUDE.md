@@ -95,6 +95,7 @@ Section rules:
   Prefer `\dfrac`, `\lim\limits_{x \to +\infty}`, `\displaystyle\int_a^b … \, dx`,
   `\ln`, `\mathbb{R}`, `\mathbb{N}^*`, `\vec{AB}` (or `\overrightarrow{AB}`),
   decimal comma `1{,}9`. Intervals: `]0, +\infty[` (no `\]`/`\[` — they break KaTeX).
+  Inside a numbered item, `$$…$$` renders *inline* (small sums/integrals): write `$$\displaystyle …$$`.
   "f^{2n}(x)" meaning a power → say so: "où $f^{k}(x)$ désigne $(f(x))^k$".
 - Solutions: concise, same numbering as the statement, key steps and results
   (not a full essay). `**Vrai.**` / `**Faux.**` + one-line justification for V-F.
