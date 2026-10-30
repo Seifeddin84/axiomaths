@@ -59,11 +59,13 @@ Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = \dfrac{e^x - 1}{e^x +
    c. $f'(t) \leq \dfrac{1}{2} \iff 4e^t \leq (e^t + 1)^2 \iff 0 \leq (e^t - 1)^2$ : vrai.
 
    d. $\varphi(x) = \dfrac{x}{2} - f(x)$ : $\varphi'(x) = \dfrac{1}{2} - f'(x) \geq 0$ et $\varphi(0) = 0$, donc $\varphi(x) \geq 0$ pour $x \geq 0$.
+
    $\mathcal{C}_f$ est au-dessous de $T$ sur $\mathbb{R}_+$ et, par symétrie, au-dessus de $T$ sur $\mathbb{R}_-$.
 
 4. a. $\dfrac{2e^x}{e^x + 1} - 1 = \dfrac{2e^x - e^x - 1}{e^x + 1} = f(x)$.
 
    b. Une primitive de $f$ est $x \mapsto 2\ln(e^x + 1) - x$. Sur $[\lambda, 0]$, $f(x) \leq 0$, donc :
+
    $\mathcal{A}(\lambda) = -\displaystyle\int_\lambda^0 f(x)\,dx \times 4\text{ cm}^2 = 4\left(2\ln(1 + e^\lambda) - \lambda - 2\ln 2\right)\text{ cm}^2$.
 
    c. $\ln(1 + e^\lambda) \to 0$ et $-\lambda \to +\infty$ : $\lim\limits_{\lambda \to -\infty} \mathcal{A}(\lambda) = +\infty$.
@@ -73,6 +75,7 @@ Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = \dfrac{e^x - 1}{e^x +
    b. $y = \dfrac{e^x - 1}{e^x + 1} \iff e^x = \dfrac{1 + y}{1 - y}$, donc $f^{-1}(x) = \ln\left(\dfrac{1 + x}{1 - x}\right)$ pour $x \in \,]-1,1[$.
 
 6. a. $f^2(x) = \dfrac{(e^x + 1)^2 - 4e^x}{(e^x + 1)^2} = 1 - 2f'(x)$.
+
    $U_1 = \displaystyle\int_0^{\ln 2}\left(1 - 2f'(x)\right)dx = \ln 2 - 2\left(f(\ln 2) - f(0)\right) = \ln 2 - \dfrac{2}{3}$.
 
    b. Pour $x \geq 0$ : $0 \leq f(x) \leq \dfrac{x}{2}$, d'où $0 \leq f^{2n}(x) \leq \left(\dfrac{x}{2}\right)^{2n}$.

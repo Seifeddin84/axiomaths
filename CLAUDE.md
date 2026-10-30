@@ -101,6 +101,8 @@ Section rules:
   (not a full essay). `**Vrai.**` / `**Faux.**` + one-line justification for V-F.
   A short *Remarque* is welcome when it opens a door (e.g. a link to another exercise,
   a famous constant).
+- Inside a numbered item, consecutive lines **merge into one paragraph**. In solutions, put each step on its own
+  line with a blank line before it (keep the 3-space indent) so the steps stay readable.
 - **Links between exercises** (same theme, follow-up, same constant): use the deep link
   `[exercice n°116](/lycee/4eme/mathematiques/integrales#ex-0000116)` — path = level / section / chapter
   in lowercase ASCII with hyphens (the page normalizes accents), anchor `#ex-<UID7>` opens and scrolls to the card.

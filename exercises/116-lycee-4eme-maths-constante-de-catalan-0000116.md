@@ -98,6 +98,7 @@ $w_n = \dfrac{u_n + u_{n+1}}{2}$ et $e_n = \displaystyle\int_0^1 \rho_n(x)\,dx$.
 1. $\tan$ est continue et strictement croissante sur $\left]-\frac{\pi}{2}, \frac{\pi}{2}\right[$ ($\tan' = 1 + \tan^2 > 0$), avec $\lim\limits_{x \to -\frac{\pi}{2}^+} \tan x = -\infty$ et $\lim\limits_{x \to \frac{\pi}{2}^-} \tan x = +\infty$ : c'est une bijection sur $\mathbb{R}$.
 
 2. $\tan$ est dérivable et $\tan'(y) = 1 + \tan^2 y \neq 0$, donc $\varphi$ est dérivable sur $\mathbb{R}$ et
+
    $\varphi'(x) = \dfrac{1}{\tan'(\varphi(x))} = \dfrac{1}{1 + \tan^2(\varphi(x))} = \dfrac{1}{1 + x^2}$.
 
 3. a. $\dfrac{1}{1+t^2} \leq 1$ est clair, et $(1 - t^2)(1 + t^2) = 1 - t^4 \leq 1$.
@@ -125,6 +126,7 @@ $w_n = \dfrac{u_n + u_{n+1}}{2}$ et $e_n = \displaystyle\int_0^1 \rho_n(x)\,dx$.
    c. $|G - u_n| \leq \dfrac{1}{(2n+3)^2} \to 0$ : $(u_n)$ converge vers $G$.
 
 5. $u_3 = 1 - \dfrac{1}{9} + \dfrac{1}{25} - \dfrac{1}{49} = \dfrac{10016}{11025} \approx 0{,}9085$ et $u_4 = u_3 + \dfrac{1}{81} = \dfrac{91369}{99225} \approx 0{,}9208$.
+
    D'après 4.b : pour $n = 3$, $G - u_3 \geq 0$ ; pour $n = 4$, $u_4 - G \geq 0$. Donc
    $$\displaystyle 0{,}908 \leq u_3 \leq G \leq u_4 \leq 0{,}921$$
    amplitude $u_4 - u_3 = \dfrac{1}{81} \approx 0{,}012 < 2 \times 10^{-2}$.
@@ -134,6 +136,7 @@ $w_n = \dfrac{u_n + u_{n+1}}{2}$ et $e_n = \displaystyle\int_0^1 \rho_n(x)\,dx$.
 1. Pour $a \in \,]0, 1]$ : $0 \leq \varphi(a) \leq a$ (A.3.b) et $\ln a \leq 0$, donc $a\ln a \leq \varphi(a)\ln a \leq 0$. Comme $\lim\limits_{a \to 0^+} a\ln a = 0$, on conclut par encadrement.
 
 2. On pose $u(x) = \varphi(x)$, $v'(x) = \dfrac{1}{x}$, donc $u'(x) = \dfrac{1}{1+x^2}$, $v(x) = \ln x$ :
+
    $\displaystyle\int_a^1 \dfrac{\varphi(x)}{x}\,dx = \Big[\varphi(x)\ln x\Big]_a^1 - \int_a^1 \dfrac{\ln x}{1+x^2}\,dx = -\varphi(a)\ln a - J(a)$.
 
 3. $g$ est continue sur $[0,1]$, donc $a \mapsto \displaystyle\int_a^1 g(x)\,dx$ est continue en $0$ et tend vers $G$. Avec C.1 : $J(a) = -\varphi(a)\ln a - \displaystyle\int_a^1 g(x)\,dx \to -G$.
@@ -147,6 +150,7 @@ $w_n = \dfrac{u_n + u_{n+1}}{2}$ et $e_n = \displaystyle\int_0^1 \rho_n(x)\,dx$.
    b. Sur $[0,1]$ : $1 - t^2 \geq 0$ et $1 + t^2 \geq 1$, donc $0 \leq \dfrac{1 - t^2}{1 + t^2} \leq 1 - t^2$.
 
    c. Pour $x \in \,]0,1]$ : $0 \leq \rho_n(x) - \rho_{n+1}(x) \leq \dfrac{1}{x}\displaystyle\int_0^x \left(t^{2n+2} - t^{2n+4}\right)dt = \dfrac{x^{2n+2}}{2n+3} - \dfrac{x^{2n+4}}{2n+5}$ (vrai aussi en $0$).
+
    On intègre sur $[0,1]$ : $0 \leq e_n - e_{n+1} \leq \dfrac{1}{(2n+3)^2} - \dfrac{1}{(2n+5)^2}$.
 
 3. a. $\dfrac{1}{a^2} - \dfrac{1}{(a+2)^2} = \dfrac{(a+2)^2 - a^2}{a^2(a+2)^2} = \dfrac{4(a+1)}{a^2(a+2)^2}$, et $\dfrac{2(a+1)}{a^2(a+2)^2} \leq \dfrac{2}{a^3} \iff a(a+1) \leq (a+2)^2 \iff 0 \leq 3a + 4$ : vrai.
@@ -154,7 +158,9 @@ $w_n = \dfrac{u_n + u_{n+1}}{2}$ et $e_n = \displaystyle\int_0^1 \rho_n(x)\,dx$.
    b. D'après 1. : $(-1)^{n+1}(G - w_n) = \dfrac{e_n - e_{n+1}}{2}$ ; on applique 2.c puis 3.a avec $a = 2n + 3$.
 
 4. a. $\dfrac{2}{(2n+3)^3} \leq 10^{-3} \iff 2n + 3 \geq \sqrt[3]{2000} \approx 12{,}6 \iff n \geq 5$.
+
    $\dfrac{1}{(2n+3)^2} \leq 10^{-3} \iff 2n + 3 \geq \sqrt{1000} \approx 31{,}6 \iff n \geq 15$.
+
    Pour la même précision, $w_5$ n'utilise que les termes $u_0, \dots, u_6$, alors que $u_n$ demande $16$ termes : l'erreur décroît comme $\dfrac{1}{n^3}$ au lieu de $\dfrac{1}{n^2}$.
 
    b. $w_4 \approx 0{,}91669$ et $w_5 \approx 0{,}91552$. D'après 3.b : pour $n = 4$, $G \leq w_4$ ; pour $n = 5$, $G \geq w_5$. Donc

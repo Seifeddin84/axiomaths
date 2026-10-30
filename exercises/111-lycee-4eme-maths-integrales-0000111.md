@@ -43,6 +43,7 @@ On considère la suite $(U_n)_{n \in \mathbb{N}^*}$ définie sur $\mathbb{N}^*$ 
 2. a. Sur $[1,2]$ : $(x-1)^n \geq 0$ et $\ln x \geq 0$, et $1 \leq 2$, donc $U_n \geq 0$.
 
    b. $U_{n+1} - U_n = \displaystyle\int_1^2 (x-1)^n (x - 2) \ln x \, dx \leq 0$ car $x - 2 \leq 0$ sur $[1,2]$.
+
    $(U_n)$ est décroissante et minorée par $0$ : elle converge.
 
 3. On pose $u(x) = \ln x$ et $v'(x) = (x-1)^n$, donc $v(x) = \dfrac{(x-1)^{n+1}}{n+1}$ :

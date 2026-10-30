@@ -68,9 +68,11 @@ On considère la fonction $F$ définie sur $]0, +\infty[$ par $F(x) = \displayst
 **Partie A**
 
 1. a. $g'(x) = 2x - 4x\ln x - 2x = -4x\ln x$ : $g$ est croissante sur $]0,1]$ et décroissante sur $[1,+\infty[$.
+
    $\lim\limits_{x \to 0^+} g(x) = 1$ (car $x^2\ln x \to 0$), $g(1) = 2$, $\lim\limits_{x \to +\infty} g(x) = \lim x^2\left(\dfrac{1}{x^2} + 1 - 2\ln x\right) = -\infty$.
 
    b. Sur $]0,1]$, $g(x) > 1 > 0$ : pas de solution. Sur $[1,+\infty[$, $g$ est continue et strictement décroissante de $2$ vers $-\infty$ : une unique solution $\alpha > 1$.
+
    $g(1{,}8) \approx 0{,}43 > 0$ et $g(1{,}9) \approx -0{,}02 < 0$, donc $\alpha \in \,]1{,}8\,;\,1{,}9[$ ($\alpha \approx 1{,}895$).
 
    c. $g(x) > 0$ sur $]0, \alpha[$, $g(\alpha) = 0$, $g(x) < 0$ sur $]\alpha, +\infty[$.
@@ -78,12 +80,15 @@ On considère la fonction $F$ définie sur $]0, +\infty[$ par $F(x) = \displayst
 2. a. $u = \ln x$, $v' = x^2$ : $A = \left[\dfrac{x^3}{3}\ln x\right]_{\frac12}^{1} - \dfrac{1}{3}\displaystyle\int_{\frac12}^{1} x^2\,dx = \dfrac{\ln 2}{24} - \dfrac{7}{72}$.
 
    b. $g \geq 0$ sur $\left[\frac{1}{2}, 1\right]$, donc l'aire vaut
+
    $\displaystyle\int_{\frac12}^{1} g(x)\,dx = \left[x + \dfrac{x^3}{3}\right]_{\frac12}^{1} - 2A = \dfrac{19}{24} - \dfrac{\ln 2}{12} + \dfrac{7}{36} = \dfrac{71}{72} - \dfrac{\ln 2}{12} \approx 0{,}93$ u.a.
 
 3. a. $f'(x) = \dfrac{\frac{1}{x}(1+x^2) - 2x\ln x}{(1+x^2)^2} = \dfrac{1 + x^2 - 2x^2\ln x}{x(1+x^2)^2} = \dfrac{g(x)}{x(1+x^2)^2}$.
 
    b. $f'$ a le signe de $g$ : $f$ est croissante sur $]0,\alpha]$ et décroissante sur $[\alpha,+\infty[$.
+
    $\lim\limits_{x \to 0^+} f(x) = -\infty$ et $\lim\limits_{x \to +\infty} f(x) = 0$.
+
    $g(\alpha) = 0 \iff \ln\alpha = \dfrac{1+\alpha^2}{2\alpha^2}$, donc $f(\alpha) = \dfrac{\ln\alpha}{1+\alpha^2} = \dfrac{1}{2\alpha^2} \approx 0{,}14$.
 
    c. Asymptotes : $x = 0$ (verticale) et $y = 0$ en $+\infty$ ; $f(1) = 0$.
