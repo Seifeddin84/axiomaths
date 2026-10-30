@@ -101,6 +101,10 @@ Section rules:
   (not a full essay). `**Vrai.**` / `**Faux.**` + one-line justification for V-F.
   A short *Remarque* is welcome when it opens a door (e.g. a link to another exercise,
   a famous constant).
+- **Links between exercises** (same theme, follow-up, same constant): use the deep link
+  `[exercice n°116](/lycee/4eme/mathematiques/integrales#ex-0000116)` — path = level / section / chapter
+  in lowercase ASCII with hyphens (the page normalizes accents), anchor `#ex-<UID7>` opens and scrolls to the card.
+  Link both ways. College: `/college/<level>/<chapter>#ex-…`.
 - A devoir with several exercises → **one file per exercise**, same `source`,
   `professor`, `year`; `points` from each exercise's barème.
 

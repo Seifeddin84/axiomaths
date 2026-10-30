@@ -68,6 +68,27 @@ Pour $a \in \,]0, 1]$, on pose $J(a) = \displaystyle\int_a^1 \dfrac{\ln x}{1 + x
 
 3. En déduire que $\lim\limits_{a \to 0^+} J(a) = -G$.
 
+### Partie D — Accélérer la convergence
+
+D'après la partie B, $u_n$ approche $G$ à $\dfrac{1}{(2n+3)^2}$ près : c'est lent. On pose, pour tout $n \in \mathbb{N}$ :
+$w_n = \dfrac{u_n + u_{n+1}}{2}$ et $e_n = \displaystyle\int_0^1 \rho_n(x)\,dx$.
+
+1. Vérifier que pour tout $n \in \mathbb{N}$ : $G - w_n = \dfrac{(-1)^{n+1}}{2}\left(e_n - e_{n+1}\right)$.
+
+2. a. Montrer que pour tout $x \in \,]0, 1]$ : $\rho_n(x) - \rho_{n+1}(x) = \dfrac{1}{x}\displaystyle\int_0^x t^{2n+2}\,\dfrac{1 - t^2}{1 + t^2}\,dt$.
+
+   b. Montrer que pour tout $t \in [0, 1]$ : $0 \leq \dfrac{1 - t^2}{1 + t^2} \leq 1 - t^2$.
+
+   c. En déduire que : $0 \leq e_n - e_{n+1} \leq \dfrac{1}{(2n+3)^2} - \dfrac{1}{(2n+5)^2}$.
+
+3. a. Vérifier que pour tout réel $a > 0$ : $\dfrac{1}{2}\left(\dfrac{1}{a^2} - \dfrac{1}{(a+2)^2}\right) = \dfrac{2(a+1)}{a^2(a+2)^2} \leq \dfrac{2}{a^3}$.
+
+   b. En déduire que pour tout $n \in \mathbb{N}$ : $0 \leq (-1)^{n+1}\left(G - w_n\right) \leq \dfrac{2}{(2n+3)^3}$.
+
+4. a. Déterminer le plus petit entier $n$ tel que $\dfrac{2}{(2n+3)^3} \leq 10^{-3}$, puis le plus petit entier $n$ tel que $\dfrac{1}{(2n+3)^2} \leq 10^{-3}$. Commenter.
+
+   b. À l'aide de la calculatrice, donner des valeurs approchées de $w_4$ et $w_5$, puis en déduire un encadrement de $G$ d'amplitude inférieure à $2 \times 10^{-3}$.
+
 ---
 
 ## Solution
@@ -117,6 +138,30 @@ Pour $a \in \,]0, 1]$, on pose $J(a) = \displaystyle\int_a^1 \dfrac{\ln x}{1 + x
 
 3. $g$ est continue sur $[0,1]$, donc $a \mapsto \displaystyle\int_a^1 g(x)\,dx$ est continue en $0$ et tend vers $G$. Avec C.1 : $J(a) = -\varphi(a)\ln a - \displaystyle\int_a^1 g(x)\,dx \to -G$.
 
+### Partie D
+
+1. D'après B.4.a : $G - u_n = (-1)^{n+1}e_n$ et $G - u_{n+1} = (-1)^{n+2}e_{n+1} = -(-1)^{n+1}e_{n+1}$. On additionne et on divise par $2$.
+
+2. a. $R_n(x) - R_{n+1}(x) = \displaystyle\int_0^x \dfrac{t^{2n+2} - t^{2n+4}}{1 + t^2}\,dt = \int_0^x t^{2n+2}\,\dfrac{1 - t^2}{1 + t^2}\,dt$ ; on divise par $x$.
+
+   b. Sur $[0,1]$ : $1 - t^2 \geq 0$ et $1 + t^2 \geq 1$, donc $0 \leq \dfrac{1 - t^2}{1 + t^2} \leq 1 - t^2$.
+
+   c. Pour $x \in \,]0,1]$ : $0 \leq \rho_n(x) - \rho_{n+1}(x) \leq \dfrac{1}{x}\displaystyle\int_0^x \left(t^{2n+2} - t^{2n+4}\right)dt = \dfrac{x^{2n+2}}{2n+3} - \dfrac{x^{2n+4}}{2n+5}$ (vrai aussi en $0$).
+   On intègre sur $[0,1]$ : $0 \leq e_n - e_{n+1} \leq \dfrac{1}{(2n+3)^2} - \dfrac{1}{(2n+5)^2}$.
+
+3. a. $\dfrac{1}{a^2} - \dfrac{1}{(a+2)^2} = \dfrac{(a+2)^2 - a^2}{a^2(a+2)^2} = \dfrac{4(a+1)}{a^2(a+2)^2}$, et $\dfrac{2(a+1)}{a^2(a+2)^2} \leq \dfrac{2}{a^3} \iff a(a+1) \leq (a+2)^2 \iff 0 \leq 3a + 4$ : vrai.
+
+   b. D'après 1. : $(-1)^{n+1}(G - w_n) = \dfrac{e_n - e_{n+1}}{2}$ ; on applique 2.c puis 3.a avec $a = 2n + 3$.
+
+4. a. $\dfrac{2}{(2n+3)^3} \leq 10^{-3} \iff 2n + 3 \geq \sqrt[3]{2000} \approx 12{,}6 \iff n \geq 5$.
+   $\dfrac{1}{(2n+3)^2} \leq 10^{-3} \iff 2n + 3 \geq \sqrt{1000} \approx 31{,}6 \iff n \geq 15$.
+   Pour la même précision, $w_5$ n'utilise que les termes $u_0, \dots, u_6$, alors que $u_n$ demande $16$ termes : l'erreur décroît comme $\dfrac{1}{n^3}$ au lieu de $\dfrac{1}{n^2}$.
+
+   b. $w_4 \approx 0{,}91669$ et $w_5 \approx 0{,}91552$. D'après 3.b : pour $n = 4$, $G \leq w_4$ ; pour $n = 5$, $G \geq w_5$. Donc
+   $$\displaystyle 0{,}9155 \leq G \leq 0{,}9167$$
+   amplitude $w_4 - w_5 = \dfrac{1}{2}\left(\dfrac{1}{11^2} - \dfrac{1}{13^2}\right) = \dfrac{24}{20449} \approx 1{,}2 \times 10^{-3}$.
+
 *Remarques.*
-- *On a ainsi trois visages du même nombre : $G = \displaystyle\sum_{k \geq 0}\dfrac{(-1)^k}{(2k+1)^2} = \int_0^1 \dfrac{\varphi(x)}{x}\,dx = -\int_0^1 \dfrac{\ln x}{1+x^2}\,dx \approx 0{,}91597$. Le changement $x \mapsto \frac{1}{x}$ montre aussi que $G = \displaystyle\int_1^{+\infty}\dfrac{\ln x}{1+x^2}\,dx$ : c'est la limite $\beta$ de l'exercice n°90 et la limite $L$ de l'exercice n°112.*
+- *On a ainsi trois visages du même nombre : $G = \displaystyle\sum_{k \geq 0}\dfrac{(-1)^k}{(2k+1)^2} = \int_0^1 \dfrac{\varphi(x)}{x}\,dx = -\int_0^1 \dfrac{\ln x}{1+x^2}\,dx \approx 0{,}91597$. Le changement $x \mapsto \frac{1}{x}$ montre aussi que $G = \displaystyle\int_1^{+\infty}\dfrac{\ln x}{1+x^2}\,dx$ : c'est la limite $\beta$ de l'[exercice n°90](/lycee/4eme/mathematiques/fonction-logarithme-neperien#ex-0000090) et la limite $L$ de l'[exercice n°112](/lycee/4eme/mathematiques/integrales#ex-0000112).*
 - *Comparer avec $\displaystyle\sum_{k \geq 0}\dfrac{(-1)^k}{2k+1} = \varphi(1) = \dfrac{\pi}{4}$ (même méthode avec $x = 1$ en B.2.a). Pour les carrés, personne ne sait si $G$ est rationnel ou non : c'est un problème ouvert.*
+- *La moyenne de deux sommes partielles consécutives (partie D) est la première étape de l'accélération d'Euler : on peut recommencer avec $(w_n)$ pour converger encore plus vite.*
