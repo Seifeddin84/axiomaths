@@ -109,6 +109,10 @@ function parseFrontmatter(content: string): { frontmatter: any; markdownContent:
           .map((v: string) => v.trim().replace(/^["']|["']$/g, ''))
           .filter(Boolean);
       }
+      // YAML null (unquoted) → real null, not the string "null"
+      else if (value === 'null' || value === '~') {
+        value = null;
+      }
       // Handle quoted strings
       else if ((value.startsWith('"') && value.endsWith('"')) || 
                (value.startsWith("'") && value.endsWith("'"))) {

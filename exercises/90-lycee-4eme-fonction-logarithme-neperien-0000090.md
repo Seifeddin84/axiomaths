@@ -14,13 +14,13 @@ points: null
 tags: ["logarithme-neperien", "integration", "suites-reelles", "encadrement"]
 ---
 
-1. Soient $f$ et $g$ les deux fonctions défénies sur $]0, +\infty[$ par :
+1. Soient $f$ et $g$ les deux fonctions définies sur $]0, +\infty[$ par :
 
-$$f(x)=\dfrac{ln(x)}{1+x^2} \quad g(x)=1+x^2-*2x^2ln(x)$$
+$$f(x)=\dfrac{\ln(x)}{1+x^2} \quad g(x)=1+x^2-2x^2\ln(x)$$
 
     a. Étudier les variations de $f$ et $g$. 
     
-    b.  En déduire que l'équation $g(x)=0$ admet une solution unique $\alpha \in \]1,8 ; 2\[$. Préciser le signe de $g(x)$.
+    b.  En déduire que l'équation $g(x)=0$ admet une solution unique $\alpha \in \left]1{,}8\,;\,2\right[$. Préciser le signe de $g(x)$.
     
 2. Vérifier que $f(\alpha) = \dfrac{1}{2\alpha^2}$, puis dresser le tableau de variation de $f$ et tracer sa courbe $(C_f)$ dans un repère $(O, \vec{i}, \vec{j})$.
 

@@ -2,7 +2,7 @@
 uid: "0000044"
 school: "lycee"
 level: "2eme"
-section: ["Sciences", "Technologies de l'Informatique"]
+section: ["Sciences", "Informatique"]
 chapter: "Suites arithmétiques et géométriques"
 source: "Devoir de synthèse N°2 - Lycée Pilote Sakiet Ezzit - Sfax 2"
 schoolType: "pilote"

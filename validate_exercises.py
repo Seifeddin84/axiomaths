@@ -204,6 +204,7 @@ CANONICAL_CHAPTERS = {
         "Fonction logarithme népérien",
         "Fonction exponentielle",
         "Nombres complexes",
+        "Géométrie dans l'espace",
         "Probabilités",
         "Statistiques",
     ],
@@ -326,13 +327,16 @@ def validate_file(filepath, seen_uids, no_solution_ok=False):
     difficulty = str(data.get("difficulty", "")).strip()
     tags      = data.get("tags", [])
 
-    # ── SECTION AS LIST WARNING ──
+    # ── SECTIONS ──
+    # A list is allowed on purpose: the site (exerciseParser.ts) shows the
+    # exercise under every listed section. Collège has no sections.
     raw_section = data.get("section")
-    if isinstance(raw_section, list):
-        warnings.append(
-            f"section is stored as a list {raw_section} — "
-            f"should be a single string. Using '{section}' for validation."
-        )
+    if school == "college":
+        section_list = [None]
+    elif isinstance(raw_section, list):
+        section_list = [str(x).strip() for x in raw_section if x] or [None]
+    else:
+        section_list = [section]
 
     # ── UID FORMAT ──
     if not re.match(r"^\d{7}$", uid):
@@ -357,19 +361,20 @@ def validate_file(filepath, seen_uids, no_solution_ok=False):
         errors.append(f"level '{level}' invalid for school '{school}'")
 
     # ── CHAPTER CANONICAL CHECK ──
-    chapter_valid = chapter_is_valid(school, level, section, chapter)
-    if chapter_valid is False:
-        suggestion = suggest_canonical(chapter)
-        hint = f" → did you mean '{suggestion}'?" if suggestion else ""
-        errors.append(
-            f"chapter '{chapter}' not in canonical list for "
-            f"{school}/{level}/{section or 'no section'}.{hint}"
-        )
-    elif chapter_valid is None:
-        warnings.append(
-            f"No canonical list for {school}/{level}/{section} "
-            f"— '{chapter}' not validated (add list to validator)"
-        )
+    for sec in section_list:
+        chapter_valid = chapter_is_valid(school, level, sec, chapter)
+        if chapter_valid is False:
+            suggestion = suggest_canonical(chapter)
+            hint = f" → did you mean '{suggestion}'?" if suggestion else ""
+            errors.append(
+                f"chapter '{chapter}' not in canonical list for "
+                f"{school}/{level}/{sec or 'no section'}.{hint}"
+            )
+        elif chapter_valid is None:
+            warnings.append(
+                f"No canonical list for {school}/{level}/{sec} "
+                f"— '{chapter}' not validated (add list to validator)"
+            )
 
     # ── YEAR ──
     if year is not None:

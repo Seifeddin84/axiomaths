@@ -3,7 +3,7 @@ uid: "0000002"
 school: "college"
 level: "7eme"
 section: null
-chapter: "Géométrie"
+chapter: "المثلثات"
 source: "Devoir Maison 2023"
 title: "Triangles"
 country: "Tunisie"

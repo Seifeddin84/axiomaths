@@ -36,11 +36,11 @@ Soit $(O, I, J)$ un repère du plan orthonormé. On considère la fonction liné
 
 ## Solution
 
-1. a) $f(x) = ax \implies a = 2 \implies a = 2$.
+1. a) $f$ est linéaire : $f(x) = ax$, donc $f(1) = a = 2$.
 
 2. $E \in \Delta$ si et seulement si $f\left(\frac{\sqrt{5}-1}{2}\right) = \frac{1}{1+\sqrt{5}}$.
 
-3. a) Utiliser le développement du produit remarquable $(a-b)^3=a^3-a^2b+3ab^2-b^3$.
+3. a) Utiliser le développement du produit remarquable $(a-b)^3=a^3-3a^2b+3ab^2-b^3$.
 
 4. Se rappeler la fomule de l'aire d'un trapèze: $\dfrac{(MQ+NP)*h}{2}$
 

@@ -9,7 +9,7 @@ title: "Étude d'une fonction affine et aires"
 country: "Tunisie"
 year: 2013
 professor: "Benzina & Azzaz"
-difficulty: "Moyenne"
+difficulty: "Moyen"
 points: 6
 tags: ["fonction-affine", "représentation-graphique", "alignement", "inéquations", "aire"]
 ---

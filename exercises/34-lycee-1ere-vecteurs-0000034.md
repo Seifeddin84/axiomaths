@@ -31,4 +31,17 @@ $I$ milieu de $[BC]$ et $J$ milieu de $[DC]$.
 ---
 
 ## Solution
-Pas de solution encore.
+
+2. a) $I$ est le milieu de $[BC]$ donc $\vec{AB} + \vec{AC} = 2\vec{AI}$.
+   Or $\vec{IK} = \vec{AI}$ donc $\vec{AK} = \vec{AI} + \vec{IK} = 2\vec{AI} = \vec{AB} + \vec{AC}$.
+   D'où $\vec{CK} = \vec{CA} + \vec{AK} = -\vec{AC} + \vec{AB} + \vec{AC} = \vec{AB}$.
+
+   b) $ABCD$ est un parallélogramme donc $\vec{DC} = \vec{AB} = \vec{CK}$ : $C$ est le milieu de $[DK]$.
+
+3. $\vec{HK} = \vec{HD} + \vec{DC} + \vec{CK} = -\vec{AC} + 2\vec{AB}$.
+   $\vec{DB} = \vec{DA} + \vec{AB} = \vec{CB} + \vec{AB} = (\vec{AB} - \vec{AC}) + \vec{AB} = 2\vec{AB} - \vec{AC}$.
+   Donc $\vec{DB} = \vec{HK}$.
+
+4. $\vec{AH} = \vec{AD} + \vec{DH} = \vec{AD} + \vec{AC}$ et $\vec{AK} = \vec{AB} + \vec{AC}$.
+   $E$ milieu de $[HK]$ : $\vec{AE} = \dfrac{1}{2}(\vec{AH} + \vec{AK}) = \dfrac{1}{2}(\vec{AB} + \vec{AD} + 2\vec{AC}) = \dfrac{1}{2}(3\vec{AC}) = \dfrac{3}{2}\vec{AC}$
+   (car $\vec{AB} + \vec{AD} = \vec{AC}$). Les vecteurs $\vec{AE}$ et $\vec{AC}$ sont colinéaires : $A$, $C$ et $E$ sont alignés.
