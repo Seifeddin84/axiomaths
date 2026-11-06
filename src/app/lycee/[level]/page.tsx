@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllExercises } from '@/lib/fileReader';
+import { getAllLessons } from '@/lib/lessonReader';
 
 const LEVEL_DISPLAY: Record<string, string> = {
   '1ere': '1ère',
@@ -53,7 +54,7 @@ export default async function LyceeLevelPage({
   );
 
   // Get unique sections from exercises (filter out null, "null", and empty strings)
-  const uniqueSections = Array.from(
+  const exerciseSections = Array.from(
     new Set(
       levelExercises.flatMap(ex => {
         if (ex.sections && Array.isArray(ex.sections)) {
@@ -66,6 +67,13 @@ export default async function LyceeLevelPage({
       })
     )
   ).sort();
+
+  // Sections that only have lessons (cours) so far must also be reachable
+  const lessonSections = getAllLessons()
+    .filter(l => normalize(l.level) === normalize(level))
+    .flatMap(l => l.sections)
+    .filter(s => !exerciseSections.some(es => normalize(es) === normalize(s)));
+  const uniqueSections = Array.from(new Set([...exerciseSections, ...lessonSections])).sort();
 
   // If no sections, show chapters directly (like 1ère)
   const hasRealSections = uniqueSections.length > 0;

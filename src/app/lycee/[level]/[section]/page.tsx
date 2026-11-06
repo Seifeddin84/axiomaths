@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllExercises } from '@/lib/fileReader';
+import { getLessonsForSection } from '@/lib/lessonReader';
 
 const LEVEL_DISPLAY: Record<string, string> = {
   '1ere': '1ère',
@@ -56,12 +57,18 @@ export default async function SectionPage({
     return levelMatch && sectionMatch;
   });
 
+  // Chapters that have a lesson (cours) but no exercise yet are listed too
+  const sectionLessons = getLessonsForSection(level, decodedSection);
+  const exerciseChapters = sectionExercises
+    .map(ex => ex.chapter)
+    .filter((chapter): chapter is string => Boolean(chapter));
   const uniqueChapters = Array.from(
-    new Set(
-      sectionExercises
-        .map(ex => ex.chapter)
-        .filter((chapter): chapter is string => Boolean(chapter))
-    )
+    new Set([
+      ...exerciseChapters,
+      ...sectionLessons
+        .map(l => l.chapter)
+        .filter(c => !exerciseChapters.some(ec => normalize(ec) === normalize(c))),
+    ])
   ).sort();
 
   return (
@@ -106,6 +113,7 @@ export default async function SectionPage({
           {uniqueChapters.map((chapter) => {
             const chapterSlug = slugify(chapter);
             const exerciseCount = sectionExercises.filter(ex => ex.chapter === chapter).length;
+            const hasLesson = sectionLessons.some(l => normalize(l.chapter) === normalize(chapter));
 
             return (
               <Link
@@ -145,7 +153,7 @@ export default async function SectionPage({
                       </svg>
                     </div>
                     <span className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                      {exerciseCount} exercice{exerciseCount > 1 ? 's' : ''}
+                      {exerciseCount} exercice{exerciseCount > 1 ? 's' : ''}{hasLesson ? ' · cours disponible' : ''}
                     </span>
                   </div>
                 </div>
