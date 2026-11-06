@@ -1,5 +1,6 @@
 import { getAllExercises } from '@/lib/fileReader';
 import ExercisesView from '@/components/ExercisesView';
+import { getLessonsForChapter } from '@/lib/lessonReader';
 import Link from 'next/link';
 
 const LEVEL_DISPLAY: Record<string, string> = {
@@ -58,6 +59,8 @@ export default async function ChapterPage({
     return levelMatch && sectionMatch && chapterMatch;
   });
 
+  const lessons = getLessonsForChapter(level, decodedSection, decodedChapter);
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
       {/* Breadcrumb */}
@@ -111,6 +114,22 @@ export default async function ChapterPage({
           {chapterExercises.length} exercice{chapterExercises.length > 1 ? 's' : ''} disponible{chapterExercises.length > 1 ? 's' : ''}
         </p>
       </div>
+
+      {/* Lesson (cours) for this chapter */}
+      {lessons.map(lesson => (
+        <Link
+          key={lesson.slug}
+          href={`/cours/${lesson.slug}`}
+          className="group flex items-center justify-between gap-4 mb-8 sm:mb-10 p-5 rounded-lg border-2 border-accent-500/40 dark:border-primary-500/40 bg-accent-50 dark:bg-primary-900/20 hover:border-accent-500 dark:hover:border-primary-500 transition-colors"
+        >
+          <div>
+            <p className="text-xs font-black uppercase tracking-widest text-accent-600 dark:text-primary-400 mb-1">Cours du chapitre</p>
+            <p className="text-lg sm:text-xl font-black text-gray-900 dark:text-white">{lesson.title}</p>
+            <p className="text-sm font-semibold text-gray-600 dark:text-gray-400">{lesson.readTime} min de lecture · définitions, méthodes, exemples corrigés</p>
+          </div>
+          <span className="text-2xl text-accent-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform">→</span>
+        </Link>
+      ))}
 
       {/* Exercises */}
       {chapterExercises.length > 0 ? (
