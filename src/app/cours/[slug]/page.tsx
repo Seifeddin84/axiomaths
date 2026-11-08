@@ -7,6 +7,8 @@ import {
   getAdjacentLessons,
   getChapterExercisesInfo,
   lessonLabel,
+  LEVEL_DISPLAY,
+  urlSlug,
 } from '@/lib/lessonReader';
 import { LessonHeading } from '@/types/lesson';
 
@@ -69,11 +71,25 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       {/* Breadcrumb */}
       <nav className="flex items-center flex-wrap gap-1 text-sm font-semibold mb-8">
-        <Link href="/cours" className="text-accent-600 dark:text-primary-400 hover:underline">Cours</Link>
+        <Link href={`/${lesson.school}`} className="text-accent-600 dark:text-primary-400 hover:underline">
+          {lesson.school === 'college' ? 'Collège' : 'Lycée'}
+        </Link>
         <Chevron />
-        <span className="text-gray-600 dark:text-gray-400">{lessonLabel(lesson)}</span>
+        <Link href={`/${lesson.school}/${lesson.level}`} className="text-accent-600 dark:text-primary-400 hover:underline">
+          {LEVEL_DISPLAY[lesson.level] ?? lesson.level} Année
+        </Link>
+        {lesson.sections[0] && (
+          <>
+            <Chevron />
+            <Link href={`/${lesson.school}/${lesson.level}/${urlSlug(lesson.sections[0])}`} className="text-accent-600 dark:text-primary-400 hover:underline">
+              {lesson.sections[0]}
+            </Link>
+          </>
+        )}
         <Chevron />
-        <span className="text-gray-900 dark:text-white">{lesson.chapter}</span>
+        <Link href={exercises.href} className="text-accent-600 dark:text-primary-400 hover:underline">{lesson.chapter}</Link>
+        <Chevron />
+        <span className="text-gray-900 dark:text-white">Cours</span>
       </nav>
 
       {/* Header */}

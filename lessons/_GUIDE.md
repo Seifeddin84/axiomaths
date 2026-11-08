@@ -2,7 +2,7 @@
 
 Ce fichier n'est pas publié : les fichiers dont le nom commence par `_` sont ignorés.
 
-Chaque fichier `lessons/<slug>.md` devient une page `/cours/<slug>`. Le cours apparaît aussi en haut de la page d'exercices du chapitre, si les champs `level`, `sections` et `chapter` correspondent à ceux des exercices.
+Chaque fichier `lessons/<slug>.md` devient une page `/cours/<slug>`. Il n'y a pas de page qui liste les cours : on accède à un cours par le lien placé en haut de la page d'exercices de son chapitre. Il faut donc que les champs `level`, `sections` et `chapter` correspondent à ceux des exercices.
 
 ## En-tête
 

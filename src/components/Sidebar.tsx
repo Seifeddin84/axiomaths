@@ -44,7 +44,6 @@ export default function Sidebar({ onClose }: SidebarProps) {
         { title: '9ème Année', path: '/college/9eme' },
       ],
     },
-    { title: 'Cours', path: '/cours' },
     { title: 'Recherche', path: '/recherche' },
     { title: 'Devoirs', path: '/devoirs' },
     {
