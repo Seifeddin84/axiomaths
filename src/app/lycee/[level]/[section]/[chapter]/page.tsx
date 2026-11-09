@@ -1,6 +1,7 @@
 import { getAllExercises } from '@/lib/fileReader';
 import ExercisesView from '@/components/ExercisesView';
 import { getLessonsForChapter } from '@/lib/lessonReader';
+import LessonAccordion from '@/components/LessonAccordion';
 import Link from 'next/link';
 
 const LEVEL_DISPLAY: Record<string, string> = {
@@ -115,20 +116,17 @@ export default async function ChapterPage({
         </p>
       </div>
 
-      {/* Lesson (cours) for this chapter */}
+      {/* Lesson (cours) for this chapter: a card that unfolds in place, above the exercises */}
       {lessons.map(lesson => (
-        <Link
+        <LessonAccordion
           key={lesson.slug}
-          href={`/cours/${lesson.slug}`}
-          className="group flex items-center justify-between gap-4 mb-8 sm:mb-10 p-5 rounded-lg border-2 border-accent-500/40 dark:border-primary-500/40 bg-accent-50 dark:bg-primary-900/20 hover:border-accent-500 dark:hover:border-primary-500 transition-colors"
-        >
-          <div>
-            <p className="text-xs font-black uppercase tracking-widest text-accent-600 dark:text-primary-400 mb-1">Cours du chapitre</p>
-            <p className="text-lg sm:text-xl font-black text-gray-900 dark:text-white">{lesson.title}</p>
-            <p className="text-sm font-semibold text-gray-600 dark:text-gray-400">{lesson.readTime} min de lecture · définitions, méthodes, exemples corrigés</p>
-          </div>
-          <span className="text-2xl text-accent-600 dark:text-primary-400 group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
+          slug={lesson.slug}
+          title={lesson.title}
+          summary={lesson.summary}
+          readTime={lesson.readTime}
+          source={lesson.source}
+          toc={lesson.headings.filter(h => h.depth === 2).map(h => ({ id: h.id, text: h.text }))}
+        />
       ))}
 
       {/* Exercises */}

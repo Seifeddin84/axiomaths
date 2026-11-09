@@ -5,7 +5,6 @@ school: "lycee"
 level: "3eme"
 sections: ["Economie et Gestion"]
 chapter: "Statistiques"
-order: 1
 summary: "Résumer une série par quelques nombres bien choisis, comparer deux séries sans se faire piéger par une valeur extrême, puis étudier deux caractères à la fois : nuage de points, point moyen et distributions marginales."
 prerequisites: ["Moyenne et médiane (2ème année)", "Lecture de tableaux et de graphiques"]
 source: "Manuel officiel 3ème année Économie et Gestion, Tome 1, chapitre 1"

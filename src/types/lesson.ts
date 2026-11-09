@@ -14,7 +14,6 @@ export interface Lesson {
   level: string;             // "2eme", "3eme", ...
   sections: string[];        // e.g. ["Sciences", "Technologies de l'Informatique"]
   chapter: string;           // must match the `chapter` field of the exercises
-  order: number;             // position of the chapter in the year (for prev / next)
   prerequisites: string[];
   source?: string;           // reference textbook
   updated?: string;

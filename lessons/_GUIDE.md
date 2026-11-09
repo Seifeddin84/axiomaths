@@ -2,7 +2,7 @@
 
 Ce fichier n'est pas publié : les fichiers dont le nom commence par `_` sont ignorés.
 
-Chaque fichier `lessons/<slug>.md` devient une page `/cours/<slug>`. Il n'y a pas de page qui liste les cours : on accède à un cours par le lien placé en haut de la page d'exercices de son chapitre. Il faut donc que les champs `level`, `sections` et `chapter` correspondent à ceux des exercices.
+Chaque fichier `lessons/<slug>.md` devient une carte « Cours » placée en haut de la page d'exercices de son chapitre : un clic la déplie, un second la replie, sur la même page. Il n'y a pas de page `/cours`. Il faut donc que les champs `level`, `sections` et `chapter` correspondent **exactement** à ceux des exercices du chapitre (voir `normalize()` dans `src/lib/lessonReader.ts`).
 
 ## En-tête
 
@@ -14,7 +14,6 @@ school: "lycee"
 level: "2eme"
 sections: ["Sciences", "Technologies de l'Informatique"]
 chapter: "Polynômes"          # même valeur que le champ chapter des exercices
-order: 3                      # rang du chapitre dans l'année (précédent / suivant)
 summary: "Une ou deux phrases."
 prerequisites: ["Second degré"]
 source: "Manuel officiel 2ème année, Tome 1, chapitre 3"
