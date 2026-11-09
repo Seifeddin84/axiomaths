@@ -543,3 +543,49 @@ button, .btn, a.button {
 }
 .lesson-answer[open] > summary { border-bottom: 1px dashed color-mix(in srgb, var(--c, #16a34a) 40%, transparent); }
 .lesson-answer__body { padding: 0.75rem 0.9rem 0.1rem; }
+
+/* ========================================
+   LESSONS — Arabic (right-to-left) variant: <details dir="rtl"> / .lesson-content[dir="rtl"]
+   Maths stay left-to-right (Latin letters and digits, as in the Tunisian textbooks).
+   ======================================== */
+[dir='rtl'] .lesson-badge { letter-spacing: 0 !important; text-transform: none; }
+
+.lesson-content[dir='rtl'] {
+  font-family: 'Tajawal', 'Noto Naskh Arabic', ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.15rem;
+  line-height: 2;
+  text-align: right;
+}
+.lesson-content[dir='rtl'] .lesson-h2,
+.lesson-content[dir='rtl'] .lesson-h3,
+.lesson-content[dir='rtl'] .lesson-box__header,
+.lesson-content[dir='rtl'] .lesson-answer > summary,
+.lesson-content[dir='rtl'] th { font-family: 'Tajawal', ui-sans-serif, system-ui, sans-serif; }
+.lesson-content[dir='rtl'] .lesson-h2 { font-size: 1.7rem; line-height: 1.5; }
+.lesson-content[dir='rtl'] .lesson-h3 { font-size: 1.3rem; line-height: 1.6; }
+/* letter-spacing and upper-casing would cut the Arabic joins */
+.lesson-content[dir='rtl'] .lesson-box__kind,
+.lesson-content[dir='rtl'] th { letter-spacing: 0; text-transform: none; }
+.lesson-content[dir='rtl'] .lesson-box__kind { font-size: 0.95rem; }
+.lesson-content[dir='rtl'] th { font-size: 1rem; }
+
+/* maths: an isolated left-to-right island inside right-to-left text */
+.lesson-content[dir='rtl'] .katex { direction: ltr; unicode-bidi: isolate; }
+/* an inline formula is never cut across two lines (it would read in the wrong order in RTL text) */
+.lesson-content[dir='rtl'] .katex,
+.lesson-content[dir='rtl'] .katex .katex-html { white-space: nowrap; }
+.lesson-content[dir='rtl'] .katex .base { white-space: nowrap; }
+.lesson-content[dir='rtl'] .katex-display { direction: ltr; }
+
+/* lists, anchors, box border and the QED square switch sides */
+.lesson-content[dir='rtl'] ul,
+.lesson-content[dir='rtl'] ol { padding-left: 0; padding-right: 1.6em; }
+.lesson-content[dir='rtl'] .lesson-anchor { left: auto; right: -1.2em; }
+.lesson-content[dir='rtl'] .lesson-box { border-left-width: 1px; border-right: 5px solid var(--c); }
+.dark .lesson-content[dir='rtl'] .lesson-box { border-right-color: var(--c); }
+.lesson-content[dir='rtl'] .lesson-box--summary { border-left-width: 2px; border-right-width: 6px; }
+.lesson-content[dir='rtl'] .lesson-box--proof { border-left-style: dashed; border-right-style: solid; }
+.lesson-content[dir='rtl'] .lesson-box--proof .lesson-box__body::after { text-align: left; }
+.lesson-content[dir='rtl'] .sign-table td:first-child,
+.lesson-content[dir='rtl'] .sign-table th:first-child { text-align: right; }
+.lesson-content[dir='rtl'] code { direction: ltr; unicode-bidi: isolate; }

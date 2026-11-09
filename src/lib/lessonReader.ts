@@ -8,9 +8,15 @@ const LESSONS_DIRECTORY = path.join(process.cwd(), 'lessons');
 
 export function normalize(text: string | undefined | null): string {
   if (!text) return '';
-  return String(text)
+  const trimmed = String(text).trim();
+
+  // Arabic script: URLs turn spaces into hyphens, so strip spaces / hyphens (and harakat) to compare
+  if (/[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(trimmed)) {
+    return trimmed.replace(/[\u064B-\u065F\u0670\u0640]/g, '').replace(/[\s\-_]+/g, '').toLowerCase();
+  }
+
+  return trimmed
     .toLowerCase()
-    .trim()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]/g, '');
@@ -48,8 +54,12 @@ function parseLesson(filename: string): Lesson {
 
   const words = content.replace(/\$[^$]*\$/g, ' x ').split(/\s+/).length;
 
+  const lang: 'fr' | 'ar' = data.lang === 'ar' ? 'ar' : 'fr';
+
   return {
     slug: data.slug ?? filename.replace(/\.mdx?$/, ''),
+    lang,
+    dir: lang === 'ar' ? 'rtl' : 'ltr',
     title: data.title ?? data.chapter ?? filename,
     summary: data.summary,
     school: data.school ?? 'lycee',
@@ -92,5 +102,13 @@ export function getLessonsForSection(level: string, section: string): Lesson[] {
   return getAllLessons().filter(l =>
     normalize(l.level) === normalize(level) &&
     l.sections.some(s => normalize(s) === normalize(section))
+  );
+}
+
+/** Lessons of a collège chapter (/college/<level>/<chapter>): no section, the chapter title may be Arabic. */
+export function getLessonsForCollegeChapter(level: string, chapter: string): Lesson[] {
+  return getAllLessons().filter(l =>
+    normalize(l.level) === normalize(level) &&
+    normalize(l.chapter) === normalize(chapter)
   );
 }

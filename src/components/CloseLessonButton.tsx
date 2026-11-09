@@ -4,7 +4,7 @@
  * A lesson is long: once the reader reaches the bottom, this button folds the
  * card again and scrolls back to its header, so the exercises are right there.
  */
-export default function CloseLessonButton({ targetId }: { targetId: string }) {
+export default function CloseLessonButton({ targetId, label = 'Replier le cours' }: { targetId: string; label?: string }) {
   return (
     <button
       type="button"
@@ -19,7 +19,7 @@ export default function CloseLessonButton({ targetId }: { targetId: string }) {
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
       </svg>
-      Replier le cours
+      {label}
     </button>
   );
 }

@@ -15,7 +15,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
   const lesson = getAllLessons().find(l => l.slug === slug);
   if (!lesson) return new Response('Not found', { status: 404 });
 
-  const html = await renderLessonHtml(lesson.content);
+  const html = await renderLessonHtml(lesson.content, lesson.lang);
   return new Response(html, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',

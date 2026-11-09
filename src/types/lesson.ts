@@ -10,6 +10,8 @@ export interface Lesson {
   slug: string;
   title: string;
   summary?: string;
+  lang: 'fr' | 'ar';         // language of the lesson (`ar` => right-to-left layout)
+  dir: 'ltr' | 'rtl';
   school: string;            // "lycee" | "college"
   level: string;             // "2eme", "3eme", ...
   sections: string[];        // e.g. ["Sciences", "Technologies de l'Informatique"]

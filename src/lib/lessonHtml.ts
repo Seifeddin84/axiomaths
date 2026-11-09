@@ -70,19 +70,22 @@ function decorate(node: Root | Element): void {
 
 const rehypeLessonDecorations = () => (tree: Root) => decorate(tree);
 
-const processor = unified()
-  .use(remarkParse)
-  .use(remarkGfm)
-  .use(remarkMath)
-  .use(remarkDirective)
-  .use(remarkLessonBlocks)
-  .use(remarkRehype, { allowDangerousHtml: true })
-  .use(rehypeRaw)
-  .use(rehypeKatex)
-  .use(rehypeLessonDecorations)
-  .use(rehypeStringify);
+const makeProcessor = (lang: 'fr' | 'ar') =>
+  unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkMath)
+    .use(remarkDirective)
+    .use(remarkLessonBlocks, { lang })
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeKatex)
+    .use(rehypeLessonDecorations)
+    .use(rehypeStringify);
 
-/** Markdown lesson → HTML fragment (KaTeX already rendered). */
-export async function renderLessonHtml(markdown: string): Promise<string> {
-  return String(await processor.process(markdown));
+const processors = { fr: makeProcessor('fr'), ar: makeProcessor('ar') };
+
+/** Markdown lesson → HTML fragment (KaTeX already rendered). `lang` picks the box labels. */
+export async function renderLessonHtml(markdown: string, lang: 'fr' | 'ar' = 'fr'): Promise<string> {
+  return String(await processors[lang].process(markdown));
 }

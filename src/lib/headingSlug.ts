@@ -6,10 +6,11 @@
 export function headingSlug(raw: string): string {
   const slug = raw
     .replace(/\\[a-zA-Z]+/g, ' ')          // LaTeX commands: \alpha -> ' '
+    .replace(/[\u064B-\u065F\u0670\u0640]/g, '')  // Arabic harakat + tatweel
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')       // accents
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/[^a-z0-9\u0621-\u064A]+/g, '-')   // keep Arabic letters
     .replace(/^-+|-+$/g, '');
   return slug || 'section';
 }

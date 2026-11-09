@@ -37,6 +37,31 @@ export const BLOCKS: Record<string, { label: string; numbered: boolean }> = {
   summary:    { label: 'Synthèse', numbered: false },
 };
 
+/** Arabic box labels (same keys as BLOCKS). Numbering uses Western digits, as in the Tunisian textbooks. */
+const BLOCKS_AR: Record<string, string> = {
+  definition: 'تعريف',
+  theorem:    'مبرهنة',
+  property:   'خاصية',
+  corollary:  'نتيجة',
+  example:    'مثال',
+  method:     'طريقة',
+  proof:      'برهان',
+  remark:     'ملاحظة',
+  warning:    'تنبيه',
+  intuition:  'الفكرة',
+  check:      'اختبر نفسك',
+  challenge:  'تحدٍّ',
+  tic:        'مع الحاسوب',
+  history:    'رياضيات وثقافة',
+  summary:    'خلاصة',
+};
+
+const ANSWER_LABEL = { fr: 'Voir la réponse', ar: 'عرض الإجابة' };
+
+export interface LessonBlocksOptions {
+  lang?: 'fr' | 'ar';
+}
+
 const text = (value: string) => ({ type: 'text', value });
 
 function el(tagName: string, className: string | null, children: any[]) {
@@ -47,7 +72,8 @@ function el(tagName: string, className: string | null, children: any[]) {
   };
 }
 
-export default function remarkLessonBlocks() {
+export default function remarkLessonBlocks(options: LessonBlocksOptions = {}) {
+  const lang = options.lang === 'ar' ? 'ar' : 'fr';
   return (tree: any, file: any) => {
     const counters: Record<string, number> = {};
     const slug = createSlugger();
@@ -87,7 +113,7 @@ export default function remarkLessonBlocks() {
       if (name === 'answer') {
         node.data = { hName: 'details', hProperties: { className: ['lesson-answer'] } };
         node.children = [
-          el('summary', null, labelChildren.length ? labelChildren : [text('Voir la réponse')]),
+          el('summary', null, labelChildren.length ? labelChildren : [text(ANSWER_LABEL[lang])]),
           el('div', 'lesson-answer__body', children),
         ];
         return;
@@ -107,10 +133,11 @@ export default function remarkLessonBlocks() {
         return;
       }
 
-      let kind = block.label;
+      const label = lang === 'ar' ? BLOCKS_AR[name] ?? block.label : block.label;
+      let kind = label;
       if (block.numbered) {
         counters[name] = (counters[name] ?? 0) + 1;
-        kind = `${block.label} ${counters[name]}`;
+        kind = `${label} ${counters[name]}`;
       }
 
       const header = el('div', 'lesson-box__header', [
