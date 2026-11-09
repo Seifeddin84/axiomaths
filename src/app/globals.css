@@ -467,7 +467,10 @@ button, .btn, a.button {
 .dark .lesson-figure figcaption { color: #9ca3af; }
 
 /* tables (incl. "proof tables": Étape | Justification) */
-.lesson-table-wrap { overflow-x: auto; margin: 1.25rem 0 1.5rem; }
+.lesson-table-wrap { overflow-x: auto; margin: 1.25rem 0 1.5rem; position: relative; }
+/* KaTeX's hidden MathML copy is position:absolute; without a positioned scroll container it escapes
+   the overflow clipping and widens the whole page on phones. */
+.lesson-content .katex-display { position: relative; }
 .lesson-content table { border-collapse: collapse; width: auto; min-width: 60%; font-size: 0.98rem; }
 .lesson-content th, .lesson-content td {
   border: 1px solid #d1d5db; padding: 0.45rem 0.8rem; vertical-align: middle;
@@ -476,6 +479,8 @@ button, .btn, a.button {
   background: #f3f4f6; font-family: 'Roboto', sans-serif; font-weight: 800; font-size: 0.85rem;
   text-transform: uppercase; letter-spacing: 0.03em;
 }
+/* never upper-case maths in a header cell (π would become Π, α would become Α) */
+.lesson-content th .katex { text-transform: none; letter-spacing: 0; font-weight: 400; }
 .dark .lesson-content th, .dark .lesson-content td { border-color: #4b5563; }
 .dark .lesson-content th { background: #1f2937; }
 

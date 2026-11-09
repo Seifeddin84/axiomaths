@@ -36,6 +36,10 @@ Texte, $\LaTeX$, tableaux…
 :::
 ```
 
+**Le titre entre crochets ne doit contenir aucun crochet** : `:::proof[$x^2$ croissante sur $[0\,;+\infty[$]` casse l'encadré (il s'affiche en texte brut). Écrire `pour $x \geq 0$` à la place.
+
+Un lien interne vers une section utilise l'identifiant calculé à partir du titre rendu : `[section 5](#5-le-trinome-ax-2-bx-c)`. Pour un titre sans formule, c'est le titre en minuscules, sans accents, avec des tirets (`#6-dans-le-triangle-rectangle`). Vérifier le lien dans le navigateur.
+
 | Nom | Affiché | Numéroté |
 |---|---|---|
 | `definition` | Définition | oui |
