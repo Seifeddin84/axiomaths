@@ -97,3 +97,23 @@ Les images vont dans `public/lessons/images/`. On les insère ainsi :
 - Dans un tableau, ne pas utiliser `|` dans une formule : écrire `\lvert x \rvert` pour une valeur absolue et `\mid` pour « divise ».
 - Une formule centrée `$$ … $$` doit être seule sur ses lignes.
 - Les liens internes vers une section utilisent l'identifiant du titre : `[section 7](#7-equations-et-inequations-de-degre-superieur-a-2)`.
+
+## Cours en arabe (collège)
+
+Les exercices de collège sont en arabe : leurs cours aussi, écrits de droite à gauche.
+
+```yaml
+lang: "ar"
+school: "college"
+level: "9eme"
+sections: []                   # toujours vide au collège
+chapter: "مبرهنة طالس وتطبيقاتها"   # exactement le champ chapter des exercices
+```
+
+- `lang: "ar"` met la carte en `dir="rtl"`, traduit les noms des encadrés (تعريف، مبرهنة، خاصية، برهان…) et le bouton de réponse cachée. Sans `lang`, le cours est en français.
+- Les formules restent écrites de gauche à droite dans un îlot isolé. **Pas d'arabe dans une formule**, pas même dans `\text{…}` : écrire la phrase en dehors, puis la formule seule (« جذاء معدوم : $a \times b = 0$ يعني $a = 0$ أو $b = 0$ »).
+- Une formule en ligne qui dépasserait la largeur de l'écran n'est jamais coupée : elle devient une ligne défilante. On préfère quand même une formule centrée `$$ … $$` pour toute chaîne d'égalités longue.
+- Décimaux : `$1{,}5$` (virgule entre accolades). Séparateur de milliers : `\,` (ex. `10\,201`).
+- Les légendes de figure (le texte entre guillemets) sont du texte brut : **pas de `$…$`** dedans ; de même dans `summary` et `prerequisites`.
+- Figures : `python scripts/college_figures.py` régénère toutes les figures de collège (lettres latines et chiffres seulement, pas d'arabe dans les images) ; la légende arabe est dans le fichier du cours.
+- Les ancres internes `[…](#…)` utilisent l'identifiant du titre rendu (les lettres arabes sont conservées).

@@ -576,6 +576,8 @@ button, .btn, a.button {
 .lesson-content[dir='rtl'] .katex .katex-html { white-space: nowrap; }
 .lesson-content[dir='rtl'] .katex .base { white-space: nowrap; }
 .lesson-content[dir='rtl'] .katex-display { direction: ltr; }
+/* a formula wider than its line (set by LessonAccordion) scrolls sideways on its own line */
+.lesson-content[dir='rtl'] .katex.katex--wide { display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 0.2em 0; margin: 0.3em 0; text-align: left; }
 
 /* lists, anchors, box border and the QED square switch sides */
 .lesson-content[dir='rtl'] ul,

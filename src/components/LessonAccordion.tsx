@@ -56,6 +56,7 @@ export default function LessonAccordion({ slug, title, summary, readTime, source
   const id = `cours-${slug}`;
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const started = useRef(false);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [html, setHtml] = useState<string | null>(null);
   const [failed, setFailed] = useState(false);
 
@@ -72,6 +73,29 @@ export default function LessonAccordion({ slug, title, summary, readTime, source
       setFailed(true);
     }
   }, [slug]);
+
+  // In right-to-left text an inline formula is never cut across two lines, so one that is wider than its
+  // line would be clipped on a phone. Such a formula becomes a scrollable block of its own instead.
+  useEffect(() => {
+    if (!rtl || html === null) return;
+    const root = contentRef.current;
+    if (!root) return;
+    const mark = () => {
+      root.querySelectorAll<HTMLElement>('.katex').forEach(k => {
+        if (k.closest('.katex-display')) return;
+        k.classList.remove('katex--wide');
+        const host = k.closest<HTMLElement>('td, th, li, p, .lesson-box__body');
+        if (!host) return;
+        const cs = getComputedStyle(host);
+        const available = host.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        if (k.getBoundingClientRect().width > available + 1) k.classList.add('katex--wide');
+      });
+    };
+    mark();
+    document.fonts?.ready.then(mark); // widths change once the maths fonts have loaded
+    window.addEventListener('resize', mark);
+    return () => window.removeEventListener('resize', mark);
+  }, [html, rtl]);
 
   // a link such as …/polynômes#cours-<slug> opens the card straight away
   useEffect(() => {
@@ -166,7 +190,7 @@ export default function LessonAccordion({ slug, title, summary, readTime, source
                 </nav>
               )}
 
-              <div className="lesson-content" lang={lang} dir={rtl ? 'rtl' : 'ltr'} dangerouslySetInnerHTML={{ __html: html }} />
+              <div ref={contentRef} className="lesson-content" lang={lang} dir={rtl ? 'rtl' : 'ltr'} dangerouslySetInnerHTML={{ __html: html }} />
 
               <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 flex items-center justify-between gap-4 flex-wrap">
                 {source ? (

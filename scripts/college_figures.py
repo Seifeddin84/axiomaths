@@ -111,4 +111,160 @@ for k, ax in enumerate(axs):
     clean(ax, (-0.8, 8.8), (-0.6, 2.6))
 fig.tight_layout(pad=0.5); fig.savefig(OUT + "triangles-cas.svg"); plt.close(fig)
 
+
+# ---------------------------------------------------------------- 3. Pythagoras: the square of side a+b
+fig, ax = plt.subplots(figsize=(5.4, 5.0))
+a_, b_ = 3.0, 4.0; S = a_ + b_
+sq = [(0, 0), (S, 0), (S, S), (0, S)]
+poly(ax, sq, color=GRAY, fill=0.04, lw=1.6)
+P = [np.array(p, float) for p in [(a_, 0), (S, a_), (b_, S), (0, b_)]]        # corners of the inner square (side c = 5)
+poly(ax, [tuple(p) for p in P], color=ORANGE, fill=0.18, lw=2.4)
+corners = [np.array(p, float) for p in sq]
+for k, col in zip(range(4), (TEAL, TEAL, TEAL, TEAL)):
+    tri = [tuple(corners[k]), tuple(P[k]), tuple(P[k - 1])]
+    poly(ax, tri, color=col, fill=0.16, lw=1.6)
+ax.text(S / 2, S / 2, "$c^2$", ha="center", va="center", fontsize=22, color=ORANGE)
+ax.text(a_ / 2, -0.38, "$a$", ha="center", fontsize=15); ax.text(a_ + b_ / 2, -0.38, "$b$", ha="center", fontsize=15)
+ax.text(S + 0.3, a_ / 2, "$a$", va="center", fontsize=15); ax.text(S + 0.3, a_ + b_ / 2, "$b$", va="center", fontsize=15)
+ax.text(1.12, 1.68, "$c$", fontsize=17, color=ORANGE, ha="center", va="center")
+ax.set_title(r"$(a+b)^2 = 4\times\dfrac{ab}{2} + c^2$", fontsize=14, color=GRAY, pad=6)
+clean(ax, (-0.7, S + 0.9), (-0.9, S + 0.4)); fig.tight_layout(pad=0.3)
+fig.savefig(OUT + "pythagore-carre.svg", bbox_inches="tight", pad_inches=0.1); plt.close(fig)
+
+# ---------------------------------------------------------------- 4. Thales in a triangle
+fig, axs = plt.subplots(1, 2, figsize=(10.0, 3.9), gridspec_kw=dict(width_ratios=[1.0, 1.15]))
+ax = axs[0]
+A = np.array([0.0, 3.4]); B = np.array([-2.0, 0.0]); C = np.array([2.6, 0.0])
+t = 0.6; D = A + t * (B - A); E = A + t * (C - A)
+poly(ax, [tuple(A), tuple(B), tuple(C)], color=TEAL)
+ax.plot(*zip(D, E), color=ORANGE, lw=2.6)
+for pt, nm, off in ((A, "A", (0, 12)), (B, "B", (-12, -8)), (C, "C", (12, -8)), (D, "D", (-13, 3)), (E, "E", (13, 3))):
+    ax.plot(*pt, "o", color="black", ms=3.5); label(ax, pt, nm, *off)
+ax.set_title(r"$(DE)\parallel(BC)\ \Rightarrow\ \dfrac{AD}{AB}=\dfrac{AE}{AC}=\dfrac{DE}{BC}$", fontsize=13, color=GRAY, pad=4)
+clean(ax, (-3.0, 3.6), (-0.7, 4.0))
+ax = axs[1]
+y0, y1, y2 = 3.0, 1.6, 0.0
+for y_, col in ((y0, GRAY), (y1, GRAY), (y2, GRAY)):
+    ax.plot([-0.6, 6.0], [y_, y_], color=col, lw=1.6, ls="--")
+# two transversals Delta and Delta'
+def line_pt(p, q, y):
+    return p + (q - p) * (y - p[1]) / (q[1] - p[1])
+d1 = (np.array([0.4, 3.0]), np.array([2.6, 0.0])); d2 = (np.array([3.2, 3.0]), np.array([5.6, 0.0]))
+for (p, q), col in ((d1, TEAL), (d2, BLUE)):
+    ax.plot([p[0] - 0.15 * (q[0] - p[0]), q[0] + 0.15 * (q[0] - p[0])], [p[1] - 0.15 * (q[1] - p[1]), q[1] + 0.15 * (q[1] - p[1])], color=col, lw=2.2)
+names = ("A", "B", "C"); names2 = ("A'", "B'", "C'")
+for y_, n1, n2 in zip((y0, y1, y2), names, names2):
+    p = line_pt(*d1, y_); q = line_pt(*d2, y_)
+    ax.plot(*p, "o", color=TEAL, ms=5); ax.plot(*q, "o", color=BLUE, ms=5)
+    label(ax, p, n1, -13, 6); label(ax, q, n2, 15, 6)
+ax.set_title(r"$\dfrac{AB}{BC}=\dfrac{A'B'}{B'C'}$", fontsize=13, color=GRAY, pad=4)
+clean(ax, (-1.0, 6.6), (-0.7, 3.7))
+fig.tight_layout(pad=0.4); fig.savefig(OUT + "thales-triangle.svg", bbox_inches="tight", pad_inches=0.12); plt.close(fig)
+
+# ---------------------------------------------------------------- 5. coordinates: symmetric points
+fig, ax = plt.subplots(figsize=(5.6, 5.0))
+ax.axhline(0, color="black", lw=1.2); ax.axvline(0, color="black", lw=1.2)
+ax.set_xticks(range(-4, 5)); ax.set_yticks(range(-3, 4)); ax.grid(alpha=0.25)
+for sp in ax.spines.values(): sp.set_visible(False)
+ax.tick_params(length=0, labelsize=10, colors=GRAY)
+pts = {"M": ((3, 2), TEAL, (0, 16)), "M'": ((3, -2), ORANGE, (0, -16)), "M''": ((-3, 2), BLUE, (0, 16)), "N": ((-3, -2), GRAY, (0, -16))}
+for nm, ((x_, y_), col, off) in pts.items():
+    ax.plot(x_, y_, "o", color=col, ms=8, zorder=5)
+    label(ax, (x_, y_), f"${nm.replace(chr(39), chr(39)*1)}({x_};{y_})$".replace("M''", "M''"), *off, color=col, size=12)
+ax.plot([3, 3], [2, -2], color=ORANGE, lw=1.2, ls="--"); ax.plot([3, -3], [2, 2], color=BLUE, lw=1.2, ls="--"); ax.plot([3, -3], [2, -2], color=GRAY, lw=1.2, ls="--")
+label(ax, (0.0, 0.0), "O", -10, 9, size=13)
+ax.plot(1, 0, "o", color="black", ms=4); ax.plot(0, 1, "o", color="black", ms=4); label(ax, (1, 0), "I", 0, -12, size=12); label(ax, (0, 1), "J", -11, 0, size=12)
+ax.set_xlim(-4.6, 4.8); ax.set_ylim(-3.5, 3.6); ax.set_aspect("equal")
+fig.tight_layout(pad=0.3); fig.savefig(OUT + "repere-symetriques.svg"); plt.close(fig)
+
+# ---------------------------------------------------------------- 6. right triangle and its altitude
+fig, ax = plt.subplots(figsize=(6.2, 3.6))
+Bp = np.array([0.0, 0.0]); Cp = np.array([13.0, 0.0])
+# A with AB=5, AC=12 : BH=25/13, AH=60/13
+H = np.array([25 / 13, 0.0]); Ap = np.array([25 / 13, 60 / 13])
+poly(ax, [tuple(Ap), tuple(Bp), tuple(Cp)], color=TEAL)
+ax.plot(*zip(Ap, H), color=ORANGE, lw=2.4); right_angle(ax, H, Cp, Ap, 0.4); right_angle(ax, Ap, Bp, Cp, 0.45, color=GRAY)
+for pt, nm, off in ((Ap, "A", (0, 12)), (Bp, "B", (-12, -8)), (Cp, "C", (12, -8)), (H, "H", (0, -13))):
+    ax.plot(*pt, "o", color="black", ms=3.5); label(ax, pt, nm, *off)
+ax.text(0.7, 2.9, "5", color=GRAY, fontsize=12); ax.text(8.0, 2.6, "12", color=GRAY, fontsize=12); ax.text(7.0, -1.0, "13", color=GRAY, fontsize=12, ha="center")
+ax.text(2.35, 2.0, r"$\dfrac{60}{13}$", color=ORANGE, fontsize=12)
+clean(ax, (-1.2, 14.2), (-1.8, 6.4)); fig.tight_layout(pad=0.3)
+fig.savefig(OUT + "triangle-hauteur.svg"); plt.close(fig)
+
+# ---------------------------------------------------------------- 7. right triangle inscribed in a circle of diameter [BC]
+fig, ax = plt.subplots(figsize=(4.6, 3.6))
+th = np.linspace(0, 2 * np.pi, 400); R = 2.0
+ax.plot(R * np.cos(th), R * np.sin(th), color=GRAY, lw=1.8)
+Bc = np.array([-R, 0.0]); Cc = np.array([R, 0.0]); Oc = np.array([0.0, 0.0])
+Ac = np.array([R * np.cos(np.radians(112)), R * np.sin(np.radians(112))])
+poly(ax, [tuple(Ac), tuple(Bc), tuple(Cc)], color=TEAL, fill=0.10)
+ax.plot(*zip(Oc, Ac), color=ORANGE, lw=2.4)
+right_angle(ax, Ac, Bc, Cc, 0.28, color=ORANGE)
+for a_pt, b_pt in ((Oc, Ac), (Oc, Bc), (Oc, Cc)):
+    tick(ax, a_pt, b_pt, 1, color=ORANGE, size=0.09)
+for pt, nm, off in ((Ac, "A", (-4, 13)), (Bc, "B", (-12, -6)), (Cc, "C", (12, -6)), (Oc, "O", (0, -13))):
+    ax.plot(*pt, "o", color="black", ms=3.5); label(ax, pt, nm, *off)
+clean(ax, (-2.8, 2.8), (-2.3, 2.5)); fig.tight_layout(pad=0.3)
+fig.savefig(OUT + "cercle-triangle-rectangle.svg"); plt.close(fig)
+
+# ---------------------------------------------------------------- 8. trapezoid, segment joining the midpoints of the legs
+fig, ax = plt.subplots(figsize=(5.2, 3.0))
+A8 = np.array([0.5, 2.0]); B8 = np.array([3.5, 2.0]); D8 = np.array([-0.5, 0.0]); C8 = np.array([4.5, 0.0])
+I8 = (A8 + D8) / 2; J8 = (B8 + C8) / 2; P8 = (A8 + C8) / 2
+poly(ax, [tuple(A8), tuple(B8), tuple(C8), tuple(D8)], color=TEAL, fill=0.08)
+ax.plot(*zip(A8, C8), color=GRAY, lw=1.3, ls="--")
+ax.plot(*zip(I8, J8), color=ORANGE, lw=2.6)
+tick(ax, A8, I8, 1); tick(ax, I8, D8, 1); tick(ax, B8, J8, 2); tick(ax, J8, C8, 2)
+for pt, nm, off in ((A8, "A", (-4, 11)), (B8, "B", (4, 11)), (C8, "C", (12, -6)), (D8, "D", (-12, -6)), (I8, "I", (-11, 0)), (J8, "J", (11, 0)), (P8, "P", (0, 11))):
+    ax.plot(*pt, "o", color="black", ms=3.5); label(ax, pt, nm, *off)
+ax.text(2.0, 2.33, "3", color=GRAY, fontsize=12, ha="center"); ax.text(2.0, -0.45, "5", color=GRAY, fontsize=12, ha="center")
+clean(ax, (-1.4, 5.4), (-0.8, 2.7)); fig.tight_layout(pad=0.3)
+fig.savefig(OUT + "trapeze-mediane.svg"); plt.close(fig)
+
+# ---------------------------------------------------------------- 9. (a+b)^2 as an area
+fig, ax = plt.subplots(figsize=(4.8, 4.4))
+a9, b9 = 3.0, 2.0; S9 = a9 + b9
+def rect(x0, y0, w, h, col, txt, size=17):
+    ax.add_patch(plt.Rectangle((x0, y0), w, h, facecolor=col, alpha=0.16, edgecolor="none"))
+    ax.plot([x0, x0 + w, x0 + w, x0, x0], [y0, y0, y0 + h, y0 + h, y0], color=col, lw=2.0)
+    ax.text(x0 + w / 2, y0 + h / 2, txt, ha="center", va="center", fontsize=size, color=col)
+rect(0, 0, a9, a9, TEAL, "$a^2$"); rect(a9, a9, b9, b9, ORANGE, "$b^2$")
+rect(a9, 0, b9, a9, BLUE, "$ab$"); rect(0, a9, a9, b9, BLUE, "$ab$")
+ax.text(a9 / 2, -0.32, "$a$", ha="center", va="top", fontsize=15); ax.text(a9 + b9 / 2, -0.32, "$b$", ha="center", va="top", fontsize=15)
+ax.text(-0.25, a9 / 2, "$a$", ha="right", va="center", fontsize=15); ax.text(-0.25, a9 + b9 / 2, "$b$", ha="right", va="center", fontsize=15)
+ax.set_title(r"$(a+b)^2 = a^2 + 2ab + b^2$", fontsize=14, color=GRAY, pad=6)
+clean(ax, (-0.8, S9 + 0.4), (-0.9, S9 + 0.3)); fig.tight_layout(pad=0.3)
+fig.savefig(OUT + "carre-somme.svg", bbox_inches="tight", pad_inches=0.1); plt.close(fig)
+
+# ---------------------------------------------------------------- 10. choice tree: a coin tossed three times
+fig, ax = plt.subplots(figsize=(6.4, 4.4))
+import itertools
+levels = 3
+ys = {}
+leaves = list(itertools.product("PF", repeat=3))
+for i, seq in enumerate(leaves):
+    ys[seq] = 7 - i
+def y_of(seq):
+    if len(seq) == 3: return ys[seq]
+    ch = [y_of(seq + (c,)) for c in "PF"]
+    return sum(ch) / 2
+xs = [0.0, 1.5, 3.0, 4.5]
+root = (xs[0], y_of(()))
+ax.plot(*root, "o", color="black", ms=5)
+for depth in range(1, 4):
+    for seq in itertools.product("PF", repeat=depth):
+        parent = seq[:-1]
+        p_pt = (xs[depth - 1], y_of(parent)); c_pt = (xs[depth], y_of(seq))
+        col = TEAL if seq[-1] == "P" else ORANGE
+        ax.plot([p_pt[0], c_pt[0]], [p_pt[1], c_pt[1]], color=col, lw=1.8)
+        ax.plot(*c_pt, "o", color=col, ms=4.5)
+        mid = ((p_pt[0] + c_pt[0]) / 2, (p_pt[1] + c_pt[1]) / 2)
+        ax.text(mid[0] - 0.05, mid[1] + (0.22 if seq[-1] == "P" else -0.22), seq[-1], fontsize=11, color=col, ha="center", va="center")
+for seq in leaves:
+    ax.text(xs[3] + 0.18, ys[seq], "".join(seq), fontsize=12, va="center", ha="left")
+ax.text(xs[3] + 2.5, 3.9, "8", fontsize=24, color=GRAY, va="center", ha="center")
+ax.text(xs[3] + 2.5, 3.0, "2 \u00d7 2 \u00d7 2", fontsize=12, color=GRAY, va="center", ha="center")
+clean(ax, (-0.4, 8.2), (-0.6, 7.6)); fig.tight_layout(pad=0.3)
+fig.savefig(OUT + "arbre-pieces.svg", bbox_inches="tight", pad_inches=0.1); plt.close(fig)
+
 print("ok")
