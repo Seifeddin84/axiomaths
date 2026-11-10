@@ -120,7 +120,7 @@ Si $M'$ et $N'$ sont les images de $M$ et $N$ par une translation, alors $M'N' =
 | donc $MN = M'N'$ | deux vecteurs égaux ont la même longueur |
 :::
 
-:::theorem[Images des figures usuelles]
+:::theorem[Images des figures usuelles]{wiki="Images des figures usuelles par une translation"}
 Par une translation :
 
 - l'image d'une **droite** est une droite **parallèle** (ou elle-même, si la droite a la direction du vecteur) ;

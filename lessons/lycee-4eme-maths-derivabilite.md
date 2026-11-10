@@ -138,7 +138,7 @@ Autrement dit : **on dérive « de l'extérieur », puis on multiplie par la dé
 
 ### Signe de la dérivée et variations
 
-:::theorem[Variations]
+:::theorem[Variations]{wiki="Signe de la dérivée et variations"}
 Soit $f$ dérivable sur un intervalle $I$.
 
 - $f' \geq 0$ sur $I$ $\iff$ $f$ est **croissante** sur $I$ ; $f' \leq 0$ $\iff$ décroissante ; $f' = 0$ $\iff$ constante.

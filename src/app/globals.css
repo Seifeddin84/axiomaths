@@ -591,3 +591,33 @@ button, .btn, a.button {
 .lesson-content[dir='rtl'] .sign-table td:first-child,
 .lesson-content[dir='rtl'] .sign-table th:first-child { text-align: right; }
 .lesson-content[dir='rtl'] code { direction: ltr; unicode-bidi: isolate; }
+
+/* ========================================
+   THEOREMS WIKI (/theoremes)
+   Fragments are built by entryFragmentHtml() in src/lib/theoremIndex.ts;
+   the statements inside are ordinary lesson boxes (.lesson-content).
+   ======================================== */
+.wiki-version + .wiki-version { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed #d1d5db; }
+.dark .wiki-version + .wiki-version { border-top-color: #374151; }
+.wiki-version__head {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem;
+  margin-bottom: 0.25rem; font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+}
+.wiki-version__chapter { font-weight: 700; color: #4b5563; }
+.dark .wiki-version__chapter { color: #d1d5db; }
+.wiki-version__links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.wiki-version__link {
+  padding: 0.2rem 0.7rem; border-radius: 9999px; border: 1px solid #ea580c; color: #ea580c;
+  font-size: 0.875rem; font-weight: 700; text-decoration: none; transition: background .15s, color .15s;
+}
+.wiki-version__link:hover { background: #ea580c; color: #fff; }
+.dark .wiki-version__link { border-color: #2dd4bf; color: #2dd4bf; }
+.dark .wiki-version__link:hover { background: #14b8a6; color: #fff; }
+.wiki-version .lesson-content { font-size: 1rem; }
+.wiki-version .lesson-box:first-child { margin-top: 0.75rem; }
+.wiki-proof { margin: 0.75rem 0 0; font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif; font-size: 0.9rem; }
+details.wiki-proof > summary { cursor: pointer; font-weight: 700; color: #4b5563; padding: 0.25rem 0; }
+.dark details.wiki-proof > summary { color: #d1d5db; }
+details.wiki-proof[open] > summary { margin-bottom: 0.5rem; }
+p.wiki-proof { font-style: italic; color: #6b7280; }
+.dark p.wiki-proof { color: #9ca3af; }

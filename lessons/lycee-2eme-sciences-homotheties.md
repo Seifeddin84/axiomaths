@@ -107,7 +107,7 @@ Si $h(A) = A'$ et $h(B) = B'$, le centre est l'intersection des droites $(AA')$ 
 
 ## 4. Ce que l'homothétie transforme
 
-:::theorem[Images des figures usuelles]
+:::theorem[Images des figures usuelles]{wiki="Images des figures usuelles par une homothétie"}
 Soit $h$ une homothétie de centre $I$ et de rapport $k$.
 
 - L'image d'une **droite** est une droite **parallèle**.

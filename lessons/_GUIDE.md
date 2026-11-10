@@ -84,6 +84,15 @@ La réponse, cachée jusqu'au clic.
 
 Pour une valeur interdite, on écrit `$\Vert$` dans la case.
 
+## Wiki des théorèmes (`/theoremes`)
+
+Chaque encadré `:::theorem[Titre]` alimente la page `/theoremes`, sans rien écrire de plus : le titre devient le nom de l'entrée, le numéro affiché est celui de l'encadré dans son cours (« Théorème 3 »), et le lien de la classe renvoie au cours du chapitre. Deux encadrés au **même titre** (3ème Sciences exp. et 4ème Maths : « Dérivable implique continue ») forment une seule entrée avec deux classes.
+
+- **Démonstration** : l'encadré `:::proof` placé juste après le théorème (ou après une phrase ou deux) est joint à l'énoncé. Sans lui, l'entrée est « Admis » si le texte voisin dit « admis » (ou « نقبل » en arabe), sinon « Énoncé ».
+- **Titre trop court ou en double** : `:::theorem[Terme général]{wiki="Terme général d'une suite arithmétique"}` donne le nom du wiki sans changer l'encadré du cours. Pas de guillemets doubles dans le nom.
+- **Noms différents, même théorème** (français et arabe, ou deux formulations) : `lessons/_theorem-aliases.json`. Le titre arabe doit y figurer tel qu'il est écrit dans l'encadré, c'est ce qui réunit « Théorème de Thalès » (1ère) et « مبرهنة طالس » (9ème). Les réciproques ont leur propre entrée.
+- Un `:::theorem` sans titre est ignoré (avertissement dans le journal de build).
+
 ## Figures
 
 Les images vont dans `public/lessons/images/`. On les insère ainsi :

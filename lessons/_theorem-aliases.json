@@ -1,0 +1,30 @@
+{
+  "_comment": "Wiki des théorèmes (/theoremes). Chaque groupe réunit des encadrés qui portent des noms différents mais disent la même chose (typiquement : le titre français et le titre arabe). 'name' est le nom affiché, 'ar' son équivalent arabe, 'names' les autres titres d'encadrés à joindre (comparaison exacte, accents et ponctuation ignorés). Un titre français identique dans deux cours est réuni automatiquement : il n'y a rien à écrire ici.",
+  "groups": [
+    {
+      "name": "Théorème de Thalès",
+      "ar": "مبرهنة طالس",
+      "names": ["مبرهنة طالس في المثلث", "مبرهنة طالس: ثلاثة مستقيمات متوازية"]
+    },
+    {
+      "name": "Réciproque du théorème de Thalès",
+      "ar": "عكس مبرهنة طالس",
+      "names": ["عكس مبرهنة طالس"]
+    },
+    {
+      "name": "Théorème de Pythagore",
+      "ar": "مبرهنة فيثاغورس",
+      "names": ["مبرهنة فيثاغورس"]
+    },
+    {
+      "name": "Réciproque du théorème de Pythagore",
+      "ar": "عكس مبرهنة فيثاغورس",
+      "names": ["عكس مبرهنة فيثاغورس"]
+    },
+    {
+      "name": "Division euclidienne",
+      "ar": "القسمة الإقليدية",
+      "names": ["القسمة الإقليدية"]
+    }
+  ]
+}

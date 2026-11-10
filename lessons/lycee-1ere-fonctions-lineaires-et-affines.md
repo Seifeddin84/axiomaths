@@ -76,7 +76,7 @@ La dernière ligne surprend : une baisse de $10\,\%$ suivie d'une hausse de $10\
 
 ## 2. Représentation graphique d'une fonction linéaire
 
-:::theorem[Admis]
+:::theorem[Admis]{wiki="Représentation graphique d'une fonction linéaire (admis)"}
 Dans un repère $(O, I, J)$, la représentation graphique de $f : x \mapsto ax$ est la **droite $\Delta$ d'équation $y = ax$**. Elle passe par l'origine $O$ et par le point $A(1\,;\,a)$. Si $a = 0$, c'est la droite $(OI)$.
 :::
 
