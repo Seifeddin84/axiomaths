@@ -75,9 +75,11 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs font-mono font-black text-gray-500 dark:text-gray-400">#{exercise.uid}</span>
                     <span className="text-lg">{getDifficultyStars(exercise.difficulty)}</span>
-                    <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-black">
-                      {exercise.points} pts
-                    </span>
+                    {Number.isFinite(Number(exercise.points)) && (
+                      <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-black">
+                        {exercise.points} pts
+                      </span>
+                    )}
                     {exercise.year && (
                       <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs font-black">
                         {exercise.year}
