@@ -132,4 +132,77 @@ ax.annotate(r"$\ell=2$", (2, 2), xytext=(26, -14), textcoords="offset points", h
 ax.text(0.2, 2.35, r"$y=\sqrt{2+x}$", color=TEAL, fontsize=12.5); ax.text(2.0, 2.58, r"$y=x$", color=GRAY, fontsize=12)
 ax.set_xlim(-0.35, 2.75); ax.set_ylim(-0.35, 2.75); ax.set_aspect("equal"); ax.axis("off")
 save(fig, "m4-suite-escalier.svg")
+
+# ------------------------------------------------------------------ 5. PRIMITIVES : une famille de courbes translatees
+fig, ax = plt.subplots(figsize=(6.4, 5.6))
+cross(ax, -1.7, 4.4, -2.2, 6.6)
+xs = np.linspace(-1.3, 3.9, 400)
+for c in (-1, 0, 1, 2):
+    F = lambda x, c=c: x * x - 2 * x + c
+    assert abs(F(2) - c) < 1e-12 and abs((2 * 2 - 2) - 2) < 1e-12           # F_c(2)=c and F_c'(2)=2 for every c
+    ax.plot(xs, F(xs), color=TEAL if c == 1 else "#9ca3af", lw=2.8 if c == 1 else 1.4, zorder=4 if c == 1 else 3)
+    ax.plot([1.5, 2.5], [F(2) - 1.0, F(2) + 1.0], color=ORANGE, lw=1.4, zorder=5)   # tangent of slope 2 at x=2
+    dot(ax, 2, F(2), None, color=ORANGE, ms=4.5)
+    x0 = -1.25
+    ax.annotate(rf"$F_{{{c}}}$", (x0, F(x0)), xytext=(-7, 0), textcoords="offset points", ha="right", va="center", fontsize=12,
+                color=TEAL if c == 1 else GRAY)
+ax.plot([2, 2], [-2.0, 3.6], color=GRAY, lw=0.9, ls=":", zorder=1)
+ax.annotate(r"$x=2$", (2, -2.0), xytext=(0, -12), textcoords="offset points", ha="center", fontsize=11.5, color=GRAY)
+ax.text(0.2, 6.15, r"$F_c(x)=x^2-2x+c$", color="black", fontsize=12.5)
+ax.annotate("même pente $2$\nen $x=2$", (2.3, -0.4), xytext=(2.75, -1.55), fontsize=11.5, color=ORANGE, ha="left", va="center",
+            arrowprops=dict(arrowstyle="-", color=ORANGE, lw=0.9))
+dot(ax, 2, 1, r"$A(2\,;1)$", (28, -12), TEAL)
+ax.set_xlim(-2.4, 4.7); ax.set_ylim(-2.4, 6.8); ax.axis("off")
+save(fig, "m4-primitives-famille.svg")
+
+# ------------------------------------------------------------------ 6. TVI + DICHOTOMIE : cos x = x
+fig, (a1, a2) = plt.subplots(2, 1, figsize=(6.6, 6.4), gridspec_kw={"height_ratios": [1.55, 1]})
+g = lambda x: np.cos(x) - x
+xs = np.linspace(-0.05, 1.12, 400)
+cross(a1, -0.12, 1.2, -0.62, 1.12)
+a1.plot(xs, g(xs), color=TEAL, lw=2.5, zorder=4)
+alpha = 0.7390851332151607
+assert abs(math.cos(alpha) - alpha) < 1e-12 and g(0.0) > 0 > g(1.0)
+dot(a1, 0, 1, r"$g(0)=1$", (0, 15), BLUE); dot(a1, 1, math.cos(1) - 1, r"$g(1)\approx-0{,}46$", (-10, -16), BLUE, ha="right")
+dot(a1, alpha, 0, None, color=ORANGE, ms=7)
+a1.annotate(r"$\alpha\approx 0{,}739$", (alpha, 0), xytext=(0, 16), textcoords="offset points", ha="center", fontsize=12, color=ORANGE)
+a1.text(0.02, -0.5, r"$g(x)=\cos x-x$", fontsize=12.5, color=TEAL)
+a1.set_xlim(-0.15, 1.2); a1.set_ylim(-0.7, 1.32); a1.axis("off")
+a1.set_title("le théorème des valeurs intermédiaires : g change de signe, donc s'annule", fontsize=11.5, pad=2)
+
+steps = [(0.0, 1.0), (0.5, 1.0), (0.5, 0.75), (0.625, 0.75), (0.6875, 0.75), (0.71875, 0.75)]
+lo, hi = 0.0, 1.0
+for k, (l, h) in enumerate(steps):
+    assert abs(l - lo) < 1e-12 and abs(h - hi) < 1e-12 and l < alpha < h        # each bracket really contains the root
+    m = (lo + hi) / 2
+    if math.cos(lo) - lo > 0 and math.cos(m) - m > 0: lo = m
+    elif math.cos(lo) - lo > 0 > math.cos(m) - m: hi = m
+    y = -k
+    a2.plot([l, h], [y, y], color=BLUE if k else GRAY, lw=5, solid_capstyle="butt", zorder=3)
+    a2.annotate(rf"$[{l:.5g}\,;{h:.5g}]$".replace(".", "{,}"), (1.04, y), fontsize=10.5, va="center", color="black")
+a2.plot([alpha, alpha], [-5.6, 0.6], color=ORANGE, lw=1.3, ls="--", zorder=2)
+a2.set_xlim(-0.05, 1.45); a2.set_ylim(-5.7, 0.9); a2.axis("off")
+a2.set_title("dichotomie : on coupe l'intervalle en deux à chaque pas", fontsize=11.5, pad=2)
+save(fig, "m4-tvi-dichotomie.svg")
+
+# ------------------------------------------------------------------ 7. SECANTES -> TANGENTE
+fig, ax = plt.subplots(figsize=(6.4, 5.2))
+cross(ax, -0.3, 2.9, -0.45, 4.3)
+xs = np.linspace(-0.2, 2.2, 300)
+ax.plot(xs, xs * xs, color=TEAL, lw=2.6, zorder=4)
+for h in (1.0, 0.5, 0.2):
+    slope = ((1 + h) ** 2 - 1) / h
+    assert abs(slope - (2 + h)) < 1e-12                                          # slope of the secant = 2 + h
+    xx = np.array([0.35, 2.1])
+    ax.plot(xx, 1 + slope * (xx - 1), color="#9ca3af", lw=1.3, zorder=3)
+    dot(ax, 1 + h, (1 + h) ** 2, None, color="#9ca3af", ms=4.5)
+ax.plot([0.3, 2.3], [1 + 2 * (0.3 - 1), 1 + 2 * (2.3 - 1)], color=ORANGE, lw=2.2, zorder=5)
+dot(ax, 1, 1, r"$A(1\,;1)$", (-34, 12), "black")
+ax.annotate(r"pente $3$", (2.0, 4.0), xytext=(1.8, 4.2), fontsize=11.5, color=GRAY, va="center", ha="right", arrowprops=dict(arrowstyle="-", color=GRAY, lw=0.8))
+ax.annotate(r"pente $2{,}5$", (1.5, 2.25), xytext=(0.3, 2.95), fontsize=11.5, color=GRAY, va="center", arrowprops=dict(arrowstyle="-", color=GRAY, lw=0.8))
+ax.annotate(r"pente $2{,}2$", (1.2, 1.44), xytext=(1.5, 0.3), fontsize=11.5, color=GRAY, va="center", arrowprops=dict(arrowstyle="-", color=GRAY, lw=0.8))
+ax.text(2.35, 3.28, r"tangente" "\n" r"pente $f'(1)=2$", color=ORANGE, fontsize=12, va="center")
+ax.text(0.1, 3.95, r"$f(x)=x^2$", color=TEAL, fontsize=13)
+ax.set_xlim(-0.4, 3.35); ax.set_ylim(-0.55, 4.5); ax.axis("off")
+save(fig, "m4-secantes-tangente.svg")
 print("ok")

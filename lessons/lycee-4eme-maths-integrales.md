@@ -3,7 +3,7 @@ title: "Intégrales : aire, propriétés, intégration par parties, aires, volum
 slug: "lycee-4eme-maths-integrales"
 school: "lycee"
 level: "4eme"
-sections: ["Mathématiques"]
+sections: ["Mathématiques", "Sciences Expérimentales"]
 chapter: "Intégrales"
 summary: "L'intégrale d'une fonction continue comme différence de primitives et comme aire, ses propriétés (linéarité, Chasles, positivité, valeur moyenne), l'intégration par parties, le calcul d'aires entre courbes et de volumes de révolution, les sommes de Riemann et les suites d'intégrales."
 prerequisites: ["Primitives", "Dérivation", "Fonctions réciproques"]

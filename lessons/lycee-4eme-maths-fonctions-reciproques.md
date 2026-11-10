@@ -3,7 +3,7 @@ title: "Fonctions réciproques : bijections, dérivée de la réciproque, racine
 slug: "lycee-4eme-maths-fonctions-reciproques"
 school: "lycee"
 level: "4eme"
-sections: ["Mathématiques"]
+sections: ["Mathématiques", "Sciences Expérimentales"]
 chapter: "Fonctions réciproques"
 summary: "Quand une fonction continue et strictement monotone réalise une bijection, comment construire sa réciproque, tracer sa courbe par symétrie, dériver sans connaître sa formule, et application aux racines n-ièmes et à la fonction arctangente."
 prerequisites: ["Continuité et théorème des valeurs intermédiaires", "Dérivation", "Limites", "Trigonométrie"]

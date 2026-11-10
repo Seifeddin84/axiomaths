@@ -3,7 +3,7 @@ title: "Fonction logarithme népérien : définition, propriétés, limites, ét
 slug: "lycee-4eme-maths-fonction-logarithme-neperien"
 school: "lycee"
 level: "4eme"
-sections: ["Mathématiques"]
+sections: ["Mathématiques", "Sciences Expérimentales"]
 chapter: "Fonction logarithme népérien"
 summary: "Le logarithme népérien comme primitive de 1/x qui s'annule en 1, la relation ln(ab) = ln a + ln b, le nombre e, les limites et les croissances comparées, la dérivée de ln u, les équations et inéquations, les logarithmes de base a, et l'étude complète d'une fonction avec un logarithme."
 prerequisites: ["Primitives", "Intégrales", "Dérivation", "Limites et continuité"]
