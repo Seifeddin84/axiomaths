@@ -1,6 +1,10 @@
 import Link from 'next/link';
+import { getProfessorOverview } from '@/lib/professorStats';
 
 export default async function HomePage() {
+  const overview = getProfessorOverview();
+  const topProfessors = overview.stats.filter(s => s.kind === 'prof').slice(0, 6);
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
       {/* Hero Section */}
@@ -132,6 +136,31 @@ export default async function HomePage() {
           </p>
         </Link>
       </div>
+
+      {/* Professors behind the exercises */}
+      {topProfessors.length > 0 && (
+        <div className="mt-6 p-6 border-2 border-gray-200 dark:border-gray-800 rounded-lg">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+            <h2 className="text-xl font-black text-gray-900 dark:text-white">Les professeurs derrière les exercices</h2>
+            <Link href="/professeurs" className="text-sm font-bold text-accent-600 dark:text-primary-400 hover:underline">
+              Voir les {overview.professors} professeurs →
+            </Link>
+          </div>
+          <ul className="flex flex-wrap gap-2">
+            {topProfessors.map(p => (
+              <li key={p.id}>
+                <Link
+                  href={`/recherche?q=${encodeURIComponent(p.searchQuery)}`}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border-2 border-gray-200 dark:border-gray-700 text-sm font-bold text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500 transition-colors"
+                >
+                  <span dir="auto">{p.name}</span>
+                  <span className="text-accent-600 dark:text-primary-400">{p.count}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

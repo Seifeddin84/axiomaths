@@ -114,6 +114,12 @@ export default function Navbar() {
               Théorèmes
             </Link>
             <Link
+              href="/professeurs"
+              className="hidden lg:block px-3 py-2 text-sm font-bold text-accent-600 dark:text-primary-400 hover:text-white hover:bg-accent-500 dark:hover:bg-primary-500 rounded-lg transition-colors"
+            >
+              Professeurs
+            </Link>
+            <Link
               href="/blog"
               className="hidden md:block px-3 py-2 text-sm font-bold text-accent-600 dark:text-primary-400 hover:text-white hover:bg-accent-500 dark:hover:bg-primary-500 rounded-lg transition-colors"
             >
