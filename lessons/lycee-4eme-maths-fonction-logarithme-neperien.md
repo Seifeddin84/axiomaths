@@ -194,7 +194,7 @@ C'est la bijection qui l'impose : $1$ est un réel, il a un unique antécédent.
 
 Dans une limite, $\ln x$ tend vers l'infini en $+\infty$, et $x$ aussi. Qui gagne ?
 
-:::theorem[Limites de référence]
+:::theorem[Limites de référence]{wiki="Limites de référence de ln"}
 $$
 \lim_{x \to +\infty} \dfrac{\ln x}{x} = 0, \qquad
 \lim_{x \to 0^+} x\ln x = 0, \qquad

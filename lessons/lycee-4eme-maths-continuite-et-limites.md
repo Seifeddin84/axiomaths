@@ -92,7 +92,7 @@ $\displaystyle\lim_{x \to +\infty}\dfrac{\sin x}{x}$ : $\left\lvert\dfrac{\sin x
 
 ### Limites trigonométriques
 
-:::theorem[Limites de référence]
+:::theorem[Limites de référence]{wiki="Limites de référence des fonctions"}
 $$
 \lim_{x \to 0}\dfrac{\sin x}{x} = 1,\qquad
 \lim_{x \to 0}\dfrac{\tan x}{x} = 1,\qquad

@@ -50,7 +50,7 @@ $U_{n+1}$ est le terme **suivant** $U_n$ ; ce n'est pas $U_n + 1$. De même $U_{
 Une suite $(U_n)$ est **arithmétique** s'il existe un réel $r$ tel que pour tout entier $n$ : $\ U_{n+1} = U_n + r$. Le réel $r$ est la **raison**.
 :::
 
-:::theorem[Terme général]
+:::theorem[Terme général]{wiki="Terme général d'une suite arithmétique"}
 Si $(U_n)$ est arithmétique de premier terme $U_0$ et de raison $r$, alors
 $$
 U_n = U_0 + n\,r .
@@ -120,7 +120,7 @@ La somme $U_p + U_{p+1} + \cdots + U_q$ contient $q - p + 1$ termes, pas $q - p$
 Une suite $(U_n)$ est **géométrique** s'il existe un réel $q$ tel que pour tout entier $n$ : $\ U_{n+1} = q\,U_n$. Le réel $q$ est la **raison**.
 :::
 
-:::theorem[Terme général]
+:::theorem[Terme général]{wiki="Terme général d'une suite géométrique"}
 Si $(U_n)$ est géométrique de premier terme $U_0$ et de raison $q \neq 0$, alors
 $$
 U_n = U_0\,q^n .

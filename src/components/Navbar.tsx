@@ -100,12 +100,18 @@ export default function Navbar() {
               <span className="hidden sm:inline">Rechercher des exercices</span>
             </Link>
 
-            {/* Devoirs + Blog — hidden on mobile (in sidebar) */}
+            {/* Devoirs + Théorèmes + Blog — hidden on mobile (in sidebar) */}
             <Link
               href="/devoirs"
               className="hidden md:block px-3 py-2 text-sm font-bold text-accent-600 dark:text-primary-400 hover:text-white hover:bg-accent-500 dark:hover:bg-primary-500 rounded-lg transition-colors"
             >
               Devoirs
+            </Link>
+            <Link
+              href="/theoremes"
+              className="hidden md:block px-3 py-2 text-sm font-bold text-accent-600 dark:text-primary-400 hover:text-white hover:bg-accent-500 dark:hover:bg-primary-500 rounded-lg transition-colors"
+            >
+              Théorèmes
             </Link>
             <Link
               href="/blog"
