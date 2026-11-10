@@ -1,0 +1,7 @@
+{
+  "_comment": "Statistiques des professeurs (/professeurs). Le champ 'professor' des exercices est normalisé automatiquement : titres (M., Mr, Prof) retirés, majuscules et ordre des mots ignorés, 'A & B' compté pour A et pour B. Ce fichier règle ce que le code ne peut pas deviner. 'own' : crédits du site lui-même. 'unknown' : ce qui n'est pas un nom (un exercice sans professor est aussi 'sans nom'). 'bookAuthors' : auteurs de livres, comptés à part. 'same' : un groupe de graphies d'une même personne, la première est le nom affiché (utile quand le code ne peut pas voir que deux noms sont une personne, par exemple Latin / arabe).",
+  "own": ["Axiomaths"],
+  "unknown": ["Bac", "Inconnu", "غير مذكور"],
+  "bookAuthors": ["A.G Tsypkin", "A.I Pinsky", "Viktor Prasolov"],
+  "same": []
+}
