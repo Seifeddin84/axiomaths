@@ -119,11 +119,11 @@ export default async function SectionPage({
               <Link
                 key={chapter}
                 href={`/lycee/${level}/${section}/${chapterSlug}`}
-                className="group relative overflow-hidden"
+                className="group relative overflow-hidden block h-full"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-500/10 to-primary-500/10 dark:from-accent-500/20 dark:to-primary-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                <div className="relative p-5 sm:p-6 border-2 border-gray-300 dark:border-gray-700 rounded-lg group-hover:border-accent-500 dark:group-hover:border-primary-500 group-hover:shadow-xl transition-all bg-white dark:bg-gray-800">
+                <div className="relative h-full flex flex-col [&>*:last-child]:mt-auto p-5 sm:p-6 border-2 border-gray-300 dark:border-gray-700 rounded-lg group-hover:border-accent-500 dark:group-hover:border-primary-500 group-hover:shadow-xl transition-all bg-white dark:bg-gray-800">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-500 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                   <div className="flex items-start justify-between mb-4">

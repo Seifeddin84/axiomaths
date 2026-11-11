@@ -144,6 +144,26 @@ export default async function BacPaperPage({ params }: { params: Promise<{ id: s
           Source LaTeX (.tex, classe axiobac)
         </a>
       )}
+      {paper.previews.length > 0 && (
+        <figure className="pt-4">
+          <figcaption className="mb-3 text-sm font-bold text-gray-600 dark:text-gray-400">
+            Aperçu du PDF AxioMath ({paper.previews.length} page{paper.previews.length > 1 ? 's' : ''})
+          </figcaption>
+          <div className="space-y-4">
+            {paper.previews.map((src, i) => (
+              <a key={src} href={paper.files.axiomath} target="_blank" rel="noopener noreferrer" className="block">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={src}
+                  alt={`PDF AxioMath du bac ${paper.year}, page ${i + 1}`}
+                  loading="lazy"
+                  className="w-full rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm bg-white"
+                />
+              </a>
+            ))}
+          </div>
+        </figure>
+      )}
     </div>
   );
 
