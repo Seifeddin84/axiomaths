@@ -217,7 +217,7 @@ export default function TheoremWiki({ entries }: { entries: TheoremSummary[] }) 
                   className="mt-3 text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-accent-600 dark:hover:text-primary-400"
                 >
                   {isOpen ? '▾ Masquer' : '▸ Lire l’énoncé'}
-                  {e.versionCount > 1 ? ` (${e.versionCount} versions)` : ''}
+                  {e.versionCount > 1 ? ` (${e.versionCount} énoncés différents)` : ''}
                 </button>
               </div>
 
