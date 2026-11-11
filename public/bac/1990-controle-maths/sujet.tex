@@ -1,0 +1,130 @@
+\documentclass{axiobac}
+
+\annee{1990}
+\mois{Juin}
+\session{contrôle}
+\epreuve{Mathématiques}
+\sectionbac{Math-Sciences \& Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation, de l'Enseignement Supérieur et de la Recherche Scientifique}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Un dé truqué lancé trois fois}
+\chapitres{Probabilités}
+
+On lance un dé cubique dont les faces sont numérotées de $1$ à $6$. Ce dé est truqué de façon qu'à chaque jet la probabilité d'obtenir un nombre pair soit égale au double de celle d'obtenir un nombre impair.
+
+\begin{enumerate}
+    \item On lance le dé une fois et on désigne par $p$ la probabilité d'obtenir un nombre impair.
+    \begin{enumerate}
+        \item Calculer $p$.
+        \item En déduire la probabilité d'obtenir le nombre $1$ et celle d'obtenir le nombre $2$.
+    \end{enumerate}
+    \item On lance le dé trois fois. Calculer la probabilité de chacun des événements suivants :
+    \begin{enumerate}
+        \item on obtient deux fois et deux fois seulement le nombre $2$ ;
+        \item on obtient au moins deux fois le nombre $2$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Similitude, homothétie et rotation en complexes}
+\chapitres{Similitudes, Nombres Complexes}
+
+Le plan $P$ est rapporté à un repère orthonormé direct $(O, \vec{u}, \vec{v})$.
+
+\begin{enumerate}
+    \item Soit $g$ l'application de $P$ dans $P$ qui, au point $M$ d'affixe $z$, associe le point $M'$ d'affixe $z'$ tel que
+    \[
+    z' = \left(1 - i\sqrt{3}\right) z + (1 + i)\sqrt{3} .
+    \]
+    Déterminer la nature et les éléments caractéristiques de $g$.
+    \item Soit, dans le plan $P$, l'homothétie $h$ de centre $\Omega(1, -1)$ et de rapport $\dfrac{1}{2}$. On pose $f = h \circ g$. \\
+    Déterminer la nature et les éléments caractéristiques de l'application $f$.
+    \item Soit $D$ la droite dont une équation est $y = x$. \\
+    Déterminer et construire l'image de $D$ par l'application $f$.
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{12}
+
+Soit $P$ le plan rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$ et $\Delta$ la droite d'équation : $y = x$.
+
+\partie{A}
+\titre{La fonction $\ln(1+2x)$, sa réciproque, une aire et une suite récurrente}
+\chapitres{Fonction logarithme népérien, Fonctions réciproques, Intégrales, Suites réelles}
+
+Soit $f$ la fonction numérique à variable réelle définie par $f(x) = \operatorname{Log}(1 + 2x)$ et $\mathcal{C}$ sa courbe représentative dans le repère $(O, \vec{i}, \vec{j})$.
+
+\begin{enumerate}
+    \item Étudier les variations de $f$.
+    \item On désigne par $\varphi$ la fonction définie par : $\varphi(x) = f(x) - x$.
+    \begin{enumerate}
+        \item Montrer que l'équation $\varphi(x) = 0$ admet deux solutions $0$ et $\alpha$ avec $1 < \alpha < 2$.
+        \item Déterminer les positions relatives de $\mathcal{C}$ et $\Delta$.
+        \item Tracer $\mathcal{C}$ et $\Delta$ dans le repère $(O, \vec{i}, \vec{j})$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que $f$ admet une fonction réciproque $f^{-1}$ dont on tracera la courbe $\mathcal{C}'$ dans le même repère.
+        \item Calculer $f^{-1}(x)$ pour tout réel $x$.
+        \item Calculer, en fonction de $\alpha$, l'aire du domaine limité par les courbes $\mathcal{C}$, $\mathcal{C}'$ et les droites d'équations respectives $x = 0$ et $x = \alpha$.
+    \end{enumerate}
+    \item On définit la suite $(U_n)$ par :
+    \[
+    \begin{cases}
+        U_0 = 1 \\
+        U_{n+1} = f(U_n), \quad n \in \mathbb{N}
+    \end{cases}
+    \]
+    \begin{enumerate}
+        \item Montrer que : $\forall n \in \mathbb{N}$, $1 \leqslant U_n < \alpha$.
+        \item Montrer que $(U_n)$ est strictement croissante.
+        \item En déduire que $(U_n)$ est convergente et trouver sa limite.
+    \end{enumerate}
+\end{enumerate}
+
+\partie{B}
+\titre{Les fonctions $\ln(1+nx)$ : point fixe et comportement asymptotique}
+\chapitres{Fonction logarithme népérien}
+
+Dans cette partie, $n$ désigne un entier naturel tel que $n \geqslant 2$. \\
+Soit $f_n$ la fonction numérique à variable réelle définie par : $f_n(x) = \operatorname{Log}(1 + nx)$ et $\mathcal{C}_n$ sa courbe représentative dans le repère $(O, \vec{i}, \vec{j})$.
+
+\begin{enumerate}
+    \item Montrer que : $\forall x \in ]1, +\infty[$, $1 - \dfrac{1}{x} < \operatorname{Log} x < \dfrac{1}{2}\left(x - \dfrac{1}{x}\right)$.
+    \item Montrer que l'équation $f_n(x) - x = 0$ admet deux solutions (on notera $\alpha_n$ la solution non nulle).
+    \item
+    \begin{enumerate}
+        \item Montrer que : $\operatorname{Log} n < \alpha_n < 2 \operatorname{Log} n$.
+        \item En déduire que : $\operatorname{Log} n < \alpha_n < \operatorname{Log}(1 + 2n \operatorname{Log} n)$.
+        \item Calculer $\displaystyle\lim_{n \to +\infty} \frac{\alpha_n}{\operatorname{Log} n}$.
+    \end{enumerate}
+    \item Soit $\Phi$ l'application du plan $P$ dans lui-même qui, à tout point $M$, associe le point $M'$ barycentre des points $H$ et $M$ affectés respectivement des coefficients $(n - 2)$ et $2$, où $H$ désigne le projeté orthogonal de $M$ sur $(O, \vec{j})$.
+    \begin{enumerate}
+        \item Déterminer la nature de $\Phi$ et préciser ses éléments caractéristiques.
+        \item Montrer que $\Phi(\mathcal{C}_2) = \mathcal{C}_n$.
+        \item Construire $\mathcal{C}_4$ dans le même repère $(O, \vec{i}, \vec{j})$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

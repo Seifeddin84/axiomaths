@@ -1,0 +1,112 @@
+\documentclass{axiobac}
+
+\annee{1981}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques}
+\sectionbac{Math-Sciences \& Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation Nationale}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Une équation du troisième degré ramenée à $Z^3 = i$}
+\chapitres{Nombres Complexes}
+
+On considère l'application
+\[
+f : \mathbb{C} \longrightarrow \mathbb{C}, \qquad z \longmapsto Z = (1 + i)\,z - 2 .
+\]
+
+\begin{enumerate}
+    \item Montrer qu'un nombre complexe $z$ est solution de l'équation :
+    \[
+    2(1 - i)\,z^3 + 12i\,z^2 - 12(1 + i)\,z + 8 + i = 0
+    \]
+    si et seulement si son image $Z$ par $f$ est solution de l'équation $Z^3 = i$.
+    \item
+    \begin{enumerate}
+        \item Résoudre dans $\mathbb{C}$ l'équation $Z^3 = i$.
+        \item En déduire les solutions de l'équation :
+        \[
+        2(1 - i)\,z^3 + 12i\,z^2 - 12(1 + i)\,z + 8 + i = 0 .
+        \]
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Une famille d'applications définies par barycentre ; un déplacement}
+\chapitres{Déplacements - Antidéplacements}
+
+Soit $P$ un plan affine euclidien rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$. À tout point $M(x, y)$ de $P$, on associe les points $A(x + y, 0)$, $B(0, x - y)$ et $M'(x', y')$ barycentre des points $M$, $A$, $B$ affectés respectivement des coefficients $1$, $m$, $-m$ ($m \in \mathbb{R}$). \\
+Soit $f_m$ l'application de $P$ dans $P$ telle que $f_m(M) = M'$.
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Donner les expressions analytiques de $f_m$.
+        \item Discuter, suivant les valeurs de $m$, l'ensemble des points invariants par $f_m$.
+    \end{enumerate}
+    \item Montrer qu'il existe un unique réel non nul $m_0$ tel que $f_{m_0}$ soit un déplacement ; caractériser $f_{m_0}$.
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{12}
+\titre{La fonction $\cos x \cdot \ln(\sin x)$, sa réciproque et une suite d'intégrales}
+\chapitres{Fonction logarithme népérien, Fonctions réciproques, Intégrales}
+
+Soit $P$ un plan affine euclidien rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$.
+
+\begin{enumerate}
+    \item On considère l'application $g$ de $\mathbb{R}_+$ dans $\mathbb{R}$ définie par :
+    \[
+    \begin{cases}
+        g(t) = -t^2 \operatorname{Log} t + 1 - t^2 & \text{pour } t > 0 \\
+        g(0) = 1
+    \end{cases}
+    \]
+    \begin{enumerate}
+        \item Étudier la continuité et la dérivabilité de $g$ sur $\mathbb{R}_+$.
+        \item Étudier les variations de $g$. En déduire que : $\forall t \in [0, 1]$, $g(t) \geqslant 0$.
+    \end{enumerate}
+    \item Soit $f$ la fonction numérique définie sur $]0, \pi[$ par : $f(x) = \cos x \cdot \operatorname{Log}(\sin x)$.
+    \begin{enumerate}
+        \item Étudier les variations de $f$ et tracer sa courbe représentative $(C)$ dans le repère $(O, \vec{i}, \vec{j})$. \\
+        (On remarquera que $f'(x) = \dfrac{g(\sin x)}{\sin x}$.)
+        \item Montrer que la droite $\Delta$ d'équation $y = x$ coupe $(C)$ en un point $M_0$ d'abscisse $x_0$ telle que $\dfrac{\pi}{2} < x_0 < \pi$.
+        \item Montrer que $f$ est une bijection de $]0, \pi[$ sur $\mathbb{R}$. Déterminer les domaines de continuité et de dérivabilité de $f^{-1}$ ($f^{-1}$ est la fonction réciproque de $f$). Tracer, dans le repère $(O, \vec{i}, \vec{j})$, la courbe représentative $(C')$ de $f^{-1}$.
+    \end{enumerate}
+    \item Soit $\alpha \in \left]\frac{\pi}{2}, \pi\right[$. On pose, pour tout entier naturel $n$,
+    \[
+    I_n(\alpha) = \int_{\frac{\pi}{2}}^{\alpha} \cos x \, \left[ \operatorname{Log}(\sin x) \right]^n dx .
+    \]
+    \begin{enumerate}
+        \item Montrer que $\displaystyle\lim_{X \to +\infty} \frac{X^n}{e^X} = 0$ ; en déduire que $\displaystyle\lim_{t \to 0^+} t\,(\operatorname{Log} t)^n = 0$.
+        \item En utilisant une intégration par parties, trouver une relation entre $I_{n+1}(\alpha)$ et $I_n(\alpha)$.
+        \item Montrer que $I_n(\alpha)$ admet pour limite $(-1)^{n+1}\, n!$ quand $\alpha$ tend vers $\pi$ par valeurs inférieures.
+        \item Calculer $I_n(\alpha)$ pour $n = 1$ et $\alpha = x_0$ ; en déduire l'aire de la partie du plan limitée par les courbes $(C)$ et $(C')$ et les axes de coordonnées.
+    \end{enumerate}
+\end{enumerate}
+
+\end{probleme}
+
+\vspace{1em}
+\noindent\textit{Barème : 1\textsuperscript{er} exercice 4 points (1,5 + 2,5) ; 2\textsuperscript{e} exercice 4 points (2 + 2) ; problème 12 points (3,5 + 3,5 + 5).}
+
+\end{document}

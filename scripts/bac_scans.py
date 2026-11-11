@@ -9,7 +9,7 @@ import argparse
 import pathlib
 import sys
 
-import fitz  # PyMuPDF
+import pymupdf as fitz  # PyMuPDF
 
 
 def main() -> None:

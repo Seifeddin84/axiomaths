@@ -1,0 +1,5 @@
+# Métadonnées : elles sont lues dans sujet.tex (classe latex/axiobac.cls).
+notes: >-
+  Exercice 1, question 1 : l'original écrit « du point M » ; il s'agit de M'.
+  Exercice 2 : la seconde condition « ou z₁ + j²z₂ + jz₃ = 0 » est ajoutée
+  à la main sur l'original.

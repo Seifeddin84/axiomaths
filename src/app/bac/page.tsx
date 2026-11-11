@@ -1,3 +1,5 @@
+import 'katex/dist/katex.min.css';
+import { titleHtml } from '@/lib/bacTex';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { BAC_SECTIONS, getBacPapers } from '@/lib/bac';
@@ -37,8 +39,23 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
         Sujets du bac{current ? ` · ${current.short}` : ''}
       </h1>
       <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 font-semibold mb-6">
-        Chaque sujet existe en deux versions : réécrit proprement par AxioMath, et l&apos;original d&apos;époque, en archive.
+        Les sujets anciens sont réécrits proprement par AxioMath, avec l&apos;original d&apos;époque en archive.
       </p>
+
+      <a
+        href="https://www.bacweb.tn"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-start gap-3 mb-6 p-4 rounded-lg border-2 border-teal-600 bg-teal-50 dark:bg-teal-900/20 hover:bg-teal-100 dark:hover:bg-teal-900/40 transition-colors"
+      >
+        <span aria-hidden className="text-2xl leading-none">↗</span>
+        <span>
+          <span className="block font-black text-teal-800 dark:text-teal-300">Tous les sujets et leurs corrigés sur bacweb.tn</span>
+          <span className="block text-sm font-semibold text-teal-900/80 dark:text-teal-200/80">
+            Notre archive se complète petit à petit. En attendant, les sujets officiels de toutes les sections et leurs corrigés se téléchargent sur bacweb.tn.
+          </span>
+        </span>
+      </a>
 
       <ul className="flex flex-wrap gap-2 mb-8">
         <li>
@@ -87,7 +104,7 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
                       <li key={i}>
                         <span className="font-semibold" dangerouslySetInnerHTML={{ __html: b.label }} />
                         {b.points ? <span className="text-gray-500"> ({b.points} pts)</span> : null}
-                        {b.title ? <span> : {b.title}</span> : null}
+                        {b.title ? <span> : <span dangerouslySetInnerHTML={{ __html: titleHtml(b.title) }} /></span> : null}
                         {b.horsProgramme && <span className="ms-2 px-1.5 py-0.5 rounded text-xs font-bold bg-gray-100 dark:bg-gray-800 text-gray-500">hors programme actuel</span>}
                       </li>
                     ))}

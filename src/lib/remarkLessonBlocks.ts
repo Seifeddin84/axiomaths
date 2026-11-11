@@ -75,7 +75,11 @@ const SKETCH_LINK = {
   fr: 'Voir la démonstration complète dans la liste des théorèmes →',
   ar: 'البرهان الكامل في قائمة المبرهنات ←',
 };
-const REDACTION_LABEL = { fr: 'Rédaction (copie d\'examen)', ar: 'التحرير (ورقة امتحان)' };
+const REDACTION_LABEL = { fr: 'Rédaction', ar: 'التحرير' };
+/** a proof laid out as a step table is titled as the structure of the proof; the prose write-up is « Rédaction » */
+const PROOF_TABLE_LABEL = { fr: 'Structure de la démonstration', ar: 'هيكل البرهان' };
+const hasTable = (n: { type?: string; children?: unknown[] }): boolean =>
+  n.type === 'table' || (n.children ?? []).some(c => hasTable(c as { type?: string; children?: unknown[] }));
 
 const text = (value: string) => ({ type: 'text', value });
 
@@ -184,7 +188,10 @@ export default function remarkLessonBlocks(options: LessonBlocksOptions = {}) {
         return;
       }
 
-      const label = lang === 'ar' ? BLOCKS_AR[name] ?? block.label : block.label;
+      const label =
+        name === 'proof' && hasTable(node)
+          ? PROOF_TABLE_LABEL[lang]
+          : lang === 'ar' ? BLOCKS_AR[name] ?? block.label : block.label;
       let kind = label;
       if (block.numbered) {
         counters[name] = (counters[name] ?? 0) + 1;

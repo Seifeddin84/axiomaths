@@ -1,10 +1,26 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 
 // Tabs of a bac paper page: the statement online, the original scan, and the PDFs.
 export default function BacPaperTabs({ enonce, original, pdf }: { enonce: ReactNode; original: ReactNode; pdf: ReactNode }) {
   const [tab, setTab] = useState<'enonce' | 'original' | 'pdf'>('enonce');
+
+  // a display formula a little wider than a phone is shrunk to fit (never below 70 %), the rest scrolls
+  useEffect(() => {
+    const fit = () => {
+      document.querySelectorAll<HTMLElement>('.bac-paper .katex-display').forEach(d => {
+        d.style.fontSize = '';
+        const ratio = d.clientWidth / d.scrollWidth;
+        if (ratio >= 1) return;
+        const px = parseFloat(getComputedStyle(d).fontSize);
+        d.style.fontSize = `${px * Math.max(0.7, ratio * 0.98)}px`;
+      });
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, [tab]);
   const tabs = [
     { id: 'enonce' as const, label: 'Énoncé' },
     { id: 'original' as const, label: 'Original' },

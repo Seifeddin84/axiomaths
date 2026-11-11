@@ -1,0 +1,142 @@
+\documentclass{axiobac}
+
+\annee{1989}
+\mois{Juin}
+\session{contrôle}
+\epreuve{Mathématiques}
+\sectionbac{Math-Sciences \& Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation, de l'Enseignement et de la Recherche Scientifique}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{}
+\titre{Deux dés dont un spécial, épreuves répétées}
+\chapitres{Probabilités}
+
+On considère deux dés cubiques non truqués. Les faces de l'un sont numérotées de $1$ à $6$, les faces de l'autre sont numérotées $2$, $2$, $2$, $3$, $4$ et $4$. \\
+On lance les deux dés simultanément et on désigne par $X$ la variable aléatoire qui, à chaque lancer, associe la somme des nombres marqués sur les faces supérieures.
+
+\begin{enumerate}
+    \item Déterminer la loi de probabilité de $X$.
+    \item Soit $A$ l'événement : « La somme des nombres marqués sur les faces supérieures est égale à $8$ ». \\
+    On répète quatre fois l'épreuve qui consiste à lancer simultanément les deux dés. \\
+    Calculer la probabilité de chacun des événements suivants :
+    \begin{enumerate}
+        \item $A$ est réalisé exactement trois fois.
+        \item $A$ est réalisé au moins une fois.
+        \item $A$ est réalisé pour la première fois au troisième lancer.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{}
+\titre{Équation du troisième degré, parallélogramme, déplacement et antidéplacement}
+\chapitres{Nombres Complexes, Déplacements - Antidéplacements}
+
+Soit, dans l'ensemble $\mathbb{C}$ des nombres complexes, l'équation $(E)$ :
+\[
+\begin{aligned}
+& z^3 + (-2 - 4i)\,z^2 \\
+& \quad + (-9 + 10i)\,z + 18 + 6i = 0 .
+\end{aligned}
+\]
+
+\begin{enumerate}
+    \item Vérifier que $3$ est une racine de l'équation $(E)$ et en déduire les autres racines $z_1$ et $z_2$ de $(E)$. \\
+    (On désigne par $z_1$ la racine ayant une partie réelle positive.)
+    \item Soit $(O, \vec{u}, \vec{v})$ un repère orthonormé direct du plan et $A$, $B$, $C$ les points d'affixes respectives $3$, $z_1$, $z_2$.
+    \begin{enumerate}
+        \item Montrer que $OABC$ est un parallélogramme et qu'il existe un déplacement $f$ et un antidéplacement $g$ transformant $O$ en $B$ et $A$ en $C$.
+        \item Donner la nature et les éléments caractéristiques de $f$.
+        \item Soit $S$ la symétrie orthogonale d'axe la droite $(OA)$. Vérifier que $g = f \circ S$ et en déduire la forme réduite de $g$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{}
+
+\partie{A}
+\titre{La fonction $e^{-x}/x$, une suite d'intégrales et sa somme}
+\chapitres{Fonctions exponentielles, Intégrales, Suites réelles}
+
+Soit $f$ la fonction numérique définie sur $\mathbb{R}^*$ par : $f(x) = \dfrac{e^{-x}}{x}$.
+
+\begin{enumerate}
+    \item Étudier les variations de la fonction $f$ et construire sa courbe représentative $(C)$ dans un plan rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$.
+    \item Soit $(u_n)$ la suite réelle définie sur $\mathbb{N}^*$ par : $u_n = n \displaystyle\int_n^{n+1} f(x)\,dx$.
+    \begin{enumerate}
+        \item Montrer que si $x$ est élément de l'intervalle $[n, n+1]$, alors on a : $\dfrac{e^{-x}}{n+1} \leqslant f(x) \leqslant \dfrac{e^{-x}}{n}$.
+        \item En déduire que : $\dfrac{1}{2}(e - 1)\,e^{-(n+1)} \leqslant u_n \leqslant (e - 1)\,e^{-(n+1)}$.
+        \item Trouver $\displaystyle\lim_{n \to +\infty} u_n$.
+    \end{enumerate}
+    \item Soit $(v_n)$ la suite réelle définie sur $\mathbb{N}^*$ par : $v_n = u_1 + u_2 + \cdots + u_n$.
+    \begin{enumerate}
+        \item Montrer que la suite $(v_n)$ est croissante et qu'elle vérifie : $v_n \leqslant \dfrac{1}{e}\left(1 - e^{-n}\right)$.
+        \item En déduire que la suite $(v_n)$ est convergente.
+        \item On pose : $\ell = \displaystyle\lim_{n \to +\infty} v_n$. Prouver que : $\dfrac{1}{2e} \leqslant \ell \leqslant \dfrac{1}{e}$.
+    \end{enumerate}
+\end{enumerate}
+
+\partie{B}
+\titre{Dérivées successives de $e^{-x}/x$ et équation différentielle}
+\chapitres{Dérivabilité, Équations différentielles}
+
+On désigne par $f^{(n)}$ la dérivée d'ordre $n$ de la fonction $f$ dans $\mathbb{R}^*$ et on convient que : $f^{(0)} = f$ et $f^{(1)} = f'$.
+
+\begin{enumerate}
+    \item Vérifier que, pour tout $x$ de $\mathbb{R}^*$, on a :
+    \[
+    f(x) = \frac{e^{-x}\,P_0(x)}{x} ; \qquad f'(x) = \frac{e^{-x}\,P_1(x)}{x^2} \qquad \text{et} \qquad f''(x) = \frac{e^{-x}\,P_2(x)}{x^3},
+    \]
+    où $P_0(x)$, $P_1(x)$ et $P_2(x)$ désignent des polynômes que l'on déterminera. \\
+    Dans la suite, on admet que, pour tout $n$ de $\mathbb{N}$, $f$ est $n$ fois dérivable dans $\mathbb{R}^*$ et que, pour tout $x$ de $\mathbb{R}^*$, on a :
+    \[
+    f^{(n)}(x) = \frac{e^{-x}\,P_n(x)}{x^{n+1}}, \qquad \text{où } P_n(x) \text{ est un polynôme.}
+    \]
+    \item Soient $a$ et $b$ deux réels donnés et $\Phi$ une fonction numérique $n$ fois dérivable dans $\mathbb{R}^*$. On pose : $\psi(x) = (ax + b)\,\Phi(x)$. \\
+    Établir, par récurrence, que :
+    \[
+    \psi^{(n)}(x) = (ax + b)\,\Phi^{(n)}(x) + n\,a\,\Phi^{(n-1)}(x), \qquad n \geqslant 1,
+    \]
+    $\psi^{(n)}$ désignant la dérivée d'ordre $n$ de la fonction $\psi$, $\Phi^{(n)}$ et $\Phi^{(n-1)}$ les dérivées d'ordre $n$ et $(n-1)$ de la fonction $\Phi$.
+    \item
+    \begin{enumerate}
+        \item En prenant $\Phi = f$, $a = 1$ et $b = 0$, prouver que :
+        \[
+        P_n(x) + n\,P_{n-1}(x) = (-1)^n x^n \qquad \text{pour tout } n \text{ de } \mathbb{N} \text{ et tout } x \text{ de } \mathbb{R} .
+        \]
+        \item En déduire que, pour tout $n$ de $\mathbb{N}$, on a : $P_n(0) = (-1)^n\, n!$.
+    \end{enumerate}
+    \item On définit le polynôme $Q_n(x)$ par : $P_n(x) = (-1)^n\, n!\, Q_n(x)$.
+    \begin{enumerate}
+        \item Montrer que, pour tout $n$ de $\mathbb{N}$ et pour tout $x$ de $\mathbb{R}$, on a :
+        \[
+        Q_n(x) - Q_{n-1}(x) = \frac{x^n}{n!} .
+        \]
+        \item En déduire les expressions de $Q_n(x)$ et de $P_n(x)$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Calculer, pour $n \in \mathbb{N}$, $P'_n(x) - P_n(x)$.
+        \item Soit $n \in \mathbb{N}$. Résoudre l'équation différentielle : $y' - y = (-1)^{n+1} x^n$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

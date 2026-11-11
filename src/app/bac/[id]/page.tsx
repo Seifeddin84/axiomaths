@@ -9,6 +9,7 @@ import 'katex/dist/katex.min.css';
 import BacPaperTabs from '@/components/BacPaperTabs';
 import { getAllExercises } from '@/lib/fileReader';
 import { exerciseSections } from '@/lib/bac';
+import { titleHtml } from '@/lib/bacTex';
 
 export function generateStaticParams() {
   return getBacPapers().map(p => ({ id: p.id }));
@@ -76,7 +77,7 @@ export default async function BacPaperPage({ params }: { params: Promise<{ id: s
               <span dangerouslySetInnerHTML={{ __html: b.label }} />
               {b.points ? <span className="text-gray-500 font-bold"> ({b.points} points)</span> : null}
             </h2>
-            {b.title && <p className="text-sm font-semibold text-gray-600 dark:text-gray-400">{b.title}</p>}
+            {b.title && <p className="text-sm font-semibold text-gray-600 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: titleHtml(b.title) }} />}
             <div className="mt-2 flex flex-wrap gap-2">
               {b.horsProgramme && (
                 <span className="px-2 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs font-bold">

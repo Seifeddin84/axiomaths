@@ -1,0 +1,148 @@
+\documentclass{axiobac}
+
+\annee{1977}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques (matière obligatoire)}
+\sectionbac{Math-Sciences et Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation Nationale}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Fonction trigonométrique : bijection, centre de symétrie et aire}
+\chapitres{Etude de Fonctions, Fonctions réciproques, Intégrales}
+
+Soit la fonction
+\[
+f : [0, \pi] \longrightarrow \mathbb{R}, \qquad x \longmapsto \cos^3 x - 3\cos x + 2 .
+\]
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Étudier les variations de la fonction $f$ et montrer que $f$ est une bijection de $[0, \pi]$ sur un intervalle que l'on déterminera.
+        \item Construire dans un repère orthonormé la courbe représentative $(C)$ de la fonction $f$ ; montrer que le point $I$ de $(C)$ d'abscisse $\frac{\pi}{2}$ est centre de symétrie de la courbe $(C)$ ; tracer la tangente en $I$ à la courbe $(C)$.
+    \end{enumerate}
+    \item Calculer l'aire de l'ensemble des points $M(x, y)$ tels que $0 \leqslant x \leqslant \pi$ et $0 \leqslant y \leqslant f(x)$.
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Tirage de deux boules et suite récurrente}
+\chapitres{Probabilités, Suites réelles}
+
+Un sac contient dix boules indiscernables au toucher. Trois boules portent le numéro $0$ ; deux boules portent le numéro $1$ et cinq boules portent le numéro $3$. \\
+On tire au hasard, successivement et avec remise, deux boules. On désigne par $a$ le nombre inscrit sur la première boule tirée et par $b$ le nombre inscrit sur la deuxième boule tirée.
+
+\begin{enumerate}
+    \item Soit $X$ la variable aléatoire qui, à chaque épreuve, associe le nombre $\sup(a, b)$ avec :
+    \[
+    \sup(a, b) = a \ \text{ si } a \geqslant b, \qquad \sup(a, b) = b \ \text{ si } b \geqslant a .
+    \]
+    Déterminer la loi de probabilité de $X$.
+    \item On considère la suite $(U_n)$ définie par son premier terme non nul $U_0$ et la relation :
+    \[
+    \forall n \in \mathbb{N}, \quad U_{n+1} = a\,U_n + b .
+    \]
+    \begin{enumerate}
+        \item Quelle est la probabilité pour que $(U_n)$ soit une suite géométrique non constante ?
+        \item Quelle est la probabilité pour que $(U_n)$ soit une suite arithmétique non constante ?
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{12}
+
+\partie{A}
+\titre{Une loi de groupe non commutative sur les complexes}
+\chapitres{Nombres Complexes}
+\horsprogramme
+
+Soit $E$ l'ensemble des nombres complexes de partie imaginaire non nulle. \\
+On définit dans $E$ la loi de composition interne, notée $\star$, de la façon suivante : $z = a + bi$ et $z' = a' + b'i$ étant deux éléments de $E$,
+\[
+z \star z' = (a + b\,a') + b\,b'\,i .
+\]
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Calculer $(1 + 2i) \star (1 + i)$ et $(1 + i) \star (1 + 2i)$.
+        \item Montrer que $(E, \star)$ est un groupe non commutatif.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item On pose $z^{[1]} = z$ et, pour tout entier naturel $n \geqslant 2$, $z^{[n]} = z \star z^{[n-1]}$. \\
+        On pose $z = a + bi$ ; calculer $z^{[2]}$, $z^{[3]}$ puis $z^{[n]}$ en fonction de $a$, $b$ et $n$.
+        \item Résoudre dans $(E, \star)$ l'équation $z^{[n]} = 1 + i$.
+    \end{enumerate}
+\end{enumerate}
+
+\partie{B}
+\titre{Endomorphismes du plan et isomorphisme de groupes}
+\horsprogramme
+
+Soit $\mathcal{P}$ un plan vectoriel muni d'une base $(\vec{i}, \vec{j})$. $(a, b)$ étant un élément de $\mathbb{R} \times \mathbb{R}^*$, on désigne par $\varphi_{(a,b)}$ l'endomorphisme de $\mathcal{P}$ dont la matrice dans la base $(\vec{i}, \vec{j})$ est :
+\[
+M_{(a,b)} = \begin{pmatrix} 1 & 0 \\ a & b \end{pmatrix} .
+\]
+
+\begin{enumerate}
+    \item Déterminer l'ensemble des endomorphismes $\varphi_{(a,b)}$ involutifs.
+    \item Déterminer, suivant les valeurs de $a$ et $b$, le sous-espace des vecteurs invariants par $\varphi_{(a,b)}$.
+    \item Soit $F$ l'ensemble des endomorphismes $\varphi_{(a,b)}$. Montrer que $(F, \circ)$ est isomorphe à $(E, \star)$, où $\circ$ désigne la loi de composition dans $F$.
+\end{enumerate}
+
+\partie{C}
+\titre{Image d'un cercle par une application affine : une ellipse}
+\chapitres{Coniques}
+\horsprogramme
+
+On suppose que le plan vectoriel $\mathcal{P}$ est euclidien et que la base $(\vec{i}, \vec{j})$ est orthonormée. \\
+Soit $P$ un plan affine euclidien associé à $\mathcal{P}$ et muni d'un repère orthonormé $(O, \vec{i}, \vec{j})$. \\
+On désigne par $f$ l'application affine associée à l'endomorphisme $\varphi_{(2,1)}$ et laissant le point $O$ invariant.
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Soit $M(x, y)$ un point du plan $P$ et soit $M'(x', y')$ l'image de $M$ par $f$. Exprimer $x'$ et $y'$ en fonction de $x$ et $y$.
+        \item Établir l'équation de la courbe $(C')$, image par $f$ du cercle $(C)$ de centre $O$ et de rayon $1$.
+    \end{enumerate}
+    \item On pose
+    \[
+    \vec{u} = \left(\cos \tfrac{3\pi}{8}\right) \vec{i} + \left(\sin \tfrac{3\pi}{8}\right) \vec{j},
+    \qquad
+    \vec{v} = \left(-\sin \tfrac{3\pi}{8}\right) \vec{i} + \left(\cos \tfrac{3\pi}{8}\right) \vec{j} .
+    \]
+    \begin{enumerate}
+        \item Montrer que $(O, \vec{u}, \vec{v})$ est un repère orthonormé de $P$.
+        \item Montrer que :
+        \[
+        \cos \frac{3\pi}{8} = \frac{\sqrt{2 - \sqrt{2}}}{2}, \qquad \sin \frac{3\pi}{8} = \frac{\sqrt{2 + \sqrt{2}}}{2} .
+        \]
+        \item Écrire l'équation de $(C')$ dans le repère $(O, \vec{u}, \vec{v})$. Quelle est la nature de $(C')$ ?
+    \end{enumerate}
+\end{enumerate}
+
+\end{probleme}
+
+\vspace{1em}
+\noindent\textit{Barème : 1\textsuperscript{er} exercice 4 points ; 2\textsuperscript{e} exercice 4 points ; problème 12 points (A : 4,5 ; B : 3,5 ; C : 4).}
+
+\end{document}
