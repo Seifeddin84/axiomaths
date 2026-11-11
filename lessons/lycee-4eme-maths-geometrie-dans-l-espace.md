@@ -33,7 +33,7 @@ $$
 Si l'un des vecteurs est nul, le produit est $0$. En particulier $\vec u\cdot\vec u = \lVert\vec u\rVert^2$. Les règles de calcul sont celles du plan : $\vec u\cdot\vec v = \vec v\cdot\vec u$, $\vec u\cdot(\vec v + \vec w) = \vec u\cdot\vec v + \vec u\cdot\vec w$ et $(\lambda\vec u)\cdot\vec v = \lambda\,(\vec u\cdot\vec v)$.
 :::
 
-:::theorem[Expression analytique]
+:::theorem[Expression analytique]{wiki="Expression analytique du produit scalaire"}
 Dans un repère orthonormé, si $\vec u = (x, y, z)$ et $\vec v = (x', y', z')$, alors
 $$
 \begin{gathered}
@@ -99,7 +99,7 @@ où $\theta$ est l'angle géométrique de $\vec u$ et $\vec v$.
 **Règle de la main droite.** Le pouce suit $\vec u$, l'index suit $\vec v$ : le majeur indique le sens de $\vec u\wedge\vec v$. Échanger les deux facteurs retourne la flèche : $\vec v\wedge\vec u = -\,\vec u\wedge\vec v$. La longueur $\lVert\vec u\rVert\,\lVert\vec v\rVert\sin\theta$ est l'**aire du parallélogramme** construit sur $\vec u$ et $\vec v$ : maximale quand ils sont perpendiculaires, nulle quand ils sont alignés.
 :::
 
-:::theorem[Expression analytique]
+:::theorem[Expression analytique]{wiki="Expression analytique du produit vectoriel"}
 Dans un repère orthonormé **direct**, si $\vec u = (a, b, c)$ et $\vec v = (a', b', c')$, alors
 $$
 \vec u\wedge\vec v = \begin{pmatrix} bc' - cb' \\ ca' - ac' \\ ab' - ba' \end{pmatrix}.
@@ -465,7 +465,7 @@ Soit $\vec u$ un vecteur. La **translation de vecteur $\vec u$**, notée $t_{\ve
 | $f$ est la translation de vecteur $\overrightarrow{AA'}$ | $\overrightarrow{MM'}$ ne dépend pas de $M$ |
 :::
 
-:::theorem[Expression analytique]
+:::theorem[Expression analytique]{wiki="Expression analytique d'une translation"}
 Dans un repère, soit $\vec u = (u_1, u_2, u_3)$. La translation $t_{\vec u}$ envoie $M(x, y, z)$ sur $M'(x', y', z')$ avec
 $$
 \begin{gathered}
