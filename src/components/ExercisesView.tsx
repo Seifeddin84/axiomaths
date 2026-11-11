@@ -12,6 +12,8 @@ interface ExercisesViewProps {
 export default function ExercisesView({ exercises }: ExercisesViewProps) {
   const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
   const [professor, setProfessor] = useState('all');
+  const [onlyRecommended, setOnlyRecommended] = useState(false);
+  const recommendedCount = useMemo(() => exercises.filter(ex => ex.recommended).length, [exercises]);
 
   // teacher filter for both views (it used to exist only inside the table view)
   const professors = useMemo(() => {
@@ -21,8 +23,11 @@ export default function ExercisesView({ exercises }: ExercisesViewProps) {
   }, [exercises]);
 
   const shown = useMemo(
-    () => (professor === 'all' ? exercises : exercises.filter(ex => ex.professor?.includes(professor))),
-    [exercises, professor]
+    () =>
+      exercises
+        .filter(ex => professor === 'all' || ex.professor?.includes(professor))
+        .filter(ex => !onlyRecommended || ex.recommended),
+    [exercises, professor, onlyRecommended]
   );
 
   const toggle = (active: boolean) =>
@@ -49,6 +54,20 @@ export default function ExercisesView({ exercises }: ExercisesViewProps) {
           </label>
         ) : (
           <span />
+        )}
+
+        {recommendedCount > 0 && (
+          <button
+            onClick={() => setOnlyRecommended(v => !v)}
+            aria-pressed={onlyRecommended}
+            className={`min-h-[44px] px-3 sm:px-4 font-black border-2 transition-colors ${
+              onlyRecommended
+                ? 'bg-teal-600 border-teal-600 text-white'
+                : 'border-teal-600 text-teal-700 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/30'
+            }`}
+          >
+            ★ Recommandés ({recommendedCount})
+          </button>
         )}
 
         <div className="flex gap-2">

@@ -685,3 +685,9 @@ p.wiki-proof { font-style: italic; color: #6b7280; }
   .bac-paper ol ol { padding-inline-start: 1rem; }
   .bac-paper li .katex-display { font-size: 0.9em; }
 }
+
+/* blog: display maths never widen the page on phones */
+.blog-content .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.2em 0; }
+@media (max-width: 480px) {
+  .blog-content .katex-display { font-size: 0.95em; }
+}

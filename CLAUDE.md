@@ -68,6 +68,8 @@ professor: "M. Haj Ali"         # as printed, or null
 difficulty: "Moyen"             # "Facile" | "Moyen" | "Difficile"  (never "Moyenne")
 points: 7                       # integer from the barème, or null
 tags: ["integrales", "integration-par-parties"]   # kebab-case ASCII, 3–6 tags
+bac: "1990-principale-maths"    # optional: id of the bac paper (public/bac/<id>/) it comes from
+recommended: true               # optional: worth showing to students → "★ Recommandé" badge + filter
 ---
 ```
 
@@ -109,6 +111,15 @@ Section rules:
   Link both ways. College: `/college/<level>/<chapter>#ex-…`.
 - A devoir with several exercises → **one file per exercise**, same `source`,
   `professor`, `year`; `points` from each exercise's barème.
+
+**Recommandé.** Set `recommended: true` only for exercises a teacher would pick to show
+in class: a classic result reached step by step (Stirling, Leibniz series, e as a limit),
+an elegant idea, or a question that links several chapters. Keep it rare (≈ 1 in 5),
+or the filter stops meaning anything.
+
+**Bac papers.** An exercise taken from a paper in `public/bac/<id>/` gets `bac: "<id>"`,
+`source: "Bac <year> <session>, Ex. n"` and the paper's `sujet.tex` gets `\banque{<UID7>}`
+in that block: the links then go both ways.
 
 ## 6. Figures
 

@@ -89,8 +89,16 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                   className="flex-1 cursor-pointer"
                   onClick={() => toggleExercise(exercise.uid)}
                 >
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
                     <span className="text-xs font-mono font-black text-gray-500 dark:text-gray-400">#{exercise.uid}</span>
+                    {exercise.recommended && (
+                      <span
+                        title="Exercice recommandé : à montrer aux élèves"
+                        className="px-2 py-1 bg-teal-600 text-white text-xs font-black"
+                      >
+                        ★ Recommandé
+                      </span>
+                    )}
                     <span className="text-lg">{getDifficultyStars(exercise.difficulty)}</span>
                     {Number.isFinite(Number(exercise.points)) && (
                       <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-black">

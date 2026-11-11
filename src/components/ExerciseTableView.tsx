@@ -285,7 +285,10 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
                         </div>
                       </td>
                       <td className="px-4 py-3 text-sm font-black" style={{ maxWidth: '300px' }}>
-                        <div className="break-words">{exercise.title || exercise.source}</div>
+                        <div className="break-words">
+                          {exercise.recommended && <span className="text-teal-600 dark:text-teal-400 font-black" title="Recommandé">★ </span>}
+                          {exercise.title || exercise.source}
+                        </div>
                       </td>
                       <td className="px-4 py-3 text-sm font-semibold max-w-xs truncate text-gray-600 dark:text-gray-400">
                         {exercise.title ? exercise.source : '-'}

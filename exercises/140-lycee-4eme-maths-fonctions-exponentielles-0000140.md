@@ -13,6 +13,7 @@ professor: null
 difficulty: "Difficile"
 points: 12
 tags: ["bac", "exponentielle", "bijection", "integrale"]
+recommended: true
 ---
 
 Soit $f_m$ la fonction définie sur $\mathbb{R}$ par $f_m(x) = \dfrac{m\,e^{2x}}{e^{2x} + 1}$, où $m$ est un paramètre réel de l'intervalle $]0, 2]$.
