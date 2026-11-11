@@ -70,22 +70,34 @@ function decorate(node: Root | Element): void {
 
 const rehypeLessonDecorations = () => (tree: Root) => decorate(tree);
 
-const makeProcessor = (lang: 'fr' | 'ar') =>
+const makeProcessor = (lang: 'fr' | 'ar', wikiLinks: boolean) =>
   unified()
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkMath)
     .use(remarkDirective)
-    .use(remarkLessonBlocks, { lang })
+    .use(remarkLessonBlocks, { lang, wikiLinks })
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeKatex)
     .use(rehypeLessonDecorations)
     .use(rehypeStringify);
 
-const processors = { fr: makeProcessor('fr'), ar: makeProcessor('ar') };
+const processors = {
+  fr: { lesson: makeProcessor('fr', true), wiki: makeProcessor('fr', false) },
+  ar: { lesson: makeProcessor('ar', true), wiki: makeProcessor('ar', false) },
+};
 
-/** Markdown lesson → HTML fragment (KaTeX already rendered). `lang` picks the box labels. */
-export async function renderLessonHtml(markdown: string, lang: 'fr' | 'ar' = 'fr'): Promise<string> {
-  return String(await processors[lang].process(markdown));
+/**
+ * Markdown lesson → HTML fragment (KaTeX already rendered). `lang` picks the box labels.
+ * In a lesson every theorem box links to its entry of the theorems wiki; the wiki itself renders
+ * with `wikiLinks: false` (no link to itself).
+ */
+export async function renderLessonHtml(
+  markdown: string,
+  lang: 'fr' | 'ar' = 'fr',
+  options: { wikiLinks?: boolean } = {}
+): Promise<string> {
+  const p = processors[lang][options.wikiLinks === false ? 'wiki' : 'lesson'];
+  return String(await p.process(markdown));
 }

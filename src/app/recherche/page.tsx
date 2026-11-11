@@ -399,9 +399,14 @@ function RechercheContent() {
                         <Link href={`/theoremes#${t.id}`} dir={t.dir} className="block font-black text-gray-900 dark:text-white after:absolute after:inset-0">
                           {t.name}
                         </Link>
-                        <span className="flex flex-wrap items-center gap-x-2 text-xs font-semibold text-gray-500 dark:text-gray-400" dir="ltr">
-                          <span>{t.levels.map(l => LEVEL_LABEL[l] ?? l).join(', ')} · {t.chapters.join(', ')}</span>
-                          <Link href={t.href} className="relative z-10 text-orange-500 hover:underline">voir le cours</Link>
+                        <span className="block text-xs font-semibold text-gray-500 dark:text-gray-400" dir="ltr">
+                          {t.levels.map(l => LEVEL_LABEL[l] ?? l).join(', ')} · {t.chapters.join(', ')}
+                        </span>
+                        <span className="mt-2 flex flex-wrap gap-2">
+                          <span className="inline-flex items-center min-h-[40px] px-3 rounded-lg bg-teal-600 text-white text-sm font-bold">Énoncé et démonstration</span>
+                          <Link href={t.href} className="relative z-10 inline-flex items-center min-h-[40px] px-3 rounded-lg border-2 border-orange-500 text-orange-600 dark:text-orange-400 text-sm font-bold hover:bg-orange-500 hover:text-white transition-colors">
+                            Voir le cours →
+                          </Link>
                         </span>
                       </li>
                     ))}

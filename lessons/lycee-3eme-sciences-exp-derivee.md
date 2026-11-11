@@ -208,16 +208,8 @@ Soit $f$ dérivable sur un intervalle $I$.
 Si $f' > 0$ sur $I$ (sauf éventuellement en un nombre fini de points), $f$ est **strictement** croissante, et de même pour $<$.
 :::
 
-:::curious[Par les accroissements finis]
-**Si $f$ est croissante, alors $f' \geq 0$.** Pour $h \neq 0$, $f(x + h) - f(x)$ a le signe de $h$, donc $\dfrac{f(x + h) - f(x)}{h} \geq 0$ ; à la limite, $f'(x) \geq 0$.
-
-**Si $f' \geq 0$, alors $f$ est croissante.** C'est le sens difficile. La preuve la plus courte utilise le **théorème des accroissements finis** (vu en 4ème) : pour $x < y$ dans $I$, il existe $c$ entre $x$ et $y$ tel que
-$$
-f(y) - f(x) = f'(c)\,(y - x).
-$$
-Comme $f'(c) \geq 0$ et $y - x > 0$, on obtient $f(y) \geq f(x)$. Avec $f'(c) > 0$, l'inégalité est stricte ; et si $f' = 0$, alors $f(y) = f(x)$ : $f$ est constante.
-
-Pourquoi est-ce admis en 3ème ? Parce que les accroissements finis reposent sur le théorème de Rolle, qui lui-même demande qu'une fonction continue sur un segment **atteigne** son maximum.
+:::curious[L'idée de la preuve]{theorem="Signe de la dérivée et variations"}
+L'idée : entre deux points $x < y$, le théorème des accroissements finis (vu en 4ème) donne $f(y) - f(x) = f'(c)\,(y - x)$. C'est donc le signe de $f'$ qui décide si $f$ monte ou descend.
 :::
 
 
@@ -230,17 +222,8 @@ $f$ admet un **maximum local** en $a$ s'il existe un intervalle ouvert $J \ni a$
 - **Réciproque, version utile** : si $f'$ **s'annule en $a$ en changeant de signe**, alors $f$ admet un extremum local en $a$ (maximum si $f'$ passe de $+$ à $-$, minimum si de $-$ à $+$).
 :::
 
-:::curious[Pourquoi la tangente est horizontale]
-Supposons que $f$ admet un maximum local en $a$ : $f(x) \leq f(a)$ pour $x$ dans un intervalle ouvert $J$ contenant $a$.
-
-| Étape | Justification |
-|---|---|
-| Pour $x \in J$ et $x > a$ : $\dfrac{f(x) - f(a)}{x - a} \leq 0$ | numérateur $\leq 0$, dénominateur $> 0$ |
-| Pour $x \in J$ et $x < a$ : $\dfrac{f(x) - f(a)}{x - a} \geq 0$ | numérateur $\leq 0$, dénominateur $< 0$ |
-| Quand $x \to a$, les deux quotients tendent vers $f'(a)$ | $f$ est dérivable en $a$ |
-| Donc $f'(a) \leq 0$ et $f'(a) \geq 0$, soit $f'(a) = 0$ | une limite de nombres $\leq 0$ est $\leq 0$ |
-
-Pour un minimum, on remplace $f$ par $-f$. La réciproque (changement de signe de $f'$) découle du théorème sur le signe de la dérivée : $f$ croît avant $a$ et décroît après.
+:::curious[L'idée de la preuve]{theorem="Extremum et dérivée"}
+L'idée : en un maximum, les taux d'accroissement sont $\leq 0$ à droite et $\geq 0$ à gauche. Leur limite commune $f'(a)$ est donc à la fois $\leq 0$ et $\geq 0$ : elle est nulle.
 :::
 
 

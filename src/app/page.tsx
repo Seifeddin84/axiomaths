@@ -5,7 +5,8 @@ import { getAllLessons, normalize } from '@/lib/lessonReader';
 import { getAllExams } from '@/lib/exams';
 import { BAC_SECTIONS, bacSectionSlugs, exerciseSections, isBacExam, isBacExercise } from '@/lib/bac';
 import HomeSearchBar from '@/components/HomeSearchBar';
-import HomeTasks, { HomeBacSection, HomeLevel, HomeLevelCounts } from '@/components/HomeTasks';
+import HomeTasks, { HomeBacSection, HomeLevel, HomeLevelCounts, HomeRevisionSection } from '@/components/HomeTasks';
+import { getNavTree } from '@/lib/navTree';
 
 const LEVELS: HomeLevel[] = [
   { key: '7eme', label: '7ème', school: 'college' },
@@ -41,6 +42,14 @@ export default async function HomePage() {
       bacPapers.filter(p => bacSectionSlugs([p.section]).includes(s.slug)).length,
   }));
   const bacTotal = bacExercises.length + bacPapers.length;
+  // « Réviser le bac » = the 4ème sections, same pages as Cours & exercices → 4ème → section
+  const lessons4 = lessons.filter(l => normalize(l.level) === '4eme');
+  const revision: HomeRevisionSection[] = (getNavTree()['lycee/4eme']?.sections ?? []).map(sec => ({
+    title: sec.title,
+    href: sec.href,
+    cours: lessons4.filter(l => l.sections.some(s => normalize(s) === normalize(sec.title))).length,
+    exercices: sec.chapters.reduce((n, c) => n + c.count, 0),
+  }));
   const byCours = countByLevel(lessons.map(l => l.level));
   const byExercices = countByLevel(exercises.map(e => e.level));
   const byDevoirs = countByLevel(exams.map(e => e.level));
@@ -64,7 +73,7 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <HomeTasks levels={LEVELS} counts={counts} totals={totals} bacSections={bacSections} bacTotal={bacTotal} />
+      <HomeTasks levels={LEVELS} counts={counts} totals={totals} bacSections={bacSections} bacTotal={bacTotal} revision={revision} />
 
       <div className="mt-6 flex flex-wrap gap-3 text-sm font-bold">
         <Link href="/theoremes" className="px-4 py-2 rounded-full border-2 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500">
