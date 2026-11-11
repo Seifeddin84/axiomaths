@@ -5,7 +5,7 @@ import { getAllLessons, normalize } from '@/lib/lessonReader';
 import { getAllExams } from '@/lib/exams';
 import { BAC_SECTIONS, bacSectionSlugs, exerciseSections, isBacExam, isBacExercise } from '@/lib/bac';
 import HomeSearchBar from '@/components/HomeSearchBar';
-import HomeTasks, { HomeBacSection, HomeLevel, HomeTab } from '@/components/HomeTasks';
+import HomeTasks, { HomeBacSection, HomeLevel, HomeLevelCounts } from '@/components/HomeTasks';
 
 const LEVELS: HomeLevel[] = [
   { key: '7eme', label: '7ème', school: 'college' },
@@ -41,16 +41,13 @@ export default async function HomePage() {
       bacPapers.filter(p => bacSectionSlugs([p.section]).includes(s.slug)).length,
   }));
   const bacTotal = bacExercises.length + bacPapers.length;
-  const counts: Record<HomeTab, Record<string, number>> = {
-    exercices: countByLevel(exercises.map(e => e.level)),
-    cours: countByLevel(lessons.map(l => l.level)),
-    devoirs: countByLevel(exams.map(e => e.level)),
-  };
-  const totals: Record<HomeTab, number> = {
-    exercices: exercises.length,
-    cours: lessons.length,
-    devoirs: exams.length,
-  };
+  const byCours = countByLevel(lessons.map(l => l.level));
+  const byExercices = countByLevel(exercises.map(e => e.level));
+  const byDevoirs = countByLevel(exams.map(e => e.level));
+  const counts: Record<string, HomeLevelCounts> = Object.fromEntries(
+    LEVELS.map(l => [l.key, { cours: byCours[l.key], exercices: byExercices[l.key], devoirs: byDevoirs[l.key] }])
+  );
+  const totals: HomeLevelCounts = { cours: lessons.length, exercices: exercises.length, devoirs: exams.length };
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
