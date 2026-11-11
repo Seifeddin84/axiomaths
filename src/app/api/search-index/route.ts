@@ -21,6 +21,7 @@ export interface SearchLesson {
 }
 
 export interface SearchTheorem {
+  id: string;
   name: string;
   altName?: string;
   levels: string[];
@@ -28,6 +29,8 @@ export interface SearchTheorem {
   href: string;
   dir: 'ltr' | 'rtl';
   search: string;
+  /** where the theorem is taught: level + section (section slug from the chapter URL, '' for 1ère / collège) */
+  places: { level: string; section: string }[];
 }
 
 const LEVEL_LABEL: Record<string, string> = {
@@ -75,6 +78,7 @@ export async function GET() {
   const theorems: SearchTheorem[] = (await getTheoremSummaries())
     .filter(t => t.links.length > 0)
     .map(t => ({
+      id: t.id,
       name: t.name,
       altName: t.altName,
       levels: t.levels,
@@ -82,6 +86,11 @@ export async function GET() {
       href: t.links[0].href,
       dir: t.dir,
       search: t.search,
+      places: t.links.map(link => {
+        const parts = link.href.split('/');   // ['', 'lycee', '4eme', '<section>', '<chapter>']
+        const section = parts[1] === 'lycee' && parts.length >= 5 && parts[3] !== 'toutes-sections' ? decodeURIComponent(parts[3]) : '';
+        return { level: link.level, section };
+      }),
     }));
 
   return NextResponse.json({ lessons, theorems });

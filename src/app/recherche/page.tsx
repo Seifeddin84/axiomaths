@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { Exercise } from '@/types/exercise';
 import SearchTable from '@/components/SearchTable';
 import { fuzzyScore, prepareQuery } from '@/lib/fuzzy';
+import { foldText } from '@/lib/fuzzy';
 import type { SearchLesson, SearchTheorem } from '@/app/api/search-index/route';
 
 const COLLEGE_LEVELS = ['7eme', '8eme', '9eme'];
@@ -131,27 +132,97 @@ function RechercheContent() {
   const query = useMemo(() => prepareQuery(searchText), [searchText]);
   const hasQuery = query.words.length > 0;
 
-  const matchingLessons = useMemo(() => {
+  const exSections = (ex: Exercise) =>
+    [...(Array.isArray(ex.sections) ? ex.sections : []), ...(ex.section ? [ex.section] : [])].filter(
+      (x): x is string => typeof x === 'string' && x !== 'null' && x.trim() !== ''
+    );
+  const sectionKey = (name: string) => foldText(name).replace(/ /g, '');
+  const inSection = (names: string[]) => filterSection === 'all' || names.some(n => sectionKey(n) === sectionKey(filterSection));
+
+  // everything that matches the query, before the class / section chips are applied (for the chip counts)
+  const queryLessons = useMemo(() => {
     if (!hasQuery) return [];
     return index.lessons
-      .filter(l => filterLevel === 'all' || l.level === filterLevel)
       .map(l => ({ l, score: 3 * fuzzyScore(query, `${l.title} ${l.chapter}`) + fuzzyScore(query, `${l.title} ${l.chapter} ${l.sections.join(' ')} ${l.summary}`) }))
       .filter(x => x.score > 0)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 6)
       .map(x => x.l);
-  }, [index, query, hasQuery, filterLevel]);
+  }, [index, query, hasQuery]);
+
+  // a theorem matches on its own name and chapter, not on the title of the lesson it comes from
+  const queryTheorems = useMemo(() => {
+    if (!hasQuery) return [];
+    return index.theorems
+      .map(t => ({ t, score: 3 * fuzzyScore(query, `${t.name} ${t.altName ?? ''}`) + fuzzyScore(query, `${t.name} ${t.altName ?? ''} ${t.chapters.join(' ')}`) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map(x => x.t);
+  }, [index, query, hasQuery]);
+
+  const queryExercises = useMemo(() => {
+    if (!hasQuery) return [];
+    return exercises.filter(ex => fuzzyScore(query, [
+      ex.title, ex.source, ...(ex.professor ?? []), ...(ex.tags ?? []), ex.chapter, ex.section, ex.level,
+    ].filter(Boolean).join(' ')) > 0);
+  }, [exercises, query, hasQuery]);
+
+  // chips: results per class, then per section of the chosen class
+  const levelChips = useMemo(() => {
+    const order = ['7eme', '8eme', '9eme', '1ere', '2eme', '3eme', '4eme'];
+    return order
+      .map(level => ({
+        level,
+        count:
+          queryLessons.filter(l => l.level === level).length +
+          queryTheorems.filter(t => t.levels.includes(level)).length +
+          queryExercises.filter(ex => ex.level === level).length,
+      }))
+      .filter(c => c.count > 0);
+  }, [queryLessons, queryTheorems, queryExercises]);
+
+  const sectionChips = useMemo(() => {
+    if (filterLevel === 'all') return [];
+    const names = new Map<string, string>();   // key -> display name
+    const counts = new Map<string, number>();
+    const add = (name: string) => {
+      const key = sectionKey(name);
+      if (!key) return;
+      if (!names.has(key) || /[A-Z]/.test(name)) names.set(key, name);
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+    };
+    queryLessons.filter(l => l.level === filterLevel).forEach(l => l.sections.forEach(add));
+    queryExercises.filter(ex => ex.level === filterLevel).forEach(ex => [...new Set(exSections(ex).map(sectionKey))].forEach(k => add(exSections(ex).find(n => sectionKey(n) === k)!)));
+    queryTheorems.forEach(t => [...new Set(t.places.filter(p => p.level === filterLevel && p.section).map(p => p.section))].forEach(add));
+    return [...names.entries()].map(([key, name]) => ({ key, name, count: counts.get(key) ?? 0 })).sort((a, b) => b.count - a.count);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryLessons, queryTheorems, queryExercises, filterLevel]);
+
+  const chooseLevel = (level: string) => {
+    setFilterSchool(level === 'all' ? 'all' : COLLEGE_LEVELS.includes(level) ? 'college' : 'lycee');
+    setFilterLevel(level);
+    setFilterSection('all');
+    setFilterChapter('all');
+  };
+
+  const matchingLessons = useMemo(() => {
+    if (!hasQuery) return [];
+    return queryLessons
+      .filter(l => (filterLevel === 'all' || l.level === filterLevel) && inSection(l.sections))
+      .slice(0, 6);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryLessons, hasQuery, filterLevel, filterSection]);
 
   const matchingTheorems = useMemo(() => {
     if (!hasQuery) return [];
-    return index.theorems
-      .filter(t => filterLevel === 'all' || t.levels.includes(filterLevel))
-      .map(t => ({ t, score: 3 * fuzzyScore(query, `${t.name} ${t.altName ?? ''}`) + fuzzyScore(query, `${t.name} ${t.altName ?? ''} ${t.search}`) }))
-      .filter(x => x.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 6)
-      .map(x => x.t);
-  }, [index, query, hasQuery, filterLevel]);
+    return queryTheorems
+      .filter(t =>
+        filterLevel === 'all'
+          ? true
+          : t.places.some(p => p.level === filterLevel && (filterSection === 'all' || sectionKey(p.section) === sectionKey(filterSection)))
+      )
+      .slice(0, 6);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryTheorems, hasQuery, filterLevel, filterSection]);
 
   const filteredExercises = useMemo(() => {
     return exercises.filter(ex => {
@@ -161,7 +232,7 @@ function RechercheContent() {
 
       const matchesSchool     = filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool;
       const matchesLevel      = filterLevel === 'all' || ex.level === filterLevel;
-      const matchesSection    = filterSection === 'all' || ex.section === filterSection;
+      const matchesSection    = inSection(exSections(ex));
       const matchesChapter    = filterChapter === 'all' || ex.chapter === filterChapter;
       const matchesCountry    = filterCountry === 'all' || ex.country === filterCountry;
       const matchesYear       = filterYear === 'all' || ex.year?.toString() === filterYear;
@@ -261,6 +332,45 @@ function RechercheContent() {
             </div>
           </div>
 
+          {hasQuery && levelChips.length > 0 && (
+            <div className="mb-4 space-y-2">
+              <div className="flex flex-wrap gap-2" aria-label="Classe">
+                {[{ level: 'all', count: queryLessons.length + queryTheorems.length + queryExercises.length }, ...levelChips].map(c => {
+                  const active = filterLevel === c.level;
+                  return (
+                    <button
+                      key={c.level}
+                      type="button"
+                      onClick={() => chooseLevel(c.level)}
+                      aria-pressed={active}
+                      className={`px-3 py-1.5 rounded-full border-2 text-sm font-bold transition-colors ${active ? 'border-orange-500 bg-orange-500 text-white' : 'border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-orange-500'}`}
+                    >
+                      {c.level === 'all' ? 'Toutes les classes' : LEVEL_LABEL[c.level] ?? c.level} <span className="opacity-75">{c.count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+              {sectionChips.length > 1 && (
+                <div className="flex flex-wrap gap-2" aria-label="Section">
+                  {[{ key: 'all', name: 'Toutes les sections', count: 0 }, ...sectionChips].map(c => {
+                    const active = c.key === 'all' ? filterSection === 'all' : filterSection !== 'all' && sectionKey(filterSection) === c.key;
+                    return (
+                      <button
+                        key={c.key}
+                        type="button"
+                        onClick={() => { setFilterSection(c.key === 'all' ? 'all' : c.name); setFilterChapter('all'); }}
+                        aria-pressed={active}
+                        className={`px-3 py-1 rounded-full border text-xs font-bold transition-colors ${active ? 'border-orange-500 bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300' : 'border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-orange-500'}`}
+                      >
+                        {c.name}{c.key !== 'all' && <span className="opacity-75"> {c.count}</span>}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+
           {(matchingLessons.length > 0 || matchingTheorems.length > 0) && (
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               {matchingLessons.length > 0 && (
@@ -285,13 +395,14 @@ function RechercheContent() {
                   <h2 className="mb-2 text-sm font-black uppercase tracking-wider text-gray-500 dark:text-gray-400">Théorèmes</h2>
                   <ul className="space-y-2">
                     {matchingTheorems.map(t => (
-                      <li key={t.href + t.name}>
-                        <Link href={t.href} dir={t.dir} className="block p-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-orange-500 transition-colors">
-                          <span className="block font-black text-gray-900 dark:text-white">{t.name}</span>
-                          <span className="block text-xs font-semibold text-gray-500 dark:text-gray-400" dir="ltr">
-                            {t.levels.map(l => LEVEL_LABEL[l] ?? l).join(', ')} · {t.chapters.join(', ')}
-                          </span>
+                      <li key={t.id} className="relative p-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-orange-500 transition-colors">
+                        <Link href={`/theoremes#${t.id}`} dir={t.dir} className="block font-black text-gray-900 dark:text-white after:absolute after:inset-0">
+                          {t.name}
                         </Link>
+                        <span className="flex flex-wrap items-center gap-x-2 text-xs font-semibold text-gray-500 dark:text-gray-400" dir="ltr">
+                          <span>{t.levels.map(l => LEVEL_LABEL[l] ?? l).join(', ')} · {t.chapters.join(', ')}</span>
+                          <Link href={t.href} className="relative z-10 text-orange-500 hover:underline">voir le cours</Link>
+                        </span>
                       </li>
                     ))}
                   </ul>
