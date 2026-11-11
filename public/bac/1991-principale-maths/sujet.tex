@@ -1,0 +1,146 @@
+\documentclass{axiobac}
+
+\annee{1991}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques}
+\sectionbac{Math.-Sc. (Sp. : Mathématiques) \& Mathématiques Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation et des Sciences}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{6}
+\titre{Triangle équilatéral, cercles tangents et rotations}
+\chapitres{Déplacements - Antidéplacements}
+
+On considère, dans un plan orienté, un triangle équilatéral $ABC$ tel que $\left(\widehat{\overrightarrow{AB}, \overrightarrow{AC}}\right) \equiv \dfrac{\pi}{3} \ [2\pi]$ et le cercle $(\mathcal{C})$ circonscrit à ce triangle. On construit les cercles $(\mathcal{C}')$ et $(\mathcal{C}'')$ de même rayon, de centres respectifs $B$ et $C$ et tangents extérieurement l'un à l'autre.
+
+\begin{enumerate}
+    \item Soit $M$ un point du cercle $(\mathcal{C}')$ et $M'$ le point du cercle $(\mathcal{C}'')$ tel que $\left(\widehat{\overrightarrow{BM}, \overrightarrow{CM'}}\right) \equiv \dfrac{\pi}{3} \ [2\pi]$. \\
+    Montrer que la médiatrice du segment $[MM']$ passe par un point fixe que l'on précisera.
+    \item Le point $M$ se projette orthogonalement en $H$ sur $(AM')$ ; déterminer l'ensemble des points $H$ lorsque $M$ décrit $(\mathcal{C}')$. \\
+    Construire cet ensemble.
+    \item Soit $D$ le point du cercle $(\mathcal{C})$ diamétralement opposé à $A$ et $M''$ l'image du point $M'$ par la rotation de centre $D$ et d'angle dont une mesure est $\dfrac{2\pi}{3}$. \\
+    Montrer que $M$ et $M''$ sont deux points diamétralement opposés du cercle $(\mathcal{C}')$.
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Jetons blancs et noirs : tirages avec et sans remise}
+\chapitres{Probabilités}
+
+Un sac contient sept jetons indiscernables au toucher et répartis comme suit :
+\begin{itemize}
+    \item quatre jetons blancs numérotés $1$, $2$, $2$, $2$ ;
+    \item trois jetons noirs numérotés $1$, $1$, $2$.
+\end{itemize}
+
+\begin{enumerate}
+    \item On tire successivement et avec remise trois jetons du sac.
+    \begin{enumerate}
+        \item Calculer la probabilité d'avoir trois jetons blancs.
+        \item Calculer la probabilité pour que, parmi les trois jetons tirés, il y en ait deux seulement qui portent le numéro $1$.
+    \end{enumerate}
+    \item On remet tous les jetons dans le sac et on tire de nouveau et successivement trois jetons de la manière suivante :
+    \begin{itemize}
+        \item si le jeton tiré porte le numéro $2$, il est remis dans le sac ;
+        \item si le jeton tiré porte le numéro $1$, il n'est pas remis dans le sac.
+    \end{itemize}
+    \begin{enumerate}
+        \item Calculer la probabilité d'avoir trois jetons blancs.
+        \item Calculer la probabilité pour que deux seulement des trois jetons tirés portent le numéro $1$.
+    \end{enumerate}
+\end{enumerate}
+
+\textit{N.B. : Toutes les probabilités seront calculées à $0{,}01$ près.}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{10}
+
+Soit $f$ la fonction numérique à variable réelle définie par
+\[
+f(x) = \operatorname{Log}\left( \frac{x + 2 + \sqrt{x^2 + 4x}}{2} \right) .
+\]
+
+\partie{A}
+\titre{Une fonction logarithme et sa réciproque $e^x + e^{-x} - 2$}
+\chapitres{Fonction logarithme népérien, Fonctions réciproques, Fonctions exponentielles}
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que le domaine de définition de $f$ est $\mathbb{R}_+$.
+        \item Étudier les variations de $f$ sur $\mathbb{R}_+$.
+        \item Tracer sa courbe représentative $(C)$ dans le plan rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Soit $y$ un réel strictement positif. Résoudre dans $\mathbb{R}_+$ l'équation en $x$ : $e^x + e^{-x} - 2 = y$.
+        \item Montrer que $f$ admet sur $\mathbb{R}_+$ une fonction réciproque $g$, et déduire de ce qui précède l'expression de $g(x)$.
+    \end{enumerate}
+\end{enumerate}
+
+\partie{B}
+\titre{Intégrale d'une fonction réciproque et aire}
+\chapitres{Primitives, Intégrales, Fonctions réciproques}
+
+\begin{enumerate}
+    \item Soit $h$ une fonction numérique à variable réelle, dérivable et strictement monotone sur un intervalle $I$.
+    \begin{enumerate}
+        \item Montrer que $h^{-1}$ admet des primitives sur $h(I)$.
+        \item Soit $H$ une primitive de $h^{-1}$ sur $h(I)$. Démontrer que $H \circ h$ est une primitive, sur $I$, de la fonction $x \longmapsto x\,h'(x)$.
+        \item Soit $(\alpha, \beta)$ un couple de $I^2$. Déduire de ce qui précède que :
+        \[
+        \int_{h(\alpha)}^{h(\beta)} h^{-1}(t)\,dt = \int_\alpha^\beta t\,h'(t)\,dt .
+        \]
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Calculer $f(0)$ et $f\left(\dfrac{(e - 1)^2}{e}\right)$.
+        \item En déduire l'aire de la partie du plan limitée par la courbe $(C)$ et les droites d'équations $x = \dfrac{(e - 1)^2}{e}$ et $y = 0$.
+    \end{enumerate}
+\end{enumerate}
+
+\partie{C}
+\titre{Encadrement et suite récurrente $u_{n+1} = f(2u_n)$}
+\chapitres{Suites réelles, Fonction logarithme népérien}
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que pour tout réel $x$ positif, on a : $\operatorname{Log}(1 + x) \leqslant f(x) \leqslant \operatorname{Log}(2 + x)$.
+        \item Soit $\theta$ la fonction définie sur $\mathbb{R}_+$ par $\theta(x) = f(x) - \dfrac{1}{2}x$. \\
+        Montrer que $\theta$ est strictement décroissante sur $[1, +\infty[$ et en déduire que l'équation $f(x) = \dfrac{1}{2}x$ admet une solution unique $\gamma$ dans $]1, 4[$.
+    \end{enumerate}
+    \item On considère la suite $(u_n)_{n \in \mathbb{N}}$ définie par :
+    \[
+    \begin{cases}
+        u_0 = 1 \\
+        u_{n+1} = f(2u_n) \quad \text{pour tout } n \in \mathbb{N}
+    \end{cases}
+    \]
+    \begin{enumerate}
+        \item Montrer que, pour tout $n \in \mathbb{N}$, on a : $u_n \in [1, 2]$.
+        \item Montrer que, pour tout $n \in \mathbb{N}$, on a : $\left|u_{n+1} - \dfrac{1}{2}\gamma\right| \leqslant \dfrac{2}{\sqrt{5}} \left|u_n - \dfrac{1}{2}\gamma\right|$.
+        \item En déduire la limite quand $n \to +\infty$ de la suite $(u_n)_{n \in \mathbb{N}}$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

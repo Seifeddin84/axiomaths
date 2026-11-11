@@ -1,0 +1,155 @@
+\documentclass{axiobac}
+
+\annee{1988}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques (ancien programme)}
+\sectionbac{Math-Sciences \& Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation Nationale}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Racines $a$ et $a^2$ : quand le triangle est-il équilatéral ?}
+\chapitres{Nombres Complexes}
+
+\begin{enumerate}
+    \item Résoudre dans le corps $\mathbb{C}$ des nombres complexes l'équation
+    \[
+    (E) : \quad z^2 - (a + a^2)\,z + a^3 = 0,
+    \]
+    où $a$ est un paramètre complexe différent de $1$ et $-1$. \\
+    On désigne par $z_1$ et $z_2$ les solutions de $(E)$.
+    \item Le plan étant rapporté à un repère orthonormé direct $(O, \vec{i}, \vec{j})$, on considère les points $A$, $B$, $C$ d'affixes respectives $1$, $z_1$, $z_2$.
+    \begin{enumerate}
+        \item Montrer que le triangle $ABC$ est équilatéral si et seulement si $|a| = 1$ et $|1 + a| = 1$.
+        \item On pose $a = \cos\theta + i\sin\theta$ avec $\theta \in ]0, \pi[$. \\
+        Déterminer le module et un argument de $1 + a$ en fonction de $\theta$.
+        \item Déterminer la valeur de $\theta$ pour laquelle le triangle $ABC$ est équilatéral.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Applications affines vectorielles : translation ou homothétie}
+\chapitres{Similitudes}
+
+Soit $A$, $B$, $C$ trois points non alignés d'un plan affine $\mathcal{P}$. \\
+Pour tout réel non nul $\alpha$, on considère l'application $f_\alpha$ de $\mathcal{P}$ dans $\mathcal{P}$ qui, à tout point $M$, associe le point $M'$ tel que :
+\[
+\overrightarrow{MM'} = \overrightarrow{MA} - 2\alpha\,\overrightarrow{MB} + \alpha^2\,\overrightarrow{MC} .
+\]
+
+\begin{enumerate}
+    \item Montrer qu'il existe un réel $\alpha_0$ pour lequel $f_{\alpha_0}$ est une translation dont on précisera le vecteur.
+    \item On suppose $\alpha \neq 1$. Montrer que $f_\alpha$ possède un point invariant $I_\alpha$ que l'on déterminera.
+    \item On suppose $\alpha \neq 1$ et $\alpha \neq 2$. Montrer que $f_\alpha$ est une homothétie dont on précisera le centre et le rapport.
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{12}
+
+\partie{I}
+\titre{La fonction $x e^{-x}$ et une aire}
+\chapitres{Fonctions exponentielles, Intégrales}
+
+Soit $f$ la fonction numérique à variable réelle définie par $f(x) = x\,e^{-x}$.
+
+\begin{enumerate}
+    \item Étudier les variations de $f$ et tracer sa courbe représentative $\mathcal{C}$ dans un repère orthonormé $(O, \vec{i}, \vec{j})$.
+    \item Soit $E$ l'ensemble des points $M(x, y)$ tels que $1 \leqslant x \leqslant n$ et $0 \leqslant y \leqslant f(x)$, avec $n \in \mathbb{N}$. On désigne par $\mathcal{A}_n$ l'aire de $E$. \\
+    Calculer $\mathcal{A}_n$ et $\displaystyle\lim_{n \to +\infty} \mathcal{A}_n$.
+\end{enumerate}
+
+\partie{II}
+\titre{Encadrer une somme par des intégrales}
+\chapitres{Suites réelles, Intégrales}
+
+Soit la suite $(u_n)$ définie dans $\mathbb{N}^*$ par
+\[
+u_n = \frac{1}{e} + \frac{2}{e^2} + \cdots + \frac{n}{e^n} = \sum_{k=1}^{n} f(k) .
+\]
+
+\begin{enumerate}
+    \item Montrer que la suite $(u_n)$ est croissante.
+    \item Soit $k$ un entier supérieur ou égal à $2$.
+    \begin{enumerate}
+        \item Montrer que pour tout réel $x$ de $[k-1, k]$ on a : $f(k) \leqslant f(x) \leqslant f(k-1)$.
+        \item En déduire que : $f(k) \leqslant \displaystyle\int_{k-1}^{k} f(x)\,dx \leqslant f(k-1)$.
+    \end{enumerate}
+    \item Prouver alors que :
+    \[
+    \frac{n}{e^n} + \int_1^n f(x)\,dx \leqslant u_n \leqslant \frac{1}{e} + \int_1^n f(x)\,dx .
+    \]
+    \item En déduire que la suite $(u_n)$ est majorée, qu'elle est convergente. Donner un encadrement de sa limite.
+\end{enumerate}
+
+\partie{III}
+\titre{Calcul exact de la somme $\sum k/e^k$}
+\chapitres{Suites réelles}
+
+Soit $n$ un entier naturel non nul. Pour tout entier $p$ tel que $1 \leqslant p \leqslant n$, on pose
+\[
+v_p = \frac{1}{e^p} + \frac{1}{e^{p+1}} + \cdots + \frac{1}{e^n} .
+\]
+
+\begin{enumerate}
+    \item Montrer que $v_1 + v_2 + \cdots + v_n = u_n$ ($(u_n)$ étant la suite définie dans II).
+    \item Sachant que $v_p$ s'écrit : $v_p = \dfrac{1}{e^p}\left(1 + \dfrac{1}{e} + \dfrac{1}{e^2} + \cdots + \dfrac{1}{e^{n-p}}\right)$, prouver que :
+    \[
+    v_p = \frac{1}{e - 1}\left(\frac{1}{e^{p-1}} - \frac{1}{e^n}\right) .
+    \]
+    \item En déduire l'expression de $u_n$ en fonction de $n$ et calculer $\displaystyle\lim_{n \to +\infty} u_n$.
+\end{enumerate}
+
+\partie{IV}
+\titre{Une fonction définie par une intégrale à bornes $\ln x$ et $2\ln x$}
+\chapitres{Intégrales, Fonction logarithme népérien, Fonctions exponentielles}
+
+Soit $F$ la fonction définie dans $[1, +\infty[$ par
+\[
+\begin{aligned}
+F(x) &= \int_{\operatorname{Log} x}^{2 \operatorname{Log} x} \big(f(t)\big)^2\,dt \\
+     &= \int_{\operatorname{Log} x}^{2 \operatorname{Log} x} t^2 e^{-2t}\,dt
+\end{aligned}
+\]
+($f$ désigne la fonction définie dans I). \\
+On se propose, dans cette partie, d'étudier la fonction $F$ sans utiliser son expression en fonction de $x$.
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Soit $G$ une primitive de la fonction $t \longmapsto \big(f(t)\big)^2$ pour $t \in [0, +\infty[$. \\
+        Sans expliciter l'expression de $G$, exprimer $F(x)$ à l'aide de $G$.
+        \item En déduire que $F$ est dérivable dans $[1, +\infty[$ et que $F'(x) = \dfrac{(\operatorname{Log} x)^2}{x^5}\,(8 - x^2)$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que pour tout $x \in [1, +\infty[$ et pour tout $t \in [\operatorname{Log} x, 2\operatorname{Log} x]$ on a :
+        \[
+        \frac{t^2}{x^4} \leqslant \big(f(t)\big)^2 \leqslant \frac{t^2}{x^2} .
+        \]
+        \item Montrer que pour tout $x \in [1, +\infty[$ on a : $\dfrac{7(\operatorname{Log} x)^3}{3x^4} \leqslant F(x) \leqslant \dfrac{7(\operatorname{Log} x)^3}{3x^2}$.
+        \item En déduire $\displaystyle\lim_{x \to +\infty} F(x)$.
+    \end{enumerate}
+    \item Étudier les variations de $F$ et donner l'allure de sa courbe représentative $\Gamma$. On précisera la tangente à $\Gamma$ au point d'abscisse $1$. (On donne $F(2\sqrt{2}) \simeq 0{,}11$.)
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

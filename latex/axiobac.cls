@@ -47,8 +47,9 @@
   \end{center}
   \begin{center}
     \fbox{\parbox{0.9\textwidth}{\centering
-      \textbf{SECTION :} \MakeUppercase{\@sectionbac}\\
-      \textbf{DURÉE :} \@duree \quad | \quad \textbf{COEFFICIENT :} \@coefficient}}
+      \textbf{SECTION :} \MakeUppercase{\@sectionbac}%
+      \ifx\@duree\@empty\else\\\textbf{DURÉE :} \@duree
+        \ifx\@coefficient\@empty\else\quad | \quad \textbf{COEFFICIENT :} \@coefficient\fi\fi}}
   \end{center}
   \vspace{0.5cm}}
 
@@ -57,10 +58,10 @@
 % \begin{exercice}{4} … \end{exercice}
 \newenvironment{exercice}[1]{%
   \stepcounter{axioexo}%
-  \section*{\ifnum\value{axioexo}=1 1\textsuperscript{er}\else\arabic{axioexo}\textsuperscript{ème}\fi\ Exercice (#1 points)}}%
+  \section*{\ifnum\value{axioexo}=1 1\textsuperscript{er}\else\arabic{axioexo}\textsuperscript{ème}\fi\ Exercice\if\relax\detokenize{#1}\relax\else\ (#1 points)\fi}}%
   {\par\vspace{0.5cm}\hrule\vspace{0.5cm}}
 % \begin{probleme}{12} … \end{probleme}
-\newenvironment{probleme}[1]{\section*{Problème (#1 points)}}{}
+\newenvironment{probleme}[1]{\section*{Problème\if\relax\detokenize{#1}\relax\else\ (#1 points)\fi}}{}
 % \partie{I}
 \newcommand{\partie}[1]{\subsection*{Partie #1}}
 

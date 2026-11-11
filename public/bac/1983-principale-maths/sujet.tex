@@ -1,0 +1,146 @@
+\documentclass{axiobac}
+
+\annee{1983}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques}
+\sectionbac{Math-Sciences \& Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation Nationale}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Équation à paramètre complexe, alignement et distances}
+\chapitres{Nombres Complexes}
+
+\begin{enumerate}
+    \item Résoudre dans l'ensemble $\mathbb{C}$ des nombres complexes l'équation :
+    \[
+    z^2 - a(2 + i)\,z + 2a^2 i = 0, \qquad a \text{ étant un paramètre complexe.}
+    \]
+    On désignera par $z'$ et $z''$ les solutions de cette équation.
+    \item Dans le plan affine euclidien rapporté à un repère orthonormé $(O, \vec{u}, \vec{v})$, on considère les points $A$, $N$, $M'$ et $M''$ d'affixes respectives $1$, $a$, $z'$ et $z''$.
+    \begin{enumerate}
+        \item Déterminer l'ensemble $(C)$ des points $N$ pour lesquels les points $A$, $M'$ et $M''$ sont alignés.
+        \item Déterminer l'ensemble $(C')$ des points $N$ pour lesquels on a : $AM' = AM''$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Suite homographique et suite géométrique associée}
+\chapitres{Suites réelles}
+
+Soit la suite $(u_n)$ définie par $u_0 = -1$ et
+\[
+\forall n \in \mathbb{N}, \quad u_{n+1} = \frac{4u_n + 3}{u_n + 6} .
+\]
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que : $\forall n \in \mathbb{N}$, $-3 < u_n < 1$.
+        \item Montrer que la suite $(u_n)$ est strictement croissante et qu'elle est convergente.
+    \end{enumerate}
+    \item Soit la suite $(v_n)$ définie par : $\forall n \in \mathbb{N}$, $v_n = \dfrac{u_n - 1}{u_n + 3}$.
+    \begin{enumerate}
+        \item Montrer que $(v_n)$ est une suite géométrique ; calculer $v_n$ en fonction de $n$.
+        \item En déduire $u_n$ en fonction de $n$, puis la limite de $u_n$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{12}
+
+Soit $\mathcal{P}$ un plan affine euclidien associé à un plan vectoriel euclidien $P$. Soit $(O, \vec{i}, \vec{j})$ un repère orthonormé de $\mathcal{P}$.
+
+\partie{I}
+\titre{La fonction $x + \sqrt{4 - x^2}$, une intégrale et une aire}
+\chapitres{Etude de Fonctions, Intégrales}
+
+Soit $f$ la fonction numérique à variable réelle définie par $f(x) = x + \sqrt{4 - x^2}$.
+
+\begin{enumerate}
+    \item Étudier les variations de la fonction $f$ et construire sa courbe représentative $(C_1)$ dans le plan $\mathcal{P}$.
+    \item Soit $g$ la fonction numérique à variable réelle définie par :
+    \[
+    \forall x \in [0, \pi], \quad g(x) = \int_0^{2\cos x} \sqrt{4 - t^2} \, dt .
+    \]
+    \begin{enumerate}
+        \item Montrer que $g$ est dérivable et que $g'(x) = -4\sin^2 x$. \\
+        Calculer $g\left(\frac{\pi}{2}\right)$. En déduire l'expression de $g(x)$ en fonction de $x$.
+        \item Soit $\mathcal{A}$ l'aire de l'ensemble des points $M(x, y)$ de $\mathcal{P}$ tels que $-2 \leqslant x \leqslant 2$ et $x \leqslant y \leqslant f(x)$. \\
+        Montrer que $\mathcal{A} = g(0) - g(\pi)$ ; en déduire $\mathcal{A}$.
+    \end{enumerate}
+    \item On désigne par $(C_2)$ l'image de $(C_1)$ par la symétrie centrale de centre $O$ et on pose $(E) = (C_1) \cup (C_2)$. \\
+    Construire $(C_2)$ et donner une équation cartésienne de $(E)$ dans le repère $(O, \vec{i}, \vec{j})$.
+\end{enumerate}
+
+\partie{II}
+\titre{Une famille d'applications affines, projection et homothéties}
+\horsprogramme
+
+À tout réel $m$ strictement positif, on associe l'application affine $\varphi_m$ de $\mathcal{P}$ dans $\mathcal{P}$ qui, à tout point $M(x, y)$, associe le point $M'(x', y')$ tel que :
+\[
+\begin{cases}
+    x' = -x + y + \operatorname{Log} m \\
+    y' = x - y \operatorname{Log} m
+\end{cases}
+\]
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que $\varphi_m$ admet un point invariant unique sauf pour une certaine valeur de $m$ que l'on calculera. Déterminer le point invariant par $\varphi_e$.
+        \item Pour quelles valeurs de $m$ $\varphi_m$ est-elle bijective ? Déterminer, suivant les valeurs de $m$, l'image du plan $\mathcal{P}$ par $\varphi_m$.
+    \end{enumerate}
+    \item Soit $p$ la projection affine orthogonale sur la droite $\Delta$ d'équation $x + y - 1 = 0$ et $G$ l'ensemble des applications affines $h \circ p$ où $h$ décrit l'ensemble $\mathcal{H}_\Omega$ des homothéties de centre $\Omega\left(\frac{2}{3}, \frac{1}{3}\right)$.
+    \begin{enumerate}
+        \item Montrer que pour tout $h$ de $\mathcal{H}_\Omega$ on a : $h \circ p = p \circ h$.
+        \item Montrer que $\varphi_e$ est un élément de $G$ ($e$ est la base du logarithme népérien).
+    \end{enumerate}
+\end{enumerate}
+
+\partie{III}
+\titre{Valeurs propres et réduction de l'équation de $(E)$}
+\chapitres{Coniques}
+\horsprogramme
+
+On pose $\varphi = \varphi_1$.
+
+\begin{enumerate}
+    \item Montrer que l'image par $\varphi$ de la courbe $(E)$ définie dans la 3\textsuperscript{e} question de I est le cercle $(C)$ de centre $O$ et de rayon $2$.
+    \item Soit $\Phi$ l'endomorphisme associé à $\varphi$ ; pour tout réel $\lambda$, on pose :
+    \[
+    E_\lambda = \left\{ \vec{u} \in P \ / \ \Phi(\vec{u}) = \lambda \vec{u} \right\} .
+    \]
+    \begin{enumerate}
+        \item Montrer qu'il existe deux valeurs $\lambda_1$ et $\lambda_2$ de $\lambda$ pour lesquelles $E_\lambda \neq \{\vec{0}\}$.
+        \item Démontrer que $E_{\lambda_1}$ et $E_{\lambda_2}$ sont deux droites vectorielles orthogonales.
+    \end{enumerate}
+    \item Soit $\vec{I} \in E_{\lambda_1}$ et $\vec{J} \in E_{\lambda_2}$ tels que $(\vec{I}, \vec{J})$ soit une base orthonormée de $P$.
+    \begin{enumerate}
+        \item Écrire les expressions analytiques de $\varphi$ dans le repère $(O, \vec{I}, \vec{J})$.
+        \item Quelle est l'équation du cercle $(C)$ dans le repère $(O, \vec{I}, \vec{J})$ ? \\
+        En déduire l'équation de $(E)$ dans ce même repère ; quelle est la nature de $(E)$ ?
+    \end{enumerate}
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

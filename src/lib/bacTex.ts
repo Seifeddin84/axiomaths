@@ -1,3 +1,4 @@
+import katex from 'katex';
 // Reads a bac paper written with latex/axiobac.cls and turns it into data for the site:
 // metadata (year, session, sections, …) and one block per exercise / problem part, with its
 // statement converted to Markdown + KaTeX (rendered by the lesson renderer).
@@ -42,14 +43,43 @@ const stripComments = (s: string) =>
     .map(line => line.replace(/(^|[^\\])%.*$/, '$1'))
     .join('\n');
 
+/** Split a display formula at its top-level \qquad, so that « A \qquad \text{et} \qquad B »
+ *  stacks on a phone instead of overflowing; the PDF keeps the side-by-side layout. */
+function splitDisplay(m: string): string {
+  const pieces: string[] = [];
+  let depth = 0;
+  let env = 0;
+  let start = 0;
+  for (let i = 0; i < m.length; i++) {
+    if (m.startsWith('\\begin{', i)) env++;
+    else if (m.startsWith('\\end{', i)) env--;
+    else if (m[i] === '\\' && (m[i + 1] === '{' || m[i + 1] === '}')) i++;
+    else if (m[i] === '{') depth++;
+    else if (m[i] === '}') depth--;
+    else if (depth === 0 && env === 0 && m.startsWith('\\qquad', i) && !/[a-zA-Z]/.test(m[i + 6] ?? '')) {
+      pieces.push(m.slice(start, i));
+      start = i + 6;
+    }
+  }
+  pieces.push(m.slice(start));
+  return pieces
+    .map(p => p.trim())
+    .filter(Boolean)
+    .map(p => {
+      const text = /^\\text\{([^{}]*)\}$/.exec(p);
+      return text ? `\n\n${text[1].trim()}\n\n` : `\n\n$$\n${p}\n$$\n\n`;
+    })
+    .join('');
+}
+
 /** LaTeX text (outside the structure commands) → Markdown. */
 export function latexToMarkdown(tex: string): string {
   let s = tex;
   // protect maths
   const maths: string[] = [];
   const keep = (m: string) => `\u0000${maths.push(m) - 1}\u0000`;
-  s = s.replace(/\\\[([\s\S]*?)\\\]/g, (_, m) => keep(`\n\n$$\n${m.trim()}\n$$\n\n`));
-  s = s.replace(/\$\$([\s\S]*?)\$\$/g, (_, m) => keep(`\n\n$$\n${m.trim()}\n$$\n\n`));
+  s = s.replace(/\\\[([\s\S]*?)\\\]/g, (_, m) => keep(splitDisplay(m.trim())));
+  s = s.replace(/\$\$([\s\S]*?)\$\$/g, (_, m) => keep(splitDisplay(m.trim())));
   s = s.replace(/\$([^$]+)\$/g, (_, m) => keep(`$${m}$`));
 
   // text commands
@@ -73,7 +103,9 @@ export function latexToMarkdown(tex: string): string {
     if (begin) {
       stack.push(begin[1] === 'itemize' ? 'ul' : 'ol');
       counters.push(0);
-      out.push('');
+      // no blank line right after a bare « 2. » : CommonMark would end that empty item there
+      // and the sub-questions would leak into the outer list
+      if (!/^\s*(?:\d+\.|-)$/.test(out[out.length - 1] ?? '')) out.push('');
       line = line.slice(begin[0].length).trim();
       if (!line) continue;
     }
@@ -145,10 +177,10 @@ export function parseBacTex(source: string): { meta: BacTexMeta; blocks: BacTexB
     );
 
   let exo = 0;
-  const env = /\\begin\{(exercice|probleme)\}\{(\d+)\}([\s\S]*?)\\end\{\1\}/g;
+  const env = /\\begin\{(exercice|probleme)\}\{([\d.,]*)\}([\s\S]*?)\\end\{\1\}/g;
   let m: RegExpExecArray | null;
   while ((m = env.exec(body))) {
-    const points = Number(m[2]);
+    const points = m[2] ? Number(m[2].replace(',', '.')) : undefined;
     if (m[1] === 'exercice') {
       exo++;
       blocks.push({ kind: 'exercice', label: `${ordinal(exo)} Exercice`, points, ...info(m[3]), markdown: clean(m[3]) });
@@ -157,6 +189,10 @@ export function parseBacTex(source: string): { meta: BacTexMeta; blocks: BacTexB
     // a problem: split on \partie{…}; text before the first part is an introduction
     const parts = m[3].split(/\\partie\{([^{}]*)\}/);
     const intro = parts[0].trim();
+    if (parts.length === 1) {
+      blocks.push({ kind: 'partie', label: 'Problème', points, ...info(intro), markdown: clean(intro) });
+      continue;
+    }
     for (let i = 1; i < parts.length; i += 2) {
       const chunk = parts[i + 1];
       blocks.push({
@@ -169,4 +205,17 @@ export function parseBacTex(source: string): { meta: BacTexMeta; blocks: BacTexB
     }
   }
   return { meta, blocks };
+}
+
+/** A short title with inline maths (« Étude de $x^2(1-\ln x)$ ») → HTML, maths rendered by KaTeX. */
+export function titleHtml(title: string): string {
+  const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return title
+    .split(/(\$[^$]+\$)/)
+    .map(part =>
+      part.startsWith('$') && part.endsWith('$') && part.length > 1
+        ? katex.renderToString(part.slice(1, -1), { throwOnError: false, output: 'html' })
+        : esc(part)
+    )
+    .join('');
 }

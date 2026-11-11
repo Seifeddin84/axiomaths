@@ -70,6 +70,7 @@ export interface BacPaper {
   blocks: BacTexBlock[];     // exercises and problem parts, read from sujet.tex
   notes?: string;
   scans: string[];           // original-1.jpg, original-2.jpg, … (pages of the original)
+  previews: string[];        // axiomath-1.png, … (pages of the AxioMath PDF, for the preview)
   files: { axiomath?: string; original?: string; tex?: string; corrige?: string };
 }
 
@@ -90,11 +91,14 @@ export function getBacPapers(): BacPaper[] {
       ? ((yaml.load(fs.readFileSync(path.join(dir, 'sujet.yaml'), 'utf8')) as Record<string, any>) ?? {})
       : {};
     const file = (name: string) => (fs.existsSync(path.join(dir, name)) ? `/bac/${id}/${name}` : undefined);
-    const scans = fs
-      .readdirSync(dir)
-      .filter(f => /^original-\d+\.(jpe?g|png|webp)$/.test(f))
-      .sort((a, b) => Number(/\d+/.exec(a)![0]) - Number(/\d+/.exec(b)![0]))
-      .map(f => `/bac/${id}/${f}`);
+    const pages = (prefix: string) =>
+      fs
+        .readdirSync(dir)
+        .filter(f => new RegExp(`^${prefix}-\\d+\\.(jpe?g|png|webp)$`).test(f))
+        .sort((a, b) => Number(/\d+/.exec(a)![0]) - Number(/\d+/.exec(b)![0]))
+        .map(f => `/bac/${id}/${f}`);
+    const scans = pages('original');
+    const previews = pages('axiomath');
     papers.push({
       id,
       year: meta.annee,
@@ -109,6 +113,7 @@ export function getBacPapers(): BacPaper[] {
       blocks,
       notes: extra.notes,
       scans,
+      previews,
       files: { axiomath: file('axiomath.pdf'), original: file('original.pdf'), tex: file('sujet.tex'), corrige: file('corrige.pdf') },
     });
   }
