@@ -70,6 +70,8 @@ $$
 $$
 :::
 
+![Centre d'une rotation sur la médiatrice de [AA']](/lessons/images/thm-rotation-point-image.svg "Le centre Ω est sur la médiatrice de [AA'], à l'endroit où l'angle AΩA' vaut θ.")
+
 :::method[Construire le centre]
 $\Omega$ est sur la **médiatrice de $[AA']$** (car $\Omega A = \Omega A'$) et le triangle $\Omega AA'$ est isocèle de sommet $\Omega$, avec un angle au sommet de mesure $\lvert\theta\rvert$ (pour $\lvert\theta\rvert < \pi$). On place donc $\Omega$ sur la médiatrice, du côté où l'angle $(\overrightarrow{\Omega A}, \overrightarrow{\Omega A'})$ a le **bon signe** (côté direct si $\theta > 0$).
 
@@ -154,6 +156,8 @@ Pour montrer que $B$, $D$ et $B'$ sont alignés, il suffit de montrer que $(\ove
 :::theorem[Composée de deux rotations de même centre]
 $R(\Omega\,;\theta') \circ R(\Omega\,;\theta) = R(\Omega\,;\theta + \theta')$. En particulier, si $\theta + \theta' \equiv 0\ [2\pi]$, la composée est l'identité.
 :::
+
+![Deux rotations successives de même centre](/lessons/images/thm-rotations-meme-centre.svg "Tourner de θ puis de θ' autour du même centre revient à tourner de θ + θ'.")
 
 En coordonnées, tourner de $\theta$ puis de $\theta'$ revient, avec les formules d'addition de $\cos$ et de $\sin$, à tourner de $\theta + \theta'$.
 

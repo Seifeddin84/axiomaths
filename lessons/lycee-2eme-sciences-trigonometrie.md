@@ -128,6 +128,8 @@ Le point $M'$ de $C$ qui correspond à $\pi - \alpha$ est le **symétrique de $M
 | tangente | $\tan(\pi - \alpha) = -\tan\alpha$ | $\tan\left(\frac{\pi}{2} - \alpha\right) = \cot\alpha$ |
 :::
 
+![Cercle trigonométrique avec les angles α, π − α et π/2 − α](/lessons/images/thm-angles-associes.svg "π − α est le symétrique de α par rapport à l'axe des ordonnées (même sinus) ; π/2 − α est son symétrique par rapport à la droite y = x (sinus et cosinus échangés).")
+
 :::example[Valeurs exactes sans calculatrice]
 $\sin\dfrac{5\pi}{6} = \sin\left(\pi - \dfrac{\pi}{6}\right) = \dfrac12$, $\ \cos\dfrac{3\pi}{4} = -\cos\dfrac{\pi}{4} = -\dfrac{\sqrt2}{2}$, $\ \tan\dfrac{5\pi}{6} = -\tan\dfrac{\pi}{6} = -\dfrac{\sqrt3}{3}$.
 

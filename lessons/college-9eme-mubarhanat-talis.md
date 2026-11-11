@@ -123,6 +123,8 @@ $AB = AD + DB = 6$. طالس: $\dfrac{DE}{BC} = \dfrac{AD}{AB} = \dfrac{2}{6} = 
 ليكن $ABC$ مثلثا، و $D$ نقطة من $(AB)$ و $E$ نقطة من $(AC)$، على جهة واحدة من $A$. إذا كان $\dfrac{AD}{AB} = \dfrac{AE}{AC}$ فإنّ $(DE) \parallel (BC)$.
 :::
 
+![مثلث ABC و قطعة DE موازية لـ BC](/lessons/images/thm-thales-reciproque.svg "إذا تساوت النسبتان AD/AB و AE/AC والنقاط على جهة واحدة من A ، فإنّ (DE) يوازي (BC).")
+
 :::proof[لماذا؟]
 نرسم من $D$ مستقيما موازيا لـ $(BC)$ يقطع $(AC)$ في $K$.
 

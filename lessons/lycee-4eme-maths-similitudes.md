@@ -39,6 +39,8 @@ L'application $z' = 2z + 3$ est l'homothétie de rapport $2$ et de centre $\dfra
 La composée de deux homothéties de rapports $k_1$ et $k_2$ est une homothétie de rapport $k_1k_2$ si $k_1k_2 \neq 1$, et une translation si $k_1k_2 = 1$.
 :::
 
+![Un triangle, son image par h1 puis par h2](/lessons/images/thm-homotheties-composee.svg "Avec k1 = 2 et k2 = 0,75, la composée agrandit de 1,5 à partir d'un nouveau centre I, aligné avec I1 et I2.")
+
 :::proof[Composée de deux homothéties]
 | Étape | Justification |
 |---|---|

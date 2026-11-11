@@ -111,6 +111,8 @@ Pour trouver l'**antécédent** d'un point $B$ par $t_{\overrightarrow{AJ}}$, on
 Si $M'$ et $N'$ sont les images de $M$ et $N$ par une translation, alors $M'N' = MN$.
 :::
 
+![Deux points et leurs images par une translation](/lessons/images/thm-translation-distances.svg "MNN'M' est un parallélogramme : MN = M'N'.")
+
 :::proof[$M'N' = MN$]
 | Étape | Justification |
 |---|---|
@@ -128,6 +130,8 @@ Par une translation :
 - l'image d'un **cercle** de centre $O$ et de rayon $r$ est le cercle de centre $O' = t(O)$ et de même rayon $r$ (admis) ;
 - l'image d'un **polygone** lui est **superposable** : même périmètre, même aire, angles correspondants égaux.
 :::
+
+![Une figure et une droite avec leurs images par une translation](/lessons/images/thm-translation-images.svg "La figure glisse sans tourner ni se déformer ; la droite image est parallèle.")
 
 :::proof[L'image d'une droite est une droite parallèle]
 Soient $\Delta$ une droite, $E \in \Delta$, $E'$ son image et $\Delta'$ la parallèle à $\Delta$ passant par $E'$.

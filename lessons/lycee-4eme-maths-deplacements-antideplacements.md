@@ -53,6 +53,8 @@ Le premier exemple est le miroir, brique de base de toutes les isométries.
 Toute symétrie orthogonale est un antidéplacement.
 :::
 
+![Deux vecteurs et leurs images par une symétrie d'axe Δ](/lessons/images/thm-symetrie-angles.svg "Le miroir conserve les longueurs mais change le sens des angles : l'angle (u, v) devient (u', v') = −α.")
+
 :::proof[Une symétrie orthogonale renverse les angles]
 | Étape | Justification |
 |---|---|
@@ -249,6 +251,8 @@ Soit $r$ et $r'$ deux rotations de centres distincts $O$ et $O'$ et d'angles $\t
 
 Dans le cas 1, le centre $\Omega$ s'obtient ainsi. On note $D = (OO')$. Soit $\Delta$ la droite passant par $O$ telle que $(\Delta, D) \equiv \dfrac\theta2\ [\pi]$ et $\Delta'$ la droite passant par $O'$ telle que $(D, \Delta') \equiv \dfrac{\theta'}2\ [\pi]$. Alors $\Omega$ est le point d'intersection de $\Delta$ et $\Delta'$.
 :::
+
+![Construction du centre de la composée de deux rotations](/lessons/images/thm-composee-rotations.svg "Les droites Δ et Δ' font avec (OO') les angles θ/2 et θ'/2 : leur point d'intersection Ω est le centre de r' ∘ r.")
 
 :::proof[Composée de deux rotations]
 | Étape | Justification |
