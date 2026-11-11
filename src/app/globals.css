@@ -531,6 +531,20 @@ button, .btn, a.button {
 .lesson-box--proof { --c: #4b5563; --bg: transparent; --bg-dark: transparent; border-style: dashed; border-left-style: solid; }
 .lesson-box--proof .lesson-box__body::after { content: '∎'; display: block; text-align: right; margin: -0.6rem 0 0.6rem; color: var(--c); }
 
+/* « Pour les curieux » : proof of an admitted theorem, beyond the programme, folded */
+.lesson-box--curious { --c: #7c3aed; --bg: #faf5ff; --bg-dark: rgba(124, 58, 237, 0.08); border-style: dashed; border-left-style: solid; }
+.lesson-box--curious > summary { cursor: pointer; list-style: none; user-select: none; }
+.lesson-box--curious > summary::-webkit-details-marker { display: none; }
+.lesson-box--curious > summary::before { content: '▸'; color: var(--c); font-weight: 900; }
+.lesson-box--curious[open] > summary::before { content: '▾'; }
+.lesson-box--curious:not([open]) > summary { border-bottom: none; }
+.lesson-box--curious .lesson-box__body::after { content: '∎'; display: block; text-align: right; margin: -0.6rem 0 0.6rem; color: var(--c); }
+.lesson-box__tag {
+  margin-inline-start: auto; padding: 0.05rem 0.5rem; border-radius: 999px; font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem; font-weight: 800; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+}
+.lesson-content[dir='rtl'] .lesson-box--curious .lesson-box__body::after { text-align: left; }
+
 /* hidden answers */
 .lesson-answer {
   margin: 0.5rem 0 1rem; border: 1px dashed color-mix(in srgb, var(--c, #16a34a) 60%, transparent);

@@ -27,6 +27,7 @@ export const BLOCKS: Record<string, { label: string; numbered: boolean }> = {
   example:    { label: 'Exemple', numbered: true },
   method:     { label: 'Méthode', numbered: true },
   proof:      { label: 'Démonstration', numbered: false },
+  curious:    { label: 'Pour les curieux', numbered: false },
   remark:     { label: 'Remarque', numbered: false },
   warning:    { label: 'Attention', numbered: false },
   intuition:  { label: "L'idée", numbered: false },
@@ -46,6 +47,7 @@ const BLOCKS_AR: Record<string, string> = {
   example:    'مثال',
   method:     'طريقة',
   proof:      'برهان',
+  curious:    'للفضوليين',
   remark:     'ملاحظة',
   warning:    'تنبيه',
   intuition:  'الفكرة',
@@ -147,6 +149,17 @@ export default function remarkLessonBlocks(options: LessonBlocksOptions = {}) {
 
       const hProperties: Record<string, unknown> = { className: ['lesson-box', `lesson-box--${name}`] };
       if (attrs.id) hProperties.id = attrs.id;
+
+      // proof of an admitted theorem, beyond the programme: folded by default
+      if (name === 'curious') {
+        const tag = el('span', 'lesson-box__tag', [text(lang === 'ar' ? 'خارج البرنامج' : 'hors programme')]);
+        node.data = { hName: 'details', hProperties };
+        node.children = [
+          { type: 'curiousSummary', data: { hName: 'summary', hProperties: { className: ['lesson-box__header'] } }, children: [...header.children, tag] },
+          el('div', 'lesson-box__body', children),
+        ];
+        return;
+      }
 
       node.data = { hName: 'div', hProperties };
       node.children = [header, el('div', 'lesson-box__body', children)];
