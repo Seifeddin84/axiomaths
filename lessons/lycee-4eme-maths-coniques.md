@@ -123,6 +123,8 @@ $$
 De même, pour $x^2 = 2py$ : $x\,x_0 = p\,(y + y_0)$.
 :::
 
+![Parabole, son foyer F et la tangente en un point M0](/lessons/images/thm-parabole-tangente.svg "La tangente en M0 touche la parabole y² = 2px en ce seul point ; son équation s'obtient en « dédoublant » y² en y·y0 et 2x en x + x0.")
+
 :::proof[Tangente à une parabole]
 | Étape | Justification |
 |---|---|
@@ -244,6 +246,8 @@ MF + MF' = 2a.
 $$
 :::
 
+![Ellipse, ses foyers F et F', un point M et les distances MF et MF'](/lessons/images/thm-ellipse-bifocale.svg "Où que soit M sur l'ellipse, la somme MF + MF' reste égale à la longueur 2a du grand axe.")
+
 :::proof[Propriété bifocale de l'ellipse]
 | Étape | Justification |
 |---|---|
@@ -265,6 +269,8 @@ $$
 \frac{x\,x_0}{a^2} + \frac{y\,y_0}{b^2} = 1.
 $$
 :::
+
+![Ellipse et sa tangente en un point M0](/lessons/images/thm-ellipse-tangente.svg "La tangente en M0 s'obtient en remplaçant x² par x·x0 et y² par y·y0 dans l'équation réduite.")
 
 :::proof[Tangente à une ellipse]
 | Étape | Justification |
@@ -313,6 +319,8 @@ $$
 $$
 :::
 
+![Hyperbole, ses foyers, ses asymptotes et un point M](/lessons/images/thm-hyperbole-bifocale.svg "Sur l'hyperbole, c'est la différence des distances aux foyers qui est constante : |MF − MF'| = 2a.")
+
 :::proof[Propriété bifocale de l'hyperbole]
 | Étape | Justification |
 |---|---|
@@ -355,6 +363,8 @@ $$
 \frac{x\,x_0}{a^2} - \frac{y\,y_0}{b^2} = 1.
 $$
 :::
+
+![Hyperbole, ses asymptotes et la tangente en un point M0](/lessons/images/thm-hyperbole-tangente.svg "Même dédoublement que pour l'ellipse, avec le signe moins.")
 
 La démonstration est la même que pour l'ellipse, avec un signe changé : on dérive $\dfrac{2x}{a^2} - \dfrac{2y\,y'}{b^2} = 0$ et on obtient $y' = \dfrac{b^2 x_0}{a^2 y_0}$. En particulier, la tangente au sommet $(a, 0)$ est $x = a$.
 

@@ -116,6 +116,8 @@ Soit $h$ une homothétie de centre $I$ et de rapport $k$.
 - L'image d'un polygone de périmètre $p$ et d'aire $a$ est un polygone de périmètre $\lvert k \rvert\,p$ et d'aire $k^2\,a$.
 :::
 
+![Un segment et un cercle avec leurs images par une homothétie de rapport 2](/lessons/images/thm-homothetie-images.svg "Rapport 2 : le segment image est parallèle et deux fois plus long, le cercle image a un rayon deux fois plus grand.")
+
 :::proof[Image d'un cercle]
 Soit $C$ le cercle de centre $O$ et de rayon $R$, $O' = h(O)$ et $C'$ le cercle de centre $O'$ et de rayon $\lvert k \rvert R$.
 
