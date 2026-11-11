@@ -15,13 +15,14 @@ interface FilterOptions {
 interface Props {
   exams: Exam[];
   filterOptions: FilterOptions;
+  initialLevel?: string;
 }
 
-export default function DevoirsSearchTable({ exams, filterOptions }: Props) {
+export default function DevoirsSearchTable({ exams, filterOptions, initialLevel }: Props) {
   // Filter states
   const [filters, setFilters] = useState({
     establishment: '',
-    level: '',
+    level: initialLevel ?? '',
     section: '',
     exam_type: '',
     year: '',

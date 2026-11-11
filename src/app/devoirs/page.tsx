@@ -2,7 +2,8 @@ import { getAllExams, getExamFilterOptions, getExamChapters } from '@/lib/exams'
 import DevoirsSearchTable from '@/components/DevoirsSearchTable';
 
 // Server component - fetches data at build time
-export default function DevoirsPage() {
+export default async function DevoirsPage({ searchParams }: { searchParams: Promise<{ niveau?: string }> }) {
+  const { niveau } = await searchParams;
   const allExams = getAllExams();
   const filterOptions = getExamFilterOptions(); // No longer needs exams parameter
   const chapters = getExamChapters(allExams); // Get chapters from actual exams
@@ -23,6 +24,7 @@ export default function DevoirsPage() {
       <DevoirsSearchTable 
         exams={allExams} 
         filterOptions={{...filterOptions, chapters}} 
+        initialLevel={niveau}
       />
     </div>
   );

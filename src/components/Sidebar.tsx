@@ -43,6 +43,9 @@ const NAVIGATION: NavGroup[] = [
   },
   { title: 'Recherche', path: '/recherche' },
   { title: 'Devoirs', path: '/devoirs' },
+  { title: 'Théorèmes', path: '/theoremes' },
+  { title: 'Professeurs', path: '/professeurs' },
+  { title: 'Blog', path: '/blog' },
   {
     title: 'Ressources',
     items: [
