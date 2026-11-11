@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { chapterTheme, mainTheme } from '@/lib/theoremThemes';
 import Link from 'next/link';
 import 'katex/dist/katex.min.css';
 import type { ProofStatus, TheoremSummary } from '@/lib/theoremIndex';
@@ -26,6 +27,7 @@ const fold = (s: string) =>
 export default function TheoremWiki({ entries }: { entries: TheoremSummary[] }) {
   const [query, setQuery] = useState('');
   const [level, setLevel] = useState<string>('all');
+  const [theme, setTheme] = useState<string>('all');
   const [onlyProofs, setOnlyProofs] = useState(false);
   const [open, setOpen] = useState<Set<string>>(new Set());
   const [fragments, setFragments] = useState<Record<string, Fragment>>({});
@@ -35,15 +37,31 @@ export default function TheoremWiki({ entries }: { entries: TheoremSummary[] }) 
     [entries]
   );
 
+  // themes of the theorems of the selected class, with counts (one word each: Suites, Complexes…)
+  const themes = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const e of entries) {
+      if (level !== 'all' && !e.levels.includes(level)) continue;
+      for (const t of new Set(e.chapters.map(chapterTheme))) counts.set(t, (counts.get(t) ?? 0) + 1);
+    }
+    return [...counts.entries()].sort((a, b) => a[0].localeCompare(b[0], 'fr'));
+  }, [entries, level]);
+
+  // a theme that does not exist in the newly selected class is reset
+  useEffect(() => {
+    if (theme !== 'all' && !themes.some(([t]) => t === theme)) setTheme('all');
+  }, [themes, theme]);
+
   const shown = useMemo(() => {
     const q = fold(query.trim());
     return entries.filter(
       e =>
         (level === 'all' || e.levels.includes(level)) &&
+        (theme === 'all' || e.chapters.some(c => chapterTheme(c) === theme)) &&
         (!onlyProofs || e.status === 'proved') &&
         (!q || fold(e.search).includes(q))
     );
-  }, [entries, query, level, onlyProofs]);
+  }, [entries, query, level, theme, onlyProofs]);
 
   const load = useCallback(async (id: string) => {
     setFragments(f => ({ ...f, [id]: { state: 'loading' } }));
@@ -106,6 +124,21 @@ export default function TheoremWiki({ entries }: { entries: TheoremSummary[] }) 
               {l === 'all' ? 'Tous les niveaux' : LEVEL_LABEL[l]}
             </button>
           ))}
+          <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-300">
+            <span>Chapitre</span>
+            <select
+              value={theme}
+              onChange={e => setTheme(e.target.value)}
+              className="min-h-[36px] px-2 py-1 rounded-lg border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-bold focus:outline-none focus:border-accent-500 dark:focus:border-primary-500"
+            >
+              <option value="all">Tous</option>
+              {themes.map(([t, n]) => (
+                <option key={t} value={t}>
+                  {t} ({n})
+                </option>
+              ))}
+            </select>
+          </label>
           <label className="ml-auto flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-300 cursor-pointer">
             <input type="checkbox" checked={onlyProofs} onChange={e => setOnlyProofs(e.target.checked)} />
             Avec démonstration
@@ -138,11 +171,19 @@ export default function TheoremWiki({ entries }: { entries: TheoremSummary[] }) 
                     aria-expanded={isOpen}
                     className="text-left flex-1 min-w-0 group"
                   >
-                    <span
-                      className="block text-lg font-black text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-primary-400"
-                      dir={e.dir}
-                      dangerouslySetInnerHTML={{ __html: e.nameHtml }}
-                    />
+                    <span className="block text-lg font-black text-gray-900 dark:text-white">
+                      {mainTheme(e.chapters) && (
+                        <>
+                          <span className="text-teal-700 dark:text-teal-400">{mainTheme(e.chapters)}</span>
+                          <span className="text-gray-400 dark:text-gray-500 font-bold"> – </span>
+                        </>
+                      )}
+                      <span
+                        className="group-hover:text-accent-600 dark:group-hover:text-primary-400"
+                        dir={e.dir}
+                        dangerouslySetInnerHTML={{ __html: e.nameHtml }}
+                      />
+                    </span>
                     {e.altName && (
                       <span className="block text-sm text-gray-500 dark:text-gray-400" dir="rtl" style={{ textAlign: 'left' }}>
                         {e.altName}

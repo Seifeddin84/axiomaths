@@ -11,8 +11,17 @@ export const metadata: Metadata = {
 
 const SESSION_LABEL: Record<string, string> = { principale: 'Session principale', 'contrôle': 'Session de contrôle', controle: 'Session de contrôle' };
 
-export default async function BacPage({ searchParams }: { searchParams: Promise<{ section?: string }> }) {
-  const { section } = await searchParams;
+export default async function BacPage({ searchParams }: { searchParams: Promise<{ section?: string; ordre?: string }> }) {
+  const { section, ordre } = await searchParams;
+  const ascending = ordre === 'asc';
+  // keep the other parameter when one changes
+  const href = (sec: string | undefined, asc: boolean) => {
+    const q = new URLSearchParams();
+    if (sec) q.set('section', sec);
+    if (asc) q.set('ordre', 'asc');
+    const qs = q.toString();
+    return qs ? `/bac?${qs}` : '/bac';
+  };
   const current = BAC_SECTIONS.find(s => s.slug === section);
   const papers = getBacPapers();
   const shown = current ? papers.filter(p => p.sections.includes(current.slug)) : papers;
@@ -24,8 +33,9 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
   const empty = 'border-dashed border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-500';
   const btn = 'inline-flex items-center justify-center min-h-[44px] px-4 rounded-lg text-sm font-bold transition-colors';
 
-  // group by year, most recent first
-  const years = [...new Set(shown.map(p => p.year))];
+  // group by year, most recent first (or oldest first with ?ordre=asc); principale before contrôle
+  const years = [...new Set(shown.map(p => p.year))].sort((a, b) => (ascending ? a - b : b - a));
+  const sessionRank = (s: string) => (s === 'principale' ? 0 : 1);
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
@@ -59,7 +69,7 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
 
       <ul className="flex flex-wrap gap-2 mb-8">
         <li>
-          <Link href="/bac" className={`${chip} ${!current ? on : off}`}>
+          <Link href={href(undefined, ascending)} className={`${chip} ${!current ? on : off}`}>
             Toutes <span className="opacity-80">{papers.length}</span>
           </Link>
         </li>
@@ -67,13 +77,33 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
           const n = count(s.slug);
           return (
             <li key={s.slug}>
-              <Link href={`/bac?section=${s.slug}`} className={`${chip} ${current?.slug === s.slug ? on : n === 0 ? empty : off}`}>
+              <Link href={href(s.slug, ascending)} className={`${chip} ${current?.slug === s.slug ? on : n === 0 ? empty : off}`}>
                 {s.short} <span className="opacity-80">{n}</span>
               </Link>
             </li>
           );
         })}
       </ul>
+
+      {shown.length > 1 && (
+        <div className="flex items-center gap-2 mb-6 text-sm font-bold" role="group" aria-label="Trier par année">
+          <span className="text-gray-600 dark:text-gray-400">Trier :</span>
+          <Link
+            href={href(current?.slug, false)}
+            aria-current={!ascending ? 'true' : undefined}
+            className={`${chip} ${!ascending ? on : off}`}
+          >
+            Plus récents d&apos;abord ↓
+          </Link>
+          <Link
+            href={href(current?.slug, true)}
+            aria-current={ascending ? 'true' : undefined}
+            className={`${chip} ${ascending ? on : off}`}
+          >
+            Plus anciens d&apos;abord ↑
+          </Link>
+        </div>
+      )}
 
       {shown.length === 0 ? (
         <p className="p-4 rounded-lg border-2 border-dashed border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 font-semibold">
@@ -85,7 +115,10 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
           <section key={year} className="mb-8">
             <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-3">{year}</h2>
             <ul className="space-y-4">
-              {shown.filter(p => p.year === year).map(p => (
+              {shown
+                .filter(p => p.year === year)
+                .sort((a, b) => sessionRank(a.session) - sessionRank(b.session))
+                .map(p => (
                 <li key={p.id} className="p-4 sm:p-5 rounded-lg border-2 border-gray-200 dark:border-gray-700">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-lg font-black">
