@@ -79,6 +79,7 @@ export function parseExercise(content: string, filename: string): Exercise {
     points: frontmatter.points ? parseInt(frontmatter.points) : undefined,
     tags: frontmatter.tags || [],
     schoolType: frontmatter.schoolType,
+    recommended: frontmatter.recommended === true || String(frontmatter.recommended).trim() === 'true',
     bac: frontmatter.bac || undefined,
   };
 }

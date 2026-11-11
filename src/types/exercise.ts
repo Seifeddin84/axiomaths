@@ -18,6 +18,7 @@ export interface Exercise {
   tags?: string[];
   schoolType?: string;     // e.g. "pilote", "prepa", "prive"
   bac?: string;            // id of the bac paper it comes from (public/bac/<id>/)
+  recommended?: boolean;   // worth showing to students (★ Recommandé)
 }
 
 export interface ExerciseMetadata {

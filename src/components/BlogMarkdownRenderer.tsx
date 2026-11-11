@@ -13,7 +13,7 @@ interface BlogMarkdownRendererProps {
 
 export default function BlogMarkdownRenderer({ content }: BlogMarkdownRendererProps) {
   return (
-    <div className="font-serif">
+    <div className="font-serif blog-content min-w-0">
       <ReactMarkdown
         remarkPlugins={[remarkMath, remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeKatex]}
@@ -60,6 +60,13 @@ export default function BlogMarkdownRenderer({ content }: BlogMarkdownRendererPr
             );
           },
           // Lists
+          table: ({ children }) => (
+            <div className="my-6 overflow-x-auto">
+              <table className="min-w-full text-base border-collapse [&_th]:border-b-2 [&_th]:border-gray-300 [&_th]:px-3 [&_th]:py-2 [&_th]:text-left [&_td]:border-b [&_td]:border-gray-200 [&_td]:px-3 [&_td]:py-2 dark:[&_th]:border-gray-600 dark:[&_td]:border-gray-700">
+                {children}
+              </table>
+            </div>
+          ),
           ul: ({ children }) => (
             <ul className="list-disc pl-8 mb-6 space-y-3 text-lg text-gray-800 dark:text-gray-200">{children}</ul>
           ),
