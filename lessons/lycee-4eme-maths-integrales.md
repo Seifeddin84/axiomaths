@@ -259,6 +259,22 @@ $$
 $$
 donc l'aire est coincée.
 
+:::curious[Le cas d'une dérivée bornée]
+On suppose $f$ dérivable sur $[a\,;b]$ avec $\lvert f'\rvert \leq M$ : c'est le cas de toutes les fonctions usuelles. On note $h = \dfrac{b - a}{n}$, $x_k = a + kh$, et $S_n$ la somme de gauche.
+
+| Étape | Justification |
+|---|---|
+| $S_n = \displaystyle\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}} f(x_k)\,dt$ | l'intégrale d'une constante sur un intervalle de longueur $h$ vaut $h\,f(x_k)$ |
+| $\displaystyle\int_a^b f - S_n = \sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}\big(f(t) - f(x_k)\big)\,dt$ | Chasles et linéarité |
+| $\lvert f(t) - f(x_k)\rvert \leq M\,(t - x_k)$ | inégalité des accroissements finis |
+| Chaque terme est majoré en valeur absolue par $\displaystyle\int_{x_k}^{x_{k+1}} M\,(t - x_k)\,dt = \dfrac{M h^2}{2}$ | positivité |
+| $\left\lvert\displaystyle\int_a^b f - S_n\right\rvert \leq n\,\dfrac{M h^2}{2} = \dfrac{M(b - a)^2}{2n} \to 0$ | il y a $n$ termes |
+| La somme de droite diffère de $S_n$ de $h\big(f(b) - f(a)\big) \to 0$ | les deux sommes ont $n - 1$ termes communs |
+
+Contrôle sur $x^2$ et $[0\,;1]$ ($M = 2$) : l'erreur de la somme de gauche vaut $\dfrac{3n - 1}{6n^2} \leq \dfrac1n$ ✓. Pour une fonction seulement continue, il faut la **continuité uniforme** (théorème de Heine), hors programme.
+:::
+
+
 :::example[Calculer $\int_0^1 x^2\,dx$ sans primitive]
 Avec $a = 0$, $b = 1$, $x_k = \dfrac kn$ et la formule $\displaystyle\sum_{k=1}^{n}k^2 = \dfrac{n(n+1)(2n+1)}{6}$, les deux sommes sont
 $$

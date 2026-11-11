@@ -146,6 +146,11 @@ Soit $f$ dérivable sur un intervalle $I$.
 - Si $f'$ s'annule en $a$ **en changeant de signe**, $f$ admet un **extremum local** en $a$.
 :::
 
+:::curious[Par les accroissements finis]
+Le sens « $f$ croissante $\Rightarrow f' \geq 0$ » vient du signe des taux d'accroissement. Pour l'autre sens, prends $x < y$ dans $I$ : le théorème des accroissements finis (paragraphe suivant) donne $c \in\, ]x\,;y[$ avec $f(y) - f(x) = f'(c)\,(y - x)$, qui est $\geq 0$ si $f' \geq 0$, nul si $f' = 0$, et $> 0$ si $f'(c) > 0$. Pour « $f' > 0$ sauf en des points isolés », on applique ce résultat entre deux points isolés consécutifs, puis on recolle.
+:::
+
+
 :::warning
 $f'(a) = 0$ n'implique **pas** un extremum. $f(x) = x^3$ a $f'(0) = 0$ mais est strictement croissante sur $\mathbb R$ : la tangente est horizontale, la courbe la **traverse**. L'extremum exige que $f'$ **change de signe**.
 :::
@@ -161,6 +166,19 @@ Soit $f$ **continue** sur $[a\,;b]$, **dérivable** sur $]a\,;b[$, avec $f(a) = 
 :::
 
 Ce théorème est admis. Il sert à montrer le résultat central.
+
+:::curious[Par le maximum]
+| Étape | Justification |
+|---|---|
+| $f([a\,;b]) = [m\,;M]$, et $m$ et $M$ sont **atteints** | image d'un segment par une fonction continue |
+| Si $m = M$, $f$ est constante et $f'(c) = 0$ pour tout $c \in\, ]a\,;b[$ | dérivée d'une constante |
+| Sinon, l'un des deux, disons $M$, diffère de $f(a) = f(b)$ ; il est atteint en un $c$ qui n'est ni $a$ ni $b$ | (si c'est $m$, même raisonnement) |
+| Pour $h > 0$ petit : $\dfrac{f(c + h) - f(c)}{h} \leq 0$ ; pour $h < 0$ : $\dfrac{f(c + h) - f(c)}{h} \geq 0$ | $f(c + h) \leq M = f(c)$ |
+| À la limite : $f'(c) \leq 0$ et $f'(c) \geq 0$, donc $f'(c) = 0$ | $f$ est dérivable en $c$ |
+
+La seule pièce admise est que $M$ est **atteint**, résultat qui repose comme le théorème des valeurs intermédiaires sur la complétude de $\mathbb R$.
+:::
+
 
 :::theorem[Théorème des accroissements finis]
 Soit $f$ **continue** sur $[a\,;b]$ et **dérivable** sur $]a\,;b[$. Il existe $c \in\, ]a\,;b[$ tel que

@@ -80,6 +80,18 @@ La dernière ligne surprend : une baisse de $10\,\%$ suivie d'une hausse de $10\
 Dans un repère $(O, I, J)$, la représentation graphique de $f : x \mapsto ax$ est la **droite $\Delta$ d'équation $y = ax$**. Elle passe par l'origine $O$ et par le point $A(1\,;\,a)$. Si $a = 0$, c'est la droite $(OI)$.
 :::
 
+:::curious[Avec les vecteurs]
+On utilise les vecteurs colinéaires (chapitre « Somme de deux vecteurs, colinéarité »). Le point $A(1\,;\,a)$ vérifie $\overrightarrow{OA} = \overrightarrow{OI} + a\,\overrightarrow{OJ}$.
+
+| Étape | Justification |
+|---|---|
+| Si $M(x\,;\,ax)$, alors $\overrightarrow{OM} = x\,\overrightarrow{OI} + ax\,\overrightarrow{OJ} = x\,\overrightarrow{OA}$ | coordonnées dans le repère $(O, I, J)$ |
+| Donc $O$, $A$ et $M$ sont alignés : $M$ est sur la droite $(OA)$ | vecteurs colinéaires |
+| Réciproquement, si $M \in (OA)$, il existe $t$ tel que $\overrightarrow{OM} = t\,\overrightarrow{OA}$, donc $M(t\,;\,at)$ | même raisonnement à l'envers |
+| La représentation graphique de $f$ est exactement la droite $(OA)$ | les deux inclusions |
+:::
+
+
 :::property[Appartenance]
 Un point $M(x\,;\,y)$ appartient à $\Delta$ si et seulement si $y = ax$.
 :::

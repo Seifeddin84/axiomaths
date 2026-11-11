@@ -41,6 +41,10 @@ export interface TheoremVersion {
   status: ProofStatus;
   statementHtml: string;
   proofHtml: string | null;
+  /** true when the proof is a « Pour les curieux » box: the theorem stays admitted in the programme */
+  curious: boolean;
+  /** a figure placed right before or right after the theorem in its lesson */
+  figureHtml: string | null;
   links: TheoremLink[];
 }
 
@@ -157,10 +161,11 @@ const NEW_STATEMENT = new Set(['theorem', 'definition', 'property', 'example', '
 
 /** The `:::proof` that follows a theorem: right after it, or after a sentence or two (a remark, a figure…). */
 function proofAfter(siblings: any[], index: number): any | null {
-  for (const s of siblings.slice(index + 1, index + 4)) {
+  // a proof within the next 3 blocks; a « Pour les curieux » box may come after a short explanation (6 blocks)
+  for (const [i, s] of siblings.slice(index + 1, index + 7).entries()) {
     if (s.type === 'heading' || s.type === 'thematicBreak') return null;
     if (s.type === 'containerDirective') {
-      if (s.name === 'proof') return s;
+      if (s.name === 'curious' || (s.name === 'proof' && i < 3)) return s;
       if (NEW_STATEMENT.has(s.name)) return null;
     }
   }
@@ -216,8 +221,14 @@ async function draftsOf(lesson: Lesson): Promise<Draft[]> {
     const prev = parent.children[index - 1];
     const next = parent.children[index + 1];
     const proofNode = proofAfter(parent.children, index);
+    const curious = proofNode?.name === 'curious';
+    const isFigure = (n: any) =>
+      n?.type === 'paragraph' && n.children.filter((c: any) => !(c.type === 'text' && !c.value.trim())).length === 1 &&
+      n.children.some((c: any) => c.type === 'image');
+    const figureNode = isFigure(next) ? next : isFigure(prev) ? prev : null;
     const nearby = [slice(node), prev?.type === 'paragraph' ? slice(prev) : '', next?.type === 'paragraph' ? slice(next) : ''].join('\n');
-    const status: ProofStatus = proofNode ? 'proved' : ADMITTED[lesson.lang].test(nearby) ? 'admitted' : 'stated';
+    const status: ProofStatus =
+      proofNode && !curious ? 'proved' : curious || ADMITTED[lesson.lang].test(nearby) ? 'admitted' : 'stated';
 
     drafts.push({
       name,
@@ -231,7 +242,12 @@ async function draftsOf(lesson: Lesson): Promise<Draft[]> {
         number,
         status,
         statementHtml: renumber(await renderLessonHtml(slice(node), lesson.lang), number),
-        proofHtml: proofNode ? await renderLessonHtml(slice(proofNode), lesson.lang) : null,
+        // a curious box is folded in the lesson; in the wiki it is shown as a plain proof inside the wiki's own toggle
+        proofHtml: proofNode
+          ? await renderLessonHtml(slice(proofNode).replace(/^(:+)curious\b/, '$1proof'), lesson.lang)
+          : null,
+        curious,
+        figureHtml: figureNode ? await renderLessonHtml(slice(figureNode), lesson.lang) : null,
         links: linksFor(lesson),
       },
     });
@@ -308,8 +324,8 @@ export async function getTheoremEntry(id: string): Promise<TheoremEntry | undefi
 }
 
 export const ENTRY_LABELS = {
-  fr: { proof: 'Voir la démonstration', admitted: 'Admis dans ce cours', stated: 'Énoncé seul' },
-  ar: { proof: 'عرض البرهان', admitted: 'مقبولة دون برهان', stated: 'نص فقط' },
+  fr: { proof: 'Voir la démonstration', curious: 'Admis au programme · démonstration pour les curieux', admitted: 'Admis dans ce cours', stated: 'Énoncé seul' },
+  ar: { proof: 'عرض البرهان', curious: 'مقبولة في البرنامج · برهان للفضوليين', admitted: 'مقبولة دون برهان', stated: 'نص فقط' },
 } as const;
 
 /** HTML fragment shown when an entry is opened: one block per version (statement, proof, link to the lesson). */
@@ -322,13 +338,13 @@ export function entryFragmentHtml(entry: TheoremEntry): string {
         .map(l => `<a class="wiki-version__link" href="${escapeHtml(l.href)}">${escapeHtml(l.label)}</a>`)
         .join('');
       const proof = v.proofHtml
-        ? `<details class="wiki-proof"><summary>${t.proof}</summary>${v.proofHtml}</details>`
+        ? `<details class="wiki-proof"><summary>${v.curious ? t.curious : t.proof}</summary>${v.proofHtml}</details>`
         : `<p class="wiki-proof wiki-proof--${v.status}">${v.status === 'admitted' ? t.admitted : t.stated}</p>`;
       return (
         `<section class="wiki-version" dir="${dir}">` +
         `<div class="wiki-version__head"><span class="wiki-version__chapter">${escapeHtml(v.chapter)}</span>` +
         `<span class="wiki-version__links">${links}</span></div>` +
-        `<div class="lesson-content" dir="${dir}">${v.statementHtml}${proof}</div>` +
+        `<div class="lesson-content" dir="${dir}">${v.statementHtml}${v.figureHtml ?? ''}${proof}</div>` +
         `</section>`
       );
     })
