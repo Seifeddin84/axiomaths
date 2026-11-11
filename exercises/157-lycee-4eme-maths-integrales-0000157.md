@@ -88,7 +88,11 @@ On définit la suite $(u_n)$ par $u_0 = \displaystyle\int_0^1 \dfrac{dt}{1 + t^2
 
 2. $u_{n+1} + u_n = \displaystyle\int_0^1 \dfrac{t^{2n}(t^2 + 1)}{1 + t^2}\,dt = \int_0^1 t^{2n}\,dt = \dfrac{1}{2n + 1}$.
 
-   $u_0 = \dfrac{\pi}{4}$, $u_1 = 1 - \dfrac{\pi}{4}$ (II. 3), $u_2 = \dfrac13 - u_1 = \dfrac{\pi}{4} - \dfrac23$, $u_3 = \dfrac15 - u_2 = \dfrac{13}{15} - \dfrac{\pi}{4}$.
+   $u_0 = \dfrac{\pi}{4}$ et $u_1 = 1 - \dfrac{\pi}{4}$ (II. 3).
+
+   $u_2 = \dfrac13 - u_1 = \dfrac{\pi}{4} - \dfrac23$.
+
+   $u_3 = \dfrac15 - u_2 = \dfrac{13}{15} - \dfrac{\pi}{4}$.
 
 3. On multiplie la relation de 2. au rang $k$ par $(-1)^k$ et on somme de $k = 0$ à $n$ : à gauche, les termes se télescopent.
 
