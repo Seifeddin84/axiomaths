@@ -300,6 +300,43 @@ async function buildEntries(): Promise<TheoremEntry[]> {
   );
 }
 
+// ---- same statement in several classes -------------------------------------------------
+// A theorem stated in two lessons with (almost) the same words — « 𝒞 » here, « 𝒞_f » there — is
+// shown once, with the buttons of every course side by side. Different statements stay apart.
+
+const statementText = (html: string) =>
+  html
+    .replace(/<annotation[\s\S]*?<\/annotation>/g, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&[a-z#0-9]+;/g, '')
+    .toLowerCase()
+    .replace(/\s+/g, '');
+
+function bigramDice(a: string, b: string): number {
+  const grams = (s: string) => {
+    const m = new Map<string, number>();
+    for (let i = 0; i < s.length - 1; i++) m.set(s.slice(i, i + 2), (m.get(s.slice(i, i + 2)) ?? 0) + 1);
+    return m;
+  };
+  const A = grams(a);
+  const B = grams(b);
+  let common = 0;
+  for (const [k, n] of A) common += Math.min(n, B.get(k) ?? 0);
+  return (2 * common) / Math.max(1, a.length - 1 + b.length - 1);
+}
+
+/** Versions grouped by statement: two statements whose texts agree at 90 % or more are « the same ». */
+export function statementGroups(versions: TheoremVersion[]): TheoremVersion[][] {
+  const groups: { text: string; versions: TheoremVersion[] }[] = [];
+  for (const v of versions) {
+    const text = statementText(v.statementHtml);
+    const g = groups.find(x => bigramDice(x.text, text) >= 0.9);
+    if (g) g.versions.push(v);
+    else groups.push({ text, versions: [v] });
+  }
+  return groups.map(g => g.versions);
+}
+
 let cache: Promise<TheoremEntry[]> | null = null;
 
 export function getTheoremEntries(): Promise<TheoremEntry[]> {
@@ -308,7 +345,8 @@ export function getTheoremEntries(): Promise<TheoremEntry[]> {
 }
 
 export async function getTheoremSummaries(): Promise<TheoremSummary[]> {
-  return (await getTheoremEntries()).map(({ versions, ...rest }) => ({ ...rest, versionCount: versions.length }));
+  // versionCount = number of different statements (the same statement in two classes counts once)
+  return (await getTheoremEntries()).map(({ versions, ...rest }) => ({ ...rest, versionCount: statementGroups(versions).length }));
 }
 
 export async function getTheoremEntry(id: string): Promise<TheoremEntry | undefined> {
@@ -323,7 +361,14 @@ export const ENTRY_LABELS = {
 /** HTML fragment shown when an entry is opened: one block per version (statement, proof, link to the lesson). */
 export function entryFragmentHtml(entry: TheoremEntry): string {
   const wiki = entry.wikiProofHtml;
-  const lessonProofs = entry.versions.filter(v => v.proofHtml);
+  // one block per different statement; its chapters and course buttons are those of all its versions
+  const blocks = statementGroups(entry.versions).map(vs => ({
+    main: vs.find(v => v.proofHtml) ?? vs[0],
+    chapters: [...new Set(vs.map(v => v.chapter))],
+    links: vs.flatMap(v => v.links).filter((l, i, all) => all.findIndex(x => x.href === l.href) === i),
+    figureHtml: vs.find(v => v.figureHtml)?.figureHtml ?? null,
+  }));
+  const lessonProofs = blocks.map(b => b.main).filter(v => v.proofHtml);
   // usual case: one lesson proof (step table) → the exam-style write-up goes right under it, same toggle
   const host = wiki && lessonProofs.length === 1 ? lessonProofs[0] : null;
   const toggle = (lang: 'fr' | 'ar', body: string) => {
@@ -332,10 +377,10 @@ export function entryFragmentHtml(entry: TheoremEntry): string {
     return `<details class="wiki-proof${curious ? ' wiki-proof--curious' : ''}"><summary>${curious ? t.curious : t.proof}</summary>${body}</details>`;
   };
 
-  const sections = entry.versions.map(v => {
+  const sections = blocks.map(({ main: v, chapters, links: blockLinks, figureHtml }) => {
     const t = ENTRY_LABELS[v.lang];
     const dir = v.lang === 'ar' ? 'rtl' : 'ltr';
-    const links = v.links
+    const links = blockLinks
       .map(l => `<a class="wiki-version__link" href="${escapeHtml(l.href)}">${escapeHtml(l.label)}</a>`)
       .join('');
     const proof = v.proofHtml
@@ -345,9 +390,9 @@ export function entryFragmentHtml(entry: TheoremEntry): string {
         : `<p class="wiki-proof wiki-proof--${v.status}">${v.status === 'admitted' ? t.admitted : t.stated}</p>`;
     return (
       `<section class="wiki-version" dir="${dir}">` +
-      `<div class="wiki-version__head"><span class="wiki-version__chapter">${escapeHtml(v.chapter)}</span>` +
+      `<div class="wiki-version__head"><span class="wiki-version__chapter">${escapeHtml(chapters.join(' · '))}</span>` +
       `<span class="wiki-version__links">${links}</span></div>` +
-      `<div class="lesson-content" dir="${dir}">${v.statementHtml}${v.figureHtml ?? ''}${proof}</div>` +
+      `<div class="lesson-content" dir="${dir}">${v.statementHtml}${figureHtml ?? ''}${proof}</div>` +
       `</section>`
     );
   });
