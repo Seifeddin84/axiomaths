@@ -1,0 +1,5 @@
+# Métadonnées : elles sont lues dans sujet.tex (classe latex/axiobac.cls).
+# Ce fichier ne garde que ce que le .tex ne dit pas.
+notes: >-
+  Version AxioMath relue contre l'original : « f = t ∘ s = s ∘ t » (exercice 2)
+  et « t ∈ ℝ*₋ » (problème, partie II) rétablis.

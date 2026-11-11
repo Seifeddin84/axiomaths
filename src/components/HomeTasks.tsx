@@ -153,8 +153,12 @@ export default function HomeTasks({ levels, counts, totals, bacSections, bacTota
               </ul>
             </div>
             <div>
-              <h3 className="mb-1 text-base font-black text-gray-900 dark:text-white">Sujets du bac</h3>
-              <p className="mb-3 text-sm font-bold text-gray-600 dark:text-gray-400">Les examens des années précédentes, par section</p>
+              <h3 className="mb-1 text-base font-black">
+                <Link href="/bac" className="text-gray-900 dark:text-white hover:text-accent-600 dark:hover:text-primary-400 underline-offset-4 hover:underline">
+                  Sujets du bac →
+                </Link>
+              </h3>
+              <p className="mb-3 text-sm font-bold text-gray-600 dark:text-gray-400">Les examens des années précédentes, par section : version AxioMath et original</p>
               <ul className="grid grid-cols-2 gap-2 sm:gap-3">
                 {bacSections.map(s => (
                   <li key={s.slug}>
@@ -165,9 +169,6 @@ export default function HomeTasks({ levels, counts, totals, bacSections, bacTota
                   </li>
                 ))}
               </ul>
-              <Link href="/bac" className="mt-3 inline-block text-sm font-bold text-accent-600 dark:text-primary-400 hover:underline">
-                Tous les sujets du bac →
-              </Link>
             </div>
           </div>
         ) : (

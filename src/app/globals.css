@@ -667,3 +667,12 @@ details.wiki-proof.wiki-proof--curious > summary:hover { background: #6d28d9; }
 details.wiki-proof[open] > summary { margin-bottom: 0.5rem; }
 p.wiki-proof { font-style: italic; color: #6b7280; }
 .dark p.wiki-proof { color: #9ca3af; }
+
+/* bac paper: sub-questions numbered a), b), … as on the exam sheet */
+.bac-paper ol ol { list-style: lower-alpha; }
+.bac-paper ol { padding-inline-start: 1.6rem; }
+@media (max-width: 480px) {
+  .bac-paper ol { padding-inline-start: 1.25rem; }
+  .bac-paper ol ol { padding-inline-start: 1rem; }
+  .bac-paper li .katex-display { font-size: 0.9em; }
+}

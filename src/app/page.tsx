@@ -3,7 +3,7 @@ import { getProfessorOverview } from '@/lib/professorStats';
 import { getAllExercises } from '@/lib/fileReader';
 import { getAllLessons, normalize } from '@/lib/lessonReader';
 import { getAllExams } from '@/lib/exams';
-import { BAC_SECTIONS, bacSectionSlugs, exerciseSections, isBacExam, isBacExercise } from '@/lib/bac';
+import { BAC_SECTIONS, getBacPapers, isBacExam } from '@/lib/bac';
 import HomeSearchBar from '@/components/HomeSearchBar';
 import HomeTasks, { HomeBacSection, HomeLevel, HomeLevelCounts, HomeRevisionSection } from '@/components/HomeTasks';
 import { getNavTree } from '@/lib/navTree';
@@ -32,16 +32,14 @@ export default async function HomePage() {
   const lessons = getAllLessons();
   const allExams = getAllExams();
   const exams = allExams.filter(e => !isBacExam(e));
-  const bacExercises = exercises.filter(isBacExercise);
-  const bacPapers = allExams.filter(isBacExam);
+  // « Sujets du bac » counts full papers only (public/bac/<id>/), never single exercises
+  const bacPapers = getBacPapers();
   const bacSections: HomeBacSection[] = BAC_SECTIONS.map(s => ({
     slug: s.slug,
     label: s.short,
-    count:
-      bacExercises.filter(ex => bacSectionSlugs(exerciseSections(ex)).includes(s.slug)).length +
-      bacPapers.filter(p => bacSectionSlugs([p.section]).includes(s.slug)).length,
+    count: bacPapers.filter(p => p.sections.includes(s.slug)).length,
   }));
-  const bacTotal = bacExercises.length + bacPapers.length;
+  const bacTotal = bacPapers.length;
   // « Réviser le bac » = the 4ème sections, same pages as Cours & exercices → 4ème → section
   const lessons4 = lessons.filter(l => normalize(l.level) === '4eme');
   const revision: HomeRevisionSection[] = (getNavTree()['lycee/4eme']?.sections ?? []).map(sec => ({
