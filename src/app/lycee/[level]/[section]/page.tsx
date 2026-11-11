@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllExercises } from '@/lib/fileReader';
+import { getLessonsForSection } from '@/lib/lessonReader';
 
 const LEVEL_DISPLAY: Record<string, string> = {
   '1ere': '1ère',
@@ -56,12 +57,18 @@ export default async function SectionPage({
     return levelMatch && sectionMatch;
   });
 
+  // Chapters that have a lesson (cours) but no exercise yet are listed too
+  const sectionLessons = getLessonsForSection(level, decodedSection);
+  const exerciseChapters = sectionExercises
+    .map(ex => ex.chapter)
+    .filter((chapter): chapter is string => Boolean(chapter));
   const uniqueChapters = Array.from(
-    new Set(
-      sectionExercises
-        .map(ex => ex.chapter)
-        .filter((chapter): chapter is string => Boolean(chapter))
-    )
+    new Set([
+      ...exerciseChapters,
+      ...sectionLessons
+        .map(l => l.chapter)
+        .filter(c => !exerciseChapters.some(ec => normalize(ec) === normalize(c))),
+    ])
   ).sort();
 
   return (
@@ -106,16 +113,17 @@ export default async function SectionPage({
           {uniqueChapters.map((chapter) => {
             const chapterSlug = slugify(chapter);
             const exerciseCount = sectionExercises.filter(ex => ex.chapter === chapter).length;
+            const hasLesson = sectionLessons.some(l => normalize(l.chapter) === normalize(chapter));
 
             return (
               <Link
                 key={chapter}
                 href={`/lycee/${level}/${section}/${chapterSlug}`}
-                className="group relative overflow-hidden"
+                className="group relative overflow-hidden block h-full"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-500/10 to-primary-500/10 dark:from-accent-500/20 dark:to-primary-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                <div className="relative p-5 sm:p-6 border-2 border-gray-300 dark:border-gray-700 rounded-lg group-hover:border-accent-500 dark:group-hover:border-primary-500 group-hover:shadow-xl transition-all bg-white dark:bg-gray-800">
+                <div className="relative h-full flex flex-col [&>*:last-child]:mt-auto p-5 sm:p-6 border-2 border-gray-300 dark:border-gray-700 rounded-lg group-hover:border-accent-500 dark:group-hover:border-primary-500 group-hover:shadow-xl transition-all bg-white dark:bg-gray-800">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-500 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                   <div className="flex items-start justify-between mb-4">
@@ -145,7 +153,7 @@ export default async function SectionPage({
                       </svg>
                     </div>
                     <span className="group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                      {exerciseCount} exercice{exerciseCount > 1 ? 's' : ''}
+                      {exerciseCount} exercice{exerciseCount > 1 ? 's' : ''}{hasLesson ? ' · cours disponible' : ''}
                     </span>
                   </div>
                 </div>

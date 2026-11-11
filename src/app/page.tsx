@@ -1,137 +1,114 @@
 import Link from 'next/link';
+import { getProfessorOverview } from '@/lib/professorStats';
+import { getAllExercises } from '@/lib/fileReader';
+import { getAllLessons, normalize } from '@/lib/lessonReader';
+import { getAllExams } from '@/lib/exams';
+import { BAC_SECTIONS, getBacPapers, isBacExam } from '@/lib/bac';
+import HomeSearchBar from '@/components/HomeSearchBar';
+import HomeTasks, { HomeBacSection, HomeLevel, HomeLevelCounts, HomeRevisionSection } from '@/components/HomeTasks';
+import { getNavTree } from '@/lib/navTree';
+
+const LEVELS: HomeLevel[] = [
+  { key: '7eme', label: '7ème', school: 'college' },
+  { key: '8eme', label: '8ème', school: 'college' },
+  { key: '9eme', label: '9ème', school: 'college' },
+  { key: '1ere', label: '1ère', school: 'lycee' },
+  { key: '2eme', label: '2ème', school: 'lycee' },
+  { key: '3eme', label: '3ème', school: 'lycee' },
+  { key: '4eme', label: '4ème', school: 'lycee' },
+];
+
+function countByLevel(levels: (string | undefined | null)[]): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const l of LEVELS) out[l.key] = levels.filter(x => normalize(x) === normalize(l.key)).length;
+  return out;
+}
 
 export default async function HomePage() {
+  const overview = getProfessorOverview();
+  const topProfessors = overview.stats.filter(s => s.kind === 'prof').slice(0, 6);
+
+  const exercises = getAllExercises();
+  const lessons = getAllLessons();
+  const allExams = getAllExams();
+  const exams = allExams.filter(e => !isBacExam(e));
+  // « Sujets du bac » counts full papers only (public/bac/<id>/), never single exercises
+  const bacPapers = getBacPapers();
+  const bacSections: HomeBacSection[] = BAC_SECTIONS.map(s => ({
+    slug: s.slug,
+    label: s.short,
+    count: bacPapers.filter(p => p.sections.includes(s.slug)).length,
+  }));
+  const bacTotal = bacPapers.length;
+  // « Réviser le bac » = the 4ème sections, same pages as Cours & exercices → 4ème → section
+  const lessons4 = lessons.filter(l => normalize(l.level) === '4eme');
+  const revision: HomeRevisionSection[] = (getNavTree()['lycee/4eme']?.sections ?? []).map(sec => ({
+    title: sec.title,
+    href: sec.href,
+    cours: lessons4.filter(l => l.sections.some(s => normalize(s) === normalize(sec.title))).length,
+    exercices: sec.chapters.reduce((n, c) => n + c.count, 0),
+  }));
+  const byCours = countByLevel(lessons.map(l => l.level));
+  const byExercices = countByLevel(exercises.map(e => e.level));
+  const byDevoirs = countByLevel(exams.map(e => e.level));
+  const counts: Record<string, HomeLevelCounts> = Object.fromEntries(
+    LEVELS.map(l => [l.key, { cours: byCours[l.key], exercices: byExercices[l.key], devoirs: byDevoirs[l.key] }])
+  );
+  const totals: HomeLevelCounts = { cours: lessons.length, exercices: exercises.length, devoirs: exams.length };
+
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16">
-      {/* Hero Section */}
-      <div className="text-center mb-20">
-        <h1 className="text-6xl font-black text-gray-900 dark:text-white mb-6">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
+      {/* Hero: say what the site is, then let the student search right away */}
+      <div className="text-center mb-8 sm:mb-10">
+        <h1 className="text-4xl sm:text-6xl font-black text-gray-900 dark:text-white mb-4">
           Maîtrisez les mathématiques
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 font-semibold">
-          Une collection complète d'exercices de mathématiques pour le collège et le lycée tunisien
+        <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-6 font-semibold">
+          Cours, exercices et devoirs de mathématiques pour le collège et le lycée tunisiens
         </p>
-        
-        {/* FIXED: Better button colors! */}
-        <div className="flex items-center justify-center gap-4">
-          {/* Primary button - Colored background */}
-          <Link
-            href="/recherche"
-            className="px-6 py-3 bg-primary-500 text-white font-bold rounded-lg hover:bg-primary-600 active:bg-primary-700 transition-colors shadow-md hover:shadow-lg"
-          >
-            Rechercher des exercices
-          </Link>
-          
-          {/* Secondary buttons - Orange in light, Teal in dark */}
-          <Link
-            href="/lycee"
-            className="px-6 py-3 border-2 border-accent-500 dark:border-primary-500 text-accent-600 dark:text-primary-400 font-bold rounded-lg hover:bg-accent-500 hover:text-white dark:hover:bg-primary-500 dark:hover:text-white transition-colors"
-          >
-            Lycée
-          </Link>
-          <Link
-            href="/college"
-            className="px-6 py-3 border-2 border-accent-500 dark:border-primary-500 text-accent-600 dark:text-primary-400 font-bold rounded-lg hover:bg-accent-500 hover:text-white dark:hover:bg-primary-500 dark:hover:text-white transition-colors"
-          >
-            Collège
-          </Link>
+        <div className="max-w-2xl mx-auto">
+          <HomeSearchBar />
         </div>
       </div>
 
-      {/* Quick Access Cards */}
-      <div className="grid md:grid-cols-2 gap-6">
-        {/* Lycée */}
-        <Link
-          href="/lycee"
-          className="group p-8 border-2 border-gray-200 dark:border-gray-800 rounded-lg hover:border-accent-500 dark:hover:border-primary-500 hover:shadow-lg transition-all"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-primary-400 transition-colors">
-              Lycée
-            </h2>
-            <svg
-              className="w-6 h-6 text-gray-400 group-hover:text-accent-500 dark:group-hover:text-primary-500 group-hover:translate-x-1 transition-all"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-          <p className="text-gray-600 dark:text-gray-400 font-semibold">
-            Exercices pour les 4 années du lycée : 1ère, 2ème, 3ème et 4ème année
-          </p>
-        </Link>
+      <HomeTasks levels={LEVELS} counts={counts} totals={totals} bacSections={bacSections} bacTotal={bacTotal} revision={revision} />
 
-        {/* Collège */}
-        <Link
-          href="/college"
-          className="group p-8 border-2 border-gray-200 dark:border-gray-800 rounded-lg hover:border-accent-500 dark:hover:border-primary-500 hover:shadow-lg transition-all"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-primary-400 transition-colors">
-              Collège
-            </h2>
-            <svg
-              className="w-6 h-6 text-gray-400 group-hover:text-accent-500 dark:group-hover:text-primary-500 group-hover:translate-x-1 transition-all"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-          <p className="text-gray-600 dark:text-gray-400 font-semibold">
-            Exercices pour le collège : 7ème, 8ème et 9ème année
-          </p>
+      <div className="mt-6 flex flex-wrap gap-3 text-sm font-bold">
+        <Link href="/theoremes" className="px-4 py-2 rounded-full border-2 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500">
+          Théorèmes
         </Link>
-
-        {/* Devoirs */}
-        <Link
-          href="/devoirs"
-          className="group p-8 border-2 border-gray-200 dark:border-gray-800 rounded-lg hover:border-accent-500 dark:hover:border-primary-500 hover:shadow-lg transition-all"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-primary-400 transition-colors">
-              Devoirs
-            </h2>
-            <svg
-              className="w-6 h-6 text-gray-400 group-hover:text-accent-500 dark:group-hover:text-primary-500 group-hover:translate-x-1 transition-all"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-          <p className="text-gray-600 dark:text-gray-400 font-semibold">
-            Sujets de devoirs et examens pour s'entraîner
-          </p>
+        <Link href="/professeurs" className="px-4 py-2 rounded-full border-2 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500">
+          Professeurs
         </Link>
-
-        {/* Blog */}
-        <Link
-          href="/blog"
-          className="group p-8 border-2 border-gray-200 dark:border-gray-800 rounded-lg hover:border-accent-500 dark:hover:border-primary-500 hover:shadow-lg transition-all"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-primary-400 transition-colors">
-              Blog
-            </h2>
-            <svg
-              className="w-6 h-6 text-gray-400 group-hover:text-accent-500 dark:group-hover:text-primary-500 group-hover:translate-x-1 transition-all"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-          <p className="text-gray-600 dark:text-gray-400 font-semibold">
-            Articles et ressources sur les mathématiques
-          </p>
+        <Link href="/blog" className="px-4 py-2 rounded-full border-2 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500">
+          Blog
         </Link>
       </div>
+
+      {/* Professors behind the exercises */}
+      {topProfessors.length > 0 && (
+        <div className="mt-6 p-6 border-2 border-gray-200 dark:border-gray-800 rounded-lg">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+            <h2 className="text-xl font-black text-gray-900 dark:text-white">Les professeurs derrière les exercices</h2>
+            <Link href="/professeurs" className="text-sm font-bold text-accent-600 dark:text-primary-400 hover:underline">
+              Voir les {overview.professors} professeurs →
+            </Link>
+          </div>
+          <ul className="flex flex-wrap gap-2">
+            {topProfessors.map(p => (
+              <li key={p.id}>
+                <Link
+                  href={`/recherche?q=${encodeURIComponent(p.searchQuery)}`}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border-2 border-gray-200 dark:border-gray-700 text-sm font-bold text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500 transition-colors"
+                >
+                  <span dir="auto">{p.name}</span>
+                  <span className="text-accent-600 dark:text-primary-400">{p.count}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

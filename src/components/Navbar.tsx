@@ -42,10 +42,12 @@ export default function Navbar() {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Rechercher des exercices..."
+                placeholder="Cours, théorème, exercice…"
                 className="w-full px-4 py-2 pl-10 text-sm font-medium border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter') router.push('/recherche');
+                  if (e.key !== 'Enter') return;
+                  const q = e.currentTarget.value.trim();
+                  router.push(q ? `/recherche?q=${encodeURIComponent(q)}` : '/recherche');
                 }}
               />
               <svg
@@ -100,12 +102,24 @@ export default function Navbar() {
               <span className="hidden sm:inline">Rechercher des exercices</span>
             </Link>
 
-            {/* Devoirs + Blog — hidden on mobile (in sidebar) */}
+            {/* Devoirs + Théorèmes + Blog — hidden on mobile (in sidebar) */}
             <Link
               href="/devoirs"
               className="hidden md:block px-3 py-2 text-sm font-bold text-accent-600 dark:text-primary-400 hover:text-white hover:bg-accent-500 dark:hover:bg-primary-500 rounded-lg transition-colors"
             >
               Devoirs
+            </Link>
+            <Link
+              href="/theoremes"
+              className="hidden md:block px-3 py-2 text-sm font-bold text-accent-600 dark:text-primary-400 hover:text-white hover:bg-accent-500 dark:hover:bg-primary-500 rounded-lg transition-colors"
+            >
+              Théorèmes
+            </Link>
+            <Link
+              href="/professeurs"
+              className="hidden lg:block px-3 py-2 text-sm font-bold text-accent-600 dark:text-primary-400 hover:text-white hover:bg-accent-500 dark:hover:bg-primary-500 rounded-lg transition-colors"
+            >
+              Professeurs
             </Link>
             <Link
               href="/blog"

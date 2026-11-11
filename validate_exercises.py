@@ -259,13 +259,34 @@ def suggest_canonical(chapter):
 def normalize(s):
     return s.strip().lower() if s else ""
 
+def _fold(s):
+    """Case, accents and dashes ignored, as the site does when it groups chapters."""
+    import unicodedata
+    s = unicodedata.normalize("NFD", s or "").encode("ascii", "ignore").decode()
+    return " ".join(s.lower().replace("–", "-").replace("—", "-").split())
+
+def lesson_chapters(school, level):
+    """Chapters of the lessons (lessons/*.md) for a school/level: they define the site's chapter pages."""
+    import glob, re
+    out = set()
+    for f in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lessons", "*.md")):
+        head = open(f, encoding="utf-8").read(2000)
+        m = re.match(r"---\n(.*?)\n---", head, re.S)
+        if not m:
+            continue
+        fm = yaml.safe_load(m.group(1)) or {}
+        if fm.get("school") == school and fm.get("level") == level and fm.get("chapter"):
+            out.add(_fold(fm["chapter"]))
+    return out
+
 def chapter_is_valid(school, level, section, chapter):
-    """Returns True/False/None (None = no list defined for this combo)."""
+    """Returns True/False/None (None = no list defined for this combo).
+    A chapter is valid if it is in the canonical list or is the chapter of a lesson of that level."""
     key = (school, level, section)
     if key not in CANONICAL_CHAPTERS:
         return None
-    canonical = [normalize(c) for c in CANONICAL_CHAPTERS[key]]
-    return normalize(chapter) in canonical
+    canonical = {_fold(c) for c in CANONICAL_CHAPTERS[key]} | lesson_chapters(school, level)
+    return _fold(chapter) in canonical
 
 def normalize_section(section):
     """Handle section stored as list ['Sciences', 'Informatique'] → 'Sciences'."""

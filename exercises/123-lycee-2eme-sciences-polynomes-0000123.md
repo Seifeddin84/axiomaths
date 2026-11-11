@@ -3,7 +3,7 @@ uid: "0000123"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Notion de Polynômes"
+chapter: "Polynômes"
 source: "Axiomaths"
 title: "Polynôme de degré 4 et polynôme réciproque"
 country: "Tunisie"

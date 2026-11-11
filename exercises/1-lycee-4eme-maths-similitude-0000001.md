@@ -4,17 +4,18 @@ school: "lycee"
 level: "4eme"
 section: "Mathématiques"
 chapter: "Similitudes"
-source: "Bac Tunisie 1984"
+source: "Bac 1984 principale, Ex. 1"
+bac: "1984-principale-maths"
 title: "Similitude complexe"
 country: "Tunisie"
 year: 1984
-professor: Bac
+professor: null
 difficulty: "Facile"
 points: 4
 tags: ["complex-numbers", "geometry"]
 ---
 
-Soit $\mathcal{P}$ un plan affine euclidien orienté rapporté à un repère orthonormé $(O, \vec{u}, \vec{v})$.
+Soit $\mathcal{P}$ un plan affine euclidien orienté rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$.
 
 On donne les points $A(1,0)$, $B(-1,0)$ et $C(-1,-1)$.
 
@@ -43,12 +44,6 @@ On donne les points $A(1,0)$, $B(-1,0)$ et $C(-1,-1)$.
 
 2. a. Milieu $M'$ : $z' = \frac{z_1 + z_2}{2} = (1+i)z - 1 + i$.
    
-   b. $z' = az + b$ avec $a = 1+i$, $|a| = \sqrt{2}$ et $\arg(a) \equiv \frac{\pi}{4}\ [2\pi]$. Le centre est le point fixe : $z = (1+i)z - 1 + i \iff iz = 1 - i \iff z = -1 - i = z_C$.
+   b. $z' - z_C = (1+i)z + 2i = (1+i)(z - z_C)$ avec $z_C = -1 - i$ : $T$ est la similitude directe de centre $C$, de rapport $\sqrt{2}$ et d'angle $\frac{\pi}{4}$.
 
-   $T$ est la similitude directe de centre $C$, de rapport $\sqrt{2}$ et d'angle $\frac{\pi}{4}$.
-
-3. Comme $C$ est le centre de $T$ : $Q = \frac{z' - z_C}{z - z_C} = 1+i$, donc $CM' = \sqrt{2}\,CM$ et $(\overrightarrow{CM}, \overrightarrow{CM'}) \equiv \frac{\pi}{4}\ [2\pi]$.
-
-   Par Al-Kashi : $MM'^2 = CM^2 + 2CM^2 - 2\sqrt{2}\,CM^2\cos\frac{\pi}{4} = CM^2$, donc $MM' = CM$ et $CM'^2 = CM^2 + MM'^2$.
-
-   Le triangle $CMM'$ est rectangle isocèle en $M$.
+3. Pour $M \neq C$ : $\frac{z' - z}{z_C - z} = \frac{(1+i)(z - z_C) - (z - z_C)}{-(z - z_C)} = -i$. Donc $MM' = MC$ et $(\overrightarrow{MC}, \overrightarrow{MM'}) \equiv -\frac{\pi}{2}$ : le triangle $CMM'$ est rectangle isocèle en $M$.

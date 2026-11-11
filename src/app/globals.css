@@ -404,3 +404,284 @@ button, .btn, a.button {
 }
 .exercise-content a:hover { color: #c2410c; }
 .dark .exercise-content a { color: #fb923c; }
+/* ========================================
+   LESSONS (/cours) — kalmanfilter-style reading pages
+   Coloured boxes are produced by src/lib/remarkLessonBlocks.ts
+   ======================================== */
+
+.lesson-content {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.075rem;
+  line-height: 1.8;
+  color: #1f2937;
+}
+.dark .lesson-content { color: #e5e7eb; }
+
+.lesson-content > p,
+.lesson-content .lesson-box__body > p,
+.lesson-content .lesson-answer__body > p { margin: 0 0 1em; }
+
+.lesson-content strong { font-weight: 700; color: #111827; }
+.dark .lesson-content strong { color: #fff; }
+
+.lesson-content a { color: #ea580c; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.dark .lesson-content a { color: #2dd4bf; }
+
+.lesson-content ul,
+.lesson-content ol { margin: 0 0 1.1em; padding-left: 1.6em; }
+.lesson-content ul { list-style: disc; }
+.lesson-content ol { list-style: decimal; }
+.lesson-content li { margin: 0.3em 0; }
+.lesson-content li > p { margin: 0; }
+
+.lesson-content hr { margin: 3rem 0; border-color: #e5e7eb; }
+.dark .lesson-content hr { border-color: #374151; }
+
+.lesson-content code {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.85em;
+  padding: 0.1em 0.35em; border-radius: 4px; background: #f3f4f6; color: #be185d;
+}
+.dark .lesson-content code { background: #1f2937; color: #f9a8d4; }
+
+/* headings */
+.lesson-h2, .lesson-h3 {
+  font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  color: #111827; position: relative; scroll-margin-top: 6rem;
+}
+.dark .lesson-h2, .dark .lesson-h3 { color: #fff; }
+.lesson-h2 {
+  font-size: 1.75rem; font-weight: 900; line-height: 1.25;
+  margin: 3.25rem 0 1.25rem; padding-bottom: 0.5rem; border-bottom: 3px solid #f97316;
+}
+.dark .lesson-h2 { border-bottom-color: #14b8a6; }
+.lesson-h3 { font-size: 1.3rem; font-weight: 800; margin: 2.25rem 0 0.9rem; }
+.lesson-anchor {
+  position: absolute; left: -1.2em; opacity: 0; color: #9ca3af !important;
+  text-decoration: none !important; font-weight: 400 !important; transition: opacity .15s;
+}
+.group:hover > .lesson-anchor { opacity: 1; }
+.lesson-content [id] { scroll-margin-top: 6rem; }
+
+/* display maths: never overflow the page on phones */
+.lesson-content .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.2em 0; }
+
+/* figures */
+.lesson-figure { margin: 2rem 0; text-align: center; }
+.lesson-figure img {
+  display: inline-block; max-width: 100%; height: auto;
+  background: #fff; border-radius: 10px; padding: 0.5rem; border: 1px solid #e5e7eb;
+}
+.dark .lesson-figure img { border-color: #374151; }
+.lesson-figure figcaption { margin-top: 0.6rem; font-size: 0.9rem; font-style: italic; color: #6b7280; }
+.dark .lesson-figure figcaption { color: #9ca3af; }
+
+/* tables (incl. "proof tables": Étape | Justification) */
+.lesson-table-wrap { overflow-x: auto; margin: 1.25rem 0 1.5rem; position: relative; }
+/* KaTeX's hidden MathML copy is position:absolute; without a positioned scroll container it escapes
+   the overflow clipping and widens the whole page on phones. */
+.lesson-content .katex-display { position: relative; }
+.lesson-content table { border-collapse: collapse; width: auto; min-width: 60%; font-size: 0.98rem; }
+.lesson-content th, .lesson-content td {
+  border: 1px solid #d1d5db; padding: 0.45rem 0.8rem; vertical-align: middle;
+}
+.lesson-content th {
+  background: #f3f4f6; font-family: 'Roboto', sans-serif; font-weight: 800; font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+/* never upper-case maths in a header cell (π would become Π, α would become Α) */
+.lesson-content th .katex { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.dark .lesson-content th, .dark .lesson-content td { border-color: #4b5563; }
+.dark .lesson-content th { background: #1f2937; }
+
+/* sign tables */
+.sign-table table { margin: 0 auto; min-width: 0; }
+.sign-table td, .sign-table th { text-align: center; white-space: nowrap; padding: 0.4rem 0.7rem; }
+.sign-table th { text-transform: none; letter-spacing: 0; font-family: inherit; font-size: 1rem; }
+.sign-table td:first-child, .sign-table th:first-child { text-align: left; font-weight: 700; }
+
+/* ---------- coloured boxes ---------- */
+.lesson-box {
+  --c: #6b7280; --bg: #f9fafb; --bg-dark: rgba(107, 114, 128, 0.12);
+  margin: 1.75rem 0; border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+  border-left: 5px solid var(--c); border-radius: 10px; background: var(--bg); overflow: hidden;
+}
+.dark .lesson-box { background: var(--bg-dark); border-color: color-mix(in srgb, var(--c) 45%, transparent); border-left-color: var(--c); }
+
+.lesson-box__header {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.6rem;
+  padding: 0.55rem 1.1rem; font-family: 'Roboto', ui-sans-serif, sans-serif;
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--c) 22%, transparent);
+}
+.lesson-box__kind { font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--c); }
+.lesson-box__title { font-weight: 700; font-size: 1rem; color: #111827; }
+.dark .lesson-box__title { color: #f3f4f6; }
+.dark .lesson-box__kind { color: color-mix(in srgb, var(--c) 70%, white); }
+.lesson-box__body { padding: 0.9rem 1.1rem 0.2rem; }
+.lesson-box__body > :last-child { margin-bottom: 0.9rem; }
+.lesson-box .lesson-table-wrap { margin: 0.75rem 0 1rem; }
+
+.lesson-box--definition { --c: #2563eb; --bg: #eff6ff; --bg-dark: rgba(37, 99, 235, 0.12); }
+.lesson-box--theorem    { --c: #0d9488; --bg: #f0fdfa; --bg-dark: rgba(13, 148, 136, 0.14); }
+.lesson-box--property,
+.lesson-box--corollary  { --c: #0f766e; --bg: #f0fdfa; --bg-dark: rgba(15, 118, 110, 0.12); }
+.lesson-box--example    { --c: #ea580c; --bg: #fff7ed; --bg-dark: rgba(234, 88, 12, 0.10); }
+.lesson-box--method     { --c: #7c3aed; --bg: #f5f3ff; --bg-dark: rgba(124, 58, 237, 0.12); }
+.lesson-box--remark     { --c: #64748b; --bg: #f8fafc; --bg-dark: rgba(100, 116, 139, 0.12); }
+.lesson-box--warning    { --c: #dc2626; --bg: #fef2f2; --bg-dark: rgba(220, 38, 38, 0.12); }
+.lesson-box--intuition  { --c: #ca8a04; --bg: #fefce8; --bg-dark: rgba(202, 138, 4, 0.12); }
+.lesson-box--check      { --c: #16a34a; --bg: #f0fdf4; --bg-dark: rgba(22, 163, 74, 0.12); }
+.lesson-box--challenge  { --c: #c026d3; --bg: #fdf4ff; --bg-dark: rgba(192, 38, 211, 0.12); }
+.lesson-box--tic        { --c: #0284c7; --bg: #f0f9ff; --bg-dark: rgba(2, 132, 199, 0.12); }
+.lesson-box--history    { --c: #b45309; --bg: #fffbeb; --bg-dark: rgba(180, 83, 9, 0.12); }
+.lesson-box--summary    { --c: #0d9488; --bg: #fff; --bg-dark: rgba(13, 148, 136, 0.08); border-width: 2px; border-left-width: 6px; }
+
+/* proof: lighter, ends with a QED square */
+.lesson-box--proof { --c: #4b5563; --bg: transparent; --bg-dark: transparent; border-style: dashed; border-left-style: solid; }
+.lesson-box--proof .lesson-box__body::after { content: '∎'; display: block; text-align: right; margin: -0.6rem 0 0.6rem; color: var(--c); }
+
+/* « Pour les curieux » : proof of an admitted theorem, beyond the programme, folded */
+.lesson-box--curious { --c: #7c3aed; --bg: #faf5ff; --bg-dark: rgba(124, 58, 237, 0.08); border-style: dashed; border-left-style: solid; }
+.lesson-box--curious > summary { cursor: pointer; list-style: none; user-select: none; }
+.lesson-box--curious > summary::-webkit-details-marker { display: none; }
+.lesson-box--curious > summary::before { content: '▸'; color: var(--c); font-weight: 900; }
+.lesson-box--curious[open] > summary::before { content: '▾'; }
+.lesson-box--curious:not([open]) > summary { border-bottom: none; }
+.lesson-box__tag {
+  margin-inline-start: auto; padding: 0.05rem 0.5rem; border-radius: 999px; font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem; font-weight: 800; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+}
+
+/* link from a theorem of a lesson to its wiki entry */
+.lesson-content .lesson-box__wiki { margin: 0.25rem 0 0.9rem; }
+.lesson-content .lesson-box__wiki a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0.35rem 0.85rem; border-radius: 10px;
+  font-family: 'Roboto', ui-sans-serif, sans-serif; font-size: 0.85rem; font-weight: 800; line-height: 1.3;
+  text-decoration: none; color: var(--c); border: 1.5px solid color-mix(in srgb, var(--c) 55%, transparent);
+  background: color-mix(in srgb, var(--c) 6%, transparent);
+}
+.lesson-content .lesson-box__wiki a:hover { color: #fff; background: var(--c); }
+
+/* exam-style write-up of a proof: one idea per line, as on an exam sheet */
+.lesson-redaction {
+  margin: 1rem 0 0.5rem; padding: 0.75rem 1rem 0.25rem; border-radius: 10px;
+  border: 1px solid #d1d5db; border-left: 4px solid #0d9488; background: #fff;
+}
+.dark .lesson-redaction { background: rgba(0, 0, 0, 0.25); border-color: #374151; border-left-color: #14b8a6; }
+.lesson-redaction p { line-height: 1.8; margin: 0 0 0.55rem; padding-inline-start: 0.6rem; border-inline-start: 2px solid color-mix(in srgb, #0d9488 25%, transparent); }
+.lesson-redaction p:last-child { margin-bottom: 0.75rem; }
+.lesson-redaction .lesson-redaction__label {
+  margin-bottom: 0.6rem; padding: 0; border: none; font-family: 'Roboto', ui-sans-serif, sans-serif; font-size: 0.8rem; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.06em; color: #0d9488; white-space: normal;
+}
+.lesson-content[dir='rtl'] .lesson-redaction { border-left-width: 1px; border-right: 4px solid #0d9488; }
+
+/* hidden answers */
+.lesson-answer {
+  margin: 0.5rem 0 1rem; border: 1px dashed color-mix(in srgb, var(--c, #16a34a) 60%, transparent);
+  border-radius: 8px; background: rgba(255, 255, 255, 0.55);
+}
+.dark .lesson-answer { background: rgba(0, 0, 0, 0.2); }
+.lesson-answer > summary {
+  cursor: pointer; padding: 0.45rem 0.9rem; font-family: 'Roboto', sans-serif; font-weight: 800;
+  font-size: 0.9rem; color: var(--c, #16a34a); user-select: none;
+}
+.lesson-answer[open] > summary { border-bottom: 1px dashed color-mix(in srgb, var(--c, #16a34a) 40%, transparent); }
+.lesson-answer__body { padding: 0.75rem 0.9rem 0.1rem; }
+
+/* ========================================
+   LESSONS — Arabic (right-to-left) variant: <details dir="rtl"> / .lesson-content[dir="rtl"]
+   Maths stay left-to-right (Latin letters and digits, as in the Tunisian textbooks).
+   ======================================== */
+[dir='rtl'] .lesson-badge { letter-spacing: 0 !important; text-transform: none; }
+
+.lesson-content[dir='rtl'] {
+  font-family: 'Tajawal', 'Noto Naskh Arabic', ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.15rem;
+  line-height: 2;
+  text-align: right;
+}
+.lesson-content[dir='rtl'] .lesson-h2,
+.lesson-content[dir='rtl'] .lesson-h3,
+.lesson-content[dir='rtl'] .lesson-box__header,
+.lesson-content[dir='rtl'] .lesson-answer > summary,
+.lesson-content[dir='rtl'] th { font-family: 'Tajawal', ui-sans-serif, system-ui, sans-serif; }
+.lesson-content[dir='rtl'] .lesson-h2 { font-size: 1.7rem; line-height: 1.5; }
+.lesson-content[dir='rtl'] .lesson-h3 { font-size: 1.3rem; line-height: 1.6; }
+/* letter-spacing and upper-casing would cut the Arabic joins */
+.lesson-content[dir='rtl'] .lesson-box__kind,
+.lesson-content[dir='rtl'] th { letter-spacing: 0; text-transform: none; }
+.lesson-content[dir='rtl'] .lesson-box__kind { font-size: 0.95rem; }
+.lesson-content[dir='rtl'] th { font-size: 1rem; }
+
+/* maths: an isolated left-to-right island inside right-to-left text */
+.lesson-content[dir='rtl'] .katex { direction: ltr; unicode-bidi: isolate; }
+/* an inline formula is never cut across two lines (it would read in the wrong order in RTL text) */
+.lesson-content[dir='rtl'] .katex,
+.lesson-content[dir='rtl'] .katex .katex-html { white-space: nowrap; }
+.lesson-content[dir='rtl'] .katex .base { white-space: nowrap; }
+.lesson-content[dir='rtl'] .katex-display { direction: ltr; }
+/* a formula wider than its line (set by LessonAccordion) scrolls sideways on its own line */
+.lesson-content[dir='rtl'] .katex.katex--wide { display: block; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 0.2em 0; margin: 0.3em 0; text-align: left; }
+
+/* lists, anchors, box border and the QED square switch sides */
+.lesson-content[dir='rtl'] ul,
+.lesson-content[dir='rtl'] ol { padding-left: 0; padding-right: 1.6em; }
+.lesson-content[dir='rtl'] .lesson-anchor { left: auto; right: -1.2em; }
+.lesson-content[dir='rtl'] .lesson-box { border-left-width: 1px; border-right: 5px solid var(--c); }
+.dark .lesson-content[dir='rtl'] .lesson-box { border-right-color: var(--c); }
+.lesson-content[dir='rtl'] .lesson-box--summary { border-left-width: 2px; border-right-width: 6px; }
+.lesson-content[dir='rtl'] .lesson-box--proof { border-left-style: dashed; border-right-style: solid; }
+.lesson-content[dir='rtl'] .lesson-box--proof .lesson-box__body::after { text-align: left; }
+.lesson-content[dir='rtl'] .sign-table td:first-child,
+.lesson-content[dir='rtl'] .sign-table th:first-child { text-align: right; }
+.lesson-content[dir='rtl'] code { direction: ltr; unicode-bidi: isolate; }
+
+/* ========================================
+   THEOREMS WIKI (/theoremes)
+   Fragments are built by entryFragmentHtml() in src/lib/theoremIndex.ts;
+   the statements inside are ordinary lesson boxes (.lesson-content).
+   ======================================== */
+.wiki-version + .wiki-version { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed #d1d5db; }
+.dark .wiki-version + .wiki-version { border-top-color: #374151; }
+.wiki-version__head {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem;
+  margin-bottom: 0.25rem; font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+}
+.wiki-version__chapter { font-weight: 700; color: #4b5563; }
+.dark .wiki-version__chapter { color: #d1d5db; }
+.wiki-version__links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.wiki-version__link {
+  padding: 0.2rem 0.7rem; border-radius: 9999px; border: 1px solid #ea580c; color: #ea580c;
+  font-size: 0.875rem; font-weight: 700; text-decoration: none; transition: background .15s, color .15s;
+}
+.wiki-version__link:hover { background: #ea580c; color: #fff; }
+.dark .wiki-version__link { border-color: #2dd4bf; color: #2dd4bf; }
+.dark .wiki-version__link:hover { background: #14b8a6; color: #fff; }
+.wiki-version .lesson-content { font-size: 1rem; }
+.wiki-version .lesson-box:first-child { margin-top: 0.75rem; }
+.wiki-proof { margin: 0.75rem 0 0; font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif; font-size: 0.9rem; }
+/* proof toggle: a real button, easy to see and to tap */
+details.wiki-proof > summary {
+  display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0.5rem 1rem;
+  cursor: pointer; list-style: none; border-radius: 10px; font-weight: 800; font-size: 0.95rem;
+  color: #fff; background: #0d9488; user-select: none;
+}
+details.wiki-proof > summary::-webkit-details-marker { display: none; }
+details.wiki-proof > summary::before { content: '▸'; }
+details.wiki-proof[open] > summary::before { content: '▾'; }
+details.wiki-proof > summary:hover { background: #0f766e; }
+details.wiki-proof.wiki-proof--curious > summary { background: #7c3aed; }
+details.wiki-proof.wiki-proof--curious > summary:hover { background: #6d28d9; }
+details.wiki-proof[open] > summary { margin-bottom: 0.5rem; }
+p.wiki-proof { font-style: italic; color: #6b7280; }
+.dark p.wiki-proof { color: #9ca3af; }
+
+/* bac paper: sub-questions numbered a), b), … as on the exam sheet */
+.bac-paper ol ol { list-style: lower-alpha; }
+.bac-paper ol { padding-inline-start: 1.6rem; }
+@media (max-width: 480px) {
+  .bac-paper ol { padding-inline-start: 1.25rem; }
+  .bac-paper ol ol { padding-inline-start: 1rem; }
+  .bac-paper li .katex-display { font-size: 0.9em; }
+}

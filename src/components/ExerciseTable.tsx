@@ -64,7 +64,7 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
           <div
             key={exercise.uid}
             id={`ex-${exercise.uid}`}
-            className={`scroll-mt-24 bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
+            className={`scroll-mt-20 bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
               isExpanded ? 'ring-4 ring-orange-500' : ''
             } ${selected ? 'ring-4 ring-green-500' : ''}`}
           >
@@ -92,7 +92,7 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs font-mono font-black text-gray-500 dark:text-gray-400">#{exercise.uid}</span>
                     <span className="text-lg">{getDifficultyStars(exercise.difficulty)}</span>
-                    {exercise.points != null && (
+                    {Number.isFinite(Number(exercise.points)) && (
                       <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-black">
                         {exercise.points} pts
                       </span>
@@ -138,6 +138,16 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                     </p>
                   )}
                   
+                  {exercise.bac && (
+                    <a
+                      href={`/bac/${exercise.bac}`}
+                      onClick={e => e.stopPropagation()}
+                      className="mb-2 inline-flex items-center gap-1 px-2 py-1 rounded-md bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-sm font-bold hover:underline"
+                    >
+                      Extrait d&apos;un sujet de bac : voir le sujet complet →
+                    </a>
+                  )}
+
                   <div className="flex flex-wrap gap-3 text-sm text-gray-600 dark:text-gray-400">
                     <span className="flex items-center gap-1 font-semibold">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

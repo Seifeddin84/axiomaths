@@ -319,7 +319,7 @@ export default function ExerciseTableView({ exercises }: ExerciseTableViewProps)
                       </td>
                       <td className="px-4 py-3 text-sm">
                         <span className="font-black text-orange-600 dark:text-orange-400">
-                          {exercise.points != null ? `${exercise.points} pts` : '-'}
+                          {Number.isFinite(Number(exercise.points)) ? `${exercise.points} pts` : '—'}
                         </span>
                       </td>
                       <td className="px-4 py-3 text-sm">

@@ -1,0 +1,131 @@
+\documentclass{axiobac}
+
+\annee{1986}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques}
+\sectionbac{Math-Sciences \& Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation Nationale}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Combinaison de deux projections : application affine et rotation}
+\chapitres{Déplacements - Antidéplacements}
+\horsprogramme
+
+Le plan affine euclidien orienté $P$ est muni d'un repère orthonormé direct $(O, \vec{i}, \vec{j})$. \\
+Soit $D_1$ et $D_2$ les droites d'équations respectives
+\[
+x - \sqrt{3}\,y = 0 \qquad \text{et} \qquad \sqrt{3}\,x + y = 0 .
+\]
+Pour tout point $M(x, y)$ de $P$, on désigne par $M_1$ l'image de $M$ par la projection sur $D_1$ parallèlement à l'axe des abscisses et par $M_2$ l'image de $M$ par la projection sur $D_2$ parallèlement à l'axe des ordonnées. \\
+$a$ et $b$ étant deux réels non nuls, soit $M'$ le point défini par : $\overrightarrow{OM'} = a\,\overrightarrow{OM_1} + b\,\overrightarrow{OM_2}$.
+
+\begin{enumerate}
+    \item Calculer les coordonnées $x'$ et $y'$ du point $M'$ en fonction de $x$ et de $y$.
+    \item On désigne par $f_{(a,b)}$ l'application de $P$ dans $P$ qui, au point $M$, fait correspondre le point $M'$. Montrer que $f_{(a,b)}$ est une application affine bijective.
+    \item Pour quelles valeurs du couple $(a, b)$ l'application $f_{(a,b)}$ est-elle involutive ?
+    \item Pour quelles valeurs du couple $(a, b)$ l'application $f_{(a,b)}$ est-elle une rotation ? \\
+    Préciser, pour chaque couple $(a, b)$ trouvé, le centre et une mesure de l'angle de cette rotation.
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Triangle équilatéral et équation du troisième degré}
+\chapitres{Nombres Complexes}
+
+Le plan affine $P$ est supposé rapporté à un repère orthonormé.
+
+\begin{enumerate}
+    \item Soit dans $P$ les points $M_1$, $M_2$ et $M_3$ d'affixes respectives les complexes $z_1$, $z_2$ et $z_3$. \\
+    Montrer que le triangle $M_1 M_2 M_3$ est équilatéral si et seulement si
+    \[
+    z_1 + j\,z_2 + j^2 z_3 = 0 \qquad \text{ou} \qquad z_1 + j^2 z_2 + j\,z_3 = 0, \qquad \text{où } j = -\frac{1}{2} + i\,\frac{\sqrt{3}}{2} .
+    \]
+    \item Soit, dans l'ensemble $\mathbb{C}$ des nombres complexes, l'équation $(E)$ suivante :
+    \[
+    z^3 - (1 + a + ia)\,z^2 + a(1 + i + ia)\,z - i a^2 = 0,
+    \]
+    où $a$ désigne un paramètre complexe.
+    \begin{enumerate}
+        \item Vérifier que $1$ est une solution de $(E)$. Calculer les deux autres solutions $z'$ et $z''$ de $(E)$.
+        \item Soit dans $P$ les points $A$, $B$ et $C$ d'affixes respectives $1$, $z'$ et $z''$. Déterminer $a$ de manière que le triangle $ABC$ soit équilatéral.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{12}
+
+\partie{I}
+\titre{La fonction $\sqrt{x/(1-x)}$, sa réciproque et une aire}
+\chapitres{Fonctions réciproques, Etude de Fonctions, Intégrales}
+
+Soit $f$ la fonction numérique à variable réelle définie par $f(x) = \sqrt{\dfrac{x}{1 - x}}$.
+
+\begin{enumerate}
+    \item Étudier les variations de $f$ et tracer sa courbe représentative $(C)$ dans un plan rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$.
+    \item Montrer que $f$ admet une fonction réciproque $f^{-1}$ que l'on déterminera. Tracer la courbe représentative $(C')$ de $f^{-1}$ dans le repère $(O, \vec{i}, \vec{j})$.
+    \item Soit $\mathcal{A}$ la mesure de l'aire du domaine limité par $(C)$ et les droites d'équations respectives $x = 0$ et $y = 1$. \\
+    Montrer que $\mathcal{A} = \displaystyle\int_0^1 \frac{x^2}{1 + x^2} \, dx$.
+\end{enumerate}
+
+\partie{II}
+\titre{Une intégrale à borne $\tan x$}
+\chapitres{Intégrales, Primitives}
+
+Soit $\varphi$ une fonction continue sur $\mathbb{R}$. On considère la fonction $F$ définie sur $\left]-\frac{\pi}{2}, \frac{\pi}{2}\right[$ par
+\[
+F(x) = \int_0^{\tan x} \frac{\varphi(t)}{1 + t^2} \, dt .
+\]
+
+\begin{enumerate}
+    \item Montrer que $F$ est dérivable sur $\left]-\frac{\pi}{2}, \frac{\pi}{2}\right[$ et que $F'(x) = \varphi(\tan x)$.
+    \item Déterminer $F(x)$ dans chacun des cas suivants :
+    \begin{enumerate}
+        \item $\varphi(t) = 1$ ;
+        \item $\varphi(t) = t^2$.
+    \end{enumerate}
+    \item En déduire $\displaystyle\int_0^1 \frac{1}{1 + t^2} \, dt$ et $\displaystyle\int_0^1 \frac{t^2}{1 + t^2} \, dt$.
+\end{enumerate}
+
+\partie{III}
+\titre{Suite d'intégrales et série de Leibniz $1 - \frac13 + \frac15 - \cdots$}
+\chapitres{Intégrales, Suites réelles}
+
+On définit la suite $(u_n)_{n \in \mathbb{N}}$ par :
+\[
+u_0 = \int_0^1 \frac{dt}{1 + t^2} \qquad \text{et} \qquad \forall n \in \mathbb{N}^*, \quad u_n = \int_0^1 \frac{t^{2n}}{1 + t^2} \, dt .
+\]
+
+\begin{enumerate}
+    \item Montrer que : $\forall n \in \mathbb{N}$, $0 \leqslant u_n \leqslant \dfrac{1}{2n + 1}$. \\
+    En déduire $\displaystyle\lim_{n \to +\infty} u_n$.
+    \item Montrer que : $\forall n \in \mathbb{N}$, $u_{n+1} + u_n = \dfrac{1}{2n + 1}$. \\
+    En déduire $u_2$ et $u_3$.
+    \item Soit $(v_n)_{n \in \mathbb{N}}$ la suite définie par
+    \[
+    v_n = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots + \frac{(-1)^n}{2n + 1} .
+    \]
+    Calculer $u_{n+1}$ en fonction de $u_0$ et $v_n$ (on distinguera les cas : $n$ pair, $n$ impair). \\
+    En déduire $\displaystyle\lim_{n \to +\infty} v_n$.
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

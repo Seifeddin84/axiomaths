@@ -1,5 +1,7 @@
 import { getAllExercises } from '@/lib/fileReader';
 import ExercisesView from '@/components/ExercisesView';
+import { getLessonsForChapter } from '@/lib/lessonReader';
+import LessonAccordion from '@/components/LessonAccordion';
 import Link from 'next/link';
 
 const LEVEL_DISPLAY: Record<string, string> = {
@@ -58,6 +60,8 @@ export default async function ChapterPage({
     return levelMatch && sectionMatch && chapterMatch;
   });
 
+  const lessons = getLessonsForChapter(level, decodedSection, decodedChapter);
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
       {/* Breadcrumb */}
@@ -111,6 +115,19 @@ export default async function ChapterPage({
           {chapterExercises.length} exercice{chapterExercises.length > 1 ? 's' : ''} disponible{chapterExercises.length > 1 ? 's' : ''}
         </p>
       </div>
+
+      {/* Lesson (cours) for this chapter: a card that unfolds in place, above the exercises */}
+      {lessons.map(lesson => (
+        <LessonAccordion
+          key={lesson.slug}
+          slug={lesson.slug}
+          title={lesson.title}
+          summary={lesson.summary}
+          readTime={lesson.readTime}
+          source={lesson.source}
+          toc={lesson.headings.filter(h => h.depth === 2).map(h => ({ id: h.id, text: h.text }))}
+        />
+      ))}
 
       {/* Exercises */}
       {chapterExercises.length > 0 ? (

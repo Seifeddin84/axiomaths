@@ -1,0 +1,131 @@
+\documentclass{axiobac}
+
+\annee{1978}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques (épreuve obligatoire)}
+\sectionbac{Math-Sciences et Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\ministere{Ministère de l'Éducation Nationale}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{}
+\titre{Équation du second degré à paramètre et lieu de points}
+\chapitres{Nombres Complexes}
+
+Soit, dans $\mathbb{C}$, l'équation :
+\[
+z^2 - 2z + 2\sin^2\theta - 2i\sin\theta\cos\theta = 0 \qquad \text{avec } \theta \in [0, \pi[ .
+\]
+
+\begin{enumerate}
+    \item Résoudre cette équation. \\
+    On désignera par $z'$ la racine dont le coefficient $b$ de la partie imaginaire $(ib)$ est positif et par $z''$ l'autre racine.
+    \item On pose $z_1 = z' + i\sin\theta$ et $z_2 = z'' - i\sin\theta$. \\
+    Soit $M_1$ et $M_2$ les images respectives de $z_1$ et $z_2$ dans le plan complexe.
+    \begin{enumerate}
+        \item Montrer que $M_1$ et $M_2$ sont symétriques par rapport au point d'affixe $1$.
+        \item Déterminer l'ensemble des points $M_1$ lorsque $\theta$ décrit l'intervalle $[0, \pi[$ ; en déduire l'ensemble des points $M_2$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{}
+\titre{Somme et écart de deux jetons : loi conjointe}
+\chapitres{Probabilités}
+\horsprogramme
+
+On dispose de deux boîtes contenant chacune $3$ jetons indiscernables au toucher et numérotés $0$, $1$, $2$. Une épreuve consiste à tirer, au hasard, un jeton de chaque boîte. \\
+Soit $X$ l'application qui, à chaque épreuve, associe la somme des nombres inscrits sur les jetons tirés et soit $Y$ l'application qui, à chaque épreuve, associe la valeur absolue de la différence des nombres inscrits sur les jetons tirés.
+
+\begin{enumerate}
+    \item Déterminer la loi conjointe du couple $(X, Y)$ et les lois marginales de $X$ et de $Y$.
+    \item Calculer les espérances mathématiques de $X$, $Y$ et $X \cdot Y$.
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{}
+
+Pour tout couple de réels $(a, b)$, on considère la fonction $f_{(a,b)}$ de $\mathbb{R}^+$ dans $\mathbb{R}$ définie par :
+\[
+\begin{cases}
+    f_{(a,b)}(x) = x^2\,(a + b \operatorname{Log} x) & \text{si } x > 0 \\
+    f_{(a,b)}(0) = 0
+\end{cases}
+\]
+
+\partie{A}
+\titre{Étude de la fonction $x \mapsto x^2(1 - \ln x)$}
+\chapitres{Fonction logarithme népérien, Dérivabilité, Etude de Fonctions}
+
+On pose $g = f_{(1,-1)}$.
+
+\begin{enumerate}
+    \item Montrer que la fonction $g$ est continue au point $0$ et qu'elle est dérivable en ce point.
+    \item Étudier les variations de la fonction $g$ et tracer sa courbe représentative dans un plan rapporté à un repère orthonormé. (On donne : $e = 2{,}71\ldots$ ; $\sqrt{e} = 1{,}68\ldots$).
+\end{enumerate}
+
+\partie{B}
+\titre{Un endomorphisme d'un espace de fonctions}
+\horsprogramme
+
+On désigne par $D$ l'espace vectoriel réel des fonctions dérivables sur $\mathbb{R}^+$ et par $E$ l'ensemble des fonctions $f_{(a,b)}$ lorsque $(a, b)$ décrit $\mathbb{R}^2$. On pose :
+\[
+u = f_{(1,0)} \qquad \text{et} \qquad v = f_{(0,1)} .
+\]
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Vérifier que $u$ et $v$ appartiennent à $D$.
+        \item Montrer que $E$ est le sous-espace vectoriel de $D$ engendré par $u$ et $v$.
+        \item Montrer que $(u, v)$ est une base de $E$.
+    \end{enumerate}
+    \item On désigne par $\overline{f}_{(a,b)}$ la fonction de $\mathbb{R}^+$ dans $\mathbb{R}$ définie par $\overline{f}_{(a,b)}(x) = x\,f'_{(a,b)}(x)$.
+    \begin{enumerate}
+        \item Montrer que $\overline{f}_{(a,b)}$ est un élément de $E$.
+        \item Soit l'application $\sigma : E \longrightarrow E$, $f_{(a,b)} \longmapsto \overline{f}_{(a,b)}$. \\
+        Montrer que $\sigma$ est un endomorphisme de $E$ ; déterminer sa matrice $A$ dans la base $(u, v)$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Vérifier que $A^2 - 4A + 4I = O$ ($I$ est la matrice unité, $O$ est la matrice nulle).
+        \item En déduire que :
+        \[
+        \forall x \in \mathbb{R}^*_+, \qquad x^2 f''_{(a,b)}(x) - 3x\,f'_{(a,b)}(x) + 4 f_{(a,b)}(x) = 0 .
+        \]
+    \end{enumerate}
+\end{enumerate}
+
+\partie{C}
+\titre{Intégrales de $t^4 \ln t$ et $t^4 (\ln t)^2$, limites en $0$}
+\chapitres{Intégrales, Fonction logarithme népérien}
+
+Soit $s$ un réel de l'intervalle $]0, 1[$.
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Calculer $I(s) = \displaystyle\int_s^1 t^4 \operatorname{Log} t \, dt$ ; en déduire $\displaystyle\lim_{s \to 0^+} I(s)$.
+        \item On pose $J(s) = \displaystyle\int_s^1 t^4 (\operatorname{Log} t)^2 \, dt$. \\
+        Trouver une relation entre $I(s)$ et $J(s)$ ; en déduire $\displaystyle\lim_{s \to 0^+} J(s)$.
+    \end{enumerate}
+    \item On pose $K(s) = \displaystyle\int_s^1 \left[ f_{(a,b)}(t) \right]^2 dt$. Déterminer $\displaystyle\lim_{s \to 0^+} K(s)$.
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

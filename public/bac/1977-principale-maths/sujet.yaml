@@ -1,0 +1,4 @@
+# Métadonnées : elles sont lues dans sujet.tex (classe latex/axiobac.cls).
+notes: >-
+  Le haut de la page 2 de l'original est coupé : la définition de z^[n]
+  (problème, A 2°a) est reconstituée à partir de la suite de la question.

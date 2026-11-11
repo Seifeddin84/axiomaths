@@ -1,0 +1,177 @@
+\documentclass{axiobac}
+
+\annee{1990}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques}
+\sectionbac{Math-Sciences \& Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation, de l'Enseignement Supérieur et de la Recherche Scientifique}
+
+\begin{document}
+\entete
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Équation du troisième degré et losange}
+\chapitres{Nombres Complexes}
+
+Pour tout nombre complexe $z$ on pose :
+\[
+\begin{aligned}
+f(z) = {} & z^3 + 2\left(-\sqrt{3} + i\right) z^2 \\
+          & + 4\left(1 - i\sqrt{3}\right) z + 8i .
+\end{aligned}
+\]
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que l'équation $f(z) = 0$ possède une racine imaginaire pure $z_0$ que l'on déterminera.
+        \item Résoudre alors l'équation $f(z) = 0$. \\
+        On notera $z_1$ et $z_2$ les deux autres racines, $z_1$ étant celle qui a une partie imaginaire négative.
+    \end{enumerate}
+    \item On pose $\omega = \dfrac{z_1}{z_0}$.
+    \begin{enumerate}
+        \item Donner la forme trigonométrique de $\omega$.
+        \item Le plan complexe est rapporté à un repère orthonormé direct $(O, \vec{u}, \vec{v})$. \\
+        À tout nombre complexe $z$ non nul on associe les points $M$, $M_1$ et $M_2$ d'affixes respectives $z$, $\omega z$ et $\omega^2 z$. \\
+        Montrer que $OMM_1M_2$ est un losange.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{4}
+\titre{Rotation, antidéplacement et lieu de milieux}
+\chapitres{Déplacements - Antidéplacements}
+
+Dans le plan orienté, on considère un triangle $ABC$ non isocèle tel que $\left(\widehat{\overrightarrow{AB}, \overrightarrow{AC}}\right) \equiv \dfrac{\pi}{2} \ [2\pi]$. \\
+À tout point $M$ de la droite $(AB)$ on associe le point $N$ de la droite $(AC)$ tel que $M$ et $N$ soient dans un même demi-plan de bord $(BC)$ et $BM = CN$.
+
+\begin{enumerate}
+    \item Montrer qu'il existe une unique rotation $\mathcal{R}$ telle que, pour tout point $M$ de $(AB)$, on a : $\mathcal{R}(M) = N$ et $\mathcal{R}(B) = C$. \\
+    Préciser une mesure de son angle et construire son centre $\Omega$.
+    \item Soit $O$ le milieu du segment $[BC]$. On désigne par $S_{(O\Omega)}$ la symétrie orthogonale d'axe $(O\Omega)$ et on pose : $f = S_{(O\Omega)} \circ \mathcal{R}$.
+    \begin{enumerate}
+        \item Déterminer $f(B)$ et $f(\Omega)$.
+        \item Préciser la nature et les éléments caractéristiques de $f$.
+    \end{enumerate}
+    \item Soit $I$ le milieu du segment $[MN]$.
+    \begin{enumerate}
+        \item Quel est l'ensemble $D$ des points $I$ lorsque $M$ décrit la droite $(AB)$ ?
+        \item Construire $D$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{12}
+
+\partie{I}
+\titre{Encadrer $\ln(n!)$ par des intégrales}
+\chapitres{Intégrales, Fonction logarithme népérien, Suites réelles}
+
+Soit la fonction
+\[
+f : \ ]-1, 1[ \longrightarrow \mathbb{R}, \qquad x \longmapsto f(x) = \int_0^x \frac{t^2}{1 - t^2}\,dt .
+\]
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Justifier l'existence de $f$.
+        \item Montrer qu'il existe trois réels $\alpha$, $\beta$, $\gamma$ tels que :
+        \[
+        \forall t \in \mathbb{R} \setminus \{-1, 1\}, \qquad \frac{t^2}{1 - t^2} = \alpha + \frac{\beta}{1 - t} + \frac{\gamma}{1 + t} .
+        \]
+        \item En déduire que : $\forall x \in ]-1, 1[$, $f(x) = \dfrac{1}{2} \operatorname{Log}\left(\dfrac{1 + x}{1 - x}\right) - x$.
+    \end{enumerate}
+    \item Étudier les variations de $f$ et construire sa courbe représentative dans un repère orthonormé $(O, \vec{i}, \vec{j})$.
+    \item
+    \begin{enumerate}
+        \item Montrer que : $\forall x \in \mathbb{R}^*_+$, $\forall k \in \mathbb{N}^*$, $\operatorname{Log} x \leqslant \dfrac{x}{k} - 1 + \operatorname{Log} k$.
+        \item En déduire que :
+        \[
+        \forall k \in \mathbb{N}^*, \quad \int_{k - \frac12}^{k + \frac12} \operatorname{Log} x\,dx \leqslant \operatorname{Log} k
+        \]
+        et par suite :
+        \[
+        \forall n \in \mathbb{N}^*, \quad \int_{\frac12}^{n + \frac12} \operatorname{Log} x\,dx \leqslant \operatorname{Log}(n!) .
+        \]
+        \item Montrer que : $\forall n \in \mathbb{N}^*$, $\operatorname{Log}(n!) \geqslant \left(n + \frac12\right) \operatorname{Log}\left(n + \frac12\right) - n + \frac12 \operatorname{Log} 2$.
+    \end{enumerate}
+    \item Soit $(u_n)$ la suite définie sur $\mathbb{N}^*$ par : $u_n = \operatorname{Log}(n!) - \left(n + \frac12\right) \operatorname{Log} n + n$.
+    \begin{enumerate}
+        \item Montrer que : $\forall n \in \mathbb{N}^*$, $u_n \geqslant \frac12 \operatorname{Log} 2$.
+        \item Vérifier que : $\forall n \in \mathbb{N}^*$, $u_n - u_{n+1} = (2n + 1)\, f\!\left(\dfrac{1}{2n + 1}\right)$.
+        \item En déduire que $(u_n)$ est convergente.
+    \end{enumerate}
+\end{enumerate}
+
+\partie{II}
+\titre{Les intégrales $\int_0^1 x^{n/2}\sqrt{1-x}\,dx$}
+\chapitres{Intégrales, Suites réelles}
+
+Soit la suite $(v_n)$ définie par :
+\[
+v_0 = \int_0^1 (1 - x)^{\frac12}\,dx \qquad \text{et} \qquad \forall n \in \mathbb{N}^*, \qquad v_n = \int_0^1 x^{\frac{n}{2}} (1 - x)^{\frac12}\,dx .
+\]
+
+\begin{enumerate}
+    \item Calculer $v_0$.
+    \item
+    \begin{enumerate}
+        \item Le plan étant muni du repère orthonormé $(O, \vec{i}, \vec{j})$, déterminer l'ensemble des points $M(x, y)$ tels que : $y^2 - x(1 - x) = 0$.
+        \item En déduire que $v_1 = \dfrac{\pi}{8}$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que la suite $(v_n)$ est décroissante.
+        \item En déduire qu'elle est convergente.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Prouver, à l'aide d'une intégration par parties, que : $\forall n \in \mathbb{N}$, $v_{n+2} = \dfrac{n + 2}{n + 5}\,v_n$.
+        \item En déduire que :
+        \[
+        \forall n \in \mathbb{N}, \quad \frac{n + 2}{n + 5} \leqslant \frac{v_{n+1}}{v_n} \leqslant 1 \qquad \text{et} \qquad \lim_{n \to +\infty} \frac{v_{n+1}}{v_n} = 1 .
+        \]
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer, par récurrence, que : $\forall n \in \mathbb{N}$, $v_n \cdot v_{n+1} = \dfrac{2\pi}{(n + 2)(n + 3)(n + 4)}$.
+        \item En faisant apparaître, dans l'expression précédente, le rapport $\dfrac{v_{n+1}}{v_n}$, montrer que :
+        \[
+        \lim_{n \to +\infty} n^{\frac32}\, v_n = \sqrt{2\pi} .
+        \]
+    \end{enumerate}
+    \item Montrer que : $\forall p \in \mathbb{N}$, $v_{2p} = \dfrac{2}{(2p + 1)(2p + 3)} \cdot \dfrac{\left(2^p \cdot p!\right)^2}{(2p)!}$.
+\end{enumerate}
+
+\partie{III}
+\titre{La formule de Stirling : $\lim u_n = \ln\sqrt{2\pi}$}
+\chapitres{Suites réelles, Fonctions exponentielles}
+
+$(u_n)$ étant la suite définie dans I 4).
+
+\begin{enumerate}
+    \item Montrer que : $\forall n \in \mathbb{N}^*$, $e^{u_n} = \dfrac{n!}{n^{n + \frac12}} \cdot e^n$.
+    \item Exprimer $e^{2u_p - u_{2p}}$ en fonction de $p$ et $v_{2p}$ ($p \in \mathbb{N}^*$).
+    \item Soit $\ell$ la limite de la suite $(u_n)$. Déduire de ce qui précède que : $\ell = \operatorname{Log}\sqrt{2\pi}$. \\
+    (On admettra que $\displaystyle\lim_{p \to +\infty} u_{2p} = \lim_{p \to +\infty} u_p = \ell$.)
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

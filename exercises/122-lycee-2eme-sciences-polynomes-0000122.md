@@ -3,7 +3,7 @@ uid: "0000122"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Notion de Polynômes"
+chapter: "Polynômes"
 source: "Axiomaths"
 title: "Factorisation d'un polynôme de degré 3"
 country: "Tunisie"

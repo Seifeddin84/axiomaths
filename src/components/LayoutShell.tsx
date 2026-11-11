@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar';
+import type { NavTree } from '@/types/nav';
 
-export default function LayoutShell({ children }: { children: React.ReactNode }) {
+export default function LayoutShell({ children, navTree }: { children: React.ReactNode; navTree?: NavTree }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Close sidebar on route change (mobile)
@@ -39,7 +40,7 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
         `}
       >
-        <Sidebar onClose={() => setSidebarOpen(false)} />
+        <Sidebar onClose={() => setSidebarOpen(false)} tree={navTree} />
       </div>
 
       {/* Main content */}

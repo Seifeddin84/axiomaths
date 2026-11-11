@@ -43,7 +43,8 @@ export function parseExercise(content: string, filename: string): Exercise {
     }
   }
 
-  // Normalize professor to string[] — handles both old string and new array format
+  // Normalize professor to string[] — handles both old string and new array format.
+  // The frontmatter reader keeps `professor: null` as the text "null": that is "no professor", not a name.
   let professors: string[] = [];
   if (Array.isArray(frontmatter.professor)) {
     professors = frontmatter.professor
@@ -55,6 +56,7 @@ export function parseExercise(content: string, filename: string): Exercise {
       .map((p: string) => p.trim())
       .filter(Boolean);
   }
+  professors = professors.filter(p => !/^(null|undefined)$/i.test(p));
 
   console.log('Parsed sections:', sections);
   console.log('Parsed professors:', professors);
@@ -77,6 +79,7 @@ export function parseExercise(content: string, filename: string): Exercise {
     points: frontmatter.points ? parseInt(frontmatter.points) : undefined,
     tags: frontmatter.tags || [],
     schoolType: frontmatter.schoolType,
+    bac: frontmatter.bac || undefined,
   };
 }
 

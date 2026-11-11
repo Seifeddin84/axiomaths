@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import LayoutShell from '@/components/LayoutShell';
 import { ExerciseBasketProvider } from '@/context/ExerciseBasketContext';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { getNavTree } from '@/lib/navTree';
 
 export const metadata = {
   title: 'Axiomaths - Exercices de mathématiques',
@@ -11,6 +12,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const navTree = getNavTree();
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
@@ -34,7 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ExerciseBasketProvider>
             <div className="min-h-screen bg-white dark:bg-gray-950">
               <Navbar />
-              <LayoutShell>
+              <LayoutShell navTree={navTree}>
                 {children}
               </LayoutShell>
             </div>
