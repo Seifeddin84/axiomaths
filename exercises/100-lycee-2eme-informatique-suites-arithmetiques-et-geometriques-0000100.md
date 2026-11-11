@@ -2,7 +2,7 @@
 uid: "0000100"
 school: "lycee"
 level: "2eme"
-section: ["Sciences", "Technologies de l'Informatique"]
+section: ["Sciences", "Informatique"]
 chapter: "Suites arithmétiques et géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Modélisation avec une suite arithmétique"

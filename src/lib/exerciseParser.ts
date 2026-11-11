@@ -4,7 +4,7 @@ export function parseExercise(content: string, filename: string): Exercise {
   const { frontmatter, markdownContent } = parseFrontmatter(content);
   
   // Extract solution
-  const solutionMatch = markdownContent.match(/##\s*Solution\s*\n([\s\S]*?)(?=\n##|$)/i);
+  const solutionMatch = markdownContent.match(/##\s*Solution\s*\n([\s\S]*?)(?=\n##[^#]|$)/i);
   const exerciseContent = solutionMatch 
     ? markdownContent.substring(0, solutionMatch.index).trim()
     : markdownContent.trim();
@@ -111,6 +111,10 @@ function parseFrontmatter(content: string): { frontmatter: any; markdownContent:
           .split(',')
           .map((v: string) => v.trim().replace(/^["']|["']$/g, ''))
           .filter(Boolean);
+      }
+      // YAML null (unquoted) → real null, not the string "null"
+      else if (value === 'null' || value === '~') {
+        value = null;
       }
       // Handle quoted strings
       else if ((value.startsWith('"') && value.endsWith('"')) || 

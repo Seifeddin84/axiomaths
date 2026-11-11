@@ -30,4 +30,14 @@ Soit $A = x^3 - 3x^2 + 3x - 9$ et $B = x^3 - 27 - 3x(x - 3)$.
 ---
 
 ## Solution
-Pas de solution encore.
+
+1. a) $(x - 1)^3 - 8 = x^3 - 3x^2 + 3x - 1 - 8 = x^3 - 3x^2 + 3x - 9 = A$.
+
+   b) $A = (x-1)^3 - 2^3 = (x - 1 - 2)\left[(x-1)^2 + 2(x-1) + 4\right] = (x - 3)(x^2 + 3)$.
+
+2. $B = (x - 3)(x^2 + 3x + 9) - 3x(x - 3) = (x - 3)(x^2 + 3x + 9 - 3x) = (x - 3)(x^2 + 9)$.
+
+3. a) $B - A = (x - 3)\left[(x^2 + 9) - (x^2 + 3)\right] = 6(x - 3)$.
+
+   b) $x^2 + 3 > 0$, donc $A \neq 0 \iff x \neq 3$. Alors :
+   $\dfrac{B}{A} = \dfrac{A + 6(x-3)}{A} = 1 + \dfrac{6(x - 3)}{(x - 3)(x^2 + 3)} = 1 + \dfrac{6}{x^2 + 3}$.

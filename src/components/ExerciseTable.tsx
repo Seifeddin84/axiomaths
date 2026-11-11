@@ -15,14 +15,6 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
   const [showSolution, setShowSolution] = useState<string | null>(null);
   const { addExercise, removeExercise, isSelected } = useExerciseBasket();
 
-  // #ex-<uid> in the URL (link from a bac paper): open that exercise and scroll to it
-  useEffect(() => {
-    const m = window.location.hash.match(/^#ex-(.+)$/);
-    if (!m || !exercises.some(e => e.uid === m[1])) return;
-    setExpandedId(m[1]);
-    requestAnimationFrame(() => document.getElementById(`ex-${m[1]}`)?.scrollIntoView({ block: 'start' }));
-  }, [exercises]);
-
   const toggleExercise = (uid: string) => {
     if (expandedId === uid) {
       setExpandedId(null);
@@ -32,6 +24,22 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
       setShowSolution(null);
     }
   };
+
+  // Deep links: /lycee/4eme/mathematiques/integrales#ex-0000116 opens and scrolls to that exercise
+  useEffect(() => {
+    const openFromHash = () => {
+      const m = window.location.hash.match(/^#ex-(\d+)$/);
+      if (!m || !exercises.some(ex => ex.uid === m[1])) return;
+      setExpandedId(m[1]);
+      setShowSolution(null);
+      requestAnimationFrame(() =>
+        document.getElementById(`ex-${m[1]}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      );
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+    return () => window.removeEventListener('hashchange', openFromHash);
+  }, [exercises]);
 
   const toggleSolution = (uid: string) => {
     setShowSolution(showSolution === uid ? null : uid);
