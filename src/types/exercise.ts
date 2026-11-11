@@ -17,6 +17,7 @@ export interface Exercise {
   points?: number;
   tags?: string[];
   schoolType?: string;     // e.g. "pilote", "prepa", "prive"
+  bac?: string;            // id of the bac paper it comes from (public/bac/<id>/)
 }
 
 export interface ExerciseMetadata {

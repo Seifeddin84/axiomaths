@@ -100,6 +100,18 @@ const resources: ResourceLink[] = [
     category: "Préparation aux examens"
   },
   {
+    title: "Réviser Bac",
+    url: "https://www.reviserbac.tn/en/sujets",
+    description: "Archive des sujets officiels du bac tunisien depuis 2009, filtrables par année, section, matière et session, la plupart avec corrigé",
+    category: "Préparation aux examens"
+  },
+  {
+    title: "Examanet",
+    url: "https://examanet.com/fr",
+    description: "Cours, devoirs et sujets de bac corrigés, du collège au lycée, déposés par des enseignants",
+    category: "Préparation aux examens"
+  },
+  {
     title: "APMEP",
     url: "https://www.apmep.fr",
     description: "Association des professeurs de mathématiques - Annales et sujets",

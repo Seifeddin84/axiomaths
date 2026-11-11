@@ -71,8 +71,10 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
               {shown.filter(p => p.year === year).map(p => (
                 <li key={p.id} className="p-4 sm:p-5 rounded-lg border-2 border-gray-200 dark:border-gray-700">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="text-lg font-black text-gray-900 dark:text-white">
-                      {p.subject} · {SESSION_LABEL[p.session] ?? p.session}{p.month ? ` (${p.month} ${p.year})` : ''}
+                    <h3 className="text-lg font-black">
+                      <Link href={`/bac/${p.id}`} className="text-gray-900 dark:text-white hover:text-orange-600 hover:underline underline-offset-4">
+                        {p.subject} · {SESSION_LABEL[p.session] ?? p.session}{p.month ? ` (${p.month} ${p.year})` : ''} →
+                      </Link>
                     </h3>
                     <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">
                       {[p.duration, p.coefficient ? `coef. ${p.coefficient}` : ''].filter(Boolean).join(' · ')}
@@ -80,22 +82,24 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
                   </div>
                   <p className="mt-1 text-sm font-bold text-gray-600 dark:text-gray-400">Section : {p.sectionLabel}</p>
 
-                  {p.exercises.length > 0 && (
-                    <ul className="mt-3 space-y-1 text-sm text-gray-700 dark:text-gray-300">
-                      {p.exercises.map((e, i) => (
-                        <li key={i}>
-                          <span className="font-semibold">{e.title}</span>
-                          {e.points ? <span className="text-gray-500"> · {e.points} pts</span> : null}
-                          {e.chapters?.length ? <span className="text-gray-500"> · {e.chapters.join(', ')}</span> : null}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <ul className="mt-3 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                    {p.blocks.map((b, i) => (
+                      <li key={i}>
+                        <span className="font-semibold" dangerouslySetInnerHTML={{ __html: b.label }} />
+                        {b.points ? <span className="text-gray-500"> ({b.points} pts)</span> : null}
+                        {b.title ? <span> : {b.title}</span> : null}
+                        {b.horsProgramme && <span className="ms-2 px-1.5 py-0.5 rounded text-xs font-bold bg-gray-100 dark:bg-gray-800 text-gray-500">hors programme actuel</span>}
+                      </li>
+                    ))}
+                  </ul>
 
                   <div className="mt-4 flex flex-wrap gap-2">
+                    <Link href={`/bac/${p.id}`} className={`${btn} bg-teal-600 text-white hover:bg-teal-700`}>
+                      Lire en ligne
+                    </Link>
                     {p.files.axiomath && (
                       <a href={p.files.axiomath} target="_blank" rel="noopener noreferrer" className={`${btn} bg-orange-500 text-white hover:bg-orange-600`}>
-                        Sujet · version AxioMath (PDF)
+                        PDF AxioMath
                       </a>
                     )}
                     {p.files.original && (

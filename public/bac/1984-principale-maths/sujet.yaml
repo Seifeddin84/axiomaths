@@ -1,19 +1,5 @@
-# Un sujet de bac = un dossier public/bac/<id>/ :
-#   sujet.yaml (ces métadonnées), axiomath.pdf (version réécrite en LaTeX),
-#   original.pdf (scan d'archive), sujet.tex (source LaTeX), corrige.pdf (facultatif)
-year: 1984
-session: "principale"            # principale | contrôle
-month: "Juin"
-subject: "Mathématiques"
-# sections d'aujourd'hui qui correspondent à la section historique (slugs de src/lib/bac.ts)
-sections: ["mathematiques", "sciences-techniques"]
-section_label: "Math-Sciences & Math-Technique"   # intitulé d'époque
-duration: "4 h"
-coefficient: 5
-exercises:
-  - { title: "Homothétie et similitude dans le plan complexe", points: 4, chapters: ["Similitudes", "Nombres complexes"] }
-  - { title: "Application affine, translation et symétrie", points: 4, chapters: ["Déplacements - Antidéplacements"] }
-  - { title: "Problème : fonction exponentielle, bijection réciproque, aire ; matrices et suite", points: 12, chapters: ["Fonctions exponentielles", "Fonctions réciproques", "Intégrales", "Suites réelles"] }
+# Métadonnées : elles sont lues dans sujet.tex (classe latex/axiobac.cls).
+# Ce fichier ne garde que ce que le .tex ne dit pas.
 notes: >-
   Version AxioMath relue contre l'original : « f = t ∘ s = s ∘ t » (exercice 2)
   et « t ∈ ℝ*₋ » (problème, partie II) rétablis.

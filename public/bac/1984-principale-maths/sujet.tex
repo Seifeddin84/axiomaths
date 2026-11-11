@@ -1,67 +1,25 @@
-\documentclass[12pt, a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage{amsmath, amssymb, mathrsfs}
-\usepackage{geometry}
-\usepackage{enumitem}
-\usepackage{fancyhdr}
-\usepackage{multicol}
-%--------- Font Setup ---------
-%\usepackage{euler} % Added euler font package
-\usepackage[bitstream-charter]{mathdesign}
-% OR for a more modern setup:
-%\usepackage{XCharter}
-%\usepackage[charter]{newtxmath}
-%\usepackage[light]{kpfonts}
-% Options to try: \usepackage[light]{kpfonts} if you want a thinner look.
-%-----------------------------
-% Page Layout
-\geometry{top=3cm, bottom=2cm, left=2cm, right=2cm}
+\documentclass{axiobac}
 
-% Header configuration 
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{\textbf{RÉPUBLIQUE TUNISIENNE}\\MINISTÈRE DE L'ÉDUCATION NATIONALE}
-\rhead{\textbf{EXAMEN DU BACCALAURÉAT}\\JUIN 1984}
-\renewcommand{\headrulewidth}{0pt}
-\cfoot{\thepage}
-
-% Page Layout
-\geometry{top=3cm, bottom=2cm, left=2cm, right=2cm} % Increased top margin for header
-
-% Header configuration
-\pagestyle{fancy}
-\fancyhf{}
-% We keep only Left and Right headers to avoid collision in the center
-\lhead{\textbf{RÉPUBLIQUE TUNISIENNE}\\MINISTÈRE DE L'ÉDUCATION NATIONALE}
-\rhead{\textbf{EXAMEN DU BACCALAURÉAT}\\JUIN 1984}
-\renewcommand{\headrulewidth}{0pt} % Optional: removes the line below header if desired
-\cfoot{\thepage}
+\annee{1984}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques}
+\sectionbac{Math-Sciences \& Math-Technique}
+\sections{mathematiques, sciences-techniques}
+\duree{4 heures}
+\coefficient{5}
+\ministere{Ministère de l'Éducation Nationale}
 
 \begin{document}
-
-% Title Block for the Subject
-\begin{center}
-    \vspace*{0.5cm}
-    {\Large \textbf{ÉPREUVE : MATHÉMATIQUES}}\\[0.2cm]
-    \rule{0.8\textwidth}{0.5pt} % A nice separating line
-\end{center}
-
-\begin{center}
-    \fbox{\parbox{0.9\textwidth}{
-        \centering
-        \textbf{SECTION :} MATH-SCIENCES \& MATH-TECHNIQUE \\
-        \textbf{DURÉE :} 4 heures \quad | \quad \textbf{COEFFICIENT :} 5
-    }}
-\end{center}
-
-\vspace{0.5cm}
+\entete
 
 %----------------------------------------------------------------------------------------
 %   EXERCICE 1
 %----------------------------------------------------------------------------------------
-\section*{1\textsuperscript{er} Exercice (4 points)}
+\begin{exercice}{4}
+\titre{Homothétie et similitude dans le plan complexe}
+\chapitres{Similitudes, Nombres complexes}
+\banque{0000001}
 
 Soit $\mathcal{P}$ un plan affine euclidien orienté rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$. \\
 On donne les points $A(1,0)$, $B(-1,0)$ et $C(-1,-1)$. \\
@@ -81,14 +39,14 @@ On donne les points $A(1,0)$, $B(-1,0)$ et $C(-1,-1)$. \\
     \item Démontrer que, pour $M \neq C$, le triangle $CM'M$ est rectangle isocèle.
 \end{enumerate}
 
-\vspace{0.5cm}
-\hrule
-\vspace{0.5cm}
+\end{exercice}
 
 %----------------------------------------------------------------------------------------
 %   EXERCICE 2
 %----------------------------------------------------------------------------------------
-\section*{2\textsuperscript{ème} Exercice (4 points)}
+\begin{exercice}{4}
+\titre{Application affine, translation et symétrie}
+\horsprogramme
 
 $\mathcal{P}$ désigne le plan affine muni d'un repère $(O, \vec{i}, \vec{j})$. \\
 Soit $f$ l'application affine de $\mathcal{P}$ qui, au point $M(x, y)$, associe le point $M'(x', y')$ tel que :
@@ -104,16 +62,17 @@ Soit $f$ l'application affine de $\mathcal{P}$ qui, au point $M(x, y)$, associe 
     \item Démontrer que $f = t \circ s = s \circ t$ où $t$ est une translation et $s$ une symétrie. Caractériser $t$ et $s$.
 \end{enumerate}
 
-\vspace{0.5cm}
-\hrule
-\vspace{0.5cm}
+\end{exercice}
 
 %----------------------------------------------------------------------------------------
 %   PROBLÈME
 %----------------------------------------------------------------------------------------
-\section*{Problème (12 points)}
+\begin{probleme}{12}
 
-\subsection*{Partie I}
+\partie{I}
+\titre{Fonction exponentielle, bijection réciproque et aire}
+\chapitres{Fonctions exponentielles, Fonctions réciproques, Intégrales}
+\banque{0000140}
 Soit $f_m$ la fonction numérique à variable réelle définie par :
 \[ f_m(x) = \frac{m e^{2x}}{e^{2x} + 1} \]
 où $m$ est un paramètre réel de l'intervalle $]0, 2]$.
@@ -142,7 +101,9 @@ où $m$ est un paramètre réel de l'intervalle $]0, 2]$.
     \end{enumerate}
 \end{enumerate}
 
-\subsection*{Partie II}
+\partie{II}
+\titre{Endomorphismes, matrices et suite}
+\horsprogramme
 Soit $E$ un plan vectoriel réel de base $\mathcal{B} = (\vec{i}, \vec{j})$.
 À tout couple $(a, t)$ de $\mathbb{R}^2$, on fait correspondre l'endomorphisme $\varphi_{(a,t)}$ de $E$ défini par sa matrice $M_{(a,t)}$ dans la base $\mathcal{B}$ :
 \[
@@ -180,5 +141,7 @@ M_{(a,t)} = \begin{pmatrix}
         \item Calculer l'intégrale $\int_{-\ln 4}^{-\ln 2} l(f_2(t)) \, dt$.
     \end{enumerate}
 \end{enumerate}
+
+\end{probleme}
 
 \end{document}
