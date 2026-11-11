@@ -80,17 +80,8 @@ L'existence est donnée par le théorème suivant, admis à ce niveau.
 Toute fonction **continue** sur un intervalle $I$ admet des primitives sur $I$. Plus précisément, pour $a \in I$, la fonction $F(x) = \displaystyle\int_a^x f(t)\,dt$ est **la primitive de $f$ qui s'annule en $a$**.
 :::
 
-:::curious[L'aire sous la courbe]
-Attention au cercle vicieux : au lycée, l'intégrale est **définie** à partir d'une primitive, on ne peut donc pas s'en servir ici. La vraie preuve définit d'abord l'aire $A(x)$ sous la courbe entre $a$ et $x$ comme limite de sommes de Riemann, ce qui demande la continuité uniforme (hors programme). En admettant que cette aire existe et vérifie Chasles, voici pourquoi $A' = f$ (on prend $f$ positive et $h > 0$ pour la lisibilité).
-
-| Étape | Justification |
-|---|---|
-| $A(x + h) - A(x)$ est l'aire de la bande entre $x$ et $x + h$ | Chasles |
-| Sur $[x\,;x + h]$, $f$ a un minimum $m_h$ et un maximum $M_h$ | image d'un segment par une fonction continue |
-| $m_h\,h \leq A(x + h) - A(x) \leq M_h\,h$ | la bande est entre deux rectangles |
-| $m_h \leq \dfrac{A(x + h) - A(x)}{h} \leq M_h$ | on divise par $h > 0$ |
-| $m_h \to f(x)$ et $M_h \to f(x)$ quand $h \to 0$ | continuité de $f$ en $x$ |
-| Donc $A'(x) = f(x)$ | théorème des gendarmes |
+:::curious[L'idée de la preuve]{theorem="Existence des primitives"}
+L'idée : prendre pour $F(x)$ l'**aire** sous la courbe entre $a$ et $x$. Quand $x$ avance de $h$, l'aire gagne une bande presque rectangulaire, de hauteur proche de $f(x)$ : $\dfrac{F(x + h) - F(x)}{h} \approx f(x)$, donc $F' = f$.
 :::
 
 

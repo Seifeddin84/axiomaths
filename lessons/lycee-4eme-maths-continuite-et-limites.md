@@ -174,19 +174,8 @@ Soit $f$ une fonction **continue sur $[a\,;b]$**. Pour tout réel $k$ compris en
 
 Ce théorème est admis. Son énoncé est une évidence géométrique : un trait continu qui part de la hauteur $f(a)$ et arrive à la hauteur $f(b)$ coupe toute horizontale intermédiaire. Il est cependant **faux sans la continuité** : la partie entière $E$ vérifie $E(0) = 0$ et $E(2) = 2$, mais ne prend que des valeurs entières, donc jamais la valeur intermédiaire $\dfrac12$.
 
-:::curious[Preuve par dichotomie]
-Quitte à remplacer $f$ par $-f$, on suppose $f(a) \leq k \leq f(b)$. On coupe l'intervalle en deux, et on garde la moitié qui « encadre » encore $k$.
-
-| Étape | Justification |
-|---|---|
-| $a_0 = a$, $b_0 = b$. Si $m = \dfrac{a_n + b_n}{2}$ vérifie $f(m) \leq k$, on pose $a_{n+1} = m$, $b_{n+1} = b_n$ ; sinon $a_{n+1} = a_n$, $b_{n+1} = m$ | construction |
-| Pour tout $n$ : $f(a_n) \leq k \leq f(b_n)$ | vrai pour $n = 0$, et chaque étape le conserve |
-| $(a_n)$ est croissante, $(b_n)$ décroissante, et $b_n - a_n = \dfrac{b - a}{2^n} \to 0$ | on remplace une borne par le milieu |
-| $(a_n)$ et $(b_n)$ sont adjacentes : elles ont une limite commune $c \in [a\,;b]$ | théorème des suites adjacentes |
-| $f(a_n) \to f(c)$ et $f(b_n) \to f(c)$ | $f$ est continue en $c$ |
-| $f(c) \leq k \leq f(c)$, donc $f(c) = k$ | passage à la limite dans les inégalités |
-
-Cette preuve est aussi un **algorithme** : chaque étape divise par $2$ la largeur de l'encadrement de $c$. Elle s'appuie sur les suites adjacentes, qui reposent elles-mêmes sur une propriété de $\mathbb R$ admise : toute suite croissante et majorée converge. Dans $\mathbb Q$ c'est faux, et le théorème aussi : $x^2 - 2$ passe de $-1$ à $2$ sur $[1\,;2]$ sans jamais s'annuler en un rationnel.
+:::curious[L'idée de la preuve]{theorem="Théorème des valeurs intermédiaires"}
+L'idée : couper $[a\,;b]$ en deux, garder la moitié où $f$ « encadre » encore $k$, et recommencer. Les intervalles emboîtés se resserrent sur un point $c$, et la continuité force $f(c) = k$.
 :::
 
 

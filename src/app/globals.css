@@ -538,12 +538,34 @@ button, .btn, a.button {
 .lesson-box--curious > summary::before { content: '▸'; color: var(--c); font-weight: 900; }
 .lesson-box--curious[open] > summary::before { content: '▾'; }
 .lesson-box--curious:not([open]) > summary { border-bottom: none; }
-.lesson-box--curious .lesson-box__body::after { content: '∎'; display: block; text-align: right; margin: -0.6rem 0 0.6rem; color: var(--c); }
 .lesson-box__tag {
   margin-inline-start: auto; padding: 0.05rem 0.5rem; border-radius: 999px; font-family: 'Roboto', sans-serif;
   font-size: 0.7rem; font-weight: 800; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
 }
-.lesson-content[dir='rtl'] .lesson-box--curious .lesson-box__body::after { text-align: left; }
+
+/* link from a theorem of a lesson to its wiki entry */
+.lesson-content .lesson-box__wiki { margin: 0.25rem 0 0.9rem; }
+.lesson-content .lesson-box__wiki a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0.35rem 0.85rem; border-radius: 10px;
+  font-family: 'Roboto', ui-sans-serif, sans-serif; font-size: 0.85rem; font-weight: 800; line-height: 1.3;
+  text-decoration: none; color: var(--c); border: 1.5px solid color-mix(in srgb, var(--c) 55%, transparent);
+  background: color-mix(in srgb, var(--c) 6%, transparent);
+}
+.lesson-content .lesson-box__wiki a:hover { color: #fff; background: var(--c); }
+
+/* exam-style write-up of a proof: one idea per line, as on an exam sheet */
+.lesson-redaction {
+  margin: 1rem 0 0.5rem; padding: 0.75rem 1rem 0.25rem; border-radius: 10px;
+  border: 1px solid #d1d5db; border-left: 4px solid #0d9488; background: #fff;
+}
+.dark .lesson-redaction { background: rgba(0, 0, 0, 0.25); border-color: #374151; border-left-color: #14b8a6; }
+.lesson-redaction p { line-height: 1.8; margin: 0 0 0.55rem; padding-inline-start: 0.6rem; border-inline-start: 2px solid color-mix(in srgb, #0d9488 25%, transparent); }
+.lesson-redaction p:last-child { margin-bottom: 0.75rem; }
+.lesson-redaction .lesson-redaction__label {
+  margin-bottom: 0.6rem; padding: 0; border: none; font-family: 'Roboto', ui-sans-serif, sans-serif; font-size: 0.8rem; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 0.06em; color: #0d9488; white-space: normal;
+}
+.lesson-content[dir='rtl'] .lesson-redaction { border-left-width: 1px; border-right: 4px solid #0d9488; }
 
 /* hidden answers */
 .lesson-answer {
@@ -630,8 +652,18 @@ button, .btn, a.button {
 .wiki-version .lesson-content { font-size: 1rem; }
 .wiki-version .lesson-box:first-child { margin-top: 0.75rem; }
 .wiki-proof { margin: 0.75rem 0 0; font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif; font-size: 0.9rem; }
-details.wiki-proof > summary { cursor: pointer; font-weight: 700; color: #4b5563; padding: 0.25rem 0; }
-.dark details.wiki-proof > summary { color: #d1d5db; }
+/* proof toggle: a real button, easy to see and to tap */
+details.wiki-proof > summary {
+  display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0.5rem 1rem;
+  cursor: pointer; list-style: none; border-radius: 10px; font-weight: 800; font-size: 0.95rem;
+  color: #fff; background: #0d9488; user-select: none;
+}
+details.wiki-proof > summary::-webkit-details-marker { display: none; }
+details.wiki-proof > summary::before { content: '▸'; }
+details.wiki-proof[open] > summary::before { content: '▾'; }
+details.wiki-proof > summary:hover { background: #0f766e; }
+details.wiki-proof.wiki-proof--curious > summary { background: #7c3aed; }
+details.wiki-proof.wiki-proof--curious > summary:hover { background: #6d28d9; }
 details.wiki-proof[open] > summary { margin-bottom: 0.5rem; }
 p.wiki-proof { font-style: italic; color: #6b7280; }
 .dark p.wiki-proof { color: #9ca3af; }

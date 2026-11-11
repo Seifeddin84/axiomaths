@@ -26,12 +26,20 @@ export interface HomeBacSection {
   count: number;
 }
 
+export interface HomeRevisionSection {
+  title: string;
+  href: string;
+  cours: number;
+  exercices: number;
+}
+
 interface Props {
   levels: HomeLevel[];
   counts: Record<string, HomeLevelCounts>;   // by level key
   totals: HomeLevelCounts;
   bacSections: HomeBacSection[];
   bacTotal: number;
+  revision: HomeRevisionSection[];
 }
 
 type TabId = 'classe' | 'devoirs' | 'bac';
@@ -44,13 +52,13 @@ const ROW_OFF = 'border-dashed border-gray-200 dark:border-gray-800 text-gray-40
 
 const plural = (n: number, one: string, many: string) => `${n} ${n > 1 ? many : one}`;
 
-export default function HomeTasks({ levels, counts, totals, bacSections, bacTotal }: Props) {
+export default function HomeTasks({ levels, counts, totals, bacSections, bacTotal, revision }: Props) {
   const [tab, setTab] = useState<TabId>('classe');
 
   const tabs: { id: TabId; label: string; sub: string }[] = [
     { id: 'classe', label: 'Cours & exercices', sub: `${totals.cours} cours · ${totals.exercices} ex.` },
     { id: 'devoirs', label: 'Devoirs', sub: totals.devoirs === 0 ? 'bientôt' : String(totals.devoirs) },
-    { id: 'bac', label: 'Bac', sub: bacTotal === 0 ? 'bientôt' : String(bacTotal) },
+    { id: 'bac', label: 'Bac', sub: '4ème · sujets' },
   ];
 
   const levelRow = (level: HomeLevel) => {
@@ -127,22 +135,41 @@ export default function HomeTasks({ levels, counts, totals, bacSections, bacTota
 
       <div role="tabpanel" className="mt-4 p-4 sm:p-6 rounded-lg border-2 border-gray-200 dark:border-gray-800">
         {tab === 'bac' ? (
-          <>
-            <p className="mb-4 text-sm font-bold text-gray-600 dark:text-gray-400">Choisis ta section de 4ème</p>
-            <ul className="grid grid-cols-2 gap-2 sm:gap-3">
-              {bacSections.map(s => (
-                <li key={s.slug}>
-                  <Link href={`/bac?section=${s.slug}`} className={`${ROW} ${s.count === 0 ? ROW_OFF : ROW_ON}`}>
-                    <span className="font-black leading-tight">{s.label}</span>
-                    <span className="shrink-0 text-xs font-semibold opacity-80">{s.count === 0 ? 'bientôt' : s.count}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <Link href="/bac" className="mt-4 inline-block text-sm font-bold text-accent-600 dark:text-primary-400 hover:underline">
-              Tous les sujets du bac →
-            </Link>
-          </>
+          <div className="space-y-6">
+            <div>
+              <h3 className="mb-1 text-base font-black text-gray-900 dark:text-white">Réviser le bac</h3>
+              <p className="mb-3 text-sm font-bold text-gray-600 dark:text-gray-400">4ème : choisis ta section pour les chapitres, cours et exercices</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                {revision.map(s => (
+                  <li key={s.href}>
+                    <Link href={s.href} className={`${ROW} ${ROW_ON}`}>
+                      <span className="min-w-0 font-black leading-tight">{s.title}</span>
+                      <span className="shrink-0 text-xs font-semibold opacity-80 whitespace-nowrap">
+                        {[s.cours > 0 ? `${s.cours} cours` : '', s.exercices > 0 ? `${s.exercices} ex.` : ''].filter(Boolean).join(' · ')}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-1 text-base font-black text-gray-900 dark:text-white">Sujets du bac</h3>
+              <p className="mb-3 text-sm font-bold text-gray-600 dark:text-gray-400">Les examens des années précédentes, par section</p>
+              <ul className="grid grid-cols-2 gap-2 sm:gap-3">
+                {bacSections.map(s => (
+                  <li key={s.slug}>
+                    <Link href={`/bac?section=${s.slug}`} className={`${ROW} ${s.count === 0 ? ROW_OFF : ROW_ON}`}>
+                      <span className="font-black leading-tight">{s.label}</span>
+                      <span className="shrink-0 text-xs font-semibold opacity-80">{s.count === 0 ? 'bientôt' : s.count}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/bac" className="mt-3 inline-block text-sm font-bold text-accent-600 dark:text-primary-400 hover:underline">
+                Tous les sujets du bac →
+              </Link>
+            </div>
+          </div>
         ) : (
           <>
             <p className="mb-4 text-sm font-bold text-gray-600 dark:text-gray-400">

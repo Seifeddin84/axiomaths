@@ -247,19 +247,8 @@ $$
 
 Ce théorème est admis dans le manuel. Il garantit que le cycle des puissances de $a$ modulo $p$ a une longueur qui **divise $p - 1$**.
 
-:::curious[Multiplier les restes par a]
-L'idée : multiplier par $a$ **mélange** les restes $1, 2, \dots, p - 1$ sans en perdre un seul. Avec $p = 7$ et $a = 3$, les restes de $3, 6, 9, 12, 15, 18$ sont $3, 6, 2, 5, 1, 4$ : les mêmes nombres, dans un autre ordre.
-
-| Étape | Justification |
-|---|---|
-| Pour $1 \leq r \leq p - 1$, $p$ ne divise pas $ar$ | $p$ premier ne divise ni $a$ ni $r$ (lemme de Gauss) |
-| Si $ar \equiv as \pmod p$ avec $1 \leq s < r \leq p - 1$, alors $p \mid a(r - s)$, donc $p \mid r - s$ : impossible car $0 < r - s < p$ | lemme de Gauss |
-| Les restes de $a, 2a, \dots, (p - 1)a$ sont donc $1, 2, \dots, p - 1$ dans un autre ordre | $p - 1$ restes non nuls, deux à deux distincts |
-| En multipliant : $a^{p-1}\,(p - 1)! \equiv (p - 1)! \pmod p$ | même produit, à l'ordre près |
-| $p$ divise $\big(a^{p-1} - 1\big)\,(p - 1)!$ et est premier avec $(p - 1)!$ | tous les facteurs de $(p - 1)!$ sont $< p$ |
-| Donc $p \mid a^{p-1} - 1$ | lemme de Gauss |
-
-Le lemme de Gauss est démontré au chapitre « Identité de Bézout ».
+:::curious[L'idée de la preuve]{theorem="Théorème de Fermat"}
+L'idée : multiplier par $a$ **mélange** les restes $1, 2, \dots, p - 1$ sans en perdre un seul ($p = 7$, $a = 3$ : $3, 6, 2, 5, 1, 4$). Le produit des deux listes donne $a^{p-1}\,(p - 1)! \equiv (p - 1)! \pmod p$, et on simplifie par $(p - 1)!$.
 :::
 
 
