@@ -3,9 +3,9 @@ import { getProfessorOverview } from '@/lib/professorStats';
 import { getAllExercises } from '@/lib/fileReader';
 import { getAllLessons, normalize } from '@/lib/lessonReader';
 import { getAllExams } from '@/lib/exams';
-import { fuzzyMatch } from '@/lib/fuzzy';
+import { BAC_SECTIONS, bacSectionSlugs, exerciseSections, isBacExam, isBacExercise } from '@/lib/bac';
 import HomeSearchBar from '@/components/HomeSearchBar';
-import HomeTasks, { HomeLevel, HomeTab } from '@/components/HomeTasks';
+import HomeTasks, { HomeBacSection, HomeLevel, HomeTab } from '@/components/HomeTasks';
 
 const LEVELS: HomeLevel[] = [
   { key: '7eme', label: '7ème', school: 'college' },
@@ -29,7 +29,18 @@ export default async function HomePage() {
 
   const exercises = getAllExercises();
   const lessons = getAllLessons();
-  const exams = getAllExams();
+  const allExams = getAllExams();
+  const exams = allExams.filter(e => !isBacExam(e));
+  const bacExercises = exercises.filter(isBacExercise);
+  const bacPapers = allExams.filter(isBacExam);
+  const bacSections: HomeBacSection[] = BAC_SECTIONS.map(s => ({
+    slug: s.slug,
+    label: s.short,
+    count:
+      bacExercises.filter(ex => bacSectionSlugs(exerciseSections(ex)).includes(s.slug)).length +
+      bacPapers.filter(p => bacSectionSlugs([p.section]).includes(s.slug)).length,
+  }));
+  const bacTotal = bacExercises.length + bacPapers.length;
   const counts: Record<HomeTab, Record<string, number>> = {
     exercices: countByLevel(exercises.map(e => e.level)),
     cours: countByLevel(lessons.map(l => l.level)),
@@ -40,7 +51,6 @@ export default async function HomePage() {
     cours: lessons.length,
     devoirs: exams.length,
   };
-  const bacCount = exercises.filter(e => fuzzyMatch('bac', [e.source, ...(e.tags ?? [])].join(' '))).length;
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-14">
@@ -57,7 +67,7 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <HomeTasks levels={LEVELS} counts={counts} totals={totals} bacCount={bacCount} />
+      <HomeTasks levels={LEVELS} counts={counts} totals={totals} bacSections={bacSections} bacTotal={bacTotal} />
 
       <div className="mt-6 flex flex-wrap gap-3 text-sm font-bold">
         <Link href="/theoremes" className="px-4 py-2 rounded-full border-2 border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500">

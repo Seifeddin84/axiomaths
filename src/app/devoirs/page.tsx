@@ -1,10 +1,11 @@
 import { getAllExams, getExamFilterOptions, getExamChapters } from '@/lib/exams';
 import DevoirsSearchTable from '@/components/DevoirsSearchTable';
+import { isBacExam } from '@/lib/bac';
 
 // Server component - fetches data at build time
 export default async function DevoirsPage({ searchParams }: { searchParams: Promise<{ niveau?: string }> }) {
   const { niveau } = await searchParams;
-  const allExams = getAllExams();
+  const allExams = getAllExams().filter(e => !isBacExam(e)); // bac papers live on /bac
   const filterOptions = getExamFilterOptions(); // No longer needs exams parameter
   const chapters = getExamChapters(allExams); // Get chapters from actual exams
   
