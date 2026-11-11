@@ -8,7 +8,7 @@ source: "Bac Tunisie 1984"
 title: "Similitude complexe"
 country: "Tunisie"
 year: 1984
-professor: Bac
+professor: null
 difficulty: "Facile"
 points: 4
 tags: ["complex-numbers", "geometry"]
