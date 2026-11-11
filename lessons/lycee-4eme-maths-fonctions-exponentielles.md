@@ -136,7 +136,7 @@ $$
 
 Y a-t-il d'autres fonctions qui valent leur dérivée ? Presque pas : à un facteur près, non.
 
-:::theorem[Unicité]
+:::theorem[Unicité]{wiki="Unicité de la fonction exponentielle"}
 Soit $f$ une fonction dérivable sur $\mathbb R$ telle que $f' = f$ et $f(0) = 1$. Alors $f(x) = e^x$ pour tout $x$.
 :::
 

@@ -141,7 +141,7 @@ Un quotient égal à $+1$ signale un déplacement, à $-1$ un antidéplacement. 
 Plante deux punaises dans ta feuille de calque pour imposer où vont $A$ et $B$. La feuille ne peut plus glisser ni pivoter. Il reste un seul degré de liberté, mais il est discret : la **retourner** ou non. D'où le résultat : deux points d'arrivée imposés laissent exactement deux isométries, un déplacement et un antidéplacement.
 :::
 
-:::theorem[Unicité]
+:::theorem[Unicité]{wiki="Unicité d'un déplacement fixé par deux points"}
 Deux déplacements qui coïncident sur deux points distincts sont égaux. Deux antidéplacements qui coïncident sur deux points distincts sont égaux.
 :::
 
