@@ -1,0 +1,184 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, mathrsfs}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%--------- Font Setup ---------
+%\usepackage{euler} % Added euler font package
+\usepackage[bitstream-charter]{mathdesign}
+% OR for a more modern setup:
+%\usepackage{XCharter}
+%\usepackage[charter]{newtxmath}
+%\usepackage[light]{kpfonts}
+% Options to try: \usepackage[light]{kpfonts} if you want a thinner look.
+%-----------------------------
+% Page Layout
+\geometry{top=3cm, bottom=2cm, left=2cm, right=2cm}
+
+% Header configuration 
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{RÉPUBLIQUE TUNISIENNE}\\MINISTÈRE DE L'ÉDUCATION NATIONALE}
+\rhead{\textbf{EXAMEN DU BACCALAURÉAT}\\JUIN 1984}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+
+% Page Layout
+\geometry{top=3cm, bottom=2cm, left=2cm, right=2cm} % Increased top margin for header
+
+% Header configuration
+\pagestyle{fancy}
+\fancyhf{}
+% We keep only Left and Right headers to avoid collision in the center
+\lhead{\textbf{RÉPUBLIQUE TUNISIENNE}\\MINISTÈRE DE L'ÉDUCATION NATIONALE}
+\rhead{\textbf{EXAMEN DU BACCALAURÉAT}\\JUIN 1984}
+\renewcommand{\headrulewidth}{0pt} % Optional: removes the line below header if desired
+\cfoot{\thepage}
+
+\begin{document}
+
+% Title Block for the Subject
+\begin{center}
+    \vspace*{0.5cm}
+    {\Large \textbf{ÉPREUVE : MATHÉMATIQUES}}\\[0.2cm]
+    \rule{0.8\textwidth}{0.5pt} % A nice separating line
+\end{center}
+
+\begin{center}
+    \fbox{\parbox{0.9\textwidth}{
+        \centering
+        \textbf{SECTION :} MATH-SCIENCES \& MATH-TECHNIQUE \\
+        \textbf{DURÉE :} 4 heures \quad | \quad \textbf{COEFFICIENT :} 5
+    }}
+\end{center}
+
+\vspace{0.5cm}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\section*{1\textsuperscript{er} Exercice (4 points)}
+
+Soit $\mathcal{P}$ un plan affine euclidien orienté rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$. \\
+On donne les points $A(1,0)$, $B(-1,0)$ et $C(-1,-1)$. \\
+À tout point $M$ d'affixe $z$, on fait correspondre :
+\begin{itemize}
+    \item Le point $M_1$ d'affixe $z_1$ par l'homothétie de centre $A$ et de rapport 2.
+    \item Le point $M_2$ d'affixe $z_2$ par la similitude directe de centre $B$, de rapport 2 et d'angle $\frac{\pi}{2}$.
+\end{itemize}
+
+\begin{enumerate}
+    \item Calculer $z_1$ et $z_2$ en fonction de $z$.
+    \item Soit $M'$ le milieu de $[M_1 M_2]$.
+    \begin{enumerate}
+        \item Calculer l'affixe $z'$ du point $M'$ en fonction de $z$.
+        \item Caractériser l'application $T$ qui au point $M$ associe $M'$.
+    \end{enumerate}
+    \item Démontrer que, pour $M \neq C$, le triangle $CM'M$ est rectangle isocèle.
+\end{enumerate}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\section*{2\textsuperscript{ème} Exercice (4 points)}
+
+$\mathcal{P}$ désigne le plan affine muni d'un repère $(O, \vec{i}, \vec{j})$. \\
+Soit $f$ l'application affine de $\mathcal{P}$ qui, au point $M(x, y)$, associe le point $M'(x', y')$ tel que :
+\[
+\begin{cases}
+    x' = x + y \\
+    y' = -y + 4
+\end{cases}
+\]
+
+\begin{enumerate}
+    \item Démontrer que $f \circ f$ est une translation de vecteur $\vec{u}$ que l'on déterminera.
+    \item Démontrer que $f = t \circ s = s \circ t$ où $t$ est une translation et $s$ une symétrie. Caractériser $t$ et $s$.
+\end{enumerate}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\section*{Problème (12 points)}
+
+\subsection*{Partie I}
+Soit $f_m$ la fonction numérique à variable réelle définie par :
+\[ f_m(x) = \frac{m e^{2x}}{e^{2x} + 1} \]
+où $m$ est un paramètre réel de l'intervalle $]0, 2]$.
+
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Étudier les variations de $f_m$. En déduire l'ensemble $J_m$ image de $\mathbb{R}$ par $f_m$.
+        \item Montrer que $f_m$ est une bijection de $\mathbb{R}$ sur $J_m$.
+        \item Calculer $f_m^{-1}(x)$ pour $x \in J_m$.
+        \item Quelle est l'image de $\mathbb{R}^*_-$ par $f_m$ ?
+    \end{enumerate}
+
+    \item Pour tout $x$ de $\mathbb{R}$, on pose $g_m(x) = f_m(x) - x$.
+    \begin{enumerate}
+        \item Étudier les variations de $g_m$.
+        \item Montrer que l'équation $f_m(x) = x$ admet dans $\mathbb{R}$ une solution unique $x_m$ et que :
+        \[ x_m \in \left] \frac{m}{2}, m \right[ \]
+    \end{enumerate}
+
+    \item Soit $(\mathcal{C}_m)$ la courbe représentative de $f_m$ dans un plan rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$ et $(\mathcal{C}'_m)$ celle de $f_m^{-1}$.
+    \begin{enumerate}
+        \item Étudier la position de $(\mathcal{C}_m)$ et de la droite $\mathcal{D}$ d'équation $y=x$. Construire $(\mathcal{C}_2)$ et $(\mathcal{C'}_2)$.
+        \item Soit $(\mathcal{H}_m)$ la partie du plan limitée par $(\mathcal{C}_m)$, $(\mathcal{C}'_m)$ et les droites d'équations respectives $x=0$ et $y=0$. Calculer l'aire $\mathcal{A}$ de $(\mathcal{H}_m)$ en fonction de $x_m$ et $m$.
+        \item Montrer que $\lim\limits_{m \to 0^+} \dfrac{x_m}{m} = \dfrac{1}{2}$. En déduire $\lim\limits_{m \to 0^+} \dfrac{\mathcal{A}}{m^2}$.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Partie II}
+Soit $E$ un plan vectoriel réel de base $\mathcal{B} = (\vec{i}, \vec{j})$.
+À tout couple $(a, t)$ de $\mathbb{R}^2$, on fait correspondre l'endomorphisme $\varphi_{(a,t)}$ de $E$ défini par sa matrice $M_{(a,t)}$ dans la base $\mathcal{B}$ :
+\[
+M_{(a,t)} = \begin{pmatrix}
+    f_2(t) - 2a & 2a \\
+    f_2(t) - 3a & 3a
+\end{pmatrix}
+\]
+
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item Déterminer l'ensemble $S$ des couples de réels $(a, t)$ pour chacun desquels $\varphi_{(a,t)}$ est un automorphisme de $E$.
+        \item Dans le cas où $\varphi_{(a,t)}$ n'est pas un automorphisme de $E$, déterminer le noyau et l'image de $\varphi_{(a,t)}$. Montrer dans ce cas que $\varphi_{(a,t)}$ est la composée de deux applications simples que l'on caractérisera.
+    \end{enumerate}
+
+    \item Dans toute la suite, on prend $a=1$, $t \in \mathbb{R}^*_-$ et on note $T = f_2(t)$ et $\varphi_T = \varphi_{(1,t)}$. \\
+    On pose $\varphi_T^1 = \varphi_T$ et pour tout $n \in \mathbb{N}^*$, $\varphi_T^{n+1} = \varphi_T^n \circ \varphi_T$.
+    \begin{enumerate}
+        \item Démontrer, par récurrence, que pour tout $n$ de $\mathbb{N}^*$, la matrice dans la base $\mathcal{B}$ de $\varphi_T^n$ est de la forme :
+        \[
+        \begin{pmatrix}
+            T^n - P_n(T) & P_n(T) \\
+            T^n - P_n(T) - 1 & P_n(T) + 1
+        \end{pmatrix}
+        \]
+        où $P_n(T)$ est un polynôme vérifiant pour tout $n$ de $\mathbb{N}^*$ :
+        \[ P_{n+1}(T) = P_n(T) + 2T^n \quad (1) \]
+        \item Utiliser la relation (1) pour expliciter le polynôme $P_n(T)$ pour tout $n$ de $\mathbb{N}^*$.
+    \end{enumerate}
+
+    \item 
+    \begin{enumerate}
+        \item Montrer que la suite de terme général $P_n(T)$ converge et calculer sa limite $l(T)$.
+        \item Calculer l'intégrale $\int_{-\ln 4}^{-\ln 2} l(f_2(t)) \, dt$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

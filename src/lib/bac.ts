@@ -9,6 +9,9 @@
 
 import type { Exercise } from '@/types/exercise';
 import type { Exam } from '@/lib/exams';
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
 import { foldText } from '@/lib/fuzzy';
 
 export interface BacSection {
@@ -46,4 +49,57 @@ export function isBacExercise(ex: Exercise): boolean {
 
 export function isBacExam(exam: Exam): boolean {
   return /^\s*bac\b/i.test(String(exam.exam_type ?? ''));
+}
+
+// ---------------------------------------------------------------------------------------------
+// Bac papers: public/bac/<id>/sujet.yaml + axiomath.pdf (rewritten in LaTeX) + original.pdf (scan)
+// + sujet.tex (source) + corrige.pdf (optional). Only these appear under « Sujets du bac ».
+
+export interface BacPaperExercise {
+  title: string;
+  points?: number;
+  chapters?: string[];
+}
+
+export interface BacPaper {
+  id: string;
+  year: number;
+  session: string;
+  month?: string;
+  subject: string;
+  sections: string[];        // slugs of BAC_SECTIONS
+  sectionLabel: string;      // historical name of the section
+  duration?: string;
+  coefficient?: number;
+  exercises: BacPaperExercise[];
+  notes?: string;
+  files: { axiomath?: string; original?: string; tex?: string; corrige?: string };
+}
+
+export function getBacPapers(): BacPaper[] {
+  const root = path.join(process.cwd(), 'public', 'bac');
+  if (!fs.existsSync(root)) return [];
+  const papers: BacPaper[] = [];
+  for (const id of fs.readdirSync(root)) {
+    const dir = path.join(root, id);
+    const meta = path.join(dir, 'sujet.yaml');
+    if (!fs.existsSync(meta)) continue;
+    const d = yaml.load(fs.readFileSync(meta, 'utf8')) as Record<string, any>;
+    const file = (name: string) => (fs.existsSync(path.join(dir, name)) ? `/bac/${id}/${name}` : undefined);
+    papers.push({
+      id,
+      year: Number(d.year),
+      session: String(d.session ?? 'principale'),
+      month: d.month,
+      subject: String(d.subject ?? 'Mathématiques'),
+      sections: (d.sections ?? []).map(String),
+      sectionLabel: String(d.section_label ?? ''),
+      duration: d.duration,
+      coefficient: d.coefficient,
+      exercises: d.exercises ?? [],
+      notes: d.notes,
+      files: { axiomath: file('axiomath.pdf'), original: file('original.pdf'), tex: file('sujet.tex'), corrige: file('corrige.pdf') },
+    });
+  }
+  return papers.sort((a, b) => b.year - a.year || a.session.localeCompare(b.session));
 }

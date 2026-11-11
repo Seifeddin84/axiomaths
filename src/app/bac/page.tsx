@@ -1,68 +1,56 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getAllExercises } from '@/lib/fileReader';
-import { getAllExams } from '@/lib/exams';
-import { BAC_SECTIONS, bacSectionSlugs, exerciseSections, isBacExam, isBacExercise } from '@/lib/bac';
-import ExercisesView from '@/components/ExercisesView';
+import { BAC_SECTIONS, getBacPapers } from '@/lib/bac';
 
 export const metadata: Metadata = {
-  title: 'Bac — sujets et exercices de mathématiques | Axiomaths',
-  description: 'Sujets du baccalauréat tunisien et exercices de bac, classés par section de 4ème année.',
+  title: 'Sujets du bac de mathématiques | Axiomaths',
+  description: 'Sujets du baccalauréat tunisien de mathématiques, réécrits en LaTeX, avec le sujet original en archive.',
 };
+
+const SESSION_LABEL: Record<string, string> = { principale: 'Session principale', 'contrôle': 'Session de contrôle', controle: 'Session de contrôle' };
 
 export default async function BacPage({ searchParams }: { searchParams: Promise<{ section?: string }> }) {
   const { section } = await searchParams;
   const current = BAC_SECTIONS.find(s => s.slug === section);
-
-  const exercises = getAllExercises().filter(isBacExercise);
-  const papers = getAllExams().filter(isBacExam);
-
-  const exSlugs = (ex: (typeof exercises)[number]) => bacSectionSlugs(exerciseSections(ex));
-  const paperSlugs = (p: (typeof papers)[number]) => bacSectionSlugs([p.section]);
-
-  const count = (slug: string) =>
-    exercises.filter(ex => exSlugs(ex).includes(slug)).length + papers.filter(p => paperSlugs(p).includes(slug)).length;
-
-  const shownExercises = current ? exercises.filter(ex => exSlugs(ex).includes(current.slug)) : exercises;
-  const shownPapers = (current ? papers.filter(p => paperSlugs(p).includes(current.slug)) : papers).sort(
-    (a, b) => String(b.year).localeCompare(String(a.year))
-  );
+  const papers = getBacPapers();
+  const shown = current ? papers.filter(p => p.sections.includes(current.slug)) : papers;
+  const count = (slug: string) => papers.filter(p => p.sections.includes(slug)).length;
 
   const chip = 'inline-flex items-center gap-2 px-3 py-2 rounded-full border-2 text-sm font-bold transition-colors';
+  const on = 'border-accent-500 bg-accent-500 text-white dark:border-primary-500 dark:bg-primary-500';
+  const off = 'border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500';
+  const empty = 'border-dashed border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-500';
+  const btn = 'inline-flex items-center justify-center min-h-[44px] px-4 rounded-lg text-sm font-bold transition-colors';
+
+  // group by year, most recent first
+  const years = [...new Set(shown.map(p => p.year))];
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <nav className="mb-4 text-sm font-semibold text-accent-600 dark:text-primary-400">
         <Link href="/" className="hover:underline">Accueil</Link>
         <span className="mx-2 text-gray-400">›</span>
-        <span className="text-gray-700 dark:text-gray-300">Bac{current ? ` · ${current.label}` : ''}</span>
+        <span className="text-gray-700 dark:text-gray-300">Sujets du bac{current ? ` · ${current.label}` : ''}</span>
       </nav>
 
       <h1 className="text-4xl sm:text-5xl font-black text-gray-900 dark:text-white mb-3">
-        Bac{current ? ` ${current.label}` : ''}
+        Sujets du bac{current ? ` · ${current.short}` : ''}
       </h1>
       <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 font-semibold mb-6">
-        Sujets du baccalauréat et exercices de bac, par section de 4ème année.
+        Chaque sujet existe en deux versions : réécrit proprement par AxioMath, et l&apos;original d&apos;époque, en archive.
       </p>
 
       <ul className="flex flex-wrap gap-2 mb-8">
         <li>
-          <Link
-            href="/bac"
-            className={`${chip} ${!current ? 'border-accent-500 bg-accent-500 text-white dark:border-primary-500 dark:bg-primary-500' : 'border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500'}`}
-          >
-            Toutes <span className="opacity-80">{exercises.length + papers.length}</span>
+          <Link href="/bac" className={`${chip} ${!current ? on : off}`}>
+            Toutes <span className="opacity-80">{papers.length}</span>
           </Link>
         </li>
         {BAC_SECTIONS.map(s => {
           const n = count(s.slug);
-          const active = current?.slug === s.slug;
           return (
             <li key={s.slug}>
-              <Link
-                href={`/bac?section=${s.slug}`}
-                className={`${chip} ${active ? 'border-accent-500 bg-accent-500 text-white dark:border-primary-500 dark:bg-primary-500' : n === 0 ? 'border-dashed border-gray-200 dark:border-gray-800 text-gray-400 dark:text-gray-500' : 'border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:border-accent-500 dark:hover:border-primary-500'}`}
-              >
+              <Link href={`/bac?section=${s.slug}`} className={`${chip} ${current?.slug === s.slug ? on : n === 0 ? empty : off}`}>
                 {s.short} <span className="opacity-80">{n}</span>
               </Link>
             </li>
@@ -70,53 +58,69 @@ export default async function BacPage({ searchParams }: { searchParams: Promise<
         })}
       </ul>
 
-      <section className="mb-10">
-        <h2 className="text-xl font-black text-gray-900 dark:text-white mb-3">Sujets complets</h2>
-        {shownPapers.length === 0 ? (
-          <p className="p-4 rounded-lg border-2 border-dashed border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 font-semibold">
-            Les sujets PDF du bac arrivent bientôt{current ? ` pour la section ${current.label}` : ''}.
-          </p>
-        ) : (
-          <ul className="space-y-2">
-            {shownPapers.map(p => (
-              <li key={p.uid}>
-                <a
-                  href={p.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between gap-3 p-4 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-accent-500 dark:hover:border-primary-500 transition-colors"
-                >
-                  <span>
-                    <span className="block font-black text-gray-900 dark:text-white">
-                      Bac {p.year} · {p.section}
+      {shown.length === 0 ? (
+        <p className="p-4 rounded-lg border-2 border-dashed border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 font-semibold">
+          Les sujets arrivent bientôt{current ? ` pour la section ${current.label}` : ''}.{' '}
+          <Link href="/lycee/4eme" className="text-accent-600 dark:text-primary-400 underline">En attendant : cours et exercices de 4ème</Link>
+        </p>
+      ) : (
+        years.map(year => (
+          <section key={year} className="mb-8">
+            <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-3">{year}</h2>
+            <ul className="space-y-4">
+              {shown.filter(p => p.year === year).map(p => (
+                <li key={p.id} className="p-4 sm:p-5 rounded-lg border-2 border-gray-200 dark:border-gray-700">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="text-lg font-black text-gray-900 dark:text-white">
+                      {p.subject} · {SESSION_LABEL[p.session] ?? p.session}{p.month ? ` (${p.month} ${p.year})` : ''}
+                    </h3>
+                    <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">
+                      {[p.duration, p.coefficient ? `coef. ${p.coefficient}` : ''].filter(Boolean).join(' · ')}
                     </span>
-                    <span className="block text-sm font-semibold text-gray-500 dark:text-gray-400">
-                      {p.exam_type}{p.duration ? ` · ${p.duration}` : ''}
-                    </span>
-                  </span>
-                  <span className="shrink-0 px-3 py-1 rounded bg-orange-500 text-white text-sm font-bold">PDF</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+                  </div>
+                  <p className="mt-1 text-sm font-bold text-gray-600 dark:text-gray-400">Section : {p.sectionLabel}</p>
 
-      <section>
-        <h2 className="text-xl font-black text-gray-900 dark:text-white mb-3">
-          Exercices de bac <span className="text-gray-500 dark:text-gray-400">({shownExercises.length})</span>
-        </h2>
-        {shownExercises.length === 0 ? (
-          <p className="p-4 rounded-lg border-2 border-dashed border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 font-semibold">
-            Pas encore d&apos;exercice de bac ici.{' '}
-            <Link href="/lycee/4eme" className="text-accent-600 dark:text-primary-400 underline">
-              Voir les cours et exercices de 4ème
-            </Link>
-          </p>
-        ) : (
-          <ExercisesView exercises={shownExercises} />
-        )}
-      </section>
+                  {p.exercises.length > 0 && (
+                    <ul className="mt-3 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+                      {p.exercises.map((e, i) => (
+                        <li key={i}>
+                          <span className="font-semibold">{e.title}</span>
+                          {e.points ? <span className="text-gray-500"> · {e.points} pts</span> : null}
+                          {e.chapters?.length ? <span className="text-gray-500"> · {e.chapters.join(', ')}</span> : null}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {p.files.axiomath && (
+                      <a href={p.files.axiomath} target="_blank" rel="noopener noreferrer" className={`${btn} bg-orange-500 text-white hover:bg-orange-600`}>
+                        Sujet · version AxioMath (PDF)
+                      </a>
+                    )}
+                    {p.files.original && (
+                      <a href={p.files.original} target="_blank" rel="noopener noreferrer" className={`${btn} border-2 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:border-orange-500`}>
+                        Original d&apos;époque (archive)
+                      </a>
+                    )}
+                    {p.files.corrige && (
+                      <a href={p.files.corrige} target="_blank" rel="noopener noreferrer" className={`${btn} border-2 border-teal-600 text-teal-700 dark:text-teal-400 hover:bg-teal-600 hover:text-white`}>
+                        Corrigé
+                      </a>
+                    )}
+                    {p.files.tex && (
+                      <a href={p.files.tex} download className="inline-flex items-center min-h-[44px] px-2 text-sm font-semibold text-gray-500 hover:text-orange-500 underline">
+                        source .tex
+                      </a>
+                    )}
+                  </div>
+                  {p.notes && <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">{p.notes}</p>}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      )}
     </div>
   );
 }
