@@ -2,7 +2,7 @@
 uid: "0000133"
 school: "lycee"
 level: "2eme"
-section: ["Sciences", "Technologies de l'Informatique"]
+section: ["Sciences", "Informatique"]
 chapter: "Polynômes"
 source: "Axiomaths"
 title: "Racine apparente, factorisation et signe d'un polynôme de degré 3"

@@ -2,7 +2,7 @@
 uid: "0000036"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
+section: ["Sciences", "Informatique"]
 chapter: "Homothéties"
 source: "Lycée Ibn Mandhour Nouvelle Medina: Benarous"
 title: "Configuration géométrique et Homothétie"

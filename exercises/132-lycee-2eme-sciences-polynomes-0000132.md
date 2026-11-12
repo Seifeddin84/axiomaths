@@ -2,7 +2,7 @@
 uid: "0000132"
 school: "lycee"
 level: "2eme"
-section: ["Sciences", "Technologies de l'Informatique"]
+section: ["Sciences", "Informatique"]
 chapter: "Polynômes"
 source: "Axiomaths"
 title: "QCM : degré, racines et factorisation"

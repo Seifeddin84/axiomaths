@@ -2,7 +2,7 @@
 uid: "0000035"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
+section: ["Sciences", "Informatique"]
 chapter: "Homothéties"
 source: "Lycée Ibn Mandhour Nouvelle Medina: Benarous"
 title: "Homothétie et Barycentre"

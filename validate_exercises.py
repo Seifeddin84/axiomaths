@@ -359,6 +359,17 @@ def validate_file(filepath, seen_uids, no_solution_ok=False):
     else:
         section_list = [section]
 
+    # 2ème Sciences and 2ème Informatique use the same maths textbook: the site shows a
+    # 2ème exercise tagged with one under both (src/lib/sections.ts). Keep the files explicit.
+    if school == "lycee" and level == "2eme":
+        twin = {"Sciences", "Informatique"}
+        tagged = set(s for s in section_list if s)
+        stale = [s for s in tagged if s not in twin and "informatique" in s.lower()]
+        if stale:
+            warnings.append(f"2ème section {stale} → use \"Informatique\" (same textbook as Sciences)")
+        elif tagged & twin and not twin <= tagged:
+            warnings.append('2ème Sciences and Informatique share one textbook → section: ["Sciences", "Informatique"]')
+
     # ── UID FORMAT ──
     if not re.match(r"^\d{7}$", uid):
         errors.append(f"uid '{uid}' must be exactly 7 digits (e.g. 0000001)")

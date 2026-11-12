@@ -12,7 +12,7 @@ title: "Notions de polynômes"
 slug: "lycee-2eme-sciences-polynomes"
 school: "lycee"
 level: "2eme"
-sections: ["Sciences", "Technologies de l'Informatique"]
+sections: ["Sciences", "Informatique"]   # en 2ème : toujours les deux (même manuel)
 chapter: "Polynômes"          # même valeur que le champ chapter des exercices
 summary: "Une ou deux phrases."
 prerequisites: ["Second degré"]

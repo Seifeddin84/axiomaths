@@ -2,7 +2,7 @@
 uid: "0000037"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
+section: ["Sciences", "Informatique"]
 chapter: "Homothéties"
 source: "PROBLEMS IN PLANE AND SOLID GEOMETRY v.1 Plane Geometry"
 title: "Cercles tangentes et Homothétie"

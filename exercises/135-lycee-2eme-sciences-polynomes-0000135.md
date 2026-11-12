@@ -2,7 +2,7 @@
 uid: "0000135"
 school: "lycee"
 level: "2eme"
-section: ["Sciences", "Technologies de l'Informatique"]
+section: ["Sciences", "Informatique"]
 chapter: "Polynômes"
 source: "Axiomaths"
 title: "Équation symétrique de degré 4 et somme des carrés"

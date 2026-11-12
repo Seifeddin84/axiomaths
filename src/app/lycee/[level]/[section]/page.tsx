@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation';
+import { isTwinSection2eme } from '@/lib/sections';
 import Link from 'next/link';
 import { getAllExercises } from '@/lib/fileReader';
 import { getLessonsForSection } from '@/lib/lessonReader';
@@ -42,6 +44,10 @@ export default async function SectionPage({
   const { level, section } = await params;
 
   const decodedSection = decodeURIComponent(section);
+  // old URL of 2ème « Technologies de l'Informatique »: the same content as 2ème Informatique
+  if (level === '2eme' && !['sciences', 'informatique'].includes(decodedSection.toLowerCase()) && isTwinSection2eme(decodedSection.replace(/-/g, ' '))) {
+    redirect(`/lycee/2eme/informatique`);
+  }
   const sectionDisplay = capitalize(decodedSection);
   const levelDisplay = LEVEL_DISPLAY[level];
 

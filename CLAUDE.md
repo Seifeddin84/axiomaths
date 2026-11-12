@@ -77,6 +77,11 @@ Section rules:
 - Collège and lycée **1ère**: `section: null`.
 - Lycée 2ème–4ème: one string, or a list when the exercise fits several sections
   (the site shows it under each): `["Sciences", "Informatique"]`.
+- **2ème Sciences and 2ème Informatique are one and the same** (same maths textbook:
+  « Sections : Sciences – Technologie de l'informatique »). Always write
+  `section: ["Sciences", "Informatique"]` for them (lessons: `sections: ["Sciences", "Informatique"]`).
+  The site also merges them on load (`src/lib/sections.ts`), so a file tagged with only one still
+  shows under both; the validator warns about it.
 - Use the site's section names: 2ème → `Sciences`, `Informatique`,
   `Économie et Service`, `Lettres`; 3ème/4ème → `Mathématiques`,
   `Sciences Expérimentales`, `Economie et Gestion`, `Informatique`, `Technique`, `Lettres`.
