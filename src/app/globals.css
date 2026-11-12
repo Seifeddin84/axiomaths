@@ -280,9 +280,22 @@
 }
 
 .exercise-content table {
-  width: 100%;
+  /* block + max-content: the table keeps its natural width and scrolls
+     sideways instead of being clipped on narrow screens */
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  position: relative; /* keeps KaTeX's hidden MathML inside the scroll box */
   border-collapse: collapse;
   margin-bottom: 1em;
+}
+
+@media (max-width: 640px) {
+  .exercise-content th,
+  .exercise-content td {
+    padding: 0.3em 0.45em;
+  }
 }
 
 .exercise-content th,
