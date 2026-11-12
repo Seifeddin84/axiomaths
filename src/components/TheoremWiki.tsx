@@ -66,14 +66,15 @@ export default function TheoremWiki({ entries }: { entries: TheoremSummary[] }) 
   const load = useCallback(async (id: string) => {
     setFragments(f => ({ ...f, [id]: { state: 'loading' } }));
     try {
-      const res = await fetch(`/api/theoremes/${id}`);
+      const version = entries.find(e => e.id === id)?.fragmentVersion ?? '';
+      const res = await fetch(`/api/theoremes/${id}?v=${version}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const html = await res.text();
       setFragments(f => ({ ...f, [id]: { state: 'ready', html } }));
     } catch {
       setFragments(f => ({ ...f, [id]: { state: 'error' } }));
     }
-  }, []);
+  }, [entries]);
 
   const toggle = useCallback(
     (id: string) => {

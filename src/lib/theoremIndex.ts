@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from 'fs';
+import { createHash } from 'crypto';
 import path from 'path';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
@@ -68,7 +69,7 @@ export interface TheoremEntry {
 }
 
 /** What the index page needs (no maths HTML: statements are fetched when an entry is opened). */
-export type TheoremSummary = Omit<TheoremEntry, 'versions' | 'wikiProofHtml'> & { versionCount: number };
+export type TheoremSummary = Omit<TheoremEntry, 'versions' | 'wikiProofHtml'> & { versionCount: number; fragmentVersion: string };
 
 // ---------------------------------------------------------------------------------------------
 
@@ -346,7 +347,13 @@ export function getTheoremEntries(): Promise<TheoremEntry[]> {
 
 export async function getTheoremSummaries(): Promise<TheoremSummary[]> {
   // versionCount = number of different statements (the same statement in two classes counts once)
-  return (await getTheoremEntries()).map(({ versions, ...rest }) => ({ ...rest, versionCount: statementGroups(versions).length }));
+  return (await getTheoremEntries()).map(entry => {
+    const { versions, ...rest } = entry;
+    // fingerprint of the opened content: the fragment URL changes whenever the statement or proof does,
+    // so no browser or CDN cache can serve an old version after a deploy
+    const fragmentVersion = createHash('sha1').update(entryFragmentHtml(entry)).digest('hex').slice(0, 10);
+    return { ...rest, versionCount: statementGroups(versions).length, fragmentVersion };
+  });
 }
 
 export async function getTheoremEntry(id: string): Promise<TheoremEntry | undefined> {

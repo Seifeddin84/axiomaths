@@ -17,7 +17,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   return new Response(entryFragmentHtml(entry), {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
-      'Cache-Control': 'public, max-age=300, s-maxage=86400, stale-while-revalidate=604800',
+      // the page asks for ?v=<fingerprint>, so a long cache is safe; without it, stay short
+      'Cache-Control': 'public, max-age=300, s-maxage=3600',
     },
   });
 }
