@@ -62,4 +62,4 @@ Soit $ABC$ un triangle et $G$ le barycentre des points pondérés $(A\,,1)$, $(B
 
    b. La condition devient $6MG = 6MA$, soit $MG = MA$ : c'est la **médiatrice de $[AG]$** ($G \neq A$ car $\overrightarrow{AG} = \frac56\overrightarrow{AI}$ et $I \neq A$).
 
-   *Remarque.* La même idée (un point écrit comme barycentre de trois façons) prouve une concurrence plus cachée dans l'[exercice n°192](/lycee/2eme/sciences/barycentre#ex-0000192).
+   *Remarque.* La même idée (un point écrit comme barycentre de trois façons) prouve une concurrence plus cachée dans l'[exercice n°192](/lycee/2eme/sciences/barycentre#ex-0000192). Dans l'[exercice n°195](/lycee/2eme/sciences/barycentre#ex-0000195), on ne connaît pas $G$ à l'avance : il faut le deviner à partir des coefficients de $I$, $J$ et $K$.
