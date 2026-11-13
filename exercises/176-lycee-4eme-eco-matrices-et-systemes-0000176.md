@@ -7,7 +7,7 @@ chapter: "Matrices et systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Trois systèmes 3×3 résolus avec des inverses connues"
 country: "Tunisie"
-year: null
+year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null

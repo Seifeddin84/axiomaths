@@ -7,7 +7,7 @@ chapter: "Matrices et systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Inverse égale à 2I₃ − A et résolution d'un système"
 country: "Tunisie"
-year: null
+year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null

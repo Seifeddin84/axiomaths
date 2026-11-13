@@ -7,7 +7,7 @@ chapter: "Matrices et systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Atelier de production : trois machines, trois types de tables"
 country: "Tunisie"
-year: null
+year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
