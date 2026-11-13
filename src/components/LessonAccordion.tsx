@@ -7,6 +7,9 @@ import CloseLessonButton from '@/components/CloseLessonButton';
 const STRINGS = {
   fr: {
     badge: 'Cours',
+    read: 'Lire le cours',
+    fold: 'Replier le cours',
+    inside: 'Dans ce cours :',
     minutes: (n: number) => `${n} min de lecture`,
     toc: 'Sommaire',
     tocAria: 'Sommaire du cours',
@@ -18,6 +21,9 @@ const STRINGS = {
   },
   ar: {
     badge: 'درس',
+    read: 'اقرأ الدرس',
+    fold: 'طيّ الدرس',
+    inside: 'في هذا الدرس :',
     minutes: (n: number) => `${n} د للقراءة`,
     toc: 'الفهرس',
     tocAria: 'فهرس الدرس',
@@ -43,6 +49,9 @@ interface LessonAccordionProps {
 function tocText(text: string) {
   return text.replace(/\$([^$]*)\$/g, '$1').replace(/\\[a-zA-Z]+/g, '').replace(/[{}]/g, '');
 }
+
+/** Same, without the section number (« 3. Degré d'un polynôme » → « Degré d'un polynôme »). */
+const tocLabel = (text: string) => tocText(text).replace(/^\s*\d+\s*[.)-]\s*/, '');
 
 /**
  * The chapter's lesson, as a card that folds and unfolds in place — same look as
@@ -115,32 +124,50 @@ export default function LessonAccordion({ slug, title, summary, readTime, source
       onToggle={e => {
         if ((e.currentTarget as HTMLDetailsElement).open) load();
       }}
-      className="group mb-8 sm:mb-10 scroll-mt-24 bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all open:ring-4 open:ring-orange-500"
+      className="group mb-8 sm:mb-10 scroll-mt-24 bg-white dark:bg-gray-800 border-2 border-l-8 border-gray-400 border-l-orange-500 dark:border-gray-700 dark:border-l-orange-500 overflow-hidden shadow-md hover:shadow-xl transition-all open:ring-4 open:ring-orange-500"
     >
       <summary
         onMouseEnter={load}
         onFocus={load}
-        className="list-none cursor-pointer select-none p-6 flex items-start gap-4 [&::-webkit-details-marker]:hidden"
+        className="list-none cursor-pointer select-none [&::-webkit-details-marker]:hidden"
       >
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-3 mb-3 flex-wrap">
-            <span className="px-3 py-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs font-black uppercase tracking-widest lesson-badge">
-              {t.badge}
-            </span>
-            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">{t.minutes(readTime)}</span>
-          </div>
-          <h2 className="text-xl font-black text-gray-900 dark:text-white mb-2">{title}</h2>
-          {summary && <p className="text-sm text-gray-600 dark:text-gray-400 font-semibold">{summary}</p>}
-        </div>
-        <div className="text-gray-400 dark:text-gray-500 pt-1" aria-hidden="true">
-          <svg
-            className="w-6 h-6 transition-transform duration-200 group-open:rotate-180"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        {/* banner: says at a glance that this is the lesson, not an exercise */}
+        <div className="flex items-center gap-3 px-5 sm:px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white lesson-badge">
+          <svg className="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
+          <span className="text-lg sm:text-xl font-black uppercase tracking-widest">{t.badge}</span>
+          <span className="ms-auto text-sm font-bold opacity-90">{t.minutes(readTime)}</span>
+        </div>
+
+        <div className="p-5 sm:p-6 bg-orange-50 dark:bg-gray-800">
+          <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-2">{title}</h2>
+          {summary && <p className="text-base text-gray-700 dark:text-gray-300 font-semibold">{summary}</p>}
+
+          {toc.length > 1 && (
+            <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 font-semibold group-open:hidden">
+              <span className="font-black text-gray-800 dark:text-gray-200">{t.inside}</span>{' '}
+              {toc.slice(0, 5).map(h => tocLabel(h.text)).join(' · ')}
+              {toc.length > 5 ? ' …' : ''}
+            </p>
+          )}
+
+          {/* a real button: the whole banner toggles, this shows that it can be opened */}
+          <div className="mt-5">
+            <span className="inline-flex items-center gap-2 px-6 py-3 text-base font-black text-white bg-gradient-to-r from-orange-500 to-orange-600 shadow-md group-hover:shadow-lg group-hover:from-orange-600 group-hover:to-orange-700 transition-all">
+              <span className="group-open:hidden">{t.read}</span>
+              <span className="hidden group-open:inline">{t.fold}</span>
+              <svg
+                className="w-5 h-5 transition-transform duration-200 group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </div>
         </div>
       </summary>
 

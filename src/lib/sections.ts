@@ -50,3 +50,31 @@ export function siteSections(school: unknown, level: unknown, sections: string[]
   }
   return out;
 }
+
+// Order of the section cards: the way the textbooks list them, not alphabetical (alphabetical put
+// « Informatique » first on the 2ème page, and a pupil took it for a school subject).
+const ORDER_2EME = ['sciences', 'informatique', 'economie et service', 'lettres'];
+const ORDER_OTHER = [
+  'mathematiques',
+  'sciences experimentales',
+  'economie et gestion',
+  'informatique',
+  'technique',
+  'lettres',
+];
+
+/** Sections in display order for a level; unknown ones come last, alphabetically. */
+export function sortSections(level: unknown, sections: string[]): string[] {
+  const order = fold(String(level ?? '')) === '2eme' ? ORDER_2EME : ORDER_OTHER;
+  const rank = (s: string) => {
+    const i = order.indexOf(fold(s));
+    return i === -1 ? order.length : i;
+  };
+  return [...sections].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b, 'fr'));
+}
+
+/** For a 2ème twin section, the name of the other one (same maths textbook, same content). */
+export function twinOf2eme(section: string): string | null {
+  if (!isTwinSection2eme(section)) return null;
+  return fold(section) === fold('Sciences') ? 'Informatique' : 'Sciences';
+}
