@@ -2,7 +2,7 @@
 uid: "0000013"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
+section: ["Sciences", "Informatique"]
 chapter: "Problèmes du premier et du second degré"
 source: "Livre: Methods of Solving Problems in High School Mathematics"
 title: "Équations avec Racine Carrée"

@@ -14,7 +14,7 @@ export interface Lesson {
   dir: 'ltr' | 'rtl';
   school: string;            // "lycee" | "college"
   level: string;             // "2eme", "3eme", ...
-  sections: string[];        // e.g. ["Sciences", "Technologies de l'Informatique"]
+  sections: string[];        // e.g. ["Sciences", "Informatique"] (2ème: always both, see lib/sections.ts)
   chapter: string;           // must match the `chapter` field of the exercises
   prerequisites: string[];
   source?: string;           // reference textbook

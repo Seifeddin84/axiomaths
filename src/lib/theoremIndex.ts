@@ -82,6 +82,7 @@ const SECTION_SHORT: Record<string, string> = {
   'Mathématiques': 'Maths',
   'Sciences Expérimentales': 'Sc. exp.',
   'Economie et Gestion': 'Éco-Gestion',
+  'Informatique': 'Info',
   "Technologies de l'Informatique": 'Info',
 };
 

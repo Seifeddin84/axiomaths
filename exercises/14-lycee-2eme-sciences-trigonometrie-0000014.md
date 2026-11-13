@@ -2,7 +2,7 @@
 uid: "0000014"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
+section: ["Sciences", "Informatique"]
 chapter: "Trigonométrie"
 source: "Livre: Methods of Solving Problems in High School Mathematics"
 title: "Multiple Identités Trigonométriques"

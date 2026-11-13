@@ -1,4 +1,5 @@
 import { Exercise } from '@/types/exercise';
+import { siteSections } from '@/lib/sections';
 
 export function parseExercise(content: string, filename: string): Exercise {
   const { frontmatter, markdownContent } = parseFrontmatter(content);
@@ -42,6 +43,10 @@ export function parseExercise(content: string, filename: string): Exercise {
       sections = [frontmatter.section];
     }
   }
+
+  // 2ème Sciences and 2ème Informatique share one textbook: tagged with one, shown under both
+  sections = siteSections(frontmatter.school, frontmatter.level, sections);
+  if (sections.length > 0) primarySection = sections[0];
 
   // Normalize professor to string[] — handles both old string and new array format.
   // The frontmatter reader keeps `professor: null` as the text "null": that is "no professor", not a name.

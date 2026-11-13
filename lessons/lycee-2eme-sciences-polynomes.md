@@ -3,7 +3,7 @@ title: "Notions de polynômes"
 slug: "lycee-2eme-sciences-polynomes"
 school: "lycee"
 level: "2eme"
-sections: ["Sciences", "Technologies de l'Informatique"]
+sections: ["Sciences", "Informatique"]
 chapter: "Polynômes"
 summary: "Reconnaître un polynôme, identifier ses coefficients, trouver ses racines et surtout le factoriser : c'est l'outil qui transforme une équation de degré 3 en un simple tableau de signes."
 prerequisites: ["Identités remarquables", "Second degré : discriminant et signe d'un trinôme"]

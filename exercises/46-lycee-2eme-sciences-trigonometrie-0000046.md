@@ -2,7 +2,7 @@
 uid: "0000046"
 school: "lycee"
 level: "2eme"
-section: "Sciences"
+section: ["Sciences", "Informatique"]
 chapter: "Trigonométrie"
 source: "Devoir de synthèse N°2 - Lycée Pilote Sakiet Ezzit - Sfax 2"
 schoolType: "pilote"

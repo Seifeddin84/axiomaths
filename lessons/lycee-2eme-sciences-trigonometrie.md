@@ -3,7 +3,7 @@ title: "Trigonométrie"
 slug: "lycee-2eme-sciences-trigonometrie"
 school: "lycee"
 level: "2eme"
-sections: ["Sciences"]
+sections: ["Sciences", "Informatique"]
 chapter: "Trigonométrie"
 summary: "Du radian au demi-cercle trigonométrique : cosinus, sinus, tangente, relations fondamentales, angles supplémentaires et complémentaires, puis mesure dans le triangle (aire, loi des sinus, théorème d'El Kashi) et formules de l'angle double."
 prerequisites: ["Triangle rectangle", "Théorème de Pythagore", "Calcul vectoriel"]

@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { Lesson, LessonHeading } from '@/types/lesson';
 import { createSlugger, cleanHeadingText } from '@/lib/headingSlug';
+import { siteSections } from '@/lib/sections';
 
 const LESSONS_DIRECTORY = path.join(process.cwd(), 'lessons');
 
@@ -46,11 +47,12 @@ function parseLesson(filename: string): Lesson {
   const fileContent = fs.readFileSync(path.join(LESSONS_DIRECTORY, filename), 'utf8');
   const { data, content } = matter(fileContent);
 
-  const sections: string[] = Array.isArray(data.sections)
-    ? data.sections
-    : data.section
-      ? [data.section]
-      : [];
+  // 2ème Sciences and 2ème Informatique share one textbook: tagged with one, shown under both
+  const sections: string[] = siteSections(
+    data.school ?? 'lycee',
+    data.level,
+    Array.isArray(data.sections) ? data.sections : data.section ? [data.section] : []
+  );
 
   const words = content.replace(/\$[^$]*\$/g, ' x ').split(/\s+/).length;
 

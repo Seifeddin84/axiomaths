@@ -3,7 +3,7 @@ title: "Homothéties"
 slug: "lycee-2eme-sciences-homotheties"
 school: "lycee"
 level: "2eme"
-sections: ["Sciences"]
+sections: ["Sciences", "Informatique"]
 chapter: "Homothéties"
 summary: "Agrandir ou réduire une figure sans la déformer : définition, propriété caractéristique, image d'une droite, d'un cercle, d'un polygone, et comment s'en servir pour démontrer un alignement ou trouver un lieu."
 prerequisites: ["Calcul vectoriel", "Barycentre", "Translations"]
