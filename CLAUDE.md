@@ -181,3 +181,15 @@ in that block: the links then go both ways.
 - 2026-10-30 (Seifeddine): **change of variable** is not a theorem in the Bac program but is used as a
   technique and accepted in solutions. Use it when it is the natural route (e.g. $t = 1/u$, $x = \tan\theta$);
   when a derivative-based proof also exists, give it as the main proof or as *Autre méthode*.
+- 2026-11-13 (Seifeddine): **figures in the old-textbook style by default**: pure black on white, thin
+  lines, hatching instead of fills, serif/CM labels (exercise PNGs *and* lesson SVGs). Use colour only
+  when the figure cannot be read without it (e.g. several curves that must be told apart).
+- 2026-11-13 (Seifeddine): **audit every exercise before adding it to the bank.** Re-derive the
+  statement's claims and the printed solution independently (SymPy / numeric), not just the final
+  answer; a printed error is corrected minimally and listed in the PR (see Ex. 13 of the 2ème manual, #195).
+- 2026-11-13 (pupil test on a laptop, relayed by Seifeddine): a below-average pupil found the
+  **solutions too crude** and wants **detailed, step-by-step** ones, and the **lessons too long**.
+  For new exercises, write solutions a weak student can follow (one operation per line, say which
+  rule is used, no skipped algebra); keep lessons short, with the "À retenir" first.
+- 2026-11-13: Éco Séries 7 and 10 are Seifeddine's own compilations (PDF dates March–April 2021),
+  so `year: 2021` there is the year of the série, not of an original bac; #182 keeps 2009 (Bac ES Amérique du Nord).

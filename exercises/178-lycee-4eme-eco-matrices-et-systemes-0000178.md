@@ -7,7 +7,7 @@ chapter: "Matrices et systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Retrouver une fonction cubique à partir de sa courbe"
 country: "Tunisie"
-year: null
+year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null

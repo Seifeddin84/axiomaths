@@ -7,7 +7,7 @@ chapter: "Matrices et systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Inverse d'une matrice d'ordre 3 à l'aide d'un produit"
 country: "Tunisie"
-year: null
+year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null

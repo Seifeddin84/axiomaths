@@ -7,7 +7,7 @@ chapter: "Les graphes"
 source: "Série 10 — Graphes (Bac Économie et Gestion)"
 title: "Théorème d'Euler : graphes orientés et non orientés"
 country: "Tunisie"
-year: null
+year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null

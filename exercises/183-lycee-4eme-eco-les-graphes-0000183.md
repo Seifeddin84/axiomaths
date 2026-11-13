@@ -7,7 +7,7 @@ chapter: "Les graphes"
 source: "Série 10 — Graphes (Bac Économie et Gestion)"
 title: "Graphe d'ordre 8 : Euler, coloriage et chaînes de longueur 3"
 country: "Tunisie"
-year: null
+year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null

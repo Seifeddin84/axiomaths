@@ -7,7 +7,7 @@ chapter: "Les graphes"
 source: "Série 10 — Graphes (Bac Économie et Gestion)"
 title: "Graphe orienté défini par sa matrice d'adjacence"
 country: "Tunisie"
-year: null
+year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
