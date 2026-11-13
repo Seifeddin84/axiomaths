@@ -134,6 +134,8 @@ in that block: the links then go both ways.
 - Prefer **redrawing** the figure cleanly (matplotlib, white background, black
   lines, hatching where the original hatches) over cropping a photo. Check the PNG
   visually before committing.
+- Style: old-textbook, pure black on white, **including graph theory and geometry**. Colour only when it
+  clearly helps understanding or use, and then sharp colours (see the lessons log, 2026-11-13).
 
 ## 7. Extraction from photos — rules
 
@@ -184,6 +186,10 @@ in that block: the links then go both ways.
 - 2026-11-13 (Seifeddine): **figures in the old-textbook style by default**: pure black on white, thin
   lines, hatching instead of fills, serif/CM labels (exercise PNGs *and* lesson SVGs). Use colour only
   when the figure cannot be read without it (e.g. several curves that must be told apart).
+  Refined the same day: this holds for graph theory and geometry too. Colour is the **exception**, allowed
+  when it adds real value to understanding or ease of use (a path in a graph, a highlighted element in a
+  geometry figure, curves to tell apart); then use **sharp, saturated colours**, a few at most, and keep
+  everything else black.
 - 2026-11-13 (Seifeddine): **audit every exercise before adding it to the bank.** Re-derive the
   statement's claims and the printed solution independently (SymPy / numeric), not just the final
   answer; a printed error is corrected minimally and listed in the PR (see Ex. 13 of the 2ème manual, #195).
