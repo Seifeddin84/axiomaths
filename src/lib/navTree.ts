@@ -1,5 +1,6 @@
 import { getAllExercises } from '@/lib/fileReader';
 import { getAllLessons, normalize } from '@/lib/lessonReader';
+import { sortSections } from '@/lib/sections';
 import type { Exercise } from '@/types/exercise';
 import type { NavChapter, NavLevel, NavSection, NavTree } from '@/types/nav';
 
@@ -45,7 +46,7 @@ function buildLycee(level: string, exercises: Exercise[], lessons: ReturnType<ty
   const lessonSectionTitles = levelLessons
     .flatMap(l => l.sections)
     .filter(s => !exerciseSectionTitles.some(es => normalize(es) === normalize(s)));
-  const sectionTitles = uniqueBySlug(Array.from(new Set([...exerciseSectionTitles, ...lessonSectionTitles])).sort());
+  const sectionTitles = uniqueBySlug(sortSections(level, Array.from(new Set([...exerciseSectionTitles, ...lessonSectionTitles]))));
 
   if (sectionTitles.length === 0) {
     // Levels without sections (1ère): chapters directly under the level

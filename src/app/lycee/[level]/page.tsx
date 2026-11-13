@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllExercises } from '@/lib/fileReader';
 import { getAllLessons } from '@/lib/lessonReader';
+import { sortSections, twinOf2eme } from '@/lib/sections';
 
 const LEVEL_DISPLAY: Record<string, string> = {
   '1ere': '1ère',
@@ -73,7 +74,7 @@ export default async function LyceeLevelPage({
     .filter(l => normalize(l.level) === normalize(level))
     .flatMap(l => l.sections)
     .filter(s => !exerciseSections.some(es => normalize(es) === normalize(s)));
-  const uniqueSections = Array.from(new Set([...exerciseSections, ...lessonSections])).sort();
+  const uniqueSections = sortSections(level, Array.from(new Set([...exerciseSections, ...lessonSections])));
 
   // If no sections, show chapters directly (like 1ère)
   const hasRealSections = uniqueSections.length > 0;
@@ -116,6 +117,12 @@ export default async function LyceeLevelPage({
             : `${uniqueChapters.length} chapitre${uniqueChapters.length > 1 ? 's' : ''} • ${levelExercises.length} exercice${levelExercises.length > 1 ? 's' : ''}`
           }
         </p>
+        {hasRealSections && (
+          <p className="mt-4 text-lg text-gray-700 dark:text-gray-300 font-semibold max-w-2xl">
+            Choisis la <span className="text-accent-600 dark:text-primary-400 font-black">section de ta classe</span>.
+            Ce ne sont pas des matières : toutes les sections étudient les mathématiques.
+          </p>
+        )}
       </div>
 
       {/* Section or Chapter Cards - IMPROVED DESIGN */}
@@ -150,9 +157,19 @@ export default async function LyceeLevelPage({
                   
                   {/* Section Title */}
                   <div className="flex items-start justify-between mb-4">
-                    <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-primary-400 transition-colors flex-1 pr-2">
-                      {capitalize(section)}
-                    </h2>
+                    <div className="flex-1 pr-2">
+                      <p className="mb-1 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                        Section
+                      </p>
+                      <h2 className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-primary-400 transition-colors">
+                        {capitalize(section)}
+                      </h2>
+                      {level === '2eme' && twinOf2eme(section) && (
+                        <p className="mt-1 text-sm font-semibold text-gray-500 dark:text-gray-400">
+                          Mêmes cours et exercices que la section {twinOf2eme(section)}
+                        </p>
+                      )}
+                    </div>
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 group-hover:bg-accent-500 dark:group-hover:bg-primary-500 flex items-center justify-center transition-all">
                       <svg
                         className="w-5 h-5 text-gray-400 group-hover:text-white transition-all group-hover:translate-x-0.5"
