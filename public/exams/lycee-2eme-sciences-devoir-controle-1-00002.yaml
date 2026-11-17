@@ -1,0 +1,44 @@
+uid: "exam-00002"
+type: "exam"
+
+# Classification
+establishment_type: "lycee"
+level: "2eme"
+section: "Sciences"
+year: "2026/2027"
+
+# Exam Details
+exam_type: "Devoir de contrôle"
+exam_number: 1
+date: ""
+duration: "2h"
+total_points: 20
+
+# School Information
+school: "Axiomaths"
+professor: "Axiomaths"
+country: "Tunisie"
+
+# Content
+chapters:
+  - "Polynômes"
+  - "Barycentre"
+
+# Exercises breakdown (optional)
+exercises:
+  - number: 1
+    points: 5
+    topic: "QCM : polynômes et barycentre"
+  - number: 2
+    points: 7
+    topic: "Polynôme et fonction rationnelle"
+  - number: 3
+    points: 4
+    topic: "Barycentre de deux points"
+  - number: 4
+    points: 4
+    topic: "Du barycentre de deux points à celui de trois points"
+
+# File reference
+filename: "lycee-2eme-sciences-devoir-controle-1-00002.pdf"
+corrige_filename: "lycee-2eme-sciences-devoir-controle-1-00002-corrige.pdf"
