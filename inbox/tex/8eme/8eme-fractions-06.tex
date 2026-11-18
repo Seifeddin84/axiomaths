@@ -1,0 +1,63 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "العمليات والحساب على الأعداد الكسرية"
+% source: "Axiomaths"
+% title: "البحث عن الخطأ"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Moyen"
+% points: null
+% tags: ["fractions", "recherche-erreur", "priorites"]
+% ---
+% Exercice 6/18 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={البحث عن الخطأ}, stars=3, source={Axiomaths}]
+كتب سامي خمس نتائج :
+\[(1)\quad\dfrac{1}{2}+\dfrac{1}{3}=\dfrac{1+1}{2+3}=\dfrac{2}{5}\]
+\[(2)\quad\dfrac{3}{4}-\dfrac{1}{4}\times\dfrac{2}{3}=\dfrac{2}{4}\times\dfrac{2}{3}=\dfrac{4}{12}=\dfrac{1}{3}\]
+\[(3)\quad\dfrac{-2}{3}\div\dfrac{4}{9}=\dfrac{-2}{3}\times\dfrac{4}{9}=\dfrac{-8}{27}\]
+\[(4)\quad\dfrac{5}{6}-\left(\dfrac{1}{6}-\dfrac{1}{3}\right)=\dfrac{5}{6}-\dfrac{1}{6}-\dfrac{1}{3}=\dfrac{4}{6}-\dfrac{2}{6}=\dfrac{1}{3}\]
+\[(5)\quad\dfrac{2}{3}\times\dfrac{9}{4}=\dfrac{18}{12}=\dfrac{3}{2}\]
+\begin{enumerate}
+  \item ما هي النتائج الصحيحة ؟
+  \item في كل نتيجة خاطئة، حدّد الخطأ ثم اكتب الحساب الصحيح.
+\end{enumerate}
+\axsol
+\begin{enumerate}[itemsep=14pt]
+  \item النتيجة الصحيحة هي (5) فقط. النتائج (1) و(2) و(3) و(4) خاطئة.
+  \item نراجع النتائج واحدة واحدة :
+  \begin{enumerate}[itemsep=12pt]
+    \item[$(1)$] \textbf{الخطأ :} جمع البسطين مع بعضهما والمقامين مع بعضهما.
+
+    \textbf{للتأكد :} $\dfrac{2}{5}$ أصغر من $\dfrac{1}{2}$ ، وهذا مستحيل لأن مجموع عددين موجبين أكبر من كل منهما.
+    \begin{prop}[قاعدة]
+    لجمع عددين كسريين نوحّد المقامين ثم نجمع البسطين فقط.
+    \end{prop}
+    \[\dfrac{1}{2}+\dfrac{1}{3}=\dfrac{3}{6}+\dfrac{2}{6}=\dfrac{5}{6}\]
+    \item[$(2)$] \textbf{الخطأ :} أجرى سامي الطرح قبل الضرب.
+    \begin{prop}[أولوية العمليات]
+    الضرب والقسمة قبل الجمع والطرح، وما بين القوسين قبل كل شيء.
+    \end{prop}
+    \[\dfrac{3}{4}-\dfrac{1}{4}\times\dfrac{2}{3}=\dfrac{3}{4}-\dfrac{2}{12}=\dfrac{3}{4}-\dfrac{1}{6}\]
+    \[=\dfrac{9}{12}-\dfrac{2}{12}=\dfrac{7}{12}\]
+    \item[$(3)$] \textbf{الخطأ :} لم يضرب سامي في \emph{مقلوب} المقسوم عليه.
+    \[\dfrac{-2}{3}\div\dfrac{4}{9}=\dfrac{-2}{3}\times\dfrac{9}{4}=\dfrac{-18}{12}=-\dfrac{3}{2}\]
+    \item[$(4)$] \textbf{الخطأ :} لم يغيّر سامي إشارتي ما بين القوسين عند حذفهما، فالقوسان مسبوقان بإشارة ناقص.
+    \begin{prop}[حذف الأقواس]
+    \ib{$a-(b-c)=a-b+c$}
+    \end{prop}
+    \[\dfrac{5}{6}-\left(\dfrac{1}{6}-\dfrac{1}{3}\right)=\dfrac{5}{6}-\dfrac{1}{6}+\dfrac{1}{3}=\dfrac{4}{6}+\dfrac{2}{6}=\dfrac{6}{6}=1\]
+  \end{enumerate}
+\end{enumerate}
+\textbf{الفكرة :} قبل أن نعتمد نتيجة، نتحقق من قاعدتها ومن معقوليتها.
+\end{corr}
+
+\end{document}

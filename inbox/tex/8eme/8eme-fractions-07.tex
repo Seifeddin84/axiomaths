@@ -1,0 +1,59 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "العمليات والحساب على الأعداد الكسرية"
+% source: "Axiomaths"
+% title: "تركيب: ميزانية أمين"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Moyen"
+% points: null
+% tags: ["fractions", "probleme", "budget", "synthese"]
+% ---
+% Exercice 7/18 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={تركيب: ميزانية أمين}, stars=3, source={Axiomaths}]
+ادّخر أمين مبلغا من المال. أنفق $\dfrac{1}{3}$ هذا المبلغ في شراء كتب و $\dfrac{2}{5}$ منه في شراء لباس، وبقيت له $12$ دينارا.
+\begin{enumerate}
+  \item ما هو الكسر الذي يمثّله ما أنفقه أمين من المبلغ ؟
+  \item ما هو الكسر الذي يمثّله ما بقي له ؟
+  \item استنتج المبلغ الذي ادّخره أمين.
+  \item احسب ثمن الكتب وثمن اللباس.
+\end{enumerate}
+\axsol
+\begin{prop}[كسر من كمية]
+$\dfrac{a}{b}$ من كمية $x$ هو الجذاء \ib{$\dfrac{a}{b}\times x$}
+\end{prop}
+\begin{enumerate}[itemsep=14pt]
+  \item الكسر المنفق هو مجموع الكسرين :
+  \[\dfrac{1}{3}+\dfrac{2}{5}=\dfrac{5}{15}+\dfrac{6}{15}=\dfrac{11}{15}\]
+  أنفق أمين $\dfrac{11}{15}$ من المبلغ.
+  \item المبلغ كله يمثل $1=\dfrac{15}{15}$ :
+  \[\dfrac{15}{15}-\dfrac{11}{15}=\dfrac{4}{15}\]
+  بقي لأمين $\dfrac{4}{15}$ من المبلغ.
+  \item إذن $\dfrac{4}{15}$ من المبلغ يساوي $12$ دينارا.
+
+  \textbf{طريقة التفكير :} $\dfrac{4}{15}$ تساوي $4$ أجزاء من $15$ جزءا متساويا، فهذه الأجزاء الأربعة تساوي $12$ دينارا.
+  الجزء الواحد يساوي $12\div4=3$ دنانير.
+
+  المبلغ كله يساوي $15$ جزءا، أي $15\times3=45$ دينارا.
+
+  وبالقسمة على كسر نجد نفس النتيجة : \ib{$12\div\dfrac{4}{15}=12\times\dfrac{15}{4}=45$}
+  \item ثمن الكتب :
+  \[\dfrac{1}{3}\times45=15\]
+  أي $15$ دينارا. ثمن اللباس :
+  \[\dfrac{2}{5}\times45=18\]
+  أي $18$ دينارا.
+  \textbf{للتأكد :} $15+18+12=45$ $\checkmark$
+\end{enumerate}
+\textbf{الفكرة :} نحسب أولا الكسر الباقي ثم نعود إلى الكمية الكلية بالقسمة على هذا الكسر.
+\end{corr}
+
+\end{document}

@@ -1,0 +1,60 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "العمليات والحساب على الأعداد الكسرية"
+% source: "Axiomaths"
+% title: "أولوية العمليات والكسور المركّبة"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Moyen"
+% points: null
+% tags: ["fractions", "priorites-operations", "fractions-composees"]
+% ---
+% Exercice 8/18 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={أولوية العمليات والكسور المركّبة}, stars=3, source={Axiomaths}]
+\begin{enumerate}
+  \item احسب ثم اختزل :
+  \[A=\dfrac{1}{2}-\dfrac{1}{3}\times\dfrac{3}{4}+\dfrac{5}{8}\qquad B=\left(\dfrac{2}{3}-\dfrac{3}{4}\right)\div\left(\dfrac{1}{6}+\dfrac{1}{4}\right)\]
+  \[C=\dfrac{\dfrac{1}{2}+\dfrac{1}{3}}{\dfrac{1}{2}-\dfrac{1}{3}}\qquad D=1-\dfrac{1}{1+\dfrac{1}{2}}\]
+  \item أوجد العدد $x$ الذي يحقق $B\times x=D$.
+\end{enumerate}
+\axsol
+\begin{prop}[أولوية العمليات]
+نحسب أولا ما بين القوسين، ثم الضرب والقسمة، ثم الجمع والطرح.
+\end{prop}
+\begin{prop}[خط الكسر]
+خط الكسر يعني القسمة : \ib{$\dfrac{a}{b}=a\div b$} ، فالكسر الأعلى يُقسم على الكسر الأسفل.
+\end{prop}
+\begin{enumerate}[itemsep=14pt]
+  \item نطبّق الأولويات في كل حالة :
+  \begin{enumerate}[itemsep=12pt]
+    \item الضرب أولا :
+    \[\dfrac{1}{3}\times\dfrac{3}{4}=\dfrac{3}{12}=\dfrac{1}{4}\]
+    \[A=\dfrac{1}{2}-\dfrac{1}{4}+\dfrac{5}{8}=\dfrac{4}{8}-\dfrac{2}{8}+\dfrac{5}{8}=\dfrac{7}{8}\]
+    \item ما بين القوسين أولا :
+    \[\dfrac{2}{3}-\dfrac{3}{4}=\dfrac{8}{12}-\dfrac{9}{12}=-\dfrac{1}{12}\qquad\dfrac{1}{6}+\dfrac{1}{4}=\dfrac{2}{12}+\dfrac{3}{12}=\dfrac{5}{12}\]
+    \[B=-\dfrac{1}{12}\div\dfrac{5}{12}=-\dfrac{1}{12}\times\dfrac{12}{5}=-\dfrac{1}{5}\]
+    \item البسط والمقام عددان كسريان :
+    \[\dfrac{1}{2}+\dfrac{1}{3}=\dfrac{5}{6}\qquad\dfrac{1}{2}-\dfrac{1}{3}=\dfrac{1}{6}\]
+    \[C=\dfrac{5}{6}\div\dfrac{1}{6}=\dfrac{5}{6}\times6=5\]
+    \item نبدأ من الأسفل :
+    \[1+\dfrac{1}{2}=\dfrac{3}{2}\]
+    \[\dfrac{1}{\dfrac{3}{2}}=1\div\dfrac{3}{2}=1\times\dfrac{2}{3}=\dfrac{2}{3}\]
+    \[D=1-\dfrac{2}{3}=\dfrac{1}{3}\]
+  \end{enumerate}
+  \item العدد $x$ هو حاصل قسمة $D$ على $B$ :
+  \[x=D\div B=\dfrac{1}{3}\div\left(-\dfrac{1}{5}\right)=\dfrac{1}{3}\times(-5)=-\dfrac{5}{3}\]
+  \textbf{للتأكد :} $\left(-\dfrac{1}{5}\right)\times\left(-\dfrac{5}{3}\right)=\dfrac{1}{3}$ $\checkmark$
+\end{enumerate}
+\textbf{انتبه :} في $D$ ، الكسر $\dfrac{1}{1+\dfrac12}$ لا يساوي $\dfrac{1}{1}+\dfrac{1}{\dfrac12}$.
+\end{corr}
+
+\end{document}
