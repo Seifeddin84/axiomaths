@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo, Suspense } from 'react';
+import { useState, useEffect, useMemo, useCallback, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Exercise } from '@/types/exercise';
@@ -132,6 +132,19 @@ function RechercheContent() {
   const query = useMemo(() => prepareQuery(searchText), [searchText]);
   const hasQuery = query.words.length > 0;
 
+  // exercise number: "#44" shows exercise 44 only; a bare "44" shows it first among the usual text matches
+  const uidQuery = useMemo(() => {
+    const m = searchText.trim().match(/^(#|n°|no\.?|ex\.?|exercice)?\s*(\d{1,7})$/i);
+    return m ? { n: Number(m[2]), only: !!m[1] } : null;
+  }, [searchText]);
+  const exerciseMatches = useCallback((ex: Exercise) => {
+    if (uidQuery && Number(ex.uid) === uidQuery.n) return true;
+    if (uidQuery?.only) return false;
+    return fuzzyScore(query, [
+      ex.title, ex.source, ...(ex.professor ?? []), ...(ex.tags ?? []), ex.chapter, ex.section, ex.level,
+    ].filter(Boolean).join(' ')) > 0;
+  }, [query, uidQuery]);
+
   const exSections = (ex: Exercise) =>
     [...(Array.isArray(ex.sections) ? ex.sections : []), ...(ex.section ? [ex.section] : [])].filter(
       (x): x is string => typeof x === 'string' && x !== 'null' && x.trim() !== ''
@@ -141,30 +154,28 @@ function RechercheContent() {
 
   // everything that matches the query, before the class / section chips are applied (for the chip counts)
   const queryLessons = useMemo(() => {
-    if (!hasQuery) return [];
+    if (!hasQuery || uidQuery?.only) return [];
     return index.lessons
       .map(l => ({ l, score: 3 * fuzzyScore(query, `${l.title} ${l.chapter}`) + fuzzyScore(query, `${l.title} ${l.chapter} ${l.sections.join(' ')} ${l.summary}`) }))
       .filter(x => x.score > 0)
       .sort((a, b) => b.score - a.score)
       .map(x => x.l);
-  }, [index, query, hasQuery]);
+  }, [index, query, hasQuery, uidQuery]);
 
   // a theorem matches on its own name and chapter, not on the title of the lesson it comes from
   const queryTheorems = useMemo(() => {
-    if (!hasQuery) return [];
+    if (!hasQuery || uidQuery?.only) return [];
     return index.theorems
       .map(t => ({ t, score: 3 * fuzzyScore(query, `${t.name} ${t.altName ?? ''}`) + fuzzyScore(query, `${t.name} ${t.altName ?? ''} ${t.chapters.join(' ')}`) }))
       .filter(x => x.score > 0)
       .sort((a, b) => b.score - a.score)
       .map(x => x.t);
-  }, [index, query, hasQuery]);
+  }, [index, query, hasQuery, uidQuery]);
 
   const queryExercises = useMemo(() => {
     if (!hasQuery) return [];
-    return exercises.filter(ex => fuzzyScore(query, [
-      ex.title, ex.source, ...(ex.professor ?? []), ...(ex.tags ?? []), ex.chapter, ex.section, ex.level,
-    ].filter(Boolean).join(' ')) > 0);
-  }, [exercises, query, hasQuery]);
+    return exercises.filter(exerciseMatches);
+  }, [exercises, hasQuery, exerciseMatches]);
 
   // chips: results per class, then per section of the chosen class
   const levelChips = useMemo(() => {
@@ -226,9 +237,7 @@ function RechercheContent() {
 
   const filteredExercises = useMemo(() => {
     return exercises.filter(ex => {
-      const matchesSearch = !hasQuery || fuzzyScore(query, [
-        ex.title, ex.source, ...(ex.professor ?? []), ...(ex.tags ?? []), ex.chapter, ex.section, ex.level,
-      ].filter(Boolean).join(' ')) > 0;
+      const matchesSearch = !hasQuery || exerciseMatches(ex);
 
       const matchesSchool     = filterSchool === 'all' || ex.school?.toLowerCase() === filterSchool;
       const matchesLevel      = filterLevel === 'all' || ex.level === filterLevel;
@@ -245,7 +254,7 @@ function RechercheContent() {
              matchesCountry && matchesYear && matchesDifficulty && matchesProfessor && matchesTag &&
              matchesPilote;
     });
-  }, [exercises, query, hasQuery, filterSchool, filterLevel, filterSection, filterChapter,
+  }, [exercises, hasQuery, exerciseMatches, filterSchool, filterLevel, filterSection, filterChapter,
       filterCountry, filterYear, filterDifficulty, filterProfessor, filterTag, filterPiloteOnly]);
 
   const resetFilters = () => {
