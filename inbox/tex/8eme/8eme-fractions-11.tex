@@ -1,0 +1,57 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "العمليات والحساب على الأعداد الكسرية"
+% source: "Axiomaths"
+% title: "تركيب: معدل عددين كسريين"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Moyen"
+% points: null
+% tags: ["fractions", "moyenne", "encadrement", "synthese"]
+% ---
+% Exercice 11/15 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={تركيب: معدل عددين كسريين}, stars=3, source={Axiomaths}]
+نعتبر العددين $a=\dfrac{7}{12}$ و $b=\dfrac{5}{8}$.
+\begin{enumerate}
+  \item قارن $a$ و $b$.
+  \item احسب $m=\dfrac{a+b}{2}$.
+  \item بيّن أن $a<m<b$.
+  \item أعط عددا كسريا محصورا بين $a$ و $m$ وعددا كسريا محصورا بين $m$ و $b$.
+  \item كم عددا كسريا يوجد بين $a$ و $b$ ؟ علّل.
+\end{enumerate}
+\axsol
+\begin{enumerate}[itemsep=14pt]
+  \item المقام المشترك هو $24$ :
+  \[a=\dfrac{14}{24}\qquad b=\dfrac{15}{24}\]
+  بما أن $14<15$ فإن $a<b$.
+  \item
+  \[a+b=\dfrac{14}{24}+\dfrac{15}{24}=\dfrac{29}{24}\]
+  \[m=\dfrac{29}{24}\div2=\dfrac{29}{24}\times\dfrac{1}{2}=\dfrac{29}{48}\]
+  \item نكتب الأعداد الثلاثة بنفس المقام $48$ :
+  \[a=\dfrac{28}{48}\qquad m=\dfrac{29}{48}\qquad b=\dfrac{30}{48}\]
+  بما أن $28<29<30$ فإن \ib{$a<m<b$}.
+  \item معدل $a$ و $m$ محصور بينهما :
+  \[\dfrac{a+m}{2}=\dfrac{28+29}{2\times48}=\dfrac{57}{96}\]
+  ومعدل $m$ و $b$ محصور بينهما :
+  \[\dfrac{m+b}{2}=\dfrac{29+30}{2\times48}=\dfrac{59}{96}\]
+  \textbf{للتأكد :} بالمقام $96$ : $a=\dfrac{56}{96}<\dfrac{57}{96}<m=\dfrac{58}{96}<\dfrac{59}{96}<b=\dfrac{60}{96}$.
+  \item\leavevmode
+  \begin{prop}[خاصية]
+  معدل عددين مختلفين محصور بينهما تماما.
+  \end{prop}
+  أخذنا معدل $a$ و $b$ فحصلنا على عدد جديد محصور بينهما، ثم أخذنا معدل العدد الجديد مع $a$ وهكذا.
+  يمكن مواصلة هذه العملية دون توقف، إذن يوجد بين $a$ و $b$ \textbf{عدد لا نهائي} من الأعداد الكسرية.
+\end{enumerate}
+\textbf{الفكرة :} بين أي عددين كسريين مختلفين توجد دائما أعداد كسرية أخرى.
+\end{corr}
+
+\end{document}

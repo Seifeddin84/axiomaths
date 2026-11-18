@@ -1,0 +1,62 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "العمليات والحساب على الأعداد الكسرية"
+% source: "Axiomaths"
+% title: "المقارنة والترتيب"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Facile"
+% points: null
+% tags: ["fractions", "comparaison", "ordre"]
+% ---
+% Exercice 5/15 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={المقارنة والترتيب}, stars=2, source={Axiomaths}]
+\begin{enumerate}
+  \item قارن في كل حالة بين العددين :
+  \begin{enumerate}
+    \item $\dfrac{5}{6}$ و $\dfrac{7}{9}$ \qquad
+    \item $-\dfrac{3}{4}$ و $-\dfrac{4}{5}$ \qquad
+    \item $\dfrac{-5}{7}$ و $\dfrac{1}{3}$
+  \end{enumerate}
+  \item رتّب الأعداد التالية ترتيبا تصاعديا : $\ \dfrac{3}{4}\ ,\ -\dfrac{5}{6}\ ,\ \dfrac{7}{12}\ ,\ 0\ ,\ -\dfrac{2}{3}$
+  \item قارن بين $\dfrac{99}{100}$ و $\dfrac{100}{101}$ دون استعمال الحاسبة.
+\end{enumerate}
+\axsol
+\begin{prop}[المقارنة]
+لمقارنة عددين كسريين نوحّد مقاميهما (الموجبين) ثم نقارن بسطيهما.
+كل عدد سالب أصغر من كل عدد موجب. ومن بين عددين سالبين الأكبر هو الأقرب إلى الصفر.
+\end{prop}
+\begin{enumerate}[itemsep=14pt]
+  \item نوحّد المقامين في كل حالة :
+  \begin{enumerate}[itemsep=10pt]
+    \item المقام المشترك هو $18$ :
+    \[\dfrac{5}{6}=\dfrac{15}{18}\ ;\qquad\dfrac{7}{9}=\dfrac{14}{18}\]
+    بما أن $15>14$ فإن \ib{$\dfrac{5}{6}>\dfrac{7}{9}$}.
+    \item المقام المشترك هو $20$ :
+    \[-\dfrac{3}{4}=-\dfrac{15}{20}\ ;\qquad-\dfrac{4}{5}=-\dfrac{16}{20}\]
+    بما أن $-15>-16$ فإن \ib{$-\dfrac{3}{4}>-\dfrac{4}{5}$}.
+    \item $\dfrac{-5}{7}$ سالب و $\dfrac{1}{3}$ موجب، إذن \ib{$\dfrac{-5}{7}<\dfrac{1}{3}$}.
+  \end{enumerate}
+  \item المقام المشترك هو $12$ :
+  \[\dfrac{3}{4}=\dfrac{9}{12}\ ,\quad -\dfrac{5}{6}=-\dfrac{10}{12}\ ,\quad \dfrac{7}{12}\ ,\quad 0\ ,\quad -\dfrac{2}{3}=-\dfrac{8}{12}\]
+  نرتب البسطين : $-10<-8<0<7<9$ ، إذن :
+  \[\ib{$-\dfrac{5}{6}<-\dfrac{2}{3}<0<\dfrac{7}{12}<\dfrac{3}{4}$}\]
+  \item المقام المشترك هو $100\times101=10\,100$ :
+  \[\dfrac{99}{100}=\dfrac{99\times101}{100\times101}=\dfrac{9\,999}{10\,100}\]
+  \[\dfrac{100}{101}=\dfrac{100\times100}{101\times100}=\dfrac{10\,000}{10\,100}\]
+  بما أن $9\,999<10\,000$ فإن \ib{$\dfrac{99}{100}<\dfrac{100}{101}$}.
+
+  \textbf{طريقة ثانية :} $1-\dfrac{99}{100}=\dfrac{1}{100}$ و $1-\dfrac{100}{101}=\dfrac{1}{101}$ ، و $\dfrac{1}{100}>\dfrac{1}{101}$ ، فالعدد الأول أبعد عن $1$ إذن هو الأصغر.
+\end{enumerate}
+\end{corr}
+
+\end{document}

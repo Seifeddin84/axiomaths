@@ -1,0 +1,45 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "التناظر المركزي"
+% source: "Axiomaths"
+% title: "صحيح أم خاطئ ؟"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Facile"
+% points: null
+% tags: ["symetrie-centrale", "vrai-faux", "proprietes", "contre-exemple"]
+% ---
+% Exercice 3/15 de la série 8ème « التناظر المركزي » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\usetikzlibrary{arrows.meta}
+\newcommand{\cm}{\,\mathrm{cm}}
+\axsetup{title={التناظر المركزي}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={صحيح أم خاطئ ؟}, stars=1, source={Axiomaths}]
+في كل حالة، حدّد إن كانت العبارة صحيحة أم خاطئة ثم علّل إجابتك.
+\begin{enumerate}
+  \item مناظر قطعة $[AB]$ بالنسبة إلى نقطة $O$ هي قطعة $[A'B']$ حيث $A'B'=AB$.
+  \item إذا كانت $O$ منتصف $[MN]$ فإن $N$ مناظرة $M$ بالنسبة إلى $O$.
+  \item مناظر مستقيم بالنسبة إلى نقطة هو مستقيم عمودي عليه.
+  \item $O$ منتصف $[AB]$ و $C$ مناظرة $A$ بالنسبة إلى $B$. إذن $O$ منتصف $[AC]$.
+  \item مناظرة دائرة شعاعها $r$ بالنسبة إلى نقطة هي دائرة شعاعها $2r$.
+  \item مناظرة زاوية قيسها $50^\circ$ بالنسبة إلى نقطة هي زاوية قيسها $50^\circ$.
+\end{enumerate}
+\axsol
+\begin{enumerate}[itemsep=10pt]
+  \item \textbf{صحيح.} التناظر المركزي يحافظ على الأطوال.
+  \item \textbf{صحيح.} هذا هو تعريف المناظرة : $O$ منتصف $[MN]$ معناه $N=S_O(M)$.
+  \item \textbf{خاطئ.} مناظر المستقيم مستقيم \emph{مواز} له (أو منطبق عليه).
+  \item \textbf{خاطئ.} مثال مضاد : $AB=4\cm$ ؛ $O$ على بعد $2\cm$ من $A$ ، و $C$ على بعد $8\cm$ من $A$ ، فمنتصف $[AC]$ على بعد $4\cm$ من $A$ وليس $O$. في الحقيقة $B$ هي منتصف $[AC]$.
+  \item \textbf{خاطئ.} الدائرة المناظرة لها نفس الشعاع $r$ (الأطوال محفوظة) ؛ مركزها هو مناظر المركز.
+  \item \textbf{صحيح.} التناظر المركزي يحافظ على قيس الزوايا.
+\end{enumerate}
+\end{corr}
+
+\end{document}

@@ -1,0 +1,48 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "التناظر المركزي"
+% source: "Axiomaths"
+% title: "أسئلة متعددة الخيارات"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Facile"
+% points: null
+% tags: ["qcm", "symetrie-centrale", "definition"]
+% ---
+% Exercice 1/15 de la série 8ème « التناظر المركزي » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\usetikzlibrary{arrows.meta}
+\newcommand{\cm}{\,\mathrm{cm}}
+\axsetup{title={التناظر المركزي}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={أسئلة متعددة الخيارات}, stars=1, source={Axiomaths}]
+لكل سؤال إجابة صحيحة واحدة أو أكثر.
+\begin{qcm}
+\qitem[AC]{إذا كانت $A'$ مناظرة $A$ بالنسبة إلى $O$ ($A\neq O$) فإن:}{$O$ منتصف $[AA']$}{$AA'=OA$}{النقاط $A$ و $O$ و $A'$ على استقامة واحدة}{$OA'=2\,OA$}
+\qitem[B]{مناظرة النقطة $O$ بالنسبة إلى $O$ هي:}{لا توجد}{$O$ نفسها}{نقطة تختلف عن $O$}{منتصف $[OO]$ فقط إن وُجد}
+\qitem[C]{إذا كانت $A'$ مناظرة $A$ بالنسبة إلى $O$ فإن مناظرة $A'$ بالنسبة إلى $O$ هي:}{$O$}{$A'$}{$A$}{نقطة غير $A$}
+\qitem[BD]{مناظر مستقيم $d$ بالنسبة إلى نقطة $O$ هو:}{مستقيم عمودي على $d$}{مستقيم مواز لـ $d$ أو منطبق عليه}{مستقيم يقطع $d$ في $O$}{$d$ نفسه إذا كانت $O$ تنتمي إلى $d$}
+\qitem[ACD]{التناظر المركزي يحافظ على:}{أطوال القطع}{مواقع النقاط}{قيس الزوايا}{مساحات الأشكال}
+\qitem[AC]{الأشكال التي تقبل مركز تناظر هي:}{متوازي الأضلاع}{المثلث المتقايس الضلعين}{الدائرة}{شبه المنحرف الذي ليس متوازي أضلاع}
+\qitem[D]{$M'$ مناظرة $M$ بالنسبة إلى $O$ و $OM=3\cm$. إذن $MM'$ يساوي:}{$3\cm$}{$1{,}5\cm$}{$9\cm$}{$6\cm$}
+\end{qcm}
+\axsol
+\axanswerkey{1/AC, 2/B, 3/C, 4/BD, 5/ACD, 6/AC, 7/D}
+\begin{itemize}[itemsep=8pt]
+  \item س1 : $O$ منتصف $[AA']$ معناه $AO=OA'$ و $A$ و $O$ و $A'$ على استقامة واحدة. إذن $AA'=2\,OA$ وليس $OA$.
+  \item س2 : $O$ هي مناظرة نفسها : $S_O(O)=O$.
+  \item س3 : $O$ منتصف $[AA']$ يعني أيضا أن $A$ مناظرة $A'$ بالنسبة إلى $O$.
+  \item س4 : مناظر المستقيم $d$ مستقيم موازٍ له ؛ وإذا مرّ $d$ من $O$ فإنه يُطابق مناظره.
+  \item س5 : الأطوال والزوايا والمساحات تُحفظ، أمّا النقاط فتتغير مواقعها (ما عدا $O$).
+  \item س6 : لمتوازي الأضلاع والدائرة مركز تناظر ؛ المثلث المتقايس الضلعين له محور تناظر فقط ؛ وشبه المنحرف العادي لا مركز له.
+  \item س7 : $MM'=2\times OM=2\times3\cm=6\cm$.
+\end{itemize}
+\end{corr}
+
+\end{document}
