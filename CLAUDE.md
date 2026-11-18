@@ -182,6 +182,10 @@ the other project follows is `inbox/README.md` (single source of truth; change i
 The converter maps the tutoring solution constructs to the house style of §5: `prop` → `:::property[…]`,
 `\ib{}` → `\boxed{}`, `Idée :` / `Piège :` lines → `:::intuition` / `:::trap` (tested on the Thalès corrigé).
 
+Vercel does not build `inbox/*` branches (`vercel.json` `ignoreCommand`; they only add `.tex`), so the tutoring PR has no
+preview: the preview to test is the one of our `claude/convert-<batch>` PR. The tutoring project splits a series into one
+file per exercise itself (`inbox/README.md`, rule 3).
+
 Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads origin 'inbox/*'`):
 
 1. `git fetch --depth=50 origin inbox/<branch>` then `git checkout -b claude/convert-<batch> origin/inbox/<branch>`

@@ -20,6 +20,9 @@ inbox/
    Do not delete or rewrite files in `inbox/done/`.
 3. **One exercise = one file**, named `<level>-<chapter-slug>-<NN>.tex` (NN = running number in the batch).
    Never invent a UID: the manager allocates them.
+   **You split, the manager does not.** A series or devoir you hand to pupils is one `.tex` with several
+   exercises: do not commit that file. Commit each exercise as its own file in the format below (own metadata
+   block, own statement and solution, any macros it needs copied into it). The pupils' PDF stays yours.
 4. **Verify the mathematics before committing** (SymPy or numerics): every value, limit, identity and
    "Montrer que…" claim, and the full solution. The manager audits again, but an exercise that arrives
    wrong costs a round trip.
