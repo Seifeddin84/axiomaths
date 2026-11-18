@@ -1,0 +1,50 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "العمليات والحساب على الأعداد الكسرية"
+% source: "Axiomaths"
+% title: "حسابات ذكية"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Moyen"
+% points: null
+% tags: ["fractions", "calcul-astucieux", "factorisation", "produit-telescopique"]
+% ---
+% Exercice 9/18 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={حسابات ذكية}, stars=3, source={Axiomaths}]
+احسب بأيسر طريقة (بالتفكيك إلى جذاء أو بالاختزال) :
+\[A=\dfrac{7}{9}\times\dfrac{5}{11}+\dfrac{7}{9}\times\dfrac{6}{11}\qquad B=\dfrac{13}{8}\times\dfrac{3}{5}-\dfrac{5}{8}\times\dfrac{3}{5}\]
+\[C=\dfrac{2}{3}\times\dfrac{3}{4}\times\dfrac{4}{5}\times\dfrac{5}{6}\times\dfrac{6}{7}\qquad D=\dfrac{-4}{15}\times\dfrac{7}{3}+\dfrac{-4}{15}\times\dfrac{2}{3}\]
+\[E=\left(1-\dfrac{1}{2}\right)\times\left(1-\dfrac{1}{3}\right)\times\left(1-\dfrac{1}{4}\right)\times\cdots\times\left(1-\dfrac{1}{10}\right)\]
+\axsol
+\begin{prop}[التفكيك إلى جذاء]
+\ib{$k\times a+k\times b=k\times(a+b)$} \qquad و \qquad \ib{$k\times a-k\times b=k\times(a-b)$}
+\end{prop}
+\begin{enumerate}[itemsep=14pt]
+  \item[$A$ :] العامل المشترك هو $\dfrac{7}{9}$ :
+  \[A=\dfrac{7}{9}\times\left(\dfrac{5}{11}+\dfrac{6}{11}\right)=\dfrac{7}{9}\times\dfrac{11}{11}=\dfrac{7}{9}\times1=\dfrac{7}{9}\]
+  \item[$B$ :] العامل المشترك هو $\dfrac{3}{5}$ :
+  \[B=\dfrac{3}{5}\times\left(\dfrac{13}{8}-\dfrac{5}{8}\right)=\dfrac{3}{5}\times\dfrac{8}{8}=\dfrac{3}{5}\]
+  \item[$C$ :] نكتب الجذاء على شكل كسر واحد :
+  \[C=\dfrac{2\times3\times4\times5\times6}{3\times4\times5\times6\times7}\]
+  نشطب $3$ و $4$ و $5$ و $6$ من البسط والمقام :
+  \[C=\dfrac{2}{7}\]
+  \item[$D$ :] العامل المشترك هو $\dfrac{-4}{15}$ :
+  \[D=\dfrac{-4}{15}\times\left(\dfrac{7}{3}+\dfrac{2}{3}\right)=\dfrac{-4}{15}\times\dfrac{9}{3}=\dfrac{-4}{15}\times3=-\dfrac{12}{15}=-\dfrac{4}{5}\]
+  \item[$E$ :] كل عامل هو من الشكل $1-\dfrac{1}{k}=\dfrac{k-1}{k}$ :
+  \[E=\dfrac{1}{2}\times\dfrac{2}{3}\times\dfrac{3}{4}\times\cdots\times\dfrac{9}{10}\]
+  بالاختزال المتتالي لا يبقى إلا البسط الأول والمقام الأخير :
+  \[E=\dfrac{1}{10}\]
+\end{enumerate}
+\textbf{الفكرة :} قبل أن نحسب، نبحث عن عامل مشترك أو عن حدود تُختزل فيما بينها.
+\end{corr}
+
+\end{document}

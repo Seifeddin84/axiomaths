@@ -38,7 +38,7 @@ On admet dans la suite que $f(x) = x^3 - 6x^2 + 9x + 2$.
 
 4. Montrer que $\mathcal{C}_f$ admet un point d'inflexion dont on déterminera les coordonnées.
 
-5. Montrer que l'équation $f(x) = -x$ admet une unique solution $\alpha$ dans $\mathbb{R}$ et vérifier que $\alpha \in ]-0{,}2\,;\,-0{,}1[$, puis donner un encadrement de $\alpha$ d'amplitude $10^{-1}$.
+5. Montrer que l'équation $f(x) = -x$ admet une unique solution $\alpha$ dans $\mathbb{R}$ et vérifier que $\alpha \in ]-0{,}2\,;\,-0{,}1[$, puis donner un encadrement de $\alpha$ d'amplitude $10^{-2}$.
 
 ---
 
@@ -150,6 +150,14 @@ On admet dans la suite que $f(x) = x^3 - 6x^2 + 9x + 2$.
 
    $\varphi$ est continue et strictement croissante sur $[-0{,}2\,;\,-0{,}1]$ avec un changement de signe : $\alpha \in ]-0{,}2\,;\,-0{,}1[$.
 
-   **Encadrement d'amplitude $10^{-1}$.** L'intervalle $]-0{,}2\,;\,-0{,}1[$ est déjà d'amplitude $0{,}1 = 10^{-1}$ : c'est l'encadrement demandé.
+   **Encadrement d'amplitude $10^{-2}$.** On resserre l'intervalle : on teste les valeurs au centième.
 
-   *Pour aller plus loin (amplitude $10^{-2}$).* $\varphi(-0{,}18) \approx -0{,}0002 < 0$ et $\varphi(-0{,}17) \approx 0{,}122 > 0$, donc $-0{,}18 < \alpha < -0{,}17$ (en fait $\alpha \approx -0{,}18$).
+   - $\varphi(-0{,}18) = -0{,}005832 - 0{,}1944 - 1{,}8 + 2 = -0{,}000232 < 0$ ;
+
+   - $\varphi(-0{,}17) \approx 0{,}122 > 0$.
+
+   $\varphi$ est continue et strictement croissante sur $[-0{,}18\,;\,-0{,}17]$ avec un changement de signe :
+
+   $-0{,}18 < \alpha < -0{,}17$.
+
+   *Remarque.* L'intervalle $]-0{,}2\,;\,-0{,}1[$ de la vérification précédente est d'amplitude $10^{-1}$ ; on a donc gagné un chiffre exact. $\varphi(-0{,}18)$ est très proche de $0$ : $\alpha \approx -0{,}18$.

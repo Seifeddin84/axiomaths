@@ -1,0 +1,86 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "التناظر المركزي"
+% source: "Axiomaths"
+% title: "تركيب : تناظر محوري ثم مركزي"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Difficile"
+% points: null
+% tags: ["symetrie-axiale", "symetrie-centrale", "angles", "composition", "synthese"]
+% ---
+% Exercice 16/19 de la série 8ème « التناظر المركزي » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\usetikzlibrary{arrows.meta}
+\newcommand{\cm}{\,\mathrm{cm}}
+\axsetup{title={التناظر المركزي}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={تركيب : تناظر محوري ثم مركزي}, stars=4, source={Axiomaths}]
+$\Delta$ و $d$ مستقيمان متعامدان في $O$. $H$ نقطة من $\Delta$ و $K$ نقطة من $d$. $A$ نقطة داخل الزاوية $\widehat{HOK}$ حيث $OA=3\cm$ و $\widehat{HOA}=35^\circ$. $A_1$ مناظرة $A$ بالنسبة إلى $\Delta$ ، و $A_2$ مناظرة $A_1$ بالنسبة إلى $O$.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \draw[thick] (-4.3,0)--(4.3,0) node[right] {$\Delta$};
+  \draw[thick] (0,-2.4)--(0,3.9) node[above] {$d$};
+  \draw[thick] (0,0)--(2.457,1.721);
+  \fill (0,0) circle (2pt) node[below left] {$O$};
+  \fill (3.6,0) circle (2pt) node[below] {$H$};
+  \fill (0,3.4) circle (2pt) node[left] {$K$};
+  \fill (2.457,1.721) circle (2pt) node[above right] {$A$};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+  \item ابنِ $A_1$ و $A_2$.
+  \item بين أن $OA_1=OA_2=OA$ ، ثم احسب $\widehat{AOA_1}$ و $\widehat{AOA_2}$.
+  \item احسب $\widehat{AOK}$ ثم $\widehat{KOA_2}$.
+  \item استنتج أن $A_2$ مناظرة $A$ بالنسبة إلى $d$.
+  \item نعوّض $35^\circ$ بقيس كيفي $\alpha$ حيث $0<\alpha<90^\circ$. هل يبقى الاستنتاج صحيحا ؟ علّل.
+\end{enumerate}
+\axsol
+\begin{enumerate}[itemsep=14pt]
+  \item $A_1$ هي النقطة التي يكون $\Delta$ محورا للقطعة $[AA_1]$. ثم $A_2$ هي النقطة التي يكون $O$ منتصفا للقطعة $[A_1A_2]$.
+  \begin{center}
+  \begin{tikzpicture}[scale=0.8]
+    \draw[thick] (-4.3,0)--(4.3,0) node[right] {$\Delta$};
+    \draw[thick] (0,-2.4)--(0,3.9) node[above] {$d$};
+    \draw[thick] (0,0)--(2.457,1.721);
+    \draw[thick,red] (0,0)--(2.457,-1.721);
+    \draw[thick,red] (0,0)--(-2.457,1.721);
+    \draw[dashed] (2.457,1.721)--(2.457,-1.721);
+    \draw[dashed] (2.457,1.721)--(-2.457,1.721);
+    \fill (0,0) circle (2pt) node[below left] {$O$};
+    \fill (3.6,0) circle (2pt) node[below] {$H$};
+    \fill (0,3.4) circle (2pt) node[left] {$K$};
+    \fill (2.457,1.721) circle (2pt) node[above right] {$A$};
+    \fill[red] (2.457,-1.721) circle (2pt) node[below right] {$A_1$};
+    \fill[red] (-2.457,1.721) circle (2pt) node[above left] {$A_2$};
+  \end{tikzpicture}
+  \end{center}
+  \item $O\in\Delta$ ، فمناظرتها بالنسبة إلى $\Delta$ هي $O$ ، والتناظر المحوري يحفظ الأطوال : \ib{$OA_1=OA=3\cm$}. ثم $S_O$ يحفظ الأطوال : $OA_2=OA_1=3\cm$.
+  التناظر المحوري يحفظ قيس الزوايا : $\widehat{HOA_1}=\widehat{HOA}=35^\circ$ ، و $A$ و $A_1$ على جهتين مختلفتين من $\Delta$ ، إذن :
+  \[\widehat{AOA_1}=35^\circ+35^\circ=70^\circ\]
+  النقط $A_1$ و $O$ و $A_2$ على استقامة واحدة، و $O$ بينهما، فالزاويتان $\widehat{AOA_1}$ و $\widehat{AOA_2}$ متكاملتان :
+  \[\widehat{AOA_2}=180^\circ-70^\circ=110^\circ\]
+  \item $d\perp\Delta$ ، إذن $\widehat{HOK}=90^\circ$ ، و $A$ داخلها :
+  \[\widehat{AOK}=90^\circ-35^\circ=55^\circ\]
+  $A$ و $A_2$ على جهتين مختلفتين من $d$ ، فالنصف مستقيم $[OK)$ داخل الزاوية $\widehat{AOA_2}$ :
+  \[\widehat{KOA_2}=\widehat{AOA_2}-\widehat{AOK}=110^\circ-55^\circ=55^\circ\]
+  \item $OA=OA_2$ ، فالمثلث $OAA_2$ متقايس الضلعين رأسه $O$. و $\widehat{AOK}=\widehat{KOA_2}=55^\circ$ ، أي $[OK)$ ينصّف زاوية الرأس.
+  \begin{prop}[مثلث متقايس الضلعين]
+  في مثلث متقايس الضلعين، منصّف زاوية الرأس هو \ib{محور تناظر المثلث}، وهو محور القاعدة.
+  \end{prop}
+  إذن $d=(OK)$ هو محور $[AA_2]$ : \ib{$A_2$ مناظرة $A$ بالنسبة إلى $d$}.
+  \item نضع $\widehat{HOA}=\alpha$. نفس الحجج تعطي :
+  \[\widehat{AOA_1}=2\alpha\ ,\qquad \widehat{AOA_2}=180^\circ-2\alpha\ ,\qquad \widehat{AOK}=90^\circ-\alpha\]
+  \[\widehat{KOA_2}=(180^\circ-2\alpha)-(90^\circ-\alpha)=90^\circ-\alpha=\widehat{AOK}\]
+  فالنتيجة صحيحة من أجل كل $\alpha$ بين $0$ و $90^\circ$ : \ib{$S_O\big(S_\Delta(A)\big)=S_d(A)$}.
+\end{enumerate}
+\textbf{الفكرة :} تناظر محوري ثم تناظر مركزي مركزه على المحور يعطي تناظرا محوريا بالنسبة إلى المستقيم العمودي. \quad \textbf{انتبه :} لا تنسَ أن $O$ تنتمي إلى $\Delta$ : هذا ما يجعل $OA_1=OA$.
+\end{corr}
+
+\end{document}

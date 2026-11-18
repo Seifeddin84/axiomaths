@@ -145,8 +145,8 @@ Section rules:
   decimal comma `1{,}9`. Intervals: `]0, +\infty[` (no `\]`/`\[` — they break KaTeX).
   Inside a numbered item, `$$…$$` renders *inline* (small sums/integrals): write `$$\displaystyle …$$`.
   "f^{2n}(x)" meaning a power → say so: "où $f^{k}(x)$ désigne $(f(x))^k$".
-- Solutions: concise, same numbering as the statement, key steps and results
-  (not a full essay). `**Vrai.**` / `**Faux.**` + one-line justification for V-F.
+- Solutions: **house style below** (detailed, boxed reminders, one idea per line), same numbering as the
+  statement. `**Vrai.**` / `**Faux.**` + one-line justification for V-F.
   A short *Remarque* is welcome when it opens a door (e.g. a link to another exercise,
   a famous constant).
 - Inside a numbered item, consecutive lines **merge into one paragraph**. In solutions, put each step on its own
@@ -167,6 +167,30 @@ or the filter stops meaning anything.
 `source: "Bac <year> <session>, Ex. n"` and the paper's `sujet.tex` gets `\banque{<UID7>}`
 in that block: the links then go both ways.
 
+### Solutions: house style (rule since 2026-11-18, for every exercise we generate)
+
+Model: Seifeddine's "corrigé détaillé" of the Thalès series (_maths_tutoring). The audience is the **weak and the
+average pupil**: detailed, clean, nothing skipped.
+
+- **Reminders in boxes.** Each course tool the exercise needs (theorem, property, formula, definition) is recalled
+  in a box *before* the step that uses it (at the top of the solution, or at the start of the numbered item):
+  `:::property[Thalès : direct et réciproque]` … `:::`. One box per tool, 1–3 boxes per exercise, not more.
+  The key formula inside is framed with `\boxed{…}` (key formulas only, and the final results worth keeping).
+- **Steps.** Same numbering as the statement. One idea per line, each step its own paragraph (blank line between).
+  Say which property is used ("D'après le rappel…", "Thalès de sommet $A$"). Show the intermediate computation
+  (no skipped algebra); display equations on their own line (`$$\displaystyle …$$` inside a numbered item).
+  Justify every "Montrer que" fully; finish a question with its result, and a *Contrôle* line when a quick
+  check exists.
+- **End of the solution** (when useful): `:::intuition` (the idea in one or two lines) and `:::trap` (the typical
+  wrong move, one or two lines). Optional `:::method` for a recipe that will be reused.
+- **Box kinds** (same as the lessons, unnumbered here): `property`, `theorem`, `definition`, `method`, `example`,
+  `remark`, `warning`, `intuition` (« L'idée »), `trap` (« Piège »). Title in brackets, no title needed for
+  `intuition`/`trap`. Collège (Arabic) solutions get Arabic labels automatically.
+- **Syntax.** `:::kind[Title]` on its own line, content, `:::` on its own line, blank line before and after.
+  Inside a numbered item indent the whole box (every line) by the item's indentation (3 spaces).
+  Boxes work only in the solution part, nothing else changes for exercises without a `:::` line.
+- Reference example: exercise **#44** (2ème Sciences/Informatique, suites).
+
 ## 6. Figures
 
 - Path: `public/exercises/images/<same stem as the .md>.png`;
@@ -175,6 +199,8 @@ in that block: the links then go both ways.
 - Prefer **redrawing** the figure cleanly (matplotlib, white background, black
   lines, hatching where the original hatches) over cropping a photo. Check the PNG
   visually before committing.
+- Style: old-textbook, pure black on white, **including graph theory and geometry**. Colour only when it
+  clearly helps understanding or use, and then sharp colours (see the lessons log, 2026-11-13).
 
 ## 7. Extraction from photos — rules
 
@@ -197,7 +223,7 @@ in that block: the links then go both ways.
   ties things together.
 - Calibrate `difficulty` against existing files of the same chapter.
 - Generated exercises: `source: "Axiomaths"`, `professor: "Axiomaths"`, `year` = current year.
-- Always include a full verified solution.
+- Always include a full verified solution, in the house style of §5 (boxed reminders, step by step).
 
 ## 9. Tools in the repo
 
@@ -206,6 +232,7 @@ in that block: the links then go both ways.
 | `next_exercise.py` | next UID(s) + canonical filename (non-interactive) |
 | `validate_exercises.py` | frontmatter/chapter/difficulty/UID checks — must report 0 errors |
 | `check_katex.mjs` | parses all formulas with KaTeX (needs `npm ci`) |
+| `scripts/inbox_convert.py` | converts the `.tex` exercises in `inbox/tex/` (from `_maths_tutoring`) to site exercises — see §11 |
 | `create_exercise.py` | legacy interactive generator — outdated naming/sections, don't use |
 
 ## 10. Known quirks
@@ -213,7 +240,40 @@ in that block: the links then go both ways.
 - UID 107 does not exist (gap); #70 and #74 are `.mdx`.
 - Collège 9ème files #62–66 have `section: "التاسعة أساسي"` (harmless; validator ignores collège sections).
 
-## 11. Lessons log (append corrections from Seifeddine here)
+## 11. Inbox hand-off from `_maths_tutoring`
+
+The Claude Project `_maths_tutoring` generates pupils' homework in LaTeX and also drops each exercise as a
+`.tex` file in `inbox/tex/<level>/` (branch `inbox/<date>-<topic>`, PR into main, never main itself). **This
+project is the manager**: only it allocates UIDs, writes `exercises/`, and publishes. The format contract
+the other project follows is `inbox/README.md` (single source of truth; change it there, not in prompts).
+The converter maps the tutoring solution constructs to the house style of §5: `prop` → `:::property[…]`,
+`\ib{}` → `\boxed{}`, `Idée :` / `Piège :` lines → `:::intuition` / `:::trap` (tested on the Thalès corrigé).
+
+Vercel does not build `inbox/*` branches (`vercel.json` `ignoreCommand`; they only add `.tex`), so the tutoring PR has no
+preview: the preview to test is the one of our `claude/convert-<batch>` PR. The tutoring project splits a series into one
+file per exercise itself (`inbox/README.md`, rule 3).
+
+Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads origin 'inbox/*'`):
+
+1. `git fetch --depth=50 origin inbox/<branch>` then `git checkout -b claude/convert-<batch> origin/inbox/<branch>`
+   (our PR carries the tutoring commits, so one merge closes both PRs).
+2. `python3 -B scripts/inbox_convert.py --dry-run` (`-B`: `__pycache__` is tracked, do not dirty it),
+   then without `--dry-run`. Files it skips stay in `inbox/tex/` with the reason; fix the metadata or the TeX
+   by hand, or send the problem back to the tutoring project through Seifeddine.
+3. The script does **not** make anything trustworthy. For every converted exercise, still do §2 and the lessons log (§12):
+   - re-derive statement claims and the solution independently (SymPy / numeric, script outside the repo);
+   - read the `.md` against the `.tex` (lost question, merged lines, wrong numbering) and open every PNG;
+   - triage the "possible duplicate" warnings (an exercise in the bank *and* in a devoir is accepted, but an
+     exercise duplicated inside the batch is not);
+   - solutions must be step-by-step for a weak pupil; calibrate `difficulty` against the chapter;
+   - generated content: `source: "Axiomaths"`, `professor: "Axiomaths"` stay as the script wrote them;
+     `provenance`, `dressing`, `rung`, `batch` are kept in the frontmatter (practice-set bookkeeping);
+     `recommended` is never set by the tutoring project.
+4. `python3 validate_exercises.py ./exercises` (0 errors) and `node check_katex.mjs <new files>`.
+5. Commit, push, PR with: new UIDs, skipped files and why, fixes and judgement calls, open questions.
+   Seifeddine tests the preview and merges; never push to main.
+
+## 12. Lessons log (append corrections from Seifeddine here)
 
 - 2026-10-30: first batch. Screenshots of the tan(π/x) exercise and the Rafeha Mnihla DC3
   were already in the repo (#31, #32–34) → duplicate check is step 1.
@@ -225,6 +285,10 @@ in that block: the links then go both ways.
 - 2026-11-13 (Seifeddine): **figures in the old-textbook style by default**: pure black on white, thin
   lines, hatching instead of fills, serif/CM labels (exercise PNGs *and* lesson SVGs). Use colour only
   when the figure cannot be read without it (e.g. several curves that must be told apart).
+  Refined the same day: this holds for graph theory and geometry too. Colour is the **exception**, allowed
+  when it adds real value to understanding or ease of use (a path in a graph, a highlighted element in a
+  geometry figure, curves to tell apart); then use **sharp, saturated colours**, a few at most, and keep
+  everything else black.
 - 2026-11-13 (Seifeddine): **audit every exercise before adding it to the bank.** Re-derive the
   statement's claims and the printed solution independently (SymPy / numeric), not just the final
   answer; a printed error is corrected minimally and listed in the PR (see Ex. 13 of the 2ème manual, #195).
@@ -239,3 +303,6 @@ in that block: the links then go both ways.
   `provenance: adapted`. `source_checked: true` = contenu de la page lu via WebSearch (WebFetch était bloqué
   par la liste d'autorisation de la session) et conforme ; la note de la *Mathematical Gazette* (Cambridge)
   n'a jamais été lue : elle reste une référence historique non vérifiée.
+- 2026-11-18 (Seifeddine): **all solutions in the house style of §5** (boxed reminders, framed key formulas,
+  detailed steps for weak and average pupils, « L'idée » / « Piège » at the end), modelled on his Thalès corrigé;
+  rule for every exercise we generate from now on. Existing solutions stay as they are until rewritten.

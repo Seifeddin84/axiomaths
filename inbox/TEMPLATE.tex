@@ -1,0 +1,80 @@
+%----------------------------------------------------------------------------------------
+% METADATA BLOCK (YAML)  — see inbox/README.md for every field
+%----------------------------------------------------------------------------------------
+% uid: ""
+% school: "lycee"
+% level: "2eme"
+% section: ["Sciences", "Informatique"]
+% chapter: "Suites arithmétiques et géométriques"
+% title: "Suite arithmétique et somme des premiers termes"
+% difficulty: "Facile"
+% points: 6
+% tags: ["suites-arithmetiques", "terme-general", "somme"]
+% provenance: "own"
+% dressing: "deux termes donnés"
+% rung: 2
+% batch: "2026-11-18-suites-2sc-A"
+%----------------------------------------------------------------------------------------
+
+% Everything above this line is metadata. Below: plain LaTeX content only
+% (no tcolorbox, no custom environments, no handout styling).
+% Macros defined here are expanded by the converter; keep them simple.
+\newcommand{\N}{\mathbb{N}}
+
+% ---STATEMENT---
+Soit $(u_n)$ une suite arithmétique définie sur $\N$ telle que $u_2 = 7$ et $u_5 = 13$.
+
+\begin{enumerate}
+  \item
+  \begin{enumerate}
+    \item Déterminer la raison $r$ de la suite $(u_n)$.
+    \item Calculer $u_0$ puis exprimer $u_n$ en fonction de $n$.
+  \end{enumerate}
+  \item Pour tout $n \in \N$, on pose $S_n = u_0 + u_1 + \dots + u_n$.
+  \begin{enumerate}
+    \item Montrer que $S_n = (n+1)(n+3)$.
+    \item Déterminer l'entier $n$ tel que $S_n = 195$.
+  \end{enumerate}
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{enumerate}
+  \item
+  \begin{enumerate}
+    \item Dans une suite arithmétique, $u_p = u_q + (p-q)\,r$.
+
+    Avec $p = 5$ et $q = 2$ : $u_5 = u_2 + 3r$, donc $13 = 7 + 3r$.
+
+    D'où $3r = 6$ et donc $r = 2$.
+    \item On utilise $u_n = u_0 + n r$ avec $n = 2$ : $7 = u_0 + 4$, donc $u_0 = 3$.
+
+    Ainsi $u_n = 3 + 2n$ pour tout $n \in \N$.
+  \end{enumerate}
+  \item
+  \begin{enumerate}
+    \item La somme de $n+1$ termes consécutifs d'une suite arithmétique vaut
+    $$S_n = (n+1)\,\frac{u_0 + u_n}{2}.$$
+
+    Ici $u_0 + u_n = 3 + (3 + 2n) = 2n + 6$, donc
+    $$S_n = (n+1)\,\frac{2n+6}{2} = (n+1)(n+3).$$
+    \item On résout $(n+1)(n+3) = 195$, c'est-à-dire $n^2 + 4n - 192 = 0$.
+
+    Le discriminant est $\Delta = 16 + 768 = 784 = 28^2$, donc $n = \dfrac{-4 + 28}{2} = 12$ ou $n = \dfrac{-4-28}{2} = -16$.
+
+    Comme $n \in \N$, on garde $n = 12$. Vérification : $13 \times 15 = 195$.
+  \end{enumerate}
+\end{enumerate}
+
+% alt: Les points (n, u_n) pour n de 0 à 5 sont alignés sur une droite de pente 2.
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=0.3cm]
+  \draw[->] (-0.3,0) -- (6,0) node[right] {$n$};
+  \draw[->] (0,-0.3) -- (0,14) node[above] {$u_n$};
+  \foreach \i in {0,...,5} {
+    \fill (\i,{3+2*\i}) circle (2pt);
+    \draw[dotted] (\i,0) -- (\i,{3+2*\i});
+    \node[below] at (\i,0) {\small \i};
+  }
+  \draw (0,3) -- (5,13);
+\end{tikzpicture}
+\end{center}
