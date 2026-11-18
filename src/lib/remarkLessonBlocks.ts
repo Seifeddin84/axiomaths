@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { visit } from 'unist-util-visit';
-import { wikiIdForName } from '@/lib/theoremKeys';
 import { createSlugger } from '@/lib/headingSlug';
 
 /**
@@ -31,6 +30,7 @@ export const BLOCKS: Record<string, { label: string; numbered: boolean }> = {
   curious:    { label: 'Pour les curieux', numbered: false },
   remark:     { label: 'Remarque', numbered: false },
   warning:    { label: 'Attention', numbered: false },
+  trap:       { label: 'Piège', numbered: false },
   intuition:  { label: "L'idée", numbered: false },
   check:      { label: 'Vérifie-toi', numbered: true },
   challenge:  { label: 'Défi', numbered: false },
@@ -51,6 +51,7 @@ const BLOCKS_AR: Record<string, string> = {
   curious:    'للفضوليين',
   remark:     'ملاحظة',
   warning:    'تنبيه',
+  trap:       'فخّ',
   intuition:  'الفكرة',
   check:      'اختبر نفسك',
   challenge:  'تحدٍّ',
@@ -65,6 +66,16 @@ export interface LessonBlocksOptions {
   lang?: 'fr' | 'ar';
   /** theorem boxes link to their entry of the theorems wiki (off when rendering the wiki itself) */
   wikiLinks?: boolean;
+  /**
+   * Wiki entry id of a theorem name (`wikiIdForName` of theoremKeys.ts). Passed in by the server-side lesson
+   * renderer, so this plugin imports no Node module and can also run in the browser (exercise solutions).
+   * Without it there are no wiki links.
+   */
+  wikiId?: (name: string) => string;
+  /** "Propriété 1", "Propriété 2"… (default). Off for exercise solutions: the box title is enough. */
+  numbered?: boolean;
+  /** give every h2 / h3 an id for the table of contents (default). Off in exercises: ids would repeat on a page. */
+  headingIds?: boolean;
 }
 
 const WIKI_LINK = {
@@ -93,11 +104,13 @@ function el(tagName: string, className: string | null, children: any[]) {
 
 export default function remarkLessonBlocks(options: LessonBlocksOptions = {}) {
   const lang = options.lang === 'ar' ? 'ar' : 'fr';
-  const wikiLinks = options.wikiLinks !== false;
+  const wikiLinks = options.wikiLinks !== false && !!options.wikiId;
+  const numbered = options.numbered !== false;
+  const headingIds = options.headingIds !== false;
   const wikiLink = (name: string, label: string) => ({
     type: 'paragraph',
     data: { hName: 'p', hProperties: { className: ['lesson-box__wiki'] } },
-    children: [{ type: 'link', url: `/theoremes#${wikiIdForName(name)}`, children: [text(label)] }],
+    children: [{ type: 'link', url: `/theoremes#${options.wikiId?.(name)}`, children: [text(label)] }],
   });
   return (tree: any, file: any) => {
     const counters: Record<string, number> = {};
@@ -106,7 +119,7 @@ export default function remarkLessonBlocks(options: LessonBlocksOptions = {}) {
 
     visit(tree, (node: any, index: number | undefined, parent: any) => {
       // ---- heading ids ---------------------------------------------------
-      if (node.type === 'heading' && (node.depth === 2 || node.depth === 3)) {
+      if (headingIds && node.type === 'heading' && (node.depth === 2 || node.depth === 3)) {
         const start = node.position?.start?.offset;
         const end = node.position?.end?.offset;
         if (start !== undefined && end !== undefined) {
@@ -193,7 +206,7 @@ export default function remarkLessonBlocks(options: LessonBlocksOptions = {}) {
           ? PROOF_TABLE_LABEL[lang]
           : lang === 'ar' ? BLOCKS_AR[name] ?? block.label : block.label;
       let kind = label;
-      if (block.numbered) {
+      if (block.numbered && numbered) {
         counters[name] = (counters[name] ?? 0) + 1;
         kind = `${label} ${counters[name]}`;
       }

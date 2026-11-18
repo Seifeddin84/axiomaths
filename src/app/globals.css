@@ -499,6 +499,13 @@ button, .btn, a.button {
   padding: 0 2px;
   z-index: 1;
 }
+/* Boxes inside a solution (:::property … :::): same boxes as the lessons, tighter, and a framed key formula
+   (\boxed) that stays visible in both themes. */
+.exercise-content .lesson-box { margin: 1.1rem 0; font-size: 0.97rem; }
+.exercise-content .lesson-box__header { padding: 0.4rem 1rem; }
+.exercise-content .lesson-box__body { padding: 0.75rem 1rem 0.1rem; }
+.exercise-content .lesson-box__body > p { margin-bottom: 0.75rem; }
+.exercise-content .katex .fbox { border-color: currentColor; border-width: 0.06em; }
 /* Links between exercises (e.g. /lycee/4eme/mathematiques/integrales#ex-0000116) */
 .exercise-content a {
   color: #ea580c;
@@ -632,6 +639,7 @@ button, .btn, a.button {
 .lesson-box--example    { --c: #ea580c; --bg: #fff7ed; --bg-dark: rgba(234, 88, 12, 0.10); }
 .lesson-box--method     { --c: #7c3aed; --bg: #f5f3ff; --bg-dark: rgba(124, 58, 237, 0.12); }
 .lesson-box--remark     { --c: #64748b; --bg: #f8fafc; --bg-dark: rgba(100, 116, 139, 0.12); }
+.lesson-box--trap       { --c: #be123c; --bg: #fff1f2; --bg-dark: rgba(190, 18, 60, 0.12); }
 .lesson-box--warning    { --c: #dc2626; --bg: #fef2f2; --bg-dark: rgba(220, 38, 38, 0.12); }
 .lesson-box--intuition  { --c: #ca8a04; --bg: #fefce8; --bg-dark: rgba(202, 138, 4, 0.12); }
 .lesson-box--check      { --c: #16a34a; --bg: #f0fdf4; --bg-dark: rgba(22, 163, 74, 0.12); }

@@ -104,8 +104,8 @@ Section rules:
   decimal comma `1{,}9`. Intervals: `]0, +\infty[` (no `\]`/`\[` — they break KaTeX).
   Inside a numbered item, `$$…$$` renders *inline* (small sums/integrals): write `$$\displaystyle …$$`.
   "f^{2n}(x)" meaning a power → say so: "où $f^{k}(x)$ désigne $(f(x))^k$".
-- Solutions: concise, same numbering as the statement, key steps and results
-  (not a full essay). `**Vrai.**` / `**Faux.**` + one-line justification for V-F.
+- Solutions: **house style below** (detailed, boxed reminders, one idea per line), same numbering as the
+  statement. `**Vrai.**` / `**Faux.**` + one-line justification for V-F.
   A short *Remarque* is welcome when it opens a door (e.g. a link to another exercise,
   a famous constant).
 - Inside a numbered item, consecutive lines **merge into one paragraph**. In solutions, put each step on its own
@@ -125,6 +125,30 @@ or the filter stops meaning anything.
 **Bac papers.** An exercise taken from a paper in `public/bac/<id>/` gets `bac: "<id>"`,
 `source: "Bac <year> <session>, Ex. n"` and the paper's `sujet.tex` gets `\banque{<UID7>}`
 in that block: the links then go both ways.
+
+### Solutions: house style (rule since 2026-11-18, for every exercise we generate)
+
+Model: Seifeddine's "corrigé détaillé" of the Thalès series (_maths_tutoring). The audience is the **weak and the
+average pupil**: detailed, clean, nothing skipped.
+
+- **Reminders in boxes.** Each course tool the exercise needs (theorem, property, formula, definition) is recalled
+  in a box *before* the step that uses it (at the top of the solution, or at the start of the numbered item):
+  `:::property[Thalès : direct et réciproque]` … `:::`. One box per tool, 1–3 boxes per exercise, not more.
+  The key formula inside is framed with `\boxed{…}` (key formulas only, and the final results worth keeping).
+- **Steps.** Same numbering as the statement. One idea per line, each step its own paragraph (blank line between).
+  Say which property is used ("D'après le rappel…", "Thalès de sommet $A$"). Show the intermediate computation
+  (no skipped algebra); display equations on their own line (`$$\displaystyle …$$` inside a numbered item).
+  Justify every "Montrer que" fully; finish a question with its result, and a *Contrôle* line when a quick
+  check exists.
+- **End of the solution** (when useful): `:::intuition` (the idea in one or two lines) and `:::trap` (the typical
+  wrong move, one or two lines). Optional `:::method` for a recipe that will be reused.
+- **Box kinds** (same as the lessons, unnumbered here): `property`, `theorem`, `definition`, `method`, `example`,
+  `remark`, `warning`, `intuition` (« L'idée »), `trap` (« Piège »). Title in brackets, no title needed for
+  `intuition`/`trap`. Collège (Arabic) solutions get Arabic labels automatically.
+- **Syntax.** `:::kind[Title]` on its own line, content, `:::` on its own line, blank line before and after.
+  Inside a numbered item indent the whole box (every line) by the item's indentation (3 spaces).
+  Boxes work only in the solution part, nothing else changes for exercises without a `:::` line.
+- Reference example: exercise **#44** (2ème Sciences/Informatique, suites).
 
 ## 6. Figures
 
@@ -156,7 +180,7 @@ in that block: the links then go both ways.
   ties things together.
 - Calibrate `difficulty` against existing files of the same chapter.
 - Generated exercises: `source: "Axiomaths"`, `professor: "Axiomaths"`, `year` = current year.
-- Always include a full verified solution.
+- Always include a full verified solution, in the house style of §5 (boxed reminders, step by step).
 
 ## 9. Tools in the repo
 
@@ -193,3 +217,6 @@ in that block: the links then go both ways.
   rule is used, no skipped algebra); keep lessons short, with the "À retenir" first.
 - 2026-11-13: Éco Séries 7 and 10 are Seifeddine's own compilations (PDF dates March–April 2021),
   so `year: 2021` there is the year of the série, not of an original bac; #182 keeps 2009 (Bac ES Amérique du Nord).
+- 2026-11-18 (Seifeddine): **all solutions in the house style of §5** (boxed reminders, framed key formulas,
+  detailed steps for weak and average pupils, « L'idée » / « Piège » at the end), modelled on his Thalès corrigé;
+  rule for every exercise we generate from now on. Existing solutions stay as they are until rewritten.
