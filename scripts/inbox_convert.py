@@ -186,6 +186,10 @@ def figure_preamble(preamble: str) -> str:
                     break
             if ok:
                 out.append("".join(parts))
+    for m in re.finditer(r"\\(?:re)?newcommand\*?\s*\{\\[A-Za-z]+\}\s*(?:\[\d\])?\s*\{", preamble):
+        e = match_brace(preamble, m.end() - 1)
+        if e > 0 and "arraystretch" not in m.group(0):
+            out.append(preamble[m.start():e + 1])
     return "\n".join(out)
 
 
@@ -259,7 +263,11 @@ def protect_math(s: str, store: list) -> str:
             e = match_brace(s, i + 3)
             if e < 0:
                 raise ConvertError("unbalanced braces after \\ib")
-            out.append(put("inline", ib_to_math(s[i + 4:e])))
+            inner = s[i + 4:e]
+            if re.search(r"[\u0600-\u06FF]", inner):      # Arabic cannot sit in a math box (LTR, no metrics): bold instead
+                out.append("\\textbf{" + protect_math(inner, store) + "}")
+            else:
+                out.append(put("inline", ib_to_math(inner)))
             i = e + 1
         elif s.startswith("\\$", i):
             out.append("\\$")
@@ -342,11 +350,13 @@ REMOVE = [
     r"\\(?:noindent|medskip|bigskip|smallskip|newpage|clearpage|centering|hfill|hrule|large|Large|LARGE|"
     r"normalsize|small|footnotesize|bfseries|itshape|leavevmode)(?![A-Za-z])",
     r"\\begin\{center\}", r"\\end\{center\}", r"(?<!\\)\{\}",
+    r"\\renewcommand\s*\{\\arraystretch\}\s*\{[^}]*\}", r"\\phantom\s*\{[^}]*\}",
 ]
 REPLACE = [
     (r"\\og(?![A-Za-z])\s*", "« "), (r"\s*\\fg(?![A-Za-z])", " »"),
     (r"\\(?:ldots|dots|cdots)(?![A-Za-z])", "…"),
     (r"\\(?:quad|qquad)(?![A-Za-z])", " "), (r"\\[,;:! ]", " "),
+    (r"\\checkmark(?![A-Za-z])", "✓"),
     (r"\\%", "%"), (r"\\&", "&"), (r"\\_", "_"), (r"\\#", "#"), (r"\\\{", "{"), (r"\\\}", "}"),
     (r"\\(?:texteuro|euro)(?![A-Za-z])\s*\{?\}?", "€"), (r"\\(?:textdegree|degree)(?![A-Za-z])\s*\{?\}?", "°"),
     (r"``", "“"), (r"''", "”"), (r"---", "—"), (r"--", "–"),
@@ -642,6 +652,8 @@ def parse_metadata(text: str) -> dict:
             break
     if not block:
         raise ConvertError("no metadata block found (expected '% key: value' lines)")
+    block = [re.sub(r'^(\s*[A-Za-z_]+\s*:\s*")(.*)(")\s*$',
+                    lambda m: m.group(1) + m.group(2).replace("\\", "\\\\") + m.group(3), ln) for ln in block]
     try:
         data = yaml.safe_load("\n".join(block)) or {}
     except yaml.YAMLError as e:
@@ -779,6 +791,102 @@ def split_sections(text: str):
     return preamble, statement, solution
 
 
+ARABIC_SLUGS = {      # French slug for Arabic chapter names (filenames only; routing uses the frontmatter)
+    "العمليات والحساب على الأعداد الكسرية": "fractions",
+    "التناظر المركزي": "symetrie-centrale",
+}
+
+
+def plain_title(t: str) -> str:
+    """A title for the frontmatter: no LaTeX (the site shows titles as plain text)."""
+    t = re.sub(r"\\d?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}", r"\1/\2", t)
+    t = t.replace("$", "").replace("\\", "")
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def split_native(text: str):
+    """Native format of the tutoring project: a compilable document with
+    \\begin{corr}[title={…}, stars=N, source={…}] statement \\axsol solution \\end{corr}.
+    Returns (preamble, statement, solution, options)."""
+    m = re.search(r"\\begin\{corr\}", text)
+    if not m:
+        raise ConvertError("neither '% ---STATEMENT---' / '% ---SOLUTION---' markers nor a \\begin{corr} … \\axsol … \\end{corr} block found")
+    dm = re.search(r"\\begin\{document\}", text)
+    preamble = text[:dm.start()] if dm else text[:m.start()]
+    j, opts = m.end(), {}
+    if text[j:j + 1] == "[":
+        depth, k = 0, j
+        while k < len(text):
+            if text[k] == "{":
+                depth += 1
+            elif text[k] == "}":
+                depth -= 1
+            elif text[k] == "]" and depth == 0:
+                break
+            k += 1
+        raw = text[j + 1:k]
+        tm = re.search(r"title\s*=\s*\{", raw)
+        if tm and match_brace(raw, tm.end() - 1) > 0:
+            opts["title"] = raw[tm.end():match_brace(raw, tm.end() - 1)]
+        sm = re.search(r"stars\s*=\s*(\d)", raw)
+        if sm:
+            opts["stars"] = int(sm.group(1))
+        j = k + 1
+    end = re.search(r"\\end\{corr\}", text[j:])
+    body = text[j:j + end.start()] if end else text[j:]
+    ax = re.search(r"\\axsol\b", body)
+    if not ax:
+        raise ConvertError("no \\axsol between the statement and the solution")
+    return preamble, body[:ax.start()], body[ax.end():], opts
+
+
+def convert_qcm(s: str) -> str:
+    """\\begin{qcm}\\qitem[AB]{question}{a}{b}{c}{d}…\\end{qcm} -> numbered questions with lettered options."""
+    def one(m):
+        body, items, i = m.group(1), [], 0
+        while True:
+            j = body.find("\\qitem", i)
+            if j < 0:
+                break
+            k = j + len("\\qitem")
+            while body[k:k + 1].isspace():
+                k += 1
+            if body[k:k + 1] == "[":
+                k = body.find("]", k) + 1
+            groups = []
+            while True:
+                while body[k:k + 1].isspace():
+                    k += 1
+                if body[k:k + 1] != "{":
+                    break
+                e = match_brace(body, k)
+                if e < 0:
+                    raise ConvertError("unbalanced braces in \\qitem")
+                groups.append(body[k + 1:e])
+                k = e + 1
+            if len(groups) < 3:
+                raise ConvertError("\\qitem needs a question and at least two options")
+            opts = "\n\n".join(f"\\textbf{{{chr(65 + n)}.}} {g}" for n, g in enumerate(groups[1:]))
+            items.append(f"\\item {groups[0]}\n\n{opts}")      # one paragraph per option: stacked fractions need room
+            i = k
+        return "\\begin{enumerate}\n" + "\n".join(items) + "\n\\end{enumerate}"
+    return re.sub(r"\\begin\{qcm\}(.*?)\\end\{qcm\}", one, s, flags=re.S)
+
+
+def convert_answerkey(s: str, arabic: bool) -> str:
+    """\\axanswerkey{1/AB, 2/B} -> a bold line listing the correct options."""
+    def one(m):
+        pairs = []
+        for part in m.group(1).split(","):
+            if "/" in part:
+                q, a = part.split("/", 1)
+                pairs.append("$" + q.strip() + r"\to\mathrm{" + ",\\,".join(a.strip()) + "}$")   # LTR island in an RTL line
+        head = "الأجوبة الصحيحة" if arabic else "Réponses correctes"
+        return f"\n\n\\textbf{{{head} :}} " + (" ؛ " if arabic else " ; ").join(pairs) + "\n\n"
+    return re.sub(r"\\axanswerkey\s*\{([^{}]*)\}", one, s)
+
+
+
 def render_figure(code: str, fig_pre: str, out_png: Path):
     tex = ("\\documentclass[border=4pt]{standalone}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n"
            "\\usepackage{amsmath,amssymb,xcolor}\n\\usepackage{tikz}\n\\usepackage{pgfplots}\n"
@@ -831,9 +939,17 @@ def convert_file(src: Path, next_uid: int, dup_index: dict, dry: bool, fig_check
         res.warnings.append("file was not UTF-8 (read as latin-1): check accents")
     try:
         meta_raw = parse_metadata(text)
+        native = not re.search(r"^%\s*-{2,}\s*STATEMENT\s*-{2,}", text, re.M)
+        if native:
+            preamble, statement, solution, opts = split_native(text)
+            if opts.get("title"):                       # the title printed on the PDF is the reference
+                meta_raw["title"] = plain_title(opts["title"])
+            statement = convert_qcm(statement)
+            solution = convert_answerkey(solution, meta_raw.get("school") == "college")
         meta = normalise_meta(meta_raw, res, src.parent.name)
         res.chapter, res.level = str(meta.get("chapter")), str(meta.get("level"))
-        preamble, statement, solution = split_sections(text)
+        if not native:
+            preamble, statement, solution = split_sections(text)
         macros = parse_macros(strip_comments(preamble))
         fig_pre = figure_preamble(strip_comments(preamble))
         alts = re.findall(r"^%\s*alt:\s*(.+)$", statement + "\n" + solution, re.M)
@@ -843,7 +959,7 @@ def convert_file(src: Path, next_uid: int, dup_index: dict, dry: bool, fig_check
         if meta["school"] == "lycee" and meta["level"] != "1ere" and meta["section"]:
             first = meta["section"][0] if isinstance(meta["section"], list) else meta["section"]
             stem_parts.append(nx.SECTION_SLUGS.get(fold(first), nx.slugify(first)))
-        chapter_slug = meta.get("chapter_slug") or nx.slugify(str(meta["chapter"]))
+        chapter_slug = meta.get("chapter_slug") or nx.slugify(str(meta["chapter"])) or ARABIC_SLUGS.get(str(meta["chapter"]))
         if not chapter_slug:
             res.errors.append("Arabic chapter: add `% chapter_slug: <ascii-slug>` to the metadata")
         stem_parts.append(chapter_slug)
@@ -868,13 +984,13 @@ def convert_file(src: Path, next_uid: int, dup_index: dict, dry: bool, fig_check
         s_prep, o_prep = prep(statement), prep(solution)
         for i, code in enumerate(figs):
             name = f"{stem}.png" if len(figs) == 1 else f"{stem}-{i + 1}.png"
-            alt = alts[i].strip() if i < len(alts) else "figure"
+            alt = alts[i].strip() if i < len(alts) else (f"Figure : {meta.get('title')}" if native else "figure")
             fig_names.append(f"![{alt}](/exercises/images/{name})")
             fig_files.append((code, IMAGES / name))
             if re.search(r"\b(red|blue|green|orange|purple|magenta|cyan|brown|violet|pink)\b|\\textcolor|\\definecolor",
                          code):
                 res.warnings.append(f"figure {i + 1} uses colour: house style is pure black unless colour adds real value")
-            if i >= len(alts):
+            if i >= len(alts) and not native:
                 res.warnings.append(f"figure {i + 1} has no `% alt:` description")
 
         rend = Renderer(math, figs, tabs, fig_names, boxes)

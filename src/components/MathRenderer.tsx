@@ -19,7 +19,7 @@ function isArabic(text: string): boolean {
 
 // A solution can use the lesson boxes (:::property[Thalès] … :::, :::method, :::intuition, :::trap …).
 // The directive plugin is loaded only when a box is present, so every other exercise renders exactly as before.
-const HAS_BOX = /^:{3,}[a-z]/m;
+const HAS_BOX = /^\s*:{3,}[a-z]/m;   // boxes may sit inside a list item (indented)
 
 export default function MathRenderer({ content }: MathRendererProps) {
   const rtl = isArabic(content);
