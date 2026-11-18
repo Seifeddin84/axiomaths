@@ -165,6 +165,7 @@ in that block: the links then go both ways.
 | `next_exercise.py` | next UID(s) + canonical filename (non-interactive) |
 | `validate_exercises.py` | frontmatter/chapter/difficulty/UID checks — must report 0 errors |
 | `check_katex.mjs` | parses all formulas with KaTeX (needs `npm ci`) |
+| `scripts/inbox_convert.py` | converts the `.tex` exercises in `inbox/tex/` (from `_maths_tutoring`) to site exercises — see §11 |
 | `create_exercise.py` | legacy interactive generator — outdated naming/sections, don't use |
 
 ## 10. Known quirks
@@ -172,7 +173,34 @@ in that block: the links then go both ways.
 - UID 107 does not exist (gap); #70 and #74 are `.mdx`.
 - Collège 9ème files #62–66 have `section: "التاسعة أساسي"` (harmless; validator ignores collège sections).
 
-## 11. Lessons log (append corrections from Seifeddine here)
+## 11. Inbox hand-off from `_maths_tutoring`
+
+The Claude Project `_maths_tutoring` generates pupils' homework in LaTeX and also drops each exercise as a
+`.tex` file in `inbox/tex/<level>/` (branch `inbox/<date>-<topic>`, PR into main, never main itself). **This
+project is the manager**: only it allocates UIDs, writes `exercises/`, and publishes. The format contract
+the other project follows is `inbox/README.md` (single source of truth; change it there, not in prompts).
+
+Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads origin 'inbox/*'`):
+
+1. `git fetch --depth=50 origin inbox/<branch>` then `git checkout -b claude/convert-<batch> origin/inbox/<branch>`
+   (our PR carries the tutoring commits, so one merge closes both PRs).
+2. `python3 -B scripts/inbox_convert.py --dry-run` (`-B`: `__pycache__` is tracked, do not dirty it),
+   then without `--dry-run`. Files it skips stay in `inbox/tex/` with the reason; fix the metadata or the TeX
+   by hand, or send the problem back to the tutoring project through Seifeddine.
+3. The script does **not** make anything trustworthy. For every converted exercise, still do §2 and the lessons log (§12):
+   - re-derive statement claims and the solution independently (SymPy / numeric, script outside the repo);
+   - read the `.md` against the `.tex` (lost question, merged lines, wrong numbering) and open every PNG;
+   - triage the "possible duplicate" warnings (an exercise in the bank *and* in a devoir is accepted, but an
+     exercise duplicated inside the batch is not);
+   - solutions must be step-by-step for a weak pupil; calibrate `difficulty` against the chapter;
+   - generated content: `source: "Axiomaths"`, `professor: "Axiomaths"` stay as the script wrote them;
+     `provenance`, `dressing`, `rung`, `batch` are kept in the frontmatter (practice-set bookkeeping);
+     `recommended` is never set by the tutoring project.
+4. `python3 validate_exercises.py ./exercises` (0 errors) and `node check_katex.mjs <new files>`.
+5. Commit, push, PR with: new UIDs, skipped files and why, fixes and judgement calls, open questions.
+   Seifeddine tests the preview and merges; never push to main.
+
+## 12. Lessons log (append corrections from Seifeddine here)
 
 - 2026-10-30: first batch. Screenshots of the tan(π/x) exercise and the Rafeha Mnihla DC3
   were already in the repo (#31, #32–34) → duplicate check is step 1.
