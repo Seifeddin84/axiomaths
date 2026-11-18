@@ -67,6 +67,7 @@ MATH_O, MATH_C = "\ue000", "\ue001"      # math placeholder  \ue000<n>\ue001
 FIG_O, FIG_C = "\ue002", "\ue003"        # figure placeholder
 TAB_O, TAB_C = "\ue004", "\ue005"        # table placeholder
 HB = "\ue006"                            # hard line break
+BOX_O, BOX_C = "\ue007", "\ue008"      # \begin{prop}…\end{prop} box placeholder
 
 
 class ConvertError(Exception):
@@ -194,24 +195,72 @@ DISPLAY_ENVS = {"equation": None, "align": "aligned", "flalign": "aligned", "gat
                 "multline": "aligned", "eqnarray": "aligned"}
 
 
+
+def ib_to_math(inner: str) -> str:
+    """Argument of the tutoring macro \\ib{…} (a framed text with $math$ inside) -> a math-mode \\boxed{…}."""
+    out = []
+    for i, seg in enumerate(inner.split("$")):
+        if i % 2 == 1:
+            out.append(seg.strip())
+        elif seg.strip():
+            out.append("\\text{" + seg + "}")
+    return "\\boxed{" + "".join(out) + "}"
+
+
+def fix_ib_in_math(content: str) -> str:
+    """\\ib{$x$} written inside a math span (display math) -> \\boxed{x}."""
+    while True:
+        i = content.find("\\ib{")
+        if i < 0:
+            return content
+        e = match_brace(content, i + 3)
+        if e < 0:
+            raise ConvertError("unbalanced braces after \\ib")
+        content = content[:i] + ib_to_math(content[i + 4:e]) + content[e + 1:]
+
+
 def clean_math(content: str) -> str:
     content = re.sub(r"\\(label|tag)\{[^}]*\}", "", content)
     content = re.sub(r"\\(nonumber|notag)\b", "", content)
-    return content.strip()
+    return fix_ib_in_math(content).strip()
+
+
+def unwrap_ib_in_dollars(s: str) -> str:
+    """`$\\ib{$1{,}875$ m/s}$` (frame written inside a math span) -> `\\ib{$1{,}875$ m/s}`."""
+    out, i = [], 0
+    while True:
+        j = s.find("$\\ib{", i)
+        if j < 0:
+            out.append(s[i:])
+            return "".join(out)
+        e = match_brace(s, j + 4)
+        if e > 0 and s[e + 1:e + 2] == "$" and s[j - 1:j] != "\\":
+            out.append(s[i:j] + s[j + 1:e + 1])
+            i = e + 2
+        else:
+            out.append(s[i:j + 1])
+            i = j + 1
 
 
 def protect_math(s: str, store: list) -> str:
     """Replace every math span by a placeholder; store[(kind, content)] with kind 'inline'|'display'."""
+    s = unwrap_ib_in_dollars(s)
     out, i, n = [], 0, len(s)
 
     def put(kind: str, content: str) -> str:
-        store.append((kind, clean_math(content) if kind == "display" else " ".join(content.split())))
+        store.append((kind, clean_math(content) if kind == "display" else fix_ib_in_math(" ".join(content.split()))))
         return f"{MATH_O}{len(store) - 1}{MATH_C}"
 
     while i < n:
         if s.startswith("\\\\", i):
             out.append("\\\\")
             i += 2
+        elif s.startswith("\\ib{", i):
+            e = match_brace(s, i + 3)
+            if e < 0:
+                raise ConvertError("unbalanced braces after \\ib")
+            out.append(put("inline", ib_to_math(s[i + 4:e])))
+            i = e + 1
         elif s.startswith("\\$", i):
             out.append("\\$")
             i += 2
@@ -268,6 +317,14 @@ def extract_figures(s: str, figs: list) -> str:
     return re.sub(r"\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}", sub, s, flags=re.S)
 
 
+def extract_boxes(s: str, boxes: list) -> str:
+    """\\begin{prop}[Title] … \\end{prop} (course reminder of the tutoring corrigés) -> a placeholder block."""
+    def sub(m):
+        boxes.append((m.group(1) or "", m.group(2)))
+        return f"\n\n{BOX_O}{len(boxes) - 1}{BOX_C}\n\n"
+    return re.sub(r"\\begin\{prop\}(?:\[([^\n]*?)\])?(.*?)\\end\{prop\}", sub, s, flags=re.S)
+
+
 def extract_tables(s: str, tabs: list) -> str:
     def sub(m):
         tabs.append(m.group(1))
@@ -283,7 +340,7 @@ HEADING = re.compile(r"\\(?:sub)*section\*?\s*\{")
 REMOVE = [
     r"\\(?:vspace|hspace)\*?\{[^}]*\}", r"\\rule\{[^}]*\}\{[^}]*\}", r"\\label\{[^}]*\}",
     r"\\(?:noindent|medskip|bigskip|smallskip|newpage|clearpage|centering|hfill|hrule|large|Large|LARGE|"
-    r"normalsize|small|footnotesize|bfseries|itshape)(?![A-Za-z])",
+    r"normalsize|small|footnotesize|bfseries|itshape|leavevmode)(?![A-Za-z])",
     r"\\begin\{center\}", r"\\end\{center\}", r"(?<!\\)\{\}",
 ]
 REPLACE = [
@@ -447,8 +504,9 @@ def indent_block(block: str, n: int) -> str:
 
 
 class Renderer:
-    def __init__(self, math, figs, tabs, fig_names):
+    def __init__(self, math, figs, tabs, fig_names, boxes=None):
         self.math, self.figs, self.tabs, self.fig_names = math, figs, tabs, fig_names
+        self.boxes = boxes or []
         self.unknown: set[str] = set()
         self.notes: list[str] = []
 
@@ -474,6 +532,10 @@ class Renderer:
             if m:
                 parts.append(("block", md_table(self.tabs[int(m.group(1))], self.unknown, self.restore)))
                 continue
+            m = re.fullmatch(f"{BOX_O}(\\d+){BOX_C}", para)
+            if m:
+                parts.append(("block", self.render_box(*self.boxes[int(m.group(1))], in_item)))
+                continue
             m = re.fullmatch(f"{MATH_O}(\\d+){MATH_C}", para)
             if m and self.math[int(m.group(1))][0] == "display":
                 content = self.math[int(m.group(1))][1]
@@ -486,8 +548,27 @@ class Renderer:
             para = re.sub(r"\s*" + HB + r"\s*", "  \n", para).strip()
             if re.fullmatch(r"\*\*(?:Partie|PARTIE)\s+[A-Z0-9IVX]+\s*[.:]?.*\*\*", para) and "\n" not in para:
                 para = "### " + para.strip("*").strip()
-            parts.append(("text", self.restore(para)))
+            para = self.restore(para)
+            ip = re.fullmatch(r"(?:\*\*Id[ée]e\s*:\*\*\s*(.*?))?\s*(?:\*\*Pi[eè]ge\s*:\*\*\s*(.*))?", para, re.S)
+            if ip and (ip.group(1) or ip.group(2)) and para.startswith(("**Idée", "**Idee", "**Piège", "**Piege")):
+                cap = lambda t: t[:1].upper() + t[1:]
+                if ip.group(1):
+                    parts.append(("block", f":::intuition\n{cap(ip.group(1).strip())}\n:::"))
+                if ip.group(2):
+                    parts.append(("block", f":::trap\n{cap(ip.group(2).strip())}\n:::"))
+                continue
+            parts.append(("text", para))
         return parts
+
+    def render_box(self, title: str, raw: str, in_item: bool) -> str:
+        """A course reminder: :::property[Title] … ::: (lesson boxes, see CLAUDE.md section 5)."""
+        head = ":::property"
+        if title.strip():
+            t = protect_math(title, self.math)
+            head += "[" + self.restore(re.sub(r"\s+", " ", convert_text(t, self.unknown))).strip() + "]"
+        inner = protect_math(raw, self.math)
+        body = "\n\n".join(t for _k, t in self.render_parts(parse_lists(inner), 0, in_item))
+        return f"{head}\n{body}\n:::"
 
     def render_parts(self, parts: list, edepth: int, in_item: bool) -> list:
         out = []
@@ -703,7 +784,9 @@ def render_figure(code: str, fig_pre: str, out_png: Path):
            "\\usepackage{amsmath,amssymb,xcolor}\n\\usepackage{tikz}\n\\usepackage{pgfplots}\n"
            "\\pgfplotsset{compat=1.17}\n"
            "\\usetikzlibrary{arrows.meta,calc,positioning,patterns,decorations.markings,intersections,angles,quotes}\n"
-           f"{fig_pre}\n\\begin{{document}}\n{code}\n\\end{{document}}\n")
+           f"{fig_pre}\n"
+           "\\colorlet{axmain}{black}\\colorlet{axdark}{black}\\colorlet{axlight}{white}\n"   # house style: black on white
+           f"\\begin{{document}}\n{code}\n\\end{{document}}\n")
     with tempfile.TemporaryDirectory() as td:
         td = Path(td)
         (td / "fig.tex").write_text(tex, encoding="utf-8")
@@ -769,12 +852,14 @@ def convert_file(src: Path, next_uid: int, dup_index: dict, dry: bool, fig_check
         math: list = []
         figs: list = []
         tabs: list = []
+        boxes: list = []
         fig_names: list = []
         fig_files: list = []
 
         def prep(chunk: str) -> str:
             chunk = strip_comments(chunk)
             chunk = expand_macros(chunk, macros)
+            chunk = extract_boxes(chunk, boxes)
             chunk = extract_figures(chunk, figs)
             chunk = protect_math(chunk, math)
             chunk = extract_tables(chunk, tabs)
@@ -792,7 +877,7 @@ def convert_file(src: Path, next_uid: int, dup_index: dict, dry: bool, fig_check
             if i >= len(alts):
                 res.warnings.append(f"figure {i + 1} has no `% alt:` description")
 
-        rend = Renderer(math, figs, tabs, fig_names)
+        rend = Renderer(math, figs, tabs, fig_names, boxes)
         st_md = "\n\n".join(t for _k, t in rend.render_parts(parse_lists(s_prep), 0, False))
         so_md = "\n\n".join(t for _k, t in rend.render_parts(parse_lists(o_prep), 0, False))
         if rend.unknown:

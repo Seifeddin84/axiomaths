@@ -179,6 +179,8 @@ The Claude Project `_maths_tutoring` generates pupils' homework in LaTeX and als
 `.tex` file in `inbox/tex/<level>/` (branch `inbox/<date>-<topic>`, PR into main, never main itself). **This
 project is the manager**: only it allocates UIDs, writes `exercises/`, and publishes. The format contract
 the other project follows is `inbox/README.md` (single source of truth; change it there, not in prompts).
+The converter maps the tutoring solution constructs to the house style of §5: `prop` → `:::property[…]`,
+`\ib{}` → `\boxed{}`, `Idée :` / `Piège :` lines → `:::intuition` / `:::trap` (tested on the Thalès corrigé).
 
 Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads origin 'inbox/*'`):
 

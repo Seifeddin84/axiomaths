@@ -56,8 +56,8 @@ only change the numbers**.
 
 ### Body: what the converter understands
 
-Plain LaTeX content, **no handout styling** (no `tcolorbox`, no custom environments, no coloured boxes; the
-pupils' handout is a different rendering, produced separately).
+Plain LaTeX content, **no handout styling** (no `tcolorbox`, no coloured boxes of your own; the pupils' handout
+is a different rendering, produced separately). The only boxes are the three solution constructs listed below.
 
 - `enumerate` / `itemize`, nested up to three levels (rendered as `1.` / `a.` / `i.`; your label options are ignored)
 - inline math `$…$`, display math `\[…\]`, `$$…$$`, `equation*`, `align*`, `gather*`
@@ -68,6 +68,10 @@ pupils' handout is a different rendering, produced separately).
   only if the figure cannot be read without it. Put `% alt: <one-line description>` right before the figure.
   Tables of variations and sign tables: use `tabular`, not tikz.
 
+- **Solution boxes** (house style, see "Solutions"): `\begin{prop}[Title] … \end{prop}` becomes a property box,
+  `\ib{$…$}` (or `$\ib{…}$`) a framed key result, and the lines `\textbf{Idée :} …` / `\textbf{Piège :} …` an
+  "Idée" / "Piège" box. Your `axmain/axdark/axlight` colours are turned black in figures.
+
 Anything else is reported by the converter as "unconverted LaTeX" and fixed by hand, so prefer the list above.
 
 ### Solutions
@@ -75,6 +79,10 @@ Anything else is reported by the converter as "unconverted LaTeX" and fixed by h
 Always provide a full solution. Write it so a **weak pupil can follow**: one operation per line, say which
 rule or theorem is used, no skipped algebra, same numbering as the statement. Put each step in its own
 paragraph (blank line between steps).
+
+House style of the site (rule since 2026-11-18): before using a property, a `prop` box with its statement
+(1–3 boxes per solution, one idea per box); frame the 1–3 key results with `\ib{}`; end with one `Idée :` line
+(the intuition) and, when a classic mistake exists, one `Piège :` line. A `prop` may sit inside a list item.
 
 ### Language
 
