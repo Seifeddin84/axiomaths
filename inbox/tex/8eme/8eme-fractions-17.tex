@@ -1,0 +1,62 @@
+% ---
+% school: "college"
+% level: "8eme"
+% section: null
+% chapter: "العمليات والحساب على الأعداد الكسرية"
+% source: "Axiomaths"
+% title: "تركيب: قائمة أعداد تتكرر"
+% country: "Tunisie"
+% year: 2026
+% professor: "Axiomaths"
+% difficulty: "Difficile"
+% points: null
+% tags: ["fractions", "suite", "periodicite", "synthese"]
+% ---
+% Exercice 17/18 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=8b,color=15803D]{axiomath}
+\axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={تركيب: قائمة أعداد تتكرر}, stars=4, source={Axiomaths}]
+نعتبر قائمة الأعداد $a_1,\ a_2,\ a_3,\ \dots$ المعرّفة كما يلي : $a_1=\dfrac{1}{2}$ وكل عدد، ابتداء من الثاني، يُحسب من العدد الذي يسبقه بالقاعدة : $a_{n+1}=\dfrac{1}{1-a_n}$.
+أي أن $a_2=\dfrac{1}{1-a_1}$ و $a_3=\dfrac{1}{1-a_2}$ وهكذا.
+\begin{enumerate}
+  \item احسب $a_2$ و $a_3$ و $a_4$ و $a_5$.
+  \item ماذا تلاحظ ؟
+  \item احسب $a_1+a_2+a_3$ و $a_1\times a_2\times a_3$.
+  \item احسب $a_{100}$ و $a_{2027}$.
+  \item احسب المجموع $a_1+a_2+a_3+\cdots+a_{100}$. [جمّع الحدود ثلاثة ثلاثة]
+\end{enumerate}
+\axsol
+\begin{enumerate}[itemsep=14pt]
+  \item
+  \[a_2=\dfrac{1}{1-\dfrac{1}{2}}=\dfrac{1}{\dfrac{1}{2}}=2\]
+  \[a_3=\dfrac{1}{1-2}=\dfrac{1}{-1}=-1\]
+  \[a_4=\dfrac{1}{1-(-1)}=\dfrac{1}{2}\]
+  \[a_5=\dfrac{1}{1-\dfrac{1}{2}}=2\]
+  \item نلاحظ أن $a_4=a_1$ و $a_5=a_2$.
+  كل عدد يُحسب من العدد الذي يسبقه فقط، إذن بعد $a_4=a_1$ نعيد نفس الحسابات ونجد نفس الأعداد.
+  القائمة تتكرر كل $3$ أعداد :
+  \[\dfrac{1}{2}\ ,\ 2\ ,\ -1\ ,\ \dfrac{1}{2}\ ,\ 2\ ,\ -1\ ,\ \dfrac{1}{2}\ ,\ 2\ ,\ -1\ ,\ \dots\]
+  \item
+  \[a_1+a_2+a_3=\dfrac{1}{2}+2-1=\dfrac{1}{2}+1=\dfrac{3}{2}\]
+  \[a_1\times a_2\times a_3=\dfrac{1}{2}\times2\times(-1)=-1\]
+  \item نقسم الرتبة على $3$ :
+  \begin{prop}[تكرار القائمة]
+  إذا كان باقي قسمة $n$ على $3$ هو $1$ فإن $a_n=a_1$ ، وإذا كان $2$ فإن $a_n=a_2$ ، وإذا كان $0$ فإن $a_n=a_3$.
+  \end{prop}
+  \[100=3\times33+1\quad\Rightarrow\quad a_{100}=a_1=\dfrac{1}{2}\]
+  \[2027=3\times675+2\quad\Rightarrow\quad a_{2027}=a_2=2\]
+  \item الأعداد من $a_1$ إلى $a_{99}$ تكوّن $99\div3=33$ مجموعة من ثلاثة أعداد، ومجموع كل مجموعة $\dfrac{3}{2}$ :
+  \[a_1+\cdots+a_{99}=33\times\dfrac{3}{2}=\dfrac{99}{2}\]
+  ويبقى الحد $a_{100}=\dfrac{1}{2}$ :
+  \[a_1+\cdots+a_{100}=\dfrac{99}{2}+\dfrac{1}{2}=\dfrac{100}{2}=50\]
+\end{enumerate}
+\textbf{الفكرة :} عندما تتكرر القائمة، نعوّض الحساب الطويل بقسمة الرتبة على طول الدورة.
+
+\textbf{انتبه :} $2027$ لا يقبل القسمة على $3$ ؛ نعتمد على الباقي لا على الحاصل.
+\end{corr}
+
+\end{document}

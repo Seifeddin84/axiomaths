@@ -4,15 +4,15 @@
 % section: null
 % chapter: "التناظر المركزي"
 % source: "Axiomaths"
-% title: "نقطتان متناظرتان على مستقيمين"
+% title: "مثلث متقايس الضلعين ومناظره"
 % country: "Tunisie"
 % year: 2026
 % professor: "Axiomaths"
-% difficulty: "Difficile"
+% difficulty: "Moyen"
 % points: null
-% tags: ["symetrie-centrale", "construction", "droites", "discussion"]
+% tags: ["symetrie-centrale", "triangle-isocele", "losange", "angles"]
 % ---
-% Exercice 13/15 de la série 8ème « التناظر المركزي » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+% Exercice 13/19 de la série 8ème « التناظر المركزي » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
 \documentclass[12pt,a4paper]{article}
 \usepackage[level=8b,color=15803D]{axiomath}
 \usetikzlibrary{arrows.meta}
@@ -21,47 +21,45 @@
 
 \begin{document}
 
-\begin{corr}[title={نقطتان متناظرتان على مستقيمين}, stars=4, source={Axiomaths}]
-$d$ و $\Delta$ مستقيمان و $O$ نقطة لا تنتمي إلى أي منهما. نريد بناء قطعة $[MN]$ منتصفها $O$ حيث $M\in d$ و $N\in\Delta$.
-\begin{center}
-\begin{tikzpicture}[scale=0.7]
-  \draw[thick] (-0.5,0.875)--(8.5,3.125) node[right] {$d$};
-  \draw[thick] (-0.5,5.1875)--(8.5,1.8125) node[right] {$\Delta$};
-  \fill (3,3) circle (2.5pt) node[above] {$O$};
-\end{tikzpicture}
-\end{center}
+\begin{corr}[title={مثلث متقايس الضلعين ومناظره}, stars=3, source={Axiomaths}]
+$ABC$ مثلث متقايس الضلعين رأسه $A$ حيث $\widehat{BAC}=40^\circ$. $I$ منتصف $[BC]$ و $D$ مناظرة $A$ بالنسبة إلى $I$.
 \begin{enumerate}
-  \item نفترض أن $M$ و $N$ موجودتان. ما هي مناظرة $M$ بالنسبة إلى $O$ ؟ إلى أي مستقيم تنتمي ؟
-  \item ابنِ $d'$ مناظر $d$ بالنسبة إلى $O$.
-  \item استنتج بناء $N$ ثم $M$.
-  \item بين أن هذا البناء يحقق المطلوب.
-  \item ماذا يحدث إذا كان $\Delta$ يوازي $d$ ؟
+  \item ابنِ الشكل.
+  \item بين أن $ABDC$ متوازي أضلاع.
+  \item بين أن $ABDC$ معين.
+  \item احسب قيس كل من $\widehat{ABC}$ و $\widehat{BDC}$ و $\widehat{DBC}$.
+  \item استنتج قيس الزاوية $\widehat{ABD}$.
 \end{enumerate}
 \axsol
 \begin{enumerate}[itemsep=14pt]
-  \item $O$ منتصف $[MN]$ معناه $N=S_O(M)$. وبما أن $M\in d$ فإن $N=S_O(M)\in S_O(d)=d'$. إذن $N$ تنتمي إلى $d'$ وإلى $\Delta$.
-  \item مناظر المستقيم يوازيه ويُعيَّن بنقطتين : نأخذ نقطتين من $d$ ونبني مناظريهما بالنسبة إلى $O$ ؛ المستقيم المار منهما هو $d'$.
-  \item $N$ هي نقطة تقاطع $d'$ و $\Delta$ ؛ ثم $M$ مناظرة $N$ بالنسبة إلى $O$.
+  \item نبني $ABC$ ثم نعيّن $D$ بحيث $I$ منتصف $[AD]$.
   \begin{center}
-  \begin{tikzpicture}[scale=0.7]
-    \draw[thick] (-0.5,0.875)--(8.5,3.125) node[right] {$d$};
-    \draw[thick] (-0.5,5.1875)--(8.5,1.8125) node[right] {$\Delta$};
-    \draw[thick,red] (-2.5,2.875)--(6.5,5.125) node[right] {$d'$};
-    \draw[dashed] (3.6,1.9)--(2.4,4.1);
-    \fill (3,3) circle (2.5pt) node[below right] {$O$};
-    \fill (2.4,4.1) circle (2.5pt) node[above left] {$N$};
-    \fill (3.6,1.9) circle (2.5pt) node[below right] {$M$};
+  \begin{tikzpicture}[scale=0.5]
+    \draw[thick] (-2,0)--(0,5.495)--(2,0)--cycle;
+    \draw[thick,red] (-2,0)--(0,-5.495)--(2,0);
+    \draw[dashed] (0,5.495)--(0,-5.495);
+    \fill (0,5.495) circle (2pt) node[above] {$A$};
+    \fill (-2,0) circle (2pt) node[left] {$B$};
+    \fill (2,0) circle (2pt) node[right] {$C$};
+    \fill (0,0) circle (2pt) node[above right] {$I$};
+    \fill[red] (0,-5.495) circle (2pt) node[below] {$D$};
   \end{tikzpicture}
   \end{center}
-  \item $M$ هي مناظرة $N$ بالنسبة إلى $O$ ، إذن $O$ منتصف $[MN]$. و $N\in d'=S_O(d)$ فمناظرها $M$ تنتمي إلى $S_O(d')=d$. و $N\in\Delta$ بالبناء. إذن $M\in d$ و $N\in\Delta$ و $O$ منتصف $[MN]$.
-  \item إذا كان $\Delta\parallel d$ فإن $d'\parallel d$ أيضا، إذن $d'\parallel\Delta$ :
+  \item قطرا $ABDC$ هما $[AD]$ و $[BC]$ ، ولهما نفس المنتصف $I$ (لأن $D=S_I(A)$ و $I$ منتصف $[BC]$). إذن $ABDC$ متوازي أضلاع.
+  \item $S_I$ يحوّل $A$ إلى $D$ و $B$ إلى $C$ و $C$ إلى $B$ ، فيحوّل $[AB]$ إلى $[DC]$ و $[AC]$ إلى $[DB]$. إذن $DC=AB$ و $DB=AC$. وبما أن $AB=AC$ :
+  \[AB=BD=DC=CA\]
+  لمتوازي الأضلاع $ABDC$ أضلاع أربعة متقايسة : إنه \ib{معين}.
+  \item في المثلث المتقايس الضلعين $ABC$ زاويتا القاعدة متقايستان :
+  \[\widehat{ABC}=\dfrac{180^\circ-40^\circ}{2}=70^\circ\]
+  التناظر $S_I$ يحفظ قيس الزوايا ويحوّل $B$ إلى $C$ و $A$ إلى $D$ و $C$ إلى $B$ :
   \begin{itemize}
-    \item إن كان $d'\neq\Delta$ : لا تقاطع، فلا يوجد حل.
-    \item إن كان $d'=\Delta$ : أي $O$ على نفس البعد من $d$ ومن $\Delta$ ، فكل نقطة $M$ من $d$ تصلح : يوجد عدد لا نهائي من الحلول.
+    \item الزاوية $\widehat{BAC}$ تُحوَّل إلى $\widehat{CDB}$ ، إذن $\widehat{BDC}=40^\circ$.
+    \item الزاوية $\widehat{ACB}$ تُحوَّل إلى $\widehat{DBC}$ ، إذن $\widehat{DBC}=70^\circ$.
   \end{itemize}
-  وفي حالة $\Delta$ غير موازٍ لـ $d$ (كما في الشكل) يوجد حل وحيد.
+  \item الشعاع $[BC)$ يقع بين $[BA)$ و $[BD)$ ، إذن :
+  \[\widehat{ABD}=\widehat{ABC}+\widehat{CBD}=70^\circ+70^\circ=140^\circ\]
+  \ib{زوايا المعين $ABDC$} هي : $40^\circ$ و $140^\circ$ و $40^\circ$ و $140^\circ$.
 \end{enumerate}
-\textbf{الفكرة :} نحوّل شرط «$O$ منتصف $[MN]$» إلى انتماء $N$ إلى مستقيم معلوم ($d'$). \quad \textbf{انتبه :} لا تنسَ مناقشة حالة التوازي.
 \end{corr}
 
 \end{document}

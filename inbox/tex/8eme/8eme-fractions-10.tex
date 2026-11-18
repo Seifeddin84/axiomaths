@@ -4,47 +4,60 @@
 % section: null
 % chapter: "العمليات والحساب على الأعداد الكسرية"
 % source: "Axiomaths"
-% title: "الحنفيات"
+% title: "تفكيك ومقارنة"
 % country: "Tunisie"
 % year: 2026
 % professor: "Axiomaths"
 % difficulty: "Moyen"
 % points: null
-% tags: ["fractions", "robinets", "probleme", "debit"]
+% tags: ["fractions", "factorisation", "comparaison", "expressions-litterales"]
 % ---
-% Exercice 10/15 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+% Exercice 10/18 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
 \documentclass[12pt,a4paper]{article}
 \usepackage[level=8b,color=15803D]{axiomath}
 \axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
 
 \begin{document}
 
-\begin{corr}[title={الحنفيات}, stars=3, source={Axiomaths}]
-خزان فارغ. الحنفية الأولى تملؤه وحدها في $6$ ساعات والحنفية الثانية تملؤه وحدها في $4$ ساعات.
+\begin{corr}[title={تفكيك ومقارنة}, stars=3, source={Axiomaths}]
+$a$ و $b$ عددان كسريان. نعتبر $P=a\times b+a$ و $Q=a\times b+b$.
 \begin{enumerate}
-  \item ما هو الكسر من الخزان الذي تملؤه كل حنفية في ساعة واحدة ؟
-  \item نفتح الحنفيتين معا. ما هو الكسر من الخزان الذي يمتلئ في ساعة واحدة ؟
-  \item استنتج المدة اللازمة لملء الخزان بالحنفيتين معا، بالساعات ثم بالساعات والدقائق.
-  \item في أسفل الخزان ثقب يفرغه وحده في $12$ ساعة. نفتح الحنفيتين والثقب مفتوح. ما هي المدة اللازمة لملء الخزان ؟
+  \item فكّك $P$ و $Q$ إلى جذاءين.
+  \item احسب $P$ و $Q$ من أجل $a=\dfrac{4}{3}$ و $b=\dfrac{1}{3}$ ثم قارنهما.
+  \item بين أن $P-Q=a-b$.
+  \item استنتج أنه إذا كان $a>b$ فإن $P>Q$ ، وإذا كان $a<b$ فإن $P<Q$.
+  \item قارن $P$ و $Q$ من أجل $a=-\dfrac{2}{3}$ و $b=-\dfrac{1}{2}$ دون حساب $P$ و $Q$ ، ثم تحقق بالحساب.
 \end{enumerate}
 \axsol
 \begin{enumerate}[itemsep=14pt]
-  \item الحنفية الأولى تملأ الخزان في $6$ ساعات، فهي تملأ في ساعة واحدة $\dfrac{1}{6}$ منه.
-  الحنفية الثانية تملأ في ساعة واحدة $\dfrac{1}{4}$ منه.
-  \item الكسر الذي يمتلئ في ساعة بالحنفيتين معا :
-  \[\dfrac{1}{6}+\dfrac{1}{4}=\dfrac{2}{12}+\dfrac{3}{12}=\dfrac{5}{12}\]
-  \item في كل ساعة يمتلئ $\dfrac{5}{12}$ من الخزان، فلملء الخزان كله نحتاج :
-  \[1\div\dfrac{5}{12}=1\times\dfrac{12}{5}=\dfrac{12}{5}\]
-  أي $\dfrac{12}{5}$ ساعة، وهذا يساوي :
-  \[\dfrac{12}{5}=2+\dfrac{2}{5}\]
-  $\dfrac{2}{5}$ من الساعة تساوي $\dfrac{2}{5}\times60=24$ دقيقة. إذن المدة هي \ib{$2$ ساعة و $24$ دقيقة}.
-  \item الثقب يفرغ في ساعة $\dfrac{1}{12}$ من الخزان. الكسر الذي يمتلئ في ساعة :
-  \[\dfrac{5}{12}-\dfrac{1}{12}=\dfrac{4}{12}=\dfrac{1}{3}\]
-  المدة اللازمة :
-  \[1\div\dfrac{1}{3}=1\times3=3\]
-  أي $3$ ساعات.
+  \item\leavevmode
+  \begin{prop}[التفكيك إلى جذاء]
+  نبحث عن العامل المشترك : \ib{$k\times x+k\times y=k\times(x+y)$}.
+  \end{prop}
+  في $P=a\times b+a\times1$ العامل المشترك هو $a$ ، وفي $Q=a\times b+b\times1$ العامل المشترك هو $b$ :
+  \[P=a\times(b+1)\qquad\qquad Q=b\times(a+1)\]
+  \item نعوّض :
+  \[P=\dfrac{4}{3}\times\left(\dfrac{1}{3}+1\right)=\dfrac{4}{3}\times\dfrac{4}{3}=\dfrac{16}{9}\]
+  \[Q=\dfrac{1}{3}\times\left(\dfrac{4}{3}+1\right)=\dfrac{1}{3}\times\dfrac{7}{3}=\dfrac{7}{9}\]
+  للعددين نفس المقام $9$ و $16>7$ ، إذن \ib{$P>Q$}.
+  \item نطرح، وعند حذف الأقواس المسبوقة بعلامة $(-)$ تتغير علامات ما بداخلها :
+  \[P-Q=(a\times b+a)-(a\times b+b)=a\times b+a-a\times b-b\]
+  الحدان $a\times b$ و $-a\times b$ يختزلان :
+  \[\ib{$P-Q=a-b$}\]
+  \begin{prop}[المقارنة بالفرق]
+  \ib{$x>y$} يعني أن \ib{$x-y>0$}.
+  \end{prop}
+  \item $P-Q=a-b$. إذا كان $a>b$ فإن $a-b>0$ ، إذن $P-Q>0$ أي $P>Q$.
+  وإذا كان $a<b$ فإن $a-b<0$ ، إذن $P-Q<0$ أي $P<Q$.
+  \item نقارن $a$ و $b$ أولا بتوحيد المقامين :
+  \[a=-\dfrac{2}{3}=-\dfrac{4}{6}\qquad b=-\dfrac{1}{2}=-\dfrac{3}{6}\]
+  $-4<-3$ ، إذن $a<b$ ، ومن السؤال 4 : \ib{$P<Q$}.
+  التحقق بالحساب :
+  \[P=\left(-\dfrac{2}{3}\right)\times\left(-\dfrac{1}{2}+1\right)=-\dfrac{2}{3}\times\dfrac{1}{2}=-\dfrac{1}{3}=-\dfrac{2}{6}\]
+  \[Q=\left(-\dfrac{1}{2}\right)\times\left(-\dfrac{2}{3}+1\right)=-\dfrac{1}{2}\times\dfrac{1}{3}=-\dfrac{1}{6}\]
+  و $-2<-1$ ، فعلا $P<Q$.
 \end{enumerate}
-\textbf{الفكرة :} نجمع (أو نطرح) ما ينجزه كل عنصر \emph{في وحدة زمن واحدة} ثم نأخذ المقلوب.
+\textbf{الفكرة :} لمقارنة عبارتين نطرح إحداهما من الأخرى : إشارة الفرق تكفي، ولا حاجة لحساب كل منهما.
 \end{corr}
 
 \end{document}

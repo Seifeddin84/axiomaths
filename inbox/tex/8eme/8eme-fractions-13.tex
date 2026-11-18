@@ -4,55 +4,54 @@
 % section: null
 % chapter: "العمليات والحساب على الأعداد الكسرية"
 % source: "Axiomaths"
-% title: "تفكيك $\dfrac{1"
+% title: "تركيب: معدل عددين كسريين"
 % country: "Tunisie"
 % year: 2026
 % professor: "Axiomaths"
-% difficulty: "Difficile"
+% difficulty: "Moyen"
 % points: null
-% tags: ["fractions", "fractions-egyptiennes", "recherche-exhaustive"]
+% tags: ["fractions", "moyenne", "encadrement", "synthese"]
 % ---
-% Exercice 13/15 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+% Exercice 13/18 de la série 8ème « العمليات والحساب على الأعداد الكسرية » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
 \documentclass[12pt,a4paper]{article}
 \usepackage[level=8b,color=15803D]{axiomath}
 \axsetup{title={العمليات والحساب على الأعداد الكسرية}, corrige}
 
 \begin{document}
 
-\begin{corr}[title={تفكيك $\dfrac{1}{6}$}, stars=4, source={Axiomaths}]
-نبحث عن عددين صحيحين طبيعيين غير معدومين $a$ و $b$ حيث $a<b$ و $\dfrac{1}{6}=\dfrac{1}{a}+\dfrac{1}{b}$.
+\begin{corr}[title={تركيب: معدل عددين كسريين}, stars=3, source={Axiomaths}]
+نعتبر العددين $a=\dfrac{7}{12}$ و $b=\dfrac{5}{8}$.
 \begin{enumerate}
-  \item تحقق أن $a=7$ و $b=42$ حل.
-  \item بيّن أن $a>6$.
-  \item بيّن أن $\dfrac{1}{12}<\dfrac{1}{a}$ ثم استنتج أن $a<12$. [قارن $\dfrac{1}{b}$ و $\dfrac{1}{a}$ ثم قارن $\dfrac{1}{6}$ و $\dfrac{2}{a}$]
-  \item من أجل كل قيمة ممكنة لـ $a$ احسب $\dfrac{1}{6}-\dfrac{1}{a}$ وحدّد هل يمكن كتابته على شكل $\dfrac{1}{b}$ حيث $b$ عدد صحيح طبيعي.
-  \item استنتج جميع الحلول.
+  \item قارن $a$ و $b$.
+  \item احسب $m=\dfrac{a+b}{2}$.
+  \item بيّن أن $a<m<b$.
+  \item أعط عددا كسريا محصورا بين $a$ و $m$ وعددا كسريا محصورا بين $m$ و $b$.
+  \item كم عددا كسريا يوجد بين $a$ و $b$ ؟ علّل.
 \end{enumerate}
 \axsol
 \begin{enumerate}[itemsep=14pt]
+  \item المقام المشترك هو $24$ :
+  \[a=\dfrac{14}{24}\qquad b=\dfrac{15}{24}\]
+  بما أن $14<15$ فإن $a<b$.
   \item
-  \[\dfrac{1}{7}+\dfrac{1}{42}=\dfrac{6}{42}+\dfrac{1}{42}=\dfrac{7}{42}=\dfrac{1}{6}\]
-  \item $\dfrac{1}{6}=\dfrac{1}{a}+\dfrac{1}{b}$ و $\dfrac{1}{b}>0$ ، إذن $\dfrac{1}{a}<\dfrac{1}{6}$.
-  من بين عددين موجبين، الأصغر مقلوبا هو الأكبر : إذن $a>6$.
-  \item بما أن $a<b$ فإن $\dfrac{1}{b}<\dfrac{1}{a}$. إذن :
-  \[\dfrac{1}{6}=\dfrac{1}{a}+\dfrac{1}{b}<\dfrac{1}{a}+\dfrac{1}{a}=\dfrac{2}{a}\]
-  نقسم على $2$ :
-  \[\dfrac{1}{12}<\dfrac{1}{a}\]
-  وبما أن $\dfrac{1}{12}<\dfrac{1}{a}$ فإن $a<12$.
-  \item من السؤالين 2 و3 : $a\in\{7;\,8;\,9;\,10;\,11\}$.
-  \[a=7:\quad\dfrac{1}{6}-\dfrac{1}{7}=\dfrac{7}{42}-\dfrac{6}{42}=\dfrac{1}{42}\quad\Rightarrow\ b=42\]
-  \[a=8:\quad\dfrac{1}{6}-\dfrac{1}{8}=\dfrac{4}{24}-\dfrac{3}{24}=\dfrac{1}{24}\quad\Rightarrow\ b=24\]
-  \[a=9:\quad\dfrac{1}{6}-\dfrac{1}{9}=\dfrac{3}{18}-\dfrac{2}{18}=\dfrac{1}{18}\quad\Rightarrow\ b=18\]
-  \[a=10:\quad\dfrac{1}{6}-\dfrac{1}{10}=\dfrac{5}{30}-\dfrac{3}{30}=\dfrac{2}{30}=\dfrac{1}{15}\quad\Rightarrow\ b=15\]
-  \[a=11:\quad\dfrac{1}{6}-\dfrac{1}{11}=\dfrac{11}{66}-\dfrac{6}{66}=\dfrac{5}{66}\]
-  والعدد $\dfrac{5}{66}$ ليس من الشكل $\dfrac{1}{b}$ (بسطه $5$ ولا يقبل الاختزال) : لا توجد قيمة لـ $b$ في هذه الحالة.
-  \item الحلول هي :
-  \[\ib{$(a\,;b)\in\{(7\,;42),\ (8\,;24),\ (9\,;18),\ (10\,;15)\}$}\]
-  \[\dfrac{1}{6}=\dfrac{1}{7}+\dfrac{1}{42}=\dfrac{1}{8}+\dfrac{1}{24}=\dfrac{1}{9}+\dfrac{1}{18}=\dfrac{1}{10}+\dfrac{1}{15}\]
+  \[a+b=\dfrac{14}{24}+\dfrac{15}{24}=\dfrac{29}{24}\]
+  \[m=\dfrac{29}{24}\div2=\dfrac{29}{24}\times\dfrac{1}{2}=\dfrac{29}{48}\]
+  \item نكتب الأعداد الثلاثة بنفس المقام $48$ :
+  \[a=\dfrac{28}{48}\qquad m=\dfrac{29}{48}\qquad b=\dfrac{30}{48}\]
+  بما أن $28<29<30$ فإن \ib{$a<m<b$}.
+  \item معدل $a$ و $m$ محصور بينهما :
+  \[\dfrac{a+m}{2}=\dfrac{28+29}{2\times48}=\dfrac{57}{96}\]
+  ومعدل $m$ و $b$ محصور بينهما :
+  \[\dfrac{m+b}{2}=\dfrac{29+30}{2\times48}=\dfrac{59}{96}\]
+  \textbf{للتأكد :} بالمقام $96$ : $a=\dfrac{56}{96}<\dfrac{57}{96}<m=\dfrac{58}{96}<\dfrac{59}{96}<b=\dfrac{60}{96}$.
+  \item\leavevmode
+  \begin{prop}[خاصية]
+  معدل عددين مختلفين محصور بينهما تماما.
+  \end{prop}
+  أخذنا معدل $a$ و $b$ فحصلنا على عدد جديد محصور بينهما، ثم أخذنا معدل العدد الجديد مع $a$ وهكذا.
+  يمكن مواصلة هذه العملية دون توقف، إذن يوجد بين $a$ و $b$ \textbf{عدد لا نهائي} من الأعداد الكسرية.
 \end{enumerate}
-\textbf{الفكرة :} حصر $a$ بين $6$ و $12$ يحوّل مسألة غير منتهية إلى خمس حالات فقط نختبرها.
-
-\textbf{انتبه :} من أجل $a=12$ نجد $\dfrac{1}{6}-\dfrac{1}{12}=\dfrac{1}{12}$ أي $b=12=a$ ، وهذا مرفوض لأن $a<b$.
+\textbf{الفكرة :} بين أي عددين كسريين مختلفين توجد دائما أعداد كسرية أخرى.
 \end{corr}
 
 \end{document}
