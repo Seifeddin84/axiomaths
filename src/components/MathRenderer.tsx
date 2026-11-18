@@ -5,6 +5,9 @@ import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
 import 'katex/dist/katex.min.css';
 import rehypeRaw from 'rehype-raw';
+import remarkDirective from 'remark-directive';
+import type { PluggableList } from 'unified';
+import remarkLessonBlocks from '@/lib/remarkLessonBlocks';
 
 interface MathRendererProps {
   content: string;
@@ -14,8 +17,20 @@ function isArabic(text: string): boolean {
   return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(text);
 }
 
+// A solution can use the lesson boxes (:::property[Thalès] … :::, :::method, :::intuition, :::trap …).
+// The directive plugin is loaded only when a box is present, so every other exercise renders exactly as before.
+const HAS_BOX = /^:{3,}[a-z]/m;
+
 export default function MathRenderer({ content }: MathRendererProps) {
   const rtl = isArabic(content);
+  const remarkPlugins: PluggableList = HAS_BOX.test(content)
+    ? [
+        remarkMath,
+        remarkGfm,
+        remarkDirective,
+        [remarkLessonBlocks, { lang: rtl ? 'ar' : 'fr', numbered: false, headingIds: false, wikiLinks: false }],
+      ]
+    : [remarkMath, remarkGfm];
 
   return (
     // IMPORTANT: dir="rtl" goes on THIS div, which also has exercise-content class.
@@ -26,7 +41,7 @@ export default function MathRenderer({ content }: MathRendererProps) {
       dir={rtl ? 'rtl' : 'ltr'}
     >
       <ReactMarkdown
-        remarkPlugins={[remarkMath, remarkGfm]}
+        remarkPlugins={remarkPlugins}
         rehypePlugins={[rehypeKatex, rehypeRaw]}
         components={{
           div: ({ node, className, children, ...props }) => {

@@ -9,6 +9,7 @@ import rehypeKatex from 'rehype-katex';
 import rehypeStringify from 'rehype-stringify';
 import type { Element, ElementContent, Root } from 'hast';
 import remarkLessonBlocks from '@/lib/remarkLessonBlocks';
+import { wikiIdForName } from '@/lib/theoremKeys';
 
 const isElement = (n: unknown): n is Element =>
   !!n && typeof n === 'object' && (n as { type?: string }).type === 'element';
@@ -76,7 +77,7 @@ const makeProcessor = (lang: 'fr' | 'ar', wikiLinks: boolean) =>
     .use(remarkGfm)
     .use(remarkMath)
     .use(remarkDirective)
-    .use(remarkLessonBlocks, { lang, wikiLinks })
+    .use(remarkLessonBlocks, { lang, wikiLinks, wikiId: wikiIdForName })
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeKatex)
