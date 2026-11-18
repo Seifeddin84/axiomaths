@@ -35,6 +35,8 @@ export interface Exam {
   // File reference
   filename: string;
   pdfUrl: string;
+  corrige_filename?: string;
+  corrigeUrl?: string;
 }
 
 /**
@@ -69,10 +71,12 @@ export function getAllExams(): Exam[] {
       
       // Construct PDF URL
       const pdfUrl = `/exams/${data.filename}`;
+      const corrigeUrl = data.corrige_filename ? `/exams/${data.corrige_filename}` : undefined;
       
       exams.push({
         ...data,
         pdfUrl,
+        corrigeUrl,
       } as Exam);
     } catch (error) {
       console.error(`❌ Error loading exam ${file}:`, error);
@@ -113,6 +117,7 @@ export function getExamFilterOptions() {
     
     // All sections - VALUES MUST MATCH YAML DATA EXACTLY
     sections: [
+      { value: 'Sciences', label: 'Sciences' },
       { value: 'Mathématiques', label: 'Mathématiques' },
       { value: 'Sciences Expérimentales', label: 'Sciences Expérimentales' },
       { value: 'Sciences Techniques', label: 'Sciences Techniques' },

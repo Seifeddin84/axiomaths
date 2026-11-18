@@ -38,6 +38,47 @@ photos/screenshots or by generating new ones in the house style.
    Run `npm run build` if anything in `src/` changed.
 6. Commit, push, open PR with: list of new UIDs, fixes, skipped items + why, open questions.
 
+## 2b. Banque : règles permanentes (décidées par Seifeddine)
+
+- **R1. Tout exercice va dans la banque**, quelle que soit sa source (séries, devoirs, bacs…).
+  Les doublons banque / devoir / bac sont **voulus** : ne pas dédoublonner, ne pas demander.
+  Seuls contrôles : collisions d'uid et fichiers créés deux fois par erreur.
+- **R2. La mathématique prime sur la source.** Énoncé juste et solution vérifiée ; une source mal
+  retrouvée ne fait pas rejeter l'exercice. On n'affiche jamais une fausse citation : sans lien
+  retrouvé, étiquette honnête (« Axiomaths », « résultat classique »).
+- **R3. Vision.** Alimenter la banque avec (a) archives / scans, (b) contenu Axiomaths généré en masse dans
+  le style tunisien (cible ~50 % de contenu propre à terme ; archive en croissance lente, contenu propre en
+  croissance rapide), (c) exercices retrouvés / adaptés depuis les connaissances de Claude, l'internet et les
+  livres. Toute adaptation est vérifiée par le code (SymPy / Fractions) avant publication.
+- **R4. Répétition d'une IDÉE** (pas de copies avec seulement des chiffres changés). Pour comprendre une
+  technique, un élève fort a besoin de 5 à 7 exercices (jusqu'à 10) du même type, *dans le même domaine*, avec
+  des habillages différents (valeur absolue, comparaison, simplification, suppression des radicaux, n-ième
+  terme, produit remarquable…) ; pour des élèves plus faibles viser 7–10 avec des marches plus petites
+  (**à tester** sur de vrais élèves). En plus : variation **par chapitre** (la même idée dans un autre
+  chapitre = transfert). Parcours type : 2 techniques nues, 3–4 habillages, 2 déguisements forts, 1 piège,
+  puis des exercices de transfert ; hypothèse à tester : finir par un exercice mixte.
+- **R5. Champs de frontmatter optionnels** (après `tags`, tolérés par le validateur et le parseur) :
+  `provenance` (own | adapted | scan), `source_url` (lien réellement retrouvé), `adapted_from` (texte libre),
+  `source_checked` (true seulement si le contenu propre de la page a été lu pendant la session et correspond),
+  `idea` (technique, identifiant court partagé entre chapitres : `telescopage`, `denestage`…),
+  `dressing` (habillage dans le chapitre), `rung` (1 technique nue · 2 habillages · 3 déguisement fort ·
+  4 piège · 5 transfert). `source` reste le texte affiché. Ne renseigner `idea` / `dressing` que si c'est
+  évident, jamais pour combler une case.
+- **R6. Ordre des vagues** pour la suite des imports et générations : d'abord **3ème Économie (3 ES) et 8ème**,
+  puis **1ère année et 2ème Sciences**.
+- **Étoiles → difficulté** (séries .tex) : ★ et ★★ → Facile, ★★★ → Moyen, ★★★★ → Difficile.
+- **Séries générées par Axiomaths** : `source: "Axiomaths"`, `professor: "Axiomaths"`, `year` = année courante.
+
+## 2c. Figures TikZ → PNG, et devoirs
+
+- Une figure TikZ d'un `.tex` devient un PNG : `tikzpicture` isolé dans `\documentclass{standalone}` (pdfLaTeX),
+  couleur `axmain` redéfinie en noir, puis `pdftocairo -png -r 240 -singlefile`. Nom : `<stem>.png`, puis
+  `<stem>-2.png`, … (voir §6). Couleur conservée seulement quand plusieurs courbes doivent se distinguer.
+- **Devoirs** (page `/devoirs`) : un PDF + un YAML dans `public/exams/` (`exams.ts` lit les `.yaml`).
+  Champ optionnel `corrige_filename` : le PDF du corrigé, affiché par le bouton « Corrigé ». Le devoir va aussi,
+  exercice par exercice, dans la banque (R1).
+- `axiomath.sty` v2.0 ne contient pas `prop` ni `\ib` : ajouter `bloc_axiomath_prop.tex` avant de compiler un corrigé.
+
 ## 3. Filename & UID
 
 `{n}-{school}-{level}[-{section_slug}]-{chapter_slug}-{UID7}.md`
@@ -257,6 +298,11 @@ Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads ori
   rule is used, no skipped algebra); keep lessons short, with the "À retenir" first.
 - 2026-11-13: Éco Séries 7 and 10 are Seifeddine's own compilations (PDF dates March–April 2021),
   so `year: 2021` there is the year of the série, not of an original bac; #182 keeps 2009 (Bac ES Amérique du Nord).
+- 2026-11-17: import des séries Thalès (16), Calcul numérique (16), Défis (4) et du devoir 2ème Sciences
+  « Polynômes et barycentre » (4) : UIDs 224–263 ; règles R1–R6 ci-dessus. Les exercices Défis portent
+  `provenance: adapted`. `source_checked: true` = contenu de la page lu via WebSearch (WebFetch était bloqué
+  par la liste d'autorisation de la session) et conforme ; la note de la *Mathematical Gazette* (Cambridge)
+  n'a jamais été lue : elle reste une référence historique non vérifiée.
 - 2026-11-18 (Seifeddine): **all solutions in the house style of §5** (boxed reminders, framed key formulas,
   detailed steps for weak and average pupils, « L'idée » / « Piège » at the end), modelled on his Thalès corrigé;
   rule for every exercise we generate from now on. Existing solutions stay as they are until rewritten.

@@ -306,6 +306,16 @@ export default function DevoirsSearchTable({ exams, filterOptions, initialLevel 
                         </svg>
                         PDF
                       </a>
+                      {exam.corrigeUrl && (
+                        <a
+                          href={exam.corrigeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 inline-flex items-center px-3 py-1 border border-orange-500 text-orange-600 dark:text-orange-400 rounded hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-colors"
+                        >
+                          Corrigé
+                        </a>
+                      )}
                     </td>
                   </tr>
                 ))}
