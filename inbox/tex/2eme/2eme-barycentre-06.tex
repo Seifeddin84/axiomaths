@@ -1,0 +1,71 @@
+%----------------------------------------------------------------------------------------
+% METADATA BLOCK (YAML)  — see inbox/README.md
+%----------------------------------------------------------------------------------------
+% uid: ""
+% school: "lycee"
+% level: "2eme"
+% section: ["Sciences", "Informatique"]
+% chapter: "Barycentre"
+% title: "Réduire des sommes vectorielles"
+% difficulty: "Facile"
+% tags: ["barycentre", "centre-de-gravite", "reduction-vectorielle", "ensemble-de-points"]
+% provenance: "own"
+% batch: "2026-11-19-2sc-polynomes-barycentre"
+%----------------------------------------------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+% ---STATEMENT---
+Soit $ABC$ un triangle, $I$ le milieu de $[BC]$ et $G$ le centre de gravité du triangle $ABC$.
+\begin{enumerate}
+  \item Montrer que, pour tout point $M$ du plan : $\vect{MA}+\vect{MB}+\vect{MC}=3\vect{MG}$.
+  \item Montrer que, pour tout point $M$ du plan : $2\vect{MA}-\vect{MB}-\vect{MC}=2\vect{IA}$.
+  \item Déterminer et construire l'ensemble $\Gamma$ des points $M$ tels que $\bigl\|\vect{MA}+\vect{MB}+\vect{MC}\bigr\|=\bigl\|2\vect{MA}-\vect{MB}-\vect{MC}\bigr\|$.
+  \item Déterminer l'ensemble $\Delta$ des points $M$ tels que les vecteurs $\vect{MA}+\vect{MB}+\vect{MC}$ et $2\vect{MA}-\vect{MB}-\vect{MC}$ soient colinéaires.
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{center}
+% alt: Triangle ABC, I milieu de [BC], centre de gravité G, cercle de centre G passant par A et médiane (AI).
+\begin{tikzpicture}[scale=0.8, font=\small]
+  \coordinate (A) at (1,4); \coordinate (B) at (0,0); \coordinate (C) at (5,0);
+  \coordinate (I) at (2.5,0); \coordinate (G) at (2,1.3333);
+  \draw[thick] (G) circle (2.848);
+  \draw[thick] (A)--(B)--(C)--cycle;
+  \draw[black, thick] ($(A)!-0.35!(I)$)--($(A)!1.45!(I)$) node[right, text=black] {$\Delta=(AI)$};
+  \foreach \p/\pos in {A/above left, B/below left, C/below right, I/below right, G/left}
+    \fill (\p) circle (2pt) node[\pos] {$\p$};
+  \node[text=black] at (4.6,3.3) {$\Gamma$};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}[itemsep=14pt]
+  \item
+  \begin{prop}[Centre de gravité]
+  Le centre de gravité $G$ du triangle $ABC$ est le barycentre de $(A,1)$, $(B,1)$, $(C,1)$ : \ib{$\vect{GA}+\vect{GB}+\vect{GC}=\vec0$}.
+  \end{prop}
+  Avec Chasles, $\vect{MA}=\vect{MG}+\vect{GA}$, et de même pour $B$ et $C$ :
+  \[\vect{MA}+\vect{MB}+\vect{MC}=3\vect{MG}+\underbrace{\vect{GA}+\vect{GB}+\vect{GC}}_{=\vec0}=3\vect{MG}\]
+
+  \item La somme des coefficients est $2-1-1=0$ : il n'y a pas de barycentre, on regroupe autrement.
+  \[2\vect{MA}-\vect{MB}-\vect{MC}=\left(\vect{MA}-\vect{MB}\right)+\left(\vect{MA}-\vect{MC}\right)=\vect{BA}+\vect{CA}\]
+  \begin{prop}[Milieu]
+  Si $I$ est le milieu de $[BC]$, alors pour tout point $N$ : \ib{$\vect{NB}+\vect{NC}=2\vect{NI}$}.
+  \end{prop}
+  Avec $N=A$ : $\vect{AB}+\vect{AC}=2\vect{AI}$, donc $\vect{BA}+\vect{CA}=-2\vect{AI}=2\vect{IA}$ :
+  \[2\vect{MA}-\vect{MB}-\vect{MC}=2\vect{IA}\qquad\text{(vecteur qui ne dépend pas de }M\text{)}\]
+
+  \item D'après 1) et 2), la condition s'écrit
+  \[3MG=2IA\iff MG=\dfrac23\,IA\]
+  \begin{prop}[Centre de gravité sur la médiane]
+  $G$ est situé aux deux tiers de la médiane en partant du sommet : \ib{$AG=\dfrac23\,AI$}.
+  \end{prop}
+  Donc $MG=AG$ : $\Gamma$ est le \textbf{cercle de centre $G$ passant par $A$}.
+
+  \item $3\vect{MG}$ et $2\vect{IA}$ sont colinéaires si et seulement si $\vect{MG}$ et $\vect{IA}$ le sont, c'est-à-dire si $M=G$ ou si la droite $(MG)$ est parallèle à $(IA)$.
+
+  Or $G$ est sur la droite $(AI)$ : la parallèle à $(IA)$ passant par $G$ est $(AI)$ elle-même.
+
+  \textbf{Conclusion :} $\Delta$ est la médiane $(AI)$.
+\end{enumerate}
+\textbf{Piège :} quand la somme des coefficients est nulle, on ne cherche pas de barycentre : la somme vectorielle est un vecteur constant.

@@ -1,0 +1,64 @@
+%----------------------------------------------------------------------------------------
+% METADATA BLOCK (YAML)  — see inbox/README.md
+%----------------------------------------------------------------------------------------
+% uid: ""
+% school: "lycee"
+% level: "3eme"
+% section: "Economie et Gestion"
+% chapter: "Statistiques"
+% title: "Âge des clients d'une agence de voyages"
+% difficulty: "Facile"
+% tags: ["statistiques", "classes", "interpolation-lineaire", "quartiles"]
+% provenance: "own"
+% batch: "2026-11-19-3eco-statistiques-n5"
+%----------------------------------------------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+% ---STATEMENT---
+Une agence de voyages a classé ses $60$ clients du mois selon leur âge :
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|}\hline
+Âge & $[20,30[$ & $[30,40[$ & $[40,50[$ & $[50,60[$ & $[60,70[$ \\\hline
+Effectif & $9$ & $15$ & $12$ & $18$ & $6$ \\\hline
+\end{tabular}\end{center}
+On suppose les âges répartis uniformément dans chaque classe.
+\begin{enumerate}
+  \item Dresser le tableau des effectifs cumulés croissants.
+  \item Calculer $Q_1$, la médiane et $Q_3$ par interpolation linéaire, puis l'écart interquartile.
+  \item Calculer l'âge moyen des clients.
+  \item Quel pourcentage des clients a moins de $50$ ans ?
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{enumerate}[itemsep=14pt]
+  \item
+  \begin{center}
+  \begin{tabular}{|l|c|c|c|c|c|}\hline
+  Borne supérieure & $30$ & $40$ & $50$ & $60$ & $70$ \\\hline
+  ECC & $9$ & $24$ & $36$ & $54$ & $60$ \\\hline
+  \end{tabular}\end{center}
+
+  \item
+  \begin{prop}[Interpolation linéaire]
+  Si la valeur cherchée (de rang $r$) est dans la classe $[a,b[$, avec $F_a$ et $F_b$ les ECC en $a$ et en $b$ :
+  \ib{$x=a+(b-a)\times\dfrac{r-F_a}{F_b-F_a}$}. On prend $r=\dfrac N4$ pour $Q_1$, $\dfrac N2$ pour Me, $\dfrac{3N}{4}$ pour $Q_3$.
+  \end{prop}
+  $N=60$ : rangs $15$, $30$ et $45$.
+
+  $Q_1$ : $9<15\leq24$, classe $[30,40[$ :
+  \[Q_1=30+10\times\dfrac{15-9}{24-9}=30+10\times\dfrac{6}{15}=34\]
+  Médiane : $24<30\leq36$, classe $[40,50[$ :
+  \[\text{Me}=40+10\times\dfrac{30-24}{36-24}=40+10\times\dfrac{6}{12}=45\]
+  $Q_3$ : $36<45\leq54$, classe $[50,60[$ :
+  \[Q_3=50+10\times\dfrac{45-36}{54-36}=50+10\times\dfrac{9}{18}=55\]
+  \[\text{Écart interquartile : }55-34=21\text{ ans}\]
+
+  \item Centres : $25$, $35$, $45$, $55$, $65$.
+  \[\overline x=\dfrac{9\times25+15\times35+12\times45+18\times55+6\times65}{60}\]
+  \[\overline x=\dfrac{225+525+540+990+390}{60}=\dfrac{2\,670}{60}=44{,}5\text{ ans}\]
+
+  \item $50$ est une borne : l'ECC en $50$ vaut $36$, soit $\dfrac{36}{60}=60\,\%$ des clients.
+\end{enumerate}
+\textbf{Piège :} on interpole avec les \emph{bornes} des classes et les ECC, mais on calcule la moyenne avec les \emph{centres}.
