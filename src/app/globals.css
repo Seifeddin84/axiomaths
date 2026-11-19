@@ -501,11 +501,46 @@ button, .btn, a.button {
 }
 /* Boxes inside a solution (:::property … :::): same boxes as the lessons, tighter, and a framed key formula
    (\boxed) that stays visible in both themes. */
-.exercise-content .lesson-box { margin: 1.1rem 0; font-size: 0.97rem; }
-.exercise-content .lesson-box__header { padding: 0.4rem 1rem; }
-.exercise-content .lesson-box__body { padding: 0.75rem 1rem 0.1rem; }
+/* Look of the LaTeX handouts (tcolorbox): a solid coloured title bar with white text, a full coloured frame,
+   a tinted body. Saturated but dark enough for white bold text (contrast ≥ 4.5:1). Lessons are not affected. */
+.exercise-content .lesson-box {
+  margin: 1.25rem 0; font-size: 0.97rem; font-style: normal; color: inherit;
+  border: 2px solid var(--c); border-radius: 6px; background: var(--bg);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--c) 22%, transparent);
+}
+.dark .exercise-content .lesson-box { border: 2px solid var(--c); background: var(--bg-dark); }
+.exercise-content .lesson-box__header {
+  padding: 0.45rem 1rem; background: var(--c); border-bottom: none; align-items: center;
+}
+.exercise-content .lesson-box__kind,
+.dark .exercise-content .lesson-box__kind { color: #fff; font-size: 0.78rem; opacity: 0.92; }
+.exercise-content .lesson-box__title,
+.dark .exercise-content .lesson-box__title,
+.exercise-content .lesson-box__kind--title,
+.dark .exercise-content .lesson-box__kind--title { color: #fff; font-weight: 800; font-size: 1rem; opacity: 1; }
+.exercise-content .lesson-box__kind--title { text-transform: none; letter-spacing: 0.01em; }
+.exercise-content .lesson-box__body { padding: 0.8rem 1rem 0.1rem; }
 .exercise-content .lesson-box__body > p { margin-bottom: 0.75rem; }
-.exercise-content .katex .fbox { border-color: currentColor; border-width: 0.06em; }
+.exercise-content .lesson-box strong { color: var(--c); font-weight: 800; }
+.dark .exercise-content .lesson-box strong { color: color-mix(in srgb, var(--c) 55%, white); }
+
+.exercise-content .lesson-box--theorem    { --c: #c2410c; --bg: #fff7ed; --bg-dark: rgba(234, 88, 12, 0.14); }
+.exercise-content .lesson-box--property,
+.exercise-content .lesson-box--corollary  { --c: #0f766e; --bg: #f0fdfa; --bg-dark: rgba(20, 184, 166, 0.12); }
+.exercise-content .lesson-box--definition { --c: #1d4ed8; --bg: #eff6ff; --bg-dark: rgba(59, 130, 246, 0.14); }
+.exercise-content .lesson-box--method     { --c: #6d28d9; --bg: #f5f3ff; --bg-dark: rgba(139, 92, 246, 0.14); }
+.exercise-content .lesson-box--trap       { --c: #be123c; --bg: #fff1f2; --bg-dark: rgba(244, 63, 94, 0.12); }
+.exercise-content .lesson-box--warning    { --c: #b91c1c; --bg: #fef2f2; --bg-dark: rgba(239, 68, 68, 0.12); }
+.exercise-content .lesson-box--intuition  { --c: #a16207; --bg: #fefce8; --bg-dark: rgba(234, 179, 8, 0.12); }
+.exercise-content .lesson-box--remark     { --c: #475569; --bg: #f8fafc; --bg-dark: rgba(148, 163, 184, 0.12); }
+.exercise-content .lesson-box--example    { --c: #be185d; --bg: #fdf2f8; --bg-dark: rgba(236, 72, 153, 0.12); }
+
+/* key results (\boxed{…}): an orange frame on a light background, as \ib{} in the handouts */
+.exercise-content .katex .fbox {
+  /* KaTeX draws the frame as a layer ON TOP of the formula: the tint must be translucent */
+  border: 0.09em solid #ea580c; border-radius: 0.15em; background: rgba(234, 88, 12, 0.1);
+}
+.dark .exercise-content .katex .fbox { border-color: #fb923c; background: rgba(251, 146, 60, 0.14); }
 /* Links between exercises (e.g. /lycee/4eme/mathematiques/integrales#ex-0000116) */
 .exercise-content a {
   color: #ea580c;

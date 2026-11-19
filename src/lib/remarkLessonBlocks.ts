@@ -40,7 +40,7 @@ export const BLOCKS: Record<string, { label: string; numbered: boolean }> = {
 };
 
 /** Arabic box labels (same keys as BLOCKS). Numbering uses Western digits, as in the Tunisian textbooks. */
-const BLOCKS_AR: Record<string, string> = {
+export const BLOCKS_AR: Record<string, string> = {
   definition: 'تعريف',
   theorem:    'مبرهنة',
   property:   'خاصية',
