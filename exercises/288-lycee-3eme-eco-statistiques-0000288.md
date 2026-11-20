@@ -43,7 +43,7 @@ On commence par compléter le tableau de calcul.
 | $n_i$ | $6$ | $14$ | $15$ | $9$ | $4$ | $2$ | $50$ |
 | $n_ix_i$ | $0$ | $14$ | $30$ | $27$ | $16$ | $10$ | $97$ |
 | $n_ix_i^2$ | $0$ | $14$ | $60$ | $81$ | $64$ | $50$ | $269$ |
-| ECC | $6$ | $20$ | $35$ | $44$ | $48$ | $50$ |  |
+| Effectif cumulé croissant | $6$ | $20$ | $35$ | $44$ | $48$ | $50$ |  |
 
 1. **Rappel.**
 
@@ -61,9 +61,9 @@ On commence par compléter le tableau de calcul.
 
    *Médiane* : $N$ pair, termes de rang $25$ et $26$. Les effectifs cumulés $20<25$ et $35\ge26$ montrent que ces deux termes valent $2$ : $M_e=2$.
 
-   *$Q_1$* : $\dfrac{50}4=12{,}5\to$ rang $13$. ECC$(0)=6<13\le$ ECC$(1)=20$ : $Q_1=1$.
+   *$Q_1$* : $\dfrac{50}4=12{,}5\to$ rang $13$. Effectifs cumulés croissants : $6<13$ pour $x=0$, puis $20\ge13$ pour $x=1$ : $Q_1=1$.
 
-   *$Q_3$* : $\dfrac{3\times50}4=37{,}5\to$ rang $38$. ECC$(2)=35<38\le$ ECC$(3)=44$ : $Q_3=3$.
+   *$Q_3$* : $\dfrac{3\times50}4=37{,}5\to$ rang $38$. Effectifs cumulés croissants : $35<38$ pour $x=2$, puis $44\ge38$ pour $x=3$ : $Q_3=3$.
 
 4. Au plus $2$ enfants signifie $x\le2$ : c'est l'effectif cumulé en $2$, soit $35$ familles.
 

@@ -42,7 +42,7 @@ Une agence de voyages a relevé l'âge de ses $80$ clients du mois :
 | $n_i$ | $8$ | $20$ | $28$ | $16$ | $8$ | $80$ |
 | $n_ix_i$ | $40$ | $300$ | $700$ | $560$ | $360$ | $1\,960$ |
 | $n_ix_i^2$ | $200$ | $4\,500$ | $17\,500$ | $19\,600$ | $16\,200$ | $58\,000$ |
-| ECC (borne sup.) | $8$ | $28$ | $56$ | $72$ | $80$ |  |
+| Effectif cumulé croissant (borne sup.) | $8$ | $28$ | $56$ | $72$ | $80$ |  |
 
 1. On remplace chaque classe par son centre (calcul approché).
 
@@ -56,28 +56,24 @@ Une agence de voyages a relevé l'âge de ses $80$ clients du mois :
 3. **Rappel.**
 
    :::property[Interpolation linéaire]
-   Si le rang $r$ cherché se trouve dans la classe $[a;b[$ et si $c_1$, $c_2$ sont les effectifs cumulés en $a$ et en $b$, alors
-
-   $$\displaystyle Q=a+(b-a)\times\frac{r-c_1}{c_2-c_1}.$$
-
-   On suppose les valeurs uniformément réparties dans la classe.
+   On suppose les valeurs uniformément réparties dans la classe $[a;b[$ qui contient le rang cherché. On dresse le tableau à trois colonnes (valeurs : $a$, $Q$, $b$ ; effectifs cumulés croissants : celui de $a$, le rang cherché, celui de $b$), puis on écrit l'égalité des rapports, comme dans le théorème de Thalès.
    :::
 
-   *$Q_1$* : rang $\dfrac{80}4=20$. ECC$(10)=8<20\le$ ECC$(20)=28$, donc dans $[10;20[$ :
+   *$Q_1$* : rang $\dfrac{80}4=20$. Les effectifs cumulés croissants valent $8$ en $10$ et $28$ en $20$ ; comme $8<20\le28$, $Q_1\in[10;20[$ :
 
-   $$\displaystyle Q_1=10+10\times\frac{20-8}{28-8}=10+10\times\frac{12}{20}=\boxed{16}.$$
+   $$\displaystyle \frac{Q_1-10}{20-10}=\frac{20-8}{28-8}\ \Longrightarrow\ Q_1=10+10\times\frac{12}{20}=\boxed{16}.$$
 
-   *Médiane* : rang $40$, ECC$(20)=28<40\le$ ECC$(30)=56$, classe $[20;30[$ :
+   *Médiane* : rang $40$ : les effectifs cumulés croissants valent $28$ en $20$ et $56$ en $30$ ; comme $28<40\le56$, $M_e\in[20;30[$ :
 
-   $$\displaystyle M_e=20+10\times\frac{40-28}{56-28}=20+\frac{120}{28}=\frac{170}7\approx\boxed{24{,}29}.$$
+   $$\displaystyle \frac{M_e-20}{30-20}=\frac{40-28}{56-28}\ \Longrightarrow\ M_e=20+\frac{120}{28}=\frac{170}7\approx\boxed{24{,}29}.$$
 
-   *$Q_3$* : rang $60$, ECC$(30)=56<60\le$ ECC$(40)=72$, classe $[30;40[$ :
+   *$Q_3$* : rang $60$ : les effectifs cumulés croissants valent $56$ en $30$ et $72$ en $40$ ; comme $56<60\le72$, $Q_3\in[30;40[$ :
 
-   $$\displaystyle Q_3=30+10\times\frac{60-56}{72-56}=30+10\times\frac4{16}=\boxed{32{,}5}.$$
+   $$\displaystyle \frac{Q_3-30}{40-30}=\frac{60-56}{72-56}\ \Longrightarrow\ Q_3=30+10\times\frac4{16}=\boxed{32{,}5}.$$
 
    Écart interquartile : $Q_3-Q_1=32{,}5-16=16{,}5$ ans.
 
-4. On cherche l'effectif cumulé en $35$, milieu de $[30;40[$ : on est à mi-chemin entre ECC$(30)=56$ et ECC$(40)=72$ :
+4. On cherche l'effectif cumulé en $35$, milieu de $[30;40[$ : on est à mi-chemin entre les effectifs cumulés croissants $56$ (en $30$) et $72$ (en $40$) :
 
    $$\displaystyle 56+\frac{35-30}{40-30}\times(72-56)=56+0{,}5\times16=64.$$
 
