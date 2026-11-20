@@ -34,6 +34,15 @@ inbox/
 Start from `TEMPLATE.tex`. Three parts, in this order: metadata block, optional simple macros, then
 `% ---STATEMENT---` and `% ---SOLUTION---`.
 
+**Also accepted: the native handout file.** One exercise per file, as the tutoring project compiles it:
+the `% key: value` metadata block, then a complete document with
+`\begin{corr}[title={…}, stars=N, source={…}] statement \axsol solution \end{corr}`. The converter reads the
+statement before `\axsol` and the solution after it, takes the title from `corr`'s `title` (plain text: no
+`$…$` in a title), converts `qcm` / `\qitem[AB]{question}{a}{b}{c}{d}` (options become **A.** **B.** …) and
+`\axanswerkey{1/AB, …}` (a "correct answers" line), and keeps the tikz figures. For an Arabic chapter without
+`% chapter_slug:` the converter knows the slug of the chapters already in the bank; for a new Arabic chapter add it.
+Put `% alt: <description>` before a figure, otherwise its alt text is the exercise title.
+
 ### Metadata (`% key: value`, YAML values)
 
 | key | required | values |
