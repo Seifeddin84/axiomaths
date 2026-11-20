@@ -182,5 +182,5 @@ Zénon d'Élée (Ve siècle av. J.-C.) prétendait qu'Achille ne rattraperait ja
 :::
 
 :::remark[Fiche de révision]
-Une fiche de deux pages à imprimer : [télécharger la fiche (PDF)](/fiches/3eme-economie-suites-reelles-fiche.pdf).
+Une fiche récapitulative (A3, une page) à imprimer : [télécharger la fiche (PDF)](/fiches/3eme-economie-suites-reelles-fiche.pdf).
 :::

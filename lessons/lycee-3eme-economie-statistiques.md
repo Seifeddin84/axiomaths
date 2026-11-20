@@ -488,5 +488,5 @@ En 1662, à Londres, **John Graunt** étudie les registres de naissances et de d
 :::
 
 :::remark[Fiche de révision]
-Une fiche de deux pages à imprimer : [télécharger la fiche (PDF)](/fiches/3eme-economie-statistiques-fiche.pdf).
+Une fiche récapitulative (A3, une page) à imprimer : [télécharger la fiche (PDF)](/fiches/3eme-economie-statistiques-fiche.pdf).
 :::
