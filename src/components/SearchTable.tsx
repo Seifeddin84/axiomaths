@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Exercise } from '@/types/exercise';
 import MathRenderer from './MathRenderer';
 import { useExerciseBasket } from '@/context/ExerciseBasketContext';
@@ -15,6 +15,19 @@ interface SearchTableProps {
 export default function SearchTable({ exercises }: SearchTableProps) {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  // The table is wider than a phone screen and scrolls sideways. An opened exercise must stay as wide as the
+  // visible area (not as wide as the table), so it stays readable and Arabic (right-aligned) text is not pushed off-screen.
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [visibleWidth, setVisibleWidth] = useState(0);
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const measure = () => setVisibleWidth(el.clientWidth);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
   const [showSolution, setShowSolution] = useState<string | null>(null);
   const [sortField, setSortField] = useState<SortField>('uid');
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
@@ -180,7 +193,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
   }
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto" ref={scrollRef}>
       {selectedIds.length > 0 && (
         <div className="mb-4 p-4 bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 flex items-center justify-between">
           <p className="text-sm font-bold text-gray-900 dark:text-white">
@@ -407,16 +420,16 @@ export default function SearchTable({ exercises }: SearchTableProps) {
 
                 {isExpanded && (
                   <tr className="bg-gray-100 dark:bg-gray-800">
-                    <td colSpan={10} className="p-0">
-                      <div className="p-6 border-t-4 border-orange-500">
-                        <div className="exercise-content border-t-4 border-gray-300 dark:border-gray-600">
+                    <td colSpan={10} className="p-0 align-top">
+                      <div className="sticky left-0 p-3 sm:p-6 border-t-4 border-orange-500" style={visibleWidth ? { width: visibleWidth } : undefined}>
+                        <div className="exercise-content border-t-4 border-gray-300 dark:border-gray-600 overflow-x-auto">
                           <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
                             <MathRenderer content={exercise.content} />
                           </div>
                         </div>
 
                         {exercise.solution && (
-                          <div className="p-6 bg-white dark:bg-gray-800 border-t-2 border-gray-200 dark:border-gray-700">
+                          <div className="p-3 sm:p-6 bg-white dark:bg-gray-800 border-t-2 border-gray-200 dark:border-gray-700">
                             <button
                               onClick={(e) => toggleSolution(exercise.uid, e)}
                               className="mb-3 px-6 py-3 font-black text-white bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-lg hover:shadow-orange-500/50 transition-all flex items-center gap-2"
@@ -428,7 +441,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                             </button>
 
                             {isSolutionShown && (
-                              <div className="mt-6 p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-4 border-green-300 dark:border-green-700">
+                              <div className="mt-6 p-4 sm:p-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-4 border-green-300 dark:border-green-700">
                                 <div className="flex items-center gap-3 mb-6">
                                   <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
                                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -437,7 +450,7 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                                   </div>
                                   <h4 className="text-2xl font-black text-green-900 dark:text-green-100">Solution</h4>
                                 </div>
-                                <div className="prose prose-lg dark:prose-invert max-w-none">
+                                <div className="prose prose-lg dark:prose-invert max-w-none overflow-x-auto">
                                   <MathRenderer content={exercise.solution} />
                                 </div>
                               </div>
