@@ -103,3 +103,9 @@ Avec des points aux coordonnées rationnelles bien choisies, la parabole se comp
 Ne pas confondre $p$ et $2p$ : dans $x^2=2py$, le foyer est à l'ordonnée $\tfrac p2$ (pas $p$). Ici $2p=4$ donc $p=2$ et le foyer est $1$ au-dessus du sommet.
 
 :::
+
+:::remark[Pour aller plus loin]
+
+La relation qui rend le théorème vrai pour toute corde est établie pour le cercle en coordonnées polaires dans l'[exercice n°273](/lycee/3eme/mathematiques/produit-scalaire-dans-le-plan#ex-0000273) ; sur la parabole, c'est l'[exercice n°280](/lycee/4eme/mathematiques/coniques#ex-0000280).
+
+:::

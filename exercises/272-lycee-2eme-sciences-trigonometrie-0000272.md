@@ -124,3 +124,9 @@ Quand une figure est « trop dure » à attaquer de face, on la reconstruit à p
 Ne pas confondre l'angle en $R$ du triangle de remplissage ($120^\circ+\gamma$, qui sert à appliquer le cas de similitude) avec l'angle de l'aile en $R$ ($60^\circ+\beta$ ou $60^\circ+\alpha$) : ce sont des angles différents au même point.
 
 :::
+
+:::remark[Pour aller plus loin]
+
+Tracer les trisectrices d'un angle quelconque demande une règle graduée (la « néusis » d'Archimède) : [exercice n°267](/lycee/1ere/toutes-sections/angles#ex-0000267). Avec la règle et le compas seuls c'est impossible, par exemple pour $60^\circ$ : [exercice n°284](/lycee/4eme/mathematiques/identite-de-bezout#ex-0000284). C'est pourquoi cette preuve construit le triangle à rebours.
+
+:::
