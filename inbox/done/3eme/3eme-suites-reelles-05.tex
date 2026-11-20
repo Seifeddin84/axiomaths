@@ -1,0 +1,44 @@
+% uid: ""
+% school: "lycee"
+% level: "3eme"
+% section: ["Economie et Gestion"]
+% chapter: "Suites réelles"
+% title: "Dons décroissants d'une association"
+% difficulty: "Moyen"
+% points: null
+% tags: ["suites", "somme-geometrique", "limite", "seuil", "modelisation"]
+% provenance: "own"
+% dressing: "somme cumulée"
+% rung: 3
+% batch: "2026-11-20-suites-3eco-A"
+
+% ---STATEMENT---
+Une association reçoit d'un mécène un don de $600$ dinars la première année ($D_0=600$). Chaque année suivante, le don est égal à $75\,\%$ du don de l'année précédente. On note $D_n$ le don de l'année $n$ et $C_n=D_0+D_1+\dots+D_n$ le total reçu.
+
+\begin{enumerate}
+  \item Exprimer $D_n$ en fonction de $n$.
+  \item Montrer que $C_n=2\,400\,\bigl(1-0{,}75^{\,n+1}\bigr)$.
+  \item Déterminer $\displaystyle\lim_{n\to+\infty}C_n$. L'association peut-elle espérer recevoir $2\,500$ dinars au total ?
+  \item À partir de quelle année le total dépasse-t-il $2\,300$ dinars ?
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{enumerate}
+  \item Chaque don est $75\,\%$ du précédent : $D_{n+1}=0{,}75\,D_n$. La suite $(D_n)$ est géométrique de raison $0{,}75$ et de premier terme $600$ :
+  $$ \ib{$D_n=600\times0{,}75^n$}.$$
+  \item $C_n=D_0+D_1+\dots+D_n$ est la somme de $n+1$ termes d'une suite géométrique de raison $q=0{,}75\neq1$ :
+  \begin{prop}[Somme géométrique]
+  $u_0+\dots+u_n=u_0\,\dfrac{1-q^{\,n+1}}{1-q}$.
+  \end{prop}
+  $$C_n=600\times\frac{1-0{,}75^{\,n+1}}{1-0{,}75}=\frac{600}{0{,}25}\bigl(1-0{,}75^{\,n+1}\bigr)=\ib{$2\,400\bigl(1-0{,}75^{\,n+1}\bigr)$}.$$
+  \item $0<0{,}75<1$, donc $0{,}75^{\,n+1}\to0$ et $C_n\to2\,400\times(1-0)=$ \ib{$2\,400$}.
+
+  Comme $C_n=2\,400\bigl(1-0{,}75^{\,n+1}\bigr)<2\,400$ pour tout $n$, le total ne dépassera \emph{jamais} $2\,400$ dinars : l'association ne peut pas espérer $2\,500$ dinars.
+  \item Le total est croissant (on ajoute des dons positifs). On calcule :
+  $$C_{10}=2\,400\bigl(1-0{,}75^{11}\bigr)\approx2\,298{,}6\qquad C_{11}=2\,400\bigl(1-0{,}75^{12}\bigr)\approx2\,324{,}0.$$
+  $C_{10}<2\,300<C_{11}$ : le total dépasse $2\,300$ dinars à partir de l'année $n=11$.
+
+  \textbf{Remarque :} algébriquement, $C_n>2\,300\iff0{,}75^{\,n+1}<\dfrac1{96}$.
+\end{enumerate}
+
+\textbf{Idée :} la somme cumulée d'une suite géométrique de raison $q\in]0\,;1[$ reste inférieure à $\dfrac{u_0}{1-q}$.

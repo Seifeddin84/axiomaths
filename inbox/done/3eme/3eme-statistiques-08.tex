@@ -1,0 +1,64 @@
+% uid: ""
+% school: "lycee"
+% level: "3eme"
+% section: ["Economie et Gestion"]
+% chapter: "Statistiques"
+% title: "Heures de révision et note : tableau à double entrée"
+% difficulty: "Moyen"
+% points: null
+% tags: ["statistiques", "double-entree", "distributions-marginales", "point-moyen", "frequences"]
+% provenance: "own"
+% dressing: "tableau à double entrée"
+% rung: 3
+% batch: "2026-11-20-stat-3eco-A"
+
+% ---STATEMENT---
+On a interrogé $30$ élèves sur le nombre $X$ d'heures de révision avant un devoir et noté la note $Y$ obtenue sur $20$. Les effectifs $n_{ij}$ sont donnés dans le tableau :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$X\backslash Y$ & $8$ & $12$ & $16$ \\ \hline
+$2$ h & $4$ & $2$ & $0$ \\ \hline
+$4$ h & $3$ & $7$ & $2$ \\ \hline
+$6$ h & $1$ & $5$ & $6$ \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+  \item Compléter le tableau avec les marges (effectifs marginaux de $X$ et de $Y$).
+  \item Calculer les moyennes $\overline{x}$ et $\overline{y}$ et donner les coordonnées du point moyen $G$.
+  \item Donner la distribution des fréquences marginales de $Y$ (en fractions irréductibles).
+  \item Quelle proportion des élèves ayant révisé au moins $4$ heures a obtenu au moins $12$ ?
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{enumerate}
+  \item Marges : somme de chaque ligne (pour $X$) et de chaque colonne (pour $Y$).
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+  \hline
+  $X\backslash Y$ & $8$ & $12$ & $16$ & Total \\ \hline
+  $2$ h & $4$ & $2$ & $0$ & $6$ \\ \hline
+  $4$ h & $3$ & $7$ & $2$ & $12$ \\ \hline
+  $6$ h & $1$ & $5$ & $6$ & $12$ \\ \hline
+  Total & $8$ & $14$ & $8$ & $30$ \\ \hline
+  \end{tabular}
+  \end{center}
+  Contrôle : $6+12+12=30$ et $8+14+8=30$ $\checkmark$
+  \item \textbf{Rappel.}\par
+  \begin{prop}[Moyennes marginales]
+  $\displaystyle\overline{x}=\frac1N\sum n_{i\bullet}\,x_i$ et $\displaystyle\overline{y}=\frac1N\sum n_{\bullet j}\,y_j$, où $n_{i\bullet}$ et $n_{\bullet j}$ sont les effectifs marginaux.
+  \end{prop}
+  $$\overline{x}=\frac{6\times2+12\times4+12\times6}{30}=\frac{12+48+72}{30}=\frac{132}{30}=4{,}4$$
+  $$\overline{y}=\frac{8\times8+14\times12+8\times16}{30}=\frac{64+168+128}{30}=\frac{360}{30}=12$$
+  $$ \ib{$G(4{,}4\,;12)$}.$$
+  \item Fréquences marginales de $Y$ : effectif marginal divisé par $N=30$.
+  $$f(8)=\frac8{30}=\frac4{15}\qquad f(12)=\frac{14}{30}=\frac7{15}\qquad f(16)=\frac8{30}=\frac4{15}.$$
+  Contrôle : $\dfrac4{15}+\dfrac7{15}+\dfrac4{15}=1$ $\checkmark$
+  \item On se restreint aux lignes $X=4$ et $X=6$ : $12+12=24$ élèves. Parmi eux, ceux dont la note est $12$ ou $16$ : $(7+2)+(5+6)=20$.
+  $$\frac{20}{24}=\frac56\approx\ib{$83\,\%$}.$$
+  \textbf{Piège :} la proportion demandée est calculée sur les $24$ élèves qui ont révisé au moins $4$ heures, pas sur les $30$ élèves.
+\end{enumerate}
+
+\textbf{Idée :} les marges ramènent un tableau à double entrée à deux séries simples, dont on calcule les moyennes.

@@ -1,0 +1,65 @@
+% uid: ""
+% school: "lycee"
+% level: "3eme"
+% section: ["Economie et Gestion"]
+% chapter: "Statistiques"
+% title: "Nombre d'enfants par famille"
+% difficulty: "Facile"
+% points: null
+% tags: ["statistiques", "tableau-d-effectifs", "moyenne", "ecart-type", "quartiles"]
+% provenance: "own"
+% dressing: "tableau d'effectifs"
+% rung: 2
+% batch: "2026-11-20-stat-3eco-A"
+
+% ---STATEMENT---
+On a interrogé $50$ familles d'un quartier sur leur nombre d'enfants $x$ :
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Nombre d'enfants $x_i$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\ \hline
+Effectif $n_i$ & $6$ & $14$ & $15$ & $9$ & $4$ & $2$ \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+  \item Calculer le nombre moyen d'enfants par famille.
+  \item Calculer la variance puis l'écart type (arrondi à $10^{-2}$).
+  \item Déterminer la médiane et les quartiles $Q_1$, $Q_3$.
+  \item Quel pourcentage de familles a au plus $2$ enfants ?
+\end{enumerate}
+
+% ---SOLUTION---
+On commence par compléter le tableau de calcul.
+\begin{center}
+\small
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+$x_i$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & Total \\ \hline
+$n_i$ & $6$ & $14$ & $15$ & $9$ & $4$ & $2$ & $50$ \\ \hline
+$n_ix_i$ & $0$ & $14$ & $30$ & $27$ & $16$ & $10$ & $97$ \\ \hline
+$n_ix_i^2$ & $0$ & $14$ & $60$ & $81$ & $64$ & $50$ & $269$ \\ \hline
+ECC & $6$ & $20$ & $35$ & $44$ & $48$ & $50$ & \\ \hline
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item \textbf{Rappel.}\par
+  \begin{prop}[Moyenne d'une série à effectifs]
+  $\displaystyle\overline{x}=\frac{1}{N}\sum n_ix_i$.
+  \end{prop}
+  $$\overline{x}=\frac{97}{50}=\ib{$1{,}94$}\text{ enfant par famille.}$$
+  \item $\displaystyle\frac1N\sum n_ix_i^2=\frac{269}{50}=5{,}38$, donc
+  $$V=5{,}38-1{,}94^2=5{,}38-3{,}7636=1{,}6164\qquad\sigma=\sqrt{1{,}6164}\approx\ib{$1{,}27$}.$$
+  \item $N=50$.
+
+  \emph{Médiane} : $N$ pair, termes de rang $25$ et $26$. Les effectifs cumulés $20<25$ et $35\ge26$ montrent que ces deux termes valent $2$ : $M_e=2$.
+
+  \emph{$Q_1$} : $\dfrac{50}4=12{,}5\to$ rang $13$. ECC$(0)=6<13\le$ ECC$(1)=20$ : $Q_1=1$.
+
+  \emph{$Q_3$} : $\dfrac{3\times50}4=37{,}5\to$ rang $38$. ECC$(2)=35<38\le$ ECC$(3)=44$ : $Q_3=3$.
+  \item Au plus $2$ enfants signifie $x\le2$ : c'est l'effectif cumulé en $2$, soit $35$ familles.
+  $$\frac{35}{50}=0{,}70=\ib{$70\,\%$}.$$
+\end{enumerate}
+
+\textbf{Idée :} un tableau d'effectifs est une série où chaque valeur est répétée : on pondère chaque valeur par son effectif.

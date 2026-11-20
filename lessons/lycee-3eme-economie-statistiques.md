@@ -486,3 +486,7 @@ Les recensements sont très anciens : on en trouve en Égypte et en Chine dès l
 
 En 1662, à Londres, **John Graunt** étudie les registres de naissances et de décès. Il remarque que le rapport entre naissances de garçons et de filles est remarquablement stable d'une année à l'autre. Aujourd'hui, le travail du statisticien n'est plus seulement de collecter et de présenter les données : c'est surtout de les **interpréter**, sans tomber dans les pièges de ce chapitre.
 :::
+
+:::remark[Fiche de révision]
+Une fiche de deux pages à imprimer : [télécharger la fiche (PDF)](/fiches/3eme-economie-statistiques-fiche.pdf).
+:::

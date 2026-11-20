@@ -1,0 +1,53 @@
+% uid: ""
+% school: "lycee"
+% level: "3eme"
+% section: ["Economie et Gestion"]
+% chapter: "Statistiques"
+% title: "Un nouvel employé : que devient la dispersion ?"
+% difficulty: "Difficile"
+% points: null
+% tags: ["statistiques", "variance", "parametre", "trinome", "dispersion", "defi"]
+% provenance: "own"
+% dressing: "paramètre"
+% rung: 4
+% batch: "2026-11-20-stat-3eco-A"
+
+% ---STATEMENT---
+Une entreprise compte $9$ employés dont le salaire mensuel moyen est $500$ dinars et la variance des salaires est $3\,240$. Elle embauche un dixième employé dont le salaire est $x$ dinars.
+
+\begin{enumerate}
+  \item Calculer la somme $S_1=\sum x_i$ et la somme des carrés $S_2=\sum x_i^2$ des $9$ salaires.
+  \item Exprimer la nouvelle moyenne $m(x)$ puis la nouvelle variance $V(x)$ en fonction de $x$. Montrer que
+  $$V(x)=0{,}09\,x^2-90\,x+25\,416.$$
+  \item Calculer la nouvelle moyenne et l'écart type si $x=500$.
+  \item Montrer que $V(x)-3\,240=0{,}09\,(x-440)(x-560)$. Pour quelles valeurs de $x$ l'embauche \emph{diminue}-t-elle la dispersion des salaires ?
+  \item Quel salaire donnerait, pour le nouvel employé, la moyenne $520$ ? La dispersion augmenterait-elle alors ?
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{enumerate}
+  \item $S_1=9\times m=9\times500=4\,500$.
+
+  D'après $V=\dfrac{S_2}{N}-m^2$ avec $N=9$ : $3\,240=\dfrac{S_2}9-250\,000$, donc
+  $$S_2=9\times(3\,240+250\,000)=9\times253\,240=2\,279\,160.$$
+  \item Avec $10$ salariés, la somme devient $4\,500+x$ et la somme des carrés $2\,279\,160+x^2$.
+  $$m(x)=\frac{4\,500+x}{10}\qquad V(x)=\frac{2\,279\,160+x^2}{10}-\left(\frac{4\,500+x}{10}\right)^2.$$
+  On met sur le dénominateur $100$ et on développe $(4\,500+x)^2=20\,250\,000+9\,000\,x+x^2$ :
+  $$V(x)=\frac{10\,(2\,279\,160+x^2)-(20\,250\,000+9\,000\,x+x^2)}{100}=\frac{9\,x^2-9\,000\,x+2\,541\,600}{100}.$$
+  $$ \ib{$V(x)=0{,}09\,x^2-90\,x+25\,416$}.$$
+  \item Pour $x=500$ : $m=\dfrac{5\,000}{10}=500$ et
+  $$V(500)=0{,}09\times250\,000-90\times500+25\,416=22\,500-45\,000+25\,416=2\,916\qquad\sigma=\sqrt{2\,916}=54.$$
+  La moyenne ne bouge pas et l'écart type baisse de $\sqrt{3\,240}\approx56{,}9$ à $54$ : un salaire égal à la moyenne ne peut que resserrer la série.
+  \item $V(x)-3\,240=0{,}09\,x^2-90\,x+22\,176=0{,}09\,(x^2-1\,000\,x+246\,400)$.
+
+  Or $(x-440)(x-560)=x^2-1\,000\,x+246\,400$ (car $440+560=1\,000$ et $440\times560=246\,400$). Donc
+  $$V(x)-3\,240=0{,}09\,(x-440)(x-560).$$
+  \begin{prop}[Signe d'un trinôme]
+  Un trinôme $a(x-x_1)(x-x_2)$ avec $a>0$ et $x_1<x_2$ est \emph{négatif} entre ses racines et positif à l'extérieur.
+  \end{prop}
+  La dispersion diminue si et seulement si $V(x)<3\,240$, c'est-à-dire
+  $$ \ib{$440<x<560$}.$$
+  \item $m(x)=520\iff4\,500+x=5\,200\iff x=700$. Comme $700>560$, $V(700)-3\,240>0$ : la dispersion \emph{augmente} (le nouveau salaire est loin de la moyenne).
+\end{enumerate}
+
+\textbf{Idée :} une nouvelle valeur proche de la moyenne resserre la série, une valeur éloignée l'étale : la variance dit où est la frontière.
