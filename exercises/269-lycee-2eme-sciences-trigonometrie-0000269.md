@@ -144,3 +144,9 @@ Les produits de distances ont deux écritures : l'une ne voit que les droites pa
 La loi du sinus étendue donne $UV=2R\sin\widehat{W}$ avec $\widehat{W}$ l'angle **opposé** au côté $[UV]$. Ici $\sin\widehat{DAB}=BD/2R$ (le côté opposé à $A$ dans $ABD$ est $[BD]$), pas $AD/2R$.
 
 :::
+
+:::remark[Pour aller plus loin]
+
+Le théorème du papillon vaut aussi pour l'ellipse, que l'on ramène au cercle par une application affine : [exercice n°282](/lycee/4eme/mathematiques/coniques#ex-0000282).
+
+:::

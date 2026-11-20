@@ -118,3 +118,9 @@ Dans ces coordonnées, la somme $\frac1t+\frac1{t'}$ ne dépend de la direction 
 La formule de $x_X$ suppose $y_1\neq y_2$ (la droite $(AD)$ n'est pas parallèle à $(Ox)$) : c'est le cas ici car $A$ et $D$ sont de part et d'autre de $(PQ)$.
 
 :::
+
+:::remark[Pour aller plus loin]
+
+La même idée avec des distances et la loi du sinus, sans coordonnées : [exercice n°269](/lycee/2eme/sciences/trigonometrie#ex-0000269). La relation $(\star)$ s'obtient aussi pour une parabole ([exercice n°280](/lycee/4eme/mathematiques/coniques#ex-0000280)), pour une ellipse ou une parabole avec $M$ sur un axe ([exercice n°281](/lycee/4eme/mathematiques/coniques#ex-0000281)), et pour toutes les coniques d'un coup avec un faisceau ([exercice n°283](/lycee/4eme/mathematiques/coniques#ex-0000283)).
+
+:::

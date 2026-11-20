@@ -125,3 +125,9 @@ Ellipse, parabole et cercle ont **la même forme d'équation** une fois le repè
 Pour la parabole ($\lambda=0$), il faut exclure la direction de l'axe ($\cos\theta=0$) : une droite parallèle à l'axe ne coupe la parabole qu'en un seul point, ce n'est pas une corde.
 
 :::
+
+:::remark[Pour aller plus loin]
+
+Le cas du cercle se démontre avec des distances et la loi du sinus dans l'[exercice n°269](/lycee/2eme/sciences/trigonometrie#ex-0000269). Pour l'ellipse avec $M$ quelconque, on utilise une application affine : [exercice n°282](/lycee/4eme/mathematiques/coniques#ex-0000282).
+
+:::

@@ -118,3 +118,9 @@ On remplace $A$ par deux points $Y',Z'$ placés sur ses côtés et on montre qu'
 $U$ n'est **pas** $P$ : $U$ est l'intersection des trisectrices les plus éloignées de $[BC]$. Prendre $P$ à la place de $U$ dans les questions 1 à 3 rendrait faux le calcul de $\widehat{BUC}=60^\circ+2\alpha$ (alors $\widehat{BPC}=120^\circ+\alpha$).
 
 :::
+
+:::remark[Pour aller plus loin]
+
+Le cas du triangle équilatéral se traite très simplement avec une rotation : [exercice n°270](/lycee/2eme/sciences/rotations#ex-0000270).
+
+:::

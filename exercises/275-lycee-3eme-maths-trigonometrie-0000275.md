@@ -118,3 +118,9 @@ Les longueurs $BP$ et $BR$ sont proportionnelles à deux sinus d'un triangle $V_
 Ne pas oublier que $\sin(120^\circ+\alpha)=\sin(60^\circ-\alpha)$ (supplémentaires). C'est cette simplification qui fait disparaître $\sin(60^\circ-\alpha)$ de $BP$.
 
 :::
+
+:::remark[Pour aller plus loin]
+
+Cas particuliers : le triangle rectangle isocèle avec ses trisectrices dans l'[exercice n°271](/lycee/2eme/sciences/trigonometrie#ex-0000271). Une preuve de Morley sans aucun calcul trigonométrique, seulement avec des angles et des symétries : [exercice n°278](/lycee/3eme/mathematiques/angles-orientes#ex-0000278).
+
+:::

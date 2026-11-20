@@ -113,3 +113,9 @@ Le triangle équilatéral a trois rotations qui le laissent inchangé ; elles en
 La trisectrice **la plus proche** de $[BC]$ n'est pas celle qui fait $40^\circ$ avec $(BC)$ : c'est celle qui fait $20^\circ$. Prendre l'autre donnerait le point $U$ de la preuve de Naraniengar (exercice [278](/lycee/3eme/mathematiques/angles-orientes#ex-0000278)), pas $P$.
 
 :::
+
+:::remark[Pour aller plus loin]
+
+Le côté du triangle de Morley obtenu ici, $\dfrac{1-\sqrt3\tan20^\circ}2\approx0{,}1848$, est retrouvé par le calcul trigonométrique, pour un triangle quelconque, dans l'[exercice n°275](/lycee/3eme/mathematiques/trigonometrie#ex-0000275).
+
+:::

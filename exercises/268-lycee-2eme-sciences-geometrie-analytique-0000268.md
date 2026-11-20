@@ -134,3 +134,9 @@ Deux calculs aussi laids qui donnent des résultats exactement opposés ($\frac4
 Une erreur classique : calculer le coefficient directeur avec $\dfrac{x_F-x_E}{y_F-y_E}$ (l'inverse). Vérifier toujours que la droite passe bien par les **deux** points.
 
 :::
+
+:::remark[Pour aller plus loin]
+
+Le même théorème, pour n'importe quelle corde du cercle, par les coordonnées polaires : [exercice n°273](/lycee/3eme/mathematiques/produit-scalaire-dans-le-plan#ex-0000273). Et pour d'autres courbes que le cercle : une parabole dans l'[exercice n°279](/lycee/4eme/mathematiques/coniques#ex-0000279), une ellipse dans l'[exercice n°282](/lycee/4eme/mathematiques/coniques#ex-0000282).
+
+:::
