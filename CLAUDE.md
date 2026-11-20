@@ -250,7 +250,7 @@ The converter maps the tutoring solution constructs to the house style of §5: `
 `\ib{}` → `\boxed{}`, `Idée :` / `Piège :` lines → `:::intuition` / `:::trap` (tested on the Thalès corrigé).
 
 The converter reads both the contract format and the tutoring project's native handout file (`corr` … `\axsol` … `\end{corr}`,
-`qcm`); first real batch: 37 files of 8ème (fractions, symétrie centrale), UIDs 264–300.
+`qcm`); first real batch: 37 files of 8ème (fractions, symétrie centrale), UIDs 306–342 (renumbered from 264–300, which collided with the 3ème Éco import).
 
 Vercel does not build `inbox/*` branches (`vercel.json` `ignoreCommand`; they only add `.tex`), so the tutoring PR has no
 preview: the preview to test is the one of our `claude/convert-<batch>` PR. The tutoring project splits a series into one
