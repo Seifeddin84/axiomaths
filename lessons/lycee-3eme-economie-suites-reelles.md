@@ -11,6 +11,10 @@ source: "Manuel officiel 3ème année Économie et Gestion, Tome 1, chapitre 2"
 updated: "2026-11-20"
 ---
 
+:::remark[Fiche de révision]
+📄 [Télécharger la fiche récapitulative (PDF, A3)](/fiches/3eme-economie-suites-reelles-fiche.pdf) : l'essentiel du chapitre sur une page à imprimer.
+:::
+
 ## Pourquoi ce chapitre ?
 
 Un capital de $1\,000$ dinars est placé à $5\,\%$ par an. Au bout de $10$ ans il vaut environ $1\,629$ dinars, au bout de $50$ ans environ $11\,467$. Une voiture qui perd $12\,\%$ par an vaut presque $0$ au bout de $40$ ans. Ces phénomènes se répètent d'une année à l'autre : on les décrit par une **suite**.
@@ -179,8 +183,4 @@ Pour $u_{n+1}=0{,}75\,u_n+2\,000$ : écrire $4000$ en `A1` puis `=0,75*A1+2000` 
 
 :::history[Achille et la tortue]
 Zénon d'Élée (Ve siècle av. J.-C.) prétendait qu'Achille ne rattraperait jamais la tortue : quand il atteint l'endroit où elle se trouvait, elle a avancé ; quand il atteint ce nouvel endroit, elle a encore avancé, et ainsi de suite. Si la tortue a $100$ mètres d'avance et qu'Achille va dix fois plus vite, les distances successives sont $100+10+1+0{,}1+\dots$, une somme géométrique de raison $\frac1{10}$ qui vaut $\dfrac{100}{1-0{,}1}=\dfrac{1\,000}9\approx111{,}1$ mètres. Infinité d'étapes, mais distance totale finie : c'est exactement la limite d'une somme géométrique.
-:::
-
-:::remark[Fiche de révision]
-Une fiche récapitulative (A3, une page) à imprimer : [télécharger la fiche (PDF)](/fiches/3eme-economie-suites-reelles-fiche.pdf).
 :::

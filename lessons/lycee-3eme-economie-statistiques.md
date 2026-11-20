@@ -11,6 +11,10 @@ source: "Manuel officiel 3ème année Économie et Gestion, Tome 1, chapitre 1"
 updated: "2026-11-06"
 ---
 
+:::remark[Fiche de révision]
+📄 [Télécharger la fiche récapitulative (PDF, A3)](/fiches/3eme-economie-statistiques-fiche.pdf) : l'essentiel du chapitre sur une page à imprimer.
+:::
+
 ## Pourquoi ce chapitre ?
 
 Une petite entreprise verse à ses dix employés les primes suivantes (en dizaines de dinars) :
@@ -485,8 +489,4 @@ Ce phénomène s'appelle le **paradoxe de Simpson**. Il apparaît dans les stati
 Les recensements sont très anciens : on en trouve en Égypte et en Chine dès le IIᵉ millénaire avant J.-C., puis à Rome. Mais **inférer** quelque chose à partir de fréquences est une idée plus récente. Au IXᵉ siècle, à Bagdad, **al-Kindī** décrit l'**analyse des fréquences** : pour casser un message chiffré, on compare la fréquence de chaque symbole à la fréquence des lettres dans la langue. C'est l'une des premières utilisations connues de la statistique pour raisonner.
 
 En 1662, à Londres, **John Graunt** étudie les registres de naissances et de décès. Il remarque que le rapport entre naissances de garçons et de filles est remarquablement stable d'une année à l'autre. Aujourd'hui, le travail du statisticien n'est plus seulement de collecter et de présenter les données : c'est surtout de les **interpréter**, sans tomber dans les pièges de ce chapitre.
-:::
-
-:::remark[Fiche de révision]
-Une fiche récapitulative (A3, une page) à imprimer : [télécharger la fiche (PDF)](/fiches/3eme-economie-statistiques-fiche.pdf).
 :::
