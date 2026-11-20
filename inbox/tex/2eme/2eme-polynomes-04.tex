@@ -1,0 +1,73 @@
+%----------------------------------------------------------------------------------------
+% METADATA BLOCK (YAML)  — see inbox/README.md
+%----------------------------------------------------------------------------------------
+% uid: ""
+% school: "lycee"
+% level: "2eme"
+% section: ["Sciences", "Informatique"]
+% chapter: "Notion de Polynômes"
+% title: "Une racine double"
+% difficulty: "Facile"
+% tags: ["polynomes", "racine-double", "tableau-de-signe", "inequation"]
+% provenance: "own"
+% batch: "2026-11-19-2sc-polynomes-barycentre"
+%----------------------------------------------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+% ---STATEMENT---
+Soit $P(x)=x^3-3x-2$.
+\begin{enumerate}
+  \item Calculer $P(-1)$ et $P(2)$.
+  \item Déterminer les réels $a$, $b$, $c$ tels que, pour tout réel $x$, $P(x)=(x+1)(ax^2+bx+c)$.
+  \item Montrer que $P(x)=(x+1)^2(x-2)$.
+  \item Dresser le tableau de signe de $P(x)$, puis résoudre dans $\R$ l'inéquation $P(x)\geq0$.
+  \item En déduire que, pour tout réel $x\leq2$ : $x^3\leq3x+2$.
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{enumerate}[itemsep=14pt]
+  \item $P(-1)=-1+3-2=0$ \quad et \quad $P(2)=8-6-2=0$. Les réels $-1$ et $2$ sont des racines de $P$.
+
+  \item On développe : $(x+1)(ax^2+bx+c)=ax^3+(a+b)x^2+(b+c)x+c$.
+
+  On identifie avec $P(x)=x^3+0x^2-3x-2$ :
+  \[
+  \left\{
+  \begin{aligned}
+    a&=1 &&\text{(coefficient de }x^3\text{)}\\
+    a+b&=0 &&\text{(coefficient de }x^2\text{)}\\
+    b+c&=-3 &&\text{(coefficient de }x\text{)}\\
+    c&=-2 &&\text{(terme constant)}
+  \end{aligned}
+  \right.
+  \qquad\text{donc}\qquad a=1,\ b=-1,\ c=-2
+  \]
+  Contrôle : $b+c=-1-2=-3$ (vérifié). \quad Ainsi $P(x)=(x+1)(x^2-x-2)$.
+
+  \item $2$ est racine de $P$ mais pas de $x+1$, donc $2$ est racine de $x^2-x-2$ : $2^2-2-2=0$.
+
+  Le produit des racines de $x^2-x-2$ vaut $\dfrac ca=-2$, donc l'autre racine est $-1$ :
+  \[x^2-x-2=(x-2)(x+1)\qquad\text{et}\qquad P(x)=(x+1)(x+1)(x-2)=(x+1)^2(x-2)\]
+
+  \item
+  \begin{prop}[Signe d'un carré]
+  \ib{$(x+1)^2\geq0$} pour tout réel $x$, et $(x+1)^2=0$ seulement pour $x=-1$ : un carré ne change pas le signe d'un produit.
+  \end{prop}
+  \begin{center}
+  
+  \begin{tabular}{c|ccccccc}
+    $x$ & $-\infty$ & & $-1$ & & $2$ & & $+\infty$ \\ \hline
+    $(x+1)^2$ & & $+$ & $0$ & $+$ & $+$ & $+$ & \\
+    $x-2$ & & $-$ & $-$ & $-$ & $0$ & $+$ & \\ \hline
+    $P(x)$ & & $-$ & $0$ & $-$ & $0$ & $+$ &
+  \end{tabular}
+  \end{center}
+  On garde les zones $+$ et les zéros :
+  \[\mathcal S=\{-1\}\cup[\,2\,;+\infty[\]
+  \textbf{Piège :} oublier la valeur isolée $-1$, où $P$ s'annule sans changer de signe.
+
+  \item D'après le tableau, $P(x)\leq0$ pour tout $x\leq2$ (avec $P(-1)=0$). Donc, pour tout réel $x\leq2$ :
+  \[x^3-3x-2\leq0\qquad\text{soit}\qquad x^3\leq3x+2\]
+\end{enumerate}

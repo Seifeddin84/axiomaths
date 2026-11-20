@@ -1,0 +1,45 @@
+%----------------------------------------------------------------------------------------
+% METADATA BLOCK (YAML)  — see inbox/README.md
+%----------------------------------------------------------------------------------------
+% uid: ""
+% school: "lycee"
+% level: "3eme"
+% section: "Economie et Gestion"
+% chapter: "Statistiques"
+% title: "Moyennes d'une classe"
+% difficulty: "Facile"
+% tags: ["statistiques", "moyenne", "moyenne-ponderee"]
+% provenance: "own"
+% batch: "2026-11-19-3eco-statistiques-n5"
+%----------------------------------------------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+% ---STATEMENT---
+Dans une classe de $24$ élèves, la moyenne d'un devoir est $11{,}5$. Les $12$ garçons ont une moyenne de $10{,}5$.
+\begin{enumerate}
+  \item Calculer la moyenne des filles.
+  \item Un élève absent passe le devoir plus tard et obtient $14$. Calculer la nouvelle moyenne de la classe.
+  \item Quelle note aurait-il fallu à cet élève pour que la moyenne de la classe devienne $12$ ? Est-ce possible ?
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{prop}[Moyenne et total]
+\ib{Total des notes $=$ effectif $\times$ moyenne}. La moyenne de deux groupes réunis se calcule avec les totaux, pas en faisant la moyenne des deux moyennes.
+\end{prop}
+\begin{enumerate}[itemsep=14pt]
+  \item Total de la classe : $24\times11{,}5=276$. \quad Total des garçons : $12\times10{,}5=126$.
+
+  Total des $12$ filles : $276-126=150$, donc
+  \[\overline x_{\text{filles}}=\dfrac{150}{12}=12{,}5\]
+
+  \item Il y a maintenant $25$ élèves et le total devient $276+14=290$ :
+  \[\overline x=\dfrac{290}{25}=11{,}6\]
+
+  \item Pour une moyenne de $12$ avec $25$ élèves, il faut un total de $25\times12=300$.
+
+  La note nécessaire est $300-276=24$.
+
+  Une note sur $20$ ne peut pas dépasser $20$ : \textbf{c'est impossible}.
+\end{enumerate}
