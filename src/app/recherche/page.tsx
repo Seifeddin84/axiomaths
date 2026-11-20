@@ -132,14 +132,18 @@ function RechercheContent() {
   const query = useMemo(() => prepareQuery(searchText), [searchText]);
   const hasQuery = query.words.length > 0;
 
-  // exercise number: "#44" shows exercise 44 only; a bare "44" shows it first among the usual text matches
+  // exercise number: "#44" shows exercise 44 only; a bare "44" shows every exercise whose number contains 44
+  // (44, 144, 244, 440...) plus the usual text matches
   const uidQuery = useMemo(() => {
     const m = searchText.trim().match(/^(#|n°|no\.?|ex\.?|exercice)?\s*(\d{1,7})$/i);
-    return m ? { n: Number(m[2]), only: !!m[1] } : null;
+    return m ? { n: Number(m[2]), digits: String(Number(m[2])), only: !!m[1] } : null;
   }, [searchText]);
   const exerciseMatches = useCallback((ex: Exercise) => {
-    if (uidQuery && Number(ex.uid) === uidQuery.n) return true;
-    if (uidQuery?.only) return false;
+    if (uidQuery) {
+      if (Number(ex.uid) === uidQuery.n) return true;
+      if (uidQuery.only) return false;
+      if (String(Number(ex.uid)).includes(uidQuery.digits)) return true;
+    }
     return fuzzyScore(query, [
       ex.title, ex.source, ...(ex.professor ?? []), ...(ex.tags ?? []), ex.chapter, ex.section, ex.level,
     ].filter(Boolean).join(' ')) > 0;
