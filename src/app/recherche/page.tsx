@@ -132,14 +132,21 @@ function RechercheContent() {
   const query = useMemo(() => prepareQuery(searchText), [searchText]);
   const hasQuery = query.words.length > 0;
 
-  // exercise number: "#44" shows exercise 44 only; a bare "44" shows it first among the usual text matches
+  // exercise number: "#44" shows exercise 44 only; a bare number of up to 3 digits ("14") shows only the exercises
+  // whose number contains those digits in that order (14, 114, 141, 214...), with no fuzzy text match ("41", "Ex. 14").
+  // Longer numbers (a year such as 2021) keep the usual text search.
   const uidQuery = useMemo(() => {
     const m = searchText.trim().match(/^(#|n°|no\.?|ex\.?|exercice)?\s*(\d{1,7})$/i);
-    return m ? { n: Number(m[2]), only: !!m[1] } : null;
+    if (!m) return null;
+    const digits = String(Number(m[2]));
+    return { n: Number(m[2]), digits, exact: !!m[1], only: !!m[1] || digits.length <= 3 };
   }, [searchText]);
   const exerciseMatches = useCallback((ex: Exercise) => {
-    if (uidQuery && Number(ex.uid) === uidQuery.n) return true;
-    if (uidQuery?.only) return false;
+    if (uidQuery) {
+      if (Number(ex.uid) === uidQuery.n) return true;
+      if (uidQuery.exact) return false;
+      if (uidQuery.only) return String(Number(ex.uid)).includes(uidQuery.digits);
+    }
     return fuzzyScore(query, [
       ex.title, ex.source, ...(ex.professor ?? []), ...(ex.tags ?? []), ex.chapter, ex.section, ex.level,
     ].filter(Boolean).join(' ')) > 0;
