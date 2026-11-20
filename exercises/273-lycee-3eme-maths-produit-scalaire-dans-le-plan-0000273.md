@@ -29,7 +29,7 @@ On note $u(\theta)=(\cos\theta,\sin\theta)$ : les points de la droite passant pa
 1. **Équation du cercle.** Le cercle $\Gamma$ a une équation de la forme $x^2+y^2+2gx+2fy+c=0$. Montrer que $g=0$ et $c=-a^2$.
 
 2. **Une relation clé.** Soit $\theta\in\mathbb R$. Montrer que les valeurs de $t$ pour lesquelles $t\,u(\theta)\in\Gamma$ sont les racines de $t^2+2f\sin\theta\;t-a^2=0$. Si $t$ et $t'$ sont ces deux racines, montrer que
-$$\displaystyle \frac1t+\frac1{t'}=\frac{2f\sin\theta}{a^2}.\tag{$\star$}$$
+$$\displaystyle \frac1t+\frac1{t'}=\frac{2f\sin\theta}{a^2}.\qquad(\star)$$
 
 3. **Abscisse de $X$.** Montrer que la droite passant par $E(x_1,y_1)$ et $F(x_2,y_2)$, avec $y_1\neq y_2$, coupe l'axe $(Ox)$ au point d'abscisse $\dfrac{x_1y_2-x_2y_1}{y_2-y_1}$. En déduire que
 $$\displaystyle \frac1{x_X}=\frac1{\sin(\theta_2-\theta_1)}\Big(\frac{\sin\theta_2}{t_A}-\frac{\sin\theta_1}{t_D}\Big).$$
@@ -63,7 +63,7 @@ Donner l'expression analogue de $\dfrac1{x_Y}$ (avec $B$ et $C$).
 
    Les relations coefficients–racines donnent $t+t'=-2f\sin\theta$ et $tt'=-a^2$. Donc
 
-   $$\displaystyle \frac1t+\frac1{t'}=\frac{t+t'}{tt'}=\frac{-2f\sin\theta}{-a^2}=\boxed{\frac{2f\sin\theta}{a^2}}\tag{$\star$}$$
+   $$\displaystyle \frac1t+\frac1{t'}=\frac{t+t'}{tt'}=\frac{-2f\sin\theta}{-a^2}=\boxed{\frac{2f\sin\theta}{a^2}}\qquad(\star)$$
 
    (L'équation a deux racines car son discriminant $4f^2\sin^2\theta+4a^2>0$.)
 
@@ -71,7 +71,7 @@ Donner l'expression analogue de $\dfrac1{x_Y}$ (avec $B$ et $C$).
 
    $$\displaystyle (x-x_1)(y_2-y_1)=-y_1(x_2-x_1)\iff x=x_1-\frac{y_1(x_2-x_1)}{y_2-y_1}=\frac{x_1y_2-x_2y_1}{y_2-y_1}.$$
 
-   Pour la droite $(AD)$, on prend $E=A=(t_A\cos\theta_1,t_A\sin\theta_1)$ et $F=D=(t_D\cos\theta_2,t_D\sin\theta_2)$ :
+   Pour la droite $(AD)$, on prend $E=A$ et $F=D$, de coordonnées $A(t_A\cos\theta_1,\,t_A\sin\theta_1)$ et $D(t_D\cos\theta_2,\,t_D\sin\theta_2)$ :
 
    $$\displaystyle x_X=\frac{t_At_D(\cos\theta_1\sin\theta_2-\cos\theta_2\sin\theta_1)}{t_D\sin\theta_2-t_A\sin\theta_1}=\frac{t_At_D\sin(\theta_2-\theta_1)}{t_D\sin\theta_2-t_A\sin\theta_1}.$$
 
