@@ -8,6 +8,7 @@ import rehypeRaw from 'rehype-raw';
 import remarkDirective from 'remark-directive';
 import type { PluggableList } from 'unified';
 import remarkLessonBlocks from '@/lib/remarkLessonBlocks';
+import remarkReminderBoxes from '@/lib/remarkReminderBoxes';
 
 interface MathRendererProps {
   content: string;
@@ -20,17 +21,20 @@ function isArabic(text: string): boolean {
 // A solution can use the lesson boxes (:::property[Thalès] … :::, :::method, :::intuition, :::trap …).
 // The directive plugin is loaded only when a box is present, so every other exercise renders exactly as before.
 const HAS_BOX = /^\s*:{3,}[a-z]/m;   // boxes may sit inside a list item (indented)
+// Older solutions recall a property as a quote: "> **Produit nul.** …". Those quotes get the same boxes.
+const HAS_REMINDER = /^[ \t]*>[ \t]*\*\*/m;
 
 export default function MathRenderer({ content }: MathRendererProps) {
   const rtl = isArabic(content);
-  const remarkPlugins: PluggableList = HAS_BOX.test(content)
-    ? [
-        remarkMath,
-        remarkGfm,
-        remarkDirective,
-        [remarkLessonBlocks, { lang: rtl ? 'ar' : 'fr', numbered: false, headingIds: false, wikiLinks: false }],
-      ]
-    : [remarkMath, remarkGfm];
+  const lang = rtl ? 'ar' : 'fr';
+  const remarkPlugins: PluggableList = [remarkMath, remarkGfm];
+  if (HAS_REMINDER.test(content)) remarkPlugins.push([remarkReminderBoxes, { lang }]);
+  if (HAS_BOX.test(content)) {
+    remarkPlugins.push(remarkDirective, [
+      remarkLessonBlocks,
+      { lang, numbered: false, headingIds: false, wikiLinks: false },
+    ]);
+  }
 
   return (
     // IMPORTANT: dir="rtl" goes on THIS div, which also has exercise-content class.

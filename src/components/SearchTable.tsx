@@ -337,6 +337,9 @@ export default function SearchTable({ exercises }: SearchTableProps) {
                     <span className={`px-2 py-1 text-xs font-bold uppercase tracking-wider ${getDifficultyColor(exercise.difficulty)}`}>
                       {exercise.difficulty || '-'}
                     </span>
+                    <div className="mt-1 text-xs font-mono text-gray-500 dark:text-gray-400" title="Numéro de l'exercice">
+                      N° {Number(exercise.uid)}
+                    </div>
                   </td>
 
                   <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">

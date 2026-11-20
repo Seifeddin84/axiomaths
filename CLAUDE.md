@@ -190,6 +190,9 @@ average pupil**: detailed, clean, nothing skipped.
   Inside a numbered item indent the whole box (every line) by the item's indentation (3 spaces).
   Boxes work only in the solution part, nothing else changes for exercises without a `:::` line.
 - Reference example: exercise **#44** (2ème Sciences/Informatique, suites).
+- Older solutions recall a property as a quote, `> **Produit nul.** …`: `src/lib/remarkReminderBoxes.ts` renders those
+  as the same boxes (kind guessed from the title: Définition → bleu, Théorème/Thalès → orange, Méthode/Outils → violet,
+  Piège → rouge, otherwise Propriété → teal). New solutions still use the `:::` syntax.
 
 ## 6. Figures
 
@@ -309,3 +312,6 @@ Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads ori
 - 2026-11-18 (Seifeddine): **all solutions in the house style of §5** (boxed reminders, framed key formulas,
   detailed steps for weak and average pupils, « L'idée » / « Piège » at the end), modelled on his Thalès corrigé;
   rule for every exercise we generate from now on. Existing solutions stay as they are until rewritten.
+- 2026-11-19 (Seifeddine): solution boxes must **catch the eye like the LaTeX handouts** (tcolorbox: solid coloured
+  title bar, white text, full frame); `\boxed{}` gets an orange frame. Pupils prefer the **card view**: it has the
+  filters (difficulty chips, teacher, order easy → hard), not only the table.
