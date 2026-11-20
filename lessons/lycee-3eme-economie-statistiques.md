@@ -11,6 +11,10 @@ source: "Manuel officiel 3ème année Économie et Gestion, Tome 1, chapitre 1"
 updated: "2026-11-06"
 ---
 
+:::remark[Fiche de révision]
+📄 [Télécharger la fiche récapitulative (PDF, A3)](/fiches/3eme-economie-statistiques-fiche.pdf) : l'essentiel du chapitre sur une page à imprimer.
+:::
+
 ## Pourquoi ce chapitre ?
 
 Une petite entreprise verse à ses dix employés les primes suivantes (en dizaines de dinars) :
@@ -199,16 +203,16 @@ On résume la série par cinq nombres : $\min$, $Q_1$, $M_e$, $Q_3$, $\max$.
 ### Séries groupées en classes : effectifs cumulés
 
 :::definition[Effectifs et fréquences cumulés croissants]
-L'**effectif cumulé croissant** associé à une valeur $b$ est le nombre d'individus dont la valeur est **strictement inférieure** à $b$. On le note $\text{ECC}(b)$. En divisant par $N$, on obtient la **fréquence cumulée croissante**.
+L'**effectif cumulé croissant** associé à une valeur $b$ est le nombre d'individus dont la valeur est **strictement inférieure** à $b$. En divisant par $N$, on obtient la **fréquence cumulée croissante**.
 
-En reliant les points $\big(b\,;\text{ECC}(b)\big)$ placés aux bornes des classes, on obtient le **polygone des effectifs cumulés croissants**.
+En reliant les points placés aux bornes $b$ des classes, d'ordonnée l'effectif cumulé croissant en $b$, on obtient le **polygone des effectifs cumulés croissants**.
 :::
 
 :::example[Chiffre d'affaires de 50 entreprises]
 | Chiffre d'affaires (milliers de dinars) | $[100;150[$ | $[150;200[$ | $[200;250[$ | $[250;300[$ | $[300;350[$ | $[350;400[$ | $[400;450[$ | $[450;500[$ |
 |---|---|---|---|---|---|---|---|---|
 | Effectif | $4$ | $5$ | $6$ | $7$ | $10$ | $8$ | $6$ | $4$ |
-| ECC (borne de droite) | $4$ | $9$ | $15$ | $22$ | $32$ | $40$ | $46$ | $50$ |
+| Effectif cumulé croissant (borne de droite) | $4$ | $9$ | $15$ | $22$ | $32$ | $40$ | $46$ | $50$ |
 
 Avec $N = 50$, on cherche les valeurs correspondant aux effectifs cumulés $\frac{N}{4} = 12{,}5$, $\frac{N}{2} = 25$ et $\frac{3N}{4} = 37{,}5$.
 :::
@@ -218,11 +222,11 @@ Avec $N = 50$, on cherche les valeurs correspondant aux effectifs cumulés $\fra
 Le graphique donne une lecture approchée. Pour un calcul précis, on suppose que les valeurs sont **réparties uniformément** à l'intérieur de chaque classe : le polygone y est alors un segment, et on applique la proportionnalité.
 
 :::method[Interpolation linéaire dans une classe]
-$Q_1$ correspond à l'effectif cumulé $12{,}5$, qui se trouve entre $\text{ECC}(200) = 9$ et $\text{ECC}(250) = 15$. Donc $Q_1 \in [200\,;250[$.
+$Q_1$ correspond à l'effectif cumulé $12{,}5$, qui se trouve entre les effectifs cumulés croissants $9$ (en $200$) et $15$ (en $250$). Donc $Q_1 \in [200\,;250[$.
 
 | Chiffre d'affaires | $200$ | $Q_1$ | $250$ |
 |---|---|---|---|
-| ECC | $9$ | $12{,}5$ | $15$ |
+| Effectif cumulé croissant | $9$ | $12{,}5$ | $15$ |
 
 On écrit l'égalité des rapports, comme dans le théorème de Thalès :
 $$
@@ -236,8 +240,8 @@ $$
 Calculer de la même façon $M_e$ et $Q_3$.
 
 :::answer
-- $M_e$ : l'effectif $25$ est entre $\text{ECC}(300) = 22$ et $\text{ECC}(350) = 32$, d'où $M_e = 300 + 50 \times \dfrac{25 - 22}{32 - 22} = 315$.
-- $Q_3$ : l'effectif $37{,}5$ est entre $\text{ECC}(350) = 32$ et $\text{ECC}(400) = 40$, d'où $Q_3 = 350 + 50 \times \dfrac{37{,}5 - 32}{40 - 32} \approx 384{,}4$.
+- $M_e$ : l'effectif $25$ est entre les effectifs cumulés croissants $22$ (en $300$) et $32$ (en $350$), d'où $M_e = 300 + 50 \times \dfrac{25 - 22}{32 - 22} = 315$.
+- $Q_3$ : l'effectif $37{,}5$ est entre $32$ (en $350$) et $40$ (en $400$), d'où $Q_3 = 350 + 50 \times \dfrac{37{,}5 - 32}{40 - 32} \approx 384{,}4$.
 
 L'écart interquartile vaut environ $384{,}4 - 229{,}2 = 155{,}2$ milliers de dinars.
 :::

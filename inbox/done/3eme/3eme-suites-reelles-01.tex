@@ -1,0 +1,41 @@
+% uid: ""
+% school: "lycee"
+% level: "3eme"
+% section: ["Economie et Gestion"]
+% chapter: "Suites réelles"
+% title: "QCM : limites de suites usuelles"
+% difficulty: "Facile"
+% points: null
+% tags: ["qcm", "suites", "limite", "suite-geometrique", "somme"]
+% provenance: "own"
+% dressing: "limite d'une suite géométrique"
+% rung: 1
+% batch: "2026-11-20-suites-3eco-A"
+
+% ---STATEMENT---
+Pour chaque question, une seule réponse est correcte. Cocher la bonne réponse.
+
+\begin{enumerate}
+  \item La suite $u_n=3\times(0{,}5)^n$ a pour limite :\quad $\square\ 0$ \qquad $\square\ 3$ \qquad $\square\ +\infty$
+  \item La suite $u_n=2\times(1{,}1)^n$ a pour limite :\quad $\square\ 2$ \qquad $\square\ 0$ \qquad $\square\ +\infty$
+  \item La suite $u_n=5-2\times(0{,}9)^n$ a pour limite :\quad $\square\ 5$ \qquad $\square\ 3$ \qquad $\square\ -\infty$
+  \item La suite $u_n=(-2)^n$ :\quad $\square$ tend vers $+\infty$ \qquad $\square$ tend vers $-\infty$ \qquad $\square$ n'a pas de limite
+  \item La suite $u_n=-3\times(1{,}5)^n$ a pour limite :\quad $\square\ -\infty$ \qquad $\square\ 0$ \qquad $\square\ +\infty$
+  \item La somme $1+\dfrac12+\dfrac14+\dots+\left(\dfrac12\right)^n$ a pour limite quand $n\to+\infty$ :\quad $\square\ 1$ \qquad $\square\ 2$ \qquad $\square\ +\infty$
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{prop}[Limite de $q^n$]
+$q>1\Rightarrow q^n\to+\infty$ \quad $-1<q<1\Rightarrow q^n\to0$ \quad $q\le-1\Rightarrow$ pas de limite.
+\end{prop}
+\begin{enumerate}
+  \item $u_n=3\times0{,}5^n$ : $0<0{,}5<1$, donc $0{,}5^n\to0$ et $u_n\to3\times0=0$. \textbf{Réponse A.}
+  \item $u_n=2\times1{,}1^n$ : $1{,}1>1$, donc $1{,}1^n\to+\infty$, et comme $2>0$, $u_n\to+\infty$. \textbf{Réponse C.}
+  \item $u_n=5-2\times0{,}9^n$ : $0{,}9^n\to0$, donc $u_n\to5-2\times0=5$. \textbf{Réponse A.} (Le « $3$ » est la valeur de $u_0$, pas la limite.)
+  \item $u_n=(-2)^n$ vaut $1,\,-2,\,4,\,-8,\,16,\dots$ : les signes alternent et la valeur absolue grandit. La raison $-2\le-1$ : \textbf{pas de limite}. \textbf{Réponse D.}
+  \item $u_n=-3\times1{,}5^n$ : $1{,}5^n\to+\infty$ et $-3<0$, donc $u_n\to-\infty$. \textbf{Réponse A.}
+  \item Somme géométrique de premier terme $1$ et de raison $\frac12$ :
+  $$S_n=1\times\frac{1-\left(\frac12\right)^{n+1}}{1-\frac12}=2\left(1-\left(\tfrac12\right)^{n+1}\right)\longrightarrow2.\quad\textbf{Réponse B.}$$
+\end{enumerate}
+
+\textbf{Idée :} pour une suite géométrique tout se joue sur la raison $q$ (et sur le signe du premier terme quand $q>1$).
