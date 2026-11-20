@@ -60,9 +60,11 @@ La parabole de sommet $S(x_S,y_S)$ et d'axe vertical a pour équation $\ \boxed{
 
    - $B$ : $1=4\big(-\tfrac34+1\big)=1$ ✓ ; $D$ : $\tfrac{16}9=4\big(-\tfrac59+1\big)=\tfrac{16}9$ ✓.
 
-   Milieu de $[PQ]$ : $\big(\tfrac{-2+2}2,0\big)=(0,0)=M$.
+   Milieu de $[PQ]$ : $\big(\tfrac{-2+2}2,\tfrac{0+0}2\big)=(0,0)$ : c'est le point $M$.
 
-   b. $B=\big(1,-\tfrac34\big)$ et $A=(-4,3)$ : $B=-\tfrac14A$, donc $\overrightarrow{MB}=-\tfrac14\overrightarrow{MA}$. $D=\big(-\tfrac43,-\tfrac59\big)$ et $C=\big(3,\tfrac54\big)$ : $-\tfrac49\times3=-\tfrac43$ et $-\tfrac49\times\tfrac54=-\tfrac59$, donc $\overrightarrow{MD}=-\tfrac49\overrightarrow{MC}$.
+   b. Comme $M(0,0)$ : $\overrightarrow{MA}\begin{pmatrix}-4-0\\3-0\end{pmatrix}=\begin{pmatrix}-4\\3\end{pmatrix}$ et $\overrightarrow{MB}\begin{pmatrix}1-0\\-\frac34-0\end{pmatrix}=\begin{pmatrix}1\\-\frac34\end{pmatrix}$. On a $-\tfrac14\times(-4)=1$ et $-\tfrac14\times3=-\tfrac34$, donc $\overrightarrow{MB}=-\tfrac14\overrightarrow{MA}$.
+
+   De même $\overrightarrow{MC}\begin{pmatrix}3\\\frac54\end{pmatrix}$ et $\overrightarrow{MD}\begin{pmatrix}-\frac43\\-\frac59\end{pmatrix}$ : $-\tfrac49\times3=-\tfrac43$ et $-\tfrac49\times\tfrac54=-\tfrac59$, donc $\overrightarrow{MD}=-\tfrac49\overrightarrow{MC}$.
 
    Les coefficients sont négatifs : $M$ est **entre** $A$ et $B$ et entre $C$ et $D$. Ce sont deux cordes passant par $M$.
 

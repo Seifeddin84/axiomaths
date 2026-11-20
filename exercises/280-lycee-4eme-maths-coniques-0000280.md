@@ -32,7 +32,7 @@ La figure montre le cas $2p=3{,}2$, $y_0=-1$. On veut montrer que $M$ est le mil
 $$\displaystyle \cos^2\theta\;t^2-2p\sin\theta\;t-a^2=0 .$$
 
 3. Montrer que si $t$ et $t'$ sont les deux racines, alors
-$$\displaystyle \frac1t+\frac1{t'}=-\frac{2p\sin\theta}{a^2}.\tag{$\star\star$}$$
+$$\displaystyle \frac1t+\frac1{t'}=-\frac{2p\sin\theta}{a^2}.\qquad(\star\star)$$
 
 4. Soient $\theta_1$, $\theta_2$ les directions de $(AB)$ et de $(CD)$ et $A=t_Au_1$, $B=t_Bu_1$, $C=t_Cu_2$, $D=t_Du_2$ (avec $u_i=(\cos\theta_i,\sin\theta_i)$). On admet (calcul de l'[exercice n°273](/lycee/3eme/mathematiques/produit-scalaire-dans-le-plan#ex-0000273)) que
 $$\displaystyle \frac1{x_X}=\frac{1}{\sin(\theta_2-\theta_1)}\Big(\frac{\sin\theta_2}{t_A}-\frac{\sin\theta_1}{t_D}\Big),\qquad \frac1{x_Y}=\frac{1}{\sin(\theta_2-\theta_1)}\Big(\frac{\sin\theta_2}{t_B}-\frac{\sin\theta_1}{t_C}\Big).$$

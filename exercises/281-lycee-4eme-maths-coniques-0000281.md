@@ -33,15 +33,20 @@ On suppose que $\Gamma$ coupe l'axe $(Mx)$ en deux points $P$ et $Q$ **symétriq
 ![Papillon d'une parabole](/exercises/images/281-lycee-4eme-maths-coniques-0000281-2.png)
 
 1. **Une équation commune.** Montrer que dans chaque cas, $\Gamma$ a une équation de la forme
-$$\displaystyle x^2+\lambda y^2+2fy-a^2=0\qquad(\lambda\geq0),\tag{E}$$
-et donner $\lambda$, $f$ et $a^2$ en fonction de $\alpha,\beta,y_0,p,R$.
+
+   $$\displaystyle x^2+\lambda y^2+2fy-a^2=0\qquad(\lambda\geq0)\qquad(\mathrm{E})$$
+
+   et donner $\lambda$, $f$ et $a^2$ en fonction de $\alpha,\beta,y_0,p,R$.
 
 2. Montrer que $P(-a,0)$ et $Q(a,0)$.
 
 3. Soit $\theta$ une direction (avec $\cos\theta\neq0$ si $\lambda=0$). Montrer que $t\,(\cos\theta,\sin\theta)\in\Gamma$ si et seulement si
-$$\displaystyle D(\theta)\,t^2+2f\sin\theta\;t-a^2=0,\qquad D(\theta)=\cos^2\theta+\lambda\sin^2\theta,$$
-puis que les deux racines $t,t'$ vérifient
-$$\displaystyle \frac1t+\frac1{t'}=\frac{2f\sin\theta}{a^2}.\tag{$\star\star$}$$
+
+   $$\displaystyle D(\theta)\,t^2+2f\sin\theta\;t-a^2=0,\qquad D(\theta)=\cos^2\theta+\lambda\sin^2\theta,$$
+
+   puis que les deux racines $t,t'$ vérifient
+
+   $$\displaystyle \frac1t+\frac1{t'}=\frac{2f\sin\theta}{a^2}.\qquad(\star\star)$$
 
 4. Conclure que $M$ est le milieu de $[XY]$ (on admet les formules de $1/x_X$ et $1/x_Y$ de l'[exercice n°273](/lycee/3eme/mathematiques/produit-scalaire-dans-le-plan#ex-0000273)).
 
@@ -87,7 +92,7 @@ $$\displaystyle \frac1t+\frac1{t'}=\frac{2f\sin\theta}{a^2}.\tag{$\star\star$}$$
 
    $$\displaystyle t+t'=-\frac{2f\sin\theta}{D(\theta)},\qquad tt'=-\frac{a^2}{D(\theta)}.$$
 
-   $$\displaystyle \frac1t+\frac1{t'}=\frac{t+t'}{tt'}=\frac{2f\sin\theta}{D(\theta)}\cdot\frac{D(\theta)}{a^2}=\boxed{\frac{2f\sin\theta}{a^2}}\tag{$\star\star$}$$
+   $$\displaystyle \frac1t+\frac1{t'}=\frac{t+t'}{tt'}=\frac{2f\sin\theta}{D(\theta)}\cdot\frac{D(\theta)}{a^2}=\boxed{\frac{2f\sin\theta}{a^2}}\qquad(\star\star)$$
 
    Les nombres $\lambda$ et $D(\theta)$ ont **disparu** : la conique n'intervient plus que par le nombre $K=\dfrac{2f}{a^2}$.
 

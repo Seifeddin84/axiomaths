@@ -34,14 +34,14 @@ On admet le résultat de l'[exercice n°266](/lycee/1ere/toutes-sections/rapport
 2. Soit $\theta$ l'angle aigu entre $(PQ)$ et $(AB)$, et $\theta'$ celui entre $(PQ)$ et $(CD)$. Exprimer, avec $x$, $y$, $\theta$, $\theta'$, les quatre distances
 $$\displaystyle d(X,AB),\quad d(X,CD),\quad d(Y,AB),\quad d(Y,CD),$$
 puis montrer que
-$$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{x^2}{y^2}.\tag{1}$$
+$$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{x^2}{y^2}.\qquad(1)$$
 
 3. Le point $X$ est sur la corde $[AD]$ et $Y$ sur la corde $[BC]$.
 
    a. Montrer que $d(X,AB)=AX\cdot\dfrac{BD}{2R}$ et $d(X,CD)=XD\cdot\dfrac{AC}{2R}$.
 
    b. De même, exprimer $d(Y,AB)$ et $d(Y,CD)$. En déduire
-   $$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{AX\cdot XD}{YB\cdot YC}.\tag{2}$$
+   $$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{AX\cdot XD}{YB\cdot YC}.\qquad(2)$$
 
 4. Déduire de (1), (2) et de la question 1 que $x=y$.
 
@@ -79,7 +79,7 @@ $$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{x^2}{y^2}.\tag{1
 
    Dans le quotient, $\sin\theta$ et $\sin\theta'$ se simplifient :
 
-   $$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{x\sin\theta\cdot x\sin\theta'}{y\sin\theta\cdot y\sin\theta'}=\boxed{\frac{x^2}{y^2}}\tag{1}$$
+   $$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{x\sin\theta\cdot x\sin\theta'}{y\sin\theta\cdot y\sin\theta'}=\boxed{\frac{x^2}{y^2}}\qquad(1)$$
 
 3. a. $X$ est sur $(AD)$ : la distance de $X$ à $(AB)$ est $AX\sin\widehat{DAB}$ (angle aigu entre $(AD)$ et $(AB)$ en $A$ ; son sinus est le même que celui de son supplémentaire).
 
@@ -95,7 +95,7 @@ $$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{x^2}{y^2}.\tag{1
 
    On forme le quotient : $AC$, $BD$ et $2R$ se simplifient.
 
-   $$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{AX\cdot BD\cdot XD\cdot AC}{YB\cdot AC\cdot YC\cdot BD}=\boxed{\frac{AX\cdot XD}{YB\cdot YC}}\tag{2}$$
+   $$\displaystyle \frac{d(X,AB)\,d(X,CD)}{d(Y,AB)\,d(Y,CD)}=\frac{AX\cdot BD\cdot XD\cdot AC}{YB\cdot AC\cdot YC\cdot BD}=\boxed{\frac{AX\cdot XD}{YB\cdot YC}}\qquad(2)$$
 
 4. $X$ est un point de la corde $[AD]$ et $X\in(PQ)$ est à la distance $x$ de $M$ : d'après le rappel et la question 1,
 

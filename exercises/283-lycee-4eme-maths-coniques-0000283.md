@@ -77,7 +77,7 @@ $$\displaystyle L_{EF}(x,y)=(y_F-y_E)(x-x_E)-(x_F-x_E)(y-y_E).$$
 
 5. $F_\Gamma(t,0)=t^2-a^2$.
 
-   $(AB)$ et $(CD)$ passent par $M=(0,0)$ et ne sont pas horizontales : $L_{AB}(t,0)=u_1t$ et $L_{CD}(t,0)=u_2t$ avec $u_1,u_2\neq0$, donc $F_1(t,0)=u_1u_2\,t^2=c\,t^2$ avec $c\neq0$.
+   $(AB)$ et $(CD)$ passent par $M(0,0)$ et ne sont pas horizontales : $L_{AB}(t,0)=u_1t$ et $L_{CD}(t,0)=u_2t$ avec $u_1,u_2\neq0$, donc $F_1(t,0)=u_1u_2\,t^2=c\,t^2$ avec $c\neq0$.
 
    $(AD)$ coupe $(Ox)$ en $X(x,0)$ et $(BC)$ en $Y(y,0)$ : $L_{AD}(t,0)=u_3(t-x)$ et $L_{BC}(t,0)=u_4(t-y)$ avec $u_3,u_4\neq0$ (les droites ne sont pas horizontales : $A$ et $D$ sont de part et d'autre de $(PQ)$), donc $F_2(t,0)=c'(t-x)(t-y)$ avec $c'=u_3u_4\neq0$.
 

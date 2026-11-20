@@ -31,7 +31,7 @@ $$\displaystyle P(-2,0),\quad Q(2,0),\quad M(0,0),\quad A\Big(\tfrac52,\tfrac32\
 
    b. Vérifier que $M$ est le milieu de $[PQ]$.
 
-2. a. Montrer que $B=-\dfrac{8}{17}\,A$ et $D=-\dfrac{4}{13}\,C$ (en identifiant les points à leurs coordonnées). Que peut-on en conclure pour les points $A$, $M$, $B$ et pour les points $C$, $M$, $D$ ?
+2. a. Écrire les coordonnées des vecteurs $\overrightarrow{MA}$, $\overrightarrow{MB}$, $\overrightarrow{MC}$ et $\overrightarrow{MD}$, puis montrer que $\overrightarrow{MB}=-\dfrac{8}{17}\,\overrightarrow{MA}$ et $\overrightarrow{MD}=-\dfrac{4}{13}\,\overrightarrow{MC}$. Que peut-on en conclure pour les points $A$, $M$, $B$ et pour les points $C$, $M$, $D$ ?
 
    b. Pourquoi $M$ est-il bien situé à l'intérieur des segments $[AB]$ et $[CD]$ ?
 
@@ -67,13 +67,27 @@ $$\displaystyle P(-2,0),\quad Q(2,0),\quad M(0,0),\quad A\Big(\tfrac52,\tfrac32\
 
    Les six points sont donc sur $\Gamma$.
 
-   b. Le milieu de $[PQ]$ a pour coordonnées $\Big(\dfrac{-2+2}2,\dfrac{0+0}2\Big)=(0,0)=M$.
+   b. Le milieu de $[PQ]$ a pour coordonnées $\Big(\dfrac{-2+2}2,\dfrac{0+0}2\Big)=(0,0)$ : c'est le point $M$.
 
-2. a. $-\dfrac8{17}\times\dfrac52=-\dfrac{20}{17}$ et $-\dfrac8{17}\times\dfrac32=-\dfrac{12}{17}$ : on a bien $B=-\dfrac8{17}A$.
+2. a. Un vecteur $\overrightarrow{EF}$ a pour coordonnées $\begin{pmatrix}x_F-x_E\\y_F-y_E\end{pmatrix}$. Ici $M(0,0)$, donc :
 
-   De même $-\dfrac4{13}\times2=-\dfrac8{13}$ et $-\dfrac4{13}\times3=-\dfrac{12}{13}$ : $D=-\dfrac4{13}C$.
+   $$\displaystyle \overrightarrow{MA}\begin{pmatrix}x_A-x_M\\y_A-y_M\end{pmatrix}=\begin{pmatrix}\frac52-0\\\frac32-0\end{pmatrix},\ \text{soit}\ \overrightarrow{MA}\begin{pmatrix}\frac52\\\frac32\end{pmatrix}.$$
 
-   Comme $M$ est l'origine, cela s'écrit $\overrightarrow{MB}=-\dfrac8{17}\overrightarrow{MA}$ et $\overrightarrow{MD}=-\dfrac4{13}\overrightarrow{MC}$ : les points $A,M,B$ sont alignés, de même $C,M,D$.
+   $$\displaystyle \overrightarrow{MB}\begin{pmatrix}x_B-x_M\\y_B-y_M\end{pmatrix}=\begin{pmatrix}-\frac{20}{17}-0\\-\frac{12}{17}-0\end{pmatrix},\ \text{soit}\ \overrightarrow{MB}\begin{pmatrix}-\frac{20}{17}\\-\frac{12}{17}\end{pmatrix}.$$
+
+   De même $\overrightarrow{MC}\begin{pmatrix}2\\3\end{pmatrix}$ et $\overrightarrow{MD}\begin{pmatrix}-\frac8{13}\\-\frac{12}{13}\end{pmatrix}$.
+
+   On cherche un réel $k$ tel que $\overrightarrow{MB}=k\,\overrightarrow{MA}$, c'est-à-dire $-\dfrac{20}{17}=k\times\dfrac52$ et $-\dfrac{12}{17}=k\times\dfrac32$.
+
+   La première égalité donne $k=-\dfrac{20}{17}\times\dfrac25=-\dfrac8{17}$ ; la seconde donne $k=-\dfrac{12}{17}\times\dfrac23=-\dfrac8{17}$ : la même valeur, donc
+
+   $$\displaystyle \overrightarrow{MB}=-\dfrac8{17}\,\overrightarrow{MA}.$$
+
+   De même $-\dfrac4{13}\times2=-\dfrac8{13}$ et $-\dfrac4{13}\times3=-\dfrac{12}{13}$, donc
+
+   $$\displaystyle \overrightarrow{MD}=-\dfrac4{13}\,\overrightarrow{MC}.$$
+
+   Les vecteurs $\overrightarrow{MA}$ et $\overrightarrow{MB}$ sont colinéaires : les points $A,M,B$ sont alignés. De même $C,M,D$ sont alignés.
 
    b. Le coefficient est négatif : $M$ est **entre** $A$ et $B$ et entre $C$ et $D$. Donc $[AB]$ et $[CD]$ sont deux cordes passant par $M$.
 
