@@ -1,0 +1,164 @@
+\documentclass{axiobac}
+
+\annee{2001}
+\mois{Juin}
+\session{principale}
+\epreuve{Mathématiques}
+\sectionbac{Mathématiques}
+\sections{mathematiques}
+\duree{4 heures}
+\coefficient{4}
+\ministere{Ministère de l'Éducation}
+
+\begin{document}
+\entete
+
+Il sera donné une grande importance à la rédaction et à la présentation de la copie.
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 1
+%----------------------------------------------------------------------------------------
+\begin{exercice}{5}
+\titre{Une homographie : points invariants et bissectrice}
+\chapitres{Nombres Complexes}
+\banque{0000401}
+
+Dans le plan complexe $\mathcal{P}$ rapporté à un repère orthonormé $(O, \vec{u}, \vec{v})$ on considère les points $A$ et $B$ d'affixes respectives $a$ et $1$ où $a$ est un nombre complexe donné différent de $1$. \\
+Soit $f$ l'application de $\mathcal{P} \setminus \{B\}$ dans $\mathcal{P}$ qui, à tout point $M$ d'affixe $z$, associe le point $M'$ d'affixe $z'$ telle que : $z' = \dfrac{z - a}{z - 1}$.
+
+\begin{enumerate}
+    \item Montrer que les affixes des points invariants par $f$ sont les solutions de l'équation
+    \[
+    E : \quad z^2 - 2z + a = 0 .
+    \]
+    \item
+    \begin{enumerate}
+        \item On suppose que $a = 1 + e^{i\theta}$ où $\theta \in \left]\dfrac{\pi}{2}, \dfrac{3\pi}{2}\right[$. Résoudre l'équation $E$.
+        \item Mettre sous forme trigonométrique chacune des solutions de $E$.
+    \end{enumerate}
+    \item Dans cette question on suppose que $a = -1$. \\
+    Soit $M$ un point de $\mathcal{P} \setminus \{B\}$ d'affixe $z$ et $M'$ le point d'affixe $z' = f(z)$.
+    \begin{enumerate}
+        \item Montrer que $\left(\widehat{\vec{u}, \overrightarrow{BM}}\right) + \left(\widehat{\vec{u}, \overrightarrow{BM'}}\right) \equiv 0 \ [2\pi]$. \\
+        En déduire que la demi-droite $[BA)$ est une bissectrice de l'angle $\left(\widehat{\overrightarrow{BM}, \overrightarrow{BM'}}\right)$.
+        \item Montrer que $z'$ est imaginaire pur si et seulement si $|z| = 1$.
+        \item En déduire la construction du point $M'$ image d'un point $M$ du cercle trigonométrique privé du point $B$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   EXERCICE 2
+%----------------------------------------------------------------------------------------
+\begin{exercice}{5}
+\titre{Parabole, tangentes issues d'un point et lieu du sommet}
+\chapitres{Coniques}
+\banque{0000402}
+
+Soient $F$ et $H$ deux points distincts, $\Delta$ la médiatrice de $[FH]$ et $J$ le milieu de $[FH]$. \\
+Soit $M$ un point de $\Delta$ et $D$ la droite passant par $H$ et perpendiculaire à la droite $(MH)$. \\
+On désigne par $\mathcal{P}$ la parabole de foyer $F$ et de directrice $D$.
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que $\Delta$ est la tangente à $\mathcal{P}$ au point $M$.
+        \item Vérifier que les droites $D$ et $\Delta$ sont parallèles si et seulement si $M = J$.
+    \end{enumerate}
+    \item Dans le cas où le point $M$ est différent de $J$, la droite $D$ coupe $\Delta$ en $I$. Soit $E$ le symétrique de $H$ par rapport à $I$ et $\Delta'$ la perpendiculaire à $\Delta$ en $I$.
+    \begin{enumerate}
+        \item Montrer que $\Delta'$ est tangente à la parabole $\mathcal{P}$.
+        \item Construire le point de contact $N$ de la parabole $\mathcal{P}$ et de la droite $\Delta'$ et montrer que les points $M$, $F$ et $N$ sont alignés.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Soit $S$ le sommet de la parabole $\mathcal{P}$. Montrer que le point $J$ appartient à la tangente au sommet à la parabole $\mathcal{P}$ et en déduire que $S$ appartient au cercle $\mathcal{C}$ de diamètre $[FJ]$.
+        \item Soit $R$ un point de $\mathcal{C}$ distinct de $F$. Montrer que la parabole de foyer $F$ et de sommet $R$ est tangente à $\Delta$ en un point que l'on déterminera. \\
+        (Il est conseillé de faire une figure séparée pour cette question.)
+        \item Déterminer alors l'ensemble des points $S$ quand le point $M$ varie sur $\Delta$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercice}
+
+%----------------------------------------------------------------------------------------
+%   PROBLÈME
+%----------------------------------------------------------------------------------------
+\begin{probleme}{10}
+
+\partie{I}
+\titre{La fonction $\dfrac{2}{e^x + e^{-x}}$ et sa primitive}
+\chapitres{Fonctions réciproques, Fonctions exponentielles, Intégrales}
+\banque{0000403}
+
+Soit la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = \dfrac{2}{e^{x} + e^{-x}}$ et soit $\mathcal{C}$ sa courbe représentative dans un repère orthonormé $(O, \vec{\imath}, \vec{\jmath})$.
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Étudier les variations de la fonction $f$. \\
+        En déduire que pour tout $x$ de $\mathbb{R}$ on a : $0 < f(x) \leqslant 1$.
+        \item Tracer la courbe $\mathcal{C}$.
+    \end{enumerate}
+    \item On considère la fonction $g$ définie sur $\left]0, \dfrac{\pi}{2}\right[$ par $g(x) = \operatorname{Log}(\operatorname{tg} x)$.
+    \begin{enumerate}
+        \item Montrer que $g$ est dérivable sur $\left]0, \dfrac{\pi}{2}\right[$ et calculer $g'(x)$ pour $x$ appartenant à $\left]0, \dfrac{\pi}{2}\right[$.
+        \item Montrer que $g$ admet une fonction réciproque $h$ définie sur $\mathbb{R}$. Calculer $h(0)$.
+        \item Montrer que $h$ est dérivable sur $\mathbb{R}$ et que pour tout $x$ de $\mathbb{R}$, $2h'(x) = f(x)$. \\
+        En déduire que pour tout $x$ de $\mathbb{R}$, $\displaystyle\int_0^x f(t)\,dt = 2h(x) - \dfrac{\pi}{2}$.
+    \end{enumerate}
+\end{enumerate}
+
+\partie{II}
+\titre{Les intégrales $\int_0^{+\infty} f^n$ et le produit de Wallis}
+\chapitres{Intégrales, Suites réelles, Fonctions exponentielles}
+\banque{0000403}
+
+Soit $n$ un entier naturel non nul et $F_n$ la fonction définie sur $[0, +\infty[$ par $F_n(x) = \displaystyle\int_0^x f^n(t)\,dt$.
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Calculer $F_1(x)$ en fonction de $h(x)$ et montrer que $\displaystyle\lim_{x \to +\infty} F_1(x) = \dfrac{\pi}{2}$.
+        \item Soit $K$ la fonction définie sur $\mathbb{R}$ par $K(t) = \dfrac{e^{t} - e^{-t}}{e^{t} + e^{-t}}$. Montrer que $K'(t) = f^2(t)$. \\
+        Calculer alors $F_2(x)$ et montrer que $\displaystyle\lim_{x \to +\infty} F_2(x) = 1$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Montrer que l'image de l'intervalle $[0, +\infty[$ par $F_n$ est l'intervalle $\left[0, \displaystyle\lim_{x \to +\infty} F_n(x)\right[$.
+        \item Vérifier que pour tout réel $t$ positif ou nul on a $f(t) < 2e^{-t}$. \\
+        En déduire, en utilisant I-1)a), que pour tout $x$ de $[0, +\infty[$ on a $F_n(x) \leqslant 2$ et que $\displaystyle\lim_{x \to +\infty} F_n(x)$ est finie.
+        \item Vérifier que pour tout réel $t$ positif ou nul, on a $f(t) \geqslant e^{-t}$. \\
+        Montrer alors que pour tout réel $x$ positif, on a $\dfrac{1 - e^{-nx}}{n} \leqslant F_n(x)$ et en déduire que $\displaystyle\lim_{x \to +\infty} F_n(x)$ est non nulle.
+    \end{enumerate}
+    \item Soit la suite $(u_n)$ définie sur $\mathbb{N}^*$ par $u_n = \displaystyle\lim_{x \to +\infty} F_n(x)$.
+    \begin{enumerate}
+        \item Donner la valeur de $u_1$ et la valeur de $u_2$.
+        \item En remarquant que $4 - (e^{t} + e^{-t})^2 = -(e^{t} - e^{-t})^2$, montrer que pour tout $n$ de $\mathbb{N}^*$ et tout $t$ de $[0, +\infty[$ on a $f^{n-1}(t)\, f'(t)\, K(t) = f^{n+2}(t) - f^{n}(t)$.
+        \item À l'aide d'une intégration par parties, montrer que pour tout $n$ de $\mathbb{N}^*$ et tout $x$ de $[0, +\infty[$ on a :
+        \[
+        \int_0^x f^{n-1}(t)\, f'(t)\, K(t)\,dt = \frac{1}{n} K(x) f^{n}(x) - \frac{1}{n} \int_0^x f^{n+2}(t)\,dt .
+        \]
+        \item En déduire que pour tout $n$ de $\mathbb{N}^*$ et tout $x$ de $[0, +\infty[$, on a :
+        \[
+        (n+1) F_{n+2}(x) - n F_n(x) = K(x) f^{n}(x).
+        \]
+        Montrer alors que $u_{n+2} = \dfrac{n}{n+1}\, u_n$.
+    \end{enumerate}
+    \item
+    \begin{enumerate}
+        \item Soit $n$ un entier naturel. Déterminer, en fonction de $n$, les deux termes $u_{2n+1}$ et $u_{2n+2}$.
+        \item Montrer que la suite $(u_n)$ est décroissante.
+        \item Montrer que pour tout $n$ de $\mathbb{N}$ on a : $\dfrac{2n}{2n+1} \leqslant \dfrac{u_{2n+2}}{u_{2n+1}} \leqslant 1$. \\
+        En déduire $\displaystyle\lim_{n \to +\infty} \dfrac{u_{2n+2}}{u_{2n+1}}$.
+        \item Montrer alors que
+        \[
+        \lim_{n \to +\infty} \left[ \left( \frac{2 \times 4 \times 6 \times \cdots \times (2n)}{3 \times 5 \times \cdots \times (2n-1)} \right)^{2} \times \frac{2}{2n+1} \right] = \pi .
+        \]
+    \end{enumerate}
+\end{enumerate}
+
+\end{probleme}
+
+\end{document}

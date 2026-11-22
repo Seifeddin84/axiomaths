@@ -339,3 +339,8 @@ Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads ori
   as `defi: true` (frontmatter, parser, card/table views, converter, `inbox/README.md`). A dedicated `/defis` page across
   levels is a possible second step, not built yet. Lesson: check each generated figure for label collisions (Simson
   figure #383 had two feet sitting on vertices; P was moved by search over the circle).
+- 2026-11-22: Bac 2001 session principale (scan sans couche texte, lu page par page) : sujet ajouté dans `public/bac/2001-principale-maths/`
+  (retapé en `axiobac`) et les trois blocs en banque, UIDs 401–403. Le scan imprime « 2 » en exposant à la place de « e » dans
+  « a = 1 + e^{iθ} » (Ex. 1, 2°) : lu e^{iθ}, signalé dans `sujet.yaml`. Le problème ne cite pas Wallis mais démontre la
+  récurrence et le produit de Wallis (u_n = ∫₀^∞ dt/chⁿt = W_{n-1}) : la fiche Wallis le renvoie vers #403, avec la précision que
+  le nom n'apparaît pas dans le sujet. Pour compiler `axiobac` dans l'environnement : `apt-get install texlive-lang-french texlive-fonts-extra`.

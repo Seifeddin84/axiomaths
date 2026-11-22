@@ -141,3 +141,5 @@ Le corrigé détaillé, ligne par ligne, avec les figures, est sur le blog : [Ba
    Donc $e^\ell = \sqrt{2\pi}$ : $\ell = \ln\sqrt{2\pi}$.
 
 *Remarque :* $u_n \to \ln\sqrt{2\pi}$ s'écrit $n! \sim \sqrt{2\pi n}\left(\dfrac{n}{e}\right)^n$ : c'est la **formule de Stirling**. Pour $n = 20$, elle donne $n!$ à $0{,}4\,\%$ près.
+
+*Pour aller plus loin :* le problème du Bac 2001 démontre le produit de Wallis avec les intégrales de $\dfrac{1}{\operatorname{ch}^n t}$, qui se ramènent aux intégrales de Wallis par le changement de variable $\cos\theta=\dfrac{1}{\operatorname{ch}t}$ : voir l'[exercice n°403](/lycee/4eme/mathematiques/integrales#ex-0000403).

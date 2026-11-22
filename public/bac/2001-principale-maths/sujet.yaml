@@ -1,0 +1,6 @@
+# Métadonnées : elles sont lues dans sujet.tex (classe latex/axiobac.cls).
+notes: >-
+  Scan du sujet publié par le ministère (fichier mma01pe.pdf, mars 2002), sans couche texte :
+  l'énoncé a été retapé. Le scan imprime « 2 » en exposant à la place de « e » dans « a = 1 + e^{iθ} »
+  (exercice 1, question 2) ; la transcription lit e^{iθ}. Le problème démontre le produit de Wallis :
+  u_n = ∫₀^{+∞} dt/ch(t)ⁿ vérifie (n+1)u_{n+2} = n u_n, et le dernier résultat est la formule de Wallis.

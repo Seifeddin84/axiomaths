@@ -21,8 +21,12 @@ John Wallis (1616-1703), professeur à Oxford, a aussi été cryptographe au ser
 
 **Au baccalauréat** : le problème du Bac 1990 (session principale) enchaîne intégrales de Wallis, formule de Stirling et $\sqrt{2\pi}$ : voir l'[exercice n°143](/lycee/4eme/mathematiques/integrales#ex-0000143).
 
+Le problème du Bac 2001 (session principale) démontre lui aussi le produit de Wallis, par les intégrales $\displaystyle\int_0^{+\infty}\dfrac{dt}{\operatorname{ch}^n t}$ : voir l'[exercice n°403](/lycee/4eme/mathematiques/integrales#ex-0000403). Le sujet n'y prononce pas le nom de Wallis ; c'est le changement de variable $\cos\theta=1/\operatorname{ch}t$ qui ramène ces intégrales aux intégrales de Wallis.
+
 ## Dans les exercices d'AxioMath
 
 - [Exercice n°115 : Intégrales de Wallis : sinⁿ⁺¹(t)cos²(t)](/lycee/4eme/mathematiques/integrales#ex-0000115)
 
 - [Exercice n°143 : La formule de Stirling : ln(n!), intégrales de Wallis et √(2π)](/lycee/4eme/mathematiques/integrales#ex-0000143)
+
+- [Exercice n°403 : Les intégrales de 1/chⁿ(t) et le produit de Wallis (Bac 2001)](/lycee/4eme/mathematiques/integrales#ex-0000403)
