@@ -245,6 +245,17 @@ average pupil**: detailed, clean, nothing skipped.
 | `scripts/inbox_convert.py` | converts the `.tex` exercises in `inbox/tex/` (from `_maths_tutoring`) to site exercises — see §11 |
 | `create_exercise.py` | legacy interactive generator — outdated naming/sections, don't use |
 
+## 9b. Wiki des mathématiciens (`mathematicians/*.md`, page `/resources/mathematicians`)
+
+- Un fichier par mathématicien : frontmatter `name`, `slug` (nom de famille, sert au tri), `birth`, `death` (négatifs pour
+  av. J.-C.), `dates` (optionnel : texte affiché pour les dates approximatives, « vers 287 – 212 av. J.-C. »), `nationality`,
+  `letter` (initiale du nom de famille), `fields`, `portrait` (optionnel).
+- Corps : présentation, `## Contributions majeures`, puis `## Dans les exercices d'AxioMath` avec les liens profonds vers les
+  exercices (§5) où le théorème ou le nom intervient. Pas de citation inventée ; dates et attributions vérifiées (une
+  attribution douteuse est dite telle : droite de Simson = Wallace 1799).
+- Chaque fois qu'un exercice utilise un théorème ou un résultat **nommé**, le mathématicien a sa fiche (ajouter l'exercice à
+  la liste si la fiche existe déjà). Fait le 2026-11-22 pour toute la banque ; pas de portrait téléchargé.
+
 ## 10. Known quirks
 
 - UID 107 does not exist (gap); #70 and #74 are `.mdx`.

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getMathematiciansGroupedByLetter } from '@/lib/mathematicianReader';
+import { getMathematiciansGroupedByLetter, lifespan } from '@/lib/mathematicianReader';
 
 export default async function MathematiciansPage() {
   const groupedMathematicians = getMathematiciansGroupedByLetter();
@@ -59,7 +59,7 @@ export default async function MathematiciansPage() {
                                 {mathematician.name}
                               </h3>
                               <div className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                                {mathematician.birth}–{mathematician.death || 'présent'}
+                                {lifespan(mathematician)}
                               </div>
                               {mathematician.nationality && (
                                 <div className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">

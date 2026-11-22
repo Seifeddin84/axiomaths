@@ -9,11 +9,18 @@ export interface Mathematician {
   name: string;
   birth: number;
   death: number;
+  /** optional display override for approximate dates, e.g. "vers 287 – 212 av. J.-C." */
+  dates?: string;
   nationality: string;
   letter: string;
   fields: string[];
   portrait?: string;
   content: string;
+}
+
+export function lifespan(m: Mathematician): string {
+  if (m.dates) return m.dates;
+  return `${m.birth}–${m.death || 'présent'}`;
 }
 
 export function getAllMathematicians(): Mathematician[] {
@@ -35,6 +42,7 @@ export function getAllMathematicians(): Mathematician[] {
         name: data.name,
         birth: data.birth,
         death: data.death,
+        dates: data.dates,
         nationality: data.nationality,
         letter: data.letter,
         fields: data.fields || [],
@@ -42,7 +50,7 @@ export function getAllMathematicians(): Mathematician[] {
         content,
       };
     })
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.slug.localeCompare(b.slug)); // slug = surname: alphabetical order inside a letter
   
   return mathematicians;
 }
