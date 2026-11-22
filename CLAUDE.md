@@ -165,6 +165,11 @@ in class: a classic result reached step by step (Stirling, Leibniz series, e as 
 an elegant idea, or a question that links several chapters. Keep it rare (≈ 1 in 5),
 or the filter stops meaning anything.
 
+**Défi.** `defi: true` (optional) marks a challenge beyond the programme (olympiad style, off-programme tools such as
+inversion, Simson, conics in 3ème). The site shows it in its chapter *after* every regular exercise, with a rose card
+and a « 🔥 Défi · hors programme » badge, whatever the sort order. Use the closest canonical chapter. A défi may also be
+adapted into a regular exercise of the chapter when the idea fits naturally (R4: no clones).
+
 **Bac papers.** An exercise taken from a paper in `public/bac/<id>/` gets `bac: "<id>"`,
 `source: "Bac <year> <session>, Ex. n"` and the paper's `sujet.tex` gets `\banque{<UID7>}`
 in that block: the links then go both ways.
@@ -317,3 +322,8 @@ Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads ori
 - 2026-11-19 (Seifeddine): solution boxes must **catch the eye like the LaTeX handouts** (tcolorbox: solid coloured
   title bar, white text, full frame); `\boxed{}` gets an orange frame. Pupils prefer the **card view**: it has the
   filters (difficulty chips, teacher, order easy → hard), not only the table.
+- 2026-11-22 (Seifeddine): **défis** (interesting exercises that go beyond the programme) stay in the bank, visible but
+  **last in their chapter** and tinted rose, with the tags kept; R4 still applies (no duplicates, no clones). Implemented
+  as `defi: true` (frontmatter, parser, card/table views, converter, `inbox/README.md`). A dedicated `/defis` page across
+  levels is a possible second step, not built yet. Lesson: check each generated figure for label collisions (Simson
+  figure #383 had two feet sitting on vertices; P was moved by search over the circle).

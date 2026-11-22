@@ -50,7 +50,7 @@ DIFFICULTIES = {"Facile", "Moyen", "Difficile"}
 KNOWN_KEYS = {
     "uid", "school", "level", "section", "chapter", "chapter_slug", "title", "difficulty", "points",
     "tags", "source", "professor", "year", "country", "type", "recommended",
-    "provenance", "dressing", "rung", "batch",
+    "provenance", "dressing", "rung", "batch", "defi",
 }
 SECTION_ALIASES = {
     "maths": "Mathématiques", "math": "Mathématiques", "mathematiques": "Mathématiques",
@@ -756,6 +756,8 @@ def normalise_meta(meta: dict, res: Result, src_level_dir: str) -> dict:
             out[k] = meta[k]
     if meta.get("recommended") is True:
         res.warnings.append("'recommended' ignored: only the manager sets it")
+    if meta.get("defi") is True:
+        out["defi"] = True
     if meta.get("chapter_slug"):
         out["chapter_slug"] = str(meta["chapter_slug"])
     return out
@@ -771,6 +773,8 @@ def build_frontmatter(uid: str, m: dict) -> str:
     for k in ("provenance", "dressing", "rung", "batch"):
         if k in m:
             lines.append(f"{k}: {j(m[k])}")
+    if m.get("defi"):
+        lines.append("defi: true")
     lines.append("---")
     return "\n".join(lines)
 

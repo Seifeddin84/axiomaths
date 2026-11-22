@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Exercise } from '@/types/exercise';
 import { getDifficultyStars } from '@/lib/exerciseParser';
 import MathRenderer from './MathRenderer';
@@ -55,18 +55,28 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
 
   return (
     <div className="space-y-4">
-      {exercises.map((exercise) => {
+      {exercises.map((exercise, index) => {
+        const firstDefi = !!exercise.defi && (index === 0 || !exercises[index - 1].defi);
         const isExpanded = expandedId === exercise.uid;
         const isSolutionShown = showSolution === exercise.uid;
         const selected = isSelected(exercise.uid);
 
         return (
+          <Fragment key={exercise.uid}>
+          {firstDefi && (
+            <div className="pt-6 flex items-center gap-3 text-rose-700 dark:text-rose-300">
+              <span className="flex-1 border-t-2 border-rose-300 dark:border-rose-800" />
+              <span className="text-sm font-black uppercase tracking-wider">Défis · au-delà du programme</span>
+              <span className="flex-1 border-t-2 border-rose-300 dark:border-rose-800" />
+            </div>
+          )}
           <div
-            key={exercise.uid}
             id={`ex-${exercise.uid}`}
-            className={`scroll-mt-20 bg-white dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
-              isExpanded ? 'ring-4 ring-orange-500' : ''
-            } ${selected ? 'ring-4 ring-green-500' : ''}`}
+            className={`scroll-mt-20 border-2 overflow-hidden shadow-sm hover:shadow-lg transition-all ${
+              exercise.defi
+                ? 'bg-rose-50/60 dark:bg-rose-950/20 border-rose-400 dark:border-rose-800 border-l-8'
+                : 'bg-white dark:bg-gray-800 border-gray-400 dark:border-gray-700'
+            } ${isExpanded ? 'ring-4 ring-orange-500' : ''} ${selected ? 'ring-4 ring-green-500' : ''}`}
           >
             {/* Header */}
             <div className="p-6">
@@ -91,6 +101,14 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
                 >
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
                     <span className="text-xs font-mono font-black text-gray-500 dark:text-gray-400">#{exercise.uid}</span>
+                    {exercise.defi && (
+                      <span
+                        title="Défi : au-delà du programme officiel, pour aller plus loin"
+                        className="px-2 py-1 bg-rose-700 text-white text-xs font-black"
+                      >
+                        🔥 Défi · hors programme
+                      </span>
+                    )}
                     {exercise.recommended && (
                       <span
                         title="Exercice recommandé : à montrer aux élèves"
@@ -248,6 +266,7 @@ export default function ExerciseTable({ exercises }: ExerciseTableProps) {
               </>
             )}
           </div>
+          </Fragment>
         );
       })}
     </div>

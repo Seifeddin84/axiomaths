@@ -1,0 +1,87 @@
+---
+uid: "0000365"
+school: "lycee"
+level: "1ere"
+section: null
+chapter: "Activités numériques"
+source: "Axiomaths"
+title: "Un multiple de 30"
+country: "Tunisie"
+year: 2026
+professor: "Axiomaths"
+difficulty: "Difficile"
+points: null
+tags: ["divisibilite", "factorisation", "division-euclidienne", "chiffre-des-unites"]
+provenance: "own"
+batch: "2026-11-22-revision-1ere-A"
+---
+
+Soit $n$ un entier naturel et $N=n^5-n$.
+
+1. Montrer que $N=(n-1)\,n\,(n+1)\,(n^2+1)$.
+
+2. Montrer que $N$ est divisible par $2$, puis par $3$, donc par $6$. [Distinguer les restes de la division de $n$ par $3$.]
+
+3. Montrer que $N$ est divisible par $5$. [Écrire $n=5k+r$ avec $0\leq r\leq4$ ; pour $r=2$ et $r=3$, regarder $n^2+1$.]
+
+4. En déduire que $N$ est divisible par $30$.
+
+5. Quel est le chiffre des unités de $2027^5$ ?
+
+---
+
+## Solution
+
+:::property[Divisibilité]
+Si deux entiers **premiers entre eux** divisent $N$, leur produit divise $N$. Dans la division euclidienne de $n$ par $b$, $\boxed{n=bk+r\text{ avec }0\leq r<b}$.
+:::
+
+1. On factorise : $n^5-n=n\,(n^4-1)$. Puis $n^4-1=(n^2-1)(n^2+1)$ et $n^2-1=(n-1)(n+1)$ :
+
+   $$\displaystyle N=\boxed{(n-1)\,n\,(n+1)\,(n^2+1)}$$
+
+2. **Par $2$.** Parmi les deux entiers consécutifs $n-1$ et $n$, l'un est pair : $N$ est pair.
+
+   **Par $3$.** On divise $n$ par $3$ : $n=3k$, $3k+1$ ou $3k+2$.
+
+   - $n=3k$ : le facteur $n$ est multiple de $3$.
+
+   - $n=3k+1$ : le facteur $n-1=3k$ est multiple de $3$.
+
+   - $n=3k+2$ : le facteur $n+1=3k+3=3(k+1)$ est multiple de $3$.
+
+   Dans les trois cas, $3\mid N$.
+
+   $2$ et $3$ sont premiers entre eux : $\boxed{6\mid N}$.
+
+3. On écrit $n=5k+r$ avec $r\in\{0,1,2,3,4\}$.
+
+   - $r=0$ : le facteur $n=5k$ est multiple de $5$.
+
+   - $r=1$ : le facteur $n-1=5k$ est multiple de $5$.
+
+   - $r=4$ : le facteur $n+1=5k+5=5(k+1)$ est multiple de $5$.
+
+   - $r=2$ : $n^2+1=25k^2+20k+4+1=5\,(5k^2+4k+1)$ est multiple de $5$.
+
+   - $r=3$ : $n^2+1=25k^2+30k+9+1=5\,(5k^2+6k+2)$ est multiple de $5$.
+
+   Dans tous les cas, $\boxed{5\mid N}$.
+
+4. $5$ et $6$ sont premiers entre eux, et $6\mid N$, $5\mid N$ : $N$ est divisible par $5\times6=\boxed{30}$.
+
+5. Comme $30\mid N$, on a aussi $10\mid N$ : $n^5-n=10m$, donc
+
+   $$\displaystyle n^5=n+10m$$
+
+   Les nombres $n^5$ et $n$ ont le **même chiffre des unités**.
+
+   Pour $n=2027$ : le chiffre des unités de $2027^5$ est $\boxed{7}$.
+
+:::intuition
+Factoriser, puis traiter chaque diviseur premier ($2$, $3$, $5$) par les restes de la division euclidienne.
+:::
+
+:::trap
+Conclure « divisible par $30$ » à partir de $2$, $3$, $5$ sans passer par des entiers premiers entre eux (par exemple $4$ et $6$ divisent $12$, mais pas $24$).
+:::

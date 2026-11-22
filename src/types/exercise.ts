@@ -19,6 +19,7 @@ export interface Exercise {
   schoolType?: string;     // e.g. "pilote", "prepa", "prive"
   bac?: string;            // id of the bac paper it comes from (public/bac/<id>/)
   recommended?: boolean;   // worth showing to students (★ Recommandé)
+  defi?: boolean;          // challenge beyond the programme: listed after the chapter's exercises, rose tint
 }
 
 export interface ExerciseMetadata {
