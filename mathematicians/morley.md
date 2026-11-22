@@ -6,6 +6,7 @@ death: 1937
 nationality: "Britannique, puis américain"
 letter: "M"
 fields: ["géométrie du triangle", "algèbre"]
+portrait: "/mathematicians/morley.jpg"
 ---
 
 Frank Morley (1860-1937), né à Woodbridge en Angleterre, est devenu professeur aux États-Unis, à Haverford puis à Johns Hopkins, où il a dirigé une cinquantaine de thèses. Il est surtout connu pour un théorème de géométrie élémentaire qu'il a découvert en 1899.

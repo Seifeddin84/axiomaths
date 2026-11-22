@@ -7,6 +7,7 @@ dates: "vers 570 – vers 495 av. J.-C."
 nationality: "Grec (Samos)"
 letter: "P"
 fields: ["géométrie", "théorie des nombres"]
+portrait: "/mathematicians/pythagore.jpg"
 ---
 
 Pythagore, né à Samos, s'installe à Crotone, dans le sud de l'Italie, où il fonde une communauté mêlant mathématiques, musique et philosophie. Comme pour Thalès, aucun écrit de lui n'est conservé : l'homme et la légende sont difficiles à séparer.

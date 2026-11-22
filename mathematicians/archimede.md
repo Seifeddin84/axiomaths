@@ -7,6 +7,7 @@ dates: "vers 287 – 212 av. J.-C."
 nationality: "Grec (Syracuse)"
 letter: "A"
 fields: ["géométrie", "mécanique", "calcul d’aires et de volumes"]
+portrait: "/mathematicians/archimede.jpg"
 ---
 
 Archimède (vers 287 – 212 av. J.-C.), de Syracuse en Sicile, est considéré comme le plus grand mathématicien de l'Antiquité. Il a aussi été physicien et ingénieur. La tradition dit qu'il fut tué lors de la prise de Syracuse par les Romains.

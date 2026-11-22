@@ -6,6 +6,7 @@ death: 1727
 nationality: "Anglais"
 letter: "N"
 fields: ["analyse", "mécanique", "optique"]
+portrait: "/mathematicians/newton.jpg"
 ---
 
 Isaac Newton (1643-1727) a publié en 1687 les *Principia*, qui fondent la mécanique classique et la gravitation universelle. Il a aussi développé, de son côté, le calcul infinitésimal.

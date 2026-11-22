@@ -6,6 +6,7 @@ death: 1863
 nationality: "Suisse"
 letter: "S"
 fields: ["géométrie synthétique", "géométrie projective"]
+portrait: "/mathematicians/steiner.jpg"
 ---
 
 Jakob Steiner (1796-1863), né en Suisse, a été professeur à l'université de Berlin. Défenseur de la géométrie « pure », sans coordonnées, il a laissé son nom à de nombreux résultats. Ses biographes racontent qu'il n'a appris à lire et à écrire qu'à l'adolescence.

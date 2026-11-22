@@ -6,6 +6,7 @@ death: 1867
 nationality: "Français"
 letter: "P"
 fields: ["géométrie projective", "mécanique"]
+portrait: "/mathematicians/poncelet.jpg"
 ---
 
 Jean-Victor Poncelet (1788-1867), né à Metz, est officier du génie de Napoléon. Fait prisonnier pendant la campagne de Russie en 1812, il refait à la prison de Saratov, de mémoire, une grande partie des mathématiques qu'il avait apprises : de là sort son *Traité des propriétés projectives des figures* (1822), qui fonde la géométrie projective.

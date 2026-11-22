@@ -6,6 +6,7 @@ death: 1831
 nationality: "Française"
 letter: "G"
 fields: ["théorie des nombres", "élasticité"]
+portrait: "/mathematicians/germain.jpg"
 ---
 
 Sophie Germain (1776-1831) s'est formée presque seule, à Paris, en lisant les livres de la bibliothèque de son père. Comme les femmes n'étaient pas admises à l'École polytechnique, elle a écrit à Lagrange puis à Gauss sous le nom de « Monsieur Le Blanc ».

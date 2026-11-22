@@ -6,6 +6,7 @@ death: 1925
 nationality: "Danois"
 letter: "J"
 fields: ["analyse", "fonctions convexes"]
+portrait: "/mathematicians/jensen.jpg"
 ---
 
 Johan Jensen (1859-1925), danois, a fait toute sa carrière d'ingénieur à la Compagnie téléphonique de Copenhague, et ses recherches mathématiques ont été menées en parallèle de son métier.

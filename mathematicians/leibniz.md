@@ -6,6 +6,7 @@ death: 1716
 nationality: "Allemand"
 letter: "L"
 fields: ["analyse", "logique", "philosophie"]
+portrait: "/mathematicians/leibniz.jpg"
 ---
 
 Gottfried Wilhelm Leibniz (1646-1716) fut mathématicien, philosophe, juriste et diplomate. Il a inventé le calcul différentiel et intégral indépendamment de Newton : la dispute sur la priorité a divisé les savants européens pendant des décennies.

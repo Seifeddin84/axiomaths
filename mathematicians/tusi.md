@@ -6,6 +6,7 @@ death: 1274
 nationality: "Persan (né à Tus)"
 letter: "T"
 fields: ["astronomie", "trigonométrie", "géométrie"]
+portrait: "/mathematicians/tusi.jpg"
 ---
 
 Nasir al-Din al-Tusi (1201-1274), né à Tus au Khorassan, fut astronome, mathématicien, philosophe et théologien. Il dirigea l'observatoire de Maragha, fondé vers 1259 sous le patronage des Mongols.

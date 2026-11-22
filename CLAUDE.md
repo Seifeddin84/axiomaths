@@ -249,7 +249,8 @@ average pupil**: detailed, clean, nothing skipped.
 
 - Un fichier par mathématicien : frontmatter `name`, `slug` (nom de famille, sert au tri), `birth`, `death` (négatifs pour
   av. J.-C.), `dates` (optionnel : texte affiché pour les dates approximatives, « vers 287 – 212 av. J.-C. »), `nationality`,
-  `letter` (initiale du nom de famille), `fields`, `portrait` (optionnel).
+  `letter` (initiale du nom de famille), `fields`, `portrait` (`/mathematicians/<slug>.jpg`, fichier déposé dans `public/mathematicians/` ;
+  absent du dépôt, le portrait est simplement masqué par le composant. Seifeddine charge lui-même les images ; Claude n'en télécharge pas).
 - Corps : présentation, `## Contributions majeures`, puis `## Dans les exercices d'AxioMath` avec les liens profonds vers les
   exercices (§5) où le théorème ou le nom intervient. Pas de citation inventée ; dates et attributions vérifiées (une
   attribution douteuse est dite telle : droite de Simson = Wallace 1799).

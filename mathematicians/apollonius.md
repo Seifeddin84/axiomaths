@@ -7,6 +7,7 @@ dates: "vers 262 – vers 190 av. J.-C."
 nationality: "Grec (Perge, Pamphylie)"
 letter: "A"
 fields: ["géométrie", "coniques"]
+portrait: "/mathematicians/apollonius.jpg"
 ---
 
 Apollonius de Perge (vers 262 – vers 190 av. J.-C.) est surnommé « le Grand Géomètre ». Son traité des *Coniques*, en huit livres dont sept nous sont parvenus, est resté la référence sur le sujet pendant près de deux mille ans.

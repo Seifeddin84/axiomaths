@@ -7,6 +7,7 @@ dates: "vers 100 – vers 168"
 nationality: "Grec d’Égypte (Alexandrie)"
 letter: "P"
 fields: ["astronomie", "trigonométrie", "géométrie"]
+portrait: "/mathematicians/ptolemee.jpg"
 ---
 
 Claude Ptolémée travaillait à Alexandrie au IIe siècle. Son *Almageste* a été, jusqu'à la Renaissance, le grand traité d'astronomie, en Orient comme en Occident.

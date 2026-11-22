@@ -6,6 +6,7 @@ death: 1954
 nationality: "Roumain"
 letter: "P"
 fields: ["analyse complexe", "géométrie"]
+portrait: "/mathematicians/pompeiu.jpg"
 ---
 
 Dimitrie Pompeiu (1873-1954), roumain, a été professeur à l'université de Bucarest, membre de l'Académie roumaine, et même président de la Chambre des députés (1931-1932). Il a travaillé sur l'analyse complexe et la mécanique rationnelle.

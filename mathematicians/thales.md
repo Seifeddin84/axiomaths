@@ -7,6 +7,7 @@ dates: "vers 625 – vers 547 av. J.-C."
 nationality: "Grec (Milet, Ionie)"
 letter: "T"
 fields: ["géométrie", "proportionnalité"]
+portrait: "/mathematicians/thales.jpg"
 ---
 
 Thalès de Milet, en Ionie, est l'un des premiers savants dont le nom nous soit parvenu. La tradition le compte parmi les « Sept Sages » de la Grèce et lui attribue l'idée qu'un énoncé de géométrie doit se démontrer et pas seulement se constater. Aucun de ses écrits n'est conservé : tout ce que l'on sait de lui vient de témoignages plus tardifs.

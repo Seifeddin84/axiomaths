@@ -6,6 +6,7 @@ death: 1770
 nationality: "Écossais"
 letter: "S"
 fields: ["analyse", "séries", "calcul numérique"]
+portrait: "/mathematicians/stirling.jpg"
 ---
 
 James Stirling (1692-1770), écossais, a travaillé sur les séries et l'interpolation. Son *Methodus differentialis* (1730) contient la formule qui porte son nom.

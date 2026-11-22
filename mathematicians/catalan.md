@@ -6,6 +6,7 @@ death: 1894
 nationality: "Belge (né à Bruges)"
 letter: "C"
 fields: ["analyse", "théorie des nombres", "combinatoire"]
+portrait: "/mathematicians/catalan.jpg"
 ---
 
 Eugène Catalan (1814-1894), né à Bruges, a enseigné à Paris puis à l'université de Liège. Son nom reste attaché à plusieurs objets que les élèves de 4ème année rencontrent.

@@ -6,6 +6,7 @@ death: 1934
 nationality: "Allemand (né à Breslau)"
 letter: "K"
 fields: ["géométrie du triangle", "analyse"]
+portrait: "/mathematicians/kiepert.jpg"
 ---
 
 Ludwig Kiepert (1846-1934) a été professeur à l'École polytechnique de Hanovre de 1879 à 1921, et son recteur de 1901 à 1904. Ses manuels de calcul différentiel et intégral ont connu un très grand nombre d'éditions.

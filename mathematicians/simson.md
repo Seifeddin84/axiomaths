@@ -6,6 +6,7 @@ death: 1768
 nationality: "Écossais"
 letter: "S"
 fields: ["géométrie", "édition de textes grecs"]
+portrait: "/mathematicians/simson.jpg"
 ---
 
 Robert Simson (1687-1768) fut professeur de mathématiques à Glasgow. Il a consacré sa vie à restaurer les textes de la géométrie grecque, et son édition des *Éléments* d'Euclide (1756) a servi de manuel dans les pays anglophones pendant plus d'un siècle.
@@ -17,6 +18,8 @@ Robert Simson (1687-1768) fut professeur de mathématiques à Glasgow. Il a cons
 - **Une attribution erronée** : on ne trouve pas ce résultat dans les œuvres publiées de Simson. Il a été publié pour la première fois en 1799 par l'Écossais William Wallace, et on parle parfois de *droite de Wallace*. Le nom de Simson s'est imposé par une confusion historique.
 
 - **Enveloppe** : quand $P$ parcourt le cercle, les droites de Simson enveloppent une deltoïde (hypocycloïde à trois rebroussements).
+
+Voir aussi la fiche de [William Wallace](/resources/mathematicians/wallace), premier à publier le résultat.
 
 ## Dans les exercices d'AxioMath
 

@@ -6,6 +6,7 @@ death: 1703
 nationality: "Anglais"
 letter: "W"
 fields: ["analyse", "cryptographie"]
+portrait: "/mathematicians/wallis.jpg"
 ---
 
 John Wallis (1616-1703), professeur à Oxford, a aussi été cryptographe au service du Parlement pendant la guerre civile anglaise. Son *Arithmetica infinitorum* (1656) a préparé le calcul intégral.
@@ -17,6 +18,8 @@ John Wallis (1616-1703), professeur à Oxford, a aussi été cryptographe au ser
 - **Intégrales de Wallis** : $W_n=\displaystyle\int_0^{\pi/2}\sin^nt\,\mathrm{d}t$, étudiées par une relation de récurrence. Elles mènent à la formule de Stirling.
 
 - **Le symbole $\infty$** : c'est lui qui l'a introduit en mathématiques.
+
+**Au baccalauréat** : le problème du Bac 1990 (session principale) enchaîne intégrales de Wallis, formule de Stirling et $\sqrt{2\pi}$ : voir l'[exercice n°143](/lycee/4eme/mathematiques/integrales#ex-0000143).
 
 ## Dans les exercices d'AxioMath
 

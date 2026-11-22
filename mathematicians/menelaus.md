@@ -7,6 +7,7 @@ dates: "vers 70 – vers 140"
 nationality: "Grec (Alexandrie)"
 letter: "M"
 fields: ["géométrie", "trigonométrie sphérique"]
+portrait: "/mathematicians/menelaus.jpg"
 ---
 
 Ménélaüs d'Alexandrie, astronome et géomètre du Ier siècle, est l'auteur des *Sphériques*, le plus ancien traité de trigonométrie sphérique conservé.

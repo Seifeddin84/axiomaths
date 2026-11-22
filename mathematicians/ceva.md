@@ -6,6 +6,7 @@ death: 1734
 nationality: "Italien (Milan)"
 letter: "C"
 fields: ["géométrie", "mécanique", "hydraulique"]
+portrait: "/mathematicians/ceva.jpg"
 ---
 
 Giovanni Ceva (1647-1734), né à Milan, est mathématicien et ingénieur hydraulicien : il a été responsable des eaux du duché de Mantoue. Son frère Tommaso était aussi mathématicien.

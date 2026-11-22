@@ -6,6 +6,7 @@ death: 1880
 nationality: "Français"
 letter: "C"
 fields: ["géométrie", "histoire des mathématiques"]
+portrait: "/mathematicians/chasles.jpg"
 ---
 
 Michel Chasles (1793-1880) est l'un des grands géomètres français du XIXe siècle, professeur à l'École polytechnique puis titulaire de la chaire de géométrie supérieure de la Sorbonne, créée pour lui.

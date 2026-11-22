@@ -6,6 +6,7 @@ death: 1837
 nationality: "Britannique"
 letter: "H"
 fields: ["algèbre", "polynômes", "calcul numérique"]
+portrait: "/mathematicians/horner.jpg"
 ---
 
 William George Horner (1786-1837) était directeur d'école à Bath. Il a publié en 1819 une méthode pour calculer des valeurs approchées des racines d'un polynôme.
