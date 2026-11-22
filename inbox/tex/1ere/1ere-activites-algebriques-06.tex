@@ -1,0 +1,52 @@
+% uid: ""
+% school: "lycee"
+% level: "1ere"
+% chapter: "Activités algébriques"
+% title: "Simplifier et discuter"
+% difficulty: "Moyen"
+% tags: ["fractions-algebriques", "simplification", "ensemble-de-definition", "divisibilite"]
+% provenance: "own"
+% batch: "2026-11-22-revision-1ere-A"
+
+% ---STATEMENT---
+Pour $x$ réel, on pose $E(x)=\dfrac{x^3-1}{x^2-1}$.
+\begin{enumerate}
+  \item Pour quelles valeurs de $x$ l'expression $E(x)$ est-elle définie ?
+  \item Simplifier $E(x)$. [On rappelle que $a^3-b^3=(a-b)(a^2+ab+b^2)$.]
+  \item Montrer que $E(x)=x+\dfrac1{x+1}$, puis que $E(x)-1=\dfrac{x^2}{x+1}$.
+  \item Déterminer tous les entiers $x$ pour lesquels $E(x)$ est un entier.
+  \item Montrer que $E(x)\geq1$ pour tout $x>-1$ avec $x\neq1$, et préciser le cas d'égalité.
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{prop}[Outils]
+Une fraction n'existe que si \ib{son dénominateur est non nul}. On simplifie une fraction en \textbf{divisant} numérateur et dénominateur par un \textbf{facteur commun} non nul. Un entier $m$ divise $1$ si et seulement si \ib{$m=1$ ou $m=-1$}.
+\end{prop}
+\begin{enumerate}
+  \item $x^2-1=(x-1)(x+1)$ est nul si et seulement si $x=1$ ou $x=-1$.
+
+  $E(x)$ est définie pour tout $x\in\mathbb R\setminus\{-1\,;1\}$.
+
+  \item Avec $a=x$ et $b=1$ : $x^3-1=(x-1)(x^2+x+1)$. Pour $x\neq1$ et $x\neq-1$ :
+  \[E(x)=\dfrac{(x-1)(x^2+x+1)}{(x-1)(x+1)}=\ib{$\dfrac{x^2+x+1}{x+1}$}\]
+
+  \item On écrit $x^2+x+1=x(x+1)+1$ :
+  \[E(x)=\dfrac{x(x+1)+1}{x+1}=x+\ib{$\dfrac1{x+1}$}\]
+  Puis on réduit au même dénominateur :
+  \[E(x)-1=x+\dfrac1{x+1}-1=\dfrac{x(x+1)+1-(x+1)}{x+1}=\dfrac{x^2}{x+1}\]
+
+  \item Si $x$ est entier, alors $E(x)=x+\dfrac1{x+1}$ est entier si et seulement si $\dfrac1{x+1}$ est entier. Donc :
+  \[E(x)\ \text{entier}\iff\dfrac1{x+1}\ \text{entier}\iff x+1\ \text{divise}\ 1\iff x+1=\pm1\]
+  \[x=0\qquad\text{ou}\qquad x=-2\]
+  Ces deux valeurs sont bien dans l'ensemble de définition ($0$ et $-2$ sont différents de $\pm1$).
+
+  Valeurs : $E(0)=0+1=\boxed{1}$ et $E(-2)=-2+\dfrac1{-1}=\boxed{-3}$.
+
+  \item Pour $x>-1$ : $x+1>0$ et $x^2\geq0$, donc
+  \[E(x)-1=\dfrac{x^2}{x+1}\geq0\]
+  \[E(x)\geq1\]
+  L'égalité a lieu si et seulement si $x^2=0$, c'est-à-dire pour $\boxed{x=0}$ seulement.
+\end{enumerate}
+\textbf{Idée :} écrire la fraction sous la forme \og entier + fraction simple \fg{} pour étudier une divisibilité.
+
+\textbf{Piège :} simplifier $\dfrac{x^3-1}{x^2-1}$ en $x$ en barrant \og $x^2$ \fg{} : on ne simplifie que des \emph{facteurs}, pas des termes.

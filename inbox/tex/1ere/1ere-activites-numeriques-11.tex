@@ -1,0 +1,58 @@
+% uid: ""
+% school: "lycee"
+% level: "1ere"
+% chapter: "Activités numériques"
+% title: "PGCD et divisibilité par 2, 4, 8"
+% difficulty: "Difficile"
+% tags: ["pgcd", "division-euclidienne", "divisibilite", "criteres-de-divisibilite"]
+% provenance: "own"
+% batch: "2026-11-22-revision-1ere-A"
+
+% ---STATEMENT---
+Pour tout entier naturel $n$, on pose $d_n=\mathrm{PGCD}(n+2,\ n^2+4)$.
+\begin{enumerate}
+  \item Calculer $d_n$ pour $n=0,1,2,\dots,8$.
+  \item Montrer que $n^2+4=(n+2)(n-2)+8$. En déduire que $d_n=\mathrm{PGCD}(n+2,\ 8)$.
+  \item Montrer que $d_n=1$ si $n$ est impair, $d_n=2$ si $n$ est multiple de $4$, $d_n=4$ si $n=8q+2$ et $d_n=8$ si $n=8q+6$.
+  \item Calculer $d_{2026}$ et $d_{2030}$.
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{prop}[PGCD]
+Pour tous entiers $a$, $b$ et $q$ : \ib{$\mathrm{PGCD}(a,b)=\mathrm{PGCD}(b,\,a-qb)$}. Les diviseurs de $8$ sont $1$, $2$, $4$ et $8$.
+\end{prop}
+\begin{enumerate}
+  \item On calcule les couples $(n+2,\,n^2+4)$ :
+  \[\begin{array}{c|ccccccccc}
+  n&0&1&2&3&4&5&6&7&8\\\hline
+  (n+2,\,n^2+4)&(2,4)&(3,5)&(4,8)&(5,13)&(6,20)&(7,29)&(8,40)&(9,53)&(10,68)\\\hline
+  d_n&2&1&4&1&2&1&8&1&2
+  \end{array}\]
+
+  \item On développe :
+  \[(n+2)(n-2)+8=n^2-4+8=n^2+4\]
+  On applique la propriété du PGCD avec $a=n^2+4$, $b=n+2$ et $q=n-2$ :
+  \[a-qb=(n^2+4)-(n-2)(n+2)=8\]
+  \[d_n=\mathrm{PGCD}(n+2,\ n^2+4)=\ib{$\mathrm{PGCD}(n+2,\ 8)$}\]
+  (Un diviseur commun de $a$ et $b$ divise $a-qb$ ; réciproquement un diviseur commun de $b$ et $a-qb$ divise $a=(a-qb)+qb$.)
+
+  \item Le PGCD est un diviseur de $8$ : c'est le plus grand élément de $\{1,2,4,8\}$ qui divise $n+2$.
+
+  \textbf{$n$ impair.} $n+2$ est impair : ni $2$, ni $4$, ni $8$ ne le divisent. Donc $d_n=\boxed{1}$.
+
+  \textbf{$n=4q$.} $n+2=4q+2=2\,(2q+1)$ : divisible par $2$, mais pas par $4$ (le reste de la division par $4$ est $2$). Donc $d_n=\boxed{2}$.
+
+  \textbf{$n=8q+2$.} $n+2=8q+4=4\,(2q+1)$ : divisible par $4$, mais pas par $8$ (le reste de la division par $8$ est $4$). Donc $d_n=\boxed{4}$.
+
+  \textbf{$n=8q+6$.} $n+2=8q+8=8\,(q+1)$ : divisible par $8$. Donc $d_n=\boxed{8}$.
+
+  Ces quatre cas épuisent tous les entiers : un entier pair est de la forme $8q$, $8q+2$, $8q+4$ ou $8q+6$, et $8q$ et $8q+4$ sont des multiples de $4$. Le tableau de la question 1 est cohérent ($d_6=8$, $d_2=4$, $d_0=d_4=d_8=2$).
+
+  \item $2026=8\times253+2$ : on est dans le cas $n=8q+2$.
+  \[d_{2026}=\ib{$4$}\qquad(2028=4\times507\ \text{et}\ 2028=8\times253+4)\]
+  $2030=8\times253+6$ : on est dans le cas $n=8q+6$.
+  \[d_{2030}=\ib{$8$}\qquad(2032=8\times254)\]
+\end{enumerate}
+\textbf{Idée :} le reste $8$ de la division de $n^2+4$ par $n+2$ ramène le problème à des critères de divisibilité par $2$, $4$ et $8$.
+
+\textbf{Piège :} croire que $d_n=1$ pour tout $n$ (par exemple $d_6=8$).

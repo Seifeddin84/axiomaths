@@ -1,0 +1,68 @@
+% uid: ""
+% school: "lycee"
+% level: "1ere"
+% chapter: "Activités numériques"
+% title: "Le nombre d'or"
+% difficulty: "Moyen"
+% tags: ["nombre-d-or", "racines-carrees", "identites-remarquables", "puissances"]
+% provenance: "own"
+% batch: "2026-11-22-revision-1ere-A"
+
+% ---STATEMENT---
+On pose $\varphi=\dfrac{1+\sqrt5}2$.
+\begin{enumerate}
+  \item Montrer que $\varphi^2=\varphi+1$ et que $\dfrac1\varphi=\varphi-1$.
+  \item Calculer $\varphi+\dfrac1\varphi$, puis $\varphi^2+\dfrac1{\varphi^2}$ et $\varphi^4+\dfrac1{\varphi^4}$.
+  \item Montrer que $\varphi^3=2+\sqrt5$ et que $\dfrac1{\varphi^3}=\sqrt5-2$. En déduire, de deux façons différentes, que $\varphi^6+\dfrac1{\varphi^6}=18$.
+  \item Calculer la valeur exacte de $\varphi^6-\dfrac1{\varphi^6}$.
+  \item Écrire $\varphi^5$ sous la forme $p\varphi+q$, puis sous la forme $\dfrac{r+s\sqrt5}2$ ($p,q,r,s$ entiers).
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{prop}[Identités remarquables]
+\ib{$(a+b)^2=a^2+2ab+b^2$}, \ib{$a^2-b^2=(a-b)(a+b)$} et, en conséquence, $(a+b)^2-2ab=a^2+b^2$.
+\end{prop}
+\begin{enumerate}
+  \item \textbf{Premier résultat.}
+  \[\varphi^2=\dfrac{(1+\sqrt5)^2}4=\dfrac{1+2\sqrt5+5}4=\dfrac{6+2\sqrt5}4=\dfrac{3+\sqrt5}2\]
+  \[\varphi+1=\dfrac{1+\sqrt5}2+\dfrac22=\dfrac{3+\sqrt5}2\]
+  Donc \ib{$\varphi^2=\varphi+1$}.
+
+  \textbf{Second résultat.} On divise $\varphi^2=\varphi+1$ par $\varphi$ (non nul) :
+  \[\varphi=1+\dfrac1\varphi\implies\dfrac1\varphi=\ib{$\varphi-1$}\]
+
+  \item D'après la question 1 :
+  \[\varphi+\dfrac1\varphi=\varphi+(\varphi-1)=2\varphi-1=1+\sqrt5-1=\ib{$\sqrt5$}\]
+  On élève au carré : $\left(\varphi+\dfrac1\varphi\right)^2=\varphi^2+2+\dfrac1{\varphi^2}$, donc :
+  \[\varphi^2+\dfrac1{\varphi^2}=5-2=\ib{$3$}\]
+  On recommence avec $\varphi^2$ :
+  \[\varphi^4+\dfrac1{\varphi^4}=\left(\varphi^2+\dfrac1{\varphi^2}\right)^2-2=9-2=\ib{$7$}\]
+
+  \item \textbf{Calcul de $\varphi^3$.} On utilise $\varphi^2=\varphi+1$ :
+  \[\varphi^3=\varphi\times\varphi^2=\varphi(\varphi+1)=\varphi^2+\varphi=2\varphi+1=1+\sqrt5+1=\ib{$2+\sqrt5$}\]
+  \textbf{Calcul de $\dfrac1{\varphi^3}$.} On calcule le produit :
+  \[(2+\sqrt5)(\sqrt5-2)=(\sqrt5)^2-2^2=5-4=1\]
+  Donc $\dfrac1{2+\sqrt5}=\sqrt5-2$, c'est-à-dire $\dfrac1{\varphi^3}=\boxed{\sqrt5-2}$.
+
+  \textbf{Première méthode pour $\varphi^6+\dfrac1{\varphi^6}$.} On a $\varphi^6=(2+\sqrt5)^2$ et $\dfrac1{\varphi^6}=(\sqrt5-2)^2$ :
+  \[(2+\sqrt5)^2=4+4\sqrt5+5=9+4\sqrt5\qquad(\sqrt5-2)^2=5-4\sqrt5+4=9-4\sqrt5\]
+  \[\varphi^6+\dfrac1{\varphi^6}=(9+4\sqrt5)+(9-4\sqrt5)=18\]
+  \textbf{Seconde méthode.} On développe le produit des deux résultats de la question 2 :
+  \[\left(\varphi^2+\dfrac1{\varphi^2}\right)\left(\varphi^4+\dfrac1{\varphi^4}\right)=\varphi^6+\dfrac1{\varphi^2}+\varphi^2+\dfrac1{\varphi^6}\]
+  \[3\times7=\left(\varphi^6+\dfrac1{\varphi^6}\right)+3\implies\varphi^6+\dfrac1{\varphi^6}=21-3=\ib{$18$}\]
+
+  \item On factorise une différence de carrés avec $a=2+\sqrt5$ et $b=\sqrt5-2$ :
+  \[\varphi^6-\dfrac1{\varphi^6}=a^2-b^2=(a-b)(a+b)\]
+  \[a-b=(2+\sqrt5)-(\sqrt5-2)=4\qquad a+b=(2+\sqrt5)+(\sqrt5-2)=2\sqrt5\]
+  \[\varphi^6-\dfrac1{\varphi^6}=\ib{$8\sqrt5$}\]
+
+  \item À chaque étape, on utilise $\varphi^2=\varphi+1$ :
+  \[\varphi^3=2\varphi+1\]
+  \[\varphi^4=\varphi\,\varphi^3=2\varphi^2+\varphi=2\varphi+2+\varphi=3\varphi+2\]
+  \[\varphi^5=\varphi\,\varphi^4=3\varphi^2+2\varphi=3\varphi+3+2\varphi=\ib{$5\varphi+3$}\]
+  Puis, avec $\varphi=\dfrac{1+\sqrt5}2$ :
+  \[\varphi^5=\dfrac{5+5\sqrt5}2+\dfrac62=\ib{$\dfrac{11+5\sqrt5}2$}\]
+\end{enumerate}
+\textbf{Idée :} la relation $\varphi^2=\varphi+1$ ramène toute puissance de $\varphi$ à la forme $p\varphi+q$ (les coefficients $1,1,2,3,5$ se suivent).
+
+\textbf{Piège :} écrire $\left(\varphi+\dfrac1\varphi\right)^2=\varphi^2+\dfrac1{\varphi^2}$ : on oublie le double produit $2$.
