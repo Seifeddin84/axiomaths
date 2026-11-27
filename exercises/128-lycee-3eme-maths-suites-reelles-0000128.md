@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["suites-reelles", "recurrence", "suite-geometrique", "monotonie", "somme"]
+tags: ["suites-reelles", "suite-arithmetico-geometrique", "suite-auxiliaire", "recurrence"]
+dressing: "arithmético-géométrique avec suite auxiliaire"
+rung: 2
 ---
 Soit $(u_n)$ la suite définie sur $\mathbb{N}$ par : $u_0 = 2$ et pour tout $n \in \mathbb{N}$, $u_{n+1} = \dfrac{1}{2}u_n + 3$.
 

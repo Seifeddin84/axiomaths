@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions", "robinets", "probleme", "debit"]
+tags: ["fractions", "probleme-concret", "modelisation", "equations"]
+dressing: "robinets : fractions d'un réservoir"
+rung: 2
 ---
 
 خزان فارغ. الحنفية الأولى تملؤه وحدها في $6$ ساعات والحنفية الثانية تملؤه وحدها في $4$ ساعات.

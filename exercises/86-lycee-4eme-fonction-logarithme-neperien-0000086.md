@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "fonction-impaire", "asymptote-oblique", "calcul-aire"]
+tags: ["logarithme-neperien", "etude-de-fonction", "fonction-impaire", "asymptote-oblique", "fonction-auxiliaire"]
+dressing: "fonction impaire et asymptote oblique"
+rung: 3
 ---
 
 **I)** On considère la fonction $g$ définie sur $[0, +\infty[$ par :

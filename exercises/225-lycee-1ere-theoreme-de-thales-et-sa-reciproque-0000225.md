@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["thales", "calcul-de-longueurs", "papillon", "reciproque", "parallelisme"]
+tags: ["thales", "calcul-de-longueurs", "droites-paralleles", "proportionnalite"]
 provenance: own
+dressing: "calculs de longueurs directs"
+rung: 1
 ---
 
 Dans chaque cas, calculer les longueurs demandées (les figures ne sont pas à l'échelle).

@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "suites-reelles", "inegalites", "theoreme-des-gendarmes"]
+tags: ["logarithme-neperien", "encadrement", "inegalites", "limites-de-suites", "theoreme-des-gendarmes"]
+dressing: "encadrements de ln pour des limites de suites"
+rung: 3
 ---
 
 1. Démontrer que, pour tout réel $x > 0$ ;

@@ -11,8 +11,10 @@ year: 2019
 professor: "M. Ghorbeli Med Hedi"
 difficulty: "Facile"
 points: null
-tags: ["pgcd", "ppcm", "algorithme-euclide", "fraction-irreductible", "decomposition-premiers"]
+tags: ["arithmetique", "pgcd", "fractions-irreductibles", "algorithme-d-euclide"]
 provenance: scan
+dressing: "PGCD par deux méthodes"
+rung: 1
 ---
 
 1. Déterminer le $\mathrm{PGCD}(66\,;\,378)$ :

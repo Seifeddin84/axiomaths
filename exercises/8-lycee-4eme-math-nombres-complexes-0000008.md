@@ -11,7 +11,9 @@ year: 1973
 professor: null
 difficulty: "Difficile"
 points: 5
-tags: ["équation", "polynôme", "trigonométrie", "somme", "nombre complexe"]
+tags: ["nombres-complexes", "racines-de-l-unite", "trigonometrie"]
+dressing: "racines de l'unité et somme trigonométrique"
+rung: 5
 ---
 
 1. Résoudre dans le corps $\mathbb{C}$ des nombres complexes l'équation

@@ -12,6 +12,8 @@ professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
 tags: ["vecteurs", "colinearite", "alignement", "base", "determinant"]
+dressing: "alignement dans un triangle avec une base"
+rung: 3
 ---
 Soit $ABC$ un triangle. On note :
 

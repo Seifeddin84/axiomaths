@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Moyen"
 points: 6
-tags: ["suites-reelles", "logarithme-neperien", "divergence"]
+tags: ["suites-reelles", "divergence", "logarithme-neperien"]
+dressing: "suite harmonique : u_{n+1}-u_n tend vers 0 mais u_n diverge"
+rung: 4
 ---
 
 Soit la suite $(u_n)$ définie pour $n \in \mathbb{N}^*$ par :

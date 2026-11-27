@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["polynomes", "probleme", "volume", "racine-apparente", "inequation"]
+tags: ["polynomes", "probleme-concret", "volume", "modelisation", "degre-3"]
 provenance: own
-dressing: "mise en équation d'un volume"
+dressing: "boîte sans couvercle et polynôme de degré 3"
 rung: 5
 ---
 Une feuille de carton rectangulaire a pour longueur $30$ cm et pour largeur $20$ cm. On découpe, dans chacun des quatre coins, un carré de côté $x$ cm, puis on relève les bords pour obtenir une boîte sans couvercle (un parallélépipède rectangle).

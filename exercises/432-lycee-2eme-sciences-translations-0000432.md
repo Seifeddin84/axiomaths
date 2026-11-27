@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "composition", "relation-de-chasles", "coordonnees", "reciproque"]
+tags: ["translation", "vecteurs", "relation-de-chasles"]
 provenance: own
-dressing: "composée de deux translations"
+dressing: "composer deux translations"
 rung: 3
 ---
 Soient $A$, $B$ et $C$ trois points du plan. On considère un point quelconque $M$, son image $M_1$ par $t_{\overrightarrow{AB}}$, puis l'image $M_2$ de $M_1$ par $t_{\overrightarrow{BC}}$.

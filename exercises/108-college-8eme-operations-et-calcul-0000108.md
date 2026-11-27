@@ -11,7 +11,9 @@ year: 2023
 professor: null
 difficulty: "Moyen"
 points: 3
-tags: ["puissances", "ecriture-scientifique", "calcul"]
+tags: ["puissances", "ecriture-scientifique", "calcul", "nombres-rationnels"]
+dressing: "puissances de 10 et écriture scientifique"
+rung: 2
 ---
 
 نعتبر العددين:

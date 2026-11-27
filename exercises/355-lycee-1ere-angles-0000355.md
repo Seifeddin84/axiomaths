@@ -11,9 +11,11 @@ year: 2015
 professor: "M. Béchir Zdiri"
 difficulty: "Facile"
 points: null
-tags: ["trapeze", "diagonales", "angles-alternes-internes", "droites-paralleles", "angles-triangle"]
+tags: ["angles", "trapeze", "diagonales", "droites-paralleles"]
 provenance: adapted
 adapted_from: "Série Angles (Ibn Elbaitar, 2015-2016), exercice 1 : la question 2.b d'origine (mesure de MIA) n'est pas déterminée par les données ; remplacée par le calcul de EAI. Les mesures de la figure sont ajoutées à l'énoncé."
+dressing: "angles alternes-internes dans un trapèze"
+rung: 1
 ---
 
 $AMIE$ est un trapèze de bases $[AM]$ et $[IE]$. Ses diagonales $[AI]$ et $[EM]$ se coupent en $S$.

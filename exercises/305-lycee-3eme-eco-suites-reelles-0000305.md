@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["suites", "suite-recurrente", "raison-negative", "absence-de-limite", "piege"]
+tags: ["suites", "suite-arithmetico-geometrique", "divergence", "pieges"]
 provenance: "own"
-dressing: "U(n+1)=aU(n)+b, a<-1"
+dressing: "raison négative : pas de limite"
 rung: 4
 batch: "2026-11-20-suites-3eco-A"
 ---

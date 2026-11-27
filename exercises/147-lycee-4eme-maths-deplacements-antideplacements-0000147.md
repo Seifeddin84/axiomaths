@@ -11,9 +11,11 @@ year: 1991
 professor: null
 difficulty: "Difficile"
 points: 6
-tags: ["bac", "rotation", "composee-de-rotations", "triangle-equilateral", "lieu-geometrique"]
+tags: ["rotation", "triangle-equilateral", "cercles-tangents", "deplacements", "bac"]
 bac: "1991-principale-maths"
 recommended: true
+dressing: "composée de rotations dans un triangle équilatéral"
+rung: 5
 ---
 
 On considère, dans un plan orienté, un triangle équilatéral $ABC$ tel que $\left(\widehat{\overrightarrow{AB}, \overrightarrow{AC}}\right) \equiv \dfrac{\pi}{3}\ [2\pi]$ et le cercle $(\mathcal{C})$ circonscrit à ce triangle. On construit les cercles $(\mathcal{C}')$ et $(\mathcal{C}'')$ de même rayon, de centres respectifs $B$ et $C$ et tangents extérieurement l'un à l'autre.

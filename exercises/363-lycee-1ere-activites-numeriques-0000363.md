@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["division-euclidienne", "restes", "divisibilite", "entiers"]
+tags: ["arithmetique", "division-euclidienne", "carres", "demonstration"]
 provenance: "own"
+dressing: "restes de carrés"
+rung: 3
 batch: "2026-11-22-revision-1ere-A"
 ---
 

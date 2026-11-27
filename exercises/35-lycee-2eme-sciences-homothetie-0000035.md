@@ -11,7 +11,9 @@ year: 2026
 professor: "Hdiden Merghenni"
 difficulty: "Difficile"
 points: 7.5
-tags: ["géométrie", "homothétie", "barycentre", "aires", "lieu géométrique"]
+tags: ["homothetie", "barycentre", "lieu-geometrique", "aires"]
+dressing: "homothétie, barycentre et lieu"
+rung: 5
 ---
 
 Soit un segment $[AI]$, $\Delta$ la droite perpendiculaire à $(AI)$ en $A$ et $J$ un point variable de $\Delta$ distinct de $A$.

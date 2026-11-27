@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "aires", "rapport-d-aires", "racines"]
+tags: ["thales", "aires", "parametre", "proportionnalite"]
 provenance: own
+dressing: "partager un triangle par des parallèles"
+rung: 3
 ---
 
 Soit $ABC$ un triangle d'aire $\mathcal S$ et $h$ sa hauteur issue de $A$. Pour $0<k<1$, on note $M$ le point de $[AB]$ tel que $AM=k\,AB$ et $N$ le point de $[AC]$ tel que $(MN)\parallel(BC)$.

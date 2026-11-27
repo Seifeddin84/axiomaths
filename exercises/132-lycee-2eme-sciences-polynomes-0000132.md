@@ -12,6 +12,8 @@ professor: "Axiomaths"
 difficulty: "Facile"
 points: null
 tags: ["qcm", "polynomes", "degre", "racine", "factorisation"]
+dressing: "QCM : degré, racines, factorisation"
+rung: 4
 ---
 
 Pour chaque question, une seule des trois réponses proposées est correcte. Cocher la bonne réponse.

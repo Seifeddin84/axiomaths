@@ -11,8 +11,10 @@ year: 2015
 professor: "M. Béchir Zdiri"
 difficulty: "Facile"
 points: null
-tags: ["trapeze", "triangle-isocele", "bissectrice", "angles-alternes-internes"]
+tags: ["angles", "trapeze", "triangle-isocele", "bissectrice"]
 provenance: scan
+dressing: "trapèze et triangle isocèle"
+rung: 2
 ---
 
 Soit $ABCD$ un trapèze de bases $[AD]$ et $[BC]$ tel que $AB=AD$ et $\widehat{DAB}=120°$.

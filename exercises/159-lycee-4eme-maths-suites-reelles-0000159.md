@@ -11,8 +11,10 @@ year: 1983
 professor: null
 difficulty: "Facile"
 points: 4
-tags: ["bac", "suite-recurrente", "suite-geometrique", "recurrence", "convergence"]
+tags: ["suites-reelles", "suite-homographique", "suite-geometrique", "suite-auxiliaire", "bac"]
 bac: "1983-principale-maths"
+dressing: "homographique avec suite auxiliaire guidée"
+rung: 1
 ---
 
 Soit la suite $(u_n)$ définie par $u_0 = -1$ et, pour tout $n \in \mathbb{N}$, $u_{n+1} = \dfrac{4u_n + 3}{u_n + 6}$.

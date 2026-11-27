@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["fractions", "multiplication", "division"]
+tags: ["fractions", "division", "nombres-rationnels"]
+dressing: "produit et quotient de fractions"
+rung: 1
 ---
 
 احسب ثم اختزل النتيجة إن أمكن :

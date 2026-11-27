@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["derivation", "nombre-derive", "derivabilite", "point-anguleux", "asymptotes"]
+tags: ["derivation", "derivabilite", "fonction-par-morceaux", "asymptotes", "tangente"]
+dressing: "dérivabilité d'une fonction par morceaux"
+rung: 3
 ---
 
 Soit $f$ la fonction définie sur $\mathbb{R}$ par :

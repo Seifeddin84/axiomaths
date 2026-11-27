@@ -11,8 +11,10 @@ year: 2019
 professor: "M. Ghorbeli Med Hedi"
 difficulty: "Moyen"
 points: null
-tags: ["pgcd", "algorithme-euclide", "fraction-irreductible", "probleme-concret"]
+tags: ["arithmetique", "pgcd", "algorithme-d-euclide", "probleme-concret", "partage"]
 provenance: scan
+dressing: "bouquets de roses et PGCD"
+rung: 2
 ---
 
 1. a. En utilisant l'algorithme d'Euclide, montrer que $\mathrm{PGCD}(1756\,;\,1317)=439$.

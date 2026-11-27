@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["symetrie-centrale", "droite-graduee", "abscisse", "suite-de-symetries", "synthese"]
+tags: ["symetrie-centrale", "droite-graduee", "suites-de-points"]
+dressing: "symétries successives sur une droite graduée"
+rung: 5
 ---
 
 على مستقيم مدرج، النقطتان $O_1$ و $O_2$ فاصلتاهما $2$ و $5$ على التوالي، و $A_0$ نقطة فاصلتها $0$. نعرّف : $A_1$ مناظرة $A_0$ بالنسبة إلى $O_1$ ، ثم $A_2$ مناظرة $A_1$ بالنسبة إلى $O_2$ ، ثم $A_3$ مناظرة $A_2$ بالنسبة إلى $O_1$ ، ثم $A_4$ مناظرة $A_3$ بالنسبة إلى $O_2$ ، وهكذا بالتناوب.

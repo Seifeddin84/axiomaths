@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["graphes", "graphe-oriente", "matrice-adjacence", "chaine-eulerienne", "cycle-eulerien"]
+tags: ["graphes", "graphe-oriente", "matrice-d-adjacence"]
+dressing: "lire un graphe orienté sur sa matrice"
+rung: 2
 ---
 
 Soit un graphe $G$ dont la matrice d'adjacence est la suivante :

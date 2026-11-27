@@ -11,7 +11,9 @@ year: 2024
 professor: "Prof Karim"
 difficulty: "Difficile"
 points: 4.5
-tags: ["nombres-complexes", "racines-niemes", "equations"]
+tags: ["nombres-complexes", "equation", "module", "racines-de-l-unite"]
+dressing: "équation z^n = conj(z)"
+rung: 3
 ---
 
 Soit $n \in \mathbb{N}$ tel que $n \ge 2$. On considère l'équation $(G) : z^n = \bar{z}$.

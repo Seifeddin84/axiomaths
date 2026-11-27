@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["matrices", "determinant", "parametre", "matrice-inverse", "systeme-lineaire", "mise-en-equation"]
+tags: ["matrices", "systemes", "probleme-concret", "parametre"]
+dressing: "atelier de production et matrice à paramètre"
+rung: 5
 ---
 
 Soit $m$ un réel et la matrice :

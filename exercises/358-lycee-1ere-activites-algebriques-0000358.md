@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions-algebriques", "simplification", "ensemble-de-definition", "divisibilite"]
+tags: ["fractions-rationnelles", "simplification", "domaine-de-definition", "factorisation", "discussion"]
 provenance: "own"
+dressing: "simplifier (x³−1)/(x²−1) et discuter"
+rung: 3
 batch: "2026-11-22-revision-1ere-A"
 ---
 

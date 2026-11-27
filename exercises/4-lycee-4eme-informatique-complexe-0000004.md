@@ -11,7 +11,9 @@ year: 2025
 professor: null
 difficulty: "Facile"
 points: 3
-tags: ["affixe", "conjugué"]
+tags: ["nombres-complexes", "affixe", "conjugue"]
+dressing: "placer les points d'affixes z, conj(z), -z"
+rung: 1
 ---
 
 On considère le nombre complexe $z=3-2i$. 

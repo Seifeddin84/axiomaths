@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["radicaux", "simplification", "conjugue", "valeur-absolue"]
+tags: ["radicaux", "simplification", "calcul", "nombres-reels", "conjugue"]
 provenance: own
+dressing: "simplifier des radicaux, dénominateur sans racine"
+rung: 1
 ---
 
 Simplifier chacun des nombres suivants (sans radical au dénominateur) :

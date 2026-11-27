@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "parallelogramme-inscrit", "aire", "optimisation"]
+tags: ["thales", "parametre", "aire", "optimisation"]
 provenance: own
+dressing: "parallélogramme inscrit dépendant d'un paramètre"
+rung: 3
 ---
 
 Soit $ABC$ un triangle, $a=BC$ et $c=BA$. Pour $0<x<1$, on place $M\in[AB]$ tel que $AM=x\,AB$, puis $N\in[AC]$ tel que $(MN)\parallel(BC)$ et $P\in[BC]$ tel que $(NP)\parallel(AB)$.

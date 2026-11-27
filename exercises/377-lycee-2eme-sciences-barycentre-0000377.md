@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["barycentre", "ensemble-de-points", "cercle", "mediatrice"]
+tags: ["barycentre", "ensembles-de-points", "rectangle", "lieu-geometrique", "cercle"]
 provenance: "own"
+dressing: "synthèse : ensembles de points dans un rectangle"
+rung: 3
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

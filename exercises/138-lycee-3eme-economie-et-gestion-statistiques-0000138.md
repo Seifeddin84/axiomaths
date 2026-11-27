@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["statistiques", "classes", "effectifs-cumules", "interpolation-lineaire", "quartiles", "coefficient-de-variation"]
+tags: ["statistiques", "serie-groupee", "interpolation-lineaire", "mediane"]
+dressing: "série groupée en contexte de service client"
+rung: 2
 ---
 
 Un service client a relevé la durée (en minutes) de $80$ appels téléphoniques.

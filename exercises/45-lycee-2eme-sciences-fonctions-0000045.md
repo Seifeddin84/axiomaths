@@ -12,7 +12,9 @@ year: 2026
 professor: "H. Bouzid, N. Jalleli, M. Msekni, I. Chaabene, R. Fakhfekh"
 difficulty: "Moyen"
 points: 6
-tags: ["lecture-graphique", "sens-de-variation"]
+tags: ["lecture-graphique", "sens-de-variation", "fonctions-de-reference", "tableau-de-variations"]
+dressing: "lire les variations sur une courbe"
+rung: 2
 ---
 
 Dans la figure suivante, on donne :

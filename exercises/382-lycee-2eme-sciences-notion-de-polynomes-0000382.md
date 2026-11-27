@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["polynomes", "changement-de-variable", "identites-remarquables", "racine-carree"]
+tags: ["polynomes", "identites-remarquables", "changement-de-variable", "factorisation"]
 provenance: "own"
+dressing: "quatre entiers consécutifs plus 1"
+rung: 3
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

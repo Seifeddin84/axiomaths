@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["derivation", "lecture-graphique", "demi-tangente", "derivabilite", "tableau-de-variations"]
+tags: ["derivation", "lecture-graphique", "derivabilite", "tableau-de-variations"]
+dressing: "demi-tangentes lues sur un graphique"
+rung: 3
 ---
 
 Soit la fonction $f$ dont la courbe représentative $\mathcal{C}_f$ est la suivante. Les flèches représentent des tangentes ou des demi-tangentes à la courbe.

@@ -11,9 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["integrales", "integration-par-parties", "suites-reelles", "recurrence", "wallis"]
+tags: ["integrales-de-wallis", "suites-d-integrales", "integration-par-parties", "limites-de-suites"]
 provenance: adapted
 adapted_from: "Série d'exercices — Intégrales"
+dressing: "relation de récurrence de type Wallis"
+rung: 3
 ---
 
 Soit la suite $(I_n)$ définie pour tout $n \in \mathbb{N}$ par $I_n = \displaystyle\int_0^{\frac{\pi}{2}} \sin^{n+1}(t)\cos^2(t)\,dt$.

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "serie-double", "droite-de-mayer", "prevision"]
+tags: ["statistiques", "serie-double", "droite-de-mayer", "ajustement-affine", "prevision"]
 provenance: "own"
+dressing: "chiffre d'affaires d'une boutique en ligne"
+rung: 2
 batch: "2026-11-19-3eco-statistiques-n5"
 ---
 

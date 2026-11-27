@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["matrices", "determinant", "matrice-inversible", "produit-matriciel"]
+tags: ["matrices", "determinant", "inversibilite", "produit-de-matrices"]
+dressing: "déterminants et produits de matrices"
+rung: 1
 ---
 
 On considère les matrices :

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["thales", "probleme-concret", "ombre", "vitesse"]
+tags: ["thales", "probleme-concret", "calcul-de-longueurs", "proportionnalite"]
 provenance: own
+dressing: "situation réelle : l'ombre d'un lampadaire"
+rung: 2
 ---
 
 Un lampadaire $[OL]$ de $5$ m de haut est planté verticalement sur un sol horizontal. Une personne de taille $1{,}8$ m, représentée par le segment vertical $[PQ]$ ($P$ au sol), se tient à la distance $OP=d$ du pied du lampadaire. L'extrémité de son ombre est le point $T$ du sol où la droite $(LQ)$ rencontre le sol ($P\in[OT]$).

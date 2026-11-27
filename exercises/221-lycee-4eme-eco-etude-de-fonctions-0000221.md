@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["cout-moyen", "asymptote-oblique", "seuil-de-rentabilite", "inequation-du-second-degre", "modelisation"]
+tags: ["etude-de-fonction", "economie", "modelisation"]
+dressing: "coût moyen et seuil de rentabilité"
+rung: 5
 ---
 
 Une entreprise fabrique et vend un liquide $L$. Une étude a permis de modéliser le coût moyen de production par la fonction $f(x) = 0{,}5x + \dfrac{8}{x}$ pour tout $x > 0$.

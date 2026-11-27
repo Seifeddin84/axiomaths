@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["inegalites", "nesbitt", "fractions", "challenge"]
+tags: ["inegalites", "demonstration", "moyennes"]
 provenance: own
+dressing: "challenge : l'inégalité de Nesbitt"
+rung: 5
 ---
 
 1. Montrer que pour tous réels $x,y>0$ : $\dfrac xy+\dfrac yx\ge2$, avec égalité si et seulement si $x=y$.

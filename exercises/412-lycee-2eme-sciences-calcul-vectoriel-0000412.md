@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["vecteurs", "operations", "relation-de-chasles", "equation-vectorielle"]
+tags: ["vecteurs", "simplification", "relation-de-chasles"]
 provenance: own
-dressing: "réduction d'expressions et relation de Chasles"
+dressing: "simplifier des écritures vectorielles"
 rung: 1
 ---
 1. Soient $\vec{u}$ et $\vec{v}$ deux vecteurs. Écrire plus simplement :

@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Moyen"
 points: null
-tags: ["logarithme-neperien", "etude-de-fonctions", "branche-parabolique", "integration"]
+tags: ["logarithme-neperien", "etude-de-fonction", "branche-parabolique", "integration-par-parties", "fonction-auxiliaire"]
+dressing: "fonction auxiliaire g puis étude et primitive"
+rung: 3
 ---
 
 **I)** On considère la fonction $g$ définie sur $]0, +\infty[$ par :

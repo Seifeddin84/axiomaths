@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "fonction-rationnelle", "forme-indeterminee", "factorisation", "limite-a-gauche-et-a-droite"]
+tags: ["limites", "formes-indeterminees", "fractions-rationnelles", "limites-laterales"]
+dressing: "quotients et formes indéterminées"
+rung: 2
 ---
 
 Calculer les limites suivantes :

@@ -11,7 +11,9 @@ year: 2020
 professor: "المرزوقي فوزي"
 difficulty: "Facile"
 points: 5
-tags: ["متطابقات-شهيرة", "أسس", "صواب-خطأ"]
+tags: ["vrai-faux", "identites-remarquables", "puissances", "calcul-algebrique"]
+dressing: "vrai-faux sur les erreurs classiques"
+rung: 4
 ---
 
 أجب بصواب أو خطأ

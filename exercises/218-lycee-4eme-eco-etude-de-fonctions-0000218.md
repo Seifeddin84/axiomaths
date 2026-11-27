@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["fonction-rationnelle", "derivee", "tangente", "position-relative", "tableau-de-variations"]
+tags: ["etude-de-fonction", "fonction-rationnelle", "tangente", "derivation"]
+dressing: "rationnelle, tangente et position relative"
+rung: 2
 ---
 
 Soit la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = \dfrac{10x + 4}{5x^2 + 1}$.

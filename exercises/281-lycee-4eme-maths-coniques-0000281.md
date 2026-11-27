@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["coniques", "ellipse", "parabole", "cercle", "papillon", "equation-reduite"]
+tags: ["theoreme-du-papillon", "coniques", "coordonnees"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "famille-coniques"
-rung: 3
+dressing: "une équation commune aux trois coniques"
+rung: 5
 ---
 Dans un repère orthonormé $(M\,;\vec\imath,\vec\jmath)$ d'origine $M$, on considère une conique $\Gamma$ de l'un des trois types suivants, dont l'axe de symétrie est l'axe $(My)$ :
 

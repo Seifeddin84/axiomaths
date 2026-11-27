@@ -11,7 +11,9 @@ year: 2026
 professor: "Inconnu"
 difficulty: "Difficile"
 points: 10
-tags: ["logarithme", "limites", "dérivation", "variations", "inégalités", "suites", "somme", "théorème-des-gendarmes"]
+tags: ["logarithme-neperien", "limites", "derivation", "variations", "suites", "factorielle"]
+dressing: "ln et suite de terme général n!"
+rung: 5
 ---
 
 **A)** On considère la fonction $f$ définie sur $[0, +\infty[$ par : 

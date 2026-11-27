@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "point-inflexion", "primitive", "integration"]
+tags: ["logarithme-neperien", "etude-de-fonction", "point-d-inflexion", "primitive", "aire"]
+dressing: "point d'inflexion et calcul de primitive"
+rung: 3
 ---
 
 **I)** Soit la fonction $f$ définie sur l'intervalle $[0, +\infty[$ par :

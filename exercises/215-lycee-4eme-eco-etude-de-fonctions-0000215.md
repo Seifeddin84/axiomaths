@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["etude-de-fonction", "polynome-degre-3", "tangente", "point-d-inflexion", "theoreme-des-valeurs-intermediaires"]
+tags: ["etude-de-fonction", "derivation", "tableau-de-variations", "tangente"]
+dressing: "étude complète d'un polynôme de degré 3"
+rung: 1
 ---
 
 Soit $g$ la fonction définie sur $\mathbb{R}$ par $g(x) = 2x^3 + 6x^2 + 1$.

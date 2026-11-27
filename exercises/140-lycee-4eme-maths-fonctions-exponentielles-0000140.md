@@ -12,8 +12,10 @@ year: 1984
 professor: null
 difficulty: "Difficile"
 points: 12
-tags: ["bac", "exponentielle", "bijection", "integrale"]
+tags: ["exponentielle", "etude-de-fonction", "bijection", "integrales", "parametre", "bac"]
 recommended: true
+dressing: "famille de fonctions à paramètre et aire"
+rung: 3
 ---
 
 Soit $f_m$ la fonction définie sur $\mathbb{R}$ par $f_m(x) = \dfrac{m\,e^{2x}}{e^{2x} + 1}$, où $m$ est un paramètre réel de l'intervalle $]0, 2]$.

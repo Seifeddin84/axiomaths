@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "mode", "moyenne", "mediane", "frequences"]
+tags: ["statistiques", "serie-discrete", "effectifs", "moyenne"]
 provenance: "own"
+dressing: "pointures : mode, moyenne, médiane"
+rung: 1
 batch: "2026-11-19-3eco-statistiques-n5"
 ---
 

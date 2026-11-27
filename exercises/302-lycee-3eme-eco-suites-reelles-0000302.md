@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["suites", "suite-recurrente", "suite-geometrique", "limite", "discussion"]
+tags: ["suites", "suite-arithmetico-geometrique", "modelisation"]
 provenance: "own"
-dressing: "U(n+1)=aU(n)+b, a>1"
-rung: 4
+dressing: "selon la population de départ, l'étang se vide ou se remplit"
+rung: 5
 batch: "2026-11-20-suites-3eco-A"
 ---
 

@@ -11,7 +11,9 @@ year: null
 professor: null
 difficulty: "Moyen"
 points: null
-tags: ["barycentre", "barycentre-partiel", "droites-concourantes", "triangle"]
+tags: ["barycentre", "droites-concourantes", "triangle"]
+dressing: "trois droites concourantes"
+rung: 3
 ---
 
 Soit $ABC$ un triangle. On désigne par $I$ le barycentre de $(B\,,1)$ et $(C\,,2)$, par $J$ le barycentre de $(A\,,3)$ et $(C\,,2)$ et par $K$ le barycentre de $(A\,,3)$ et $(B\,,1)$.

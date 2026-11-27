@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["hyperbole", "triangle-equilateral", "orthocentre", "branches"]
+tags: ["hyperbole", "coniques", "triangle-equilateral", "coordonnees", "defi"]
 provenance: "adapted"
+dressing: "triangle équilatéral inscrit dans xy = 1"
+rung: 5
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

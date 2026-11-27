@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["symetrie-centrale", "parallelogramme", "milieu", "diagonales"]
+tags: ["symetrie-centrale", "parallelogramme", "milieux", "centre-de-symetrie"]
+dressing: "parallélogramme et deux milieux"
+rung: 2
 ---
 
 $ABCD$ متوازي أضلاع مركزه $O$ (نقطة تقاطع قطريه) و $E$ منتصف $[AB]$.

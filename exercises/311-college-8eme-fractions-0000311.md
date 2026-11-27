@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions", "recherche-erreur", "priorites"]
+tags: ["fractions", "recherche-d-erreur", "calcul", "pieges"]
+dressing: "trouver les erreurs de calcul sur les fractions"
+rung: 4
 ---
 
 كتب سامي خمس نتائج :

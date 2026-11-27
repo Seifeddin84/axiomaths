@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "serie-simple", "mediane", "quartiles", "ecart-type", "diagramme-en-boite"]
+tags: ["statistiques", "serie-simple", "moyenne", "mediane", "quartiles", "ecart-type"]
+dressing: "série simple : tous les indicateurs"
+rung: 1
 ---
 
 Voici les notes obtenues par $12$ élèves à un devoir de mathématiques :

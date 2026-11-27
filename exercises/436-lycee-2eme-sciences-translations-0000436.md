@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "triangle", "milieux", "parallelogramme", "triangles-superposables"]
+tags: ["translation", "milieux", "droite-des-milieux", "vecteurs"]
 recommended: true
 provenance: own
-dressing: "découper un triangle avec les milieux de ses côtés"
+dressing: "triangle des milieux et translations"
 rung: 3
 ---
 Soit $ABC$ un triangle. On note $I$, $J$ et $K$ les milieux respectifs de $[BC]$, $[CA]$ et $[AB]$.

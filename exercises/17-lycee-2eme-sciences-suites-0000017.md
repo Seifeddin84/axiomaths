@@ -11,7 +11,9 @@ year: 2025
 professor: "Ali Fourati"
 difficulty: "Moyen"
 points: 4
-tags: ["suites", "calcul-de-termes", "somme-telescopique"]
+tags: ["suites", "somme-telescopique", "radicaux", "sens-de-variation"]
+dressing: "somme télescopique cachée par des radicaux"
+rung: 3
 ---
 
 **Soit $(u_n)_{n \in \mathbb{N}}$ une suite définie par $u_n = \sqrt{n+1} - \sqrt{n}$**

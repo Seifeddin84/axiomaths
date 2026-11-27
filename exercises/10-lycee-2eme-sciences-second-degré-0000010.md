@@ -11,7 +11,9 @@ year: 1986
 professor: "A.G Tsypkin & A.I Pinsky"
 difficulty: "Difficile"
 points: 10
-tags: ["équations", "factorisation", "fraction"]
+tags: ["equations", "factorisation", "changement-de-variable"]
+dressing: "marathon d'équations déguisées"
+rung: 3
 ---
 
 

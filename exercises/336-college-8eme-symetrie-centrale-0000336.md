@@ -12,6 +12,8 @@ professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
 tags: ["symetrie-centrale", "triangle-isocele", "losange", "angles"]
+dressing: "triangle isocèle et son symétrique"
+rung: 3
 ---
 
 $ABC$ مثلث متقايس الضلعين رأسه $A$ حيث $\widehat{BAC}=40^\circ$. $I$ منتصف $[BC]$ و $D$ مناظرة $A$ بالنسبة إلى $I$.

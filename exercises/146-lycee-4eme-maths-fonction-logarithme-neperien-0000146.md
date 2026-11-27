@@ -11,8 +11,10 @@ year: 1990
 professor: null
 difficulty: "Difficile"
 points: 12
-tags: ["bac", "logarithme", "fonction-reciproque", "aire", "suite-recurrente", "point-fixe"]
+tags: ["logarithme-neperien", "fonction-reciproque", "aire", "suite-recurrente", "bac"]
 bac: "1990-controle-maths"
+dressing: "famille ln(1+nx) : réciproque, aire, équivalent"
+rung: 5
 ---
 
 Soit $P$ le plan rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$ et $\Delta$ la droite d'équation $y = x$.

@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "racine-carree", "expression-conjuguee", "forme-indeterminee", "limites-en-l-infini"]
+tags: ["limites", "racines-carrees", "forme-conjuguee", "formes-indeterminees", "factorisation"]
+dressing: "racines carrées : forme conjuguée"
+rung: 3
 ---
 
 Calculer les limites suivantes :

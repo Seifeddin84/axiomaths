@@ -11,9 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["valeur-absolue", "distance", "tableau-de-signes", "minimum"]
+tags: ["valeur-absolue", "fonction-par-morceaux", "minimum"]
 provenance: own
 idea: "valeur-absolue-distance"
+dressing: "somme de trois valeurs absolues"
+rung: 3
 ---
 
 Pour tout réel $x$, on pose $f(x)=|x+2|+|x-1|+|x-4|$.

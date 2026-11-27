@@ -11,11 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Moyen
 points: 5
-tags:
-- suite
-- suite géométrique
-- suite auxiliaire
-- somme
+tags: ["suites", "suite-arithmetico-geometrique", "suite-auxiliaire", "suite-geometrique", "somme-de-termes"]
+dressing: "arithmético-géométrique, raison supérieure à 1"
+rung: 1
 ---
 Soit $(U_n)$ la suite définie pour tout entier naturel $n$ par :
 

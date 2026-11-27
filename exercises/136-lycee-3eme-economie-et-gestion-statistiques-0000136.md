@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["qcm", "statistiques", "moyenne", "ecart-type", "quartiles", "point-moyen"]
+tags: ["qcm", "statistiques", "moyenne", "ecart-type", "quartiles"]
+dressing: "QCM : pièges sur les indicateurs"
+rung: 4
 ---
 
 Pour chaque question, une seule des trois réponses proposées est correcte. Cocher la bonne réponse.

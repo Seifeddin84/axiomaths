@@ -11,7 +11,9 @@ year: 2024
 professor: null
 difficulty: "Moyen"
 points: null
-tags: ["algebre", "factorisation", "equations", "theoreme-de-pythagore"]
+tags: ["algebre", "factorisation", "identites-remarquables", "theoreme-de-pythagore"]
+dressing: "expression algébrique appliquée à une figure"
+rung: 3
 ---
 
  نعتبر العبارة التالية : $A = x^2 + 4x - 5$

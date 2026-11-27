@@ -11,7 +11,9 @@ year: 2025
 professor: "El GHALI Mounir"
 difficulty: "Moyen"
 points: 8
-tags: ["valeur-absolue", "inequations", "aires", "geometrie"]
+tags: ["fonctions-lineaires", "valeur-absolue", "inequations", "aires"]
+dressing: "fonction linéaire avec valeur absolue"
+rung: 3
 ---
 
 

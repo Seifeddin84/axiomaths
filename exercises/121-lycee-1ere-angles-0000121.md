@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["pentagone-regulier", "angle-inscrit", "triangle-isocele", "nombre-d-or", "trigonometrie"]
+tags: ["angle-inscrit", "triangle-isocele", "trigonometrie"]
+dressing: "valeur exacte de cos 36° par le pentagone"
+rung: 5
 ---
 Soit $ABCDE$ un pentagone régulier inscrit dans un cercle $(\mathscr{C})$ de centre $O$. Les diagonales $[AC]$ et $[BE]$ se coupent en $I$.
 

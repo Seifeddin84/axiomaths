@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions", "expressions-litterales", "valeur-numerique", "comparaison"]
+tags: ["fractions", "valeur-numerique", "comparaison"]
+dressing: "valeur numérique d'expressions à deux variables"
+rung: 2
 ---
 
 نعتبر العبارتين $E=2x+y-1$ و $F=x-3y$ حيث $x$ و $y$ عددان كسريان.

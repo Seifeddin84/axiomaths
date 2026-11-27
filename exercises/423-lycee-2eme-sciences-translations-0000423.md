@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "vrai-faux", "image-droite", "image-cercle", "conservation-distances"]
+tags: ["vrai-faux", "translation", "proprietes", "justification"]
 provenance: own
-dressing: "vrai-faux d'auto-évaluation"
-rung: 1
+dressing: "vrai ou faux sur les translations"
+rung: 4
 ---
 Pour chacune des affirmations suivantes, dire si elle est vraie ou fausse, puis justifier en une ou deux lignes.
 

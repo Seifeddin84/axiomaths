@@ -13,8 +13,8 @@ difficulty: "Facile"
 points: null
 tags: ["vecteurs", "repere", "composantes", "parallelogramme", "alignement"]
 provenance: own
-dressing: "composantes de vecteurs définis par des points"
-rung: 2
+dressing: "composantes dans un repère"
+rung: 1
 ---
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. On considère les points $A(-1, 2)$, $B(3, 1)$ et $C(4, -2)$.
 

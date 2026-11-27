@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["encadrements", "operations", "pieges", "inverse"]
+tags: ["encadrements", "inegalites", "pieges", "carres"]
 provenance: own
+dressing: "encadrements : pièges sur les signes"
+rung: 4
 ---
 
 Soit $x$ un réel de l'intervalle $[-2,3]$. Donner le meilleur encadrement possible de chacun des nombres :

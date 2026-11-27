@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "integration", "suites-reelles", "encadrement"]
+tags: ["logarithme-neperien", "suites-d-integrales", "integrales", "encadrement", "etude-de-fonction"]
+dressing: "étude de fonction puis suite d'intégrales"
+rung: 5
 ---
 
 1. Soient $f$ et $g$ les deux fonctions définies sur $]0, +\infty[$ par :

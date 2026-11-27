@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["fraction-rationnelle", "factorisation", "identites-remarquables", "inegalite"]
+tags: ["fractions-rationnelles", "factorisation", "identites-remarquables", "inegalites", "simplification"]
+dressing: "simplification et inégalité d'une fraction rationnelle"
+rung: 3
 ---
 1. a. Montrer que pour tout réel $x$ : $x^3 - 1 = (x - 1)(x^2 + x + 1)$.
 

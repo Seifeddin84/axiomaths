@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "apollonius", "bissectrices", "lieu-geometrique"]
+tags: ["thales", "cercles-d-apollonius", "lieu-geometrique", "bissectrice"]
 provenance: own
+dressing: "ensemble de points à rapport de distances constant"
+rung: 5
 ---
 
 $A$ et $B$ sont deux points tels que $AB=10$. On cherche l'ensemble des points $C$ tels que $\dfrac{CA}{CB}=\dfrac32$.

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["polynomes", "racine-double", "tableau-de-signe", "inequation"]
+tags: ["polynomes", "factorisation", "identification", "equation-troisieme-degre"]
 provenance: "own"
+dressing: "racine double d'un cubique"
+rung: 2
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

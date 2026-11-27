@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["centre-de-symetrie", "axe-de-symetrie", "hexagone", "quadrilateres"]
+tags: ["symetrie-centrale", "centre-de-symetrie", "figures-usuelles"]
+dressing: "centre et axes de symétrie des figures usuelles"
+rung: 2
 ---
 
 1. أتمم الجدول :

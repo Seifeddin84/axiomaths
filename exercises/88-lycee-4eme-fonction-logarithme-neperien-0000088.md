@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "suites-reelles", "inegalites", "somme-de-riemann"]
+tags: ["logarithme-neperien", "suites-reelles", "inegalites", "sommes", "etude-de-fonction"]
+dressing: "inégalités de ln appliquées à des suites"
+rung: 5
 ---
 
 1. On considère la fonction $g$ définie sur $]0, +\infty[$ par :

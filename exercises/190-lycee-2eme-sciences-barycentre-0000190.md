@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["barycentre", "vecteur-constant", "droites-paralleles", "ensemble-de-points"]
+tags: ["barycentre", "lieu-geometrique", "droites-paralleles"]
+dressing: "vecteur constant et lieu d'un barycentre"
+rung: 3
 ---
 
 Soit $ABC$ un triangle. Pour tout point $M$ du plan, on pose $\vec u = \overrightarrow{MA} + 2\,\overrightarrow{MB} - 3\,\overrightarrow{MC}$.

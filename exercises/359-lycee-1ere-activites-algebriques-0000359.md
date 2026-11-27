@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["identites-remarquables", "factorisation", "cubes", "equations"]
+tags: ["identites-remarquables", "developpement", "factorisation"]
 provenance: "own"
+dressing: "trois nombres de somme nulle"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

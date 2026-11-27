@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "parallelogramme", "milieu", "vecteurs-egaux", "coordonnees"]
+tags: ["translation", "parallelogramme", "vecteurs", "construction"]
 provenance: own
-dressing: "caractériser un parallélogramme par une translation"
-rung: 2
+dressing: "translation et parallélogramme"
+rung: 1
 ---
 Soient $A$, $B$ et $C$ trois points non alignés. On note $D$ l'image de $C$ par la translation $t_{\overrightarrow{AB}}$.
 

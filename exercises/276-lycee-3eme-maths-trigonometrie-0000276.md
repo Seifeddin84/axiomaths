@@ -11,11 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["morley", "trigonometrie", "sinus", "triangle-rectangle", "triangle-equilateral"]
+tags: ["theoreme-de-morley", "calcul", "trigonometrie"]
 provenance: adapted
 adapted_from: "résultat classique (théorème de Morley, 1899) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "morley"
-dressing: "trois-cas"
+dressing: "côté du triangle de Morley sur trois exemples"
 rung: 2
 ---
 On rappelle (exercice [275](/lycee/3eme/mathematiques/trigonometrie#ex-0000275)) que le triangle de Morley d'un triangle $ABC$ de rayon circonscrit $\rho$ est équilatéral, de côté

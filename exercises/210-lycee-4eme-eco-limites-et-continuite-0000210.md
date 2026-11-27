@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["continuite", "fonction-composee", "bijection", "fonction-reciproque", "asymptote-verticale"]
+tags: ["continuite", "bijection", "fonction-reciproque", "racines-carrees", "lecture-graphique"]
+dressing: "continuité, bijection et réciproque"
+rung: 3
 ---
 
 Soit la fonction $f$ définie par $f(x) = \sqrt{\dfrac{x}{1 - x}}$. On donne ci-dessous sa courbe représentative $\mathcal{C}_f$ dans un repère orthonormé.

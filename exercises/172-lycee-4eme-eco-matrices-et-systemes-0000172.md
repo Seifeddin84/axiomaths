@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["matrices", "determinant", "parametre", "matrice-inverse"]
+tags: ["matrices", "matrice-inverse", "parametre", "determinant", "inversibilite"]
+dressing: "matrice à paramètre : inversibilité"
+rung: 3
 ---
 
 Soit $a$ un réel et $A$ la matrice suivante :

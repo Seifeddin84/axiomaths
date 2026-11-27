@@ -11,9 +11,11 @@ year: 1977
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "variable-aleatoire", "tirages-avec-remise", "suite-arithmetique", "suite-geometrique"]
+tags: ["probabilites", "tirages-successifs", "suite-recurrente", "variable-aleatoire", "bac"]
 bac: "1977-principale-maths"
 recommended: true
+dressing: "tirage de deux boules et suite récurrente"
+rung: 5
 ---
 
 Un sac contient dix boules indiscernables au toucher. Trois boules portent le numéro $0$ ; deux boules portent le numéro $1$ et cinq boules portent le numéro $3$. On tire au hasard, successivement et avec remise, deux boules. On désigne par $a$ le nombre inscrit sur la première boule tirée et par $b$ le nombre inscrit sur la deuxième.

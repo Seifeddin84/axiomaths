@@ -11,13 +11,13 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["morley", "trigonometrie", "loi-du-sinus", "triple-angle", "similitude"]
+tags: ["theoreme-de-morley", "trigonometrie", "loi-des-sinus", "triple-angle", "triangle"]
 recommended: true
 provenance: adapted
 adapted_from: "résultat classique (théorème de Morley, 1899) ; énoncé, découpage en questions et solution Axiomaths ; démonstration trigonométrique rédigée par Axiomaths"
 idea: "morley"
-dressing: "calcul-trigonometrique"
-rung: 3
+dressing: "Morley par le calcul trigonométrique"
+rung: 5
 ---
 Soit $ABC$ un triangle d'angles $\widehat A=3\alpha$, $\widehat B=3\beta$, $\widehat C=3\gamma$, de rayon circonscrit $\rho$. On trace les trisectrices et l'on note $P$, $Q$, $R$ les points du théorème de Morley :
 

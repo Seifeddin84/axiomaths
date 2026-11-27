@@ -11,7 +11,9 @@ year: 2022
 professor: "M. Rjiba Zied"
 difficulty: "Moyen"
 points: null
-tags: ["suite-recurrente", "suite-arithmetique"]
+tags: ["suite-recurrente", "suite-homographique", "suite-arithmetique", "suite-auxiliaire"]
+dressing: "auxiliaire arithmétique pour une récurrence rationnelle"
+rung: 3
 ---
 
 On considère la suite $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = \frac{5u_n - 1}{4u_n + 1}$ pour $n \in \mathbb{N}$.

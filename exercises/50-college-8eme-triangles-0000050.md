@@ -11,7 +11,9 @@ year: 2024
 professor: "محمود العيساوي"
 difficulty: "Moyen"
 points: 6
-tags: ["geometrie", "triangles-isometriques", "cercle"]
+tags: ["cercle", "tangentes", "egalite-de-longueurs"]
+dressing: "cercles, tangentes et triangles isométriques"
+rung: 3
 ---
 في الرسم المصاحب $\zeta$ دائرة مركزها $A$ و $\zeta'$ دائرة مركزها $B$.
 $\Delta$ مماس للدائرتين $\zeta$ و $\zeta'$ على التوالي في $F$ و $E$. $\Delta'$ مماس للدائرتين $\zeta$ و $\zeta'$ على التوالي في $G$ و $H$.

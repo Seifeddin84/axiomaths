@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["vecteurs", "milieux", "parallelogramme", "losange", "carre", "repere-orthonorme"]
+tags: ["vecteurs", "quadrilatere-des-milieux", "theoreme-de-varignon", "parallelogramme", "demonstration"]
 provenance: own
-dressing: "quadrilatère des milieux, du cas général au cas particulier"
+dressing: "théorème de Varignon par les vecteurs"
 rung: 5
 ---
 Soit $ABCD$ un quadrilatère quelconque. On note $I$, $J$, $K$ et $L$ les milieux respectifs des côtés $[AB]$, $[BC]$, $[CD]$ et $[DA]$.

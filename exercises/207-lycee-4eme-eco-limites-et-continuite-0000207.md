@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["continuite", "continuite-sur-un-intervalle", "fonction-definie-par-morceaux", "raccordement"]
+tags: ["continuite", "fonction-par-morceaux", "raccordement"]
+dressing: "raccordement de deux morceaux"
+rung: 2
 ---
 
 Étudier dans chaque cas la continuité de la fonction $f$ sur l'intervalle $I$.

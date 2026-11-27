@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "transformation-affine", "moyenne", "ecart-type", "coefficient-de-variation"]
+tags: ["statistiques", "moyenne", "ecart-type"]
 provenance: "own"
-dressing: "transformation affine"
-rung: 1
+dressing: "effet d'une augmentation sur moyenne et écart type"
+rung: 2
 batch: "2026-11-20-stat-3eco-A"
 ---
 

@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions", "moyenne", "encadrement", "synthese"]
+tags: ["fractions", "moyenne", "comparaison", "encadrement"]
+dressing: "moyenne de deux fractions comprise entre elles"
+rung: 3
 ---
 
 نعتبر العددين $a=\dfrac{7}{12}$ و $b=\dfrac{5}{8}$.

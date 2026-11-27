@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["factorisation", "identites-remarquables", "equations-produit", "tableau-de-signes"]
+tags: ["factorisation", "identites-remarquables", "polynomes"]
 provenance: "own"
+dressing: "factorisations en chaîne"
+rung: 2
 batch: "2026-11-22-revision-1ere-A"
 ---
 

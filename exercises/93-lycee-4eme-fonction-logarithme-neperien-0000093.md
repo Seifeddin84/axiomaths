@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["lecture-graphique", "suites-reelles", "integration", "fonction-reciproque"]
+tags: ["lecture-graphique", "suites-d-integrales", "integrales", "logarithme-neperien"]
+dressing: "lecture graphique puis suite définie par une intégrale"
+rung: 5
 ---
 
 La figure ci-dessous est la représentation dans un repère $O.N(O, \vec{i}, \vec{j})$ d'une fonction $f$ définie sur $\mathbb{R}$ par : $f(x) = \dfrac{ax^2 + bx + c}{x^2 + 1}$

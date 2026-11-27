@@ -11,7 +11,9 @@ year: 2013
 professor: "Benzina & Azzaz"
 difficulty: "Moyen"
 points: 6
-tags: ["fonction-affine", "représentation-graphique", "alignement", "inéquations", "aire"]
+tags: ["representation-graphique", "alignement", "inequations", "aires"]
+dressing: "fonction affine, alignement et aires"
+rung: 3
 ---
 
 On munit le plan d'un repère $(O, I, J)$ tel que $OI = OJ = 1$ et $(OI) \perp (OJ)$.

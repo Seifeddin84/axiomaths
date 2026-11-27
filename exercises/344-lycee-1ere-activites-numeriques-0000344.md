@@ -11,8 +11,10 @@ year: 2019
 professor: "M. Ghorbeli Med Hedi"
 difficulty: "Facile"
 points: null
-tags: ["pgcd", "fraction-irreductible", "nombre-decimal", "arrondi"]
+tags: ["arithmetique", "pgcd", "fractions-irreductibles"]
 provenance: scan
+dressing: "PGCD et fraction irréductible"
+rung: 1
 ---
 
 1. Calculer $\mathrm{PGCD}(630\,;\,3300)$, puis mettre sous forme irréductible la fraction $a=\dfrac{630}{3300}$.

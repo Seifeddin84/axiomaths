@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["symetrie-centrale", "construction", "droites", "discussion"]
+tags: ["symetrie-centrale", "construction", "droites"]
+dressing: "construire un segment de milieu imposé"
+rung: 5
 ---
 
 $d$ و $\Delta$ مستقيمان و $O$ نقطة لا تنتمي إلى أي منهما. نريد بناء قطعة $[MN]$ منتصفها $O$ حيث $M\in d$ و $N\in\Delta$.

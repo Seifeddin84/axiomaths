@@ -12,6 +12,8 @@ professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
 tags: ["statistiques", "moyenne", "ecart-type", "mediane", "quartiles"]
+dressing: "notes d'une classe : indicateurs"
+rung: 2
 ---
 Le tableau suivant donne la répartition des notes obtenues par les $25$ élèves d'une classe lors d'un devoir :
 

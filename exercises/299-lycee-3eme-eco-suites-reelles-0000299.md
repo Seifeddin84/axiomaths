@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["suites", "somme-geometrique", "limite", "decimal-periodique", "fraction"]
+tags: ["suites", "fractions", "somme-de-termes"]
 provenance: "own"
-dressing: "somme infinie"
+dressing: "écritures décimales périodiques en fractions"
 rung: 3
 batch: "2026-11-20-suites-3eco-A"
 ---

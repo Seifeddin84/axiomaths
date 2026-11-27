@@ -11,7 +11,9 @@ year: 2025
 professor: "El GHALI Mounir"
 difficulty: "Moyen"
 points: 7
-tags: ["fonctions-lineaires", "aires", "trapeze", "geometrie"]
+tags: ["fonctions-lineaires", "aires", "trapeze", "repere-orthonorme"]
+dressing: "fonction linéaire et aire d'un trapèze"
+rung: 3
 ---
 
 Soit $(O, I, J)$ un repère du plan orthonormé. On considère la fonction linéaire $f$ telle que : $f(1) = 2$.

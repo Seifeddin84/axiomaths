@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["fractions", "comparaison", "ordre"]
+tags: ["fractions", "comparaison", "ordre", "nombres-rationnels"]
+dressing: "comparer et ranger des fractions"
+rung: 1
 ---
 
 1. قارن في كل حالة بين العددين :

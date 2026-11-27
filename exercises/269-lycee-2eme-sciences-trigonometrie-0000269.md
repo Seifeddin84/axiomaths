@@ -11,13 +11,13 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["papillon", "cercle", "loi-du-sinus", "distance-point-droite", "corde"]
+tags: ["theoreme-du-papillon", "loi-des-sinus", "cercle", "trigonometrie"]
 recommended: true
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "distances-sinus"
-rung: 3
+dressing: "papillon par les distances et la loi du sinus"
+rung: 5
 ---
 Soit $\Gamma$ un cercle de centre $O$ et de rayon $R$, et $[PQ]$ une corde de milieu $M$. On pose $a=MP=MQ$. Soient $[AB]$ et $[CD]$ deux cordes passant par $M$, avec $A$ et $C$ du même côté de $(PQ)$ (donc $B$ et $D$ de l'autre côté). On note
 

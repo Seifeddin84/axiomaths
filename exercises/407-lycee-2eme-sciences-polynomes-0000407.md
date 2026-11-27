@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["polynomes", "identification", "racines", "systeme", "tableau-de-signes"]
+tags: ["polynomes", "identification", "racine", "systeme", "second-degre"]
 provenance: own
-dressing: "construire un polynôme à partir de ses valeurs, puis de ses racines"
+dressing: "polynôme déterminé par des valeurs ou des racines"
 rung: 2
 ---
 **Partie A : à partir de trois valeurs**

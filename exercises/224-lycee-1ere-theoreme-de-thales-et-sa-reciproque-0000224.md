@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["qcm", "thales", "reciproque", "milieux", "papillon"]
+tags: ["qcm", "thales", "milieux", "triangle"]
 provenance: own
+dressing: "QCM à réponses multiples sur Thalès"
+rung: 4
 ---
 
 Pour chaque question, **une ou plusieurs** réponses sont correctes. Aucune justification n'est demandée.

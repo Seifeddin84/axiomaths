@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "recherche-erreur", "quartiles", "variance"]
+tags: ["statistiques", "recherche-d-erreur", "moyenne", "mediane", "pieges"]
 provenance: "own"
+dressing: "trouver l'erreur dans les calculs d'indicateurs"
+rung: 4
 batch: "2026-11-19-3eco-statistiques-n5"
 ---
 

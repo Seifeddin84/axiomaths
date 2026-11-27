@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["coniques", "ellipse", "application-affine", "papillon"]
+tags: ["theoreme-du-papillon", "coniques", "ellipse"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "application-affine"
-rung: 5
+dressing: "papillon d'une ellipse par une application affine"
+rung: 3
 ---
 Soit $\mathcal E$ l'ellipse d'équation $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$ avec $a>b>0$, dans un repère orthonormé $(O\,;\vec\imath,\vec\jmath)$. On considère l'application
 $$\displaystyle f:\ (x,y)\longmapsto\Big(x,\ \frac ab\,y\Big).$$

@@ -11,8 +11,10 @@ year: 2009
 professor: null
 difficulty: "Moyen"
 points: null
-tags: ["graphes", "chaine-eulerienne", "nombre-chromatique", "dijkstra", "matrice-adjacence"]
+tags: ["graphes", "chaine-eulerienne", "coloriage", "plus-court-chemin", "bac"]
 recommended: true
+dressing: "situation concrète : randonnée"
+rung: 3
 ---
 
 Un groupe d'amis organise une randonnée dans les Alpes. On a représenté ci-dessous par un graphe $G$ les sommets par lesquels ils peuvent choisir de passer ; les arêtes sont pondérées par les durées des trajets.

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["apollonius", "lieu-geometrique", "inversion", "points-isodynamiques", "barycentre"]
+tags: ["barycentre", "cercles-d-apollonius", "lieu-geometrique", "triangle", "defi"]
 provenance: "adapted"
+dressing: "cercles d'Apollonius et points isodynamiques"
+rung: 5
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

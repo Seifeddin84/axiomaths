@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["divisibilite", "gauss", "racines-rationnelles", "trigonometrie", "trisection"]
+tags: ["polynomes", "irrationalite", "triple-angle", "trigonometrie"]
 provenance: adapted
 adapted_from: "résultat classique (impossibilité de la trisection, P.-L. Wantzel, 1837) ; énoncé et solution Axiomaths"
 idea: "trisection"
-dressing: "polynome-de-wantzel"
-rung: 3
+dressing: "polynôme de la trisection et irrationalité"
+rung: 5
 ---
 On considère le polynôme $\Pi(x)=8x^3-6x-1$.
 

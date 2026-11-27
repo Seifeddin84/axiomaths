@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["barycentre", "aires", "inegalite", "centre-de-gravite", "barycentre-partiel"]
+tags: ["barycentre", "aires", "triangle"]
 recommended: true
+dressing: "coefficients d'aires et inégalité"
+rung: 5
 ---
 
 Soit $ABC$ un triangle et $M$ un point intérieur à ce triangle. Les droites $(AM)$, $(BM)$ et $(CM)$ coupent respectivement les côtés $[BC]$, $[CA]$ et $[AB]$ en $A'$, $B'$ et $C'$.

@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Moyen"
 points: null
-tags: ["logarithme-neperien", "prolongement-continuite", "tangente", "etude-de-fonctions"]
+tags: ["logarithme-neperien", "etude-de-fonction", "prolongement-par-continuite", "tangente"]
+dressing: "étude d'un quotient avec ln au dénominateur"
+rung: 3
 ---
 
 Soit $f$ la fonction définie par : $f(x) = \dfrac{x}{x - \ln x}$

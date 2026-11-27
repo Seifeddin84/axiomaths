@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["polynomes", "degre", "coefficients", "operations", "valeur"]
+tags: ["polynomes", "degre", "operations"]
 provenance: own
-dressing: "lecture du degré et des coefficients"
+dressing: "degré et opérations sur les polynômes"
 rung: 1
 ---
 On considère les polynômes $P(x) = 3x^3 - 2x^2 + x - 5$, $Q(x) = x^3 - 2x^2 + 4x + 1$ et $R(x) = x^2 + 1$.

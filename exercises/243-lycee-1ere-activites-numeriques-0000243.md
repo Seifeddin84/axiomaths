@@ -11,9 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["radicaux", "denestage", "identites-remarquables"]
+tags: ["identites-remarquables", "radicaux", "simplification"]
 provenance: own
 idea: "denestage"
+dressing: "radicaux imbriqués et carrés cachés"
+rung: 3
 ---
 
 1. Vérifier que $(2+\sqrt5)^2=9+4\sqrt5$ et que $(\sqrt5-2)^2=9-4\sqrt5$. En déduire $\sqrt{9+4\sqrt5}$ et $\sqrt{9-4\sqrt5}$.

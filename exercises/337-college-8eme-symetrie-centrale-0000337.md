@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["droite-des-milieux", "symetrie-centrale", "varignon", "parallelogramme", "synthese"]
+tags: ["symetrie-centrale", "droite-des-milieux", "parallelogramme", "demonstration"]
+dressing: "droite des milieux par la symétrie centrale"
+rung: 5
 ---
 
 **الجزء 1.** $ABC$ مثلث، $I$ منتصف $[AB]$ و $J$ منتصف $[AC]$ و $K$ مناظرة $I$ بالنسبة إلى $J$.

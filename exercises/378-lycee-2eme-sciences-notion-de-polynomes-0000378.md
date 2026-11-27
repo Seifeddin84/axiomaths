@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["polynomes", "degre", "racines", "vrai-faux"]
+tags: ["vrai-faux", "polynomes", "degre", "racine", "contre-exemple"]
 provenance: "own"
+dressing: "vrai ou faux sur les polynômes"
+rung: 4
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

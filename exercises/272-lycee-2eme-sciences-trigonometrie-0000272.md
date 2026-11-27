@@ -11,13 +11,13 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["morley", "conway", "loi-du-sinus", "similitude", "trisectrices"]
+tags: ["theoreme-de-morley", "preuve-de-conway", "trigonometrie", "construction", "angles"]
 recommended: true
 provenance: adapted
 adapted_from: "résultat classique (théorème de Morley, 1899) ; énoncé, découpage en questions et solution Axiomaths ; preuve « à rebours » de J. H. Conway"
 idea: "morley"
-dressing: "a-rebours"
-rung: 3
+dressing: "preuve de Conway à rebours"
+rung: 5
 ---
 On pose $\alpha,\beta,\gamma>0$ avec $\alpha+\beta+\gamma=60^\circ$. On veut construire un triangle $A'B'C'$ d'angles $3\alpha$, $3\beta$, $3\gamma$ dont les trisectrices adjacentes se coupent en trois points $P,Q,R$ formant un triangle **équilatéral** (preuve de Conway, « à rebours »).
 

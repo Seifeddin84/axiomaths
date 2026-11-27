@@ -11,7 +11,9 @@ year: 2025
 professor: null
 difficulty: "Difficile"
 points: 6
-tags: ["geometrie", "triangle-rectangle", "cercle", "relations-metriques"]
+tags: ["relations-metriques", "triangle-rectangle", "cercle", "hauteur", "theoreme-de-pythagore"]
+dressing: "cercle de diamètre donné, triangle rectangle"
+rung: 3
 ---
 
 (وحدة قيس الطول هي الصنتمتر)

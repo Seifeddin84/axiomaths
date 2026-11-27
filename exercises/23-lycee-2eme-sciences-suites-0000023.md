@@ -11,12 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Difficile
 points: 7
-tags:
-- suite
-- suite géométrique
-- suite auxiliaire
-- somme
-- fraction
+tags: ["suites", "suite-recurrente", "suite-homographique", "suite-auxiliaire", "suite-geometrique"]
+dressing: "suite auxiliaire en 1/U_n"
+rung: 3
 ---
 Soit $U$ la suite définie sur $\mathbb{N}^*$ par :
 

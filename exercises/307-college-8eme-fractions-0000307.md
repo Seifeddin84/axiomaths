@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["fractions", "simplification", "egalite"]
+tags: ["fractions", "simplification", "fractions-irreductibles", "nombres-rationnels"]
+dressing: "réduction à la forme irréductible"
+rung: 1
 ---
 
 1. اختزل كل عدد كسري إلى كسر غير قابل للاختزال :

@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["graphes", "theoreme-d-euler", "chaine-eulerienne", "cycle-eulerien", "graphe-oriente"]
+tags: ["graphes", "theoreme-d-euler", "chaine-eulerienne", "cycle-eulerien"]
+dressing: "conditions d'Euler"
+rung: 1
 ---
 
 Donner les conditions pour qu'un graphe ait :

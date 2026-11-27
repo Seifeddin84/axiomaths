@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["symetrie-centrale", "symetrie-axiale", "cercle", "rectangle", "angles", "synthese"]
+tags: ["symetrie-centrale", "cercle", "rectangle", "diametre", "angles"]
+dressing: "cercle, diamètre et rectangle"
+rung: 3
 ---
 
 $\mathcal{C}$ دائرة مركزها $O$ وشعاعها $3\,\mathrm{cm}$ و $[AB]$ قطر لها. $M$ نقطة من $\mathcal{C}$ حيث $\widehat{AOM}=40^\circ$ ، $N$ مناظرة $M$ بالنسبة إلى $(AB)$ ، و $M'$ و $N'$ مناظرتا $M$ و $N$ بالنسبة إلى $O$.

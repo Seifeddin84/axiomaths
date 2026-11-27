@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "fonction-rationnelle", "domaine-de-definition", "signe", "asymptotes"]
+tags: ["limites", "fraction-rationnelle", "domaine-de-definition", "asymptotes", "signe"]
+dressing: "fraction rationnelle : limites aux bornes"
+rung: 2
 ---
 
 Soit la fonction $f$ définie par $f(x) = \dfrac{-2x + 5}{x^2 - 5x + 6}$.

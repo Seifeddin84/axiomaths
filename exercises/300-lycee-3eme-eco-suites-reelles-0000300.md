@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["suites", "somme-geometrique", "limite", "seuil", "modelisation"]
+tags: ["suites", "suite-geometrique", "somme-de-termes", "modelisation"]
 provenance: "own"
-dressing: "somme cumulée"
-rung: 3
+dressing: "dons annuels décroissants d'une association"
+rung: 2
 batch: "2026-11-20-suites-3eco-A"
 ---
 

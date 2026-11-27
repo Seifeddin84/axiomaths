@@ -11,7 +11,9 @@ year: 2024
 professor: null
 difficulty: "Moyen"
 points: 3
-tags: ["calcul-radicaux", "simplification"]
+tags: ["radicaux", "simplification", "nombres-reels", "identites-remarquables"]
+dressing: "simplifier des expressions à radicaux"
+rung: 2
 ---
 
 $a = \dfrac{\sqrt{3}^{-1}(2\sqrt{6} - \sqrt{18})}{\sqrt{2}}$ و $b = \dfrac{(\sqrt{3} + \sqrt{2})^2 - (\sqrt{3} - \sqrt{2})^2}{4\sqrt{2}} + 2$

@@ -11,8 +11,10 @@ year: 2001
 professor: null
 difficulty: "Moyen"
 points: 5
-tags: ["bac", "nombres-complexes", "equation-second-degre", "forme-trigonometrique", "angles", "bissectrice"]
+tags: ["nombres-complexes", "bissectrice", "geometrie-complexe", "bac"]
 bac: "2001-principale-maths"
+dressing: "homographie complexe et points invariants"
+rung: 3
 ---
 
 Dans le plan complexe $\mathcal{P}$ rapporté à un repère orthonormé $(O,\vec{u},\vec{v})$ on considère les points $A$ et $B$ d'affixes respectives $a$ et $1$, où $a$ est un nombre complexe donné différent de $1$.

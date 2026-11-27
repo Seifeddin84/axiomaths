@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["fractions", "addition", "soustraction"]
+tags: ["fractions", "soustraction", "nombres-rationnels"]
+dressing: "addition et soustraction de fractions"
+rung: 1
 ---
 
 احسب ثم اختزل النتيجة إن أمكن :

@@ -11,7 +11,9 @@ year: 1986
 professor: "A.G Tsypkin & A.I Pinsky"
 difficulty: "Difficile"
 points: 10
-tags: ["équations", "changement de variable", "racine carrée"]
+tags: ["equations", "equations-irrationnelles", "racines-carrees", "changement-de-variable"]
+dressing: "équations avec racines imbriquées"
+rung: 3
 ---
 
 

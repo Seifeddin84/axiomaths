@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["matrices", "puissance-de-matrice", "matrice-inverse", "produit-matriciel"]
+tags: ["matrices", "matrice-inverse", "determinant"]
+dressing: "inverse tirée d'une relation polynomiale"
+rung: 3
 ---
 
 On donne les matrices :

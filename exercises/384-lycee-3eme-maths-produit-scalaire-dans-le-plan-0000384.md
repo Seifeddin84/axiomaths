@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["euler", "poncelet", "cercle-inscrit", "puissance-d-un-point", "triangle"]
+tags: ["formule-d-euler", "cercle-circonscrit", "cercle-inscrit", "produit-scalaire", "theoreme-de-poncelet", "defi"]
 provenance: "adapted"
+dressing: "OI² = R² − 2Rr et réciproque"
+rung: 5
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

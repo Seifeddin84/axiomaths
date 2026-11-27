@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions", "priorites-operations", "fractions-composees"]
+tags: ["fractions", "fractions-composees", "calcul"]
+dressing: "priorité des opérations et fractions composées"
+rung: 2
 ---
 
 1. احسب ثم اختزل :

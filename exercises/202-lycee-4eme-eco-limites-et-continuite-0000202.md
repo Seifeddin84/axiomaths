@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "fonction-definie-par-morceaux", "racine-carree", "limite-a-gauche-et-a-droite", "continuite"]
+tags: ["limites", "fonction-par-morceaux", "limites-laterales"]
+dressing: "fonction par morceaux"
+rung: 2
 ---
 
 Soit la fonction $f$ définie par le système suivant :

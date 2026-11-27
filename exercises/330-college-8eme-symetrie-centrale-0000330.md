@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["symetrie-centrale", "synthese", "quadrillage", "parallelogramme", "aire"]
+tags: ["symetrie-centrale", "triangle", "construction", "quadrillage", "images"]
+dressing: "triangle et son symétrique sur quadrillage"
+rung: 3
 ---
 
 في الشبكة المرسومة (ضلع المربع الصغير يساوي $1\,\mathrm{cm}$)، $ABC$ مثلث و $O$ نقطة.

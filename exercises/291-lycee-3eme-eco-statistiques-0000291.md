@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["statistiques", "serie-double", "nuage-de-points", "point-moyen", "droite-de-mayer", "prevision"]
+tags: ["statistiques", "serie-double", "droite-de-mayer", "ajustement-affine", "prevision"]
 provenance: "own"
-dressing: "droite de Mayer"
-rung: 3
+dressing: "ventes mensuelles et droite de Mayer"
+rung: 2
 batch: "2026-11-20-stat-3eco-A"
 ---
 

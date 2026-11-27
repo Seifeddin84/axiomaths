@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "symetrie-centrale", "composition", "milieu", "relation-de-chasles"]
+tags: ["translation", "symetrie-centrale", "composition", "demonstration", "milieu"]
 provenance: adapted
 adapted_from: "Manuel 2ème année, Tome 1, chapitre 7 (activité sur la composée de deux symétries centrales)"
-dressing: "composée de deux symétries centrales"
+dressing: "deux symétries centrales composent une translation"
 rung: 5
 ---
 Soient $I$ et $J$ deux points distincts. On note $S_I$ et $S_J$ les symétries centrales de centres $I$ et $J$ : $S_I(M) = M_1$ signifie que $I$ est le milieu de $[MM_1]$.

@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["symetrie-centrale", "quadrillage", "construction", "milieu"]
+tags: ["symetrie-centrale", "construction", "quadrillage"]
+dressing: "construire des symétriques sur quadrillage"
+rung: 1
 ---
 
 في الشبكة المرسومة، نعتبر ضلع المربع الصغير وحدة طول.

@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["graphes", "chaine-eulerienne", "nombre-chromatique", "matrice-adjacence", "puissance-de-matrice"]
+tags: ["graphes", "cycle-eulerien", "coloriage", "matrice-d-adjacence"]
+dressing: "étude complète d'un graphe d'ordre 8"
+rung: 3
 ---
 
 On considère le graphe $G$ suivant :

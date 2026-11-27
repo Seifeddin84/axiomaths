@@ -11,8 +11,10 @@ year: 1988
 professor: null
 difficulty: "Difficile"
 points: 12
-tags: ["bac", "somme-et-integrale", "fonction-exponentielle", "suite-geometrique", "integrale-fonction-des-bornes"]
+tags: ["suites-reelles", "sommes", "exponentielle", "integrales", "bac"]
 bac: "1988-principale-maths"
+dressing: "somme encadrée par des intégrales"
+rung: 5
 ---
 
 ### Partie I

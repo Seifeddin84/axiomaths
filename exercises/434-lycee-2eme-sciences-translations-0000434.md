@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "parallelogramme", "rectangle", "orthogonalite", "coordonnees"]
+tags: ["translation", "parallelogramme", "orthogonalite", "conservation"]
 provenance: own
-dressing: "nature d'un quadrilatère conservée"
-rung: 2
+dressing: "parallélisme et orthogonalité par translation"
+rung: 3
 ---
 **Partie A : un parallélogramme**
 

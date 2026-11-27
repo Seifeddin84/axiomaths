@@ -11,12 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Difficile
 points: 7
-tags:
-- suite
-- suite géométrique
-- suite homographique
-- somme
-- radicaux
+tags: ["suites", "suite-homographique", "suite-auxiliaire", "suite-geometrique", "radicaux"]
+dressing: "homographique avec des radicaux"
+rung: 3
 ---
 Soit $U$ la suite définie sur $\mathbb{N}^*$ par :
 

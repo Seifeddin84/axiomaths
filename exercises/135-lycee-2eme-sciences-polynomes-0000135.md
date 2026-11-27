@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["polynomes", "equation-symetrique", "changement-de-variable", "identification", "somme-telescopique"]
+tags: ["polynomes", "changement-de-variable", "degre-4"]
+dressing: "équation symétrique de degré 4"
+rung: 3
 ---
 
 **Partie A : une équation de degré 4**

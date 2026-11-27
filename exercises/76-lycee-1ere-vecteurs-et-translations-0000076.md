@@ -11,7 +11,9 @@ year: 2013
 professor: "Benzina & Azzaz"
 difficulty: "Difficile"
 points: 7
-tags: ["vecteurs", "translations", "cercle", "symétrie", "orthogonalité"]
+tags: ["vecteurs", "translation", "triangle-isocele", "cercle", "orthogonalite"]
+dressing: "construction et translations dans un triangle isocèle"
+rung: 3
 ---
 
 $ABC$ est un triangle isocèle en $A$ et $I$ est le milieu du segment $[AC]$.

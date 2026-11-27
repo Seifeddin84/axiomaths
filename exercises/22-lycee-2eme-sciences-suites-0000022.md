@@ -11,11 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Moyen
 points: 6
-tags:
-- suite
-- suite géométrique
-- suite auxiliaire
-- somme
+tags: ["suites", "suite-recurrente", "suite-geometrique", "suite-auxiliaire", "somme-de-termes"]
+dressing: "suite auxiliaire sur le carré des termes"
+rung: 3
 ---
 Soit $U$ la suite définie sur $\mathbb{N}$ par :
 

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["puissances", "factorisation", "comparaison", "chiffre-des-unites"]
+tags: ["puissances", "comparaison", "factorisation", "sans-calculatrice"]
 provenance: own
+dressing: "comparer des puissances sans calculer"
+rung: 3
 ---
 
 1. Ranger par ordre croissant $3^{40}$, $4^{30}$ et $5^{20}$ (sans calculatrice).

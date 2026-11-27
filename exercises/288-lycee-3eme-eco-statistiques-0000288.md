@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "tableau-d-effectifs", "moyenne", "ecart-type", "quartiles"]
+tags: ["statistiques", "serie-discrete", "effectifs", "moyenne", "ecart-type"]
 provenance: "own"
-dressing: "tableau d'effectifs"
-rung: 2
+dressing: "série à effectifs : enfants par famille"
+rung: 1
 batch: "2026-11-20-stat-3eco-A"
 ---
 

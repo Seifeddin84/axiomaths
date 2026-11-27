@@ -11,9 +11,11 @@ year: 1990
 professor: null
 difficulty: "Difficile"
 points: 12
-tags: ["bac", "stirling", "integrales", "suites", "logarithme", "integration-par-parties"]
+tags: ["stirling", "integrales", "integrales-de-wallis", "suites", "logarithme", "bac"]
 bac: "1990-principale-maths"
 recommended: true
+dressing: "formule de Stirling pas à pas"
+rung: 5
 ---
 
 ### Partie I

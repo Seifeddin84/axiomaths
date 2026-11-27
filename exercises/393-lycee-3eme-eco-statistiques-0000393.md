@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "variance", "ecart-type", "coefficient-de-variation"]
+tags: ["statistiques", "dispersion", "ecart-type", "comparaison"]
 provenance: "own"
+dressing: "comparer deux machines par la dispersion"
+rung: 3
 batch: "2026-11-19-3eco-statistiques-n5"
 ---
 

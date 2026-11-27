@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["suites", "suite-recurrente", "suite-auxiliaire", "suite-geometrique", "limite"]
+tags: ["suites", "suite-arithmetico-geometrique", "suite-auxiliaire", "modelisation"]
 provenance: "own"
-dressing: "U(n+1)=aU(n)+b, a=0,75"
+dressing: "stock avec vente proportionnelle et réapprovisionnement"
 rung: 3
 batch: "2026-11-20-suites-3eco-A"
 ---

@@ -11,10 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["partie-entiere", "sommes", "encadrements", "challenge"]
+tags: ["sommes", "encadrement", "radicaux"]
 provenance: own
 idea: "telescopage"
-dressing: "encadrement"
+dressing: "challenge : partie entière d'une somme de 1/√k"
+rung: 5
 ---
 
 1. Montrer que pour tout entier $k\ge1$ : $\dfrac1{2\sqrt{k+1}}<\sqrt{k+1}-\sqrt k<\dfrac1{2\sqrt k}$.

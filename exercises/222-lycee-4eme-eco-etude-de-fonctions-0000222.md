@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["lecture-graphique", "polynome-degre-3", "tangente", "point-d-inflexion", "theoreme-des-valeurs-intermediaires", "fonction-composee"]
+tags: ["etude-de-fonction", "lecture-graphique", "fonction-cubique", "point-d-inflexion", "identification"]
+dressing: "retrouver une cubique sur son graphique"
+rung: 3
 ---
 
 On considère la fonction $f$ dont la courbe représentative est donnée dans la figure ci-dessous. On admet que $f(x) = mx^3 + nx^2 + px + q$. La courbe admet deux tangentes $\Delta$ et $T$ aux points d'abscisses $0$ et $2$ respectivement. $\Delta$ passe par le point $C(0{,}5\,;\,6{,}5)$. Les tangentes aux points d'abscisses $1$ et $3$ sont horizontales.

@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["suites", "suite-geometrique", "depreciation", "limite", "seuil"]
+tags: ["suites", "suite-geometrique", "pourcentages", "modelisation"]
 provenance: "own"
-dressing: "suite géométrique décroissante"
-rung: 2
+dressing: "dépréciation de 12 % par an"
+rung: 1
 batch: "2026-11-20-suites-3eco-A"
 ---
 

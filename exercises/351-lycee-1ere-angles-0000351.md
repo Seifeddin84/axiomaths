@@ -11,8 +11,10 @@ year: 2015
 professor: "M. Béchir Zdiri"
 difficulty: "Moyen"
 points: null
-tags: ["angle-inscrit", "angle-au-centre", "cercle", "diametre"]
+tags: ["angles", "angle-inscrit", "angle-au-centre", "cercle"]
 provenance: scan
+dressing: "quatre figures sur angle inscrit et angle au centre"
+rung: 2
 ---
 
 Dans chacun des cas suivants, $O$ est le centre du cercle. Déterminer les mesures des angles $a$, $b$, $x$, $y$, $z$ et $t$.

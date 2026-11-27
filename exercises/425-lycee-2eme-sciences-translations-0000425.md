@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "coordonnees", "droite", "parallelisme", "point-invariant"]
+tags: ["translation", "coordonnees", "vecteur-de-translation"]
 provenance: own
-dressing: "retrouver le vecteur, puis l'image d'une droite"
+dressing: "vecteur de translation et image d'une droite"
 rung: 2
 ---
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. Une translation $t$ envoie le point $A(1, 2)$ sur le point $A'(-1, 5)$.

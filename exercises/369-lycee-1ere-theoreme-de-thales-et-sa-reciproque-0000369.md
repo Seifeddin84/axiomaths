@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "papillon", "aires", "trapeze"]
+tags: ["thales", "trapeze", "aires", "diagonales"]
 provenance: "own"
+dressing: "aires dans un trapèze"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

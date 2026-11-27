@@ -11,7 +11,9 @@ year: 2026
 professor: "Hdiden Merghenni"
 difficulty: "Difficile"
 points: 10
-tags: ["géométrie", "homothétie", "cercle", "tangente", "angles orientés"]
+tags: ["homothetie", "cercle", "tangente", "angles-orientes", "carre"]
+dressing: "homothétie dans une figure à cercle circonscrit"
+rung: 5
 ---
 
 Dans l'annexe ci-jointe (page 2/2), on donne un cercle $\zeta$ de centre $I$ circonscrit à un carré $ABDC$ tel que $AB=6$ cm.

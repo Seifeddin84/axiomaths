@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "serie-individuelle", "moyenne", "mediane", "quartiles", "ecart-type"]
+tags: ["statistiques", "serie-simple", "moyenne", "mediane", "ecart-type", "quartiles"]
 provenance: "own"
-dressing: "série individuelle"
+dressing: "série simple : temps de trajet"
 rung: 1
 batch: "2026-11-20-stat-3eco-A"
 ---

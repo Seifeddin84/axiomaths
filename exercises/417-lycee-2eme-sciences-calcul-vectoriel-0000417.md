@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["vecteurs", "parallelogramme", "colinearite", "parallelisme", "alignement"]
+tags: ["vecteurs", "parallelogramme", "droites-paralleles", "alignement", "relation-de-chasles"]
 provenance: own
-dressing: "parallélogramme étudié avec les vecteurs de base"
-rung: 3
+dressing: "parallélisme et alignement dans un parallélogramme"
+rung: 2
 ---
 Soit $ABCD$ un parallélogramme. On pose $\vec{u} = \overrightarrow{AB}$ et $\vec{v} = \overrightarrow{AD}$. On considère les points $E$ et $F$ définis par $\overrightarrow{AE} = \dfrac{1}{3}\overrightarrow{AB}$ et $\overrightarrow{AF} = \dfrac{1}{3}\overrightarrow{AD}$, et on note $I$ le milieu de $[EF]$.
 

@@ -11,8 +11,10 @@ year: 1990
 professor: null
 difficulty: "Difficile"
 points: 4
-tags: ["bac", "rotation", "antideplacement", "symetrie-glissee", "lieu-geometrique"]
+tags: ["rotation", "antideplacement", "lieu-geometrique", "deplacements", "bac"]
 bac: "1990-principale-maths"
+dressing: "rotation, antidéplacement et lieu de milieux"
+rung: 3
 ---
 
 Dans le plan orienté, on considère un triangle $ABC$ non isocèle tel que $\left(\widehat{\overrightarrow{AB}, \overrightarrow{AC}}\right) \equiv \dfrac{\pi}{2}\ [2\pi]$. À tout point $M$ de la droite $(AB)$ on associe le point $N$ de la droite $(AC)$ tel que $M$ et $N$ soient dans un même demi-plan de bord $(BC)$ et $BM = CN$.

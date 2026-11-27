@@ -11,7 +11,9 @@ year: 2026
 professor: "M. Mourad Ziadi"
 difficulty: "Moyen"
 points: 7
-tags: ["etude-de-fonctions", "continuite", "derivabilite", "primitives", "calcul-aire"]
+tags: ["etude-de-fonction", "primitive", "aire", "derivabilite", "continuite"]
+dressing: "fonction avec racine carrée et aire"
+rung: 3
 ---
 
 Soit $f$ la fonction définie sur $[0, +\infty[$ par : $f(x) = \frac{\sqrt{x}}{x+1}$.

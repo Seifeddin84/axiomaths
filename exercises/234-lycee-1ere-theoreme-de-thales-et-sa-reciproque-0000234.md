@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "carre-inscrit", "triangle", "equation"]
+tags: ["thales", "triangle", "hauteur", "equation"]
 provenance: own
+dressing: "carré inscrit dans un triangle"
+rung: 3
 ---
 
 Soit $ABC$ un triangle, $a=BC$ et $h=AH$ la hauteur issue de $A$ ($H\in[BC]$). On inscrit dans $ABC$ un carré $PQRS$ de côté $s$, avec $P,Q\in[BC]$, $S\in[AB]$ et $R\in[AC]$ ; la hauteur $[AH]$ coupe $[SR]$ en $K$.

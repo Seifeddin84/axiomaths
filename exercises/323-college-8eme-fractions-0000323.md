@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["defi", "fractions", "produit-telescopique", "encadrement"]
+tags: ["fractions", "comparaison", "encadrement", "defi"]
+dressing: "produit de fractions à comparer"
+rung: 5
 ---
 
 نعتبر العددين :

@@ -11,7 +11,9 @@ year: 2025
 professor: null
 difficulty: "Facile"
 points: 4
-tags: ["équation", "module"]
+tags: ["nombres-complexes", "equation-second-degre", "module", "forme-trigonometrique"]
+dressing: "équation du second degré dans C"
+rung: 2
 ---
 
 

@@ -11,7 +11,9 @@ year: 1986
 professor: "A.G Tsypkin & A.I Pinsky"
 difficulty: "Difficile"
 points: 10
-tags: ["trigonoétrie"]
+tags: ["trigonometrie", "identites-trigonometriques", "demonstration"]
+dressing: "démontrer des identités trigonométriques"
+rung: 3
 ---
 
 

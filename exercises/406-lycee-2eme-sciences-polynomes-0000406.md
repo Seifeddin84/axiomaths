@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["polynomes", "racine-apparente", "horner", "factorisation", "equation"]
+tags: ["polynomes", "racine", "factorisation", "degre-3"]
 provenance: own
-dressing: "schéma de Horner sur trois polynômes"
+dressing: "factoriser avec le schéma de Horner"
 rung: 1
 ---
 On considère les trois polynômes :

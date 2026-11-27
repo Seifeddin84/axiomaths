@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["matrices", "determinant", "matrice-inverse", "systeme-lineaire"]
+tags: ["matrices", "matrice-inverse", "systemes"]
+dressing: "inverse par une combinaison de matrices"
+rung: 3
 ---
 
 On considère les matrices :

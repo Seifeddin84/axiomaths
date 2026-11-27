@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["fractions", "fractions-egyptiennes", "recherche-exhaustive"]
+tags: ["fractions", "decomposition", "arithmetique"]
+dressing: "décomposer 1/6 en deux fractions unitaires"
+rung: 5
 ---
 
 نبحث عن عددين صحيحين طبيعيين غير معدومين $a$ و $b$ حيث $a<b$ و $\dfrac{1}{6}=\dfrac{1}{a}+\dfrac{1}{b}$.

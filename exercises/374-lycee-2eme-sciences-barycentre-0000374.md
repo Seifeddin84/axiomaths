@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["barycentre", "coordonnees", "barycentre-partiel", "milieu"]
+tags: ["barycentre", "coordonnees", "repere", "calcul"]
 provenance: "own"
+dressing: "coordonnées dans un repère"
+rung: 1
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

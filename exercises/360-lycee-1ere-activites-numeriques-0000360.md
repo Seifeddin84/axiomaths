@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["divisibilite", "criteres-de-divisibilite", "chiffres-caches", "multiples-de-75"]
+tags: ["arithmetique", "criteres-de-divisibilite", "recherche-de-chiffres"]
 provenance: "own"
+dressing: "chiffres cachés et divisibilité"
+rung: 2
 batch: "2026-11-22-revision-1ere-A"
 ---
 

@@ -11,12 +11,14 @@ year: 2026
 professor: null
 difficulty: "Difficile"
 points: null
-tags: ["radicaux", "conjugue", "puissances", "partie-entiere", "defi"]
+tags: ["presque-un-entier", "radicaux", "recurrence", "suites"]
 provenance: adapted
 source_url: "https://projecteuler.net/problem=318"
 adapted_from: "Project Euler 318 (idée de départ) ; énoncé, chiffres et questions Axiomaths"
 source_checked: true
 idea: "conjugue-entier"
+dressing: "puissances proches d'un entier"
+rung: 5
 ---
 
 On pose $\alpha=3+2\sqrt2$, $\beta=3-2\sqrt2$ et, pour tout entier $n\geq0$, $s_n=\alpha^n+\beta^n$.

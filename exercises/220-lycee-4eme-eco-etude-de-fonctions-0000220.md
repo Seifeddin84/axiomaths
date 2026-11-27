@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["lecture-graphique", "derivee", "tableau-de-variations", "signe", "tangente"]
+tags: ["etude-de-fonction", "lecture-graphique", "variations", "tangente"]
+dressing: "reconnaître f et f' sur un graphique"
+rung: 3
 ---
 
 On a représenté sur la figure suivante les courbes représentatives d'une fonction $f$ et de sa dérivée $f'$ : $C_1$ et $C_2$. On sait que les deux courbes admettent l'axe des abscisses comme asymptote horizontale au voisinage de $\pm\infty$. (Sur le dessin, $C_1$ est en trait plein et $C_2$ en pointillés.)

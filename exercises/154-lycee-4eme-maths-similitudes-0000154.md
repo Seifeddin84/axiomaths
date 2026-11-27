@@ -11,8 +11,10 @@ year: 1988
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "barycentre", "homothetie", "translation", "point-invariant"]
+tags: ["similitudes", "transformations-du-plan", "translation", "homothetie", "famille-d-applications", "bac"]
 bac: "1988-principale-maths"
+dressing: "famille d'applications : translation ou homothétie"
+rung: 3
 ---
 
 Soit $A$, $B$, $C$ trois points non alignés d'un plan affine $\mathcal{P}$. Pour tout réel non nul $\alpha$, on considère l'application $f_\alpha$ de $\mathcal{P}$ dans $\mathcal{P}$ qui, à tout point $M$, associe le point $M'$ tel que :

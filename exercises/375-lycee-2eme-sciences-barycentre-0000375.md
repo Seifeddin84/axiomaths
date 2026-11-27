@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["barycentre", "centre-de-gravite", "reduction-vectorielle", "ensemble-de-points"]
+tags: ["barycentre", "sommes-vectorielles", "centre-de-gravite", "reduction"]
 provenance: "own"
+dressing: "réduire des sommes vectorielles"
+rung: 1
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

@@ -11,10 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["telescopage", "conjugue", "somme", "radicaux"]
+tags: ["somme-telescopique", "radicaux", "sommes"]
 provenance: own
 idea: "telescopage"
-dressing: "conjugue"
+dressing: "somme télescopique après expression conjuguée"
+rung: 3
 ---
 
 Pour tout entier $k\ge1$, on pose $u_k=\dfrac1{\sqrt k+\sqrt{k+1}}$.

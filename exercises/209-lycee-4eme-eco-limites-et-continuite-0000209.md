@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["continuite", "parametre", "fonction-definie-par-morceaux", "systeme-lineaire"]
+tags: ["continuite", "parametre", "systeme", "fonction-par-morceaux", "raccordement"]
+dressing: "deux paramètres et deux points de raccord"
+rung: 3
 ---
 
 Soit la fonction $f$ définie par :

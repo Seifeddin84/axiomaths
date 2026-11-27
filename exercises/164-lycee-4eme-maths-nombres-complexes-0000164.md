@@ -11,8 +11,10 @@ year: 1978
 professor: null
 difficulty: "Moyen"
 points: null
-tags: ["bac", "equation-second-degre", "parametre", "ensemble-de-points", "ellipse"]
+tags: ["nombres-complexes", "equation-second-degre", "ellipse", "lieu-geometrique", "bac"]
 bac: "1978-principale-maths"
+dressing: "équation à paramètre θ et lieu d'un point"
+rung: 3
 ---
 
 Soit, dans $\mathbb{C}$, l'équation : $z^2 - 2z + 2\sin^2\theta - 2i\sin\theta\cos\theta = 0$, avec $\theta \in [0, \pi[$.

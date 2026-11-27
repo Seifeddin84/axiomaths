@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "quartiles", "mediane", "diagramme-en-boite"]
+tags: ["statistiques", "quartiles", "mediane", "serie-simple"]
 provenance: "own"
+dressing: "quartiles d'une liste"
+rung: 1
 batch: "2026-11-19-3eco-statistiques-n5"
 ---
 

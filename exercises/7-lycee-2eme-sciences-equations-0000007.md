@@ -11,7 +11,9 @@ year: 1985
 professor: null
 difficulty: "Difficile"
 points: 4
-tags: ["équation", "paramètre"]
+tags: ["equation-second-degre", "discriminant", "parametre", "discussion"]
+dressing: "discussion selon un paramètre réel"
+rung: 3
 ---
 
 Résoudre dans $\mathbb{R}$, selon le paramètre réel $m$, les équations suivantes: 

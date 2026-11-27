@@ -11,7 +11,9 @@ year: 2025
 professor: null
 difficulty: "Difficile"
 points: 7
-tags: ["etude-de-fonctions", "integration-par-parties", "suites", "bijection"]
+tags: ["etude-de-fonction", "exponentielle", "integration-par-parties", "suites", "bijection", "suites-d-integrales"]
+dressing: "famille de fonctions et suite d'intégrales"
+rung: 5
 ---
 
 

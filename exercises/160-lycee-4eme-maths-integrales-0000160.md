@@ -11,8 +11,10 @@ year: 1983
 professor: null
 difficulty: "Moyen"
 points: null
-tags: ["bac", "integrale-fonction-des-bornes", "aire", "demi-disque", "etude-de-fonction"]
+tags: ["etude-de-fonction", "integrales", "changement-de-variable", "aire", "cercle", "bac"]
 bac: "1983-principale-maths"
+dressing: "x+√(4-x²) : intégrale et aire"
+rung: 3
 ---
 
 Le plan est muni d'un repère orthonormé $(O, \vec{i}, \vec{j})$.

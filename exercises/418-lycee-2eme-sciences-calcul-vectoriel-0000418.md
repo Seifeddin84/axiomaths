@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["vecteurs", "triangle", "medianes", "concours", "determinant", "repere"]
+tags: ["vecteurs", "concours", "centre-de-gravite", "triangle"]
 provenance: own
-dressing: "concours de trois droites dans le repère (A, AB, AC)"
+dressing: "médianes concourantes par le calcul vectoriel"
 rung: 3
 ---
 Soit $ABC$ un triangle. On note $I$, $J$ et $K$ les milieux respectifs des côtés $[BC]$, $[CA]$ et $[AB]$. Le plan est muni du repère $\left(A, \overrightarrow{AB}, \overrightarrow{AC}\right)$.

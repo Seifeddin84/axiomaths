@@ -11,7 +11,7 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["statistiques", "double-entree", "distributions-marginales", "point-moyen", "frequences"]
+tags: ["statistiques", "serie-double", "covariance"]
 provenance: "own"
 dressing: "tableau à double entrée"
 rung: 3

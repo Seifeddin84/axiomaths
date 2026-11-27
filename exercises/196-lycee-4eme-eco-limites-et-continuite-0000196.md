@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["limites", "limites-usuelles", "operations-sur-les-limites", "forme-indeterminee", "limite-a-droite"]
+tags: ["limites", "polynomes", "fonctions-de-reference"]
+dressing: "limites de base"
+rung: 1
 ---
 
 Calculer les limites suivantes :

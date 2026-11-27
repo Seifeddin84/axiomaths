@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["second-degre", "parametre", "equation-bicarree", "equation-irrationnelle", "systeme"]
+tags: ["second-degre", "parametre", "equation-bicarree", "equations-irrationnelles", "discussion"]
+dressing: "paramètre, bicarrée et irrationnelle"
+rung: 3
 ---
 Soit $m$ un réel. On considère l'équation $(E_m) : (m - 1)x^2 - 2mx + m + 2 = 0$.
 

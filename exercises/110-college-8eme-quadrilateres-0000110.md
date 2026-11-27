@@ -11,7 +11,9 @@ year: 2023
 professor: null
 difficulty: "Moyen"
 points: 7
-tags: ["geometrie", "parallelogramme", "symetrie-centrale"]
+tags: ["parallelogramme", "symetrie-centrale", "construction", "geometrie"]
+dressing: "construction et symétrie centrale"
+rung: 2
 ---
 
 ارسم مثلثا $ABC$ حيث $AB = 3\text{cm}$ و $AC = 5\text{cm}$ و $BC = 6\text{cm}$ وليكن $O$ منتصف $[AC]$.

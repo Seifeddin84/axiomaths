@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["symetrie-centrale", "aire", "parallelogramme", "probleme"]
+tags: ["symetrie-centrale", "parallelogramme", "aires", "probleme-concret"]
+dressing: "partager un terrain en deux parts égales"
+rung: 5
 ---
 
 قطعة أرض على شكل متوازي أضلاع $ABCD$ ، $AB=60\,\mathrm{m}$ وارتفاعها $30\,\mathrm{m}$ ، ومركزها $O$. يريد مالكها تقسيمها بممر مستقيم يمر من $O$ ويقطع $[AB]$ في $E$ حيث $AE=15\,\mathrm{m}$ وفي $[CD]$ في نقطة $F$.

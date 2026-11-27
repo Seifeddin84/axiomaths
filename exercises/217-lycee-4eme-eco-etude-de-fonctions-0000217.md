@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["fonction-rationnelle", "asymptote-oblique", "asymptote-verticale", "tableau-de-variations", "theoreme-des-valeurs-intermediaires"]
+tags: ["etude-de-fonction", "fonction-rationnelle", "asymptote-oblique", "derivation"]
+dressing: "rationnelle avec asymptote oblique"
+rung: 2
 ---
 
 Soit la fonction $f$ définie sur $]-\infty, 1[ \cup ]1, +\infty[$ par $f(x) = \dfrac{2x^3 + 2x^2 - 10x + 11}{2(x - 1)^2}$.

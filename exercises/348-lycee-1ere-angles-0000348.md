@@ -11,8 +11,10 @@ year: 2015
 professor: "M. Béchir Zdiri"
 difficulty: "Facile"
 points: null
-tags: ["angles-triangle", "bissectrice", "droites-paralleles", "triangle-isocele"]
+tags: ["angles", "triangle", "bissectrice", "droites-paralleles"]
 provenance: scan
+dressing: "angles d'un triangle et bissectrice"
+rung: 1
 ---
 
 Soit $ABC$ un triangle tel que $\widehat{ABC}=35°$ et $\widehat{BAC}=75°$.

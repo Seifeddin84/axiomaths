@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "cercle", "centre", "rayon", "diametre", "coordonnees"]
+tags: ["translation", "cercle", "coordonnees"]
 provenance: own
-dressing: "image d'un cercle et de l'un de ses diamètres"
+dressing: "image d'un cercle : centre et rayon"
 rung: 2
 ---
 Le plan est muni d'un repère orthonormé $(O, \vec{i}, \vec{j})$. Soit $\mathcal{C}$ le cercle de centre $\Omega(1, 2)$ et de rayon $3$, et soit $t$ la translation de vecteur $\vec{u} \begin{pmatrix} 2 \\ -1 \end{pmatrix}$. On considère les points $A(4, 2)$ et $B(-2, 2)$.

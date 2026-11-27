@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["vecteurs", "norme", "orthogonalite", "repere-orthonorme", "carre"]
+tags: ["vecteurs", "orthogonalite", "carre"]
 provenance: own
-dressing: "norme et orthogonalité en repère orthonormé"
+dressing: "normes et orthogonalité en repère orthonormé"
 rung: 2
 ---
 Le plan est muni d'un repère orthonormé $(O, \vec{i}, \vec{j})$. On considère les points $A(1, 2)$, $B(4, 3)$ et $C(0, 5)$.

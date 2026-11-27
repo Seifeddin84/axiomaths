@@ -11,7 +11,9 @@ year: 2025
 professor: null
 difficulty: "Facile"
 points: 3
-tags: ["module", "forme algébrique"]
+tags: ["nombres-complexes", "forme-algebrique", "module"]
+dressing: "calculs directs en forme algébrique"
+rung: 1
 ---
 
 Mettre sous forme algébrique les nombres complexes suivants et calculer leurs modules:

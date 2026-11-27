@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "menelaus", "ceva", "challenge"]
+tags: ["thales", "theoreme-de-menelaus", "theoreme-de-ceva", "alignement", "droites-concourantes"]
 provenance: own
+dressing: "challenge : de Ménélaüs à Céva"
+rung: 5
 ---
 
 Soit $ABC$ un triangle. Une droite $d$, qui ne passe par aucun sommet et n'est parallèle à aucun côté, coupe $(BC)$ en $D$, $(CA)$ en $E$ et $(AB)$ en $F$. Toutes les longueurs sont des nombres positifs.

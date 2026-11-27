@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["symetrie-centrale", "vrai-faux", "proprietes", "contre-exemple"]
+tags: ["vrai-faux", "symetrie-centrale", "proprietes", "justification"]
+dressing: "vrai ou faux avec justification"
+rung: 2
 ---
 
 في كل حالة، حدّد إن كانت العبارة صحيحة أم خاطئة ثم علّل إجابتك.

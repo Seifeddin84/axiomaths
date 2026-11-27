@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "milieux", "trapeze", "construction", "synthese"]
+tags: ["thales", "trapeze", "milieux", "diagonales"]
 provenance: own
+dressing: "synthèse : trapèze et construction à la règle"
+rung: 5
 ---
 
 Soit $ABCD$ un trapèze de bases $[AB]$ et $[DC]$, avec $AB<DC$. Ses côtés $(AD)$ et $(BC)$ se coupent en $S$, ses diagonales $[AC]$ et $[BD]$ en $O$. On note $I$ et $J$ les milieux de $[AB]$ et de $[DC]$.

@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "integration-par-parties", "suites-d-integrales", "calcul-aire"]
+tags: ["logarithme-neperien", "suites-d-integrales", "integration-par-parties", "etude-de-fonction"]
+dressing: "fonction auxiliaire puis suite d'intégrales par parties"
+rung: 5
 ---
 
 1. Étudier les variations de la fonction $\varphi$ définie sur $]0, +\infty[$ par :

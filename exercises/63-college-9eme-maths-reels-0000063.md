@@ -11,7 +11,9 @@ year: 2024
 professor: "مراد الفاهم"
 difficulty: "Moyen"
 points: 4
-tags: ["racine-carree", "geometrie", "triangle-isocele"]
+tags: ["racines-carrees", "nombres-reels", "comparaison", "triangle-isocele"]
+dressing: "racines imbriquées et géométrie"
+rung: 3
 ---
 
 ليكن $a$ و $b$ عددين حقيقيين موجبين حيث $a^2 = 33 + 20\sqrt{2}$ و $b^2 = 33 - 20\sqrt{2}$

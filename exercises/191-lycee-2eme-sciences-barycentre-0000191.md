@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["barycentre", "ensemble-de-points", "mediatrice", "cercle", "reduction-vectorielle"]
+tags: ["barycentre", "ensembles-de-points", "rectangle", "lieu-geometrique", "cercle"]
+dressing: "ensembles de points dans un rectangle"
+rung: 3
 ---
 
 Soit $ABCD$ un rectangle tel que $AB = 6$ et $AD = 3$. On désigne par $G$ le barycentre de $(A\,,2)$ et $(B\,,1)$ et par $G'$ le barycentre de $(C\,,4)$ et $(D\,,-1)$.

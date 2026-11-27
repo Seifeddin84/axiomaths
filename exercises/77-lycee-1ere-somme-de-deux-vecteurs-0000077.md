@@ -11,7 +11,9 @@ year: 2013
 professor: "Benzina & Azzaz"
 difficulty: "Facile"
 points: 3
-tags: ["vecteurs", "colinéarité", "parallélogramme"]
+tags: ["vecteurs", "colinearite", "parallelogramme", "construction", "egalite-vectorielle"]
+dressing: "colinéarité dans un parallélogramme"
+rung: 1
 ---
 
 Soit $ABCD$ un parallélogramme.

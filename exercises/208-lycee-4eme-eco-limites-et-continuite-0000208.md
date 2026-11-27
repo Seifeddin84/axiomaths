@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["continuite", "parametre", "fonction-definie-par-morceaux", "forme-indeterminee", "racine-carree"]
+tags: ["continuite", "parametre", "raccordement", "fonction-par-morceaux", "racines-carrees"]
+dressing: "un paramètre pour raccorder"
+rung: 3
 ---
 
 Soit $a$ un réel et soit $f$ la fonction définie par :

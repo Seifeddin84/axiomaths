@@ -11,11 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Moyen
 points: 6
-tags:
-- suite
-- suite géométrique
-- suite auxiliaire
-- somme
+tags: ["suites", "suite-arithmetico-geometrique", "suite-auxiliaire", "suite-geometrique"]
+dressing: "récurrence affine à coefficient fractionnaire"
+rung: 2
 ---
 Soit $U$ la suite définie sur $\mathbb{N}$ par :
 

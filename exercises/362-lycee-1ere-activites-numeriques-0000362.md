@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["nombre-d-or", "racines-carrees", "identites-remarquables", "puissances"]
+tags: ["nombre-d-or", "radicaux", "identites", "racines-carrees"]
 provenance: "own"
+dressing: "le nombre d'or"
+rung: 3
 batch: "2026-11-22-revision-1ere-A"
 ---
 

@@ -11,8 +11,10 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["matrices", "systeme-lineaire", "matrice-inverse", "lecture-graphique", "fonction-polynome"]
+tags: ["matrices", "systemes", "fonction-cubique", "lecture-graphique", "modelisation"]
 recommended: true
+dressing: "retrouver une cubique par un système"
+rung: 5
 ---
 
 Soit la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = ax^3 + bx^2 + c$, où $a$, $b$ et $c$ sont des réels, et dont on a représenté la courbe $\mathcal{C}_f$ ci-dessous.

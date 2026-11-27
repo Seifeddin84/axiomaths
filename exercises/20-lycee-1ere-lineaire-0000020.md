@@ -11,7 +11,9 @@ year: 2026
 professor: "El GHali Mounir"
 difficulty: "Moyen"
 points: 5
-tags: ["fonction linéaire", "calcul algébrique", "comparaison"]
+tags: ["fonctions-lineaires", "equation", "identites-remarquables", "representation-graphique"]
+dressing: "coefficient trouvé par une équation en f(1)"
+rung: 3
 ---
 
 Soit $f$ la fonction linéaire telle que :

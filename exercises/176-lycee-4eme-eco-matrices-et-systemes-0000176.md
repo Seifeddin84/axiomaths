@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["matrices", "systeme-lineaire", "ecriture-matricielle", "matrice-inverse"]
+tags: ["systemes", "matrices", "matrice-inverse"]
+dressing: "systèmes 3×3 avec inverses déjà connues"
+rung: 2
 ---
 
 Résoudre les systèmes suivants. Utiliser les résultats de l'[exercice n°170](/lycee/4eme/economie-et-gestion/matrices-et-systemes#ex-0000170) et de l'[exercice n°171](/lycee/4eme/economie-et-gestion/matrices-et-systemes#ex-0000171) pour obtenir les inverses des matrices.

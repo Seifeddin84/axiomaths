@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["second-degre", "somme-et-produit", "discriminant", "inequation", "probleme"]
+tags: ["second-degre", "discriminant", "inequation", "probleme-concret"]
+dressing: "somme et produit des racines"
+rung: 2
 ---
 1. Résoudre dans $\mathbb{R}$ l'équation : $2x^2 - 7x + 3 = 0$.
 

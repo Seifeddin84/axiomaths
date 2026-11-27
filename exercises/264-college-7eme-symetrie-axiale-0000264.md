@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["الفراشة", "التناظر-المحوري", "واسط", "دائرة"]
+tags: ["theoreme-du-papillon", "symetrie-axiale", "cercle", "construction"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "symetrie-axiale"
-rung: 1
+dressing: "théorème du papillon par la symétrie axiale"
+rung: 3
 ---
 نعتبر دائرة $(\mathcal C)$ مركزها $O$ و $[PQ]$ وترا فيها منتصفه $M$. ليكن $(\Delta)$ الواسط العمودي للقطعة $[PQ]$ ؛ وهو يمرّ بالنقطتين $O$ و $M$. نرمز بـ $s$ إلى التناظر المحوري ذي المحور $(\Delta)$.
 

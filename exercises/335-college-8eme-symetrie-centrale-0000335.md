@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["symetrie-centrale", "cercles", "losange", "mediane"]
+tags: ["symetrie-centrale", "cercles", "distances"]
+dressing: "deux cercles symétriques"
+rung: 3
 ---
 
 $I$ و $I'$ نقطتان حيث $II'=4\,\mathrm{cm}$ و $O$ منتصف $[II']$. $\mathcal{C}$ دائرة مركزها $I$ وشعاعها $3\,\mathrm{cm}$ ، و $\mathcal{C}'$ مناظرتها بالنسبة إلى $O$.

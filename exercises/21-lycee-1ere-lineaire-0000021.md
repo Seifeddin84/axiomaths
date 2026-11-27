@@ -11,7 +11,9 @@ year: 2026
 professor: "El GHali Mounir"
 difficulty: "Difficile"
 points: 8
-tags: ["fonction linéaire", "géométrie analytique", "alignement", "paramètre"]
+tags: ["fonctions-lineaires", "geometrie-analytique", "alignement", "parametre"]
+dressing: "images, antécédents et alignement avec paramètre"
+rung: 3
 ---
 
 Le plan est muni d'un repère $(O,I,J)$, tel que : $(OI)$ perpendiculaire $(OJ)$ et $OI=OJ$.

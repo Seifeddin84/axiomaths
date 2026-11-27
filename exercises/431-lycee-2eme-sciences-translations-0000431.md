@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "relation-de-chasles", "vecteurs", "application-du-plan", "coordonnees"]
+tags: ["translation", "egalite-vectorielle", "vecteurs"]
 provenance: own
-dressing: "application du plan définie par une relation vectorielle"
+dressing: "reconnaître une translation par une égalité vectorielle"
 rung: 3
 ---
 Soient $A$ et $B$ deux points distincts du plan. À tout point $M$ du plan, on associe le point $N$ défini par la relation indiquée. On note $f$ l'application $M \mapsto N$.

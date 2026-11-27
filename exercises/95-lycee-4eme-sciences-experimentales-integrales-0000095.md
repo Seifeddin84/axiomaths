@@ -11,7 +11,9 @@ year: 2026
 professor: "M. Mourad Ziadi"
 difficulty: "Moyen"
 points: 7
-tags: ["suites-reelles", "integrales", "integration-par-parties", "limites"]
+tags: ["suites-d-integrales", "integrales", "integration-par-parties", "limites-de-suites"]
+dressing: "relation de récurrence entre intégrales successives"
+rung: 3
 ---
 
 Soit $(I_n)$ la suite définie sur $\mathbb{N}$ par : $I_n = \int_{0}^{1} \frac{x^n}{\sqrt{x+1}} dx$.

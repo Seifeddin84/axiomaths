@@ -11,8 +11,10 @@ year: 1981
 professor: null
 difficulty: "Difficile"
 points: 12
-tags: ["bac", "logarithme", "fonction-reciproque", "integration-par-parties", "suite-d-integrales", "factorielle"]
+tags: ["logarithme-neperien", "fonction-reciproque", "suites-d-integrales", "trigonometrie", "etude-de-fonction", "bac"]
 bac: "1981-principale-maths"
+dressing: "cos x · ln(sin x), réciproque et intégrales"
+rung: 5
 ---
 
 Le plan est rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$.

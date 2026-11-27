@@ -11,7 +11,7 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["translation", "chemin-le-plus-court", "inegalite-triangulaire", "distance", "coordonnees"]
+tags: ["translation", "inegalite-triangulaire", "distance", "coordonnees"]
 recommended: true
 provenance: adapted
 adapted_from: "Problème classique du « pont sur la rivière » (chemin minimal avec une translation)"

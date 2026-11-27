@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: 4
-tags: ["barycentre", "trois-points", "associativite", "lieu-de-points"]
+tags: ["barycentre", "triangle-rectangle", "calcul-de-longueurs"]
 provenance: own
+dressing: "de deux à trois points pondérés"
+rung: 2
 ---
 
 Soit $ABC$ un triangle rectangle en $B$ tel que $AB=3$ cm et $BC=2$ cm. On note $I$ le barycentre de $(B,5)$ et $(C,-3)$, et $G$ le barycentre de $(A,4)$, $(B,5)$ et $(C,-3)$.

@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["vecteurs", "vrai-faux", "colinearite", "orthogonalite", "parallelogramme"]
+tags: ["vrai-faux", "vecteurs", "colinearite", "orthogonalite", "pieges"]
 provenance: own
-dressing: "vrai-faux avec contre-exemples"
+dressing: "pièges du calcul vectoriel"
 rung: 4
 ---
 Dans cet exercice, le plan est muni d'une base orthonormée lorsqu'il s'agit de normes ou d'orthogonalité. Pour chacune des affirmations suivantes, dire si elle est vraie ou fausse, puis justifier.

@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["continuite", "fonction-definie-par-morceaux", "continuite-a-droite-et-a-gauche", "domaine-de-definition"]
+tags: ["continuite", "fonction-par-morceaux", "limites-laterales"]
+dressing: "continuité à gauche et à droite"
+rung: 2
 ---
 
 Soit la fonction $f$ définie par :

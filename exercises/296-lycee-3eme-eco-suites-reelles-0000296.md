@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["qcm", "suites", "limite", "suite-geometrique", "somme"]
+tags: ["qcm", "suites", "limites-de-suites", "suite-geometrique"]
 provenance: "own"
-dressing: "limite d'une suite géométrique"
-rung: 1
+dressing: "QCM : limites de suites usuelles"
+rung: 4
 batch: "2026-11-20-suites-3eco-A"
 ---
 

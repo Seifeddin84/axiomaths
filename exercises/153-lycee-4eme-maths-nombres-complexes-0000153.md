@@ -11,8 +11,10 @@ year: 1988
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "equation-second-degre", "triangle-equilateral", "module-argument"]
+tags: ["nombres-complexes", "equation-second-degre", "parametre", "triangle-equilateral", "geometrie-complexe", "bac"]
 bac: "1988-principale-maths"
+dressing: "racines a et a² : triangle équilatéral"
+rung: 3
 ---
 
 1. Résoudre dans $\mathbb{C}$ l'équation $(E) : z^2 - (a + a^2)\,z + a^3 = 0$, où $a$ est un paramètre complexe différent de $1$ et $-1$. On désigne par $z_1$ et $z_2$ les solutions de $(E)$.

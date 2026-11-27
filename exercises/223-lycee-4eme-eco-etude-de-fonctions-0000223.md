@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["polynome-auxiliaire", "fonction-rationnelle", "asymptote-oblique", "tableau-de-variations", "theoreme-des-valeurs-intermediaires"]
+tags: ["etude-de-fonction", "asymptote-oblique", "derivation"]
+dressing: "polynôme auxiliaire puis étude de f"
+rung: 3
 ---
 
 1. Soit le polynôme $P$ défini sur $\mathbb{R}$ par $P(x) = x^3 - x^2 + 3x + 1$.

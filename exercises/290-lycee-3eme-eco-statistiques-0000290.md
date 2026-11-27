@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["statistiques", "robustesse", "valeur-extreme", "coefficient-de-variation", "mediane"]
+tags: ["statistiques", "moyenne", "mediane"]
 provenance: "own"
-dressing: "valeur extrême"
-rung: 3
+dressing: "un salaire extrême : moyenne ou médiane ?"
+rung: 4
 batch: "2026-11-20-stat-3eco-A"
 ---
 

@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "cercle", "tangente", "orthogonalite", "coordonnees"]
+tags: ["translation", "cercle", "tangente", "conservation", "coordonnees"]
 provenance: own
-dressing: "image d'un cercle et de sa tangente"
+dressing: "cercle, tangente et translation"
 rung: 3
 ---
 Le plan est muni d'un repère orthonormé $(O, \vec{i}, \vec{j})$. Soit $\mathcal{C}$ le cercle de centre $O$ et de rayon $2$, et $(d)$ la droite d'équation $y = 2$. On note $T$ le point de coordonnées $(0, 2)$.

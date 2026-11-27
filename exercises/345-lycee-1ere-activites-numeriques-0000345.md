@@ -11,8 +11,10 @@ year: 2019
 professor: "M. Ghorbeli Med Hedi"
 difficulty: "Facile"
 points: null
-tags: ["division-euclidienne", "quotient", "reste", "entiers-naturels"]
+tags: ["arithmetique", "division-euclidienne", "equations-en-nombres-entiers"]
 provenance: scan
+dressing: "retrouver n à partir de la division euclidienne"
+rung: 2
 ---
 
 Déterminer la valeur de l'entier positif $n$ dans chaque cas :

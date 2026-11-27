@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["erreur-relative", "encadrements", "mesures", "approximations", "synthese"]
+tags: ["encadrements", "pourcentages", "mesures"]
 provenance: own
+dressing: "erreur relative sur une vitesse mesurée"
+rung: 5
 ---
 
 Lors d'un test, un coureur parcourt $d=100$ m, mesurés à $1\,\%$ près, en $t=12{,}5$ s, mesurées à $2\,\%$ près. Sa vitesse moyenne est $v=\dfrac dt$.

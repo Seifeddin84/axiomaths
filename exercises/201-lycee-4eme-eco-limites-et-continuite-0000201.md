@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "encadrement", "theoreme-des-gendarmes", "cosinus", "racine-carree"]
+tags: ["limites", "encadrement", "theoreme-des-gendarmes", "trigonometrie", "racines-carrees"]
+dressing: "limite par encadrement avec un cosinus"
+rung: 3
 ---
 
 Soit la fonction $f$ définie par $f(x) = \dfrac{\cos(x)}{\sqrt{x}}$.

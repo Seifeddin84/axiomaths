@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["pgcd", "division-euclidienne", "divisibilite", "criteres-de-divisibilite"]
+tags: ["arithmetique", "pgcd", "divisibilite", "demonstration"]
 provenance: "own"
+dressing: "PGCD de n+2 et n²+4"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

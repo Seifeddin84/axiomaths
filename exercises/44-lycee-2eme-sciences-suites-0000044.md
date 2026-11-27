@@ -12,7 +12,9 @@ year: 2026
 professor: "H. Bouzid, N. Jalleli, M. Msekni, I. Chaabene, R. Fakhfekh"
 difficulty: "Moyen"
 points: 7
-tags: ["suites-arithmetiques", "suites-geometriques"]
+tags: ["suites", "suite-arithmetique", "suite-geometrique", "somme-de-termes"]
+dressing: "raison déduite d'une somme et d'un produit"
+rung: 3
 ---
 
 

@@ -11,7 +11,9 @@ year: 2025
 professor: "غير مذكور"
 difficulty: "Moyen"
 points: 5
-tags: ["calcul-radicaux", "comparaison", "ordre"]
+tags: ["radicaux", "comparaison", "nombres-reels", "identites-remarquables"]
+dressing: "calcul et comparaison de deux réels"
+rung: 2
 ---
 
 نعتبر العددين الحقيقيين $a = (\sqrt{5}+1)^2 + \sqrt{3}(1-2\sqrt{3})$ و $b = \dfrac{\sqrt{63} + \sqrt{18} + 9}{3} - (\sqrt{2}-1)^2$

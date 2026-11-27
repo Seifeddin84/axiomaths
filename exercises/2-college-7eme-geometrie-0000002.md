@@ -11,7 +11,9 @@ year: 2024
 professor: "M. Khalil"
 difficulty: "Facile"
 points: 3
-tags: ["triangles", "angles"]
+tags: ["triangle-rectangle", "theoreme-de-pythagore", "angles"]
+dressing: "application directe de Pythagore"
+rung: 1
 ---
 
 Soit $ABC$ un triangle rectangle en $A$.

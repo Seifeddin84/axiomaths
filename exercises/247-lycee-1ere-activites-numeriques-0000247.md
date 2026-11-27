@@ -11,10 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["telescopage", "produit", "somme", "fractions", "synthese"]
+tags: ["somme-telescopique", "factorisation", "fractions", "identites-remarquables"]
 provenance: own
 idea: "telescopage"
-dressing: "produit-et-somme"
+dressing: "synthèse : produits et sommes télescopiques"
+rung: 5
 ---
 
 1. Factoriser $1-\dfrac1{k^2}$ et $\dfrac1{k^2-1}$ pour $k\ge2$.

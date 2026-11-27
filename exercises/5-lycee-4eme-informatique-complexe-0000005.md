@@ -11,7 +11,9 @@ year: 2025
 professor: null
 difficulty: "Facile"
 points: 4
-tags: ["module", "cercle", "affixe"]
+tags: ["nombres-complexes", "affixe", "module", "cercle", "geometrie-complexe"]
+dressing: "points d'affixes données et cercle"
+rung: 2
 ---
 
 Dans le plan rapporté à un repère orthonormé $(O,\vec{u},\vec{v})$, on considère les points A, B, C et D d'affixes respectives $a=-1+i$,

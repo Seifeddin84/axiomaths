@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["barycentre", "barycentre-partiel", "droites-concourantes", "ensemble-de-points"]
+tags: ["barycentre", "barycentre-partiel", "droites-concourantes", "triangle"]
+dressing: "barycentre partiel et droites concourantes"
+rung: 3
 ---
 
 Soit $ABC$ un triangle et $G$ le barycentre des points pondérés $(A\,,1)$, $(B\,,2)$ et $(C\,,3)$.

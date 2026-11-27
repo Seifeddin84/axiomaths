@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["polynomes", "fonction-rationnelle", "valeur-interdite", "simplification", "tableau-de-signes"]
+tags: ["polynomes", "fonction-rationnelle", "signe", "tableau-de-signe"]
 provenance: own
-dressing: "quotient dont le numérateur et le dénominateur ont un facteur commun"
-rung: 4
+dressing: "racine du numérateur et valeur interdite"
+rung: 3
 ---
 On considère la fonction rationnelle $f$ définie par :
 $$f(x) = \frac{x^3 - 7x + 6}{x^2 - 4}.$$

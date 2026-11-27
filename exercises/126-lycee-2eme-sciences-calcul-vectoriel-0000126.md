@@ -12,6 +12,8 @@ professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
 tags: ["vecteurs", "composantes", "colinearite", "determinant", "parallelogramme"]
+dressing: "composantes dans un repère et alignement"
+rung: 2
 ---
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. On considère les points $A(1, 2)$, $B(4, 3)$ et $C(2, -1)$.
 

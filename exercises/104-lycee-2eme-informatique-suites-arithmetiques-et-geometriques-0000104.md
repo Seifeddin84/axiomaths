@@ -11,7 +11,9 @@ year: 2022
 professor: "M. Rjiba Zied"
 difficulty: "Facile"
 points: null
-tags: ["suite-geometrique", "somme"]
+tags: ["suite-geometrique", "termes", "somme-de-termes"]
+dressing: "calculs directs avec une raison négative"
+rung: 1
 ---
 
 Soit $(u_n)$ la suite géométrique de premier terme $u_0 = \frac{1}{3}$ et de raison $-2$.

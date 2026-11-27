@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["fractions", "suite", "periodicite", "synthese"]
+tags: ["fractions", "recurrence", "decouverte-de-regularite"]
+dressing: "liste de nombres qui se répète"
+rung: 5
 ---
 
 نعتبر قائمة الأعداد $a_1,\ a_2,\ a_3,\ \dots$ المعرّفة كما يلي : $a_1=\dfrac{1}{2}$ وكل عدد، ابتداء من الثاني، يُحسب من العدد الذي يسبقه بالقاعدة : $a_{n+1}=\dfrac{1}{1-a_n}$. أي أن $a_2=\dfrac{1}{1-a_1}$ و $a_3=\dfrac{1}{1-a_2}$ وهكذا.

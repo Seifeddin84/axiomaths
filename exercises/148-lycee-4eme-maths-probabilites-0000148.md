@@ -11,8 +11,10 @@ year: 1991
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "tirages-successifs", "arbre-de-probabilites", "loi-binomiale"]
+tags: ["probabilites", "tirages-successifs", "loi-binomiale", "bac"]
 bac: "1991-principale-maths"
+dressing: "tirages avec et sans remise"
+rung: 3
 ---
 
 Un sac contient sept jetons indiscernables au toucher et répartis comme suit :

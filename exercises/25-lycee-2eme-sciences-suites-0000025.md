@@ -11,11 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Moyen
 points: 6
-tags:
-- suite
-- suite géométrique
-- suite auxiliaire
-- somme
+tags: ["suites", "suite-homographique", "suite-auxiliaire", "suite-geometrique", "somme-de-termes"]
+dressing: "auxiliaire pour une récurrence rationnelle"
+rung: 3
 ---
 Soit $U$ la suite définie sur $\mathbb{N}^*$ par :
 

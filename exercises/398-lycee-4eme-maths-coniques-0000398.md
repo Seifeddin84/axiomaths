@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["kiepert", "barycentre", "hyperbole-equilatere", "concours", "triangle"]
+tags: ["hyperbole-de-kiepert", "coniques", "triangle", "defi"]
 provenance: "adapted"
+dressing: "hyperbole de Kiepert"
+rung: 5
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

@@ -11,10 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["derivabilite", "logarithme", "trigonometrie", "extremum", "morley"]
+tags: ["theoreme-de-morley", "optimisation", "derivabilite", "trigonometrie", "triangle"]
 provenance: adapted
 adapted_from: "résultat classique (théorème de Morley, 1899) ; énoncé, découpage en questions et solution Axiomaths ; maximum par l'inégalité de la tangente, rédigé par Axiomaths"
 idea: "inegalite-de-la-tangente"
+dressing: "maximiser le triangle de Morley"
 rung: 5
 ---
 On fixe un réel $\rho>0$. Pour un triangle $ABC$ de rayon circonscrit $\rho$ et d'angles $3\alpha,3\beta,3\gamma$ (avec $\alpha,\beta,\gamma\in\,]0,\tfrac\pi3[$ et $\alpha+\beta+\gamma=\tfrac\pi3$), le triangle de Morley est équilatéral de côté (exercice [275](/lycee/3eme/mathematiques/trigonometrie#ex-0000275))

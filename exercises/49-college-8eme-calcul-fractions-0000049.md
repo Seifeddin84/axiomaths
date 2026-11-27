@@ -11,7 +11,9 @@ year: 2024
 professor: "محمود العيساوي"
 difficulty: "Moyen"
 points: 4
-tags: ["fractions", "calcul"]
+tags: ["fractions", "calcul", "fractions-composees", "simplification"]
+dressing: "fractions emboîtées à simplifier"
+rung: 2
 ---
 
 أحسب مختزلا النتيجة إلى أقصى حد العبارات التالية:

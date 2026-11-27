@@ -11,8 +11,10 @@ year: 1978
 professor: null
 difficulty: "Moyen"
 points: null
-tags: ["bac", "logarithme", "derivabilite-en-0", "integration-par-parties", "limite-d-integrale"]
+tags: ["logarithme-neperien", "etude-de-fonction", "integrales", "integration-par-parties", "bac"]
 bac: "1978-principale-maths"
+dressing: "famille x²(a + b ln x) et intégrales"
+rung: 3
 ---
 
 Pour tout couple de réels $(a, b)$, on considère la fonction $f_{(a,b)}$ de $\mathbb{R}^+$ dans $\mathbb{R}$ définie par $f_{(a,b)}(x) = x^2(a + b\ln x)$ si $x > 0$ et $f_{(a,b)}(0) = 0$.

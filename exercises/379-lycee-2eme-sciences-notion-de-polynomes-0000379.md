@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["polynomes", "racine-evidente", "factorisation", "identification"]
+tags: ["polynomes", "factorisation", "equations", "inequations"]
 provenance: "own"
+dressing: "racine évidente puis factorisation"
+rung: 1
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["polynomes", "racine", "identification", "factorisation", "polynome-reciproque"]
+tags: ["polynomes", "identification", "racine", "factorisation", "degre-4"]
+dressing: "degré 4 à paramètres, polynôme réciproque"
+rung: 3
 ---
 Soient $a$ et $b$ deux réels et $P$ le polynôme défini par : $P(x) = x^4 + ax^3 + bx^2 - 4x + 3$.
 

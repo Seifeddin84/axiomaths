@@ -11,8 +11,10 @@ year: 2019
 professor: "M. Ghorbeli Med Hedi"
 difficulty: "Moyen"
 points: null
-tags: ["diviseurs", "pgcd", "fraction-irreductible", "criteres-divisibilite"]
+tags: ["arithmetique", "divisibilite", "pgcd", "criteres-de-divisibilite", "fractions"]
 provenance: scan
+dressing: "quotient d'entiers et PGCD"
+rung: 3
 ---
 
 ### Partie I

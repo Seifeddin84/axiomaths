@@ -11,7 +11,9 @@ year: 1986
 professor: "A.G Tsypkin & A.I Pinsky"
 difficulty: "Moyen"
 points: 5
-tags: ["équations", "changement de variable", "valeur absolue"]
+tags: ["equations", "valeur-absolue", "disjonction-de-cas"]
+dressing: "valeur absolue : étude par cas"
+rung: 2
 ---
 
 **Résoudre dans $\mathbb{R}$ les équations suivantes.**

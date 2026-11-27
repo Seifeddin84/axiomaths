@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "aires", "paralleles", "triangle"]
+tags: ["thales", "trois-paralleles", "triangle", "point-interieur", "aires"]
 provenance: "own"
+dressing: "trois parallèles menées par un point"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

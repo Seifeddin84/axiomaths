@@ -11,7 +11,9 @@ year: 2025
 professor: "Ali Fourati"
 difficulty: "Moyen"
 points: 8
-tags: ["suites-arithmetiques", "sommes", "changement-de-suite"]
+tags: ["suites", "suite-arithmetique", "somme-de-termes", "suite-auxiliaire"]
+dressing: "suite arithmétique définie par deux termes"
+rung: 2
 ---
 
 **Soit $(u_n)_{n \in \mathbb{N}}$ une suite arithmétique tel que $u_{10} = 55$ et $u_{25} = 145$.**

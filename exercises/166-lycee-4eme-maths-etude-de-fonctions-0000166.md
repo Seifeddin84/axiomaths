@@ -11,8 +11,10 @@ year: 1977
 professor: null
 difficulty: "Facile"
 points: 4
-tags: ["bac", "fonction-trigonometrique", "bijection", "centre-de-symetrie", "aire"]
+tags: ["etude-de-fonction", "trigonometrie", "bijection", "centre-de-symetrie", "aire", "bac"]
 bac: "1977-principale-maths"
+dressing: "fonction trigonométrique bijective et aire"
+rung: 2
 ---
 
 Soit la fonction $f : [0, \pi] \to \mathbb{R}$, $x \longmapsto \cos^3 x - 3\cos x + 2$.

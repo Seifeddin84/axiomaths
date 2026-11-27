@@ -11,7 +11,9 @@ year: 2026
 professor: null
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "continuite", "axe-de-symetrie", "variation"]
+tags: ["logarithme-neperien", "etude-de-fonction", "prolongement-par-continuite"]
+dressing: "produit de deux logarithmes symétrique"
+rung: 3
 ---
 
 On considère la fonction $f$ définie sur l'intervalle $[0; 1]$ par :
