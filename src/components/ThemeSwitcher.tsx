@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useSyncExternalStore } from 'react';
-import { SITE_THEMES, THEME_STORAGE_KEY, TESTER_STORAGE_KEY, type SiteThemeId } from '@/lib/siteThemes';
+import { SITE_THEMES, loadThemeFonts, THEME_STORAGE_KEY, TESTER_STORAGE_KEY, type SiteThemeId } from '@/lib/siteThemes';
 
 // Small testing tool: a pill in the bottom-left corner to switch the site's colour theme.
 // Shown on Vercel previews and in development; on the live site only after visiting ?themes=on.
@@ -49,6 +49,7 @@ export default function ThemeSwitcher() {
     } catch {
       /* private mode: the theme still applies until the page is reloaded */
     }
+    loadThemeFonts(id);
     if (id === 'classic') document.documentElement.removeAttribute('data-ax-theme');
     else document.documentElement.setAttribute('data-ax-theme', id);
   };

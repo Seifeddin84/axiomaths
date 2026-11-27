@@ -42,15 +42,22 @@ or `#0f766e` (5.47).
 
 ## 2b. Test themes (switch)
 
-- Themes are listed in `src/lib/siteThemes.ts` and defined in `src/app/themes.css`: `classic` (default, orange/teal),
-  `manuel` (ink navy + slate, Crimson Pro serif for statements and lessons), `vert` (pastel green + stone, like the PDFs).
+- Themes are listed in `src/lib/siteThemes.ts` and defined in `src/app/themes.css`:
+  `classic` (default, orange/teal) · `manuel` (ink navy + slate, Crimson Pro for content) · `vert` (pastel green + stone,
+  like the PDFs) · `mir` (Russian textbook: black + ink blue, PT Serif / PT Sans, cream paper, square corners,
+  two-ink boxes) · `lebosse` (old French textbook: black + brick red, EB Garamond, Playfair headings, old paper,
+  two-ink boxes) · `lisible` (Atkinson Hyperlegible, designed for low-vision readers; indigo + cyan).
+- A theme can set: the two colour ramps, `ui` / `heading` / `content` fonts, a paper tone (light mode only), a corner
+  radius, and two-ink boxes (every box kind printed in black or in the theme's colour ink, like 1960s textbooks).
+  Theme fonts are downloaded **only when the theme is active** (`loadThemeFonts`); Arabic falls back to Tajawal.
 - A script in `<head>` (`THEME_BOOT_SCRIPT`) sets `data-ax-theme` on `<html>` before the first paint.
   `?theme=<id>` picks a theme for this browser, `?theme=classic` resets it.
 - The switcher pill (`ThemeSwitcher.tsx`) appears on Vercel previews and in dev; on the live site only after `?themes=on`
   (`?themes=off` or × hides it). Pupils never see it, and without a choice everyone gets `classic`.
 - Adding a theme: one ramp pair in `themes.css` + one entry in `SITE_THEMES`. Check contrast first: the theme's
   600 shade on white and 400 shade on `gray-950` must both be ≥ 4.5.
-- Box colours (`.lesson-box--*`) and difficulty colours are semantic: they do **not** change with the theme.
+- Box colours (`.lesson-box--*`) and difficulty colours are semantic: they keep their colours in every theme, except
+  the deliberate two-ink experiment of `mir` and `lebosse` (to be judged with pupils).
 - Regression rule: with `classic`, the site must stay pixel-identical to `main` (checked on 2026-11-27 for home,
   a lycée chapter, a collège level page and `/theoremes`, light and dark).
 
