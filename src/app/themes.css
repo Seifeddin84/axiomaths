@@ -180,8 +180,7 @@
 :root[data-ax-theme="lebosse"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
 :root[data-ax-theme="lebosse"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
 :root[data-ax-theme="lebosse"] .lesson-box, :root[data-ax-theme="lebosse"] .exercise-content .lesson-box { border-radius: 0px; }
-/* three-ink printing (black, blue, red), like old French manuals; key formulas framed in red */
-:root[data-ax-theme="lebosse"] .lesson-box--theorem,
+/* ink printing (black, blue, red, plus green for examples), like old French manuals; key formulas framed in red */
 :root[data-ax-theme="lebosse"] .lesson-box--property,
 :root[data-ax-theme="lebosse"] .lesson-box--corollary,
 :root[data-ax-theme="lebosse"] .lesson-box--proof,
@@ -189,10 +188,11 @@
 :root[data-ax-theme="lebosse"] .lesson-box--remark,
 :root[data-ax-theme="lebosse"] .lesson-box--history,
 :root[data-ax-theme="lebosse"] .lesson-box--tic { --c: #2b241b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse"] .lesson-box--theorem,
 :root[data-ax-theme="lebosse"] .lesson-box--definition,
 :root[data-ax-theme="lebosse"] .lesson-box--method,
-:root[data-ax-theme="lebosse"] .lesson-box--example,
 :root[data-ax-theme="lebosse"] .lesson-box--check { --c: #1f4a72; --bg: #edf1f4; --bg-dark: rgba(122, 160, 196, 0.12); }
+:root[data-ax-theme="lebosse"] .lesson-box--example { --c: #3f6b4e; --bg: #eef4ef; --bg-dark: rgba(127, 176, 141, 0.12); }
 :root[data-ax-theme="lebosse"] .lesson-box--intuition,
 :root[data-ax-theme="lebosse"] .lesson-box--trap,
 :root[data-ax-theme="lebosse"] .lesson-box--warning,
@@ -350,8 +350,7 @@
 :root[data-ax-theme="lebosse-noir"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
 :root[data-ax-theme="lebosse-noir"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
 :root[data-ax-theme="lebosse-noir"] .lesson-box, :root[data-ax-theme="lebosse-noir"] .exercise-content .lesson-box { border-radius: 0px; }
-/* three-ink printing (black, blue, red), like old French manuals; key formulas framed in red */
-:root[data-ax-theme="lebosse-noir"] .lesson-box--theorem,
+/* ink printing (black, blue, red, plus green for examples), like old French manuals; key formulas framed in red */
 :root[data-ax-theme="lebosse-noir"] .lesson-box--property,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--corollary,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--proof,
@@ -359,10 +358,11 @@
 :root[data-ax-theme="lebosse-noir"] .lesson-box--remark,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--history,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--tic { --c: #1c1c1b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse-noir"] .lesson-box--theorem,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--definition,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--method,
-:root[data-ax-theme="lebosse-noir"] .lesson-box--example,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--check { --c: #1f4a72; --bg: #edf1f4; --bg-dark: rgba(122, 160, 196, 0.12); }
+:root[data-ax-theme="lebosse-noir"] .lesson-box--example { --c: #3f6b4e; --bg: #eef4ef; --bg-dark: rgba(127, 176, 141, 0.12); }
 :root[data-ax-theme="lebosse-noir"] .lesson-box--intuition,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--trap,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--warning,

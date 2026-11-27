@@ -48,8 +48,8 @@ or `#0f766e` (5.47).
 - Colour themes: `classic` (default) · `manuel` · `vert` · `mir` (black + ink blue, cream paper) · `lebosse` (black + brick)
   · `lebosse-vert` (bottle green) · `lebosse-bleu` (Prussian blue) · `lebosse-noir` (black, with printer's red for the colour boxes, as in some old manuals) · `lisible` (indigo).
   The four Lebossé colourways share old paper, square corners and Garamond. `lebosse` and `lebosse-noir` print the
-  boxes in **three inks** like old French manuals (Seifeddine, 2026-11-27): black = théorème, propriété, démonstration,
-  remarque…; blue = définition, méthode, exemple, vérifie-toi; red = l'idée, piège, attention, défi; and key
+  boxes in **three inks** like old French manuals (Seifeddine, 2026-11-27): black = propriété, démonstration, remarque…;
+  blue = théorème, définition, méthode, vérifie-toi; sober green (`#3f6b4e`, the `vert` theme's ink) = exemple; red = l'idée, piège, attention, défi; and key
   formulas (`\boxed{}`) framed in red. `lebosse-vert` and `lebosse-bleu` keep two inks (black + their colour).
 - Font packs: `garamond` (EB Garamond + Playfair headings) · `pt` (PT Serif / PT Sans) · `crimson` · `atkinson`
   (Atkinson Hyperlegible, low-vision font) · `roboto` (the classic fonts). Seifeddine's favourite so far (2026-11-27):
