@@ -1,0 +1,61 @@
+% uid: ""
+% school: "college"
+% level: "7eme"
+% chapter: "التناظر المحوري"
+% chapter_slug: "symetrie-axiale"
+% title: "زخرفة الزليج"
+% difficulty: "Facile"
+% tags: ["symetrie-axiale", "deux-axes", "quadrillage", "pavage"]
+% provenance: "own"
+% batch: "2026-11-27-symetrie-axiale-7eme"
+% Exercice 10/10 de la série 7ème « التناظر المحوري » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=7b,color=0F766E]{axiomath}
+\newcommand{\cm}{\,\mathrm{cm}}
+\axsetup{title={التناظر المحوري}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={زخرفة الزليج}, stars=2, source={Axiomaths}]
+يريد حِرفيّ إتمام زخرفة زليج مربعة لها محورا تناظر : المستقيم الرأسي $\Delta_1$ والمستقيم الأفقي $\Delta_2$. رسم الحِرفيّ ربعها فقط.
+\begin{center}
+\begin{tikzpicture}[scale=0.55]
+  \foreach \c/\r in {0/0,1/0,0/1,2/2,3/3,3/1} \fill[axmain!45] (\c,\r) rectangle ++(1,1);
+  \draw[gray!45,very thin] (0,0) grid (8,8);
+  \draw[thick] (0,0) rectangle (8,8);
+  \draw[very thick,dashed] (4,-0.5)--(4,8.5) node[above] {$\Delta_1$};
+  \draw[very thick,dashed] (-0.5,4)--(8.5,4) node[right] {$\Delta_2$};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+  \item لوّن مناظرات المربعات الملوّنة بالنسبة إلى $\Delta_1$.
+  \item لوّن مناظرات كل المربعات الملوّنة (القديمة والجديدة) بالنسبة إلى $\Delta_2$.
+  \item كم عدد المربعات الملوّنة في الزخرفة الكاملة ؟
+  \item تحقق أن $\Delta_1$ و $\Delta_2$ محورا تناظر للزخرفة الكاملة.
+\end{enumerate}
+\axsol
+\begin{enumerate}[itemsep=14pt]
+  \item $\Delta_1$ رأسي : كل مربع يبعد $n$ مربعات يسار $\Delta_1$ يقابله مربع يبعد $n$ مربعات يمين $\Delta_1$ ، على نفس السطر.
+  \item $\Delta_2$ أفقي : كل مربع يبعد $n$ مربعات تحت $\Delta_2$ يقابله مربع يبعد $n$ مربعات فوق $\Delta_2$ ، في نفس العمود.
+  \begin{center}
+  \begin{tikzpicture}[scale=0.55]
+    \foreach \c/\r in {0/0,1/0,0/1,2/2,3/3,3/1} {
+      \fill[axmain!45] (\c,\r) rectangle ++(1,1);
+      \fill[red!45] (7-\c,\r) rectangle ++(1,1);
+      \fill[red!25] (\c,7-\r) rectangle ++(1,1);
+      \fill[red!25] (7-\c,7-\r) rectangle ++(1,1);}
+    \draw[gray!45,very thin] (0,0) grid (8,8);
+    \draw[thick] (0,0) rectangle (8,8);
+    \draw[very thick,dashed] (4,-0.5)--(4,8.5) node[above] {$\Delta_1$};
+    \draw[very thick,dashed] (-0.5,4)--(8.5,4) node[right] {$\Delta_2$};
+  \end{tikzpicture}
+  \end{center}
+  \item الربع الأول فيه $6$ مربعات ملوّنة. بعد التناظر بالنسبة إلى $\Delta_1$ : $6+6=12$. بعد التناظر بالنسبة إلى $\Delta_2$ : $12+12=24$.
+  \[6\times4=\ib{$24$ مربعا}\]
+  \item كل مربع ملوّن له مناظر ملوّن بالنسبة إلى $\Delta_1$ (السؤال 1 ، والسؤال 2 حافظ على ذلك في النصف العلوي) ، وله مناظر ملوّن بالنسبة إلى $\Delta_2$ (السؤال 2).
+
+  إذا طوينا الزخرفة على $\Delta_1$ أو على $\Delta_2$ ينطبق نصفاها : \ib{$\Delta_1$ و $\Delta_2$ محورا تناظر للزخرفة}.
+\end{enumerate}
+\end{corr}
+
+\end{document}
