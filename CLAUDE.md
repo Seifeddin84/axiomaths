@@ -219,6 +219,9 @@ average pupil**: detailed, clean, nothing skipped.
   visually before committing.
 - Style: old-textbook, pure black on white, **including graph theory and geometry**. Colour only when it
   clearly helps understanding or use, and then sharp colours (see the lessons log, 2026-11-13).
+- **Mir-book look** (2026-11-27): thin uniform black lines, dashed construction lines, italic Computer Modern labels,
+  thin axes with small arrowheads, "Fig. n" caption under the figure. Full rule + matplotlib/TikZ presets:
+  `.claude/skills/axiomath-design/SKILL.md` §4b.
 
 ## 7. Extraction from photos — rules
 
@@ -252,6 +255,7 @@ average pupil**: detailed, clean, nothing skipped.
 | `check_katex.mjs` | parses all formulas with KaTeX (needs `npm ci`) |
 | `scripts/inbox_convert.py` | converts the `.tex` exercises in `inbox/tex/` (from `_maths_tutoring`) to site exercises — see §11 |
 | `create_exercise.py` | legacy interactive generator — outdated naming/sections, don't use |
+| `.claude/skills/axiomath-design/` | design system + UI audit checklist — read it before any change to `src/` UI, CSS or Tailwind |
 
 ## 9b. Wiki des mathématiciens (`mathematicians/*.md`, page `/resources/mathematicians`)
 

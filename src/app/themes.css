@@ -1,0 +1,504 @@
+/* ============================================================
+ * AxioMath site themes (test switch). Edit here directly.
+ * Two independent choices (src/lib/siteThemes.ts):
+ *   data-ax-theme on <html> = colours, paper, corners, boxes (+ the theme's own fonts)
+ *   data-ax-font  on <html> = a font pack that overrides the theme's fonts (declared last, so it wins)
+ * "classic" = the current look and the default. Tailwind accent/orange and primary/teal read the
+ * ramps below. Fonts are downloaded only when a theme or font pack using them is chosen.
+ * ============================================================ */
+
+/* Computer Modern (CMU Serif, SIL OFL; public/fonts/cmu), subset to Latin + French. Downloaded only if used. */
+@font-face { font-family: 'AX CMU Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/cmu/cmu-serif-regular.woff2') format('woff2'); }
+@font-face { font-family: 'AX CMU Serif'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/cmu/cmu-serif-italic.woff2') format('woff2'); }
+@font-face { font-family: 'AX CMU Serif'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/cmu/cmu-serif-bold.woff2') format('woff2'); }
+@font-face { font-family: 'AX CMU Serif'; font-style: italic; font-weight: 700; font-display: swap; src: url('/fonts/cmu/cmu-serif-bolditalic.woff2') format('woff2'); }
+
+/* ---------- theme: classic ---------- */
+:root {  /* accent = orange, primary = teal */
+  --ax-accent-50: 255 247 237;  /* #fff7ed */
+  --ax-accent-100: 255 237 213;  /* #ffedd5 */
+  --ax-accent-200: 254 215 170;  /* #fed7aa */
+  --ax-accent-300: 253 186 116;  /* #fdba74 */
+  --ax-accent-400: 251 146 60;  /* #fb923c */
+  --ax-accent-500: 249 115 22;  /* #f97316 */
+  --ax-accent-600: 234 88 12;  /* #ea580c */
+  --ax-accent-700: 194 65 12;  /* #c2410c */
+  --ax-accent-800: 154 52 18;  /* #9a3412 */
+  --ax-accent-900: 124 45 18;  /* #7c2d12 */
+  --ax-accent-950: 67 20 7;  /* #431407 */
+  --ax-primary-50: 240 253 250;  /* #f0fdfa */
+  --ax-primary-100: 204 251 241;  /* #ccfbf1 */
+  --ax-primary-200: 153 246 228;  /* #99f6e4 */
+  --ax-primary-300: 94 234 212;  /* #5eead4 */
+  --ax-primary-400: 45 212 191;  /* #2dd4bf */
+  --ax-primary-500: 20 184 166;  /* #14b8a6 */
+  --ax-primary-600: 13 148 136;  /* #0d9488 */
+  --ax-primary-700: 15 118 110;  /* #0f766e */
+  --ax-primary-800: 17 94 89;  /* #115e59 */
+  --ax-primary-900: 19 78 74;  /* #134e4a */
+  --ax-primary-950: 4 47 46;  /* #042f2e */
+}
+
+/* ---------- theme: manuel ---------- */
+:root[data-ax-theme="manuel"] {  /* accent = navy, primary = slate */
+  --ax-accent-50: 240 244 250;  /* #f0f4fa */
+  --ax-accent-100: 221 230 243;  /* #dde6f3 */
+  --ax-accent-200: 194 210 234;  /* #c2d2ea */
+  --ax-accent-300: 152 179 218;  /* #98b3da */
+  --ax-accent-400: 122 155 208;  /* #7a9bd0 */
+  --ax-accent-500: 74 109 176;  /* #4a6db0 */
+  --ax-accent-600: 47 85 151;  /* #2f5597 */
+  --ax-accent-700: 40 70 121;  /* #284679 */
+  --ax-accent-800: 35 59 100;  /* #233b64 */
+  --ax-accent-900: 31 50 84;  /* #1f3254 */
+  --ax-accent-950: 20 31 56;  /* #141f38 */
+  --ax-primary-50: 248 250 252;  /* #f8fafc */
+  --ax-primary-100: 241 245 249;  /* #f1f5f9 */
+  --ax-primary-200: 226 232 240;  /* #e2e8f0 */
+  --ax-primary-300: 203 213 225;  /* #cbd5e1 */
+  --ax-primary-400: 148 163 184;  /* #94a3b8 */
+  --ax-primary-500: 100 116 139;  /* #64748b */
+  --ax-primary-600: 71 85 105;  /* #475569 */
+  --ax-primary-700: 51 65 85;  /* #334155 */
+  --ax-primary-800: 30 41 59;  /* #1e293b */
+  --ax-primary-900: 15 23 42;  /* #0f172a */
+  --ax-primary-950: 2 6 23;  /* #020617 */
+}
+:root[data-ax-theme="manuel"] .exercise-content:not([dir="rtl"]) { font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif; font-size: 1.08em; }
+:root[data-ax-theme="manuel"] .lesson-content:not([dir="rtl"]) { font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif; font-size: 1.08em; }
+
+/* ---------- theme: vert ---------- */
+:root[data-ax-theme="vert"] {  /* accent = green, primary = stone */
+  --ax-accent-50: 242 247 243;  /* #f2f7f3 */
+  --ax-accent-100: 224 236 227;  /* #e0ece3 */
+  --ax-accent-200: 195 218 201;  /* #c3dac9 */
+  --ax-accent-300: 156 193 166;  /* #9cc1a6 */
+  --ax-accent-400: 127 176 141;  /* #7fb08d */
+  --ax-accent-500: 84 136 102;  /* #548866 */
+  --ax-accent-600: 63 107 78;  /* #3f6b4e */
+  --ax-accent-700: 51 87 67;  /* #335743 */
+  --ax-accent-800: 43 71 55;  /* #2b4737 */
+  --ax-accent-900: 36 59 46;  /* #243b2e */
+  --ax-accent-950: 19 33 26;  /* #13211a */
+  --ax-primary-50: 250 250 249;  /* #fafaf9 */
+  --ax-primary-100: 245 245 244;  /* #f5f5f4 */
+  --ax-primary-200: 231 229 228;  /* #e7e5e4 */
+  --ax-primary-300: 214 211 209;  /* #d6d3d1 */
+  --ax-primary-400: 168 162 158;  /* #a8a29e */
+  --ax-primary-500: 120 113 108;  /* #78716c */
+  --ax-primary-600: 87 83 78;  /* #57534e */
+  --ax-primary-700: 68 64 60;  /* #44403c */
+  --ax-primary-800: 41 37 36;  /* #292524 */
+  --ax-primary-900: 28 25 23;  /* #1c1917 */
+  --ax-primary-950: 12 10 9;  /* #0c0a09 */
+}
+
+/* ---------- theme: mir ---------- */
+:root[data-ax-theme="mir"] {  /* accent = inkblue, primary = neutral */
+  --ax-accent-50: 238 242 251;  /* #eef2fb */
+  --ax-accent-100: 219 227 246;  /* #dbe3f6 */
+  --ax-accent-200: 185 200 237;  /* #b9c8ed */
+  --ax-accent-300: 142 166 224;  /* #8ea6e0 */
+  --ax-accent-400: 127 155 224;  /* #7f9be0 */
+  --ax-accent-500: 47 85 184;  /* #2f55b8 */
+  --ax-accent-600: 31 63 153;  /* #1f3f99 */
+  --ax-accent-700: 26 51 128;  /* #1a3380 */
+  --ax-accent-800: 23 43 105;  /* #172b69 */
+  --ax-accent-900: 20 36 84;  /* #142454 */
+  --ax-accent-950: 12 22 51;  /* #0c1633 */
+  --ax-primary-50: 250 250 250;  /* #fafafa */
+  --ax-primary-100: 245 245 245;  /* #f5f5f5 */
+  --ax-primary-200: 229 229 229;  /* #e5e5e5 */
+  --ax-primary-300: 212 212 212;  /* #d4d4d4 */
+  --ax-primary-400: 163 163 163;  /* #a3a3a3 */
+  --ax-primary-500: 115 115 115;  /* #737373 */
+  --ax-primary-600: 82 82 82;  /* #525252 */
+  --ax-primary-700: 64 64 64;  /* #404040 */
+  --ax-primary-800: 38 38 38;  /* #262626 */
+  --ax-primary-900: 23 23 23;  /* #171717 */
+  --ax-primary-950: 10 10 10;  /* #0a0a0a */
+}
+:root[data-ax-theme="mir"] body, :root[data-ax-theme="mir"] .font-sans { font-family: 'PT Sans', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-theme="mir"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'PT Sans', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-theme="mir"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'PT Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="mir"] .exercise-content:not([dir="rtl"]) { font-family: 'PT Serif', Georgia, serif; font-size: 1em; }
+:root[data-ax-theme="mir"] .lesson-content:not([dir="rtl"]) { font-family: 'PT Serif', Georgia, serif; font-size: 1em; }
+:root[data-ax-theme="mir"]:not(.dark) body, :root[data-ax-theme="mir"]:not(.dark) .bg-white { background-color: #fbf9f4; }
+:root[data-ax-theme="mir"]:not(.dark) .bg-gray-50, :root[data-ax-theme="mir"]:not(.dark) .bg-gray-100 { background-color: #f3efe4; }
+:root[data-ax-theme="mir"]:not(.dark) [class*="from-green-50"] { background: #fbf9f4; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="mir"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="mir"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="mir"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 2px; }
+:root[data-ax-theme="mir"] .lesson-box, :root[data-ax-theme="mir"] .exercise-content .lesson-box { border-radius: 2px; }
+/* two-colour printing: every box kind in black or in the colour ink */
+:root[data-ax-theme="mir"] .lesson-box--theorem,
+:root[data-ax-theme="mir"] .lesson-box--property,
+:root[data-ax-theme="mir"] .lesson-box--corollary,
+:root[data-ax-theme="mir"] .lesson-box--proof,
+:root[data-ax-theme="mir"] .lesson-box--summary,
+:root[data-ax-theme="mir"] .lesson-box--remark,
+:root[data-ax-theme="mir"] .lesson-box--history,
+:root[data-ax-theme="mir"] .lesson-box--tic { --c: #1f1f1f; --bg: #ffffff; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="mir"] .lesson-box--definition,
+:root[data-ax-theme="mir"] .lesson-box--method,
+:root[data-ax-theme="mir"] .lesson-box--example,
+:root[data-ax-theme="mir"] .lesson-box--check,
+:root[data-ax-theme="mir"] .lesson-box--challenge,
+:root[data-ax-theme="mir"] .lesson-box--intuition,
+:root[data-ax-theme="mir"] .lesson-box--curious,
+:root[data-ax-theme="mir"] .lesson-box--trap,
+:root[data-ax-theme="mir"] .lesson-box--warning { --c: #1f3f99; --bg: #f1f4fb; --bg-dark: rgba(127, 155, 224, 0.12); }
+
+/* ---------- theme: lebosse ---------- */
+:root[data-ax-theme="lebosse"] {  /* accent = brick, primary = sepia */
+  --ax-accent-50: 251 241 238;  /* #fbf1ee */
+  --ax-accent-100: 246 223 216;  /* #f6dfd8 */
+  --ax-accent-200: 237 191 178;  /* #edbfb2 */
+  --ax-accent-300: 224 150 132;  /* #e09684 */
+  --ax-accent-400: 223 143 122;  /* #df8f7a */
+  --ax-accent-500: 181 69 43;  /* #b5452b */
+  --ax-accent-600: 156 58 36;  /* #9c3a24 */
+  --ax-accent-700: 130 48 30;  /* #82301e */
+  --ax-accent-800: 106 40 26;  /* #6a281a */
+  --ax-accent-900: 87 34 23;  /* #572217 */
+  --ax-accent-950: 47 17 11;  /* #2f110b */
+  --ax-primary-50: 249 246 241;  /* #f9f6f1 */
+  --ax-primary-100: 241 235 225;  /* #f1ebe1 */
+  --ax-primary-200: 226 214 195;  /* #e2d6c3 */
+  --ax-primary-300: 205 187 159;  /* #cdbb9f */
+  --ax-primary-400: 184 163 127;  /* #b8a37f */
+  --ax-primary-500: 138 117 82;  /* #8a7552 */
+  --ax-primary-600: 110 92 64;  /* #6e5c40 */
+  --ax-primary-700: 87 72 51;  /* #574833 */
+  --ax-primary-800: 63 52 38;  /* #3f3426 */
+  --ax-primary-900: 43 36 27;  /* #2b241b */
+  --ax-primary-950: 24 20 15;  /* #18140f */
+}
+:root[data-ax-theme="lebosse"] body, :root[data-ax-theme="lebosse"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="lebosse"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse"]:not(.dark) body, :root[data-ax-theme="lebosse"]:not(.dark) .bg-white { background-color: #f7f1e3; }
+:root[data-ax-theme="lebosse"]:not(.dark) .bg-gray-50, :root[data-ax-theme="lebosse"]:not(.dark) .bg-gray-100 { background-color: #efe6d2; }
+:root[data-ax-theme="lebosse"]:not(.dark) [class*="from-green-50"] { background: #f7f1e3; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="lebosse"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="lebosse"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="lebosse"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="lebosse"] .lesson-box, :root[data-ax-theme="lebosse"] .exercise-content .lesson-box { border-radius: 0px; }
+/* ink printing (black, blue, red, plus green for examples), like old French manuals; key formulas framed in red */
+:root[data-ax-theme="lebosse"] .lesson-box--property,
+:root[data-ax-theme="lebosse"] .lesson-box--corollary,
+:root[data-ax-theme="lebosse"] .lesson-box--proof,
+:root[data-ax-theme="lebosse"] .lesson-box--summary,
+:root[data-ax-theme="lebosse"] .lesson-box--remark,
+:root[data-ax-theme="lebosse"] .lesson-box--history,
+:root[data-ax-theme="lebosse"] .lesson-box--tic { --c: #2b241b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse"] .lesson-box--theorem,
+:root[data-ax-theme="lebosse"] .lesson-box--definition,
+:root[data-ax-theme="lebosse"] .lesson-box--method,
+:root[data-ax-theme="lebosse"] .lesson-box--check { --c: #1f4a72; --bg: #edf1f4; --bg-dark: rgba(122, 160, 196, 0.12); }
+:root[data-ax-theme="lebosse"] .lesson-box--example { --c: #3f6b4e; --bg: #eef4ef; --bg-dark: rgba(127, 176, 141, 0.12); }
+:root[data-ax-theme="lebosse"] .lesson-box--intuition,
+:root[data-ax-theme="lebosse"] .lesson-box--trap,
+:root[data-ax-theme="lebosse"] .lesson-box--warning,
+:root[data-ax-theme="lebosse"] .lesson-box--challenge,
+:root[data-ax-theme="lebosse"] .lesson-box--curious { --c: #9c3a24; --bg: #f8ece6; --bg-dark: rgba(239, 112, 99, 0.12); }
+:root[data-ax-theme="lebosse"] .katex .fbox { border-color: #9c3a24; background: rgb(156 58 36 / 0.07); }
+:root[data-ax-theme="lebosse"].dark .katex .fbox { border-color: #ef7063; background: rgb(239 112 99 / 0.12); }
+
+/* ---------- theme: lebosse-vert ---------- */
+:root[data-ax-theme="lebosse-vert"] {  /* accent = bottle, primary = sepia */
+  --ax-accent-50: 238 246 241;  /* #eef6f1 */
+  --ax-accent-100: 215 235 222;  /* #d7ebde */
+  --ax-accent-200: 176 214 189;  /* #b0d6bd */
+  --ax-accent-300: 128 187 150;  /* #80bb96 */
+  --ax-accent-400: 111 178 137;  /* #6fb289 */
+  --ax-accent-500: 47 122 79;  /* #2f7a4f */
+  --ax-accent-600: 31 97 64;  /* #1f6140 */
+  --ax-accent-700: 26 79 53;  /* #1a4f35 */
+  --ax-accent-800: 22 63 43;  /* #163f2b */
+  --ax-accent-900: 18 51 35;  /* #123323 */
+  --ax-accent-950: 10 29 20;  /* #0a1d14 */
+  --ax-primary-50: 249 246 241;  /* #f9f6f1 */
+  --ax-primary-100: 241 235 225;  /* #f1ebe1 */
+  --ax-primary-200: 226 214 195;  /* #e2d6c3 */
+  --ax-primary-300: 205 187 159;  /* #cdbb9f */
+  --ax-primary-400: 184 163 127;  /* #b8a37f */
+  --ax-primary-500: 138 117 82;  /* #8a7552 */
+  --ax-primary-600: 110 92 64;  /* #6e5c40 */
+  --ax-primary-700: 87 72 51;  /* #574833 */
+  --ax-primary-800: 63 52 38;  /* #3f3426 */
+  --ax-primary-900: 43 36 27;  /* #2b241b */
+  --ax-primary-950: 24 20 15;  /* #18140f */
+}
+:root[data-ax-theme="lebosse-vert"] body, :root[data-ax-theme="lebosse-vert"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-vert"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-vert"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="lebosse-vert"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-vert"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-vert"]:not(.dark) body, :root[data-ax-theme="lebosse-vert"]:not(.dark) .bg-white { background-color: #f7f1e3; }
+:root[data-ax-theme="lebosse-vert"]:not(.dark) .bg-gray-50, :root[data-ax-theme="lebosse-vert"]:not(.dark) .bg-gray-100 { background-color: #efe6d2; }
+:root[data-ax-theme="lebosse-vert"]:not(.dark) [class*="from-green-50"] { background: #f7f1e3; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="lebosse-vert"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="lebosse-vert"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="lebosse-vert"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="lebosse-vert"] .lesson-box, :root[data-ax-theme="lebosse-vert"] .exercise-content .lesson-box { border-radius: 0px; }
+/* two-colour printing: every box kind in black or in the colour ink */
+:root[data-ax-theme="lebosse-vert"] .lesson-box--theorem,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--property,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--corollary,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--proof,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--summary,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--remark,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--history,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--tic { --c: #2b241b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse-vert"] .lesson-box--definition,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--method,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--example,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--check,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--challenge,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--intuition,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--curious,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--trap,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--warning { --c: #1f6140; --bg: #eef4ec; --bg-dark: rgba(111, 178, 137, 0.12); }
+
+/* ---------- theme: lebosse-bleu ---------- */
+:root[data-ax-theme="lebosse-bleu"] {  /* accent = prussian, primary = sepia */
+  --ax-accent-50: 238 243 247;  /* #eef3f7 */
+  --ax-accent-100: 214 226 236;  /* #d6e2ec */
+  --ax-accent-200: 174 197 217;  /* #aec5d9 */
+  --ax-accent-300: 127 162 193;  /* #7fa2c1 */
+  --ax-accent-400: 122 160 196;  /* #7aa0c4 */
+  --ax-accent-500: 45 94 138;  /* #2d5e8a */
+  --ax-accent-600: 31 74 114;  /* #1f4a72 */
+  --ax-accent-700: 26 61 94;  /* #1a3d5e */
+  --ax-accent-800: 22 50 77;  /* #16324d */
+  --ax-accent-900: 18 41 63;  /* #12293f */
+  --ax-accent-950: 11 25 38;  /* #0b1926 */
+  --ax-primary-50: 249 246 241;  /* #f9f6f1 */
+  --ax-primary-100: 241 235 225;  /* #f1ebe1 */
+  --ax-primary-200: 226 214 195;  /* #e2d6c3 */
+  --ax-primary-300: 205 187 159;  /* #cdbb9f */
+  --ax-primary-400: 184 163 127;  /* #b8a37f */
+  --ax-primary-500: 138 117 82;  /* #8a7552 */
+  --ax-primary-600: 110 92 64;  /* #6e5c40 */
+  --ax-primary-700: 87 72 51;  /* #574833 */
+  --ax-primary-800: 63 52 38;  /* #3f3426 */
+  --ax-primary-900: 43 36 27;  /* #2b241b */
+  --ax-primary-950: 24 20 15;  /* #18140f */
+}
+:root[data-ax-theme="lebosse-bleu"] body, :root[data-ax-theme="lebosse-bleu"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-bleu"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-bleu"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="lebosse-bleu"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-bleu"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-bleu"]:not(.dark) body, :root[data-ax-theme="lebosse-bleu"]:not(.dark) .bg-white { background-color: #f7f1e3; }
+:root[data-ax-theme="lebosse-bleu"]:not(.dark) .bg-gray-50, :root[data-ax-theme="lebosse-bleu"]:not(.dark) .bg-gray-100 { background-color: #efe6d2; }
+:root[data-ax-theme="lebosse-bleu"]:not(.dark) [class*="from-green-50"] { background: #f7f1e3; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="lebosse-bleu"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="lebosse-bleu"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="lebosse-bleu"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="lebosse-bleu"] .lesson-box, :root[data-ax-theme="lebosse-bleu"] .exercise-content .lesson-box { border-radius: 0px; }
+/* two-colour printing: every box kind in black or in the colour ink */
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--theorem,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--property,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--corollary,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--proof,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--summary,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--remark,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--history,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--tic { --c: #2b241b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--definition,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--method,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--example,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--check,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--challenge,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--intuition,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--curious,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--trap,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--warning { --c: #1f4a72; --bg: #edf1f4; --bg-dark: rgba(122, 160, 196, 0.12); }
+
+/* ---------- theme: lebosse-noir ---------- */
+:root[data-ax-theme="lebosse-noir"] {  /* accent = graphite, primary = sepia */
+  --ax-accent-50: 247 247 246;  /* #f7f7f6 */
+  --ax-accent-100: 235 235 234;  /* #ebebea */
+  --ax-accent-200: 214 214 212;  /* #d6d6d4 */
+  --ax-accent-300: 181 181 178;  /* #b5b5b2 */
+  --ax-accent-400: 163 163 160;  /* #a3a3a0 */
+  --ax-accent-500: 63 63 61;  /* #3f3f3d */
+  --ax-accent-600: 38 38 37;  /* #262625 */
+  --ax-accent-700: 28 28 27;  /* #1c1c1b */
+  --ax-accent-800: 20 20 20;  /* #141414 */
+  --ax-accent-900: 15 15 15;  /* #0f0f0f */
+  --ax-accent-950: 8 8 8;  /* #080808 */
+  --ax-primary-50: 249 246 241;  /* #f9f6f1 */
+  --ax-primary-100: 241 235 225;  /* #f1ebe1 */
+  --ax-primary-200: 226 214 195;  /* #e2d6c3 */
+  --ax-primary-300: 205 187 159;  /* #cdbb9f */
+  --ax-primary-400: 184 163 127;  /* #b8a37f */
+  --ax-primary-500: 138 117 82;  /* #8a7552 */
+  --ax-primary-600: 110 92 64;  /* #6e5c40 */
+  --ax-primary-700: 87 72 51;  /* #574833 */
+  --ax-primary-800: 63 52 38;  /* #3f3426 */
+  --ax-primary-900: 43 36 27;  /* #2b241b */
+  --ax-primary-950: 24 20 15;  /* #18140f */
+}
+:root[data-ax-theme="lebosse-noir"] body, :root[data-ax-theme="lebosse-noir"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-noir"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-noir"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="lebosse-noir"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-noir"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-noir"]:not(.dark) body, :root[data-ax-theme="lebosse-noir"]:not(.dark) .bg-white { background-color: #f7f1e3; }
+:root[data-ax-theme="lebosse-noir"]:not(.dark) .bg-gray-50, :root[data-ax-theme="lebosse-noir"]:not(.dark) .bg-gray-100 { background-color: #efe6d2; }
+:root[data-ax-theme="lebosse-noir"]:not(.dark) [class*="from-green-50"] { background: #f7f1e3; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="lebosse-noir"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="lebosse-noir"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="lebosse-noir"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="lebosse-noir"] .lesson-box, :root[data-ax-theme="lebosse-noir"] .exercise-content .lesson-box { border-radius: 0px; }
+/* ink printing (black, blue, red, plus green for examples), like old French manuals; key formulas framed in red */
+:root[data-ax-theme="lebosse-noir"] .lesson-box--property,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--corollary,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--proof,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--summary,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--remark,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--history,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--tic { --c: #1c1c1b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse-noir"] .lesson-box--theorem,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--definition,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--method,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--check { --c: #1f4a72; --bg: #edf1f4; --bg-dark: rgba(122, 160, 196, 0.12); }
+:root[data-ax-theme="lebosse-noir"] .lesson-box--example { --c: #3f6b4e; --bg: #eef4ef; --bg-dark: rgba(127, 176, 141, 0.12); }
+:root[data-ax-theme="lebosse-noir"] .lesson-box--intuition,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--trap,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--warning,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--challenge,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--curious { --c: #b3261e; --bg: #f9ecea; --bg-dark: rgba(239, 112, 99, 0.12); }
+:root[data-ax-theme="lebosse-noir"] .katex .fbox { border-color: #b3261e; background: rgb(179 38 30 / 0.07); }
+:root[data-ax-theme="lebosse-noir"].dark .katex .fbox { border-color: #ef7063; background: rgb(239 112 99 / 0.12); }
+
+/* ---------- theme: mir-pur ---------- */
+:root[data-ax-theme="mir-pur"] {  /* accent = inkblue, primary = neutral */
+  --ax-accent-50: 238 242 251;  /* #eef2fb */
+  --ax-accent-100: 219 227 246;  /* #dbe3f6 */
+  --ax-accent-200: 185 200 237;  /* #b9c8ed */
+  --ax-accent-300: 142 166 224;  /* #8ea6e0 */
+  --ax-accent-400: 127 155 224;  /* #7f9be0 */
+  --ax-accent-500: 47 85 184;  /* #2f55b8 */
+  --ax-accent-600: 31 63 153;  /* #1f3f99 */
+  --ax-accent-700: 26 51 128;  /* #1a3380 */
+  --ax-accent-800: 23 43 105;  /* #172b69 */
+  --ax-accent-900: 20 36 84;  /* #142454 */
+  --ax-accent-950: 12 22 51;  /* #0c1633 */
+  --ax-primary-50: 250 250 250;  /* #fafafa */
+  --ax-primary-100: 245 245 245;  /* #f5f5f5 */
+  --ax-primary-200: 229 229 229;  /* #e5e5e5 */
+  --ax-primary-300: 212 212 212;  /* #d4d4d4 */
+  --ax-primary-400: 163 163 163;  /* #a3a3a3 */
+  --ax-primary-500: 115 115 115;  /* #737373 */
+  --ax-primary-600: 82 82 82;  /* #525252 */
+  --ax-primary-700: 64 64 64;  /* #404040 */
+  --ax-primary-800: 38 38 38;  /* #262626 */
+  --ax-primary-900: 23 23 23;  /* #171717 */
+  --ax-primary-950: 10 10 10;  /* #0a0a0a */
+}
+:root[data-ax-theme="mir-pur"] body, :root[data-ax-theme="mir-pur"] .font-sans { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="mir-pur"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="mir-pur"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="mir-pur"] .exercise-content:not([dir="rtl"]) { font-family: 'AX CMU Serif', 'Latin Modern Roman', Georgia, serif; font-size: 1.06em; }
+:root[data-ax-theme="mir-pur"] .lesson-content:not([dir="rtl"]) { font-family: 'AX CMU Serif', 'Latin Modern Roman', Georgia, serif; font-size: 1.06em; }
+:root[data-ax-theme="mir-pur"]:not(.dark) body, :root[data-ax-theme="mir-pur"]:not(.dark) .bg-white { background-color: #fbfaf6; }
+:root[data-ax-theme="mir-pur"]:not(.dark) .bg-gray-50, :root[data-ax-theme="mir-pur"]:not(.dark) .bg-gray-100 { background-color: #f2f0ea; }
+:root[data-ax-theme="mir-pur"]:not(.dark) [class*="from-green-50"] { background: #fbfaf6; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="mir-pur"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="mir-pur"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="mir-pur"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="mir-pur"] .lesson-box, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box { border-radius: 0px; }
+/* Mir books: no filled boxes; a bold run-in label, a thin rule on the left, statements in italics */
+:root[data-ax-theme="mir-pur"] .lesson-box, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box { --c: #1c1c1b; background: transparent; border: none; border-left: 1.5px solid var(--c); border-radius: 0; box-shadow: none; margin: 1.4rem 0; }
+:root[data-ax-theme="mir-pur"].dark .lesson-box, :root[data-ax-theme="mir-pur"].dark .exercise-content .lesson-box { --c: #d4d4d4; background: transparent; border: none; border-left: 1.5px solid var(--c); }
+:root[data-ax-theme="mir-pur"] .lesson-box--trap, :root[data-ax-theme="mir-pur"] .lesson-box--warning, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box--trap, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box--warning { --c: #b3261e; }
+:root[data-ax-theme="mir-pur"] .lesson-box__header, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__header { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0 0.5rem; background: transparent; border: none; padding: 0.1rem 0 0.2rem 0.9rem; }
+:root[data-ax-theme="mir-pur"] .lesson-box__kind, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__kind, :root[data-ax-theme="mir-pur"].dark .exercise-content .lesson-box__kind { color: var(--c); text-transform: none; letter-spacing: 0; font-size: 1rem; font-weight: 700; opacity: 1; }
+:root[data-ax-theme="mir-pur"] .lesson-box__title, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__title, :root[data-ax-theme="mir-pur"].dark .exercise-content .lesson-box__title, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__kind--title, :root[data-ax-theme="mir-pur"].dark .exercise-content .lesson-box__kind--title { color: inherit; font-weight: 700; font-style: normal; font-size: 1rem; }
+:root[data-ax-theme="mir-pur"] .lesson-box__body, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__body { padding: 0 0 0 0.9rem; }
+:root[data-ax-theme="mir-pur"] :is(.lesson-box--theorem, .lesson-box--property, .lesson-box--corollary) .lesson-box__body { font-style: italic; }
+:root[data-ax-theme="mir-pur"] .exercise-content .lesson-box strong { color: inherit; }
+:root[data-ax-theme="mir-pur"] .lesson-box--proof .lesson-box__body::after { content: '\25A1'; }  /* □ like the Mir books */
+:root[data-ax-theme="mir-pur"] .lesson-h2 { border-bottom: 1px solid currentColor; }
+:root[data-ax-theme="mir-pur"] .katex .fbox { border: 0.06em solid currentColor; background: transparent; border-radius: 0; }
+
+/* ---------- theme: lisible ---------- */
+:root[data-ax-theme="lisible"] {  /* accent = indigo, primary = cyan */
+  --ax-accent-50: 238 242 255;  /* #eef2ff */
+  --ax-accent-100: 224 231 255;  /* #e0e7ff */
+  --ax-accent-200: 199 210 254;  /* #c7d2fe */
+  --ax-accent-300: 165 180 252;  /* #a5b4fc */
+  --ax-accent-400: 139 149 249;  /* #8b95f9 */
+  --ax-accent-500: 99 102 241;  /* #6366f1 */
+  --ax-accent-600: 79 70 229;  /* #4f46e5 */
+  --ax-accent-700: 67 56 202;  /* #4338ca */
+  --ax-accent-800: 55 48 163;  /* #3730a3 */
+  --ax-accent-900: 49 46 129;  /* #312e81 */
+  --ax-accent-950: 30 27 75;  /* #1e1b4b */
+  --ax-primary-50: 236 254 255;  /* #ecfeff */
+  --ax-primary-100: 207 250 254;  /* #cffafe */
+  --ax-primary-200: 165 243 252;  /* #a5f3fc */
+  --ax-primary-300: 103 232 249;  /* #67e8f9 */
+  --ax-primary-400: 34 211 238;  /* #22d3ee */
+  --ax-primary-500: 6 182 212;  /* #06b6d4 */
+  --ax-primary-600: 14 116 144;  /* #0e7490 */
+  --ax-primary-700: 21 94 117;  /* #155e75 */
+  --ax-primary-800: 22 78 99;  /* #164e63 */
+  --ax-primary-900: 22 78 99;  /* #164e63 */
+  --ax-primary-950: 8 51 68;  /* #083344 */
+}
+:root[data-ax-theme="lisible"] body, :root[data-ax-theme="lisible"] .font-sans { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-theme="lisible"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-theme="lisible"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="lisible"] .exercise-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
+:root[data-ax-theme="lisible"] .lesson-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
+
+/* lessons highlight the changing term with \textcolor{#ea580c}: in every non-classic theme it takes the theme's accent */
+:root[data-ax-theme] .katex [style*="#ea580c"] { color: rgb(var(--ax-accent-600)) !important; }
+:root[data-ax-theme].dark .katex [style*="#ea580c"] { color: rgb(var(--ax-accent-400)) !important; }
+
+/* ============ font packs (override the theme's fonts) ============ */
+/* font: garamond */
+:root[data-ax-font="garamond"] body, :root[data-ax-font="garamond"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-font="garamond"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-font="garamond"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="garamond"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-font="garamond"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+
+/* font: pt */
+:root[data-ax-font="pt"] body, :root[data-ax-font="pt"] .font-sans { font-family: 'PT Sans', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="pt"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'PT Sans', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="pt"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'PT Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="pt"] .exercise-content:not([dir="rtl"]) { font-family: 'PT Serif', Georgia, serif; font-size: 1em; }
+:root[data-ax-font="pt"] .lesson-content:not([dir="rtl"]) { font-family: 'PT Serif', Georgia, serif; font-size: 1em; }
+
+/* font: crimson */
+:root[data-ax-font="crimson"] .exercise-content:not([dir="rtl"]) { font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif; font-size: 1.08em; }
+:root[data-ax-font="crimson"] .lesson-content:not([dir="rtl"]) { font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif; font-size: 1.08em; }
+
+/* font: atkinson */
+:root[data-ax-font="atkinson"] body, :root[data-ax-font="atkinson"] .font-sans { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="atkinson"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="atkinson"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="atkinson"] .exercise-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
+:root[data-ax-font="atkinson"] .lesson-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
+
+/* font: cmu */
+:root[data-ax-font="cmu"] body, :root[data-ax-font="cmu"] .font-sans { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-font="cmu"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-font="cmu"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="cmu"] .exercise-content:not([dir="rtl"]) { font-family: 'AX CMU Serif', 'Latin Modern Roman', Georgia, serif; font-size: 1.06em; }
+:root[data-ax-font="cmu"] .lesson-content:not([dir="rtl"]) { font-family: 'AX CMU Serif', 'Latin Modern Roman', Georgia, serif; font-size: 1.06em; }
+
+/* font: roboto */
+:root[data-ax-font="roboto"] body, :root[data-ax-font="roboto"] .font-sans { font-family: 'Roboto', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="roboto"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'Roboto', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="roboto"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Roboto', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="roboto"] .exercise-content:not([dir="rtl"]) { font-family: 'Latin Modern Math', 'Computer Modern', serif; font-size: 1em; }
+:root[data-ax-font="roboto"] .lesson-content:not([dir="rtl"]) { font-family: 'Lora', Georgia, serif; font-size: 1em; }
