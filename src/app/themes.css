@@ -365,7 +365,7 @@
 :root[data-ax-theme="lebosse-noir"] .lesson-box--intuition,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--curious,
 :root[data-ax-theme="lebosse-noir"] .lesson-box--trap,
-:root[data-ax-theme="lebosse-noir"] .lesson-box--warning { --c: #5a5a57; --bg: #f1ede4; --bg-dark: rgba(163, 163, 160, 0.12); }
+:root[data-ax-theme="lebosse-noir"] .lesson-box--warning { --c: #b3261e; --bg: #f9ecea; --bg-dark: rgba(239, 112, 99, 0.12); }
 
 /* ---------- theme: lisible ---------- */
 :root[data-ax-theme="lisible"] {  /* accent = indigo, primary = cyan */

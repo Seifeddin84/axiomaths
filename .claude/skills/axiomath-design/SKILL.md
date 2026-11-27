@@ -46,7 +46,7 @@ or `#0f766e` (5.47).
   **colours** (`data-ax-theme`: palette, paper tone, corners, boxes) and **fonts** (`data-ax-font`, a font pack that
   overrides the theme's own fonts; declared last in the CSS so it wins).
 - Colour themes: `classic` (default) · `manuel` · `vert` · `mir` (black + ink blue, cream paper) · `lebosse` (black + brick)
-  · `lebosse-vert` (bottle green) · `lebosse-bleu` (Prussian blue) · `lebosse-noir` (black only) · `lisible` (indigo).
+  · `lebosse-vert` (bottle green) · `lebosse-bleu` (Prussian blue) · `lebosse-noir` (black, with printer's red for the colour boxes, as in some old manuals) · `lisible` (indigo).
   The four Lebossé colourways share old paper, square corners, Garamond and two-ink boxes.
 - Font packs: `garamond` (EB Garamond + Playfair headings) · `pt` (PT Serif / PT Sans) · `crimson` · `atkinson`
   (Atkinson Hyperlegible, low-vision font) · `roboto` (the classic fonts). Seifeddine's favourite so far (2026-11-27):

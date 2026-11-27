@@ -18,7 +18,7 @@ export const SITE_THEMES = [
   { id: 'lebosse', label: 'Lebossé (noir + brique)', fonts: GARAMOND },
   { id: 'lebosse-vert', label: 'Lebossé vert bouteille', fonts: GARAMOND },
   { id: 'lebosse-bleu', label: 'Lebossé bleu de Prusse', fonts: GARAMOND },
-  { id: 'lebosse-noir', label: 'Lebossé noir seul', fonts: GARAMOND },
+  { id: 'lebosse-noir', label: 'Lebossé noir + rouge', fonts: GARAMOND },
   { id: 'lisible', label: 'Lisible (indigo)', fonts: ATKINSON },
 ] as const;
 
