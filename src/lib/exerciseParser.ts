@@ -85,6 +85,7 @@ export function parseExercise(content: string, filename: string): Exercise {
     tags: frontmatter.tags || [],
     schoolType: frontmatter.schoolType,
     recommended: frontmatter.recommended === true || String(frontmatter.recommended).trim() === 'true',
+    defi: frontmatter.defi === true || String(frontmatter.defi).trim() === 'true',
     bac: frontmatter.bac || undefined,
   };
 }

@@ -167,6 +167,11 @@ in class: a classic result reached step by step (Stirling, Leibniz series, e as 
 an elegant idea, or a question that links several chapters. Keep it rare (≈ 1 in 5),
 or the filter stops meaning anything.
 
+**Défi.** `defi: true` (optional) marks a challenge beyond the programme (olympiad style, off-programme tools such as
+inversion, Simson, conics in 3ème). The site shows it in its chapter *after* every regular exercise, with a rose card
+and a « 🔥 Défi · hors programme » badge, whatever the sort order. Use the closest canonical chapter. A défi may also be
+adapted into a regular exercise of the chapter when the idea fits naturally (R4: no clones).
+
 **Bac papers.** An exercise taken from a paper in `public/bac/<id>/` gets `bac: "<id>"`,
 `source: "Bac <year> <session>, Ex. n"` and the paper's `sujet.tex` gets `\banque{<UID7>}`
 in that block: the links then go both ways.
@@ -241,6 +246,18 @@ average pupil**: detailed, clean, nothing skipped.
 | `check_katex.mjs` | parses all formulas with KaTeX (needs `npm ci`) |
 | `scripts/inbox_convert.py` | converts the `.tex` exercises in `inbox/tex/` (from `_maths_tutoring`) to site exercises — see §11 |
 | `create_exercise.py` | legacy interactive generator — outdated naming/sections, don't use |
+
+## 9b. Wiki des mathématiciens (`mathematicians/*.md`, page `/resources/mathematicians`)
+
+- Un fichier par mathématicien : frontmatter `name`, `slug` (nom de famille, sert au tri), `birth`, `death` (négatifs pour
+  av. J.-C.), `dates` (optionnel : texte affiché pour les dates approximatives, « vers 287 – 212 av. J.-C. »), `nationality`,
+  `letter` (initiale du nom de famille), `fields`, `portrait` (`/mathematicians/<slug>.jpg`, fichier déposé dans `public/mathematicians/` ;
+  absent du dépôt, le portrait est simplement masqué par le composant. Seifeddine charge lui-même les images ; Claude n'en télécharge pas).
+- Corps : présentation, `## Contributions majeures`, puis `## Dans les exercices d'AxioMath` avec les liens profonds vers les
+  exercices (§5) où le théorème ou le nom intervient. Pas de citation inventée ; dates et attributions vérifiées (une
+  attribution douteuse est dite telle : droite de Simson = Wallace 1799).
+- Chaque fois qu'un exercice utilise un théorème ou un résultat **nommé**, le mathématicien a sa fiche (ajouter l'exercice à
+  la liste si la fiche existe déjà). Fait le 2026-11-22 pour toute la banque ; pas de portrait téléchargé.
 
 ## 10. Known quirks
 
@@ -319,3 +336,13 @@ Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads ori
 - 2026-11-19 (Seifeddine): solution boxes must **catch the eye like the LaTeX handouts** (tcolorbox: solid coloured
   title bar, white text, full frame); `\boxed{}` gets an orange frame. Pupils prefer the **card view**: it has the
   filters (difficulty chips, teacher, order easy → hard), not only the table.
+- 2026-11-22 (Seifeddine): **défis** (interesting exercises that go beyond the programme) stay in the bank, visible but
+  **last in their chapter** and tinted rose, with the tags kept; R4 still applies (no duplicates, no clones). Implemented
+  as `defi: true` (frontmatter, parser, card/table views, converter, `inbox/README.md`). A dedicated `/defis` page across
+  levels is a possible second step, not built yet. Lesson: check each generated figure for label collisions (Simson
+  figure #383 had two feet sitting on vertices; P was moved by search over the circle).
+- 2026-11-22: Bac 2001 session principale (scan sans couche texte, lu page par page) : sujet ajouté dans `public/bac/2001-principale-maths/`
+  (retapé en `axiobac`) et les trois blocs en banque, UIDs 401–403. Le scan imprime « 2 » en exposant à la place de « e » dans
+  « a = 1 + e^{iθ} » (Ex. 1, 2°) : lu e^{iθ}, signalé dans `sujet.yaml`. Le problème ne cite pas Wallis mais démontre la
+  récurrence et le produit de Wallis (u_n = ∫₀^∞ dt/chⁿt = W_{n-1}) : la fiche Wallis le renvoie vers #403, avec la précision que
+  le nom n'apparaît pas dans le sujet. Pour compiler `axiobac` dans l'environnement : `apt-get install texlive-lang-french texlive-fonts-extra`.

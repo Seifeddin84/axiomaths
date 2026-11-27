@@ -1,0 +1,115 @@
+---
+uid: "0000379"
+school: "lycee"
+level: "2eme"
+section: ["Sciences", "Informatique"]
+chapter: "Notion de Polynômes"
+source: "Axiomaths"
+title: "Racine évidente et factorisation"
+country: "Tunisie"
+year: 2026
+professor: "Axiomaths"
+difficulty: "Facile"
+points: null
+tags: ["polynomes", "racine-evidente", "factorisation", "identification"]
+provenance: "own"
+batch: "2026-11-19-2sc-polynomes-barycentre"
+---
+
+Pour chaque polynôme, chercher une racine parmi $-2$, $-1$, $1$ et $2$, factoriser le polynôme au maximum, puis résoudre dans $\mathbb{R}$ l'équation $P(x)=0$.
+
+1. $P_1(x)=x^3-6x^2+11x-6$ ;
+
+2. $P_2(x)=2x^3+x^2-5x+2$ ;
+
+3. $P_3(x)=3x^3-4x^2-5x+2$ ;
+
+4. $P_4(x)=x^3-2x^2+2x-1$.
+
+---
+
+## Solution
+
+:::property[Factorisation]
+Si $\boxed{P(\alpha)=0}$, alors $P(x)=(x-\alpha)\,Q(x)$ où $Q$ est un polynôme de degré $\deg P-1$, que l'on trouve par identification.
+:::
+
+:::property[Trinôme]
+Pour $ax^2+bx+c$ : $\boxed{\Delta=b^2-4ac}$. Si $\Delta>0$ : deux racines $\dfrac{-b\pm\sqrt\Delta}{2a}$ ; si $\Delta=0$ : une racine double $-\dfrac{b}{2a}$ ; si $\Delta<0$ : pas de racine.
+:::
+
+1. $P_1(1)=1-6+11-6=0$ : $1$ est racine. On cherche $P_1(x)=(x-1)(ax^2+bx+c)=ax^3+(b-a)x^2+(c-b)x-c$ :
+
+   $$
+   \displaystyle \left\{
+     \begin{aligned}
+       a&=1\\
+       b-a&=-6\\
+       c-b&=11\\
+       -c&=-6
+     \end{aligned}
+     \right.
+     \qquad\text{donc}\qquad a=1,\ b=-5,\ c=6\quad(\text{contrôle : }6-(-5)=11\ \checkmark)
+   $$
+
+   $$\displaystyle x^2-5x+6:\quad\Delta=25-24=1,\qquad x=\dfrac{5-1}{2}=2\quad\text{ou}\quad x=\dfrac{5+1}{2}=3$$
+
+   $$\displaystyle P_1(x)=(x-1)(x-2)(x-3)\qquad\mathcal S=\{1\,;2\,;3\}$$
+
+2. $P_2(1)=2+1-5+2=0$ : $1$ est racine. $P_2(x)=(x-1)(ax^2+bx+c)=ax^3+(b-a)x^2+(c-b)x-c$ :
+
+   $$
+   \displaystyle \left\{
+     \begin{aligned}
+       a&=2\\
+       b-a&=1\\
+       c-b&=-5\\
+       -c&=2
+     \end{aligned}
+     \right.
+     \qquad\text{donc}\qquad a=2,\ b=3,\ c=-2\quad(\text{contrôle : }-2-3=-5\ \checkmark)
+   $$
+
+   $$\displaystyle 2x^2+3x-2:\quad\Delta=9+16=25,\qquad x=\dfrac{-3-5}{4}=-2\quad\text{ou}\quad x=\dfrac{-3+5}{4}=\dfrac12$$
+
+   $$\displaystyle P_2(x)=(x-1)(x+2)(2x-1)\qquad\mathcal S=\left\{-2\,;\dfrac12\,;1\right\}$$
+
+3. $P_3(1)=-4\neq0$, mais $P_3(-1)=-3-4+5+2=0$ : $-1$ est racine. $P_3(x)=(x+1)(ax^2+bx+c)=ax^3+(a+b)x^2+(b+c)x+c$ :
+
+   $$
+   \displaystyle \left\{
+     \begin{aligned}
+       a&=3\\
+       a+b&=-4\\
+       b+c&=-5\\
+       c&=2
+     \end{aligned}
+     \right.
+     \qquad\text{donc}\qquad a=3,\ b=-7,\ c=2\quad(\text{contrôle : }-7+2=-5\ \checkmark)
+   $$
+
+   $$\displaystyle 3x^2-7x+2:\quad\Delta=49-24=25,\qquad x=\dfrac{7-5}{6}=\dfrac13\quad\text{ou}\quad x=\dfrac{7+5}{6}=2$$
+
+   $$\displaystyle P_3(x)=(x+1)(3x-1)(x-2)\qquad\mathcal S=\left\{-1\,;\dfrac13\,;2\right\}$$
+
+4. $P_4(1)=1-2+2-1=0$ : $1$ est racine. $P_4(x)=(x-1)(ax^2+bx+c)=ax^3+(b-a)x^2+(c-b)x-c$ :
+
+   $$
+   \displaystyle \left\{
+     \begin{aligned}
+       a&=1\\
+       b-a&=-2\\
+       c-b&=2\\
+       -c&=-1
+     \end{aligned}
+     \right.
+     \qquad\text{donc}\qquad a=1,\ b=-1,\ c=1\quad(\text{contrôle : }1-(-1)=2\ \checkmark)
+   $$
+
+   $$\displaystyle x^2-x+1:\quad\Delta=1-4=-3<0\quad\text{: pas de racine}$$
+
+   $$\displaystyle P_4(x)=(x-1)(x^2-x+1)\qquad\mathcal S=\{1\}$$
+
+   :::trap
+   Un polynôme de degré $3$ n'a pas toujours trois racines ; ici le trinôme ne se factorise pas.
+   :::

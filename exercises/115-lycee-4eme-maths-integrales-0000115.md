@@ -53,3 +53,5 @@ Soit la suite $(I_n)$ définie pour tout $n \in \mathbb{N}$ par $I_n = \displays
    Hérédité : $I_{n+1}I_{n+2} = \dfrac{n+2}{n+5}I_n I_{n+1} = \dfrac{n+2}{n+5}\cdot\dfrac{\pi}{2(n+2)(n+3)(n+4)} = \dfrac{\pi}{2(n+3)(n+4)(n+5)}$.
 
    b. $n^3 I_n^2 = n^3\,I_n I_{n+1}\cdot\dfrac{I_n}{I_{n+1}} = \dfrac{\pi\,n^3}{2(n+2)(n+3)(n+4)}\cdot\dfrac{I_n}{I_{n+1}} \to \dfrac{\pi}{2} \times 1 = \dfrac{\pi}{2}$.
+
+*Pour aller plus loin :* le problème du Bac 2001 démontre le produit de Wallis avec les intégrales de $\dfrac{1}{\operatorname{ch}^n t}$, qui se ramènent aux intégrales de Wallis par le changement de variable $\cos\theta=\dfrac{1}{\operatorname{ch}t}$ : voir l'[exercice n°403](/lycee/4eme/mathematiques/integrales#ex-0000403).

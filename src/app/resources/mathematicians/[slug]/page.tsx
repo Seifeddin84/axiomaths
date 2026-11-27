@@ -1,4 +1,4 @@
-import { getMathematicianBySlug, getAllMathematicians } from '@/lib/mathematicianReader';
+import { getMathematicianBySlug, getAllMathematicians, lifespan } from '@/lib/mathematicianReader';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
@@ -49,7 +49,7 @@ export default async function MathematicianPage({
               
               <div className="flex flex-wrap items-center gap-4 text-lg mb-6">
                 <span className="text-gray-300">
-                  {mathematician.birth}–{mathematician.death || 'présent'}
+                  {lifespan(mathematician)}
                 </span>
                 {mathematician.nationality && (
                   <>

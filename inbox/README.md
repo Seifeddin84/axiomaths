@@ -60,6 +60,7 @@ Put `% alt: <description>` before a figure, otherwise its alt text is the exerci
 | `dressing` | practice sets | the variation of the technique this exercise trains, e.g. `"nth term"`, `"absolute value"` |
 | `rung` | practice sets | difficulty step inside the set, 1 = direct application |
 | `batch` | yes | same value for every file generated together, e.g. `"2026-11-18-suites-2sc-A"` |
+| `defi` | no | `true` for a challenge that goes beyond the programme (olympiad style, off-programme tools). The site lists it after every regular exercise of its chapter, with a rose tint and a « Défi · hors programme » badge. Still file it in the closest canonical chapter; never use it to hide a regular exercise. |
 | `uid` | leave `""` | assigned by the manager |
 | `source`, `professor`, `year`, `country` | no | leave out: default to `"Axiomaths"`, `"Axiomaths"`, current year, `"Tunisie"`. Only set `source` for an adapted exercise if you know it. |
 

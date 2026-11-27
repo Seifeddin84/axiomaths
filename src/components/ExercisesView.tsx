@@ -52,10 +52,14 @@ export default function ExercisesView({ exercises }: ExercisesViewProps) {
       .filter(ex => professor === 'all' || ex.professor?.includes(professor))
       .filter(ex => levels.length === 0 || levels.includes(levelOf(ex) as Level))
       .filter(ex => !onlyRecommended || ex.recommended);
-    if (order === 'default') return list;
     const sign = order === 'easy-first' ? 1 : -1;
     // stable sort: inside one difficulty the usual order is kept
-    return [...list].sort((a, b) => sign * ((RANK[levelOf(a)] ?? 2) - (RANK[levelOf(b)] ?? 2)));
+    const ordered =
+      order === 'default'
+        ? list
+        : [...list].sort((a, b) => sign * ((RANK[levelOf(a)] ?? 2) - (RANK[levelOf(b)] ?? 2)));
+    // défis (beyond the programme) always come after every regular exercise of the chapter
+    return [...ordered.filter(ex => !ex.defi), ...ordered.filter(ex => ex.defi)];
   }, [exercises, professor, levels, onlyRecommended, order]);
 
   const filtered = professor !== 'all' || levels.length > 0 || onlyRecommended;
