@@ -81,14 +81,14 @@
   content: counter(item) ". ";
   font-weight: 800;
   font-size: 1em;
-  color: #ea580c;
+  color: rgb(var(--ax-accent-600));
   position: absolute;
   left: 0;
   right: auto;
 }
 
 .dark .exercise-content ol > li::before {
-  color: #2dd4bf;
+  color: rgb(var(--ax-primary-400));
 }
 
 .exercise-content ol > li > p:first-child {
@@ -122,14 +122,14 @@
   content: counter(subitem, lower-alpha) ". ";
   font-weight: 700;
   font-size: 1em;
-  color: #ea580c;
+  color: rgb(var(--ax-accent-600));
   position: absolute;
   left: 0;
   right: auto;
 }
 
 .dark .exercise-content ol ol > li::before {
-  color: #2dd4bf;
+  color: rgb(var(--ax-primary-400));
 }
 
 .exercise-content ol ol > li > p:first-child {
@@ -152,14 +152,14 @@
 
 .exercise-content ol ol ol > li::before {
   content: counter(subsubitem, lower-roman) ". ";
-  color: #ea580c;
+  color: rgb(var(--ax-accent-600));
   position: absolute;
   left: 0;
   right: auto;
 }
 
 .dark .exercise-content ol ol ol > li::before {
-  color: #2dd4bf;
+  color: rgb(var(--ax-primary-400));
 }
 
 /* Honour <ol start="N">: a list continued after a paragraph, a figure or a heading.
@@ -415,13 +415,13 @@
    ======================================== */
 
 :root {
-  --accent-500: #ea580c;
-  --primary-500: #14b8a6;
+  --accent-500: rgb(var(--ax-accent-600));
+  --primary-500: rgb(var(--ax-primary-500));
 }
 
 .dark {
-  --accent-500: #ea580c;
-  --primary-500: #2dd4bf;
+  --accent-500: rgb(var(--ax-accent-600));
+  --primary-500: rgb(var(--ax-primary-400));
 }
 
 /* ========================================
@@ -538,18 +538,18 @@ button, .btn, a.button {
 /* key results (\boxed{…}): an orange frame on a light background, as \ib{} in the handouts */
 .exercise-content .katex .fbox {
   /* KaTeX draws the frame as a layer ON TOP of the formula: the tint must be translucent */
-  border: 0.09em solid #ea580c; border-radius: 0.15em; background: rgba(234, 88, 12, 0.1);
+  border: 0.09em solid rgb(var(--ax-accent-600)); border-radius: 0.15em; background: rgb(var(--ax-accent-600) / 0.1);
 }
-.dark .exercise-content .katex .fbox { border-color: #fb923c; background: rgba(251, 146, 60, 0.14); }
+.dark .exercise-content .katex .fbox { border-color: rgb(var(--ax-accent-400)); background: rgb(var(--ax-accent-400) / 0.14); }
 /* Links between exercises (e.g. /lycee/4eme/mathematiques/integrales#ex-0000116) */
 .exercise-content a {
-  color: #ea580c;
+  color: rgb(var(--ax-accent-600));
   text-decoration: underline;
   text-underline-offset: 2px;
   font-weight: 600;
 }
-.exercise-content a:hover { color: #c2410c; }
-.dark .exercise-content a { color: #fb923c; }
+.exercise-content a:hover { color: rgb(var(--ax-accent-700)); }
+.dark .exercise-content a { color: rgb(var(--ax-accent-400)); }
 /* ========================================
    LESSONS (/cours) — kalmanfilter-style reading pages
    Coloured boxes are produced by src/lib/remarkLessonBlocks.ts
@@ -570,8 +570,8 @@ button, .btn, a.button {
 .lesson-content strong { font-weight: 700; color: #111827; }
 .dark .lesson-content strong { color: #fff; }
 
-.lesson-content a { color: #ea580c; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
-.dark .lesson-content a { color: #2dd4bf; }
+.lesson-content a { color: rgb(var(--ax-accent-600)); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.dark .lesson-content a { color: rgb(var(--ax-primary-400)); }
 
 .lesson-content ul,
 .lesson-content ol { margin: 0 0 1.1em; padding-left: 1.6em; }
@@ -597,9 +597,9 @@ button, .btn, a.button {
 .dark .lesson-h2, .dark .lesson-h3 { color: #fff; }
 .lesson-h2 {
   font-size: 1.75rem; font-weight: 900; line-height: 1.25;
-  margin: 3.25rem 0 1.25rem; padding-bottom: 0.5rem; border-bottom: 3px solid #f97316;
+  margin: 3.25rem 0 1.25rem; padding-bottom: 0.5rem; border-bottom: 3px solid rgb(var(--ax-accent-500));
 }
-.dark .lesson-h2 { border-bottom-color: #14b8a6; }
+.dark .lesson-h2 { border-bottom-color: rgb(var(--ax-primary-500)); }
 .lesson-h3 { font-size: 1.3rem; font-weight: 800; margin: 2.25rem 0 0.9rem; }
 .lesson-anchor {
   position: absolute; left: -1.2em; opacity: 0; color: #9ca3af !important;
@@ -712,16 +712,16 @@ button, .btn, a.button {
 /* exam-style write-up of a proof: one idea per line, as on an exam sheet */
 .lesson-redaction {
   margin: 1rem 0 0.5rem; padding: 0.75rem 1rem 0.25rem; border-radius: 10px;
-  border: 1px solid #d1d5db; border-left: 4px solid #0d9488; background: #fff;
+  border: 1px solid #d1d5db; border-left: 4px solid rgb(var(--ax-primary-600)); background: #fff;
 }
-.dark .lesson-redaction { background: rgba(0, 0, 0, 0.25); border-color: #374151; border-left-color: #14b8a6; }
-.lesson-redaction p { line-height: 1.8; margin: 0 0 0.55rem; padding-inline-start: 0.6rem; border-inline-start: 2px solid color-mix(in srgb, #0d9488 25%, transparent); }
+.dark .lesson-redaction { background: rgba(0, 0, 0, 0.25); border-color: #374151; border-left-color: rgb(var(--ax-primary-500)); }
+.lesson-redaction p { line-height: 1.8; margin: 0 0 0.55rem; padding-inline-start: 0.6rem; border-inline-start: 2px solid color-mix(in srgb, rgb(var(--ax-primary-600)) 25%, transparent); }
 .lesson-redaction p:last-child { margin-bottom: 0.75rem; }
 .lesson-redaction .lesson-redaction__label {
   margin-bottom: 0.6rem; padding: 0; border: none; font-family: 'Roboto', ui-sans-serif, sans-serif; font-size: 0.8rem; font-weight: 900;
-  text-transform: uppercase; letter-spacing: 0.06em; color: #0d9488; white-space: normal;
+  text-transform: uppercase; letter-spacing: 0.06em; color: rgb(var(--ax-primary-600)); white-space: normal;
 }
-.lesson-content[dir='rtl'] .lesson-redaction { border-left-width: 1px; border-right: 4px solid #0d9488; }
+.lesson-content[dir='rtl'] .lesson-redaction { border-left-width: 1px; border-right: 4px solid rgb(var(--ax-primary-600)); }
 
 /* hidden answers */
 .lesson-answer {
@@ -799,12 +799,12 @@ button, .btn, a.button {
 .dark .wiki-version__chapter { color: #d1d5db; }
 .wiki-version__links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .wiki-version__link {
-  padding: 0.2rem 0.7rem; border-radius: 9999px; border: 1px solid #ea580c; color: #ea580c;
+  padding: 0.2rem 0.7rem; border-radius: 9999px; border: 1px solid rgb(var(--ax-accent-600)); color: rgb(var(--ax-accent-600));
   font-size: 0.875rem; font-weight: 700; text-decoration: none; transition: background .15s, color .15s;
 }
-.wiki-version__link:hover { background: #ea580c; color: #fff; }
-.dark .wiki-version__link { border-color: #2dd4bf; color: #2dd4bf; }
-.dark .wiki-version__link:hover { background: #14b8a6; color: #fff; }
+.wiki-version__link:hover { background: rgb(var(--ax-accent-600)); color: #fff; }
+.dark .wiki-version__link { border-color: rgb(var(--ax-primary-400)); color: rgb(var(--ax-primary-400)); }
+.dark .wiki-version__link:hover { background: rgb(var(--ax-primary-500)); color: #fff; }
 .wiki-version .lesson-content { font-size: 1rem; }
 .wiki-version .lesson-box:first-child { margin-top: 0.75rem; }
 .wiki-proof { margin: 0.75rem 0 0; font-family: 'Roboto', ui-sans-serif, system-ui, sans-serif; font-size: 0.9rem; }
@@ -812,12 +812,12 @@ button, .btn, a.button {
 details.wiki-proof > summary {
   display: inline-flex; align-items: center; gap: 0.4rem; min-height: 44px; padding: 0.5rem 1rem;
   cursor: pointer; list-style: none; border-radius: 10px; font-weight: 800; font-size: 0.95rem;
-  color: #fff; background: #0d9488; user-select: none;
+  color: #fff; background: rgb(var(--ax-primary-600)); user-select: none;
 }
 details.wiki-proof > summary::-webkit-details-marker { display: none; }
 details.wiki-proof > summary::before { content: '▸'; }
 details.wiki-proof[open] > summary::before { content: '▾'; }
-details.wiki-proof > summary:hover { background: #0f766e; }
+details.wiki-proof > summary:hover { background: rgb(var(--ax-primary-700)); }
 details.wiki-proof.wiki-proof--curious > summary { background: #7c3aed; }
 details.wiki-proof.wiki-proof--curious > summary:hover { background: #6d28d9; }
 details.wiki-proof[open] > summary { margin-bottom: 0.5rem; }

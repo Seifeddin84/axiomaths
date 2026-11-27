@@ -5,7 +5,8 @@ description: AxioMath visual design system and UI audit checklist. Use for any c
 
 # AxioMath design system
 
-Direction chosen by Seifeddine (2026-11-27): **keep the modern orange/teal look, made consistent.**
+Direction (Seifeddine, 2026-11-27): **orange/teal stays the default look, made consistent**, while other themes
+are tried through the test switch (§2b) without touching the live site.
 The site is a tool for Tunisian pupils, mostly on phones, often weak or average in maths.
 Every design decision is judged by one question: *does it help a pupil read and do the maths?*
 
@@ -20,7 +21,10 @@ Personality: clean, calm, school-friendly, a little warm. Not a startup landing 
 
 ## 2. Colour tokens (single source of truth)
 
-The real palette lives in `globals.css` and `tailwind.config.js` (`orange-*`, `teal-*`, `gray-*`).
+The brand palette lives in **`src/app/themes.css`** as CSS variables (`--ax-accent-50…950`, `--ax-primary-50…950`,
+space-separated RGB channels). `tailwind.config.js` maps `accent` + `orange` to the accent ramp and `primary` + `teal`
+to the primary ramp, and `globals.css` uses `rgb(var(--ax-…))`. **Never write a brand hex in a component or in
+`globals.css`**: use the Tailwind class or the variable, or the theme switch stops working. Neutrals stay Tailwind `gray-*`.
 `src/config/themes.ts` (Vercel, Linear, Stripe… themes) and `useActiveTheme` are **not used by any component**:
 do not build on them; they are slated for removal.
 
@@ -35,6 +39,20 @@ do not build on them; they are slated for removal.
 **Contrast rule (WCAG AA, 4.5:1 for text under 18px):** `#ea580c` on white is 3.56 and `#14b8a6` on white is 2.49,
 so both **fail as small text**. Use them for fills, borders and big headings only; small text uses `#c2410c` (5.18)
 or `#0f766e` (5.47).
+
+## 2b. Test themes (switch)
+
+- Themes are listed in `src/lib/siteThemes.ts` and defined in `src/app/themes.css`: `classic` (default, orange/teal),
+  `manuel` (ink navy + slate, Crimson Pro serif for statements and lessons), `vert` (pastel green + stone, like the PDFs).
+- A script in `<head>` (`THEME_BOOT_SCRIPT`) sets `data-ax-theme` on `<html>` before the first paint.
+  `?theme=<id>` picks a theme for this browser, `?theme=classic` resets it.
+- The switcher pill (`ThemeSwitcher.tsx`) appears on Vercel previews and in dev; on the live site only after `?themes=on`
+  (`?themes=off` or × hides it). Pupils never see it, and without a choice everyone gets `classic`.
+- Adding a theme: one ramp pair in `themes.css` + one entry in `SITE_THEMES`. Check contrast first: the theme's
+  600 shade on white and 400 shade on `gray-950` must both be ≥ 4.5.
+- Box colours (`.lesson-box--*`) and difficulty colours are semantic: they do **not** change with the theme.
+- Regression rule: with `classic`, the site must stay pixel-identical to `main` (checked on 2026-11-27 for home,
+  a lycée chapter, a collège level page and `/theoremes`, light and dark).
 
 Semantic colours (meaning first, never decoration):
 
@@ -107,6 +125,10 @@ Found on 2026-11-27; tick off here when done.
 - [ ] `globals.css` has 87 hand-written `ol[start="n"]` counter rules; replace them with a `counter-reset` based on the
       `start` attribute or a remark plugin.
 - [ ] Verify `.dark .katex * { color: inherit }` does not cancel `\textcolor` highlights in lessons.
+- [ ] Theorem box colour differs: orange in exercise solutions (`.exercise-content .lesson-box--theorem`) but teal in
+      lessons (`.lesson-box--theorem`, `.lesson-box--example` orange). Pick one per kind (§2: same kind = same colour).
+- [ ] Chapter page titles are built from the URL slug and lose accents and casing ("Suites Arithmetiques Et
+      Geometriques"); they should show the canonical chapter name.
 - [ ] `*.backup` files in `src/app/` and the root (`tailwind.config.js.backup`): remove once confirmed unused.
 
 ## 8. Reporting

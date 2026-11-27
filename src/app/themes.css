@@ -1,0 +1,89 @@
+/* ============================================================
+ * AxioMath site themes (test switch). Edit the ramps here directly.
+ * see .claude/skills/axiomath-design §2b. "classic" = the current look and the default.
+ * Tailwind `accent`/`orange` and `primary`/`teal` read these variables
+ * (tailwind.config.js), so every component follows the active theme.
+ * Box colours (.lesson-box--*) are semantic and do NOT change with the theme.
+ * ============================================================ */
+
+:root {  /* classic: accent = orange, primary = teal */
+  --ax-accent-50: 255 247 237;  /* #fff7ed */
+  --ax-accent-100: 255 237 213;  /* #ffedd5 */
+  --ax-accent-200: 254 215 170;  /* #fed7aa */
+  --ax-accent-300: 253 186 116;  /* #fdba74 */
+  --ax-accent-400: 251 146 60;  /* #fb923c */
+  --ax-accent-500: 249 115 22;  /* #f97316 */
+  --ax-accent-600: 234 88 12;  /* #ea580c */
+  --ax-accent-700: 194 65 12;  /* #c2410c */
+  --ax-accent-800: 154 52 18;  /* #9a3412 */
+  --ax-accent-900: 124 45 18;  /* #7c2d12 */
+  --ax-accent-950: 67 20 7;  /* #431407 */
+  --ax-primary-50: 240 253 250;  /* #f0fdfa */
+  --ax-primary-100: 204 251 241;  /* #ccfbf1 */
+  --ax-primary-200: 153 246 228;  /* #99f6e4 */
+  --ax-primary-300: 94 234 212;  /* #5eead4 */
+  --ax-primary-400: 45 212 191;  /* #2dd4bf */
+  --ax-primary-500: 20 184 166;  /* #14b8a6 */
+  --ax-primary-600: 13 148 136;  /* #0d9488 */
+  --ax-primary-700: 15 118 110;  /* #0f766e */
+  --ax-primary-800: 17 94 89;  /* #115e59 */
+  --ax-primary-900: 19 78 74;  /* #134e4a */
+  --ax-primary-950: 4 47 46;  /* #042f2e */
+}
+
+:root[data-ax-theme="manuel"] {  /* manuel: accent = navy, primary = slate */
+  --ax-accent-50: 240 244 250;  /* #f0f4fa */
+  --ax-accent-100: 221 230 243;  /* #dde6f3 */
+  --ax-accent-200: 194 210 234;  /* #c2d2ea */
+  --ax-accent-300: 152 179 218;  /* #98b3da */
+  --ax-accent-400: 122 155 208;  /* #7a9bd0 */
+  --ax-accent-500: 74 109 176;  /* #4a6db0 */
+  --ax-accent-600: 47 85 151;  /* #2f5597 */
+  --ax-accent-700: 40 70 121;  /* #284679 */
+  --ax-accent-800: 35 59 100;  /* #233b64 */
+  --ax-accent-900: 31 50 84;  /* #1f3254 */
+  --ax-accent-950: 20 31 56;  /* #141f38 */
+  --ax-primary-50: 248 250 252;  /* #f8fafc */
+  --ax-primary-100: 241 245 249;  /* #f1f5f9 */
+  --ax-primary-200: 226 232 240;  /* #e2e8f0 */
+  --ax-primary-300: 203 213 225;  /* #cbd5e1 */
+  --ax-primary-400: 148 163 184;  /* #94a3b8 */
+  --ax-primary-500: 100 116 139;  /* #64748b */
+  --ax-primary-600: 71 85 105;  /* #475569 */
+  --ax-primary-700: 51 65 85;  /* #334155 */
+  --ax-primary-800: 30 41 59;  /* #1e293b */
+  --ax-primary-900: 15 23 42;  /* #0f172a */
+  --ax-primary-950: 2 6 23;  /* #020617 */
+}
+
+:root[data-ax-theme="vert"] {  /* vert: accent = green, primary = stone */
+  --ax-accent-50: 242 247 243;  /* #f2f7f3 */
+  --ax-accent-100: 224 236 227;  /* #e0ece3 */
+  --ax-accent-200: 195 218 201;  /* #c3dac9 */
+  --ax-accent-300: 156 193 166;  /* #9cc1a6 */
+  --ax-accent-400: 127 176 141;  /* #7fb08d */
+  --ax-accent-500: 84 136 102;  /* #548866 */
+  --ax-accent-600: 63 107 78;  /* #3f6b4e */
+  --ax-accent-700: 51 87 67;  /* #335743 */
+  --ax-accent-800: 43 71 55;  /* #2b4737 */
+  --ax-accent-900: 36 59 46;  /* #243b2e */
+  --ax-accent-950: 19 33 26;  /* #13211a */
+  --ax-primary-50: 250 250 249;  /* #fafaf9 */
+  --ax-primary-100: 245 245 244;  /* #f5f5f4 */
+  --ax-primary-200: 231 229 228;  /* #e7e5e4 */
+  --ax-primary-300: 214 211 209;  /* #d6d3d1 */
+  --ax-primary-400: 168 162 158;  /* #a8a29e */
+  --ax-primary-500: 120 113 108;  /* #78716c */
+  --ax-primary-600: 87 83 78;  /* #57534e */
+  --ax-primary-700: 68 64 60;  /* #44403c */
+  --ax-primary-800: 41 37 36;  /* #292524 */
+  --ax-primary-900: 28 25 23;  /* #1c1917 */
+  --ax-primary-950: 12 10 9;  /* #0c0a09 */
+}
+
+/* Manuel: textbook serif for statements, solutions and lessons (Crimson Pro is already loaded). */
+:root[data-ax-theme="manuel"] .exercise-content:not([dir="rtl"]),
+:root[data-ax-theme="manuel"] .lesson-content:not([dir="rtl"]) {
+  font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif;
+  font-size: 1.08em;
+}

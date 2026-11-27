@@ -1,10 +1,13 @@
 import './globals.css';
+import './themes.css';
 import { ReactNode } from 'react';
 import Navbar from '@/components/Navbar';
 import LayoutShell from '@/components/LayoutShell';
 import { ExerciseBasketProvider } from '@/context/ExerciseBasketContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { getNavTree } from '@/lib/navTree';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
+import { THEME_BOOT_SCRIPT } from '@/lib/siteThemes';
 
 export const metadata = {
   title: 'Axiomaths - Exercices de mathématiques',
@@ -16,6 +19,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
+        {/* Applies a test theme (see src/lib/siteThemes.ts) before the first paint. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT_SCRIPT }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -41,6 +46,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </LayoutShell>
             </div>
           </ExerciseBasketProvider>
+          <ThemeSwitcher />
         </ThemeProvider>
       </body>
     </html>
