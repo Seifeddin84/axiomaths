@@ -10,7 +10,7 @@ country: "Tunisie"
 year: 2024
 professor: null
 difficulty: "Moyen"
-points: 0
+points: null
 tags: ["algebre", "factorisation", "equations", "theoreme-de-pythagore"]
 ---
 
