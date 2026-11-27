@@ -1,12 +1,13 @@
 /* ============================================================
  * AxioMath site themes (test switch). Edit here directly.
- * "classic" = the current look and the default; the others apply only when chosen
- * (data-ax-theme on <html>, see src/lib/siteThemes.ts). Tailwind accent/orange and
- * primary/teal read the ramps below, so every component follows the active theme.
- * Fonts of a theme are downloaded only when that theme is active.
+ * Two independent choices (src/lib/siteThemes.ts):
+ *   data-ax-theme on <html> = colours, paper, corners, boxes (+ the theme's own fonts)
+ *   data-ax-font  on <html> = a font pack that overrides the theme's fonts (declared last, so it wins)
+ * "classic" = the current look and the default. Tailwind accent/orange and primary/teal read the
+ * ramps below. Fonts are downloaded only when a theme or font pack using them is chosen.
  * ============================================================ */
 
-/* ---------- classic ---------- */
+/* ---------- theme: classic ---------- */
 :root {  /* accent = orange, primary = teal */
   --ax-accent-50: 255 247 237;  /* #fff7ed */
   --ax-accent-100: 255 237 213;  /* #ffedd5 */
@@ -32,7 +33,7 @@
   --ax-primary-950: 4 47 46;  /* #042f2e */
 }
 
-/* ---------- manuel ---------- */
+/* ---------- theme: manuel ---------- */
 :root[data-ax-theme="manuel"] {  /* accent = navy, primary = slate */
   --ax-accent-50: 240 244 250;  /* #f0f4fa */
   --ax-accent-100: 221 230 243;  /* #dde6f3 */
@@ -57,10 +58,10 @@
   --ax-primary-900: 15 23 42;  /* #0f172a */
   --ax-primary-950: 2 6 23;  /* #020617 */
 }
-:root[data-ax-theme="manuel"] .exercise-content:not([dir="rtl"]),
+:root[data-ax-theme="manuel"] .exercise-content:not([dir="rtl"]) { font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif; font-size: 1.08em; }
 :root[data-ax-theme="manuel"] .lesson-content:not([dir="rtl"]) { font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif; font-size: 1.08em; }
 
-/* ---------- vert ---------- */
+/* ---------- theme: vert ---------- */
 :root[data-ax-theme="vert"] {  /* accent = green, primary = stone */
   --ax-accent-50: 242 247 243;  /* #f2f7f3 */
   --ax-accent-100: 224 236 227;  /* #e0ece3 */
@@ -86,7 +87,7 @@
   --ax-primary-950: 12 10 9;  /* #0c0a09 */
 }
 
-/* ---------- mir ---------- */
+/* ---------- theme: mir ---------- */
 :root[data-ax-theme="mir"] {  /* accent = inkblue, primary = neutral */
   --ax-accent-50: 238 242 251;  /* #eef2fb */
   --ax-accent-100: 219 227 246;  /* #dbe3f6 */
@@ -114,18 +115,16 @@
 :root[data-ax-theme="mir"] body, :root[data-ax-theme="mir"] .font-sans { font-family: 'PT Sans', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
 :root[data-ax-theme="mir"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'PT Sans', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
 :root[data-ax-theme="mir"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'PT Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
-:root[data-ax-theme="mir"] .exercise-content:not([dir="rtl"]),
+:root[data-ax-theme="mir"] .exercise-content:not([dir="rtl"]) { font-family: 'PT Serif', Georgia, serif; font-size: 1em; }
 :root[data-ax-theme="mir"] .lesson-content:not([dir="rtl"]) { font-family: 'PT Serif', Georgia, serif; font-size: 1em; }
-/* paper: page and cards take the paper tone (light mode only) */
 :root[data-ax-theme="mir"]:not(.dark) body, :root[data-ax-theme="mir"]:not(.dark) .bg-white { background-color: #fbf9f4; }
 :root[data-ax-theme="mir"]:not(.dark) .bg-gray-50, :root[data-ax-theme="mir"]:not(.dark) .bg-gray-100 { background-color: #f3efe4; }
-/* solution panel: paper and theme ink instead of the mint-green gradient */
 :root[data-ax-theme="mir"]:not(.dark) [class*="from-green-50"] { background: #fbf9f4; border-color: rgb(var(--ax-primary-300)); }
 :root[data-ax-theme="mir"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
 :root[data-ax-theme="mir"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
 :root[data-ax-theme="mir"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 2px; }
 :root[data-ax-theme="mir"] .lesson-box, :root[data-ax-theme="mir"] .exercise-content .lesson-box { border-radius: 2px; }
-/* two-colour printing for the boxes */
+/* two-colour printing: every box kind in black or in the colour ink */
 :root[data-ax-theme="mir"] .lesson-box--theorem,
 :root[data-ax-theme="mir"] .lesson-box--property,
 :root[data-ax-theme="mir"] .lesson-box--corollary,
@@ -144,7 +143,7 @@
 :root[data-ax-theme="mir"] .lesson-box--trap,
 :root[data-ax-theme="mir"] .lesson-box--warning { --c: #1f3f99; --bg: #f1f4fb; --bg-dark: rgba(127, 155, 224, 0.12); }
 
-/* ---------- lebosse ---------- */
+/* ---------- theme: lebosse ---------- */
 :root[data-ax-theme="lebosse"] {  /* accent = brick, primary = sepia */
   --ax-accent-50: 251 241 238;  /* #fbf1ee */
   --ax-accent-100: 246 223 216;  /* #f6dfd8 */
@@ -172,18 +171,16 @@
 :root[data-ax-theme="lebosse"] body, :root[data-ax-theme="lebosse"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
 :root[data-ax-theme="lebosse"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
 :root[data-ax-theme="lebosse"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
-:root[data-ax-theme="lebosse"] .exercise-content:not([dir="rtl"]),
+:root[data-ax-theme="lebosse"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
 :root[data-ax-theme="lebosse"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
-/* paper: page and cards take the paper tone (light mode only) */
 :root[data-ax-theme="lebosse"]:not(.dark) body, :root[data-ax-theme="lebosse"]:not(.dark) .bg-white { background-color: #f7f1e3; }
 :root[data-ax-theme="lebosse"]:not(.dark) .bg-gray-50, :root[data-ax-theme="lebosse"]:not(.dark) .bg-gray-100 { background-color: #efe6d2; }
-/* solution panel: paper and theme ink instead of the mint-green gradient */
 :root[data-ax-theme="lebosse"]:not(.dark) [class*="from-green-50"] { background: #f7f1e3; border-color: rgb(var(--ax-primary-300)); }
 :root[data-ax-theme="lebosse"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
 :root[data-ax-theme="lebosse"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
 :root[data-ax-theme="lebosse"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
 :root[data-ax-theme="lebosse"] .lesson-box, :root[data-ax-theme="lebosse"] .exercise-content .lesson-box { border-radius: 0px; }
-/* two-colour printing for the boxes */
+/* two-colour printing: every box kind in black or in the colour ink */
 :root[data-ax-theme="lebosse"] .lesson-box--theorem,
 :root[data-ax-theme="lebosse"] .lesson-box--property,
 :root[data-ax-theme="lebosse"] .lesson-box--corollary,
@@ -202,7 +199,175 @@
 :root[data-ax-theme="lebosse"] .lesson-box--trap,
 :root[data-ax-theme="lebosse"] .lesson-box--warning { --c: #9c3a24; --bg: #f8ece6; --bg-dark: rgba(223, 143, 122, 0.12); }
 
-/* ---------- lisible ---------- */
+/* ---------- theme: lebosse-vert ---------- */
+:root[data-ax-theme="lebosse-vert"] {  /* accent = bottle, primary = sepia */
+  --ax-accent-50: 238 246 241;  /* #eef6f1 */
+  --ax-accent-100: 215 235 222;  /* #d7ebde */
+  --ax-accent-200: 176 214 189;  /* #b0d6bd */
+  --ax-accent-300: 128 187 150;  /* #80bb96 */
+  --ax-accent-400: 111 178 137;  /* #6fb289 */
+  --ax-accent-500: 47 122 79;  /* #2f7a4f */
+  --ax-accent-600: 31 97 64;  /* #1f6140 */
+  --ax-accent-700: 26 79 53;  /* #1a4f35 */
+  --ax-accent-800: 22 63 43;  /* #163f2b */
+  --ax-accent-900: 18 51 35;  /* #123323 */
+  --ax-accent-950: 10 29 20;  /* #0a1d14 */
+  --ax-primary-50: 249 246 241;  /* #f9f6f1 */
+  --ax-primary-100: 241 235 225;  /* #f1ebe1 */
+  --ax-primary-200: 226 214 195;  /* #e2d6c3 */
+  --ax-primary-300: 205 187 159;  /* #cdbb9f */
+  --ax-primary-400: 184 163 127;  /* #b8a37f */
+  --ax-primary-500: 138 117 82;  /* #8a7552 */
+  --ax-primary-600: 110 92 64;  /* #6e5c40 */
+  --ax-primary-700: 87 72 51;  /* #574833 */
+  --ax-primary-800: 63 52 38;  /* #3f3426 */
+  --ax-primary-900: 43 36 27;  /* #2b241b */
+  --ax-primary-950: 24 20 15;  /* #18140f */
+}
+:root[data-ax-theme="lebosse-vert"] body, :root[data-ax-theme="lebosse-vert"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-vert"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-vert"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="lebosse-vert"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-vert"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-vert"]:not(.dark) body, :root[data-ax-theme="lebosse-vert"]:not(.dark) .bg-white { background-color: #f7f1e3; }
+:root[data-ax-theme="lebosse-vert"]:not(.dark) .bg-gray-50, :root[data-ax-theme="lebosse-vert"]:not(.dark) .bg-gray-100 { background-color: #efe6d2; }
+:root[data-ax-theme="lebosse-vert"]:not(.dark) [class*="from-green-50"] { background: #f7f1e3; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="lebosse-vert"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="lebosse-vert"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="lebosse-vert"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="lebosse-vert"] .lesson-box, :root[data-ax-theme="lebosse-vert"] .exercise-content .lesson-box { border-radius: 0px; }
+/* two-colour printing: every box kind in black or in the colour ink */
+:root[data-ax-theme="lebosse-vert"] .lesson-box--theorem,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--property,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--corollary,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--proof,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--summary,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--remark,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--history,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--tic { --c: #2b241b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse-vert"] .lesson-box--definition,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--method,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--example,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--check,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--challenge,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--intuition,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--curious,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--trap,
+:root[data-ax-theme="lebosse-vert"] .lesson-box--warning { --c: #1f6140; --bg: #eef4ec; --bg-dark: rgba(111, 178, 137, 0.12); }
+
+/* ---------- theme: lebosse-bleu ---------- */
+:root[data-ax-theme="lebosse-bleu"] {  /* accent = prussian, primary = sepia */
+  --ax-accent-50: 238 243 247;  /* #eef3f7 */
+  --ax-accent-100: 214 226 236;  /* #d6e2ec */
+  --ax-accent-200: 174 197 217;  /* #aec5d9 */
+  --ax-accent-300: 127 162 193;  /* #7fa2c1 */
+  --ax-accent-400: 122 160 196;  /* #7aa0c4 */
+  --ax-accent-500: 45 94 138;  /* #2d5e8a */
+  --ax-accent-600: 31 74 114;  /* #1f4a72 */
+  --ax-accent-700: 26 61 94;  /* #1a3d5e */
+  --ax-accent-800: 22 50 77;  /* #16324d */
+  --ax-accent-900: 18 41 63;  /* #12293f */
+  --ax-accent-950: 11 25 38;  /* #0b1926 */
+  --ax-primary-50: 249 246 241;  /* #f9f6f1 */
+  --ax-primary-100: 241 235 225;  /* #f1ebe1 */
+  --ax-primary-200: 226 214 195;  /* #e2d6c3 */
+  --ax-primary-300: 205 187 159;  /* #cdbb9f */
+  --ax-primary-400: 184 163 127;  /* #b8a37f */
+  --ax-primary-500: 138 117 82;  /* #8a7552 */
+  --ax-primary-600: 110 92 64;  /* #6e5c40 */
+  --ax-primary-700: 87 72 51;  /* #574833 */
+  --ax-primary-800: 63 52 38;  /* #3f3426 */
+  --ax-primary-900: 43 36 27;  /* #2b241b */
+  --ax-primary-950: 24 20 15;  /* #18140f */
+}
+:root[data-ax-theme="lebosse-bleu"] body, :root[data-ax-theme="lebosse-bleu"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-bleu"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-bleu"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="lebosse-bleu"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-bleu"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-bleu"]:not(.dark) body, :root[data-ax-theme="lebosse-bleu"]:not(.dark) .bg-white { background-color: #f7f1e3; }
+:root[data-ax-theme="lebosse-bleu"]:not(.dark) .bg-gray-50, :root[data-ax-theme="lebosse-bleu"]:not(.dark) .bg-gray-100 { background-color: #efe6d2; }
+:root[data-ax-theme="lebosse-bleu"]:not(.dark) [class*="from-green-50"] { background: #f7f1e3; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="lebosse-bleu"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="lebosse-bleu"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="lebosse-bleu"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="lebosse-bleu"] .lesson-box, :root[data-ax-theme="lebosse-bleu"] .exercise-content .lesson-box { border-radius: 0px; }
+/* two-colour printing: every box kind in black or in the colour ink */
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--theorem,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--property,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--corollary,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--proof,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--summary,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--remark,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--history,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--tic { --c: #2b241b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--definition,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--method,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--example,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--check,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--challenge,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--intuition,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--curious,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--trap,
+:root[data-ax-theme="lebosse-bleu"] .lesson-box--warning { --c: #1f4a72; --bg: #edf1f4; --bg-dark: rgba(122, 160, 196, 0.12); }
+
+/* ---------- theme: lebosse-noir ---------- */
+:root[data-ax-theme="lebosse-noir"] {  /* accent = graphite, primary = sepia */
+  --ax-accent-50: 247 247 246;  /* #f7f7f6 */
+  --ax-accent-100: 235 235 234;  /* #ebebea */
+  --ax-accent-200: 214 214 212;  /* #d6d6d4 */
+  --ax-accent-300: 181 181 178;  /* #b5b5b2 */
+  --ax-accent-400: 163 163 160;  /* #a3a3a0 */
+  --ax-accent-500: 63 63 61;  /* #3f3f3d */
+  --ax-accent-600: 38 38 37;  /* #262625 */
+  --ax-accent-700: 28 28 27;  /* #1c1c1b */
+  --ax-accent-800: 20 20 20;  /* #141414 */
+  --ax-accent-900: 15 15 15;  /* #0f0f0f */
+  --ax-accent-950: 8 8 8;  /* #080808 */
+  --ax-primary-50: 249 246 241;  /* #f9f6f1 */
+  --ax-primary-100: 241 235 225;  /* #f1ebe1 */
+  --ax-primary-200: 226 214 195;  /* #e2d6c3 */
+  --ax-primary-300: 205 187 159;  /* #cdbb9f */
+  --ax-primary-400: 184 163 127;  /* #b8a37f */
+  --ax-primary-500: 138 117 82;  /* #8a7552 */
+  --ax-primary-600: 110 92 64;  /* #6e5c40 */
+  --ax-primary-700: 87 72 51;  /* #574833 */
+  --ax-primary-800: 63 52 38;  /* #3f3426 */
+  --ax-primary-900: 43 36 27;  /* #2b241b */
+  --ax-primary-950: 24 20 15;  /* #18140f */
+}
+:root[data-ax-theme="lebosse-noir"] body, :root[data-ax-theme="lebosse-noir"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-noir"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="lebosse-noir"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="lebosse-noir"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-noir"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-theme="lebosse-noir"]:not(.dark) body, :root[data-ax-theme="lebosse-noir"]:not(.dark) .bg-white { background-color: #f7f1e3; }
+:root[data-ax-theme="lebosse-noir"]:not(.dark) .bg-gray-50, :root[data-ax-theme="lebosse-noir"]:not(.dark) .bg-gray-100 { background-color: #efe6d2; }
+:root[data-ax-theme="lebosse-noir"]:not(.dark) [class*="from-green-50"] { background: #f7f1e3; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="lebosse-noir"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="lebosse-noir"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="lebosse-noir"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="lebosse-noir"] .lesson-box, :root[data-ax-theme="lebosse-noir"] .exercise-content .lesson-box { border-radius: 0px; }
+/* two-colour printing: every box kind in black or in the colour ink */
+:root[data-ax-theme="lebosse-noir"] .lesson-box--theorem,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--property,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--corollary,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--proof,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--summary,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--remark,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--history,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--tic { --c: #1c1c1b; --bg: #fbf7ee; --bg-dark: rgba(229, 229, 229, 0.08); }
+:root[data-ax-theme="lebosse-noir"] .lesson-box--definition,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--method,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--example,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--check,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--challenge,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--intuition,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--curious,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--trap,
+:root[data-ax-theme="lebosse-noir"] .lesson-box--warning { --c: #5a5a57; --bg: #f1ede4; --bg-dark: rgba(163, 163, 160, 0.12); }
+
+/* ---------- theme: lisible ---------- */
 :root[data-ax-theme="lisible"] {  /* accent = indigo, primary = cyan */
   --ax-accent-50: 238 242 255;  /* #eef2ff */
   --ax-accent-100: 224 231 255;  /* #e0e7ff */
@@ -230,5 +395,38 @@
 :root[data-ax-theme="lisible"] body, :root[data-ax-theme="lisible"] .font-sans { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
 :root[data-ax-theme="lisible"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
 :root[data-ax-theme="lisible"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; font-weight: 700; letter-spacing: 0; }
-:root[data-ax-theme="lisible"] .exercise-content:not([dir="rtl"]),
+:root[data-ax-theme="lisible"] .exercise-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
 :root[data-ax-theme="lisible"] .lesson-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
+
+/* ============ font packs (override the theme's fonts) ============ */
+/* font: garamond */
+:root[data-ax-font="garamond"] body, :root[data-ax-font="garamond"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-font="garamond"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-font="garamond"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Playfair Display', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="garamond"] .exercise-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+:root[data-ax-font="garamond"] .lesson-content:not([dir="rtl"]) { font-family: 'EB Garamond', Garamond, Georgia, serif; font-size: 1.1em; }
+
+/* font: pt */
+:root[data-ax-font="pt"] body, :root[data-ax-font="pt"] .font-sans { font-family: 'PT Sans', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="pt"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'PT Sans', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="pt"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'PT Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="pt"] .exercise-content:not([dir="rtl"]) { font-family: 'PT Serif', Georgia, serif; font-size: 1em; }
+:root[data-ax-font="pt"] .lesson-content:not([dir="rtl"]) { font-family: 'PT Serif', Georgia, serif; font-size: 1em; }
+
+/* font: crimson */
+:root[data-ax-font="crimson"] .exercise-content:not([dir="rtl"]) { font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif; font-size: 1.08em; }
+:root[data-ax-font="crimson"] .lesson-content:not([dir="rtl"]) { font-family: 'Crimson Pro', 'Latin Modern Roman', Georgia, serif; font-size: 1.08em; }
+
+/* font: atkinson */
+:root[data-ax-font="atkinson"] body, :root[data-ax-font="atkinson"] .font-sans { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="atkinson"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="atkinson"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="atkinson"] .exercise-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
+:root[data-ax-font="atkinson"] .lesson-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
+
+/* font: roboto */
+:root[data-ax-font="roboto"] body, :root[data-ax-font="roboto"] .font-sans { font-family: 'Roboto', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="roboto"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'Roboto', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }
+:root[data-ax-font="roboto"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Roboto', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="roboto"] .exercise-content:not([dir="rtl"]) { font-family: 'Latin Modern Math', 'Computer Modern', serif; font-size: 1em; }
+:root[data-ax-font="roboto"] .lesson-content:not([dir="rtl"]) { font-family: 'Lora', Georgia, serif; font-size: 1em; }
