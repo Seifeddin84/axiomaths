@@ -114,10 +114,20 @@ SVGs, TikZ from the handouts, matplotlib plots) follows it, and it refines CLAUD
 
 - **Ink**: pure black on white. No fills, no shadows, no rounded frame, no title inside the image. Hatching only
   where a textbook would hatch (a fixed support, a region to shade).
-- **Line weights**: thin and uniform. The object of the exercise slightly heavier (≈ 1 pt, matplotlib `lw=1.0`),
-  construction and auxiliary lines thinner (≈ 0.5 pt) and **dashed** (projections, radii, arcs of motion).
-- **Labels**: italic serif letters, the same family as the formulas (Computer Modern italic: `$A$`, `$A'_{12}$`,
-  `$\alpha$`), set close to their point and never on a line. Points get a small dot only where it means something.
+- **Line weights: the weight of a line says what it is** (Seifeddine, 2026-11-27, from Kutepov–Rubanov and Berman):
+  | kind | look | TikZ style (`axiomath-mir.sty`) | matplotlib |
+  |---|---|---|---|
+  | object of the problem (polygon, visible edges, curve studied, rod) | solid ≈ 0.9 pt | `main` | `lw=1.2` |
+  | secondary lines (diagonals, chords) | solid ≈ 0.4 pt | `thin` | `lw=0.6` |
+  | hidden edges of a solid | dashed 3–2 | `hidden` | `ls=(0,(3,2)), lw=0.6` |
+  | heights, projections, reference lines | dashed 2–1.5 | `constr` | `ls=(0,(2,1.5)), lw=0.6` |
+  | trajectories, arcs of motion | dashed 4–2 | `path` | `ls=(0,(4,2)), lw=0.6` |
+  | axes / vectors and forces | 0.45 / 0.7 pt, small sharp head | `axis` / `vec` | `lw=0.7` / `lw=1.0` |
+  In space geometry hidden edges are **always** drawn, dashed. A section is solid on visible faces, dashed behind,
+  hatched (never colour-filled). A fixed support is a thin line with hatching. Example: `latex/examples/figures-mir.tex`.
+- **Labels**: italic serif letters, the same family as the formulas (`$A$`, `$A'_{12}$`, `$\alpha$`), set close to
+  their point and never on a line. Write labels, do not print coordinate names: a coordinate `Hp` printed with
+  `node{$\p$}` shows « Hp » instead of « H' » (bug of exercise #369). Points get a small dot only where it means something.
 - **Axes**: thin, small sharp arrowheads, italic `$x$`, `$y$`, `$O$` at the origin. Ticks and values only when the
   question needs them. No grid, no box frame.
 - **Arrows** (forces, velocities, mappings): thin with small sharp heads, italic labels (`$mg$`, `$v_0$`).
