@@ -1,0 +1,60 @@
+% uid: ""
+% school: "lycee"
+% level: "1ere"
+% chapter: "Activités algébriques"
+% title: "Factoriser n⁴ + 4"
+% difficulty: "Difficile"
+% tags: ["factorisation", "identites-remarquables", "nombres-premiers", "sophie-germain"]
+% provenance: "own"
+% batch: "2026-11-22-revision-1ere-A"
+
+% ---STATEMENT---
+\begin{enumerate}
+  \item Montrer que, pour tous réels $x$ et $y$ : $x^4+4y^4=(x^2+2xy+2y^2)(x^2-2xy+2y^2)$. [Écrire $x^4+4y^4=(x^2+2y^2)^2-(2xy)^2$.]
+  \item Vérifier que $5^4+4$ est le produit de deux entiers supérieurs à $1$.
+  \item Montrer que, pour tout entier $n\geq2$, le nombre $n^4+4$ n'est pas premier.
+  \item Soit $k\geq1$ un entier. Montrer que $2^{4k+2}+1=(2^{2k+1}+2^{k+1}+1)(2^{2k+1}-2^{k+1}+1)$, puis que $2^{4k+2}+1$ n'est pas premier.
+  \item Décomposer $2^{10}+1$ en produit de facteurs premiers.
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{prop}[Outils]
+\ib{$a^2-b^2=(a-b)(a+b)$} et \ib{$(a+b)^2=a^2+2ab+b^2$}. Un entier $N\geq2$ est \textbf{premier} s'il n'a pas d'autre diviseur que $1$ et $N$ : un produit de deux entiers supérieurs ou égaux à $2$ n'est \textbf{pas} premier.
+\end{prop}
+\begin{enumerate}
+  \item On suit l'indication. Le développement de $(x^2+2y^2)^2$ donne $x^4+4x^2y^2+4y^4$ :
+  \[(x^2+2y^2)^2-(2xy)^2=x^4+4x^2y^2+4y^4-4x^2y^2=x^4+4y^4\]
+  Puis la différence de deux carrés avec $a=x^2+2y^2$ et $b=2xy$ :
+  \[x^4+4y^4=(x^2+2y^2-2xy)(x^2+2y^2+2xy)=\ib{$(x^2+2xy+2y^2)(x^2-2xy+2y^2)$}\]
+
+  \item Avec $y=1$ et $x=n$ : \ib{$n^4+4=(n^2+2n+2)(n^2-2n+2)$}. Pour $n=5$ :
+  \[5^4+4=629\qquad n^2+2n+2=25+10+2=37\qquad n^2-2n+2=25-10+2=17\]
+  \[629=17\times37\]
+
+  \item On écrit le plus petit facteur sous forme de carré :
+  \[n^2-2n+2=(n-1)^2+1\]
+  Pour $n\geq2$, $(n-1)^2\geq1$ donc $n^2-2n+2\geq2$.
+
+  L'autre facteur est $n^2+2n+2\geq2$ aussi.
+
+  $n^4+4$ est le produit de deux entiers supérieurs ou égaux à $2$ : il n'est pas premier.
+
+  \item On prend $x=1$ et $y=2^k$ dans la question 1. Alors :
+  \[4y^4=4\times(2^k)^4=2^2\times2^{4k}=2^{4k+2}\]
+  \[2xy=2\times2^k=2^{k+1}\qquad2y^2=2\times2^{2k}=2^{2k+1}\]
+  On obtient :
+  \[2^{4k+2}+1=\ib{$(2^{2k+1}+2^{k+1}+1)(2^{2k+1}-2^{k+1}+1)$}\]
+  \textbf{Le deuxième facteur est $\geq2$ :} on met $2^{k+1}$ en facteur.
+  \[2^{2k+1}-2^{k+1}+1=2^{k+1}(2^k-1)+1\]
+  Pour $k\geq1$ : $2^k-1\geq1$ et $2^{k+1}\geq4$, donc ce facteur vaut au moins $5$.
+
+  Le premier facteur est encore plus grand : le nombre est un produit de deux entiers $\geq2$, il n'est pas premier.
+
+  \item On prend $k=2$ : $2^{10}+1=1025$.
+  \[2^{2k+1}+2^{k+1}+1=2^5+2^3+1=41\qquad2^{2k+1}-2^{k+1}+1=2^5-2^3+1=25\]
+  \[2^{10}+1=25\times41=\ib{$5^2\times41$}\]
+  Le nombre $41$ est premier (il n'est divisible ni par $2$, ni par $3$, ni par $5$, et $7^2>41$ : il suffit de tester les nombres premiers $2$, $3$, $5$).
+\end{enumerate}
+\textbf{Idée :} faire apparaître un carré moins un carré en complétant $x^4$ en $(x^2+2y^2)^2$.
+
+\textbf{Piège :} le cas $k=0$ : $2^2+1=5=5\times1$ (un facteur vaut $1$), il est exclu.

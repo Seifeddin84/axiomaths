@@ -1,0 +1,73 @@
+% uid: ""
+% school: "lycee"
+% level: "1ere"
+% chapter: "Activités algébriques"
+% title: "Factorisations en chaîne"
+% difficulty: "Moyen"
+% tags: ["factorisation", "identites-remarquables", "equations-produit", "tableau-de-signes"]
+% provenance: "own"
+% batch: "2026-11-22-revision-1ere-A"
+
+% ---STATEMENT---
+On pose $A(x)=(2x-1)^2-(x+4)^2$, $B(x)=x^3-3x^2-4x+12$ et $C(x)=x^4-13x^2+36$.
+\begin{enumerate}
+  \item Factoriser $A(x)$, $B(x)$ et $C(x)$ en produits de facteurs du premier degré. [Pour $C$ : écrire $-13x^2=-4x^2-9x^2$.]
+  \item Résoudre dans $\mathbb R$ les équations $A(x)=0$ et $C(x)=0$.
+  \item Résoudre dans $\mathbb R$ l'inéquation $B(x)\leq0$.
+  \item Résoudre dans $\mathbb R$ l'inéquation $\dfrac{A(x)}{B(x)}\geq0$.
+\end{enumerate}
+
+% ---SOLUTION---
+\begin{prop}[Outils]
+\ib{$a^2-b^2=(a-b)(a+b)$}. Un produit est nul si et seulement si \ib{l'un de ses facteurs est nul}. Le signe d'un produit se lit avec un tableau de signes.
+\end{prop}
+\begin{enumerate}
+  \item \textbf{Pour $A$.} Différence de deux carrés avec $a=2x-1$ et $b=x+4$ :
+  \[A(x)=\big[(2x-1)-(x+4)\big]\big[(2x-1)+(x+4)\big]=(x-5)(3x+3)\]
+  \[A(x)=\ib{$3(x-5)(x+1)$}\]
+  \textbf{Pour $B$.} On groupe les termes deux par deux :
+  \[B(x)=x^2(x-3)-4(x-3)=(x-3)(x^2-4)\]
+  Puis $x^2-4=(x-2)(x+2)$ :
+  \[B(x)=\ib{$(x-3)(x-2)(x+2)$}\]
+  \textbf{Pour $C$.} On suit l'indication : $C(x)=x^4-4x^2-9x^2+36$, puis on groupe :
+  \[C(x)=x^2(x^2-4)-9(x^2-4)=(x^2-4)(x^2-9)\]
+  \[C(x)=\ib{$(x-2)(x+2)(x-3)(x+3)$}\]
+
+  \item \textbf{Équation $A(x)=0$.} $3(x-5)(x+1)=0\iff x=5$ ou $x=-1$ :
+  \[S=\{-1\,;\,5\}\]
+  \textbf{Équation $C(x)=0$.} Un des quatre facteurs est nul :
+  \[S=\{-3\,;\,-2\,;\,2\,;\,3\}\]
+
+  \item On étudie le signe de $B(x)=(x-3)(x-2)(x+2)$. Les valeurs qui annulent un facteur sont $-2$, $2$ et $3$.
+  \begin{center}
+\begin{tabular}{c|ccccccccc}
+$x$ & $-\infty$ &  & $-2$ &  & $2$ &  & $3$ &  & $+\infty$ \\ \hline
+$x+2$ &  & $-$ & $0$ & $+$ &  & $+$ &  & $+$ &  \\
+$x-2$ &  & $-$ &  & $-$ & $0$ & $+$ &  & $+$ &  \\
+$x-3$ &  & $-$ &  & $-$ &  & $-$ & $0$ & $+$ &  \\
+$B(x)$ &  & $-$ & $0$ & $+$ & $0$ & $-$ & $0$ & $+$ &  \\
+\end{tabular}
+\end{center}
+  $B(x)\leq0$ sur les intervalles où la dernière ligne porte le signe $-$ ou s'annule :
+  \[S=\ib{$]-\infty\,;-2]\cup[2\,;3]$}\]
+
+  \item Le quotient n'existe que si $B(x)\neq0$, c'est-à-dire $x\notin\{-2\,;2\,;3\}$.
+
+  On étudie le signe de $\dfrac{A(x)}{B(x)}=\dfrac{3(x-5)(x+1)}{(x-3)(x-2)(x+2)}$ avec les cinq valeurs $-2$, $-1$, $2$, $3$ et $5$.
+  \begin{center}
+\begin{tabular}{c|ccccccccccccc}
+$x$ & $-\infty$ &  & $-2$ &  & $-1$ &  & $2$ &  & $3$ &  & $5$ &  & $+\infty$ \\ \hline
+$x+2$ &  & $-$ & $0$ & $+$ &  & $+$ &  & $+$ &  & $+$ &  & $+$ &  \\
+$x+1$ &  & $-$ &  & $-$ & $0$ & $+$ &  & $+$ &  & $+$ &  & $+$ &  \\
+$x-2$ &  & $-$ &  & $-$ &  & $-$ & $0$ & $+$ &  & $+$ &  & $+$ &  \\
+$x-3$ &  & $-$ &  & $-$ &  & $-$ &  & $-$ & $0$ & $+$ &  & $+$ &  \\
+$x-5$ &  & $-$ &  & $-$ &  & $-$ &  & $-$ &  & $-$ & $0$ & $+$ &  \\
+$\dfrac{A(x)}{B(x)}$ &  & $-$ & $\|$ & $+$ & $0$ & $-$ & $\|$ & $+$ & $\|$ & $-$ & $0$ & $+$ &  \\
+\end{tabular}
+\end{center}
+  Les valeurs $-2$, $2$ et $3$ sont interdites (double barre) ; $-1$ et $5$ annulent le numérateur et conviennent (inégalité large) :
+  \[S=\ib{$]-2\,;-1]\cup]2\,;3[\,\cup[5\,;+\infty[$}\]
+\end{enumerate}
+\textbf{Idée :} factoriser d'abord, le tableau de signes se lit ensuite facteur par facteur.
+
+\textbf{Piège :} inclure dans la solution une valeur qui annule le dénominateur ($-2$, $2$ ou $3$).
