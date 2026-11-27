@@ -3,7 +3,7 @@ uid: "0000356"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités algébriques"
+chapter: "Activités Algébriques"
 source: "Axiomaths"
 title: "Factorisations en chaîne"
 country: "Tunisie"

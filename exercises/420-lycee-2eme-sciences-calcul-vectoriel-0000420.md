@@ -3,7 +3,7 @@ uid: "0000420"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Le quadrilatère des milieux (théorème de Varignon)"
 country: "Tunisie"

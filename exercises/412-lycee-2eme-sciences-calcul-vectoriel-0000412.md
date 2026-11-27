@@ -3,7 +3,7 @@ uid: "0000412"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Simplifier des écritures vectorielles"
 country: "Tunisie"

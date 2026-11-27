@@ -4,7 +4,7 @@ slug: "lycee-3eme-economie-suites-reelles"
 school: "lycee"
 level: "3eme"
 sections: ["Economie et Gestion"]
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 summary: "Décrire une évolution qui se répète d'année en année : suites arithmétiques et géométriques, limite, somme de termes, puis suites récurrentes de la forme $u_{n+1}=au_n+b$ qui modélisent stocks, prêts et revenus."
 prerequisites: ["Suites arithmétiques et géométriques (2ème année)", "Pourcentages et coefficients multiplicateurs"]
 source: "Manuel officiel 3ème année Économie et Gestion, Tome 1, chapitre 2"

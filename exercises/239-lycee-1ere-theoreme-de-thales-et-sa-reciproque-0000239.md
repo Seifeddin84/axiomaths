@@ -3,7 +3,7 @@ uid: "0000239"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Challenge : de Ménélaüs à Céva"
 country: "Tunisie"

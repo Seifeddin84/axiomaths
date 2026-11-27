@@ -3,7 +3,7 @@ uid: "0000007"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 source: "Livre scolaire 1985"
 title: "Équations second degré avec paramètre réel"
 country: "Tunisie"

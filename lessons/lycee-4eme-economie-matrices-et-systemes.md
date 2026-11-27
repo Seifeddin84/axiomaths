@@ -4,7 +4,7 @@ slug: "lycee-4eme-economie-matrices-et-systemes"
 school: "lycee"
 level: "4eme"
 sections: ["Economie et Gestion"]
-chapter: "Matrices et systèmes"
+chapter: "Matrices et Systèmes"
 summary: "Lire une matrice, l'additionner, la multiplier, calculer un déterminant et un inverse, puis résoudre un système d'équations avec une seule égalité : AX = B."
 prerequisites: ["Systèmes d'équations linéaires"]
 source: "Fiche 1 « Matrices et systèmes d'équations » de S. Talbi, reprise et complétée"

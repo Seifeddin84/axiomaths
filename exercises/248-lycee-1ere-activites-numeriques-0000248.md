@@ -3,7 +3,7 @@ uid: "0000248"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Valeur absolue : sommes de distances"
 country: "Tunisie"

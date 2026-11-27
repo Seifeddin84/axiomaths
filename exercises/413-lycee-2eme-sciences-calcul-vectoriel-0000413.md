@@ -3,7 +3,7 @@ uid: "0000413"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Composantes dans une base, colinéarité et nouvelle base"
 country: "Tunisie"

@@ -3,7 +3,7 @@ uid: "0000410"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Vrai ou faux : les pièges du chapitre"
 country: "Tunisie"

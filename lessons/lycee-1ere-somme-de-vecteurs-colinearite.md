@@ -4,7 +4,7 @@ slug: "lycee-1ere-somme-de-vecteurs-colinearite"
 school: "lycee"
 level: "1ere"
 sections: []
-chapter: "Somme de deux vecteurs - Vecteurs colinéaires"
+chapter: "Somme de Deux Vecteurs - Vecteurs Colinéaires"
 summary: "Enchaîner deux déplacements (relation de Chasles, règle du parallélogramme), les multiplier par un réel, puis reconnaître des vecteurs colinéaires pour démontrer un alignement ou un parallélisme."
 prerequisites: ["Vecteurs et translations", "Droite graduée", "Parallélogramme"]
 source: "Manuel officiel 1ère année, Tome 1, chapitres 5 et 6"

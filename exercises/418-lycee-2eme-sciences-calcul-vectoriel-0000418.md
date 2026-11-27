@@ -3,7 +3,7 @@ uid: "0000418"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Les trois médianes d'un triangle sont concourantes"
 country: "Tunisie"

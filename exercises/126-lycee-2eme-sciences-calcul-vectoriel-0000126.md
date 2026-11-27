@@ -3,7 +3,7 @@ uid: "0000126"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Composantes, parallélogramme et alignement"
 country: "Tunisie"

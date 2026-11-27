@@ -3,7 +3,7 @@ uid: "0000417"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Parallélogramme : droites parallèles et points alignés"
 country: "Tunisie"

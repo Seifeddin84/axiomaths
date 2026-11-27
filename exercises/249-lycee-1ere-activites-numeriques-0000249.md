@@ -3,7 +3,7 @@ uid: "0000249"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Synthèse : intervalles, valeur absolue et paramètre"
 country: "Tunisie"

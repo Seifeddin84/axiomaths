@@ -3,7 +3,7 @@ uid: "0000358"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités algébriques"
+chapter: "Activités Algébriques"
 source: "Axiomaths"
 title: "Simplifier et discuter"
 country: "Tunisie"

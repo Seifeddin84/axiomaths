@@ -4,7 +4,7 @@ slug: "lycee-4eme-maths-fonctions-exponentielles"
 school: "lycee"
 level: "4eme"
 sections: ["Mathématiques", "Sciences Expérimentales"]
-chapter: "Fonctions exponentielles"
+chapter: "Fonction Exponentielle"
 summary: "L'exponentielle comme réciproque du logarithme, la règle somme → produit, la propriété d'être sa propre dérivée, les limites et croissances comparées, les équations et inéquations, deux études de fonctions (dont une courbe en S), puis les exponentielles de base a : intérêts composés et demi-vie."
 prerequisites: ["Fonction logarithme népérien", "Fonctions réciproques", "Dérivation", "Limites et continuité"]
 source: "Manuel officiel 4ème année Mathématiques, chapitre « Fonctions exponentielles »"

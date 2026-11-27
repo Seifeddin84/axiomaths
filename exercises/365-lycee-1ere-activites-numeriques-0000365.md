@@ -3,7 +3,7 @@ uid: "0000365"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Un multiple de 30"
 country: "Tunisie"

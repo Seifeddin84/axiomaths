@@ -3,7 +3,7 @@ uid: "0000077"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Somme de deux vecteurs - Vecteurs colinéaires"
+chapter: "Somme de Deux Vecteurs - Vecteurs Colinéaires"
 source: "Lycée Pilote Monastir"
 title: "Colinéarité dans un parallélogramme"
 country: "Tunisie"

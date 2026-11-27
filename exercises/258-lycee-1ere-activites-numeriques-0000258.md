@@ -3,7 +3,7 @@ uid: "0000258"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Project Euler, problème 318 « 2011 Nines » (adapté)"
 title: "Presque un entier"
 country: "Tunisie"

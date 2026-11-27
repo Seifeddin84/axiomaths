@@ -3,7 +3,7 @@ uid: "0000242"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Du Soleil à Proxima"
 country: "Tunisie"

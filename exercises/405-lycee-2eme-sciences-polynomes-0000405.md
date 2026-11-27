@@ -3,7 +3,7 @@ uid: "0000405"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Égalité de deux polynômes : trois identifications"
 country: "Tunisie"

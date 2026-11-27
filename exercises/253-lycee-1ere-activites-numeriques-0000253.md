@@ -3,7 +3,7 @@ uid: "0000253"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Synthèse : approximations rationnelles de √2"
 country: "Tunisie"

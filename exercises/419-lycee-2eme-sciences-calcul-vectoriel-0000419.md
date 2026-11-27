@@ -3,7 +3,7 @@ uid: "0000419"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Vrai ou faux : les pièges du calcul vectoriel"
 country: "Tunisie"

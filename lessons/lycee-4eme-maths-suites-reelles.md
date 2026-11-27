@@ -4,7 +4,7 @@ slug: "lycee-4eme-maths-suites-reelles"
 school: "lycee"
 level: "4eme"
 sections: ["Mathématiques", "Sciences Expérimentales"]
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 summary: "Définition de la limite d'une suite, limites usuelles et suites géométriques, opérations, comparaison et théorème des gendarmes, convergence des suites monotones bornées, suites adjacentes, et la méthode complète pour une suite récurrente u(n+1) = f(u(n))."
 prerequisites: ["Raisonnement par récurrence", "Suites arithmétiques et géométriques", "Limites de fonctions", "Fonctions continues"]
 source: "Manuel officiel 4ème année Mathématiques, chapitre « Suites réelles »"

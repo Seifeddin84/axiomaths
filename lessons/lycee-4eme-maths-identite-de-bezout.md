@@ -4,7 +4,7 @@ slug: "lycee-4eme-maths-identite-de-bezout"
 school: "lycee"
 level: "4eme"
 sections: ["Mathématiques"]
-chapter: "Identité de Bézout"
+chapter: "Identité de Bezout"
 summary: "Le PGCD et l'algorithme d'Euclide, les entiers premiers entre eux et le lemme de Gauss, le PPCM, l'inverse modulo b, l'identité de Bézout (il existe u et v avec au + bv = 1) et sa recherche par Euclide étendu, enfin la résolution complète de ax + by = c dans Z²."
 prerequisites: ["Divisibilité dans Z (division euclidienne, congruences)", "Nombres premiers", "Raisonnement par l'absurde"]
 source: "Manuel officiel 4ème année Mathématiques, Tome 2, chapitre 8 « Identité de Bézout »"

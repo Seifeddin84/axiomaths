@@ -4,7 +4,7 @@ slug: "lycee-2eme-sciences-problemes-premier-second-degre"
 school: "lycee"
 level: "2eme"
 sections: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 summary: "Mettre un problème en équation, manier la valeur absolue, résoudre ax² + bx + c = 0 avec le discriminant, étudier le signe d'un trinôme et traiter les équations qui s'y ramènent."
 prerequisites: ["Calcul dans ℝ", "Identités remarquables"]
 source: "Manuel officiel 2ème année, Tome 1, chapitre 2"

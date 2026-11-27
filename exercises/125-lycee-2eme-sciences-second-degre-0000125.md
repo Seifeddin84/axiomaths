@@ -3,7 +3,7 @@ uid: "0000125"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 source: "Axiomaths"
 title: "Équation à paramètre, bicarrée et irrationnelle"
 country: "Tunisie"

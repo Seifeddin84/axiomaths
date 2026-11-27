@@ -3,7 +3,7 @@ uid: "0000366"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "PGCD et divisibilité par 2, 4, 8"
 country: "Tunisie"

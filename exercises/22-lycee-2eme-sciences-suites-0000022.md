@@ -3,7 +3,7 @@ uid: '0000022'
 school: lycee
 level: 2eme
 section: ["Sciences", "Informatique"]
-chapter: Suites arithmétiques et géométriques
+chapter: "Suites Arithmétiques et Géométriques"
 source: 'Lycée ElriAdh: Marsa'
 title: Étude d'une suite récurrente avec radicaux
 country: Tunisie

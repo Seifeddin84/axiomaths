@@ -3,7 +3,7 @@ uid: "0000017"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Facebook: Tunisiamaths - Devoir de contrôle N°3"
 title: "Suite télescopique à radicaux"
 country: "Tunisie"

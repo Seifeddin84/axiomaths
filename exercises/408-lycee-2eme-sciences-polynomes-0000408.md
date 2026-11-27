@@ -3,7 +3,7 @@ uid: "0000408"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Équations bicarrées et inéquation de degré 4"
 country: "Tunisie"

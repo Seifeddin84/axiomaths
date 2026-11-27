@@ -3,7 +3,7 @@ uid: "0000244"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Une somme qui se télescope"
 country: "Tunisie"

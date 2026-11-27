@@ -3,7 +3,7 @@ uid: "0000232"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Deux cercles tangents et une sécante"
 country: "Tunisie"

@@ -3,7 +3,7 @@ uid: "0000099"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Suite récurrente et suite arithmétique"
 country: "Tunisie"

@@ -3,7 +3,7 @@ uid: "0000415"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Colinéarité et paramètre : quand trois points sont-ils alignés ?"
 country: "Tunisie"

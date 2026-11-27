@@ -3,7 +3,7 @@ uid: "0000119"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités algébriques"
+chapter: "Activités Algébriques"
 source: "Axiomaths"
 title: "Fraction rationnelle : simplification et inégalité"
 country: "Tunisie"

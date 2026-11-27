@@ -3,7 +3,7 @@ uid: "0000407"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Déterminer un polynôme à partir de valeurs ou de racines"
 country: "Tunisie"

@@ -4,7 +4,7 @@ slug: "lycee-4eme-economie-les-graphes"
 school: "lycee"
 level: "4eme"
 sections: ["Economie et Gestion"]
-chapter: "Les graphes"
+chapter: "Les Graphes"
 summary: "Le vocabulaire des graphes, les chaînes et les cycles, la matrice associée, le théorème d'Euler, la coloration et le plus court chemin (algorithme de Dijkstra)."
 prerequisites: ["Matrices et systèmes"]
 source: "Fiche 8 « Graphes » de S. Talbi, reprise et complétée"

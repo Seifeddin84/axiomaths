@@ -4,7 +4,7 @@ slug: "lycee-4eme-maths-equations-differentielles"
 school: "lycee"
 level: "4eme"
 sections: ["Mathématiques", "Sciences Expérimentales"]
-chapter: "Équations différentielles"
+chapter: "Equations Différentielles"
 summary: "Résoudre une équation où l'inconnue est une fonction : y' = ay (décroissance radioactive), y' = ay + b (refroidissement, perfusion, solution d'équilibre), puis y'' + ω²y = 0 (oscillations d'un ressort). Avec conditions initiales, vérifications numériques et la méthode d'Euler au tableur."
 prerequisites: ["Fonctions exponentielles", "Dérivation", "Primitives", "Trigonométrie"]
 source: "Programme officiel 4ème année Mathématiques (répartition 2022-23), chapitre « Équations différentielles »"

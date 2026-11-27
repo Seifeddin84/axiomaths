@@ -3,7 +3,7 @@ uid: "0000104"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Calculs dans une suite géométrique"
 country: "Tunisie"

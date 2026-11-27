@@ -3,7 +3,7 @@ uid: "0000235"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Partager un triangle par des parallèles"
 country: "Tunisie"

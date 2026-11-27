@@ -3,7 +3,7 @@ uid: "0000240"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "QCM : racines, puissances, valeur absolue et encadrements"
 country: "Tunisie"

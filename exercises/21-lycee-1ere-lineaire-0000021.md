@@ -3,7 +3,7 @@ uid: "0000021"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Fonctions linéaires et Affines"
+chapter: "Fonctions Linéaires et Affines"
 source: "Lycée la Soukra : Ariana"
 title: "Images, antécédents et alignement de points"
 country: "Tunisie"

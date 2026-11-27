@@ -3,7 +3,7 @@ uid: "0000257"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Résultat classique (cas particulier du théorème de Routh). Pour l'histoire : Steinhaus, Mathematical Snapshots (1960) ; Cook & Wood, Mathematical Gazette 88 (2004)."
 title: "Le triangle de Feynman"
 country: "Tunisie"

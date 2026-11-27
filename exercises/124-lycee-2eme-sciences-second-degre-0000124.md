@@ -3,7 +3,7 @@ uid: "0000124"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 source: "Axiomaths"
 title: "Somme et produit des racines, problème et inéquation"
 country: "Tunisie"

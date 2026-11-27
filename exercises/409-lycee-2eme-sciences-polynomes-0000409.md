@@ -3,7 +3,7 @@ uid: "0000409"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Signe d'un quotient : une racine du numérateur est une valeur interdite"
 country: "Tunisie"

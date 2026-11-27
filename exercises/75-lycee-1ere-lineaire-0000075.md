@@ -3,7 +3,7 @@ uid: "0000075"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Fonctions linéaires et Affines"
+chapter: "Fonctions Linéaires et Affines"
 source: "Lycée Pilote Monastir"
 title: "Étude d'une fonction affine et aires"
 country: "Tunisie"

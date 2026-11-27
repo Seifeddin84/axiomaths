@@ -4,7 +4,7 @@ slug: "lycee-4eme-maths-geometrie-dans-l-espace"
 school: "lycee"
 level: "4eme"
 sections: ["Mathématiques"]
-chapter: "Géométrie dans l'espace"
+chapter: "Géométrie dans l'Espace"
 summary: "Le calcul remplace le dessin : produit scalaire et produit vectoriel de l'espace, aire et volume, équations de droites, de plans et de sphères, distances, puis translation et homothétie, avec un cube comme fil rouge."
 prerequisites: ["Vecteurs de l'espace", "Produit scalaire dans le plan", "Repère orthonormé de l'espace", "Droites et plans de l'espace", "Déterminant et système linéaire", "Distance d'un point à une droite dans le plan"]
 source: "Manuel officiel 4ème année Mathématiques, Tome 2, chapitre 6 « Géométrie dans l'espace »"

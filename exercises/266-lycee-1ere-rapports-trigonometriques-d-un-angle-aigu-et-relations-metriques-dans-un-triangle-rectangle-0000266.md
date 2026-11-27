@@ -3,7 +3,7 @@ uid: "0000266"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Rapports trigonométriques d'un angle aigu et Relations métriques dans un triangle rectangle"
+chapter: "Rapports Trigonométriques d'un Angle Aigu et Relations Métriques dans un Triangle Rectangle"
 source: "Axiomaths"
 title: "Le produit des deux morceaux d'une corde"
 country: "Tunisie"

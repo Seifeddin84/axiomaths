@@ -3,7 +3,7 @@ uid: "0000362"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Le nombre d'or"
 country: "Tunisie"

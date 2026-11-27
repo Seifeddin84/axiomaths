@@ -3,7 +3,7 @@ uid: "0000020"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Fonctions linéaires et Affines"
+chapter: "Fonctions Linéaires et Affines"
 source: "Lycée la Soukra : Ariana"
 title: "Détermination d'une fonction linéaire par une équation"
 country: "Tunisie"

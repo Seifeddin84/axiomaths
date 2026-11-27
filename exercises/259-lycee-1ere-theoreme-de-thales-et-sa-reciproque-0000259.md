@@ -3,7 +3,7 @@ uid: "0000259"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "URSS : Olympiade 1990, classe de 9e (B. Chinik, Kichinev)"
 title: "Trois parallèles par un point"
 country: "Tunisie"

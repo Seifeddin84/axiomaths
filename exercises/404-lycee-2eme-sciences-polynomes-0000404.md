@@ -3,7 +3,7 @@ uid: "0000404"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Degré, coefficients et opérations sur les polynômes"
 country: "Tunisie"

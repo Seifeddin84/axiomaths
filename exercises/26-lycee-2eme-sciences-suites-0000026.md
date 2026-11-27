@@ -3,7 +3,7 @@ uid: '0000026'
 school: lycee
 level: 2eme
 section: ["Sciences", "Informatique"]
-chapter: Suites arithmétiques et géométriques
+chapter: "Suites Arithmétiques et Géométriques"
 source: 'Lycée ElriAdh: Marsa'
 title: Suite arithmético-géométrique (cas croissant)
 country: Tunisie

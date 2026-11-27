@@ -4,7 +4,7 @@ slug: "lycee-3eme-maths-etude-de-fonctions"
 school: "lycee"
 level: "3eme"
 sections: ["Mathématiques"]
-chapter: "Exemples d’étude de fonctions"
+chapter: "Exemples d'Étude de Fonctions"
 summary: "Un plan d'étude pour tracer une courbe : ensemble de définition, axe et centre de symétrie, limites et asymptotes, dérivée et tableau de variation, demi-tangentes. Appliqué à un polynôme, à une fonction rationnelle et à une fonction avec une racine carrée, puis aux courbes de fonctions associées."
 prerequisites: ["Limites et asymptotes", "Nombre dérivé et fonction dérivée", "Continuité"]
 source: "Manuel officiel 3ème année Mathématiques, Tome 1, chapitre 7"

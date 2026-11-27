@@ -3,7 +3,7 @@ uid: "0000098"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Terme général d'une suite arithmétique"
 country: "Tunisie"

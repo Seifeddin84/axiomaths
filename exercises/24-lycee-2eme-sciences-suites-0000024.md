@@ -3,7 +3,7 @@ uid: '0000024'
 school: lycee
 level: 2eme
 section: ["Sciences", "Informatique"]
-chapter: Suites arithmétiques et géométriques
+chapter: "Suites Arithmétiques et Géométriques"
 source: 'Lycée ElriAdh: Marsa'
 title: Suite homographique avec radicaux
 country: Tunisie

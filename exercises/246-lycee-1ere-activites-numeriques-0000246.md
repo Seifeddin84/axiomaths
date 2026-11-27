@@ -3,7 +3,7 @@ uid: "0000246"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Comparer sans calculatrice"
 country: "Tunisie"

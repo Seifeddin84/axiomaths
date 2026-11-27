@@ -3,7 +3,7 @@ uid: "0000357"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités algébriques"
+chapter: "Activités Algébriques"
 source: "Axiomaths"
 title: "Factoriser n⁴ + 4"
 country: "Tunisie"

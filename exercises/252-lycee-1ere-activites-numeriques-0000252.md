@@ -3,7 +3,7 @@ uid: "0000252"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Synthèse : l'inégalité triangulaire en action"
 country: "Tunisie"

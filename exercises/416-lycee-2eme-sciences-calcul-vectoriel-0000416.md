@@ -3,7 +3,7 @@ uid: "0000416"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Repère orthonormé : normes, orthogonalité et carré"
 country: "Tunisie"

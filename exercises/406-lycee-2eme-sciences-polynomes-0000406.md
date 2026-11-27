@@ -3,7 +3,7 @@ uid: "0000406"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Factoriser avec le schéma de Horner : trois polynômes de degré 3"
 country: "Tunisie"

@@ -3,7 +3,7 @@ uid: "0000411"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Boîte sans couvercle : un problème de volume"
 country: "Tunisie"

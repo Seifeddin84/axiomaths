@@ -3,7 +3,7 @@ uid: "0000256"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Vietnam : High School for Gifted Students (HNUE), Second Entrance Mock test (test blanc), 13/04/2025 (adapté)"
 title: "Sous la racine, un carré caché"
 country: "Tunisie"

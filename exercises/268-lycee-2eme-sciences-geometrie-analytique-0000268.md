@@ -3,7 +3,7 @@ uid: "0000268"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Géométrie analytique"
+chapter: "Géométrie Analytique"
 source: "Axiomaths"
 title: "Le papillon dans un repère : un cercle, des chiffres"
 country: "Tunisie"

@@ -3,7 +3,7 @@ uid: "0000261"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Polynôme et fonction rationnelle"
 country: "Tunisie"

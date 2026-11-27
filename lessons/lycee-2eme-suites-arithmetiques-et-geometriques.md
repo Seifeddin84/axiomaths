@@ -4,7 +4,7 @@ slug: "lycee-2eme-suites-arithmetiques-et-geometriques"
 school: "lycee"
 level: "2eme"
 sections: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 summary: "Ajouter toujours la même chose (suite arithmétique) ou multiplier toujours par le même facteur (suite géométrique) : termes généraux, sommes, et la technique de la suite auxiliaire qui ramène une suite compliquée à l'une des deux."
 prerequisites: ["Calcul dans IR", "Puissances", "Fonctions affines"]
 source: "Manuel officiel 2ème année, Tome 2, chapitres 1 et 2"

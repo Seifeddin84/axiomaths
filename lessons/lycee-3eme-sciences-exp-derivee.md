@@ -4,7 +4,7 @@ slug: "lycee-3eme-sciences-exp-derivee"
 school: "lycee"
 level: "3eme"
 sections: ["Sciences Expérimentales"]
-chapter: "Nombre dérivé et Fonction dérivée"
+chapter: "Nombre Dérivé et Fonction Dérivée"
 summary: "De la vitesse instantanée au nombre dérivé : tangente, approximation affine, règles de dérivation, dérivée à gauche et à droite, demi-tangentes, puis la fonction dérivée pour étudier les variations et les extrema."
 prerequisites: ["Limites", "Continuité", "Équation d'une droite"]
 source: "Manuel officiel 3ème année Sciences expérimentales, Tome 1, chapitres 5 et 6"

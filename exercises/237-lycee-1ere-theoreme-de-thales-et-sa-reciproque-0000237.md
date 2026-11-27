@@ -3,7 +3,7 @@ uid: "0000237"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Un parallélogramme inscrit dans un triangle"
 country: "Tunisie"

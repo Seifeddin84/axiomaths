@@ -3,7 +3,7 @@ uid: "0000260"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "QCM : polynômes et barycentre"
 country: "Tunisie"

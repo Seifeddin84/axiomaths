@@ -3,7 +3,7 @@ uid: "0000255"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Challenge : la partie entière d'une somme de 1/√k"
 country: "Tunisie"

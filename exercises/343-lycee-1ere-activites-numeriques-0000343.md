@@ -3,7 +3,7 @@ uid: "0000343"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Lycée Farhat Hached Makthar : série d'exercices n°1 (2019-2020)"
 title: "PGCD, PPCM et fraction irréductible"
 country: "Tunisie"

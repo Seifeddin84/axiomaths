@@ -3,7 +3,7 @@ uid: "0000370"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Une droite par le centre de gravité"
 country: "Tunisie"

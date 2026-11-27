@@ -3,7 +3,7 @@ uid: "0000127"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Alignement de trois points dans un triangle"
 country: "Tunisie"

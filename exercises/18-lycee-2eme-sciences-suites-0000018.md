@@ -3,7 +3,7 @@ uid: "0000018"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Facebook: Tunisiamaths - Devoir de contrôle N°3"
 title: "Étude d'une suite arithmétique et suite auxiliaire"
 country: "Tunisie"

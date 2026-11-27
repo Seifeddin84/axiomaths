@@ -3,7 +3,7 @@ uid: "0000128"
 school: "lycee"
 level: "3eme"
 section: ["Mathématiques", "Sciences Expérimentales"]
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 source: "Axiomaths"
 title: "Suite arithmético-géométrique et suite auxiliaire"
 country: "Tunisie"

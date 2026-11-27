@@ -3,7 +3,7 @@ uid: "0000015"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Fonctions linéaires et Affines"
+chapter: "Fonctions Linéaires et Affines"
 source: "Lycée la Soukra : Ariana"
 title: "Fonction linéaire définie par une expression"
 country: "Tunisie"

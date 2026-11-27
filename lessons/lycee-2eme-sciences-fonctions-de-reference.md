@@ -4,7 +4,7 @@ slug: "lycee-2eme-sciences-fonctions-de-reference"
 school: "lycee"
 level: "2eme"
 sections: ["Sciences", "Informatique"]
-chapter: "Fonctions de référence"
+chapter: "Fonctions de Référence"
 summary: "Trois courbes à connaître (parabole, racine carrée, hyperbole) et trois mouvements (translation, étirement, symétrie) suffisent pour tracer, lire et étudier toutes les fonctions du chapitre, du trinôme à la fonction homographique."
 prerequisites: ["Polynômes", "Problèmes du premier et du second degré", "Translations", "Homothéties"]
 source: "Manuel officiel 2ème année, Tome 2, chapitre 4"

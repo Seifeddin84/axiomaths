@@ -3,7 +3,7 @@ uid: "0000414"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Dans un repère : composantes, parallélogramme et points alignés"
 country: "Tunisie"
