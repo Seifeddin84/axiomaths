@@ -7,6 +7,12 @@
  * ramps below. Fonts are downloaded only when a theme or font pack using them is chosen.
  * ============================================================ */
 
+/* Computer Modern (CMU Serif, SIL OFL; public/fonts/cmu), subset to Latin + French. Downloaded only if used. */
+@font-face { font-family: 'AX CMU Serif'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/cmu/cmu-serif-regular.woff2') format('woff2'); }
+@font-face { font-family: 'AX CMU Serif'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/cmu/cmu-serif-italic.woff2') format('woff2'); }
+@font-face { font-family: 'AX CMU Serif'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/cmu/cmu-serif-bold.woff2') format('woff2'); }
+@font-face { font-family: 'AX CMU Serif'; font-style: italic; font-weight: 700; font-display: swap; src: url('/fonts/cmu/cmu-serif-bolditalic.woff2') format('woff2'); }
+
 /* ---------- theme: classic ---------- */
 :root {  /* accent = orange, primary = teal */
   --ax-accent-50: 255 247 237;  /* #fff7ed */
@@ -371,6 +377,57 @@
 :root[data-ax-theme="lebosse-noir"] .katex .fbox { border-color: #b3261e; background: rgb(179 38 30 / 0.07); }
 :root[data-ax-theme="lebosse-noir"].dark .katex .fbox { border-color: #ef7063; background: rgb(239 112 99 / 0.12); }
 
+/* ---------- theme: mir-pur ---------- */
+:root[data-ax-theme="mir-pur"] {  /* accent = inkblue, primary = neutral */
+  --ax-accent-50: 238 242 251;  /* #eef2fb */
+  --ax-accent-100: 219 227 246;  /* #dbe3f6 */
+  --ax-accent-200: 185 200 237;  /* #b9c8ed */
+  --ax-accent-300: 142 166 224;  /* #8ea6e0 */
+  --ax-accent-400: 127 155 224;  /* #7f9be0 */
+  --ax-accent-500: 47 85 184;  /* #2f55b8 */
+  --ax-accent-600: 31 63 153;  /* #1f3f99 */
+  --ax-accent-700: 26 51 128;  /* #1a3380 */
+  --ax-accent-800: 23 43 105;  /* #172b69 */
+  --ax-accent-900: 20 36 84;  /* #142454 */
+  --ax-accent-950: 12 22 51;  /* #0c1633 */
+  --ax-primary-50: 250 250 250;  /* #fafafa */
+  --ax-primary-100: 245 245 245;  /* #f5f5f5 */
+  --ax-primary-200: 229 229 229;  /* #e5e5e5 */
+  --ax-primary-300: 212 212 212;  /* #d4d4d4 */
+  --ax-primary-400: 163 163 163;  /* #a3a3a3 */
+  --ax-primary-500: 115 115 115;  /* #737373 */
+  --ax-primary-600: 82 82 82;  /* #525252 */
+  --ax-primary-700: 64 64 64;  /* #404040 */
+  --ax-primary-800: 38 38 38;  /* #262626 */
+  --ax-primary-900: 23 23 23;  /* #171717 */
+  --ax-primary-950: 10 10 10;  /* #0a0a0a */
+}
+:root[data-ax-theme="mir-pur"] body, :root[data-ax-theme="mir-pur"] .font-sans { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="mir-pur"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-theme="mir-pur"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-theme="mir-pur"] .exercise-content:not([dir="rtl"]) { font-family: 'AX CMU Serif', 'Latin Modern Roman', Georgia, serif; font-size: 1.06em; }
+:root[data-ax-theme="mir-pur"] .lesson-content:not([dir="rtl"]) { font-family: 'AX CMU Serif', 'Latin Modern Roman', Georgia, serif; font-size: 1.06em; }
+:root[data-ax-theme="mir-pur"]:not(.dark) body, :root[data-ax-theme="mir-pur"]:not(.dark) .bg-white { background-color: #fbfaf6; }
+:root[data-ax-theme="mir-pur"]:not(.dark) .bg-gray-50, :root[data-ax-theme="mir-pur"]:not(.dark) .bg-gray-100 { background-color: #f2f0ea; }
+:root[data-ax-theme="mir-pur"]:not(.dark) [class*="from-green-50"] { background: #fbfaf6; border-color: rgb(var(--ax-primary-300)); }
+:root[data-ax-theme="mir-pur"] [class*="from-green-500"][class*="to-green-600"]:not(.x) { background: rgb(var(--ax-accent-600)); }
+:root[data-ax-theme="mir-pur"]:not(.dark) [class*="from-green-50"] .text-green-900 { color: rgb(var(--ax-primary-800)); }
+:root[data-ax-theme="mir-pur"] :is(.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl) { border-radius: 0px; }
+:root[data-ax-theme="mir-pur"] .lesson-box, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box { border-radius: 0px; }
+/* Mir books: no filled boxes; a bold run-in label, a thin rule on the left, statements in italics */
+:root[data-ax-theme="mir-pur"] .lesson-box, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box { --c: #1c1c1b; background: transparent; border: none; border-left: 1.5px solid var(--c); border-radius: 0; box-shadow: none; margin: 1.4rem 0; }
+:root[data-ax-theme="mir-pur"].dark .lesson-box, :root[data-ax-theme="mir-pur"].dark .exercise-content .lesson-box { --c: #d4d4d4; background: transparent; border: none; border-left: 1.5px solid var(--c); }
+:root[data-ax-theme="mir-pur"] .lesson-box--trap, :root[data-ax-theme="mir-pur"] .lesson-box--warning, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box--trap, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box--warning { --c: #b3261e; }
+:root[data-ax-theme="mir-pur"] .lesson-box__header, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__header { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0 0.5rem; background: transparent; border: none; padding: 0.1rem 0 0.2rem 0.9rem; }
+:root[data-ax-theme="mir-pur"] .lesson-box__kind, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__kind, :root[data-ax-theme="mir-pur"].dark .exercise-content .lesson-box__kind { color: var(--c); text-transform: none; letter-spacing: 0; font-size: 1rem; font-weight: 700; opacity: 1; }
+:root[data-ax-theme="mir-pur"] .lesson-box__title, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__title, :root[data-ax-theme="mir-pur"].dark .exercise-content .lesson-box__title, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__kind--title, :root[data-ax-theme="mir-pur"].dark .exercise-content .lesson-box__kind--title { color: inherit; font-weight: 700; font-style: normal; font-size: 1rem; }
+:root[data-ax-theme="mir-pur"] .lesson-box__body, :root[data-ax-theme="mir-pur"] .exercise-content .lesson-box__body { padding: 0 0 0 0.9rem; }
+:root[data-ax-theme="mir-pur"] :is(.lesson-box--theorem, .lesson-box--property, .lesson-box--corollary) .lesson-box__body { font-style: italic; }
+:root[data-ax-theme="mir-pur"] .exercise-content .lesson-box strong { color: inherit; }
+:root[data-ax-theme="mir-pur"] .lesson-box--proof .lesson-box__body::after { content: '\25A1'; }  /* □ like the Mir books */
+:root[data-ax-theme="mir-pur"] .lesson-h2 { border-bottom: 1px solid currentColor; }
+:root[data-ax-theme="mir-pur"] .katex .fbox { border: 0.06em solid currentColor; background: transparent; border-radius: 0; }
+
 /* ---------- theme: lisible ---------- */
 :root[data-ax-theme="lisible"] {  /* accent = indigo, primary = cyan */
   --ax-accent-50: 238 242 255;  /* #eef2ff */
@@ -402,6 +459,10 @@
 :root[data-ax-theme="lisible"] .exercise-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
 :root[data-ax-theme="lisible"] .lesson-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
 
+/* lessons highlight the changing term with \textcolor{#ea580c}: in every non-classic theme it takes the theme's accent */
+:root[data-ax-theme] .katex [style*="#ea580c"] { color: rgb(var(--ax-accent-600)) !important; }
+:root[data-ax-theme].dark .katex [style*="#ea580c"] { color: rgb(var(--ax-accent-400)) !important; }
+
 /* ============ font packs (override the theme's fonts) ============ */
 /* font: garamond */
 :root[data-ax-font="garamond"] body, :root[data-ax-font="garamond"] .font-sans { font-family: 'EB Garamond', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
@@ -427,6 +488,13 @@
 :root[data-ax-font="atkinson"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'Atkinson Hyperlegible', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; font-weight: 700; letter-spacing: 0; }
 :root[data-ax-font="atkinson"] .exercise-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
 :root[data-ax-font="atkinson"] .lesson-content:not([dir="rtl"]) { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; font-size: 1em; }
+
+/* font: cmu */
+:root[data-ax-font="cmu"] body, :root[data-ax-font="cmu"] .font-sans { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-font="cmu"] :is(.lesson-box__header, .lesson-box__tag, .lesson-box__wiki a, .lesson-redaction__label, .lesson-answer > summary, .wiki-version__head, .wiki-proof, .lesson-content th) { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; }
+:root[data-ax-font="cmu"] :is(h1, h2, h3, .lesson-h2, .lesson-h3) { font-family: 'AX CMU Serif', 'Tajawal', 'Noto Naskh Arabic', Georgia, serif; font-weight: 700; letter-spacing: 0; }
+:root[data-ax-font="cmu"] .exercise-content:not([dir="rtl"]) { font-family: 'AX CMU Serif', 'Latin Modern Roman', Georgia, serif; font-size: 1.06em; }
+:root[data-ax-font="cmu"] .lesson-content:not([dir="rtl"]) { font-family: 'AX CMU Serif', 'Latin Modern Roman', Georgia, serif; font-size: 1.06em; }
 
 /* font: roboto */
 :root[data-ax-font="roboto"] body, :root[data-ax-font="roboto"] .font-sans { font-family: 'Roboto', 'Tajawal', 'Noto Naskh Arabic', system-ui, sans-serif; }

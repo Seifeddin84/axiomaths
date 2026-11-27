@@ -1,6 +1,6 @@
 ---
 name: axiomath-design
-description: AxioMath visual design system and UI audit checklist. Use for any change to the site's look or UI — src/components, src/app pages, globals.css, tailwind.config.js, a new page or widget, a design review or audit. Not for exercise/lesson content (see CLAUDE.md and lessons/_GUIDE.md).
+description: AxioMath visual design system, figure style and UI audit checklist. Use for any change to the site's look or UI — src/components, src/app pages, globals.css, tailwind.config.js, a new page or widget, a design review or audit — and whenever drawing a figure (exercise PNG, lesson SVG, TikZ, matplotlib). Not for exercise/lesson content (see CLAUDE.md and lessons/_GUIDE.md).
 ---
 
 # AxioMath design system
@@ -46,12 +46,14 @@ or `#0f766e` (5.47).
   **colours** (`data-ax-theme`: palette, paper tone, corners, boxes) and **fonts** (`data-ax-font`, a font pack that
   overrides the theme's own fonts; declared last in the CSS so it wins).
 - Colour themes: `classic` (default) · `manuel` · `vert` · `mir` (black + ink blue, cream paper) · `lebosse` (black + brick)
-  · `lebosse-vert` (bottle green) · `lebosse-bleu` (Prussian blue) · `lebosse-noir` (black, with printer's red for the colour boxes, as in some old manuals) · `lisible` (indigo).
+  · `mir-pur` (a page of a Mir book: Computer Modern for text and maths, no filled boxes, bold run-in labels,
+  italic statements, thin left rule, □ after proofs) · `lebosse-vert` (bottle green) · `lebosse-bleu` (Prussian blue) · `lebosse-noir` (black, with printer's red for the colour boxes, as in some old manuals) · `lisible` (indigo).
   The four Lebossé colourways share old paper, square corners and Garamond. `lebosse` and `lebosse-noir` print the
   boxes in **three inks** like old French manuals (Seifeddine, 2026-11-27): black = propriété, démonstration, remarque…;
   blue = théorème, définition, méthode, vérifie-toi; sober green (`#3f6b4e`, the `vert` theme's ink) = exemple; red = l'idée, piège, attention, défi; and key
   formulas (`\boxed{}`) framed in red. `lebosse-vert` and `lebosse-bleu` keep two inks (black + their colour).
-- Font packs: `garamond` (EB Garamond + Playfair headings) · `pt` (PT Serif / PT Sans) · `crimson` · `atkinson`
+- Font packs: `cmu` (Computer Modern, self-hosted in `public/fonts/cmu`, subset Latin + French, the same family as
+  KaTeX so text and formulas match) · `garamond` (EB Garamond + Playfair headings) · `pt` (PT Serif / PT Sans) · `crimson` · `atkinson`
   (Atkinson Hyperlegible, low-vision font) · `roboto` (the classic fonts). Seifeddine's favourite so far (2026-11-27):
   Lebossé, then Mir, then Lisible, Garamond in particular.
 - Theme fonts are downloaded **only when chosen** (`loadFonts`); Arabic falls back to Tajawal. Each theme is generated as
@@ -104,6 +106,45 @@ Semantic colours (meaning first, never decoration):
   don't erase deliberate `\textcolor` highlights.
 - Motion: transitions 150–200ms on hover/expand only. No decorative animation, no parallax.
 
+## 4b. Figures: the Mir-book style (rule, Seifeddine 2026-11-27)
+
+Model: the line drawings of Mir Publishers books (Postnikov's *Lie groups*, *Problems in Geometry*, *Differential
+models*: the pendulum, the projectile, the circles of Apollonius). Every figure AxioMath draws (exercise PNGs, lesson
+SVGs, TikZ from the handouts, matplotlib plots) follows it, and it refines CLAUDE.md §6.
+
+- **Ink**: pure black on white. No fills, no shadows, no rounded frame, no title inside the image. Hatching only
+  where a textbook would hatch (a fixed support, a region to shade).
+- **Line weights**: thin and uniform. The object of the exercise slightly heavier (≈ 1 pt, matplotlib `lw=1.0`),
+  construction and auxiliary lines thinner (≈ 0.5 pt) and **dashed** (projections, radii, arcs of motion).
+- **Labels**: italic serif letters, the same family as the formulas (Computer Modern italic: `$A$`, `$A'_{12}$`,
+  `$\alpha$`), set close to their point and never on a line. Points get a small dot only where it means something.
+- **Axes**: thin, small sharp arrowheads, italic `$x$`, `$y$`, `$O$` at the origin. Ticks and values only when the
+  question needs them. No grid, no box frame.
+- **Arrows** (forces, velocities, mappings): thin with small sharp heads, italic labels (`$mg$`, `$v_0$`).
+  **Angles**: small arcs with an italic Greek letter.
+- **Caption**: plain small "Fig. n" (or the short legend) **under** the figure, in the text, not in the image.
+- **Colour**: none by default. The exceptions of CLAUDE.md §6 still hold (a path in a graph, curves to tell apart):
+  then one sharp colour, everything else black.
+- **Check** every PNG/SVG at phone width: labels readable, no label collision (lesson of figure #383).
+
+matplotlib preset (copy into the figure script, not into the repo):
+
+```python
+import matplotlib as mpl
+mpl.rcParams.update({
+    "font.family": "serif", "font.serif": ["CMU Serif", "Latin Modern Roman", "DejaVu Serif"],
+    "mathtext.fontset": "cm", "font.size": 11,
+    "lines.linewidth": 1.0, "axes.linewidth": 0.6,
+    "axes.spines.top": False, "axes.spines.right": False, "axes.grid": False,
+    "xtick.major.width": 0.6, "ytick.major.width": 0.6, "xtick.direction": "in", "ytick.direction": "in",
+    "figure.facecolor": "white", "savefig.dpi": 240, "savefig.bbox": "tight",
+})
+# construction lines: ls="--", lw=0.5 · labels: ax.text(x, y, r"$A'_{12}$")
+```
+
+TikZ preset: `\begin{tikzpicture}[line width=0.5pt, >=stealth, every node/.style={font=\itshape}]`, main object
+`line width=0.9pt`, auxiliary lines `dashed`.
+
 ## 5. Anti-patterns (refuse these)
 
 - Gradients, glassmorphism, neon glows, blob backgrounds, emoji used as decoration (existing badges like 🔥 Défi are fine).
@@ -142,6 +183,7 @@ Found on 2026-11-27; tick off here when done.
       lessons (`.lesson-box--theorem`, `.lesson-box--example` orange). Pick one per kind (§2: same kind = same colour).
 - [ ] Chapter page titles are built from the URL slug and lose accents and casing ("Suites Arithmetiques Et
       Geometriques"); they should show the canonical chapter name.
+- [ ] Lesson figures drawn before this rule (e.g. the suites plot with teal dots) → redraw in the Mir style of §4b.
 - [ ] `*.backup` files in `src/app/` and the root (`tailwind.config.js.backup`): remove once confirmed unused.
 
 ## 8. Reporting

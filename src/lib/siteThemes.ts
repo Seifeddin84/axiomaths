@@ -19,11 +19,13 @@ export const SITE_THEMES = [
   { id: 'lebosse-vert', label: 'Lebossé vert bouteille', fonts: GARAMOND },
   { id: 'lebosse-bleu', label: 'Lebossé bleu de Prusse', fonts: GARAMOND },
   { id: 'lebosse-noir', label: 'Lebossé noir + rouge', fonts: GARAMOND },
+  { id: 'mir-pur', label: 'Mir pur (livre, noir)', fonts: null }, // Computer Modern, self-hosted in public/fonts/cmu
   { id: 'lisible', label: 'Lisible (indigo)', fonts: ATKINSON },
 ] as const;
 
 export const FONT_PACKS = [
   { id: 'theme', label: 'Police du thème', fonts: null },
+  { id: 'cmu', label: 'Computer Modern (Mir pur)', fonts: null }, // self-hosted, loaded on first use
   { id: 'garamond', label: 'Garamond (Lebossé)', fonts: GARAMOND },
   { id: 'pt', label: 'PT Serif (Mir)', fonts: PT },
   { id: 'crimson', label: 'Crimson (Manuel)', fonts: null },

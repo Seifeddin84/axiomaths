@@ -219,6 +219,9 @@ average pupil**: detailed, clean, nothing skipped.
   visually before committing.
 - Style: old-textbook, pure black on white, **including graph theory and geometry**. Colour only when it
   clearly helps understanding or use, and then sharp colours (see the lessons log, 2026-11-13).
+- **Mir-book look** (2026-11-27): thin uniform black lines, dashed construction lines, italic Computer Modern labels,
+  thin axes with small arrowheads, "Fig. n" caption under the figure. Full rule + matplotlib/TikZ presets:
+  `.claude/skills/axiomath-design/SKILL.md` §4b.
 
 ## 7. Extraction from photos — rules
 
