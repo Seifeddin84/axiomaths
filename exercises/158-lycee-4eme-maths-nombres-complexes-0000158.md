@@ -11,8 +11,10 @@ year: 1983
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "equation-second-degre", "ensemble-de-points", "alignement", "cercle"]
+tags: ["nombres-complexes", "equation-second-degre", "parametre", "alignement", "geometrie-complexe", "bac"]
 bac: "1983-principale-maths"
+dressing: "paramètre complexe, alignement et distances égales"
+rung: 3
 ---
 
 1. Résoudre dans $\mathbb{C}$ l'équation $z^2 - a(2 + i)\,z + 2a^2 i = 0$, $a$ étant un paramètre complexe. On désignera par $z'$ et $z''$ les solutions de cette équation.

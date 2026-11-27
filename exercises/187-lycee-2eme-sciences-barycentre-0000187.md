@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["barycentre", "coordonnees", "barycentre-partiel", "alignement"]
+tags: ["barycentre", "coordonnees", "repere", "calcul"]
+dressing: "coordonnées d'un barycentre"
+rung: 1
 ---
 
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. On considère les points $A(-1\,,2)$, $B(3\,,0)$ et $C(1\,,4)$.

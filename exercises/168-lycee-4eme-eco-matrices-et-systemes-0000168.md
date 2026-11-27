@@ -3,7 +3,7 @@ uid: "0000168"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Matrices et systèmes"
+chapter: "Matrices et Systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Ordre d'une matrice, somme et combinaisons linéaires"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["matrices", "ordre-d-une-matrice", "somme-de-matrices", "calcul-matriciel"]
+tags: ["matrices", "operations", "ordre"]
+dressing: "ordre et somme de matrices"
+rung: 1
 ---
 
 Pour chaque cas, donner l'ordre des matrices $A$ et $B$ et calculer si possible : $A + B$, $A - B$, $2A + 3B$ et $3A - 2B$.

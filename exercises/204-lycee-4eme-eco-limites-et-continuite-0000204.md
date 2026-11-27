@@ -3,7 +3,7 @@ uid: "0000204"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 1"
 title: "Prolongement par continuité d'une fraction"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["continuite", "prolongement-par-continuite", "forme-indeterminee", "factorisation"]
+tags: ["continuite", "prolongement-par-continuite", "fraction-rationnelle", "limites"]
+dressing: "prolonger une fraction par continuité"
+rung: 1
 ---
 
 Soit la fonction $f$ définie sur $\mathbb{R} \setminus \{1\}$ par $f(x) = \dfrac{3x^2 - 2x - 1}{x - 1}$.

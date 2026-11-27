@@ -11,11 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["coniques", "parabole", "papillon", "equation-reduite", "racines"]
+tags: ["theoreme-du-papillon", "coniques", "parabole", "coordonnees"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "parabole"
+dressing: "papillon d'une parabole quelconque"
 rung: 3
 ---
 Le plan est muni d'un repère orthonormé $(O\,;\vec\imath,\vec\jmath)$. Soit $\mathcal P$ la parabole d'équation $x^2=2p\,(y-y_0)$, avec $p>0$ et $y_0<0$ : son sommet est $S(0,y_0)$ et son axe est l'axe $(Oy)$. Elle coupe l'axe $(Ox)$ en deux points $P$ et $Q$ ; on note $M$ le milieu de $[PQ]$.

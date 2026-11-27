@@ -3,7 +3,7 @@ uid: "0000253"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Synthèse : approximations rationnelles de √2"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["racine-de-2", "approximations", "fractions", "synthese"]
+tags: ["radicaux", "suites-d-entiers", "recurrence"]
 provenance: own
+dressing: "approximations rationnelles de √2"
+rung: 5
 ---
 
 On écrit $(1+\sqrt2)^n=a_n+b_n\sqrt2$ avec $a_n$ et $b_n$ entiers.

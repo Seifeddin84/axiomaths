@@ -3,7 +3,7 @@ uid: "0000174"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Matrices et systèmes"
+chapter: "Matrices et Systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Lapins et poules : un système 2×2"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["matrices", "systeme-lineaire", "mise-en-equation", "matrice-inverse"]
+tags: ["systemes", "probleme-concret", "modelisation"]
+dressing: "problème concret : lapins et poules"
+rung: 1
 ---
 
 Dans une ferme, il y a des lapins et des poules. On compte 58 têtes et 156 pattes.

@@ -3,7 +3,7 @@ uid: "0000041"
 school: "lycee"
 level: "3eme"
 section: "Mathématiques"
-chapter: "Exemples d’étude de fonctions"
+chapter: "Exemples d'Étude de Fonctions"
 source: "Lycée Pilote Kebili - Devoir de contrôle n°2"
 schoolType: "pilote"
 title: "Étude d'une fonction rationnelle et fonctions associées"
@@ -12,7 +12,9 @@ year: 2026
 professor: "Ammar Bouajila"
 difficulty: "Difficile"
 points: 8
-tags: ["étude de fonction", "dérivation", "asymptote", "centre de symétrie", "valeur absolue", "continuité", "dérivabilité"]
+tags: ["etude-de-fonction", "fonction-rationnelle", "asymptotes", "centre-de-symetrie", "valeur-absolue"]
+dressing: "étude complète et fonctions associées"
+rung: 3
 ---
 
 Soit la fonction $f$ définie par $f(x) = \dfrac{x^2 - 3x + 3}{x - 2}$ et $(C)$ sa courbe représentative dans un plan rapporté à un repère orthonormé direct $R(O, \vec{i}, \vec{j})$.

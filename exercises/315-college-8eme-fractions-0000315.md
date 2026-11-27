@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions", "factorisation", "comparaison", "expressions-litterales"]
+tags: ["fractions", "factorisation", "comparaison", "calcul-litteral"]
+dressing: "factoriser pour comparer"
+rung: 3
 ---
 
 $a$ و $b$ عددان كسريان. نعتبر $P=a\times b+a$ و $Q=a\times b+b$.

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: 4
-tags: ["barycentre", "deux-points", "lieu-de-points", "cercle"]
+tags: ["barycentre", "deux-points", "construction", "demonstration"]
 provenance: own
+dressing: "barycentre de deux points"
+rung: 1
 ---
 
 Soient $A$ et $B$ deux points tels que $AB=6$ cm. On note $G$ le barycentre de $(A,2)$ et $(B,1)$.

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["barycentre", "bissectrice", "cercle-inscrit", "theoreme-de-thales", "barycentre-partiel"]
+tags: ["barycentre", "bissectrice", "cercle-inscrit", "triangle"]
 recommended: true
+dressing: "bissectrice et centre du cercle inscrit"
+rung: 5
 ---
 
 Soit $ABC$ un triangle. On pose $a = BC$, $b = CA$ et $c = AB$.

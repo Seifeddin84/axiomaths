@@ -11,7 +11,9 @@ year: 2025
 professor: null
 difficulty: "Moyen"
 points: 5
-tags: ["algebre", "factorisation", "equations", "aires"]
+tags: ["algebre", "factorisation", "equations", "aires", "identites-remarquables"]
+dressing: "expression algébrique et aires"
+rung: 3
 ---
 
 نعتبر العبارة $P = x^2 - 4x - 3$ حيث $x$ عدد حقيقي.

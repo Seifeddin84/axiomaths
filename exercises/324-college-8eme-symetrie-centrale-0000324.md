@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["qcm", "symetrie-centrale", "definition"]
+tags: ["qcm", "symetrie-centrale", "definition", "proprietes"]
+dressing: "QCM sur la symétrie centrale"
+rung: 4
 ---
 
 لكل سؤال إجابة صحيحة واحدة أو أكثر.

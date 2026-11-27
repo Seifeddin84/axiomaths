@@ -3,7 +3,7 @@ uid: "0000261"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Polynôme et fonction rationnelle"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: 7
-tags: ["polynomes", "factorisation", "fonction-rationnelle", "inequation", "racine-evidente"]
+tags: ["polynomes", "racine", "identification", "fonction-rationnelle", "factorisation"]
 provenance: own
+dressing: "identification après une racine donnée"
+rung: 1
 ---
 
 Soit $P(x)=2x^3-5x^2-x+6$.

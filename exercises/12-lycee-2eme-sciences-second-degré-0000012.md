@@ -3,7 +3,7 @@ uid: "0000012"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 source: "Livre: Methods of Solving Problems in High School Mathematics"
 title: "Équations avec valeur absolue"
 country: "Russie"
@@ -11,7 +11,9 @@ year: 1986
 professor: "A.G Tsypkin & A.I Pinsky"
 difficulty: "Moyen"
 points: 5
-tags: ["équations", "changement de variable", "valeur absolue"]
+tags: ["equations", "valeur-absolue", "disjonction-de-cas"]
+dressing: "valeur absolue : étude par cas"
+rung: 2
 ---
 
 **Résoudre dans $\mathbb{R}$ les équations suivantes.**

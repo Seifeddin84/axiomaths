@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["barycentre", "deux-points", "construction"]
+tags: ["barycentre", "construction", "points-ponderes"]
 provenance: "own"
+dressing: "placer des barycentres sur une droite"
+rung: 1
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

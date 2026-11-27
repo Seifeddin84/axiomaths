@@ -3,7 +3,7 @@ uid: "0000216"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Etude de fonctions"
+chapter: "Etude de Fonctions"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 11"
 title: "Fonction donnée par son tableau de variations : bornée, bijection, solutions"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["tableau-de-variations", "fonction-bornee", "bijection", "theoreme-des-valeurs-intermediaires", "tangente"]
+tags: ["etude-de-fonction", "tableau-de-variations", "bijection", "lecture-graphique"]
+dressing: "fonction donnée par son tableau de variations"
+rung: 3
 ---
 
 Soit la fonction $f$ dont le tableau de variations est le suivant :

@@ -4,7 +4,7 @@ slug: "lycee-1ere-fonctions-lineaires-et-affines"
 school: "lycee"
 level: "1ere"
 sections: []
-chapter: "Fonctions linéaires et Affines"
+chapter: "Fonctions Linéaires et Affines"
 summary: "De la proportionnalité à la fonction linéaire, puis à la fonction affine : définition, détermination du coefficient, représentation graphique, signe de ax + b, comparaison de tarifs et problèmes d'aires."
 prerequisites: ["Proportionnalité", "Repère du plan", "Équations du premier degré"]
 source: "Manuel officiel 1ère année, Tome 2, chapitres 12 et 14"

@@ -11,7 +11,9 @@ year: 2025
 professor: "Ali Fourati"
 difficulty: "Difficile"
 points: 8
-tags: ["barycentre", "homothetie", "vecteurs", "transformation-du-plan"]
+tags: ["homothetie", "barycentre", "lieu-geometrique", "transformations-du-plan"]
+dressing: "homothétie définie par une relation barycentrique"
+rung: 5
 ---
 
 Soit $ABC$ un triangle tel que $AB = 2AC$ et $I$ le barycentre des points pondérés $(A, 2)$ et $(B, 1)$.

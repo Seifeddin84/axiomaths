@@ -3,7 +3,7 @@ uid: "0000408"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Équations bicarrées et inéquation de degré 4"
 country: "Tunisie"
@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["polynomes", "equation-bicarree", "changement-de-variable", "factorisation", "inequation"]
+tags: ["polynomes", "equation-bicarree", "changement-de-variable", "inequations", "degre-4"]
 provenance: own
-dressing: "équation bicarrée par changement de variable X = x²"
+dressing: "bicarrées et inéquation de degré 4"
 rung: 2
 ---
 1. Résoudre dans $\mathbb{R}$ chacune des équations :

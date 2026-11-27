@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "coordonnees", "triangle", "distance", "conservation-des-distances"]
+tags: ["translation", "triangle", "coordonnees", "distance"]
 provenance: own
-dressing: "vérifier la conservation des distances sur un triangle"
+dressing: "longueurs conservées sur un triangle"
 rung: 2
 ---
 Le plan est muni d'un repère orthonormé $(O, \vec{i}, \vec{j})$. On considère les points $A(1, 1)$, $B(4, 2)$ et $C(2, 5)$ et la translation $t$ de vecteur $\vec{u} \begin{pmatrix} -2 \\ 3 \end{pmatrix}$. On note $A'$, $B'$, $C'$ les images de $A$, $B$, $C$ par $t$.

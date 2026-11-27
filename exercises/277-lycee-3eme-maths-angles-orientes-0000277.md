@@ -3,7 +3,7 @@ uid: "0000277"
 school: "lycee"
 level: "3eme"
 section: "Mathématiques"
-chapter: "Angles orientés"
+chapter: "Angles Orientés"
 source: "Axiomaths"
 title: "Trois cordes égales sur un cercle"
 country: "Tunisie"
@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["cercle", "angle-inscrit", "angle-au-centre", "triangles-isometriques", "morley"]
+tags: ["theoreme-de-morley", "angles-orientes", "cercle"]
 provenance: adapted
 adapted_from: "résultat classique (théorème de Morley, 1899) ; énoncé, découpage en questions et solution Axiomaths ; lemme de la preuve de Naraniengar"
 idea: "morley"
-dressing: "lemme-cordes"
-rung: 2
+dressing: "trois cordes égales sur un cercle"
+rung: 5
 ---
 Soit $\alpha$ un réel avec $0^\circ<\alpha<60^\circ$. On considère quatre points $Y',Y,Z,Z'$ tels que :
 

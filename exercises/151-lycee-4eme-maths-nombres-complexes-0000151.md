@@ -11,8 +11,10 @@ year: 1989
 professor: null
 difficulty: "Moyen"
 points: null
-tags: ["bac", "equation-troisieme-degre", "deplacement", "antideplacement", "symetrie-glissee"]
+tags: ["nombres-complexes", "equation-troisieme-degre", "parallelogramme", "deplacements", "antideplacement", "bac"]
 bac: "1989-controle-maths"
+dressing: "équation de degré 3, parallélogramme et transformation"
+rung: 3
 ---
 
 Soit, dans l'ensemble $\mathbb{C}$ des nombres complexes, l'équation $(E)$ : $z^3 + (-2 - 4i)\,z^2 + (-9 + 10i)\,z + 18 + 6i = 0$.

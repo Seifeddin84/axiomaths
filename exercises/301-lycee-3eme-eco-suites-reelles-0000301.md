@@ -3,7 +3,7 @@ uid: "0000301"
 school: "lycee"
 level: "3eme"
 section: "Economie et Gestion"
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 source: "Axiomaths"
 title: "Gestion d'un stock : suite récurrente"
 country: "Tunisie"
@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["suites", "suite-recurrente", "suite-auxiliaire", "suite-geometrique", "limite"]
+tags: ["suites", "suite-arithmetico-geometrique", "suite-auxiliaire", "modelisation"]
 provenance: "own"
-dressing: "U(n+1)=aU(n)+b, a=0,75"
+dressing: "stock avec vente proportionnelle et réapprovisionnement"
 rung: 3
 batch: "2026-11-20-suites-3eco-A"
 ---

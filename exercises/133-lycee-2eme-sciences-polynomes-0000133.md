@@ -3,7 +3,7 @@ uid: "0000133"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Racine apparente, factorisation et signe d'un polynôme de degré 3"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["polynomes", "racine-apparente", "factorisation", "tableau-de-signes", "inequation"]
+tags: ["polynomes", "factorisation", "tableau-de-signe", "degre"]
+dressing: "racine apparente puis signe d'un degré 3"
+rung: 1
 ---
 
 Soit $P$ le polynôme défini par $P(x) = x^3 - 2x^2 - 5x + 6$.

@@ -19,4 +19,4 @@ William George Horner (1786-1837) était directeur d'école à Bath. Il a publi�
 
 ## Dans les exercices d'AxioMath
 
-- [Exercice n°132 : QCM : degré, racines et factorisation](/lycee/2eme/sciences/polynomes#ex-0000132)
+- [Exercice n°132 : QCM : degré, racines et factorisation](/lycee/2eme/sciences/notion-de-polynomes#ex-0000132)

@@ -3,7 +3,7 @@ uid: "0000347"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Lycée Farhat Hached Makthar : série d'exercices n°1 (2019-2020)"
 title: "PGCD et bouquets de roses"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2019
 professor: "M. Ghorbeli Med Hedi"
 difficulty: "Moyen"
 points: null
-tags: ["pgcd", "algorithme-euclide", "fraction-irreductible", "probleme-concret"]
+tags: ["arithmetique", "pgcd", "algorithme-d-euclide", "probleme-concret", "partage"]
 provenance: scan
+dressing: "bouquets de roses et PGCD"
+rung: 2
 ---
 
 1. a. En utilisant l'algorithme d'Euclide, montrer que $\mathrm{PGCD}(1756\,;\,1317)=439$.

@@ -3,7 +3,7 @@ uid: "0000015"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Fonctions linéaires et Affines"
+chapter: "Fonctions Linéaires et Affines"
 source: "Lycée la Soukra : Ariana"
 title: "Fonction linéaire définie par une expression"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "El GHali Mounir"
 difficulty: "Moyen"
 points: 5
-tags: ["fonction linéaire"]
+tags: ["fonctions-lineaires", "calcul-algebrique", "developpement", "representation-graphique"]
+dressing: "reconnaître f(x)=ax après développement"
+rung: 2
 ---
 
 Soit $f$ la fonction définie par : $f(x) = 3(x - 1)^2 - (2x^2 + 3) - x(x - 4)$.

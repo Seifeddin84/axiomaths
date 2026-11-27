@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "moyenne", "variance", "ecart-type"]
+tags: ["statistiques", "serie-discrete", "effectifs", "moyenne", "ecart-type"]
 provenance: "own"
+dressing: "réclamations journalières"
+rung: 1
 batch: "2026-11-19-3eco-statistiques-n5"
 ---
 

@@ -11,7 +11,9 @@ year: 2025
 professor: "Ben Hammouda"
 difficulty: "Difficile"
 points: 9
-tags: ["translation", "isométrie", "cercle", "alignement"]
+tags: ["translation", "cercle", "alignement", "triangle-equilateral"]
+dressing: "translations dans un triangle équilatéral"
+rung: 3
 ---
 
 Soit un triangle équilatéral $ABC$, $J$ le milieu de $[BC]$ et $K$ le projeté orthogonal de $C$ sur $(AB)$.

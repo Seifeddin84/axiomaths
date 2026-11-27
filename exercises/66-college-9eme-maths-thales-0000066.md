@@ -11,7 +11,9 @@ year: 2024
 professor: "مراد الفاهم"
 difficulty: "Moyen"
 points: 5
-tags: ["thales", "pythagore", "centre-de-gravite"]
+tags: ["thales", "theoreme-de-pythagore", "centre-de-gravite", "symetrie-centrale"]
+dressing: "figure : Thalès, Pythagore et symétrie"
+rung: 3
 ---
 
 (وحدة قيس الطول هي السنتمتر)

@@ -3,7 +3,7 @@ uid: "0000172"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Matrices et systèmes"
+chapter: "Matrices et Systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Matrice à paramètre : inversibilité et inverse"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["matrices", "determinant", "parametre", "matrice-inverse"]
+tags: ["matrices", "matrice-inverse", "parametre", "determinant", "inversibilite"]
+dressing: "matrice à paramètre : inversibilité"
+rung: 3
 ---
 
 Soit $a$ un réel et $A$ la matrice suivante :

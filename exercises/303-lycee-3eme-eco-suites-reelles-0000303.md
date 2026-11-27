@@ -3,7 +3,7 @@ uid: "0000303"
 school: "lycee"
 level: "3eme"
 section: "Economie et Gestion"
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 source: "Axiomaths"
 title: "Modèle de revenu : approche d'un niveau d'équilibre"
 country: "Tunisie"
@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["suites", "suite-recurrente", "economie", "seuil", "limite", "revenu"]
+tags: ["suites", "suite-arithmetico-geometrique", "limites", "economie"]
 provenance: "own"
-dressing: "U(n+1)=aU(n)+b, seuil"
-rung: 4
+dressing: "revenu qui tend vers un équilibre"
+rung: 3
 batch: "2026-11-20-suites-3eco-A"
 ---
 

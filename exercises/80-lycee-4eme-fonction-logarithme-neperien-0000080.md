@@ -3,7 +3,7 @@ uid: "0000080"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Homothétie de courbes et étude de fonctions"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Moyen"
 points: null
-tags: ["logarithme-neperien", "homothetie", "etude-de-fonctions"]
+tags: ["logarithme-neperien", "etude-de-fonction", "homothetie"]
+dressing: "deux courbes liées par une homothétie"
+rung: 5
 ---
 
 Soit $f$ et $g$ les fonctions définie par :

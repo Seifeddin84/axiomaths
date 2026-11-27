@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["morley", "conway", "loi-du-sinus", "angles", "construction"]
+tags: ["theoreme-de-conway", "trisectrices", "trigonometrie", "construction"]
 provenance: adapted
 adapted_from: "résultat classique (théorème de Morley, 1899) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "morley"
-dressing: "numerique-15-15-30"
-rung: 2
+dressing: "construction de Conway, cas isocèle rectangle"
+rung: 3
 ---
 On veut construire un triangle rectangle isocèle muni de ses six trisectrices, en suivant la méthode de Conway (voir l'[exercice n°272](/lycee/2eme/sciences/trigonometrie#ex-0000272)). Les angles du triangle seront $3\alpha$, $3\beta$, $3\gamma$ avec
 

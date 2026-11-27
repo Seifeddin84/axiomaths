@@ -3,7 +3,7 @@ uid: "0000252"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Synthèse : l'inégalité triangulaire en action"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["inegalite-triangulaire", "valeur-absolue", "majoration", "synthese"]
+tags: ["inegalite-triangulaire", "valeur-absolue", "demonstration"]
 provenance: own
+dressing: "synthèse : l'inégalité triangulaire en action"
+rung: 5
 ---
 
 1. Montrer que pour tous réels $a$ et $b$ : $|a+b|\le|a|+|b|$. [Comparer les carrés.] Quand y a-t-il égalité ?

@@ -3,7 +3,7 @@ uid: "0000067"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Fonctions linéaires et Affines"
+chapter: "Fonctions Linéaires et Affines"
 source: "Lycée la Soukra : Ariana"
 title: "Géométrie et Aires"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2025
 professor: "El GHALI Mounir"
 difficulty: "Moyen"
 points: 7
-tags: ["fonctions-lineaires", "aires", "trapeze", "geometrie"]
+tags: ["fonctions-lineaires", "aires", "trapeze", "repere-orthonorme"]
+dressing: "fonction linéaire et aire d'un trapèze"
+rung: 3
 ---
 
 Soit $(O, I, J)$ un repère du plan orthonormé. On considère la fonction linéaire $f$ telle que : $f(1) = 2$.

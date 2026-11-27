@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["statistiques", "classes", "interpolation-lineaire", "ecart-type", "histogramme"]
+tags: ["statistiques", "serie-groupee", "interpolation-lineaire", "ecart-type", "mediane"]
+dressing: "série groupée en classes"
+rung: 3
 ---
 On a relevé le temps d'attente (en minutes) de $40$ clients à un guichet :
 

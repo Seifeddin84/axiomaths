@@ -3,7 +3,7 @@ uid: "0000099"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Suite récurrente et suite arithmétique"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2022
 professor: "M. Rjiba Zied"
 difficulty: "Moyen"
 points: null
-tags: ["suite-recurrente", "suite-arithmetique"]
+tags: ["suite-recurrente", "suite-arithmetique", "suite-auxiliaire", "puissances"]
+dressing: "suite auxiliaire u_n sur (√3)^n"
+rung: 3
 ---
 
 Soit $(u_n)$ une suite réelle définie par $u_0 = 1$ et $u_{n+1} = \sqrt{3}u_n + (\sqrt{3})^{n+1}$.

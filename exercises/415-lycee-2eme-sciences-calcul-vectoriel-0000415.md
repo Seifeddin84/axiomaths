@@ -3,7 +3,7 @@ uid: "0000415"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Colinéarité et paramètre : quand trois points sont-ils alignés ?"
 country: "Tunisie"
@@ -13,7 +13,7 @@ difficulty: "Moyen"
 points: null
 tags: ["vecteurs", "colinearite", "parametre", "determinant", "alignement"]
 provenance: own
-dressing: "condition de colinéarité avec un paramètre"
+dressing: "paramètre et alignement de points"
 rung: 2
 ---
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. Soit $m$ un réel. On considère les vecteurs $\vec{u} \begin{pmatrix} m \\ 4 \end{pmatrix}$ et $\vec{v} \begin{pmatrix} 1 \\ m \end{pmatrix}$.

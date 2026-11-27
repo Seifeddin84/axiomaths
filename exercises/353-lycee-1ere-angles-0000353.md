@@ -11,8 +11,10 @@ year: 2015
 professor: "M. Béchir Zdiri"
 difficulty: "Moyen"
 points: null
-tags: ["triangle-inscrit", "hauteur", "angle-inscrit", "angle-au-centre"]
+tags: ["angles", "triangle-inscrit", "hauteur", "angle-au-centre", "cercle"]
 provenance: scan
+dressing: "triangle inscrit et hauteur"
+rung: 3
 ---
 
 $ABM$ est un triangle inscrit dans un cercle $(\mathscr{C})$ de centre $O$ tel que $\widehat{ABM}=40°$.

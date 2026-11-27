@@ -3,7 +3,7 @@ uid: "0000304"
 school: "lycee"
 level: "3eme"
 section: "Economie et Gestion"
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 source: "Axiomaths"
 title: "Un prêt remboursé par annuités constantes"
 country: "Tunisie"
@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["suites", "suite-recurrente", "pret", "annuite", "seuil", "modelisation"]
+tags: ["suites", "suite-arithmetico-geometrique", "modelisation"]
 provenance: "own"
-dressing: "U(n+1)=aU(n)-b"
-rung: 4
+dressing: "remboursement d'un prêt par annuités"
+rung: 5
 batch: "2026-11-20-suites-3eco-A"
 ---
 

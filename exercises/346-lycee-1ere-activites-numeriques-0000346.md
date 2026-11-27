@@ -3,7 +3,7 @@ uid: "0000346"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Lycée Farhat Hached Makthar : série d'exercices n°1 (2019-2020)"
 title: "Quotient d'entiers, PGCD et critères de divisibilité"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2019
 professor: "M. Ghorbeli Med Hedi"
 difficulty: "Moyen"
 points: null
-tags: ["diviseurs", "pgcd", "fraction-irreductible", "criteres-divisibilite"]
+tags: ["arithmetique", "divisibilite", "pgcd", "criteres-de-divisibilite", "fractions"]
 provenance: scan
+dressing: "quotient d'entiers et PGCD"
+rung: 3
 ---
 
 ### Partie I

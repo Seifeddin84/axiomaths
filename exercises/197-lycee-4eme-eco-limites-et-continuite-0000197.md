@@ -3,7 +3,7 @@ uid: "0000197"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 1 — Limites (Bac Économie et Gestion), Ex. 1 (limites 12 à 22)"
 title: "Limites de quotients : formes indéterminées et limites à gauche et à droite"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "fonction-rationnelle", "forme-indeterminee", "factorisation", "limite-a-gauche-et-a-droite"]
+tags: ["limites", "formes-indeterminees", "fractions-rationnelles", "limites-laterales"]
+dressing: "quotients et formes indéterminées"
+rung: 2
 ---
 
 Calculer les limites suivantes :

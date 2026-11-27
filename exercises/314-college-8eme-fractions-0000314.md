@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions", "calcul-astucieux", "factorisation", "produit-telescopique"]
+tags: ["fractions", "factorisation", "calcul-astucieux"]
+dressing: "calculs intelligents par mise en facteur"
+rung: 3
 ---
 
 احسب بأيسر طريقة (بالتفكيك إلى جذاء أو بالاختزال) :

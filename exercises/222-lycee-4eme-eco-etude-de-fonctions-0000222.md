@@ -3,7 +3,7 @@ uid: "0000222"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Etude de fonctions"
+chapter: "Etude de Fonctions"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 18"
 title: "Lecture graphique d'une fonction polynôme de degré 3, inflexion et équation f(x) = −x"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["lecture-graphique", "polynome-degre-3", "tangente", "point-d-inflexion", "theoreme-des-valeurs-intermediaires", "fonction-composee"]
+tags: ["etude-de-fonction", "lecture-graphique", "fonction-cubique", "point-d-inflexion", "identification"]
+dressing: "retrouver une cubique sur son graphique"
+rung: 3
 ---
 
 On considère la fonction $f$ dont la courbe représentative est donnée dans la figure ci-dessous. On admet que $f(x) = mx^3 + nx^2 + px + q$. La courbe admet deux tangentes $\Delta$ et $T$ aux points d'abscisses $0$ et $2$ respectivement. $\Delta$ passe par le point $C(0{,}5\,;\,6{,}5)$. Les tangentes aux points d'abscisses $1$ et $3$ sont horizontales.

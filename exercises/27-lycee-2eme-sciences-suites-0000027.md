@@ -3,7 +3,7 @@ uid: '0000027'
 school: lycee
 level: 2eme
 section: ["Sciences", "Informatique"]
-chapter: Suites arithmétiques et géométriques
+chapter: "Suites Arithmétiques et Géométriques"
 source: 'Lycée ElriAdh: Marsa'
 title: Suite arithmético-géométrique (cas alterné)
 country: Tunisie
@@ -11,11 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Moyen
 points: 5
-tags:
-- suite
-- suite géométrique
-- suite auxiliaire
-- somme
+tags: ["suites", "suite-arithmetico-geometrique", "suite-auxiliaire", "suite-geometrique", "somme-de-termes"]
+dressing: "arithmético-géométrique, raison négative"
+rung: 2
 ---
 Soit $U$ la suite définie sur $\mathbb{N}$ par :
 

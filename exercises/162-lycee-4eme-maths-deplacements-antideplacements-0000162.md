@@ -3,7 +3,7 @@ uid: "0000162"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Déplacements - Antidéplacements"
+chapter: "Déplacements – Antidéplacements"
 source: "Bac 1981 principale, Ex. 2"
 title: "Une famille d'applications définies par barycentre ; un seul déplacement"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 1981
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "barycentre", "expression-analytique", "point-invariant", "rotation"]
+tags: ["deplacements", "transformations-du-plan", "barycentre", "famille-d-applications", "antideplacement", "bac"]
 bac: "1981-principale-maths"
+dressing: "famille d'applications définie par barycentre"
+rung: 3
 ---
 
 Soit $P$ un plan rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$. À tout point $M(x, y)$ de $P$, on associe les points $A(x + y, 0)$, $B(0, x - y)$ et $M'(x', y')$ barycentre des points $M$, $A$, $B$ affectés respectivement des coefficients $1$, $m$, $-m$ ($m \in \mathbb{R}$). Soit $f_m$ l'application de $P$ dans $P$ telle que $f_m(M) = M'$.

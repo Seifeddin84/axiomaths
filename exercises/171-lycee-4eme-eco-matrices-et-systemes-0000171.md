@@ -3,7 +3,7 @@ uid: "0000171"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Matrices et systèmes"
+chapter: "Matrices et Systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Inverses de matrices d'ordre 3 : deux exemples"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["matrices", "determinant", "matrice-inverse", "produit-matriciel"]
+tags: ["matrices", "matrice-inverse", "matrices-d-ordre-3", "determinant"]
+dressing: "même méthode sur deux nouveaux exemples"
+rung: 2
 ---
 
 Même travail que dans l'[exercice n°170](/lycee/4eme/economie-et-gestion/matrices-et-systemes#ex-0000170) pour chacun des couples $(A, B)$ suivants :

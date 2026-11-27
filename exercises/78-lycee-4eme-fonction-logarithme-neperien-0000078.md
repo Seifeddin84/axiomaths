@@ -3,7 +3,7 @@ uid: "0000078"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Étude de fonctions logarithmes et encadrements"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: 10
-tags: ["logarithme-neperien", "limites", "continuite", "derivabilite", "etude-de-fonctions"]
+tags: ["logarithme-neperien", "etude-de-fonction", "encadrement", "limites", "derivation"]
+dressing: "deux fonctions pour encadrer ln(1+x)"
+rung: 5
 ---
 
 **A) Soient $f$ et $g$ les fonctions définie par :**

@@ -3,7 +3,7 @@ uid: "0000370"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Une droite par le centre de gravité"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "papillon", "milieu", "inegalites"]
+tags: ["thales", "centre-de-gravite", "mediane", "demonstration"]
 provenance: "own"
+dressing: "droite parallèle passant par le centre de gravité"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

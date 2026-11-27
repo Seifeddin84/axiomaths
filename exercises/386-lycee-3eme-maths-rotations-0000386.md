@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["pompeiu", "rotation", "triangle-equilateral", "nombres-complexes", "cercle-circonscrit"]
+tags: ["theoreme-de-pompeiu", "rotation", "triangle-equilateral", "inegalite-triangulaire", "defi"]
 provenance: "adapted"
+dressing: "bonus : PA, PB, PC forment un triangle"
+rung: 3
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

@@ -3,7 +3,7 @@ uid: "0000238"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Challenge : trois moyennes dans un trapèze"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "trapeze", "moyennes", "challenge"]
+tags: ["thales", "trapeze", "moyennes", "inegalites"]
 provenance: own
+dressing: "challenge : trois moyennes dans un trapèze"
+rung: 5
 ---
 
 $ABCD$ est un trapèze de bases $[AB]$ et $[DC]$, avec $AB=a<DC=b$. Les droites $(AD)$ et $(BC)$ se coupent en $S$. On s'intéresse à des segments $[PQ]$, avec $P\in[AD]$ et $Q\in[BC]$, parallèles aux bases.

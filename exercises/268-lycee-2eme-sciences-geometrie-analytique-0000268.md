@@ -3,7 +3,7 @@ uid: "0000268"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Géométrie analytique"
+chapter: "Géométrie Analytique"
 source: "Axiomaths"
 title: "Le papillon dans un repère : un cercle, des chiffres"
 country: "Tunisie"
@@ -11,11 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["geometrie-analytique", "cercle", "droites", "papillon"]
+tags: ["theoreme-du-papillon", "geometrie-analytique", "cercle", "coordonnees"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "numerique-cercle"
+dressing: "papillon dans un repère, version chiffrée"
 rung: 2
 ---
 Le plan est muni d'un repère orthonormé $(O\,;\vec\imath,\vec\jmath)$. On considère le cercle $\Gamma$ d'équation

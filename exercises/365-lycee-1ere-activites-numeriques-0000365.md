@@ -3,7 +3,7 @@ uid: "0000365"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Un multiple de 30"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["divisibilite", "factorisation", "division-euclidienne", "chiffre-des-unites"]
+tags: ["arithmetique", "divisibilite", "factorisation", "demonstration"]
 provenance: "own"
+dressing: "n⁵−n est multiple de 30"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

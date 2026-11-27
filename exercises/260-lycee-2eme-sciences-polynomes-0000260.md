@@ -3,7 +3,7 @@ uid: "0000260"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "QCM : polynômes et barycentre"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: 5
-tags: ["qcm", "polynomes", "racines", "barycentre"]
+tags: ["qcm", "polynomes", "barycentre"]
 provenance: own
+dressing: "QCM de devoir : polynômes et barycentre"
+rung: 4
 ---
 
 Pour chaque question, **une ou plusieurs** réponses sont correctes. Aucune justification n'est demandée (1 pt par question).

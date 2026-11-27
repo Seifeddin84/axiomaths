@@ -4,7 +4,7 @@ slug: "lycee-4eme-maths-isometries-du-plan"
 school: "lycee"
 level: "4eme"
 sections: ["Mathématiques"]
-chapter: "Isométries du plan"
+chapter: "Isométries du Plan"
 summary: "Les transformations qui conservent les distances : ce qu'elles conservent (produit scalaire, angles, milieux, cercles), comment deux symétries se composent (translation ou rotation), la classification par les points fixes (identité, symétrie, rotation, translation, symétrie glissante) et la décomposition en au plus trois symétries orthogonales."
 prerequisites: ["Produit scalaire dans le plan", "Translations et rotations", "Nombres complexes"]
 source: "Manuel officiel 4ème année Mathématiques, chapitre « Isométries du plan »"

@@ -3,7 +3,7 @@ uid: "0000086"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Étude de fonction impaire et asymptote oblique"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "fonction-impaire", "asymptote-oblique", "calcul-aire"]
+tags: ["logarithme-neperien", "etude-de-fonction", "fonction-impaire", "asymptote-oblique", "fonction-auxiliaire"]
+dressing: "fonction impaire et asymptote oblique"
+rung: 3
 ---
 
 **I)** On considère la fonction $g$ définie sur $[0, +\infty[$ par :

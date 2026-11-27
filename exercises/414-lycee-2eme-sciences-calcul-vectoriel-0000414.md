@@ -3,7 +3,7 @@ uid: "0000414"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Dans un repère : composantes, parallélogramme et points alignés"
 country: "Tunisie"
@@ -13,8 +13,8 @@ difficulty: "Facile"
 points: null
 tags: ["vecteurs", "repere", "composantes", "parallelogramme", "alignement"]
 provenance: own
-dressing: "composantes de vecteurs définis par des points"
-rung: 2
+dressing: "composantes dans un repère"
+rung: 1
 ---
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. On considère les points $A(-1, 2)$, $B(3, 1)$ et $C(4, -2)$.
 

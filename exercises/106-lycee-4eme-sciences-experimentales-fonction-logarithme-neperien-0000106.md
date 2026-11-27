@@ -3,7 +3,7 @@ uid: "0000106"
 school: "lycee"
 level: "4eme"
 section: "Sciences Expérimentales"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "MAXI MATHS 2ÈME BAC"
 title: "Étude d'une fonction logarithmique composée"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: null
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "continuite", "axe-de-symetrie", "variation"]
+tags: ["logarithme-neperien", "etude-de-fonction", "prolongement-par-continuite"]
+dressing: "produit de deux logarithmes symétrique"
+rung: 3
 ---
 
 On considère la fonction $f$ définie sur l'intervalle $[0; 1]$ par :

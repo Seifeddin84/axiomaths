@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["symetrie-centrale", "triangle-rectangle", "rectangle", "perimetre"]
+tags: ["symetrie-centrale", "triangle-rectangle", "milieu", "rectangle"]
+dressing: "triangle rectangle et milieu de l'hypoténuse"
+rung: 2
 ---
 
 $ABC$ مثلث قائم الزاوية في $A$ حيث $AB=3\,\mathrm{cm}$ و $AC=4\,\mathrm{cm}$ و $BC=5\,\mathrm{cm}$. $O$ منتصف $[BC]$.

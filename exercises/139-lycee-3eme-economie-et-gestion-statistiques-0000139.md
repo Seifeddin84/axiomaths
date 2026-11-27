@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["statistiques", "serie-double", "point-moyen", "droite-de-mayer", "tableau-a-double-entree", "distributions-marginales"]
+tags: ["statistiques", "serie-double", "droite-de-regression", "covariance"]
+dressing: "séries doubles en contexte économique"
+rung: 3
 ---
 
 **Partie A : publicité et chiffre d'affaires**

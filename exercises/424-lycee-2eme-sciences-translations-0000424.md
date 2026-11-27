@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "coordonnees", "composantes", "image", "antecedent"]
+tags: ["translation", "coordonnees", "repere", "images", "antecedents"]
 provenance: own
-dressing: "images et antécédents calculés avec les composantes"
-rung: 2
+dressing: "translation en coordonnées"
+rung: 1
 ---
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. On donne les points $A(2, -1)$ et $A'(5, 1)$. Soit $t$ la translation de vecteur $\overrightarrow{AA'}$.
 

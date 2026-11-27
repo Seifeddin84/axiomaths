@@ -12,7 +12,9 @@ year: 2026
 professor: "Ammar Bouajila"
 difficulty: "Moyen"
 points: 7
-tags: ["nombres complexes", "équation", "trigonométrie", "cercle", "triangle rectangle", "aire"]
+tags: ["nombres-complexes", "equation-second-degre", "trigonometrie", "cercle", "aires"]
+dressing: "équation complexe à paramètre trigonométrique"
+rung: 3
 ---
 
 Le plan complexe est rapporté à un repère orthonormé $(O, \vec{u}, \vec{v})$.

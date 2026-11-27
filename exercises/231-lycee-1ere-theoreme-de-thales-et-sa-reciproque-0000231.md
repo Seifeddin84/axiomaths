@@ -3,7 +3,7 @@ uid: "0000231"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Un parallélogramme, deux milieux, trois morceaux"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "parallelogramme", "milieux", "aires"]
+tags: ["thales", "parallelogramme", "milieux"]
 provenance: own
+dressing: "deux milieux et trois morceaux"
+rung: 3
 ---
 
 $ABCD$ est un parallélogramme de centre $O$. $I$ et $J$ sont les milieux de $[BC]$ et de $[CD]$. La droite $(AI)$ coupe $(BD)$ en $G$ et $(DC)$ en $E$ ; la droite $(AJ)$ coupe $(BD)$ en $H$.

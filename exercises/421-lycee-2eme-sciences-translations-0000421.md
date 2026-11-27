@@ -11,7 +11,7 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "image", "antecedent", "parallelogramme", "vecteurs-egaux"]
+tags: ["translation", "parallelogramme", "images", "antecedents"]
 provenance: own
 dressing: "images et antécédents dans un parallélogramme"
 rung: 1

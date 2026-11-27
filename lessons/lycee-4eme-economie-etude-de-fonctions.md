@@ -4,7 +4,7 @@ slug: "lycee-4eme-economie-etude-de-fonctions"
 school: "lycee"
 level: "4eme"
 sections: ["Economie et Gestion"]
-chapter: "Etude de fonctions"
+chapter: "Etude de Fonctions"
 summary: "Le plan d'étude complet d'une fonction : symétries, limites, asymptotes (verticales, horizontales, obliques) et branches paraboliques, dérivée et tableau de variation, demi-tangentes, tracé. Appliqué aux polynômes, aux fractions rationnelles, aux racines carrées et aux fonctions trigonométriques, puis à l'économie : coût moyen minimal et bénéfice maximal. Un dernier paragraphe rappelle comment tracer la courbe de la fonction réciproque."
 prerequisites: ["Limites et continuité", "Dérivation", "Fonction réciproque"]
 source: "Manuel officiel 4ème année Économie et Gestion, chapitre 3 (Étude de fonctions)"

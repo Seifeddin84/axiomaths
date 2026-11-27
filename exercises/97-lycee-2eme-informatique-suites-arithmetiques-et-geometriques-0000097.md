@@ -3,7 +3,7 @@ uid: "0000097"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Suite arithmétique et somme"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2022
 professor: "M. Rjiba Zied"
 difficulty: "Facile"
 points: null
-tags: ["suite-arithmetique", "somme"]
+tags: ["suite-arithmetique", "raison", "somme-de-termes"]
+dressing: "raison et somme d'une suite arithmétique"
+rung: 1
 ---
 
 Soit $(u_n)$ une suite arithmétique de premier terme $u_0 = 1$ et troisième terme $u_2 = -3$.

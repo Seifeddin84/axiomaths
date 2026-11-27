@@ -3,7 +3,7 @@ uid: "0000011"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 source: "Livre: Methods of Solving Problems in High School Mathematics"
 title: "Équation cubique (adapté du livre)"
 country: "Russie"
@@ -11,7 +11,9 @@ year: 1986
 professor: "A.G Tsypkin & A.I Pinsky"
 difficulty: "Moyen"
 points: 5
-tags: ["équations", "changement de variable"]
+tags: ["equations", "equation-troisieme-degre", "factorisation", "changement-de-variable"]
+dressing: "factorisation guidée d'un polynôme de degré 3"
+rung: 2
 ---
 
 1.  Montrer que pour tout $t\in\mathbb{R}$: 

@@ -3,7 +3,7 @@ uid: "0000098"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Terme général d'une suite arithmétique"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2022
 professor: "M. Rjiba Zied"
 difficulty: "Facile"
 points: null
-tags: ["suite-arithmetique", "terme-general"]
+tags: ["suite-arithmetique", "terme-general", "raison"]
+dressing: "terme général d'une suite arithmétique"
+rung: 1
 ---
 
 Soit $(w_n)$ une suite arithmétique définie sur $\mathbb{N}$ par $w_0 = 4$ et $w_5 = 14$.

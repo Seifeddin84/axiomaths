@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["angles", "triangle-isocele", "angle-exterieur", "trisection", "neusis"]
+tags: ["regle-d-archimede", "angles", "cercle", "construction"]
 provenance: adapted
 adapted_from: "construction classique attribuée à Archimède ; énoncé et solution Axiomaths"
 idea: "trisection"
-dressing: "neusis"
-rung: 2
+dressing: "règle à deux marques d'Archimède"
+rung: 5
 ---
 Soit $\Gamma$ un cercle de centre $O$ et de rayon $r$, et soient $A$ et $B$ deux points de $\Gamma$. On prolonge le diamètre $[AO]$ au-delà de $O$ et l'on cherche un point $E$ de cette demi-droite, avec $O$ entre $A$ et $E$, tel que la droite $(BE)$ recoupe le cercle en un point $D$ (entre $B$ et $E$) vérifiant
 

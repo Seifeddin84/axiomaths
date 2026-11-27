@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["barycentre", "alignement", "milieu", "reduction-vectorielle"]
+tags: ["barycentre", "milieux", "symetrie-centrale", "alignement", "triangle"]
+dressing: "milieux, symétrique et alignement"
+rung: 2
 ---
 
 Soit $ABC$ un triangle. On désigne par $A'$, $B'$ et $C'$ les milieux respectifs des côtés $[BC]$, $[CA]$ et $[AB]$. Soit $Q$ le milieu du segment $[B'C]$ et $P$ le symétrique de $C'$ par rapport à $B$.

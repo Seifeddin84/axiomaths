@@ -3,7 +3,7 @@ uid: "0000134"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Polynôme à paramètres et fonction rationnelle"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["polynomes", "parametres", "factorisation", "fonction-rationnelle", "inequation"]
+tags: ["polynomes", "identification", "factorisation", "fonction-rationnelle"]
+dressing: "identification par deux racines données"
+rung: 2
 ---
 
 Soit $P$ le polynôme défini par $P(x) = 2x^3 + ax^2 + bx - 6$, où $a$ et $b$ sont deux réels.

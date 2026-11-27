@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["symetrie-centrale", "symetrie-axiale", "angles", "rectangle", "synthese"]
+tags: ["symetrie-centrale", "triangle-rectangle", "rectangle", "angles", "construction"]
+dressing: "triangle rectangle et symétriques"
+rung: 3
 ---
 
 $ABC$ مثلث قائم الزاوية في $A$ حيث $AB=4\,\mathrm{cm}$ و $\widehat{ABC}=35^\circ$. $I$ منتصف $[BC]$ ، $D$ مناظرة $A$ بالنسبة إلى $I$ ، و $E$ مناظرة $C$ بالنسبة إلى المستقيم $(AB)$.

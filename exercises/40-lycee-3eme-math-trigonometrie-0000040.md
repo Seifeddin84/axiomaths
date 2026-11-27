@@ -12,7 +12,9 @@ year: 2026
 professor: "Ammar Bouajila"
 difficulty: "Moyen"
 points: 6
-tags: ["trigonométrie", "équation", "coordonnées polaires", "formules d'addition"]
+tags: ["trigonometrie", "coordonnees-polaires", "formules-d-addition"]
+dressing: "a cos x + b sin x et équation"
+rung: 3
 ---
 
 On pose pour tout réel $x$, $A(x) = \cos(2x) - \sqrt{3}\sin(2x)$.

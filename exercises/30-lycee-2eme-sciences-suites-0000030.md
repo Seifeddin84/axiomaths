@@ -3,7 +3,7 @@ uid: '0000030'
 school: lycee
 level: 2eme
 section: ["Sciences", "Informatique"]
-chapter: Suites arithmétiques et géométriques
+chapter: "Suites Arithmétiques et Géométriques"
 source: 'Lycée ElriAdh: Marsa'
 title: Suite avec coefficients variables
 country: Tunisie
@@ -11,11 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Difficile
 points: 6
-tags:
-- suite
-- suite géométrique
-- suite auxiliaire
-- somme
+tags: ["suites", "coefficients-variables", "suite-auxiliaire", "suite-geometrique"]
+dressing: "coefficients variables en n"
+rung: 3
 ---
 Soit $U$ la suite définie sur $\mathbb{N}^*$ par :
 

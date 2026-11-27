@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["polynomes", "identification", "changement-de-variable", "inequation"]
+tags: ["polynomes", "changement-de-variable", "equation-troisieme-degre", "identification"]
 provenance: "own"
+dressing: "supprimer le terme en x² (translation de variable)"
+rung: 5
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

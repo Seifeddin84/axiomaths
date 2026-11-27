@@ -11,7 +11,9 @@ year: 1996
 professor: "Viktor Prasolov"
 difficulty: "Moyen"
 points: 10
-tags: ["géométrie", "homothétie", "cercle", "tangente"]
+tags: ["homothetie", "cercles-tangents", "tangente"]
+dressing: "centre d'homothétie de deux cercles tangents"
+rung: 3
 ---
 
 Soit deux cercles $\mathscr{C}_1$ de centre O et $\mathscr{C}_2$ de centre O', de rayons respectifs $R_1$ et $R_2$. Les deux cercles sont tangents extérieurement en un point K. La droite $\Delta$ passant par K coupe $\mathscr{C}_1$ et $\mathscr{C}_2$ respectivement en A et B.

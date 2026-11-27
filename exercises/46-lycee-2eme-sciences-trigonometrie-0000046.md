@@ -12,7 +12,9 @@ year: 2026
 professor: "H. Bouzid, N. Jalleli, M. Msekni, I. Chaabene, R. Fakhfekh"
 difficulty: "Difficile"
 points: 7
-tags: ["cercle-trigonometrique", "formules-trigonometriques"]
+tags: ["trigonometrie", "cercle-trigonometrique", "angles"]
+dressing: "relations sur le demi-cercle trigonométrique"
+rung: 3
 ---
 
 Le plan est muni d'un repère orthonormé $(O ; \overrightarrow{OA} ; \overrightarrow{OB})$.

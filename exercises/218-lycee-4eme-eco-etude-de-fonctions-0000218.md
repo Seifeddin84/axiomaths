@@ -3,7 +3,7 @@ uid: "0000218"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Etude de fonctions"
+chapter: "Etude de Fonctions"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 13"
 title: "Fonction rationnelle (10x + 4)/(5x² + 1), tangente et position relative"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["fonction-rationnelle", "derivee", "tangente", "position-relative", "tableau-de-variations"]
+tags: ["etude-de-fonction", "fonction-rationnelle", "tangente", "derivation"]
+dressing: "rationnelle, tangente et position relative"
+rung: 2
 ---
 
 Soit la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = \dfrac{10x + 4}{5x^2 + 1}$.

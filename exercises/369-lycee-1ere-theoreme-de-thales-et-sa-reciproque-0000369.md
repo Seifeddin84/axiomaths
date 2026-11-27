@@ -3,7 +3,7 @@ uid: "0000369"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Aires dans un trapèze"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "papillon", "aires", "trapeze"]
+tags: ["thales", "trapeze", "aires", "diagonales"]
 provenance: "own"
+dressing: "aires dans un trapèze"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

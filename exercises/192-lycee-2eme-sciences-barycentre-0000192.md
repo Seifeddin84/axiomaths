@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["barycentre", "barycentre-partiel", "droites-concourantes", "parallelogramme"]
+tags: ["barycentre", "droites-concourantes", "parallelogramme", "milieux"]
+dressing: "quatre droites concourantes"
+rung: 3
 ---
 
 Soit $ABCD$ un parallélogramme. On désigne par $K$ et $L$ les milieux respectifs de $[AD]$ et $[BC]$, et par $I$ et $J$ les points du segment $[AB]$ tels que $AI = IJ = JB$.

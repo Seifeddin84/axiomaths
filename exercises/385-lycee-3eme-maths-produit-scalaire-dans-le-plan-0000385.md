@@ -3,7 +3,7 @@ uid: "0000385"
 school: "lycee"
 level: "3eme"
 section: "Mathématiques"
-chapter: "Produit scalaire dans le plan"
+chapter: "Produit Scalaire dans le Plan"
 source: "Axiomaths"
 title: "Droites de Kiepert : concours et conique"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["kiepert", "barycentre", "conique", "concours", "triangle"]
+tags: ["droites-de-kiepert", "produit-scalaire", "triangle", "concours", "coniques", "defi"]
 provenance: "adapted"
+dressing: "droites de Kiepert et conique"
+rung: 5
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

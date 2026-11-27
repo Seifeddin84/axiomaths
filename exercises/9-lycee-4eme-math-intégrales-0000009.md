@@ -8,10 +8,12 @@ source: "Aix Marseille, série C & E, 1973, exercice 1"
 title: "Intégrale et linéarisation trigonométrique"
 country: "France"
 year: 1973
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: 4
-tags: ["intégrale", "trigonométrie", "linéarisation"]
+tags: ["integrales", "trigonometrie", "formules-d-addition"]
+dressing: "linéarisation puis intégrale de cos^7"
+rung: 3
 ---
 
 1.  Linéariser $\cos^7\theta$.

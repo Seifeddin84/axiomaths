@@ -11,8 +11,10 @@ year: 1986
 professor: null
 difficulty: "Difficile"
 points: 4
-tags: ["bac", "triangle-equilateral", "racines-cubiques-de-l-unite", "equation-troisieme-degre"]
+tags: ["nombres-complexes", "triangle-equilateral", "equation-troisieme-degre", "geometrie-complexe", "bac"]
 bac: "1986-principale-maths"
+dressing: "triangle équilatéral et équation de degré 3"
+rung: 5
 ---
 
 Le plan est rapporté à un repère orthonormé direct.

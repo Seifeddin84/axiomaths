@@ -12,7 +12,9 @@ year: 2026
 professor: "Ammar Bouajila"
 difficulty: "Moyen"
 points: 7
-tags: ["nombres complexes", "forme algébrique", "forme trigonométrique", "ensemble de points", "équation"]
+tags: ["nombres-complexes", "forme-algebrique", "forme-trigonometrique", "ensembles-de-points"]
+dressing: "complexes et configuration géométrique"
+rung: 3
 ---
 
 Le plan est rapporté à un repère orthonormé $(O, \vec{u}, \vec{v})$.

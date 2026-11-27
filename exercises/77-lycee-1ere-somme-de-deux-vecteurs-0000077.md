@@ -3,7 +3,7 @@ uid: "0000077"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Somme de deux vecteurs - Vecteurs colinéaires"
+chapter: "Somme de Deux Vecteurs - Vecteurs Colinéaires"
 source: "Lycée Pilote Monastir"
 title: "Colinéarité dans un parallélogramme"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2013
 professor: "Benzina & Azzaz"
 difficulty: "Facile"
 points: 3
-tags: ["vecteurs", "colinéarité", "parallélogramme"]
+tags: ["vecteurs", "colinearite", "parallelogramme", "construction", "egalite-vectorielle"]
+dressing: "colinéarité dans un parallélogramme"
+rung: 1
 ---
 
 Soit $ABCD$ un parallélogramme.

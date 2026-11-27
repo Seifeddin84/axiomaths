@@ -8,10 +8,12 @@ source: "Révision hiver 2025"
 title: "Affixes et représentation géométrique"
 country: "Tunisie"
 year: 2025
-professor: "Axiomaths"
+professor: null
 difficulty: "Facile"
 points: 3
-tags: ["affixe", "conjugué"]
+tags: ["nombres-complexes", "affixe", "conjugue"]
+dressing: "placer les points d'affixes z, conj(z), -z"
+rung: 1
 ---
 
 On considère le nombre complexe $z=3-2i$. 

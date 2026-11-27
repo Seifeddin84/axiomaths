@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "definition", "vecteur-opposé", "milieu", "parallelogramme"]
+tags: ["translation", "definition", "vecteurs", "proprietes"]
 provenance: own
-dressing: "phrases à compléter sur la définition"
+dressing: "compléter les propriétés de la translation"
 rung: 1
 ---
 $A$ et $B$ sont deux points distincts. Recopier et compléter chacune des phrases suivantes.

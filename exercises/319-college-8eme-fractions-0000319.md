@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["fractions", "somme-telescopique", "decomposition"]
+tags: ["fractions", "somme-telescopique", "decomposition", "calcul-astucieux"]
+dressing: "somme de fractions qui se télescope"
+rung: 5
 ---
 
 نعتبر المجموع :

@@ -3,7 +3,7 @@ uid: "0000031"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonctions réciproques"
+chapter: "Fonctions Réciproques"
 source: "Facebook: Tunisiamaths / Lycée Pilote de Tunis"
 schoolType: "pilote"
 title: "Fonction tangente, fonction réciproque et suites"
@@ -12,7 +12,9 @@ year: 2025
 professor: null
 difficulty: "Difficile"
 points: 7
-tags: ["analyse", "bijection", "réciproque", "suite", "théorème des accroissements finis", "nombres complexes"]
+tags: ["fonction-reciproque", "bijection", "suites", "tangente"]
+dressing: "tangente, réciproque et suite"
+rung: 5
 ---
 
 Soit la fonction $f$ définie sur $]2, +\infty[$ par : $f(x) = \tan\left(\dfrac{\pi}{x}\right)$.

@@ -3,7 +3,7 @@ uid: "0000149"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonctions réciproques"
+chapter: "Fonctions Réciproques"
 source: "Bac 1991 principale, Problème"
 title: "ln((x+2+√(x²+4x))/2), sa réciproque eˣ+e⁻ˣ−2, une aire et une suite"
 country: "Tunisie"
@@ -11,9 +11,11 @@ year: 1991
 professor: null
 difficulty: "Difficile"
 points: 10
-tags: ["bac", "fonction-reciproque", "logarithme", "integrale-de-la-reciproque", "suite-recurrente", "inegalite-des-accroissements-finis"]
+tags: ["fonction-reciproque", "logarithme", "integrales", "aire", "suites", "bac"]
 bac: "1991-principale-maths"
 recommended: true
+dressing: "réciproque d'une fonction logarithmique, aire et suite"
+rung: 5
 ---
 
 Soit $f$ la fonction numérique définie par $f(x) = \ln\left(\dfrac{x + 2 + \sqrt{x^2 + 4x}}{2}\right)$.

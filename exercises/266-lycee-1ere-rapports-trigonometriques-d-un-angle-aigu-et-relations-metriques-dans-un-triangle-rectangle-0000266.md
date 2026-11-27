@@ -3,7 +3,7 @@ uid: "0000266"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Rapports trigonométriques d'un angle aigu et Relations métriques dans un triangle rectangle"
+chapter: "Rapports Trigonométriques d'un Angle Aigu et Relations Métriques dans un Triangle Rectangle"
 source: "Axiomaths"
 title: "Le produit des deux morceaux d'une corde"
 country: "Tunisie"
@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["cercle", "corde", "pythagore", "relations-metriques"]
+tags: ["cercle", "corde", "rapports-trigonometriques"]
 provenance: adapted
 adapted_from: "résultat classique (puissance d'un point par rapport à un cercle) ; énoncé et solution Axiomaths"
 idea: "produit-des-cordes"
-dressing: "pythagore"
-rung: 1
+dressing: "produit des deux morceaux d'une corde"
+rung: 5
 ---
 Soit $\Gamma$ un cercle de centre $O$ et de rayon $R$. Soit $T$ un point **intérieur** à $\Gamma$ et $[UV]$ une corde de $\Gamma$ qui contient $T$. On note $I$ le milieu de $[UV]$ et l'on suppose que $T\in[IV]$ (l'autre cas est symétrique) et que $I\neq O$.
 

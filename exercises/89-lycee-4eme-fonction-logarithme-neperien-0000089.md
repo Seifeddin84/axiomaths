@@ -3,7 +3,7 @@ uid: "0000089"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Fonction réciproque et transformations géométriques"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Moyen"
 points: null
-tags: ["logarithme-neperien", "fonction-reciproque", "transformations", "courbes"]
+tags: ["logarithme-neperien", "fonction-reciproque", "symetrie-centrale", "valeur-absolue", "etude-de-fonction"]
+dressing: "réciproque et transformations géométriques"
+rung: 3
 ---
 
 Soit la fonction $f$ définie par : $f(x) = \ln\left|\dfrac{1}{e^x - 1}\right|$

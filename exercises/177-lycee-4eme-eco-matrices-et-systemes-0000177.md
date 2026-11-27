@@ -3,7 +3,7 @@ uid: "0000177"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Matrices et systèmes"
+chapter: "Matrices et Systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Inverse égale à 2I₃ − A et résolution d'un système"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["matrices", "determinant", "matrice-inverse", "systeme-lineaire"]
+tags: ["matrices", "matrice-inverse", "systemes", "determinant"]
+dressing: "inverse égale à 2I − A et résolution"
+rung: 3
 ---
 
 On considère la matrice :

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["parabole", "tangentes", "orthocentre", "cercle-circonscrit", "directrice"]
+tags: ["parabole", "tangentes", "coniques", "coordonnees", "defi"]
 provenance: "adapted"
+dressing: "trois tangentes à une parabole"
+rung: 3
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

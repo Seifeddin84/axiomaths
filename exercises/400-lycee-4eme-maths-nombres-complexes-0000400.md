@@ -3,7 +3,7 @@ uid: "0000400"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Nombres complexes"
+chapter: "Nombres Complexes"
 source: "Axiomaths"
 title: "Le couple de Tusi"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["tusi", "hypocycloide", "ellipse", "astroide", "nombres-complexes"]
+tags: ["nombres-complexes", "couple-de-tusi", "cercle", "lieu-geometrique", "defi"]
 provenance: "adapted"
+dressing: "roulement d'un cercle dans un cercle"
+rung: 5
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

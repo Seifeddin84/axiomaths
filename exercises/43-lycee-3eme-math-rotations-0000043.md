@@ -12,7 +12,9 @@ year: 2026
 professor: "Ammar Bouajila"
 difficulty: "Difficile"
 points: 5
-tags: ["géométrie", "rotation", "triangle rectangle", "cercle", "tangente", "bissectrice"]
+tags: ["rotation", "triangle-rectangle", "cercle", "tangente", "bissectrice"]
+dressing: "rotation dans une figure à plusieurs objets"
+rung: 5
 ---
 
 Dans le plan orienté, on considère un triangle $ABD$ rectangle et isocèle inscrit dans un cercle $(\mathscr{C})$ tel que $(\overrightarrow{AB}, \overrightarrow{AD}) \equiv \dfrac{\pi}{2} [2\pi]$.

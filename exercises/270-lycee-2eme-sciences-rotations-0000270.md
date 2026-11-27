@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["morley", "rotation", "triangle-equilateral", "trisectrices", "tangente"]
+tags: ["theoreme-de-morley", "rotation", "triangle-equilateral", "trisectrices"]
 provenance: adapted
 adapted_from: "résultat classique (théorème de Morley, 1899) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "morley"
-dressing: "triangle-equilateral"
-rung: 1
+dressing: "Morley dans le triangle équilatéral"
+rung: 3
 ---
 Soit $ABC$ un triangle **équilatéral** de côté $1$ et de centre $G$. On trace les deux trisectrices de chacun de ses angles (chacune fait avec les côtés un angle de $20^\circ$ ou $40^\circ$). On note
 

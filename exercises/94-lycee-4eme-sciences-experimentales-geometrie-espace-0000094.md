@@ -3,7 +3,7 @@ uid: "0000094"
 school: "lycee"
 level: "4eme"
 section: "Sciences Expérimentales"
-chapter: "Géométrie dans l'espace"
+chapter: "Géométrie dans l'Espace"
 source: "Lycée Rue El Menzeh Béni Khalled"
 title: "Produit vectoriel et volume d'un tétraèdre"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "M. Mourad Ziadi"
 difficulty: "Moyen"
 points: 6
-tags: ["produit-vectoriel", "centre-de-gravite", "volume", "tetraedre"]
+tags: ["volume", "centre-de-gravite", "tetraedre"]
+dressing: "produit vectoriel et volume d'un tétraèdre"
+rung: 3
 ---
 
 L'espace est rapporté à un repère orthonormé direct $(O, \overrightarrow{i}, \vec{j}, \vec{k})$.

@@ -3,7 +3,7 @@ uid: "0000124"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 source: "Axiomaths"
 title: "Somme et produit des racines, problème et inéquation"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["second-degre", "somme-et-produit", "discriminant", "inequation", "probleme"]
+tags: ["second-degre", "discriminant", "inequation", "probleme-concret"]
+dressing: "somme et produit des racines"
+rung: 2
 ---
 1. Résoudre dans $\mathbb{R}$ l'équation : $2x^2 - 7x + 3 = 0$.
 

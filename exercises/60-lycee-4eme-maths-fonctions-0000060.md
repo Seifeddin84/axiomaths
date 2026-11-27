@@ -3,7 +3,7 @@ uid: "0000060"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Etude de Fonctions"
+chapter: "Intégrales"
 source: "Devoir de Synthèse N°2 - L.P.A"
 title: "Étude de fonctions et suites intégrales"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2025
 professor: null
 difficulty: "Difficile"
 points: 7
-tags: ["etude-de-fonctions", "integration-par-parties", "suites", "bijection"]
+tags: ["etude-de-fonction", "exponentielle", "integration-par-parties", "suites", "bijection", "suites-d-integrales"]
+dressing: "famille de fonctions et suite d'intégrales"
+rung: 5
 ---
 
 

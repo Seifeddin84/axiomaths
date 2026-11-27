@@ -3,15 +3,19 @@ uid: "0000114"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
-source: "Série de problèmes — Logarithme (Problème 2)"
+chapter: "Fonction Logarithme Népérien"
+source: "Axiomaths"
 title: "Prolongement par continuité, dérivabilité et suite récurrente"
 country: "Tunisie"
-year: null
-professor: null
+year: 2026
+professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "prolongement-par-continuite", "derivabilite", "primitive", "suite-recurrente"]
+tags: ["logarithme-neperien", "prolongement-par-continuite", "derivabilite", "suite-recurrente"]
+provenance: adapted
+adapted_from: "Série de problèmes — Logarithme (Problème 2)"
+dressing: "prolongement, dérivabilité puis suite récurrente"
+rung: 5
 ---
 
 Soit $f$ la fonction définie sur $\mathbb{R}_+$ par : $f(x) = \dfrac{-1 + x + \ln x}{\ln x}$ pour $x \in \,]0,1[\, \cup \,]1,+\infty[$, $f(0) = 1$ et $f(1) = 2$.

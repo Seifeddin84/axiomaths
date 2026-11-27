@@ -23,6 +23,12 @@ photos/screenshots or by generating new ones in the house style.
   Never merge, publish, review, rebase, list, summarise or mention it (not in replies, PR descriptions, commit
   messages or questions), and never ask what to do with it. Leave it out silently of any list of open PRs, and
   whatever "merge all" says. Decided by Seifeddine on 2026-11-20, reinforced on 2026-11-27.
+- **Chapitres : seule source = `canonical_chapters.md` (projet Claude), orthographe exacte, et toujours les mots en
+  majuscule (Title Case) : « Notion de Polynômes », « Fonction Logarithme Népérien », « Suites Arithmétiques et
+  Géométriques ». Petits mots en minuscule (de, du, des, la, le, les, et, à, un, une, sa, dans, sur, en, ou, aux),
+  article élidé en minuscule mais mot suivant en majuscule (« d'Étude », « l'Espace »). Le validateur compare à
+  l'identique (casse comprise) la valeur du champ `chapter` des exercices *et* des leçons. Jamais de nom inventé,
+  raccourci ou paraphrasé. Décidé par Seifeddine le 2026-11-27.
 - List every judgement call (fixed typo, corrected statement, guessed section
   or source) in the PR description so it can be reviewed.
 
@@ -261,7 +267,7 @@ average pupil**: detailed, clean, nothing skipped.
 
 ## 10. Known quirks
 
-- UID 107 does not exist (gap); #70 and #74 are `.mdx`.
+- UIDs run 1–439 with no gap; #70 and #74 are `.mdx`.
 - Collège 9ème files #62–66 have `section: "التاسعة أساسي"` (harmless; validator ignores collège sections).
 
 ## 11. Inbox hand-off from `_maths_tutoring`

@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["barycentre", "barycentre-partiel", "droites-concourantes"]
+tags: ["barycentre", "barycentre-partiel", "droites-concourantes", "triangle"]
 provenance: "own"
+dressing: "synthèse : barycentres partiels et concours"
+rung: 3
 batch: "2026-11-19-2sc-polynomes-barycentre"
 ---
 

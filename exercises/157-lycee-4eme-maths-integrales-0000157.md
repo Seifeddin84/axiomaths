@@ -11,9 +11,11 @@ year: 1986
 professor: null
 difficulty: "Difficile"
 points: 12
-tags: ["bac", "fonction-reciproque", "integrale-fonction-des-bornes", "suite-d-integrales", "pi"]
+tags: ["fonction-reciproque", "integrales", "serie-de-leibniz", "changement-de-variable", "suites", "bac"]
 bac: "1986-principale-maths"
 recommended: true
+dressing: "réciproque et série de Leibniz"
+rung: 5
 ---
 
 ### Partie I

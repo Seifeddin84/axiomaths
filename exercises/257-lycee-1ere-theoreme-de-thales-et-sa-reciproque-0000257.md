@@ -3,19 +3,21 @@ uid: "0000257"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Résultat classique (cas particulier du théorème de Routh). Pour l'histoire : Steinhaus, Mathematical Snapshots (1960) ; Cook & Wood, Mathematical Gazette 88 (2004)."
 title: "Le triangle de Feynman"
 country: "Tunisie"
 year: 2026
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: null
-tags: ["thales", "aires", "feynman", "cevienne", "defi"]
+tags: ["thales", "triangle-de-feynman", "aires", "theoreme-de-routh", "fractions"]
 provenance: adapted
 source_url: "https://en.wikipedia.org/wiki/One-seventh_area_triangle"
 adapted_from: "résultat classique, énoncé et chiffres Axiomaths"
 source_checked: true
+dressing: "triangle de Feynman : rapport d'aires"
+rung: 5
 ---
 
 Soit $ABC$ un triangle d'aire $\mathcal S$. On place $D\in[BC]$, $E\in[CA]$ et $F\in[AB]$ tels que $BD=\dfrac13BC$, $CE=\dfrac13CA$ et $AF=\dfrac13AB$. Les droites $(AD)$, $(BE)$ et $(CF)$ se coupent deux à deux en $Q=(AD)\cap(BE)$, $P=(BE)\cap(CF)$ et $R=(CF)\cap(AD)$.

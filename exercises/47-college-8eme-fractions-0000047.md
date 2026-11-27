@@ -11,7 +11,9 @@ year: 2024
 professor: "محمود العيساوي"
 difficulty: "Moyen"
 points: 3
-tags: ["qcm", "nombres-rationnels"]
+tags: ["qcm", "fractions", "nombres-rationnels", "comparaison"]
+dressing: "QCM : pièges sur les fractions"
+rung: 4
 ---
 
 لكل سؤال ثلاثة إجابات إحداها فقط صحيحة ضع علامة $\times$ في الخانة المناسبة:

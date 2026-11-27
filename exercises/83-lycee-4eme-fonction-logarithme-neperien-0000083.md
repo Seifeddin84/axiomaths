@@ -3,7 +3,7 @@ uid: "0000083"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Étude complète de fonction et calcul d'aire"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "asymptote-oblique", "integration", "calcul-aire"]
+tags: ["logarithme-neperien", "etude-de-fonction", "asymptote-oblique", "aire", "fonction-auxiliaire"]
+dressing: "fonction auxiliaire g puis étude et aire"
+rung: 3
 ---
 
 **I) On considère la fonction $g$ définie sur $]0, +\infty[$ par :**

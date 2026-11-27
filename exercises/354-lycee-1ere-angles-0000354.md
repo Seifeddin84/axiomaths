@@ -11,8 +11,10 @@ year: 2015
 professor: "M. Béchir Zdiri"
 difficulty: "Difficile"
 points: null
-tags: ["orthocentre", "hauteurs", "cercle-circonscrit", "angle-inscrit", "bissectrice"]
+tags: ["angles", "orthocentre", "cercle-circonscrit", "bissectrice", "demonstration"]
 provenance: scan
+dressing: "orthocentre et bissectrice"
+rung: 5
 ---
 
 $ABC$ est un triangle inscrit dans un cercle $(\mathscr{C})$ de centre $O$.

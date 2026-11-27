@@ -3,7 +3,7 @@ uid: "0000361"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Écriture scientifique"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["ecriture-scientifique", "puissances-de-10", "puissances", "nombre-de-chiffres"]
+tags: ["ecriture-scientifique", "puissances-de-10", "calcul", "puissances"]
 provenance: "own"
+dressing: "expressions à écrire en notation scientifique"
+rung: 2
 batch: "2026-11-22-revision-1ere-A"
 ---
 

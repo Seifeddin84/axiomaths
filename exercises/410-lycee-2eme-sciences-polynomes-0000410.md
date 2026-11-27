@@ -3,7 +3,7 @@ uid: "0000410"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Vrai ou faux : les pièges du chapitre"
 country: "Tunisie"
@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["polynomes", "vrai-faux", "degre", "racines", "identification"]
+tags: ["vrai-faux", "polynomes", "pieges", "contre-exemple"]
 provenance: own
-dressing: "vrai-faux avec contre-exemples"
+dressing: "pièges du chapitre sur les polynômes"
 rung: 4
 ---
 Pour chacune des affirmations suivantes, dire si elle est vraie ou fausse, puis justifier (par une preuve, ou par un contre-exemple si elle est fausse).

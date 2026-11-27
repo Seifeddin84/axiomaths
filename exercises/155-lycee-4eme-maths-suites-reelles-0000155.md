@@ -3,7 +3,7 @@ uid: "0000155"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 source: "Bac 1988 principale, Problème"
 title: "La somme 1/e + 2/e² + … + n/eⁿ : encadrement par des intégrales et calcul exact"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 1988
 professor: null
 difficulty: "Difficile"
 points: 12
-tags: ["bac", "somme-et-integrale", "fonction-exponentielle", "suite-geometrique", "integrale-fonction-des-bornes"]
+tags: ["suites-reelles", "sommes", "exponentielle", "integrales", "bac"]
 bac: "1988-principale-maths"
+dressing: "somme encadrée par des intégrales"
+rung: 5
 ---
 
 ### Partie I

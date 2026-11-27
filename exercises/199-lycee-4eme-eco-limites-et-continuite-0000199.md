@@ -3,7 +3,7 @@ uid: "0000199"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 1 — Limites (Bac Économie et Gestion), Ex. 2"
 title: "Différence de deux racines : forme conjuguée et encadrement"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "racine-carree", "expression-conjuguee", "encadrement", "theoreme-des-gendarmes"]
+tags: ["limites", "forme-conjuguee", "racines-carrees", "encadrement", "domaine-de-definition"]
+dressing: "différence de deux racines"
+rung: 3
 ---
 
 Soit la fonction $f$ définie par $f(x) = \sqrt{x+1} - \sqrt{x}$.

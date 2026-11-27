@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["constante-de-catalan", "integrales", "changement-de-variable", "integration-par-parties", "trigonometrie"]
+tags: ["constante-de-catalan", "integrales", "changement-de-variable", "fonction-reciproque"]
+dressing: "constante de Catalan par changement de variable"
+rung: 5
 ---
 
 On note $\varphi$ la fonction réciproque de la restriction de $\tan$ à $\left]-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right[$. On rappelle (voir l'[exercice n°116](/lycee/4eme/mathematiques/integrales#ex-0000116)) que la **constante de Catalan** est le réel :

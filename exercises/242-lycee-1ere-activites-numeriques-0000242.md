@@ -3,7 +3,7 @@ uid: "0000242"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Du Soleil à Proxima"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["notation-scientifique", "puissances-de-10", "unites", "probleme-concret"]
+tags: ["puissances-de-10", "ecriture-scientifique", "probleme-concret"]
 provenance: own
+dressing: "astronomie : du Soleil à Proxima"
+rung: 2
 ---
 
 On donne : vitesse de la lumière $c=3{,}00\times10^8$ m/s ; $1$ UA (distance Terre–Soleil) $=1{,}50\times10^{11}$ m ; une année $\approx3{,}16\times10^7$ s ; Proxima du Centaure est à $4{,}01\times10^{16}$ m de la Terre.

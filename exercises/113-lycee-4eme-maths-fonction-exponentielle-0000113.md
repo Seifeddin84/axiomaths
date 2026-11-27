@@ -3,7 +3,7 @@ uid: "0000113"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonctions exponentielles"
+chapter: "Fonction Exponentielle"
 source: "Série Exponentielle — 4ème Maths (Exercice 1)"
 title: "Étude de (eˣ−1)/(eˣ+1), réciproque et suite d'intégrales"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: null
 professor: "M. Haj Ali"
 difficulty: "Moyen"
 points: null
-tags: ["fonction-exponentielle", "fonction-impaire", "tangente", "aire", "fonction-reciproque", "suite-d-integrales"]
+tags: ["exponentielle", "fonction-impaire", "tangente", "fonction-reciproque", "suites-d-integrales"]
+dressing: "étude de (e^x-1)/(e^x+1), réciproque et intégrales"
+rung: 3
 ---
 
 Soit $f$ la fonction définie sur $\mathbb{R}$ par $f(x) = \dfrac{e^x - 1}{e^x + 1}$. On désigne par $\mathcal{C}_f$ sa courbe représentative dans le plan rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$ (unité $2$ cm).

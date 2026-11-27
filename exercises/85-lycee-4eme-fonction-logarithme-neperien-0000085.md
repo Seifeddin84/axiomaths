@@ -3,7 +3,7 @@ uid: "0000085"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Étude d'une fonction logarithmique et intégration"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Moyen"
 points: null
-tags: ["logarithme-neperien", "etude-de-fonctions", "branche-parabolique", "integration"]
+tags: ["logarithme-neperien", "etude-de-fonction", "branche-parabolique", "integration-par-parties", "fonction-auxiliaire"]
+dressing: "fonction auxiliaire g puis étude et primitive"
+rung: 3
 ---
 
 **I)** On considère la fonction $g$ définie sur $]0, +\infty[$ par :

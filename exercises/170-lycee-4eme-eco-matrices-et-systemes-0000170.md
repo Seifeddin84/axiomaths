@@ -3,7 +3,7 @@ uid: "0000170"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Matrices et systèmes"
+chapter: "Matrices et Systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Inverse d'une matrice d'ordre 3 à l'aide d'un produit"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["matrices", "determinant", "matrice-inverse", "produit-matriciel"]
+tags: ["matrices", "matrice-inverse", "determinant", "matrices-d-ordre-3", "produit-de-matrices"]
+dressing: "inverse d'une matrice 3×3 à l'aide d'un produit"
+rung: 2
 ---
 
 Soit la matrice :

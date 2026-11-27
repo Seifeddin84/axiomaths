@@ -3,7 +3,7 @@ uid: "0000371"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Trois parallèles par un point"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "aires", "paralleles", "triangle"]
+tags: ["thales", "trois-paralleles", "triangle", "point-interieur", "aires"]
 provenance: "own"
+dressing: "trois parallèles menées par un point"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

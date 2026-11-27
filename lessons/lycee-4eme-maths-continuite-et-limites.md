@@ -4,7 +4,7 @@ slug: "lycee-4eme-maths-continuite-et-limites"
 school: "lycee"
 level: "4eme"
 sections: ["Mathématiques", "Sciences Expérimentales"]
-chapter: "Continuité et limites"
+chapter: "Continuité et Limites"
 summary: "Limites d'une fonction en un point et à l'infini, formes indéterminées, asymptotes, composition, gendarmes et limites trigonométriques, continuité en un point et sur un intervalle, prolongement par continuité, théorème des valeurs intermédiaires et dichotomie, image d'un intervalle."
 prerequisites: ["Limites de suites", "Fonctions usuelles", "Trigonométrie"]
 source: "Manuel officiel 4ème année Mathématiques, chapitre « Continuité et limites »"

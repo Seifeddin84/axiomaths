@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["fractions", "probleme", "budget", "synthese"]
+tags: ["fractions", "probleme-concret", "modelisation", "equations"]
+dressing: "budget : fractions d'une somme"
+rung: 2
 ---
 
 ادّخر أمين مبلغا من المال. أنفق $\dfrac{1}{3}$ هذا المبلغ في شراء كتب و $\dfrac{2}{5}$ منه في شراء لباس، وبقيت له $12$ دينارا.

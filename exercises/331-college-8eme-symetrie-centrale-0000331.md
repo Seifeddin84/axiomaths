@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["symetrie-centrale", "parallelogramme", "aire", "configuration"]
+tags: ["symetrie-centrale", "triangle", "milieu", "parallelogramme"]
+dressing: "deux symétriques de sommets"
+rung: 3
 ---
 
 $ABC$ مثلث، $E$ و $F$ مناظرتا $B$ و $C$ على التوالي بالنسبة إلى $A$ ، و $I$ منتصف $[BC]$.

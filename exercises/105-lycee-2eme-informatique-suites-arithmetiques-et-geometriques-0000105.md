@@ -3,7 +3,7 @@ uid: "0000105"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Suite récurrente et suite arithmétique auxiliaire"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2022
 professor: "M. Rjiba Zied"
 difficulty: "Moyen"
 points: null
-tags: ["suite-recurrente", "suite-arithmetique", "somme"]
+tags: ["suite-homographique", "suite-arithmetique", "suite-auxiliaire", "somme-de-termes"]
+dressing: "auxiliaire 1/u_n arithmétique"
+rung: 3
 ---
 
 Soit la suite définie sur $\mathbb{N}$ par $u_0 = 1$ et $u_{n+1} = \frac{u_n}{2u_n + 1}$.

@@ -3,7 +3,7 @@ uid: "0000073"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Etude de fonctions"
+chapter: "Etude de Fonctions"
 source: "Habib Gammar"
 title: "Étude d'une fonction irrationnelle et réciproque"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Habib Gammar"
 difficulty: "Moyen"
 points: 8
-tags: ["dérivabilité", "asymptote", "fonction-réciproque", "variation"]
+tags: ["etude-de-fonction", "fonction-reciproque", "asymptotes", "derivabilite"]
+dressing: "fonction irrationnelle et réciproque"
+rung: 3
 ---
 
 Soit $f$ la fonction définie sur $[2, +\infty[$ par $f(x) = 1 + \sqrt{x^2 - 2x}$.

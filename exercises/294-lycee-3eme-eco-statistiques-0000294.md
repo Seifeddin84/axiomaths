@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["statistiques", "serie-double", "droite-de-mayer", "offre-demande", "equilibre", "modelisation"]
+tags: ["statistiques", "ajustement-affine", "systeme"]
 provenance: "own"
-dressing: "deux ajustements"
-rung: 4
+dressing: "équilibre du marché par deux ajustements"
+rung: 5
 batch: "2026-11-20-stat-3eco-A"
 ---
 

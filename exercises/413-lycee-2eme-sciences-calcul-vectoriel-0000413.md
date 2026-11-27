@@ -3,7 +3,7 @@ uid: "0000413"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Composantes dans une base, colinéarité et nouvelle base"
 country: "Tunisie"
@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["vecteurs", "base", "composantes", "colinearite", "determinant"]
+tags: ["vecteurs", "base", "composantes", "colinearite"]
 provenance: own
-dressing: "composantes, déterminant et changement de base"
+dressing: "composantes dans une base"
 rung: 1
 ---
 Le plan est muni d'une base $(\vec{i}, \vec{j})$. On considère les vecteurs $\vec{u} = 2\vec{i} - 3\vec{j}$, $\vec{v} = -\vec{i} + 4\vec{j}$, $\vec{w} = 3\vec{i} - 2\vec{j}$ et $\vec{t} \begin{pmatrix} -4 \\ 6 \end{pmatrix}$.

@@ -11,8 +11,10 @@ year: 1989
 professor: null
 difficulty: "Moyen"
 points: null
-tags: ["bac", "loi-de-probabilite", "loi-binomiale", "epreuves-repetees"]
+tags: ["probabilites", "loi-binomiale", "epreuves-repetees", "variable-aleatoire", "bac"]
 bac: "1989-controle-maths"
+dressing: "deux dés dont un spécial"
+rung: 3
 ---
 
 On considère deux dés cubiques non truqués. Les faces de l'un sont numérotées de $1$ à $6$, les faces de l'autre sont numérotées $2$, $2$, $2$, $3$, $4$ et $4$. On lance les deux dés simultanément et on désigne par $X$ la variable aléatoire qui, à chaque lancer, associe la somme des nombres marqués sur les faces supérieures.

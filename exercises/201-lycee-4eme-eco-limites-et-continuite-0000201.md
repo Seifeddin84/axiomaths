@@ -3,7 +3,7 @@ uid: "0000201"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 1 — Limites (Bac Économie et Gestion), Ex. 4"
 title: "Cosinus divisé par une racine : limite par encadrement"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "encadrement", "theoreme-des-gendarmes", "cosinus", "racine-carree"]
+tags: ["limites", "encadrement", "theoreme-des-gendarmes", "trigonometrie", "racines-carrees"]
+dressing: "limite par encadrement avec un cosinus"
+rung: 3
 ---
 
 Soit la fonction $f$ définie par $f(x) = \dfrac{\cos(x)}{\sqrt{x}}$.

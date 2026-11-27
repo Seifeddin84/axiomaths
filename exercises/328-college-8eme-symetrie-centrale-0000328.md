@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["symetrie-centrale", "cercle", "tangente", "quadrillage"]
+tags: ["symetrie-centrale", "cercle", "tangente"]
+dressing: "symétrique d'un cercle et d'une tangente"
+rung: 2
 ---
 
 $\mathcal{C}$ دائرة مركزها $I$ وشعاعها $2$ وحدات، $T$ نقطة منها، و $d$ المستقيم العمودي على $(IT)$ في $T$ ؛ $O$ نقطة معلومة.

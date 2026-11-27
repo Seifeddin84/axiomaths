@@ -3,7 +3,7 @@ uid: "0000367"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "La charpente"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["thales", "segments-paralleles", "somme-de-termes", "figure"]
+tags: ["thales", "probleme-concret", "calcul-de-longueurs"]
 provenance: "own"
+dressing: "barres d'une charpente"
+rung: 2
 batch: "2026-11-22-revision-1ere-A"
 ---
 

@@ -3,7 +3,7 @@ uid: "0000140"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonctions exponentielles"
+chapter: "Fonction Exponentielle"
 source: "Bac 1984 principale, Problème partie I"
 bac: "1984-principale-maths"
 title: "Une famille de fonctions exponentielles et l'aire entre une courbe et sa réciproque"
@@ -12,8 +12,10 @@ year: 1984
 professor: null
 difficulty: "Difficile"
 points: 12
-tags: ["bac", "exponentielle", "bijection", "integrale"]
+tags: ["exponentielle", "etude-de-fonction", "bijection", "integrales", "parametre", "bac"]
 recommended: true
+dressing: "famille de fonctions à paramètre et aire"
+rung: 3
 ---
 
 Soit $f_m$ la fonction définie sur $\mathbb{R}$ par $f_m(x) = \dfrac{m\,e^{2x}}{e^{2x} + 1}$, où $m$ est un paramètre réel de l'intervalle $]0, 2]$.

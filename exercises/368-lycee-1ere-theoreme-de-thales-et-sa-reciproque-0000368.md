@@ -3,7 +3,7 @@ uid: "0000368"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Deux segments égaux et un milieu"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["thales", "papillon", "triangle-isocele", "milieu"]
+tags: ["thales", "triangle-isocele", "milieu", "droites-paralleles", "demonstration"]
 provenance: "own"
+dressing: "deux segments égaux et un milieu"
+rung: 3
 batch: "2026-11-22-revision-1ere-A"
 ---
 

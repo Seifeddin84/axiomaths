@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["derivation", "derivee-produit", "derivee-quotient", "derivee-puissance", "derivee-racine"]
+tags: ["derivation", "derivees", "polynomes", "racines-carrees"]
+dressing: "dérivées de fonctions usuelles"
+rung: 1
 ---
 
 Dériver les fonctions suivantes :

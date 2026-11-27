@@ -3,19 +3,21 @@ uid: "0000259"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "URSS : Olympiade 1990, classe de 9e (B. Chinik, Kichinev)"
 title: "Trois parallèles par un point"
 country: "Tunisie"
 year: 2026
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: null
-tags: ["thales", "parallelisme", "rapports", "defi"]
+tags: ["thales", "trois-paralleles", "triangle", "point-interieur"]
 provenance: adapted
 source_url: "https://www.cut-the-knot.org/triangle/PleasantProportionsInTriangle.shtml"
 adapted_from: "Olympiade URSS 1990 (B. Chinik) ; énoncé, chiffres et questions Axiomaths"
 source_checked: true
+dressing: "trois parallèles par un point intérieur"
+rung: 5
 ---
 
 Soit $ABC$ un triangle avec $BC=a$, $CA=b$, $AB=c$, et $P$ un point intérieur. Les parallèles aux côtés menées par $P$ coupent les côtés en six points : la parallèle à $(BC)$ coupe $[AB]$ en $U$ et $[AC]$ en $V$ ; la parallèle à $(CA)$ coupe $[BC]$ en $W$ et $[BA]$ en $X$ ; la parallèle à $(AB)$ coupe $[CA]$ en $Y$ et $[CB]$ en $Z$. Sur chaque côté, les points se suivent dans l'ordre $B,Z,W,C$ ; $C,V,Y,A$ ; $A,X,U,B$.

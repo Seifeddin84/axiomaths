@@ -11,7 +11,9 @@ year: 2024
 professor: "محمود العيساوي"
 difficulty: "Moyen"
 points: 7
-tags: ["calcul-litteral", "developpement"]
+tags: ["calcul-litteral", "developpement", "fractions", "reduction"]
+dressing: "développer et réduire avec des fractions"
+rung: 1
 ---
 
 نعتبر العبارتين التاليتين:

@@ -11,7 +11,9 @@ year: 2024
 professor: null
 difficulty: "Moyen"
 points: 3.5
-tags: ["calcul-radicaux", "comparaison", "ordre"]
+tags: ["radicaux", "comparaison", "nombres-reels", "calcul"]
+dressing: "comparer par la différence"
+rung: 2
 ---
 
 $a$ و $b$ عددين حقيقيين حيث :

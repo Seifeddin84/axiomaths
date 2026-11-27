@@ -3,7 +3,7 @@ uid: "0000206"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 3"
 title: "Fonction définie par morceaux : continuité à gauche et à droite en 2"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["continuite", "fonction-definie-par-morceaux", "continuite-a-droite-et-a-gauche", "domaine-de-definition"]
+tags: ["continuite", "fonction-par-morceaux", "limites-laterales"]
+dressing: "continuité à gauche et à droite"
+rung: 2
 ---
 
 Soit la fonction $f$ définie par :

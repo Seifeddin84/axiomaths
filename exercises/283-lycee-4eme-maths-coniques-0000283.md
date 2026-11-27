@@ -11,11 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["coniques", "faisceau", "polynomes", "division", "papillon"]
+tags: ["theoreme-du-papillon", "coniques", "theoreme-de-desargues"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths ; preuve par le faisceau de coniques (point de vue de Desargues)"
 idea: "papillon"
-dressing: "faisceau"
+dressing: "papillon et faisceau de coniques"
 rung: 5
 ---
 *Exercice de prolongement : du calcul algébrique sur des polynômes à deux variables, un peu au-delà du programme, mais sans aucune notion nouvelle.*

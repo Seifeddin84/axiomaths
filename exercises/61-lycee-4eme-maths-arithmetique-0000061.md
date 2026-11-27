@@ -11,7 +11,9 @@ year: 2024
 professor: "Mr Younes BABA"
 difficulty: "Moyen"
 points: 5
-tags: ["arithmetique", "congruences", "divisibilite"]
+tags: ["arithmetique", "divisibilite", "division-euclidienne"]
+dressing: "restes et divisibilité par congruences"
+rung: 2
 ---
 
 1. Déterminer le reste de la division euclidienne de $(2974)^{2024}$ par $5$.

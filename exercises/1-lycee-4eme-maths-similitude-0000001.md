@@ -12,7 +12,9 @@ year: 1984
 professor: null
 difficulty: "Facile"
 points: 4
-tags: ["complex-numbers", "geometry"]
+tags: ["similitudes", "similitude-directe", "nombres-complexes", "geometrie-complexe", "bac"]
+dressing: "écriture complexe d'une similitude"
+rung: 1
 ---
 
 Soit $\mathcal{P}$ un plan affine euclidien orienté rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$.

@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["constante-de-catalan", "integrales", "fonctions-reciproques", "suites-reelles", "integration-par-parties"]
+tags: ["constante-de-catalan", "integrales", "fonction-reciproque", "sommes"]
+dressing: "constante de Catalan par une somme"
+rung: 5
 ---
 
 On pose, pour tout $n \in \mathbb{N}$ : $u_n = \displaystyle\sum_{k=0}^{n} \dfrac{(-1)^k}{(2k+1)^2} = 1 - \dfrac{1}{3^2} + \dfrac{1}{5^2} - \dots + \dfrac{(-1)^n}{(2n+1)^2}$.

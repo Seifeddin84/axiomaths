@@ -3,7 +3,7 @@ uid: "0000297"
 school: "lycee"
 level: "3eme"
 section: "Economie et Gestion"
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 source: "Axiomaths"
 title: "Placement à intérêts simples"
 country: "Tunisie"
@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["suites", "suite-arithmetique", "interets-simples", "terme-general", "seuil"]
+tags: ["suites", "suite-arithmetique", "modelisation"]
 provenance: "own"
-dressing: "suite arithmétique"
+dressing: "placement à intérêts simples"
 rung: 1
 batch: "2026-11-20-suites-3eco-A"
 ---

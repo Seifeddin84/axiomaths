@@ -3,7 +3,7 @@ uid: "0000198"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 1 — Limites (Bac Économie et Gestion), Ex. 1 (limites 23 à 31)"
 title: "Limites avec racines carrées : forme conjuguée et factorisation"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "racine-carree", "expression-conjuguee", "forme-indeterminee", "limites-en-l-infini"]
+tags: ["limites", "racines-carrees", "forme-conjuguee", "formes-indeterminees", "factorisation"]
+dressing: "racines carrées : forme conjuguée"
+rung: 3
 ---
 
 Calculer les limites suivantes :

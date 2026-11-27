@@ -3,7 +3,7 @@ uid: "0000278"
 school: "lycee"
 level: "3eme"
 section: "Mathématiques"
-chapter: "Angles orientés"
+chapter: "Angles Orientés"
 source: "Axiomaths"
 title: "Morley par la preuve de Naraniengar"
 country: "Tunisie"
@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["morley", "naraniengar", "angles", "symetrie", "cercle"]
+tags: ["theoreme-de-morley", "preuve-de-naraniengar", "angles-orientes", "trigonometrie"]
 provenance: adapted
 adapted_from: "résultat classique (théorème de Morley, 1899) ; énoncé, découpage en questions et solution Axiomaths ; preuve synthétique de M. T. Naraniengar (1909)"
 idea: "morley"
-dressing: "synthetique"
-rung: 3
+dressing: "preuve de Naraniengar"
+rung: 5
 ---
 Soit $ABC$ un triangle d'angles $\widehat A=3\alpha$, $\widehat B=3\beta$, $\widehat C=3\gamma$ (donc $\alpha+\beta+\gamma=60^\circ$). On note :
 

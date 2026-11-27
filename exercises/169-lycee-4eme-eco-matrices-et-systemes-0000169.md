@@ -3,7 +3,7 @@ uid: "0000169"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Matrices et systèmes"
+chapter: "Matrices et Systèmes"
 source: "Série 7 — Matrices et systèmes (Bac Économie et Gestion)"
 title: "Déterminants, inversibilité et produits de matrices"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["matrices", "determinant", "matrice-inversible", "produit-matriciel"]
+tags: ["matrices", "determinant", "inversibilite", "produit-de-matrices"]
+dressing: "déterminants et produits de matrices"
+rung: 1
 ---
 
 On considère les matrices :

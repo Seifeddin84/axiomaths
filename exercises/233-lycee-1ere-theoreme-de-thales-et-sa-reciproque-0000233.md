@@ -3,7 +3,7 @@ uid: "0000233"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Synthèse : le quadrilatère des milieux"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "varignon", "milieux", "aires", "synthese"]
+tags: ["thales", "quadrilatere-des-milieux", "theoreme-de-varignon", "parallelogramme", "milieux"]
 provenance: own
+dressing: "synthèse : quadrilatère des milieux"
+rung: 5
 ---
 
 $ABCD$ est un quadrilatère convexe ; $M$, $N$, $P$ et $Q$ sont les milieux de $[AB]$, $[BC]$, $[CD]$ et $[DA]$.

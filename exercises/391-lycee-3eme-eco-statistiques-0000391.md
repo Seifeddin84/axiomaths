@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "serie-double", "nuage-de-points", "point-moyen"]
+tags: ["statistiques", "serie-double", "ajustement-affine", "droite-de-regression", "prevision"]
 provenance: "own"
+dressing: "prix et demande : première droite d'ajustement"
+rung: 1
 batch: "2026-11-19-3eco-statistiques-n5"
 ---
 

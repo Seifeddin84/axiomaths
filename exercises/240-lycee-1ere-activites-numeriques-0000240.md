@@ -3,7 +3,7 @@ uid: "0000240"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "QCM : racines, puissances, valeur absolue et encadrements"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["qcm", "radicaux", "puissances", "valeur-absolue", "encadrements"]
+tags: ["qcm", "racine", "puissances", "valeur-absolue", "encadrements"]
 provenance: own
+dressing: "QCM à réponses multiples : pièges de calcul"
+rung: 4
 ---
 
 Pour chaque question, **une ou plusieurs** réponses sont correctes. Aucune justification n'est demandée.

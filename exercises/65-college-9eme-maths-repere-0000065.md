@@ -11,7 +11,9 @@ year: 2024
 professor: "مراد الفاهم"
 difficulty: "Moyen"
 points: 4
-tags: ["coordonnees", "cercle", "triangle-rectangle"]
+tags: ["repere-orthonorme", "cercle", "triangle-rectangle", "milieu", "coordonnees"]
+dressing: "repère : milieu, distance et cercle"
+rung: 2
 ---
 
 ليكن $(O; I; J)$ معيناً في المستوي حيث $(OI) \perp (OJ)$ و $OI = OJ = 1$.

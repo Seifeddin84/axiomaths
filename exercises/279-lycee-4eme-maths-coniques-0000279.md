@@ -11,11 +11,11 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["coniques", "parabole", "papillon", "geometrie-analytique"]
+tags: ["theoreme-du-papillon", "coniques", "parabole", "coordonnees"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "numerique-parabole"
+dressing: "papillon d'une parabole, version chiffrée"
 rung: 2
 ---
 Le plan est muni d'un repère orthonormé $(O\,;\vec\imath,\vec\jmath)$. On considère la parabole $\mathcal P$ d'équation $x^2=4(y+1)$ et les points

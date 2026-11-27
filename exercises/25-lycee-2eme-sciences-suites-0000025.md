@@ -3,7 +3,7 @@ uid: '0000025'
 school: lycee
 level: 2eme
 section: ["Sciences", "Informatique"]
-chapter: Suites arithmétiques et géométriques
+chapter: "Suites Arithmétiques et Géométriques"
 source: 'Lycée ElriAdh: Marsa'
 title: Étude d'une suite rationnelle
 country: Tunisie
@@ -11,11 +11,9 @@ year: 2026
 professor: Zribi Foued
 difficulty: Moyen
 points: 6
-tags:
-- suite
-- suite géométrique
-- suite auxiliaire
-- somme
+tags: ["suites", "suite-homographique", "suite-auxiliaire", "suite-geometrique", "somme-de-termes"]
+dressing: "auxiliaire pour une récurrence rationnelle"
+rung: 3
 ---
 Soit $U$ la suite définie sur $\mathbb{N}^*$ par :
 

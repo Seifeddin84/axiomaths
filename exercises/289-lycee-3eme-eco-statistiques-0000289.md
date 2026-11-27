@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["statistiques", "classes", "effectifs-cumules", "interpolation", "quartiles", "ecart-type"]
+tags: ["statistiques", "serie-groupee", "classes", "mediane", "interpolation-lineaire"]
 provenance: "own"
 dressing: "série groupée en classes"
-rung: 3
+rung: 2
 batch: "2026-11-20-stat-3eco-A"
 ---
 

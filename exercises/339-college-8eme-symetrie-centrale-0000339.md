@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["symetrie-axiale", "symetrie-centrale", "angles", "composition", "synthese"]
+tags: ["symetrie-axiale", "symetrie-centrale", "composition", "alignement"]
+dressing: "symétrie axiale puis centrale"
+rung: 5
 ---
 
 $\Delta$ و $d$ مستقيمان متعامدان في $O$. $H$ نقطة من $\Delta$ و $K$ نقطة من $d$. $A$ نقطة داخل الزاوية $\widehat{HOK}$ حيث $OA=3\,\mathrm{cm}$ و $\widehat{HOA}=35^\circ$. $A_1$ مناظرة $A$ بالنسبة إلى $\Delta$ ، و $A_2$ مناظرة $A_1$ بالنسبة إلى $O$.

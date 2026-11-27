@@ -11,8 +11,10 @@ year: 2015
 professor: "M. Béchir Zdiri"
 difficulty: "Moyen"
 points: null
-tags: ["cercle", "diametre", "angle-inscrit", "angle-au-centre", "triangle-isocele", "droites-paralleles"]
+tags: ["angles", "cercle", "diametre", "angle-inscrit"]
 provenance: scan
+dressing: "diamètres et angle inscrit"
+rung: 2
 ---
 
 $O$ est le centre du cercle. $[BE]$ et $[AD]$ sont deux diamètres, $\widehat{EBC}=70°$, et la droite $(AD)$ coupe $[CE]$ en son milieu $M$.

@@ -3,7 +3,7 @@ uid: "0000219"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Etude de fonctions"
+chapter: "Etude de Fonctions"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 14"
 title: "Fonction homographique et deux tangentes parallèles"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["fonction-homographique", "asymptotes", "tangente", "tableau-de-variations", "courbe"]
+tags: ["etude-de-fonction", "tangentes-paralleles", "derivation"]
+dressing: "homographique et tangentes parallèles"
+rung: 1
 ---
 
 Soit la fonction $f$ définie par $f(x) = \dfrac{2x + 5}{x + 2}$.

@@ -3,7 +3,7 @@ uid: "0000225"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Thalès : calculer des longueurs"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["thales", "calcul-de-longueurs", "papillon", "reciproque", "parallelisme"]
+tags: ["thales", "calcul-de-longueurs", "droites-paralleles", "proportionnalite"]
 provenance: own
+dressing: "calculs de longueurs directs"
+rung: 1
 ---
 
 Dans chaque cas, calculer les longueurs demandées (les figures ne sont pas à l'échelle).

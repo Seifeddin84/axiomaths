@@ -3,7 +3,7 @@ uid: "0000103"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Suite géométrique et somme"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2022
 professor: "M. Rjiba Zied"
 difficulty: "Facile"
 points: null
-tags: ["suite-geometrique", "somme"]
+tags: ["suite-geometrique", "raison", "somme-de-termes"]
+dressing: "raison et somme d'une suite géométrique"
+rung: 1
 ---
 
 Soit $(v_n)$ une suite géométrique tels que $v_5 = -160$ et $v_{10} = 5120$.

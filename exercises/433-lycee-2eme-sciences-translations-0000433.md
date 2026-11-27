@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "alignement", "milieu", "coordonnees", "vecteurs"]
+tags: ["translation", "alignement", "milieu", "conservation", "coordonnees"]
 provenance: own
-dressing: "alignement et milieu conservés"
-rung: 2
+dressing: "conservation de l'alignement et du milieu"
+rung: 3
 ---
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. Soit $t$ la translation de vecteur $\vec{u} \begin{pmatrix} 1 \\ -2 \end{pmatrix}$. On considère les points $A(-1, 1)$, $B(3, 3)$ et $C(7, 5)$, et on note $A'$, $B'$, $C'$ leurs images par $t$.
 

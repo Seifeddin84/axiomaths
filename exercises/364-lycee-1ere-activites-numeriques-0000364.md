@@ -3,7 +3,7 @@ uid: "0000364"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Racines irrationnelles"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["racines-carrees", "irrationalite", "raisonnement-par-l-absurde", "parite"]
+tags: ["irrationalite", "racines-carrees", "nombres-rationnels"]
 provenance: "own"
+dressing: "racines irrationnelles par l'absurde"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

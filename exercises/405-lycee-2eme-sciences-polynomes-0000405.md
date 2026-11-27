@@ -3,7 +3,7 @@ uid: "0000405"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Égalité de deux polynômes : trois identifications"
 country: "Tunisie"
@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["polynomes", "identification", "egalite-de-polynomes", "factorisation", "fraction"]
+tags: ["polynomes", "identification", "developpement"]
 provenance: own
-dressing: "identification : changement de variable, fraction, produit"
+dressing: "identifier les coefficients"
 rung: 1
 ---
 1. Déterminer les réels $a$, $b$ et $c$ tels que, pour tout réel $x$ :

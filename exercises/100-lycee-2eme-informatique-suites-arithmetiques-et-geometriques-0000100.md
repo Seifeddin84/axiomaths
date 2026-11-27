@@ -3,7 +3,7 @@ uid: "0000100"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Lycée secondaire cité Erriadh Sousse"
 title: "Modélisation avec une suite arithmétique"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2022
 professor: "M. Rjiba Zied"
 difficulty: "Moyen"
 points: null
-tags: ["suite-arithmetique", "modelisation", "somme"]
+tags: ["suite-arithmetique", "modelisation", "somme-de-termes", "probleme-concret"]
+dressing: "modélisation : gradins d'un amphithéâtre"
+rung: 2
 ---
 
 Une partie de l'arène d'un amphithéâtre romain est entourée de gradins. Le nombre de places par rangée constitue une suite arithmétique notée $(u_n)$. Sur la première rangée, on a estimé qu'il y avait $200$ places.

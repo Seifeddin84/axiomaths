@@ -3,7 +3,7 @@ uid: "0000118"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités algébriques"
+chapter: "Activités Algébriques"
 source: "Axiomaths"
 title: "Identités remarquables, radicaux et factorisation"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["identites-remarquables", "radicaux", "factorisation", "inequation"]
+tags: ["identites-remarquables", "radicaux", "factorisation", "inegalites"]
+dressing: "radicaux imbriqués et factorisation"
+rung: 2
 ---
 1. a. Développer $(\sqrt{3} - 1)^2$ et $(\sqrt{3} - 1)^3$.
 

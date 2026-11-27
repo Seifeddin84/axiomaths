@@ -11,9 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["trigonometrie", "sinus", "triple-angle", "formules-d-addition"]
+tags: ["trigonometrie", "triple-angle", "identites-trigonometriques", "demonstration"]
 provenance: own
 idea: "triple-angle"
+dressing: "identité du triple angle"
 rung: 1
 ---
 1. Montrer que pour tout réel $x$ :

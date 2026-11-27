@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["barycentre", "deux-points", "construction", "homogeneite"]
+tags: ["barycentre", "construction", "points-ponderes", "deux-points"]
+dressing: "construire un barycentre de deux points"
+rung: 1
 ---
 
 Soient $A$ et $B$ deux points du plan tels que $AB = 6$ cm.

@@ -1,5 +1,5 @@
 ---
-uid: "0000440"
+uid: "0000107"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
@@ -11,7 +11,7 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["translation", "chemin-le-plus-court", "inegalite-triangulaire", "distance", "coordonnees"]
+tags: ["translation", "inegalite-triangulaire", "distance", "coordonnees"]
 recommended: true
 provenance: adapted
 adapted_from: "Problème classique du « pont sur la rivière » (chemin minimal avec une translation)"
@@ -22,7 +22,7 @@ Le plan est muni d'un repère orthonormé $(O, \vec{i}, \vec{j})$ (unité : le k
 
 On veut construire un pont **perpendiculaire** aux rives, reliant un point $M(x, 4)$ de la rive nord à un point $N(x, 1)$ de la rive sud. Le trajet est $A \to M \to N \to B$ ; sa longueur est $AM + MN + NB$.
 
-![Les deux rives, les villages A et B et un pont MN](/exercises/images/440-lycee-2eme-sciences-translations-0000440.png)
+![Les deux rives, les villages A et B et un pont MN](/exercises/images/107-lycee-2eme-sciences-translations-0000107.png)
 
 1. Calculer $MN$. Exprimer la longueur $L(x)$ du trajet en fonction de $x$. Calculer $L(0)$ et $L(8)$.
 
@@ -42,7 +42,7 @@ On veut construire un pont **perpendiculaire** aux rives, reliant un point $M(x,
 
 ## Solution
 
-![Solution : le pont MN est placé de sorte que A', N et B soient alignés](/exercises/images/440-lycee-2eme-sciences-translations-0000440-2.png)
+![Solution : le pont MN est placé de sorte que A', N et B soient alignés](/exercises/images/107-lycee-2eme-sciences-translations-0000107-2.png)
 
 :::property[Inégalité triangulaire]
 Pour trois points $P$, $Q$, $R$ :

@@ -11,7 +11,9 @@ year: 2025
 professor: "Ayari Lassaad"
 difficulty: "Facile"
 points: 4
-tags: ["vecteurs", "calcul algébrique", "vrai ou faux", "égalité vectorielle"]
+tags: ["vrai-faux", "vecteurs", "egalite-vectorielle", "parallelogramme", "milieu"]
+dressing: "vrai-faux sur les égalités vectorielles"
+rung: 4
 ---
 
 Répondre par Vrai ou Faux (V-F) :

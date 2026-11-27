@@ -4,7 +4,7 @@ slug: "lycee-4eme-maths-deplacements-antideplacements"
 school: "lycee"
 level: "4eme"
 sections: ["Mathématiques"]
-chapter: "Déplacements - Antidéplacements"
+chapter: "Déplacements – Antidéplacements"
 summary: "Les isométries se rangent en deux familles : celles qui gardent le sens de rotation (identité, translations, rotations) et celles qui le renversent (symétries orthogonales et glissantes). On en tire l'angle d'un déplacement, la composée de deux rotations, la détermination par deux points et les écritures complexes z' = az + b et z' = a z barre + b avec a de module 1."
 prerequisites: ["Isométries du plan", "Rotations et translations", "Nombres complexes (module, argument)", "Angles orientés"]
 source: "Manuel officiel 4ème année Mathématiques, chapitre « Déplacements - Antidéplacements »"

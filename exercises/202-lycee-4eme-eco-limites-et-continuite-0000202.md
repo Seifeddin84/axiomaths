@@ -3,7 +3,7 @@ uid: "0000202"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 1 — Limites (Bac Économie et Gestion), Ex. 5"
 title: "Fonction définie par morceaux : limites en l'infini et en 2"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["limites", "fonction-definie-par-morceaux", "racine-carree", "limite-a-gauche-et-a-droite", "continuite"]
+tags: ["limites", "fonction-par-morceaux", "limites-laterales"]
+dressing: "fonction par morceaux"
+rung: 2
 ---
 
 Soit la fonction $f$ définie par le système suivant :

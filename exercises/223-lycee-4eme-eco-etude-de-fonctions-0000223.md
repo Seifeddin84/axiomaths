@@ -3,7 +3,7 @@ uid: "0000223"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Etude de fonctions"
+chapter: "Etude de Fonctions"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 19"
 title: "Polynôme auxiliaire et étude de f(x) = x − 2/(x² + 1)"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["polynome-auxiliaire", "fonction-rationnelle", "asymptote-oblique", "tableau-de-variations", "theoreme-des-valeurs-intermediaires"]
+tags: ["etude-de-fonction", "asymptote-oblique", "derivation"]
+dressing: "polynôme auxiliaire puis étude de f"
+rung: 3
 ---
 
 1. Soit le polynôme $P$ défini sur $\mathbb{R}$ par $P(x) = x^3 - x^2 + 3x + 1$.

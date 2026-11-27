@@ -3,7 +3,7 @@ uid: "0000196"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 1 — Limites (Bac Économie et Gestion), Ex. 1 (limites 1 à 11)"
 title: "Limites de base : polynômes, inverses et racine"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["limites", "limites-usuelles", "operations-sur-les-limites", "forme-indeterminee", "limite-a-droite"]
+tags: ["limites", "polynomes", "fonctions-de-reference"]
+dressing: "limites de base"
+rung: 1
 ---
 
 Calculer les limites suivantes :

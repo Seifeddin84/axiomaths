@@ -3,7 +3,7 @@ uid: "0000209"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 6"
 title: "Deux paramètres a et b : continuité en −1 et en 2"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["continuite", "parametre", "fonction-definie-par-morceaux", "systeme-lineaire"]
+tags: ["continuite", "parametre", "systeme", "fonction-par-morceaux", "raccordement"]
+dressing: "deux paramètres et deux points de raccord"
+rung: 3
 ---
 
 Soit la fonction $f$ définie par :

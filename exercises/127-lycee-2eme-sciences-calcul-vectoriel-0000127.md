@@ -3,7 +3,7 @@ uid: "0000127"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Calcul vectoriel"
+chapter: "Calcul Vectoriel"
 source: "Axiomaths"
 title: "Alignement de trois points dans un triangle"
 country: "Tunisie"
@@ -12,6 +12,8 @@ professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
 tags: ["vecteurs", "colinearite", "alignement", "base", "determinant"]
+dressing: "alignement dans un triangle avec une base"
+rung: 3
 ---
 Soit $ABC$ un triangle. On note :
 

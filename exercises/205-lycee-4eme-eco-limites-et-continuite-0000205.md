@@ -3,7 +3,7 @@ uid: "0000205"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 2"
 title: "Domaine et continuité d'une racine et d'une valeur absolue"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["continuite", "domaine-de-definition", "racine-carree", "valeur-absolue", "fonction-composee"]
+tags: ["continuite", "domaine-de-definition", "racines-carrees", "valeur-absolue"]
+dressing: "domaine et continuité"
+rung: 1
 ---
 
 Soient $f(x) = \sqrt{2x^2 - 3x + 1}$ et $g(x) = |2x - 1|$.

@@ -11,8 +11,10 @@ year: 1989
 professor: null
 difficulty: "Difficile"
 points: null
-tags: ["bac", "fonction-exponentielle", "suite-d-integrales", "derivees-successives", "recurrence", "equation-differentielle"]
+tags: ["exponentielle", "etude-de-fonction", "suites-d-integrales", "bac"]
 bac: "1989-controle-maths"
+dressing: "e^(-x)/x : intégrales et dérivées successives"
+rung: 5
 ---
 
 Soit $f$ la fonction numérique définie sur $\mathbb{R}^*$ par $f(x) = \dfrac{e^{-x}}{x}$.

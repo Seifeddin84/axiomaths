@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["translation", "image-de-droite", "image-de-segment", "demi-droite", "parallelogramme"]
+tags: ["translation", "parallelogramme", "droites"]
 provenance: own
-dressing: "images de droites, segments et demi-droites dans un parallélogramme"
+dressing: "images de droites, segments et demi-droites"
 rung: 2
 ---
 Soit $ABCD$ un parallélogramme. Faire une figure, puis déterminer, en justifiant :

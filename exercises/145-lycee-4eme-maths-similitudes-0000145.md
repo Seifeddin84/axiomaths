@@ -11,8 +11,10 @@ year: 1990
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "similitude-directe", "homothetie", "rotation", "image-d-une-droite"]
+tags: ["similitude-directe", "homothetie", "rotation", "nombres-complexes", "bac"]
 bac: "1990-controle-maths"
+dressing: "similitude décomposée en homothétie et rotation"
+rung: 2
 ---
 
 Le plan $P$ est rapporté à un repère orthonormé direct $(O, \vec{u}, \vec{v})$.

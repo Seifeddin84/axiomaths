@@ -3,7 +3,7 @@ uid: "0000039"
 school: "lycee"
 level: "3eme"
 section: "Sciences Expérimentales"
-chapter: "Nombre dérivé et Fonction dérivée"
+chapter: "Nombre Dérivé et Fonction Dérivée"
 source: "Lycée Pilote Kebili - Devoir de contrôle n°2"
 schoolType: "pilote"
 title: "Lecture graphique et étude de fonctions"
@@ -12,7 +12,9 @@ year: 2026
 professor: "Ammar Bouajila"
 difficulty: "Difficile"
 points: 7
-tags: ["lecture graphique", "limite", "dérivation", "tangente", "approximation affine"]
+tags: ["lecture-graphique", "limites", "derivation", "tangente"]
+dressing: "lecture graphique puis étude de fonction"
+rung: 3
 ---
 
 **A.** On a représenté dans un plan rapporté à un repère orthonormé la courbe $(C)$ d'une fonction $f$ définie et dérivable sur $\mathbb{R}$. On sait que $f(0) = -\dfrac{4}{9}$.

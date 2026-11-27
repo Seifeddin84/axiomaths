@@ -3,7 +3,7 @@ uid: "0000227"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Une cévienne et une médiane"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "cevienne", "mediane", "rapports"]
+tags: ["thales", "mediane", "milieux", "droites-paralleles"]
 provenance: own
+dressing: "céviennes et médiane dans un triangle"
+rung: 3
 ---
 
 Soit $ABC$ un triangle, $M$ le milieu de $[BC]$, $P\in[AB]$ et $E\in[AC]$ tels que $AP=\dfrac13AB$ et $AE=\dfrac13AC$. La droite $(CP)$ coupe $(AM)$ en $Q$.

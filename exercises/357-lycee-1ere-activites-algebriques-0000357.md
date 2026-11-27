@@ -3,7 +3,7 @@ uid: "0000357"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités algébriques"
+chapter: "Activités Algébriques"
 source: "Axiomaths"
 title: "Factoriser n⁴ + 4"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["factorisation", "identites-remarquables", "nombres-premiers", "sophie-germain"]
+tags: ["factorisation", "identite-de-sophie-germain", "identites-remarquables", "arithmetique"]
 provenance: "own"
+dressing: "factoriser x⁴+4y⁴ et nombres composés"
+rung: 5
 batch: "2026-11-22-revision-1ere-A"
 ---
 

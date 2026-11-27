@@ -11,7 +11,9 @@ year: 2024
 professor: "مراد الفاهم"
 difficulty: "Moyen"
 points: 3
-tags: ["arithmetique", "geometrie", "qcm"]
+tags: ["qcm", "arithmetique", "geometrie"]
+dressing: "QCM d'examen blanc"
+rung: 4
 ---
 
 يلي كل سؤال ثلاث إجابات، إحداها فقط صحيحة. أنقل، في كل مرة، على ورقة تحريرك رقم السؤال والإجابة الصحيحة الموافقة له.

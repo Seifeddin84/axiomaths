@@ -3,7 +3,7 @@ uid: "0000344"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Lycée Farhat Hached Makthar : série d'exercices n°1 (2019-2020)"
 title: "PGCD, fraction irréductible et nombre décimal"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2019
 professor: "M. Ghorbeli Med Hedi"
 difficulty: "Facile"
 points: null
-tags: ["pgcd", "fraction-irreductible", "nombre-decimal", "arrondi"]
+tags: ["arithmetique", "pgcd", "fractions-irreductibles"]
 provenance: scan
+dressing: "PGCD et fraction irréductible"
+rung: 1
 ---
 
 1. Calculer $\mathrm{PGCD}(630\,;\,3300)$, puis mettre sous forme irréductible la fraction $a=\dfrac{630}{3300}$.

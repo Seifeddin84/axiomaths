@@ -11,7 +11,9 @@ year: 2025
 professor: "Ayari Lassaad"
 difficulty: "Moyen"
 points: 9
-tags: ["vecteurs", "géométrie", "alignement", "milieu", "parallélogramme"]
+tags: ["vecteurs", "parallelogramme", "milieu", "alignement", "construction"]
+dressing: "configuration vectorielle dans un parallélogramme"
+rung: 3
 ---
 
 Soit $ABCD$ un parallélogramme.

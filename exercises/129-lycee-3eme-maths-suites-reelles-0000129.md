@@ -3,7 +3,7 @@ uid: "0000129"
 school: "lycee"
 level: "3eme"
 section: "Mathématiques"
-chapter: "Suites réelles"
+chapter: "Suites Réelles"
 source: "Axiomaths"
 title: "Suite homographique et somme télescopique"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["suites-reelles", "recurrence", "suite-arithmetique", "somme-telescopique", "inegalite"]
+tags: ["suites-reelles", "suite-homographique", "suite-arithmetique", "somme-telescopique", "recurrence"]
+dressing: "homographique et somme télescopique"
+rung: 3
 ---
 Soit $(u_n)$ la suite définie sur $\mathbb{N}$ par : $u_0 = 1$ et pour tout $n \in \mathbb{N}$, $u_{n+1} = \dfrac{u_n}{1 + u_n}$.
 

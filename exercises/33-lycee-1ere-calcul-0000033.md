@@ -11,7 +11,9 @@ year: 2025
 professor: "Ayari Lassaad"
 difficulty: "Moyen"
 points: 7
-tags: ["calcul littéral", "factorisation", "polynômes", "fraction rationnelle"]
+tags: ["factorisation", "calcul-litteral", "identites-remarquables", "fractions-rationnelles"]
+dressing: "factorisation d'un degré 3 et simplification"
+rung: 2
 ---
 
 $x$ étant un réel.

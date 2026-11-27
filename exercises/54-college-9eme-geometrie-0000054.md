@@ -11,7 +11,9 @@ year: 2024
 professor: null
 difficulty: "Difficile"
 points: 6
-tags: ["geometrie", "triangle-rectangle", "cercle", "theoreme-de-thales"]
+tags: ["triangle-rectangle", "cercle", "thales", "relations-metriques", "theoreme-de-pythagore"]
+dressing: "figure avec le cercle de diamètre [AB]"
+rung: 3
 ---
 
 

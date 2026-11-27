@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["الفراشة", "التناظر-المركزي", "قطر", "مستطيل"]
+tags: ["theoreme-du-papillon", "symetrie-centrale", "cercle"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "symetrie-centrale"
-rung: 1
+dressing: "papillon par la symétrie centrale"
+rung: 3
 ---
 نعتبر دائرة $(\mathcal C)$ مركزها $O$ و $[PQ]$ و $[AB]$ و $[CD]$ ثلاثة أقطار مختلفة فيها. ليكن $X$ نقطة تقاطع $(AD)$ و $(PQ)$، و $Y$ نقطة تقاطع $(BC)$ و $(PQ)$.
 

@@ -3,7 +3,7 @@ uid: "0000081"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Encadrements logarithmiques et limites de suites"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "suites-reelles", "inegalites", "theoreme-des-gendarmes"]
+tags: ["logarithme-neperien", "encadrement", "inegalites", "limites-de-suites", "theoreme-des-gendarmes"]
+dressing: "encadrements de ln pour des limites de suites"
+rung: 3
 ---
 
 1. Démontrer que, pour tout réel $x > 0$ ;

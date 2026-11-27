@@ -3,7 +3,7 @@ uid: "0000125"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 source: "Axiomaths"
 title: "Équation à paramètre, bicarrée et irrationnelle"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["second-degre", "parametre", "equation-bicarree", "equation-irrationnelle", "systeme"]
+tags: ["second-degre", "parametre", "equation-bicarree", "equations-irrationnelles", "discussion"]
+dressing: "paramètre, bicarrée et irrationnelle"
+rung: 3
 ---
 Soit $m$ un réel. On considère l'équation $(E_m) : (m - 1)x^2 - 2mx + m + 2 = 0$.
 

@@ -11,7 +11,9 @@ year: 2025
 professor: "Ben Hammouda"
 difficulty: "Moyen"
 points: 7
-tags: ["développement", "factorisation", "équations", "valeur-absolue"]
+tags: ["calcul-litteral", "developpement", "factorisation", "equations", "valeur-absolue"]
+dressing: "expressions à développer et factoriser puis équations"
+rung: 3
 ---
 
 On considère les deux expressions suivantes $A(x) = (x+2)^3 - 6(x+1)^2 - 5x$ et $B(x) = 6\left[ \left(x - \frac{17}{12}\right)^2 - \frac{49}{144} \right]$

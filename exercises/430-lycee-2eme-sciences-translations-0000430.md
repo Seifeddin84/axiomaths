@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "propriete-caracteristique", "relation-de-chasles", "vecteurs-egaux", "demonstration"]
+tags: ["translation", "vecteurs", "demonstration"]
 provenance: adapted
 adapted_from: "Manuel 2ème année, Tome 1, chapitre 7 (activité sur la propriété caractéristique), reformulée en questions guidées"
-dressing: "démonstration guidée avec la relation de Chasles"
+dressing: "propriété caractéristique d'une translation"
 rung: 3
 ---
 Soit $\vec{u}$ un vecteur, $t$ la translation de vecteur $\vec{u}$, et soient $M$ et $N$ deux points du plan d'images respectives $M'$ et $N'$ par $t$.

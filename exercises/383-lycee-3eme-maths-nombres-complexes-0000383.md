@@ -3,7 +3,7 @@ uid: "0000383"
 school: "lycee"
 level: "3eme"
 section: "Mathématiques"
-chapter: "Nombres complexes"
+chapter: "Nombres Complexes"
 source: "Axiomaths"
 title: "Droite de Simson, droite de Steiner"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["simson", "steiner", "nombres-complexes", "cercle-unite", "orthocentre"]
+tags: ["nombres-complexes", "droite-de-simson", "droite-de-steiner", "cercle-unite", "geometrie-complexe", "defi"]
 provenance: "adapted"
+dressing: "Simson et Steiner dans le plan complexe"
+rung: 5
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

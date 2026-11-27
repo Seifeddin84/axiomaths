@@ -3,7 +3,7 @@ uid: "0000122"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "Factorisation d'un polynôme de degré 3"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["polynomes", "racine", "factorisation", "signe", "valeur-absolue"]
+tags: ["polynomes", "racine", "factorisation", "signe", "inequation", "valeur-absolue"]
+dressing: "factorisation, signe et valeur absolue"
+rung: 2
 ---
 Soit $P$ le polynôme défini par : $P(x) = 2x^3 - 3x^2 - 11x + 6$.
 

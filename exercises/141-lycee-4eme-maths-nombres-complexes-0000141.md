@@ -11,8 +11,10 @@ year: 1990
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "equation-troisieme-degre", "forme-trigonometrique", "losange"]
+tags: ["nombres-complexes", "equation-troisieme-degre", "forme-trigonometrique", "losange", "geometrie-complexe", "bac"]
 bac: "1990-principale-maths"
+dressing: "équation de degré 3 et losange"
+rung: 3
 ---
 
 Pour tout nombre complexe $z$ on pose : $f(z) = z^3 + 2\left(-\sqrt{3} + i\right) z^2 + 4\left(1 - i\sqrt{3}\right) z + 8i$.

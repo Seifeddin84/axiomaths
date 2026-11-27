@@ -3,7 +3,7 @@ uid: "0000203"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 1 — Limites (Bac Économie et Gestion), Ex. 6"
 title: "Lecture graphique de limites : asymptotes en 1, en 2 et en l'infini"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["limites", "lecture-graphique", "asymptote-verticale", "asymptote-horizontale"]
+tags: ["limites", "lecture-graphique", "asymptotes"]
+dressing: "lire les limites sur un graphique"
+rung: 1
 ---
 
 On donne ci-dessous la courbe représentative d'une fonction $f$ ; les droites en pointillés sont les droites d'équations $x = 1$ et $x = 2$.

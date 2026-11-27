@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["statistiques", "classes", "classe-modale", "moyenne"]
+tags: ["statistiques", "serie-groupee", "classes", "moyenne", "mediane"]
 provenance: "own"
+dressing: "achats par classes de montants"
+rung: 1
 batch: "2026-11-19-3eco-statistiques-n5"
 ---
 

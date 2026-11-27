@@ -3,7 +3,7 @@ uid: "0000217"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Etude de fonctions"
+chapter: "Etude de Fonctions"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 12"
 title: "Fonction rationnelle, asymptote verticale et asymptote oblique"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Moyen"
 points: null
-tags: ["fonction-rationnelle", "asymptote-oblique", "asymptote-verticale", "tableau-de-variations", "theoreme-des-valeurs-intermediaires"]
+tags: ["etude-de-fonction", "fonction-rationnelle", "asymptote-oblique", "derivation"]
+dressing: "rationnelle avec asymptote oblique"
+rung: 2
 ---
 
 Soit la fonction $f$ définie sur $]-\infty, 1[ \cup ]1, +\infty[$ par $f(x) = \dfrac{2x^3 + 2x^2 - 10x + 11}{2(x - 1)^2}$.

@@ -11,9 +11,11 @@ year: 2001
 professor: null
 difficulty: "Difficile"
 points: 10
-tags: ["bac", "wallis", "integrales", "fonction-reciproque", "integration-par-parties", "suites", "exponentielle"]
+tags: ["integrales", "suites-d-integrales", "integrales-de-wallis", "exponentielle", "etude-de-fonction", "bac"]
 bac: "2001-principale-maths"
 recommended: true
+dressing: "intégrales de 1/chⁿ et produit de Wallis"
+rung: 5
 ---
 
 ### Partie I

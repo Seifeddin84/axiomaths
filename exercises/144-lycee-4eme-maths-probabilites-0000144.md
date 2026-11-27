@@ -11,8 +11,10 @@ year: 1990
 professor: null
 difficulty: "Facile"
 points: 4
-tags: ["bac", "de-truque", "loi-binomiale", "epreuves-repetees"]
+tags: ["probabilites", "loi-binomiale", "epreuves-repetees", "bac"]
 bac: "1990-controle-maths"
+dressing: "dé truqué lancé trois fois"
+rung: 2
 ---
 
 On lance un dé cubique dont les faces sont numérotées de $1$ à $6$. Ce dé est truqué de façon qu'à chaque jet la probabilité d'obtenir un nombre pair soit égale au double de celle d'obtenir un nombre impair.

@@ -11,8 +11,10 @@ year: 2015
 professor: "M. Béchir Zdiri"
 difficulty: "Moyen"
 points: null
-tags: ["triangle-inscrit", "angle-inscrit", "angle-au-centre", "quadrilatere-inscrit", "triangle-equilateral"]
+tags: ["angles", "triangle-inscrit", "angle-au-centre", "cercle"]
 provenance: scan
+dressing: "triangle inscrit et angles au centre"
+rung: 2
 ---
 
 Dans la figure ci-contre, $ABC$ est un triangle inscrit dans le cercle de centre $O$ tel que $\widehat{OAB}=30°$ et $\widehat{AOC}=120°$.

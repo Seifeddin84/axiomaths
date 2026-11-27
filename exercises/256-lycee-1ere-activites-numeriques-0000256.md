@@ -3,20 +3,22 @@ uid: "0000256"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Vietnam : High School for Gifted Students (HNUE), Second Entrance Mock test (test blanc), 13/04/2025 (adapté)"
 title: "Sous la racine, un carré caché"
 country: "Tunisie"
 year: 2026
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: null
-tags: ["radicaux", "denestage", "carre-cache", "defi"]
+tags: ["racines-carrees", "identites", "entiers"]
 provenance: adapted
 source_url: "https://artofproblemsolving.com/community/c6h3547577_vietnam_mock_test"
 adapted_from: "inspiré de ce test blanc HNUE (13/04/2025) ; problème exact non confirmé, énoncé et chiffres Axiomaths"
 source_checked: true
 idea: "carre-cache"
+dressing: "une racine toujours entière"
+rung: 3
 ---
 
 Pour tout entier $n\geq1$, on pose $A_n=n^2+(n+1)^2+n^2(n+1)^2$.

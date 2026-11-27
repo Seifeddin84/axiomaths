@@ -3,7 +3,7 @@ uid: "0000229"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "La bissectrice et Thalès"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "bissectrice", "rapports", "angles"]
+tags: ["thales", "bissectrice", "theoreme-de-la-bissectrice", "proportionnalite", "droites-paralleles"]
 provenance: own
+dressing: "démontrer le théorème de la bissectrice avec Thalès"
+rung: 5
 ---
 
 Soit $ABC$ un triangle et $D\in[BC]$ le pied de la bissectrice de $\widehat{BAC}$. La parallèle à $(AD)$ passant par $C$ coupe la droite $(AB)$ en $E$ ; on admet que $A$ est entre $B$ et $E$.

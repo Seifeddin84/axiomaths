@@ -4,14 +4,18 @@ school: "lycee"
 level: "4eme"
 section: "Mathématiques"
 chapter: "Intégrales"
-source: "Série d'exercices — Intégrales (Exercice N°11)"
+source: "Axiomaths"
 title: "Suite d'intégrales et logarithme : encadrement et limite"
 country: "Tunisie"
-year: null
-professor: null
+year: 2026
+professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["integrales", "integration-par-parties", "suites-reelles", "encadrement", "logarithme-neperien"]
+tags: ["suites-d-integrales", "integrales", "integration-par-parties", "encadrement", "logarithme-neperien", "limites-de-suites"]
+provenance: adapted
+adapted_from: "Série d'exercices — Intégrales (Exercice N°11)"
+dressing: "suite d'intégrales avec ln : encadrement et limite"
+rung: 3
 ---
 
 On considère la suite $(U_n)_{n \in \mathbb{N}^*}$ définie sur $\mathbb{N}^*$ par : $U_n = \displaystyle\int_1^2 (x-1)^n \ln x \, dx$.

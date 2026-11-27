@@ -3,7 +3,7 @@ uid: "0000180"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Les graphes"
+chapter: "Les Graphes"
 source: "Série 10 — Graphes (Bac Économie et Gestion)"
 title: "Vocabulaire des graphes"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["graphes", "vocabulaire", "definitions", "nombre-chromatique", "chaine-eulerienne"]
+tags: ["graphes", "definitions", "degre"]
+dressing: "vocabulaire du cours"
+rung: 1
 ---
 
 Définir les termes suivants :

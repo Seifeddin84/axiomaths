@@ -3,7 +3,7 @@ uid: "0000207"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Limites et continuité"
+chapter: "Limites et Continuité"
 source: "Série 2 — Continuité - Dérivabilité (Bac Économie et Gestion), Ex. 4"
 title: "Continuité sur un intervalle : raccordement de deux morceaux"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["continuite", "continuite-sur-un-intervalle", "fonction-definie-par-morceaux", "raccordement"]
+tags: ["continuite", "fonction-par-morceaux", "raccordement"]
+dressing: "raccordement de deux morceaux"
+rung: 2
 ---
 
 Étudier dans chaque cas la continuité de la fonction $f$ sur l'intervalle $I$.

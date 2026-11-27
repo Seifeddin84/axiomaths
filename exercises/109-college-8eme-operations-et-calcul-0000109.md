@@ -11,7 +11,9 @@ year: 2023
 professor: null
 difficulty: "Moyen"
 points: 5
-tags: ["calcul-litteral", "simplification", "valeur-numerique"]
+tags: ["calcul-litteral", "puissances", "simplification", "valeur-numerique"]
+dressing: "simplifier une expression à exposants"
+rung: 2
 ---
 
 نعتبر $E = \frac{(-2ab^2)^3 a^2 b^{-1}}{4a^{-1}b}$ حيث $a$ و $b$ عددان كسريان نسبيان مخالفان للصفر.

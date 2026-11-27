@@ -3,7 +3,7 @@ uid: "0000091"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Fonction exponentielle et logarithme associées"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "exponentielle", "integration", "calcul-aire"]
+tags: ["logarithme-neperien", "exponentielle", "integrales", "fonction-reciproque"]
+dressing: "fonction exponentielle et logarithme associées"
+rung: 3
 ---
 
 1. On considère la fonction $g$ définie sur $]0, +\infty[$ par : $g(x) = -\ln x + \dfrac{1}{x}$.

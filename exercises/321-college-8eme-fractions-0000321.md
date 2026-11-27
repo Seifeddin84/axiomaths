@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["fractions", "partage", "probleme", "chameaux"]
+tags: ["fractions", "partage", "arithmetique"]
+dressing: "le partage des chameaux"
+rung: 5
 ---
 
 توفي رجل وترك $17$ جملا، وأوصى أن يأخذ ابنه الأكبر $\dfrac{1}{2}$ القطيع وابنه الأوسط $\dfrac{1}{3}$ القطيع وابنه الأصغر $\dfrac{1}{9}$ القطيع.

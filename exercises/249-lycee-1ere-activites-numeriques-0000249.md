@@ -3,7 +3,7 @@ uid: "0000249"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Synthèse : intervalles, valeur absolue et paramètre"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["intervalles", "valeur-absolue", "parametre", "inequations", "synthese"]
+tags: ["valeur-absolue", "parametre", "inequations", "ensembles-de-points"]
 provenance: own
+dressing: "synthèse : intervalles, valeur absolue et paramètre"
+rung: 5
 ---
 
 On pose $A=\{x\in\mathbb{R}\ :\ |x-1|\le2\}$ et $B=\{x\in\mathbb{R}\ :\ |2x+1|>3\}$.

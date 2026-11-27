@@ -3,7 +3,7 @@ uid: "0000084"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Fonction logarithme népérien"
+chapter: "Fonction Logarithme Népérien"
 source: "Douma Ali"
 title: "Étude de fonction et calcul d'aire"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "Douma Ali"
 difficulty: "Difficile"
 points: null
-tags: ["logarithme-neperien", "etude-de-fonctions", "branche-parabolique", "calcul-aire"]
+tags: ["logarithme-neperien", "etude-de-fonction", "branche-parabolique", "aire", "fonction-auxiliaire"]
+dressing: "fonction auxiliaire g puis étude et aire"
+rung: 3
 ---
 
 **I)** Soit la fonction $g$ définie sur $]0, +\infty[$ par $g(x) = x - \dfrac{1}{x} - 2\ln x$

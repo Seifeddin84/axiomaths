@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["hyperbole-equilatere", "orthocentre", "cercle-d-euler", "coordonnees"]
+tags: ["hyperbole", "coniques", "orthocentre", "triangle", "defi"]
 provenance: "adapted"
+dressing: "hyperbole passant par l'orthocentre"
+rung: 5
 batch: "2026-11-20-defis-geometrie-A"
 defi: true
 ---

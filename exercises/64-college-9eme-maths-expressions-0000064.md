@@ -11,7 +11,9 @@ year: 2024
 professor: "مراد الفاهم"
 difficulty: "Moyen"
 points: 4
-tags: ["calcul-algebrique", "thales", "geometrie"]
+tags: ["calcul-algebrique", "identites-remarquables", "thales", "factorisation"]
+dressing: "calcul algébrique et Thalès"
+rung: 3
 ---
 
 لتكن العبارة: $P = x^2 - 4x + 1 - 2\sqrt{2}$ حيث $x \in \mathbb{R}$

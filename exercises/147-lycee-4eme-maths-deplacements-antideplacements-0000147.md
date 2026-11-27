@@ -3,7 +3,7 @@ uid: "0000147"
 school: "lycee"
 level: "4eme"
 section: "Mathématiques"
-chapter: "Déplacements - Antidéplacements"
+chapter: "Déplacements – Antidéplacements"
 source: "Bac 1991 principale, Ex. 1"
 title: "Triangle équilatéral, cercles tangents et composée de rotations"
 country: "Tunisie"
@@ -11,9 +11,11 @@ year: 1991
 professor: null
 difficulty: "Difficile"
 points: 6
-tags: ["bac", "rotation", "composee-de-rotations", "triangle-equilateral", "lieu-geometrique"]
+tags: ["rotation", "triangle-equilateral", "cercles-tangents", "deplacements", "bac"]
 bac: "1991-principale-maths"
 recommended: true
+dressing: "composée de rotations dans un triangle équilatéral"
+rung: 5
 ---
 
 On considère, dans un plan orienté, un triangle équilatéral $ABC$ tel que $\left(\widehat{\overrightarrow{AB}, \overrightarrow{AC}}\right) \equiv \dfrac{\pi}{3}\ [2\pi]$ et le cercle $(\mathcal{C})$ circonscrit à ce triangle. On construit les cercles $(\mathcal{C}')$ et $(\mathcal{C}'')$ de même rayon, de centres respectifs $B$ et $C$ et tangents extérieurement l'un à l'autre.

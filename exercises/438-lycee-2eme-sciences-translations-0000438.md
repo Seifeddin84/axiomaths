@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "centre-de-gravite", "milieu", "coordonnees", "barycentre"]
+tags: ["translation", "milieu", "centre-de-gravite", "coordonnees", "images"]
 provenance: own
-dressing: "centre de gravité et milieu transportés par une translation"
+dressing: "translation et centre de gravité en coordonnées"
 rung: 3
 ---
 Le plan est muni d'un repère $(O, \vec{i}, \vec{j})$. On considère les points $A(1, 1)$, $B(4, 2)$ et $C(2, 5)$ et la translation $t$ de vecteur $\vec{u} \begin{pmatrix} -2 \\ 3 \end{pmatrix}$. On note $A'$, $B'$, $C'$ les images de $A$, $B$, $C$.

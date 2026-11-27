@@ -12,6 +12,8 @@ professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
 tags: ["angle-inscrit", "angle-au-centre", "cercle", "tangente", "trigonometrie"]
+dressing: "angle inscrit, angle au centre et tangente"
+rung: 2
 ---
 Soit $(\mathscr{C})$ un cercle de centre $O$ et de rayon $4$ cm. $A$ et $B$ sont deux points de $(\mathscr{C})$ tels que $\widehat{AOB} = 120°$.
 

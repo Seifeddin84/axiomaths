@@ -3,7 +3,7 @@ uid: "0000228"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Câbles croisés"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "probleme-concret", "cables", "inverse"]
+tags: ["thales", "probleme-concret", "hauteur", "calcul-de-longueurs"]
 provenance: own
+dressing: "câbles croisés entre deux poteaux"
+rung: 3
 ---
 
 Deux poteaux verticaux $[AA']$ et $[BB']$, de hauteurs $12$ m et $4$ m, sont plantés sur un sol horizontal, avec $A'B'=8$ m. Un câble relie $A$ à $B'$, un autre relie $B$ à $A'$ ; ils se croisent en $P$. Soit $H$ le projeté orthogonal de $P$ sur $[A'B']$.

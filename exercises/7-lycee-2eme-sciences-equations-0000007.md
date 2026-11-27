@@ -3,7 +3,7 @@ uid: "0000007"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Problèmes du premier et du second degré"
+chapter: "Problèmes du Premier et du Second Degré"
 source: "Livre scolaire 1985"
 title: "Équations second degré avec paramètre réel"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 1985
 professor: null
 difficulty: "Difficile"
 points: 4
-tags: ["équation", "paramètre"]
+tags: ["equation-second-degre", "discriminant", "parametre", "discussion"]
+dressing: "discussion selon un paramètre réel"
+rung: 3
 ---
 
 Résoudre dans $\mathbb{R}$, selon le paramètre réel $m$, les équations suivantes: 

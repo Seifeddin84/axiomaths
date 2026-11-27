@@ -11,7 +11,9 @@ year: 2024
 professor: "Prof Karim"
 difficulty: "Difficile"
 points: 3.5
-tags: ["nombres-complexes", "equations", "geometrie-complexe"]
+tags: ["nombres-complexes", "equation-second-degre", "parametre", "alignement", "geometrie-complexe"]
+dressing: "équation à paramètre complexe et alignement"
+rung: 3
 ---
 
 Soit $m$ un paramètre complexe. On considère dans $\mathbb{C}$ l'équation :

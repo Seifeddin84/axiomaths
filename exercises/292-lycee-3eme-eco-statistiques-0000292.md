@@ -11,10 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["statistiques", "serie-double", "droite-de-mayer", "demande", "prevision", "interpretation"]
+tags: ["statistiques", "serie-double", "ajustement-affine", "prevision", "economie"]
 provenance: "own"
-dressing: "ajustement affine"
-rung: 3
+dressing: "prix et demande : ajustement et prévision"
+rung: 2
 batch: "2026-11-20-stat-3eco-A"
 ---
 

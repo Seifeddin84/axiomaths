@@ -3,7 +3,7 @@ uid: "0000273"
 school: "lycee"
 level: "3eme"
 section: "Mathématiques"
-chapter: "Produit scalaire dans le plan"
+chapter: "Produit Scalaire dans le Plan"
 source: "Axiomaths"
 title: "Le théorème du papillon en coordonnées polaires"
 country: "Tunisie"
@@ -11,12 +11,12 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["papillon", "cercle", "equation-de-cercle", "trigonometrie", "coordonnees"]
+tags: ["theoreme-du-papillon", "produit-scalaire", "cercle", "coordonnees"]
 provenance: adapted
 adapted_from: "résultat classique (théorème du papillon) ; énoncé, découpage en questions et solution Axiomaths"
 idea: "papillon"
-dressing: "polaires"
-rung: 3
+dressing: "papillon par le produit scalaire"
+rung: 5
 ---
 Soit $\Gamma$ un cercle et $[PQ]$ une corde de $\Gamma$ de milieu $M$. On munit le plan du repère orthonormé $(M\,;\vec\imath,\vec\jmath)$ où $\vec\imath$ dirige $(PQ)$ : ainsi $P(-a,0)$ et $Q(a,0)$ avec $a>0$.
 

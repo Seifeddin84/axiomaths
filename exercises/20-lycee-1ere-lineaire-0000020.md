@@ -3,7 +3,7 @@ uid: "0000020"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Fonctions linéaires et Affines"
+chapter: "Fonctions Linéaires et Affines"
 source: "Lycée la Soukra : Ariana"
 title: "Détermination d'une fonction linéaire par une équation"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2026
 professor: "El GHali Mounir"
 difficulty: "Moyen"
 points: 5
-tags: ["fonction linéaire", "calcul algébrique", "comparaison"]
+tags: ["fonctions-lineaires", "equation", "identites-remarquables", "representation-graphique"]
+dressing: "coefficient trouvé par une équation en f(1)"
+rung: 3
 ---
 
 Soit $f$ la fonction linéaire telle que :

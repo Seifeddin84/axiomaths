@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Facile"
 points: null
-tags: ["barycentre", "reduction-vectorielle", "parallelogramme", "ensemble-de-points"]
+tags: ["barycentre", "sommes-vectorielles", "parallelogramme", "reduction"]
+dressing: "réduire des sommes vectorielles"
+rung: 1
 ---
 
 Soit $ABCD$ un parallélogramme de centre $O$. On désigne par $I$ le milieu de $[AB]$. Soit $M$ un point quelconque du plan.

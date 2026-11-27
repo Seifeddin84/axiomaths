@@ -3,7 +3,7 @@ uid: "0000246"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Activités numériques"
+chapter: "Activités Numériques"
 source: "Axiomaths"
 title: "Comparer sans calculatrice"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["comparaison", "radicaux", "conjugue", "carres"]
+tags: ["comparaison", "radicaux", "sans-calculatrice", "carres"]
 provenance: own
+dressing: "comparer des sommes de racines"
+rung: 3
 ---
 
 1. Comparer $a=\sqrt7+\sqrt{10}$ et $b=\sqrt5+\sqrt{13}$. [Comparer les carrés, puis montrer que $2(\sqrt{70}-\sqrt{65})<1$ à l'aide de la quantité conjuguée.]

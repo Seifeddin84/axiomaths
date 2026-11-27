@@ -11,7 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["defi", "symetrie-centrale", "cercles", "construction", "milieu"]
+tags: ["symetrie-centrale", "cercles", "construction", "droite-de-milieu-impose", "defi"]
+dressing: "droite coupant deux cercles en cordes égales"
+rung: 5
 ---
 
 $\mathcal{C}_1$ و $\mathcal{C}_2$ دائرتان مركزاهما $O_1$ و $O_2$ تتقاطعان في نقطتين $A$ و $B$.

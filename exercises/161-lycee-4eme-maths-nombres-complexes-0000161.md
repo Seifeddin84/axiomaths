@@ -11,8 +11,10 @@ year: 1981
 professor: null
 difficulty: "Moyen"
 points: 4
-tags: ["bac", "racines-n-iemes", "changement-d-inconnue", "equation-troisieme-degre"]
+tags: ["nombres-complexes", "equation-troisieme-degre", "changement-de-variable", "bac"]
 bac: "1981-principale-maths"
+dressing: "équation ramenée à Z³ = i"
+rung: 3
 ---
 
 On considère l'application $f : \mathbb{C} \to \mathbb{C}$, $z \longmapsto Z = (1 + i)\,z - 2$.

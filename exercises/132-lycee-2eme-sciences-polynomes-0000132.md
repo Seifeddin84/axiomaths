@@ -3,7 +3,7 @@ uid: "0000132"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Polynômes"
+chapter: "Notion de Polynômes"
 source: "Axiomaths"
 title: "QCM : degré, racines et factorisation"
 country: "Tunisie"
@@ -12,6 +12,8 @@ professor: "Axiomaths"
 difficulty: "Facile"
 points: null
 tags: ["qcm", "polynomes", "degre", "racine", "factorisation"]
+dressing: "QCM : degré, racines, factorisation"
+rung: 4
 ---
 
 Pour chaque question, une seule des trois réponses proposées est correcte. Cocher la bonne réponse.

@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["statistiques", "variance", "parametre", "trinome", "dispersion", "defi"]
+tags: ["statistiques", "dispersion", "moyenne"]
 provenance: "own"
-dressing: "paramètre"
+dressing: "que devient la dispersion avec un nouvel employé ?"
 rung: 4
 batch: "2026-11-20-stat-3eco-A"
 ---

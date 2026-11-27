@@ -11,8 +11,10 @@ year: 2001
 professor: null
 difficulty: "Difficile"
 points: 5
-tags: ["bac", "parabole", "tangente", "symetrie-axiale", "lieu-geometrique", "cercle"]
+tags: ["parabole", "coniques", "lieu-geometrique", "defi", "bac"]
 bac: "2001-principale-maths"
+dressing: "tangentes perpendiculaires à une parabole"
+rung: 5
 ---
 
 Soient $F$ et $H$ deux points distincts, $\Delta$ la médiatrice de $[FH]$ et $J$ le milieu de $[FH]$.

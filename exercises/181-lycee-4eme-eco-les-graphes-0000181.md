@@ -3,7 +3,7 @@ uid: "0000181"
 school: "lycee"
 level: "4eme"
 section: "Economie et Gestion"
-chapter: "Les graphes"
+chapter: "Les Graphes"
 source: "Série 10 — Graphes (Bac Économie et Gestion)"
 title: "Théorème d'Euler : graphes orientés et non orientés"
 country: "Tunisie"
@@ -11,7 +11,9 @@ year: 2021
 professor: "Seifeddine Talbi"
 difficulty: "Facile"
 points: null
-tags: ["graphes", "theoreme-d-euler", "chaine-eulerienne", "cycle-eulerien", "graphe-oriente"]
+tags: ["graphes", "theoreme-d-euler", "chaine-eulerienne", "cycle-eulerien"]
+dressing: "conditions d'Euler"
+rung: 1
 ---
 
 Donner les conditions pour qu'un graphe ait :

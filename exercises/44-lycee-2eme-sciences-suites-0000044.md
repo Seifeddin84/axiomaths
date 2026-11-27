@@ -3,7 +3,7 @@ uid: "0000044"
 school: "lycee"
 level: "2eme"
 section: ["Sciences", "Informatique"]
-chapter: "Suites arithmétiques et géométriques"
+chapter: "Suites Arithmétiques et Géométriques"
 source: "Devoir de synthèse N°2 - Lycée Pilote Sakiet Ezzit - Sfax 2"
 schoolType: "pilote"
 title: "Suites arithmétiques et géométriques"
@@ -12,7 +12,9 @@ year: 2026
 professor: "H. Bouzid, N. Jalleli, M. Msekni, I. Chaabene, R. Fakhfekh"
 difficulty: "Moyen"
 points: 7
-tags: ["suites-arithmetiques", "suites-geometriques"]
+tags: ["suites", "suite-arithmetique", "suite-geometrique", "somme-de-termes"]
+dressing: "raison déduite d'une somme et d'un produit"
+rung: 3
 ---
 
 

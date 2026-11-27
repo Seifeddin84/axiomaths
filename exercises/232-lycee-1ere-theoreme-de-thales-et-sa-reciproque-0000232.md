@@ -3,7 +3,7 @@ uid: "0000232"
 school: "lycee"
 level: "1ere"
 section: null
-chapter: "Théorème de Thalès et sa réciproque"
+chapter: "Théorème de Thalès et sa Réciproque"
 source: "Axiomaths"
 title: "Deux cercles tangents et une sécante"
 country: "Tunisie"
@@ -11,8 +11,10 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
-tags: ["thales", "cercles", "tangentes", "secante"]
+tags: ["thales", "cercles-tangents", "tangente", "calcul-de-longueurs"]
 provenance: own
+dressing: "deux cercles tangents et une sécante"
+rung: 3
 ---
 
 Deux cercles $\mathcal C_1$ (de centre $O_1$ et de rayon $6$) et $\mathcal C_2$ (de centre $O_2$ et de rayon $2$) sont tangents extérieurement en $A$. Une droite $d$ passant par $A$, distincte de $(O_1O_2)$, recoupe $\mathcal C_1$ en $M$ et $\mathcal C_2$ en $N$ ; on admet que $A$ est entre $M$ et $N$.

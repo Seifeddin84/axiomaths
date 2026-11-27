@@ -11,9 +11,9 @@ year: 2026
 professor: "Axiomaths"
 difficulty: "Moyen"
 points: null
-tags: ["translation", "alignement", "image-de-droite", "parallelisme", "coordonnees"]
+tags: ["translation", "alignement", "demonstration", "parallelogramme"]
 provenance: own
-dressing: "alignement de trois points par l'image d'une droite"
+dressing: "prouver un alignement par une translation"
 rung: 3
 ---
 Soient $A$, $B$ et $C$ trois points non alignés. On note $D$ l'image de $B$ par la translation $t = t_{\overrightarrow{AC}}$.
