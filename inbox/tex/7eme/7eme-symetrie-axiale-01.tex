@@ -1,0 +1,46 @@
+% uid: ""
+% school: "college"
+% level: "7eme"
+% chapter: "التناظر المحوري"
+% chapter_slug: "symetrie-axiale"
+% title: "أسئلة متعددة الخيارات"
+% difficulty: "Facile"
+% tags: ["qcm", "symetrie-axiale", "definition", "proprietes"]
+% provenance: "own"
+% batch: "2026-11-27-symetrie-axiale-7eme"
+% Exercice 1/10 de la série 7ème « التناظر المحوري » (statement + \axsol + solution). Compiler avec XeLaTeX + axiomath.sty (+ axiomaths-logo.png).
+\documentclass[12pt,a4paper]{article}
+\usepackage[level=7b,color=0F766E]{axiomath}
+\newcommand{\cm}{\,\mathrm{cm}}
+\axsetup{title={التناظر المحوري}, corrige}
+
+\begin{document}
+
+\begin{corr}[title={أسئلة متعددة الخيارات}, stars=1, source={Axiomaths}]
+لكل سؤال إجابة صحيحة واحدة أو أكثر. $\Delta$ مستقيم في كل الأسئلة.
+\begin{qcm}
+\qitem[AB]{$A$ نقطة لا تنتمي إلى $\Delta$ و $A'$ مناظرتها بالنسبة إلى $\Delta$. إذن :}{$\Delta$ هو محور القطعة $[AA']$}{$\Delta$ يمرّ من منتصف $[AA']$}{$(AA')$ يوازي $\Delta$}{$A'$ تنتمي إلى $\Delta$}
+\qitem[B]{$M$ نقطة من $\Delta$. مناظرة $M$ بالنسبة إلى $\Delta$ هي :}{لا توجد}{$M$ نفسها}{نقطة أخرى من $\Delta$}{نقطة خارج $\Delta$}
+\qitem[C]{$[A'B']$ مناظرة القطعة $[AB]$ بالنسبة إلى $\Delta$ و $AB=7\cm$. إذن $A'B'$ يساوي :}{$3{,}5\cm$}{$14\cm$}{$7\cm$}{لا يمكن معرفته}
+\qitem[A]{مناظرة زاوية قيسها $65^\circ$ بالنسبة إلى $\Delta$ هي زاوية قيسها :}{$65^\circ$}{$115^\circ$}{$130^\circ$}{$25^\circ$}
+\qitem[C]{عدد محاور تناظر المربع هو :}{$1$}{$2$}{$4$}{لا نهاية}
+\qitem[AD]{الأشكال التي لها محورا تناظر فقط هي :}{المستطيل (غير المربع)}{المربع}{الدائرة}{القطعة}
+\qitem[B]{$A$ تبعد $3\cm$ عن $\Delta$ و $A'$ مناظرتها بالنسبة إلى $\Delta$. إذن $AA'$ يساوي :}{$3\cm$}{$6\cm$}{$1{,}5\cm$}{$9\cm$}
+\end{qcm}
+\axsol
+\axanswerkey{1/AB, 2/B, 3/C, 4/A, 5/C, 6/AD, 7/B}
+\begin{prop}[تعريف]
+$A$ لا تنتمي إلى $\Delta$. \ib{$A'$ مناظرة $A$ بالنسبة إلى $\Delta$} معناه : \ib{$\Delta$ هو محور القطعة $[AA']$}.
+\end{prop}
+\begin{itemize}[itemsep=10pt]
+  \item س1 : محور القطعة عمودي عليها ويمرّ من منتصفها. إذن $(AA')$ \emph{عمودي} على $\Delta$ وليس موازيا له، و $A'$ ليست على $\Delta$.
+  \item س2 : كل نقطة من المحور هي مناظرة نفسها.
+  \item س3 : التناظر المحوري يحافظ على الأطوال : $A'B'=AB=7\cm$.
+  \item س4 : التناظر المحوري يحافظ على قيس الزوايا : $65^\circ$.
+  \item س5 : للمربع 4 محاور : المستقيمان الحاملان لقطريه، والمستقيمان المارّان من منتصفي ضلعين متقابلين.
+  \item س6 : للمستطيل (غير المربع) محوران، وللقطعة محوران (محورها والمستقيم الحامل لها). للمربع 4 محاور، وللدائرة عدد لا نهائي من المحاور.
+  \item س7 : $\Delta$ يمرّ من منتصف $[AA']$ ، فـ $A'$ تبعد هي أيضا $3\cm$ عن $\Delta$ : $AA'=3+3=6\cm$.
+\end{itemize}
+\end{corr}
+
+\end{document}
