@@ -10,11 +10,12 @@ inbox/
   TEMPLATE.tex        ← copy this, it is the exact format
   tex/<level>/*.tex   ← tutoring project drops files here (one exercise per file)
   done/<level>/*.tex  ← the manager moves converted files here (never touch)
+  classroom/<level>/<batch>/   ← the pupils' PDFs + post.yaml, posted to Google Classroom on merge (rule 7)
 ```
 
 ## Rules for the tutoring project
 
-1. **Write only under `inbox/tex/<level>/`** (`<level>` = `7eme 8eme 9eme 1ere 2eme 3eme 4eme`).
+1. **Write only under `inbox/tex/<level>/` and `inbox/classroom/<level>/`** (`<level>` = `7eme 8eme 9eme 1ere 2eme 3eme 4eme`).
    Never touch `exercises/`, `src/`, `public/`, `lessons/` or anything else.
 2. **Never push to `main`.** Branch `inbox/<YYYY-MM-DD>-<short-topic>`, commit, open a PR into `main`.
    Do not delete or rewrite files in `inbox/done/`.
@@ -28,6 +29,21 @@ inbox/
    wrong costs a round trip.
 5. In the PR description list each file with chapter, difficulty, and any doubt (chapter fit, difficulty,
    a statement you adapted from a known source).
+6. **Every exercise goes to the site, automatically.** Each série, devoir or practice set you write for a pupil is
+   handed off in the same session, without asking: one `.tex` per exercise in `inbox/tex/<level>/` (rules 1–5),
+   whatever the level, the audience or the style. Seifeddine still merges the PR: nothing is published before.
+7. **Every série, devoir, cours and fiche goes to Google Classroom, automatically.** In the same PR, put the PDFs
+   the pupils get in `inbox/classroom/<level>/<batch>/` with a `post.yaml` (format below). When the PR is merged,
+   `.github/workflows/classroom.yml` uploads them to Drive and creates a **draft** post in the right class and topic;
+   Seifeddine publishes it with one tap. Never post to Classroom yourself.
+8. **Pupils' handouts** (the PDFs, not the inbox files):
+   - every série and devoir opens with a **reminder** (`rappels`) and a **mini table of contents** (`\sommaire`);
+   - **corrigés are always detailed with boxes**, for every level and every audience: reminder boxes (`prop`),
+     framed key results (`\ib`), one step per line, `Idée :` / `Piège :`. Only the styling changes;
+   - **audience decides the styling**: `\usepackage[level=..]{axiomath}` (colours) by default; for lycée pilote and
+     strong pupils `\usepackage[level=..,mir]{axiomath}` (Mir rendering: black, Literaturnaya), same commands, see
+     `latex/MIR_MODE.md`. The reference `axiomath.sty` is `latex/axiomath.sty` (v2.3). Then add `% audience: "pilote"`
+     to each exercise file.
 
 ## File format
 
@@ -61,6 +77,7 @@ Put `% alt: <description>` before a figure, otherwise its alt text is the exerci
 | `rung` | practice sets | difficulty step inside the set, 1 = direct application |
 | `batch` | yes | same value for every file generated together, e.g. `"2026-11-18-suites-2sc-A"` |
 | `defi` | no | `true` for a challenge that goes beyond the programme (olympiad style, off-programme tools). The site lists it after every regular exercise of its chapter, with a rose tint and a « Défi · hors programme » badge. Still file it in the closest canonical chapter; never use it to hide a regular exercise. |
+| `audience` | no | `"pilote"` for exercises written for strong pupils (Mir handout). The site tags them `pilote`. Leave out otherwise. |
 | `uid` | leave `""` | assigned by the manager |
 | `source`, `professor`, `year`, `country` | no | leave out: default to `"Axiomaths"`, `"Axiomaths"`, current year, `"Tunisie"`. Only set `source` for an adapted exercise if you know it. |
 
@@ -100,6 +117,24 @@ House style of the site (rule since 2026-11-18): before using a property, a `pro
 ### Language
 
 Lycée statements and solutions in French; collège in Arabic.
+
+## Classroom hand-off (`inbox/classroom/<level>/<batch>/`)
+
+One folder per handout batch, the same `batch` id as the exercise files. It holds the PDFs exactly as the pupils get
+them and a `post.yaml`:
+
+```yaml
+class: "1ère"                     # Classroom course, by its name in Classroom (or its numeric id)
+topic: "Théorème de Thalès et sa Réciproque"   # the canonical chapter = the Classroom topic (created if missing)
+kind: "serie"                     # serie | devoir | cours | fiche
+title: "Série 3 : Thalès et calcul numérique"
+description: "Révision avant le devoir de synthèse."   # optional
+files: ["serie.pdf"]              # attached to the post, in this order
+corrige: "corrige.pdf"            # optional: a second draft post « Corrigé : <title> », to publish later
+```
+
+Rules: PDFs only (compiled, checked), file names ASCII, one post per folder. The workflow skips a post whose title
+already exists in that class (so re-running is safe) and never publishes: every post is created as a **draft**.
 
 ## What the manager does with a batch
 

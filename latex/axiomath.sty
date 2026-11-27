@@ -1,0 +1,449 @@
+%% ============================================================================
+%%  axiomath.sty  --  AxioMath series style for the Tunisian curriculum
+%%  v2.1 (2026-11-16)      Compile with XeLaTeX or LuaLaTeX (NOT pdfLaTeX)
+%%
+%%  \usepackage[level=2sc]{axiomath}     % level decides colour + language
+%%  \usepackage[level=2sc,color=16537E]{axiomath}   % same, colour overridden (HEX, no #)
+%%  \axsetup{title={...}, serie=3, info={Durée : 1 h}, bareme=20, corrige}   % bareme: exams only
+%%  \begin{exo}[stars=1..4, pts=3, year=2025, title={...}, source={...}] ... \end{exo}   % homework
+%%  \begin{corr}[stars=.., pts=.., title={...}] statement \axsol solution \end{corr}     % corrigé
+%%  \qitem[AC]{question}{A}{B}{C}{D}    % [AC] = correct letters, ticked only inside corr
+%%  Stars: 1 application directe, 2 facile, 3 moyen, 4 difficile.   Series: no pts, no bareme.
+%%
+%%  \usepackage[level=1,mir]{axiomath}   % MIR rendering (lycée pilote): black, Literaturnaya, run-in
+%%                                       % problems, same commands and same detailed corrigé (latex/MIR_MODE.md)
+%%  \axmaketitle  \sommaire  \begin{rappels}...\end{rappels}   % every série opens with rappels + sommaire
+%%  \axsetup{classe={1\textsuperscript{ère} année -- lycée pilote}}   % overrides the level label shown
+%%
+%%  Add a level in ONE line (colour = HTML hex, lang = fr | ar):
+%%     \axdefinelevel{key}{label shown in header}{HEX}{lang}
+%% ============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{axiomath}[2026/11/27 v2.3 AxioMath series style (+ mir option, rappels, sommaire)]
+
+\RequirePackage{iftex}
+\ifPDFTeX
+  \PackageError{axiomath}{pdfLaTeX is not supported}%
+  {Compile with XeLaTeX or LuaLaTeX (needed for fonts and Arabic).}
+\fi
+\RequirePackage{xkeyval}
+\RequirePackage{xparse}
+
+%% ---------------------------------------------------------------- LEVEL TABLE
+%% \axdefinelevel{key}{header label}{HEX colour}{language}
+\newcommand\axdefinelevel[4]{%
+  \expandafter\def\csname axlv@#1@label\endcsname{#2}%
+  \expandafter\def\csname axlv@#1@col\endcsname{#3}%
+  \expandafter\def\csname axlv@#1@lang\endcsname{#4}}
+
+% --- collège (Arabic)
+\axdefinelevel{7b}{7 أساسي}{0F766E}{ar}
+\axdefinelevel{8b}{8 أساسي}{15803D}{ar}
+\axdefinelevel{9b}{9 أساسي}{4D7C0F}{ar}
+% --- lycée (French)
+\axdefinelevel{1}    {1\textsuperscript{ère} année secondaire}      {2563EB}{fr}
+\axdefinelevel{2sc}  {2\textsuperscript{ème} Sciences}              {16537E}{fr}
+\axdefinelevel{2info}{2\textsuperscript{ème} Technologie de l'info} {0891B2}{fr}
+\axdefinelevel{2eco} {2\textsuperscript{ème} Éco \& Services}       {DB2777}{fr}
+\axdefinelevel{3m}   {3\textsuperscript{ème} Mathématiques}         {7C3AED}{fr}
+\axdefinelevel{3sc}  {3\textsuperscript{ème} Sciences exp.}         {059669}{fr}
+\axdefinelevel{3tech}{3\textsuperscript{ème} Sciences techniques}   {475569}{fr}
+\axdefinelevel{3info}{3\textsuperscript{ème} Sciences de l'info}    {0E7490}{fr}
+\axdefinelevel{3eco} {3\textsuperscript{ème} Éco \& Gestion}        {05B47F}{fr}
+\axdefinelevel{4m}   {Bac Mathématiques}                            {991B1B}{fr}
+\axdefinelevel{4sc}  {Bac Sciences exp.}                            {9D174D}{fr}
+\axdefinelevel{4tech}{Bac Sciences techniques}                      {1E293B}{fr}
+\axdefinelevel{4info}{Bac Sciences de l'info}                       {155E75}{fr}
+\axdefinelevel{4eco} {Bac Éco \& Gestion}                           {92400E}{fr}
+
+%% ------------------------------------------------------------------- OPTIONS
+\def\axx@level{2sc}
+\def\axx@langopt{}
+\def\axx@colopt{}
+\DeclareOptionX{level}{\def\axx@level{#1}}
+\DeclareOptionX{color}{\def\axx@colopt{#1}}
+\DeclareOptionX{lang}{\def\axx@langopt{#1}}
+\newif\ifaxmir \axmirfalse
+\DeclareOptionX{mir}[true]{\csname axmir#1\endcsname}
+\ProcessOptionsX\relax
+
+\@ifundefined{axlv@\axx@level @col}{%
+  \PackageError{axiomath}{Unknown level `\axx@level'}%
+  {Use \string\axdefinelevel{key}{label}{HEX}{lang} before \string\usepackage, or pick a known key.}%
+  \axdefinelevel{\axx@level}{\axx@level}{444444}{fr}}{}
+\edef\axx@col{\csname axlv@\axx@level @col\endcsname}
+% optional override: \usepackage[level=2sc,color=16537E]{axiomath}  (HEX without #)
+\ifx\axx@colopt\@empty\else\edef\axx@col{\axx@colopt}\fi
+\def\axx@levellabel{\csname axlv@\axx@level @label\endcsname}
+\newif\ifaxar
+\edef\axx@lang{\ifx\axx@langopt\@empty\csname axlv@\axx@level @lang\endcsname\else\axx@langopt\fi}
+\def\axx@tmp{ar}\ifx\axx@lang\axx@tmp\axartrue\else\axarfalse\fi
+
+%% --------------------------------------------------------------- PACKAGES
+\RequirePackage[a4paper,left=1.5cm,right=1.5cm,top=3.0cm,bottom=2.2cm,headheight=56pt,headsep=0.25cm,footskip=0.9cm]{geometry}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage[x11names,table]{xcolor}
+\RequirePackage{fontspec}
+\RequirePackage{polyglossia}
+\RequirePackage{graphicx}
+\RequirePackage{enumitem}
+\RequirePackage{multicol}
+\RequirePackage{array}
+\RequirePackage{tkz-tab}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\RequirePackage{eso-pic}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes.geometric,calc}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+%% ----------------------------------------------------------------- FONTS
+\IfFontExistsTF{Alegreya}{\setmainfont{Alegreya}}{%
+  \IfFontExistsTF{TeX Gyre Pagella}{\setmainfont{TeX Gyre Pagella}}{}}
+\ifaxar
+  \setmainlanguage[numerals=maghrib]{arabic}
+  \setotherlanguage{french}
+  % serif Arabic (body): Amiri > Noto Naskh Arabic > FreeSerif > DejaVu Sans
+  \IfFontExistsTF{Amiri}{\newfontfamily\arabicfont[Script=Arabic,Scale=1.1]{Amiri}\def\axar@fb{Amiri}}{%
+  \IfFontExistsTF{Noto Naskh Arabic}{\newfontfamily\arabicfont[Script=Arabic]{Noto Naskh Arabic}\def\axar@fb{Noto Naskh Arabic}}{%
+  \IfFontExistsTF{FreeSerif}{\newfontfamily\arabicfont[Script=Arabic]{FreeSerif}\def\axar@fb{FreeSerif}}{%
+  \newfontfamily\arabicfont[Script=Arabic]{DejaVu Sans}\def\axar@fb{DejaVu Sans}}}}
+  % "sans" Arabic: same family as the body font (it must also contain Latin letters,
+  % digits and punctuation, which Noto Kufi / Noto Sans Arabic do not)
+  \edef\axar@tmp{\noexpand\newfontfamily\noexpand\arabicfontsf[Script=Arabic]{\axar@fb}}\axar@tmp
+  \IfFontExistsTF{DejaVu Sans Mono}{\newfontfamily\arabicfonttt[Script=Arabic]{DejaVu Sans Mono}}{}
+\else
+  \setmainlanguage{french}
+\fi
+
+%% ----------------------------------------------------------------- COLOURS
+\definecolor{axmain}{HTML}{\axx@col}
+\colorlet{axlight}{axmain!10!white}
+\colorlet{axmid}{axmain!35!white}
+\colorlet{axdark}{axmain!65!black}
+\definecolor{axgold}{HTML}{F5B301}
+\definecolor{axorange}{HTML}{EA580C}
+\definecolor{axpurple}{HTML}{7C3AED}
+\definecolor{axpurplelight}{HTML}{EDE4FB}
+\definecolor{axgrey}{HTML}{4B5563}
+\definecolor{axgreen}{HTML}{15803D}
+
+%% ----------------------------------------------------------------- LABELS
+\ifaxar
+  \def\axlbl@exo{تمرين}\def\axlbl@pts{ن}\def\axlbl@sol{الإصلاح}
+  \def\axlbl@author{الأستاذ:}\def\axlbl@year{السنة الدراسية:}
+  \def\axlbl@page{الصفحة:}\def\axlbl@level{المستوى:}\def\axlbl@pages{عدد الصفحات:}
+  \def\axlbl@corrige{الإصلاح النموذجي}
+  \def\axlbl@l@one{تطبيق مباشر}\def\axlbl@l@two{سهل}\def\axlbl@l@three{متوسط}\def\axlbl@l@four{صعب}
+  \def\axlbl@q{س}\def\axlbl@qsep{\,}\def\axlbl@A{أ}\def\axlbl@B{ب}\def\axlbl@C{ج}\def\axlbl@D{د}
+  \def\axlbl@legend{الصعوبة:}\def\axlbl@total{المجموع:}
+\else
+  \def\axlbl@exo{Exercice}\def\axlbl@pts{pts}\def\axlbl@sol{Corrigé}
+  \def\axlbl@author{Proposé par}\def\axlbl@year{Année scolaire}
+  \def\axlbl@page{Page}\def\axlbl@level{Niveau}\def\axlbl@pages{Nombre de pages}
+  \def\axlbl@corrige{CORRIGÉ}
+  \def\axlbl@l@one{Application directe}\def\axlbl@l@two{Facile}\def\axlbl@l@three{Moyen}\def\axlbl@l@four{Difficile}
+  \def\axlbl@q{Q}\def\axlbl@qsep{.}\def\axlbl@A{A}\def\axlbl@B{B}\def\axlbl@C{C}\def\axlbl@D{D}
+  \def\axlbl@legend{Difficulté :}\def\axlbl@total{Total :}
+\fi
+
+%% ------------------------------------------------------ MATH SHORTHANDS
+\providecommand\R{\mathbb{R}}\providecommand\N{\mathbb{N}}
+\providecommand\Z{\mathbb{Z}}\providecommand\Q{\mathbb{Q}}
+\providecommand\C{\mathbb{C}}
+\providecommand\vect[1]{\overrightarrow{#1}}
+% French quotes as in babel-french (\og ... \fg), used by the inbox contract; polyglossia has no \og
+\AtBeginDocument{\providecommand\og{«\nobreakspace\ignorespaces}\providecommand\fg{\unskip\nobreakspace»}}
+
+%% -------------------------------------------------------- LISTS (1) a) i)
+\setlist[enumerate,1]{label=\textbf{\arabic*)},leftmargin=*,itemsep=2pt,topsep=3pt}
+\setlist[enumerate,2]{label=\textbf{\alph*)},leftmargin=*,itemsep=1pt,topsep=1pt}
+\setlist[enumerate,3]{label=\textbf{\roman*)},leftmargin=*,itemsep=1pt,topsep=1pt}
+\setlist[itemize]{leftmargin=*,itemsep=1pt,topsep=2pt}
+\setlength{\parindent}{0cm}
+
+%% ------------------------------------------------- SERIES-LEVEL SETTINGS
+\newcommand\axschoolyear{%
+  \ifnum\month>7 \the\year/\the\numexpr\year+1\relax
+  \else \the\numexpr\year-1\relax/\the\year\fi}
+\def\axs@title{}\def\axs@subtitle{}\def\axs@info{}\def\axs@bareme{}
+\newcommand\axltr[1]{\ifaxar\textfrench{#1}\else#1\fi}
+% banner text lives in a TikZ node (LTR by default): force RTL so Arabic words keep their reading order
+\newcommand\axrtl[1]{\ifaxar\RL{#1}\else#1\fi}
+\def\axs@author{Seifeddine TALBI}\def\axs@year{\axschoolyear}
+\newif\ifaxcorr
+\pgfkeys{/axm/.cd,
+  title/.store in=\axs@title, subtitle/.store in=\axs@subtitle,
+  info/.store in=\axs@info, bareme/.store in=\axs@bareme,
+  author/.store in=\axs@author, year/.store in=\axs@year,
+  serie/.code={\ifaxar\def\axs@subtitle{السلسلة عدد #1}\else\def\axs@subtitle{Série n°#1}\fi},
+  sous-titre/.store in=\axs@subtitle,
+  classe/.code={\def\axx@levellabel{#1}},
+  corrige/.is if=axcorr, corrige/.default=true}
+\newcommand\axsetup[1]{\pgfkeys{/axm/.cd,#1}}
+
+%% ----------------------------------------------------- PAGE DECORATION
+\ifaxmir\else
+\AddToShipoutPictureBG{%
+  \AtPageUpperLeft{\put(0,-\LenToUnit{8mm}){\color{axmain}\rule{\paperwidth}{8mm}}}%
+  \AtPageLowerLeft{\put(\LenToUnit{9mm},\LenToUnit{.5\paperheight}){%
+     \rotatebox{90}{\makebox[0pt]{\color{axmain!70!gray}\sffamily\large Axiomaths}}}}}
+\fi
+\renewcommand{\headrule}{\ifdim\headrulewidth>0pt{\color{axmain}\hrule width\headwidth height 1.2pt}\fi}
+\definecolor{axlogobg}{HTML}{16130E}
+% logo: file next to the .tex; without it the banner simply takes the full width
+\newcommand\axlogofile{axiomaths-logo.png}
+\newcommand\axlogo[1]{\IfFileExists{\axlogofile}{\includegraphics[#1]{\axlogofile}}{}}
+\newcommand\axfoot{\fancyfoot[C]{\small\color{axgrey}\axlbl@page\ \thepage/\pageref{LastPage}}}
+% pages 2+: small header (author/year | logo | level), page number in the footer
+\newcommand\axapplyheader{%
+  \pagestyle{fancy}\fancyhf{}\axfoot
+  \fancyhead[C]{\axlogo{height=1.15cm}}%
+  \fancyhead[L]{\small\begin{tabular}{@{}l @{\ }l@{}}%
+      \textbf{\axlbl@author} & \axltr{\axs@author} \\
+      \textbf{\axlbl@year} & \axs@year \end{tabular}}%
+  \fancyhead[R]{\small\begin{tabular}{@{}l @{\ }r@{}}%
+      \textbf{\axlbl@level} & \axx@levellabel \\
+      \textbf{\axlbl@pages} & \pageref{LastPage} \\
+      \ifx\axs@subtitle\@empty\else\multicolumn{2}{@{}r@{}}{\textbf{\axs@subtitle}}\fi \end{tabular}}}
+% page 1: no header (the logo + banner are the header), same footer
+\fancypagestyle{axfirst}{\fancyhf{}\axfoot\renewcommand{\headrulewidth}{0pt}}
+\AtBeginDocument{\axapplyheader}
+
+%% ---------------------------------------------------------- STARS / BADGES
+\newcommand\axstar[1]{\tikz[baseline=-0.55ex]\node[star,star points=5,star point ratio=2.3,%
+  inner sep=1.8pt,line width=0.3pt,draw=axgold!60!black,#1]{};}
+\newcommand\axstars[1]{\foreach \axs in {1,2,3,4}{\ifnum\axs>#1 \axstar{fill=white}\else\axstar{fill=axgold}\fi\,}}
+\newcommand\axbadge[3]{\tikz[baseline=(axb.base)]\node[fill=#1,text=#2,rounded corners=2pt,%
+  inner xsep=5pt,inner ysep=2.4pt,font=\sffamily\bfseries\footnotesize](axb){#3};}
+
+%% ------------------------------------------------ TITLE BLOCK + LEGEND
+\newcommand\axlegend{\par\vspace{2pt}{\footnotesize\color{axgrey}\axlbl@legend\ %
+  \axstars{1}\,\axlbl@l@one\quad \axstars{2}\,\axlbl@l@two\quad \axstars{3}\,\axlbl@l@three\quad \axstars{4}\,\axlbl@l@four\par}}
+\newlength\axlogow \newlength\axgap
+\newcommand\axbannertext{%
+  \ifx\axs@subtitle\@empty\else{\sffamily\Huge\bfseries\axrtl{\axs@subtitle}}\par\vspace{1.5mm}\fi
+  {\sffamily\Large\bfseries \axrtl{\axs@title}}\par
+  \ifaxcorr\vspace{1mm}{\bfseries\large\axrtl{\axlbl@corrige}}\par\fi
+  \ifx\axs@info\@empty\else\vspace{1mm}{\small\axrtl{\axs@info}}\par\fi}
+% page 1, two stacked rows:
+%   row 1 = logo (top-left corner) + "Proposé par / Année scolaire / Niveau" on its right
+%   row 2 = full-width banner with "Série n°N" above the chapter name
+% Both tikzpictures are exactly \textwidth wide, so the logo stays on the PHYSICAL
+% left in Arabic (RTL) documents too.
+\newcommand\axmaketitle{%
+  \thispagestyle{axfirst}%
+  \IfFileExists{\axlogofile}{\setlength\axlogow{1.9cm}\setlength\axgap{4mm}}%
+                            {\setlength\axlogow{0pt}\setlength\axgap{0pt}}%
+  \vspace*{-2.0cm}\noindent
+  \begin{tikzpicture}[inner sep=0pt,outer sep=0pt]
+    \IfFileExists{\axlogofile}{\node[anchor=north west](lg) at (0,0){\axlogo{height=1.7cm}};}%
+      {\node[anchor=north west,minimum height=1.7cm](lg) at (0,0){};}
+    \node[anchor=west,text width=\dimexpr\textwidth-\axlogow-\axgap\relax,align=justify]
+      at ($(lg.east)+(\axgap,0)$){\footnotesize\color{axgrey}%
+      \textbf{\axlbl@author}\ \axltr{\axs@author}\hfill\textbf{\axlbl@level}\ \axx@levellabel\par\smallskip
+      \textbf{\axlbl@year}\ \axs@year\hfill\textbf{\axlbl@pages}\ \pageref{LastPage}\par};
+  \end{tikzpicture}\par\vspace{2mm}\noindent
+  \begin{tikzpicture}[inner sep=0pt,outer sep=0pt]
+    \node[anchor=north west,fill=axmain,draw=axdark,line width=0.5mm,text=white,%
+          text width=\dimexpr\textwidth-8mm-0.5mm\relax,align=center,%
+          inner xsep=4mm,inner ysep=3mm,minimum height=2.3cm](ban) at (0,0){\axbannertext};
+  \end{tikzpicture}\par\vspace{3pt}%
+  \axlegend\vspace{4pt}}
+
+%% ------------------------------------------- EXERCISE / CORRIGÉ ENVIRONMENTS
+\newcounter{axexo}
+\def\axx@tot{0}
+\def\axresetmeta{\def\axe@stars{}\def\axe@pts{}\def\axe@year{}\def\axe@title{}%
+  \def\axe@src{}\def\axe@id{}}
+\axresetmeta
+\pgfkeys{/axm/exo/.cd,
+  stars/.store in=\axe@stars, pts/.store in=\axe@pts, year/.store in=\axe@year,
+  title/.store in=\axe@title, source/.store in=\axe@src, id/.store in=\axe@id}
+\newcommand\axaddpts{\ifx\axe@pts\@empty\else
+  \pgfmathparse{\axx@tot+\axe@pts}\xdef\axx@tot{\pgfmathresult}\fi}
+
+\newcommand\axexoheader[2]{%
+  \ifx\axe@id\@empty\else{\ttfamily\footnotesize\color{axgrey}\#\axe@id}\quad\fi
+  {\sffamily\bfseries\large\color{axdark}#1\ \theaxexo}%
+  \ifx\axe@stars\@empty\else\quad\axstars{\axe@stars}\fi
+  \ifx\axe@pts\@empty\else\quad\axbadge{axorange}{white}{\axe@pts\,\axlbl@pts}\fi
+  \ifx\axe@year\@empty\else\quad\axbadge{axpurplelight}{axpurple}{\axe@year}\fi
+  \ifx\axe@title\@empty\else\par\medskip{\sffamily\bfseries\large\color{black}\axe@title}\fi
+  \ifx\axe@src\@empty\else\par{\sffamily\small\bfseries\color{axgrey}\axe@src}\fi}
+
+\tcbset{axbox/.style={enhanced jigsaw,breakable,sharp corners,boxrule=0.6pt,
+  colframe=axmain,colback=white,colbacktitle=axlight,coltitle=black,
+  fonttitle=\normalfont,toptitle=2mm,bottomtitle=2mm,titlerule=0.5pt,
+  left=2mm,right=2mm,top=2mm,bottom=2mm,before skip=9pt,after skip=9pt},
+  axboxsol/.style={axbox,colframe=axdark,colback=axlight!40!white,colbacktitle=axmid}}
+
+%% ------------------------------------------------------ CORRIGÉ : RAPPELS DE COURS
+%%  \begin{prop}[Titre]...\end{prop}   boîte de rappel (théorème, propriété, définition) ; titre par défaut « Propriété »
+%%  \ib{$formule$}                     formule clé encadrée, dans la ligne
+\newtcolorbox{prop}[1][Propriété]{colback=axpurplelight, colframe=axpurple, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt, before skip=8pt, after skip=8pt, breakable,
+  before upper={\textcolor{axpurple}{\bfseries #1\,:}\ }}
+\newcommand{\ib}[1]{\tcbox[on line, colback=axpurplelight, colframe=axpurple, boxrule=0.4pt, arc=1.5pt,
+  boxsep=1.5pt, left=2pt, right=2pt, top=1pt, bottom=1pt]{#1}}
+
+\NewDocumentEnvironment{exo}{O{}}{%
+  \begingroup\axresetmeta\pgfkeys{/axm/exo/.cd,#1}%
+  \refstepcounter{axexo}\axaddpts\axx@tocentry
+  \begin{tcolorbox}[axbox,title={\axexoheader{\axlbl@exo}{}}]%
+}{\end{tcolorbox}\endgroup}
+
+%% corrigé: the statement is REPEATED, then \axsol opens the solution part.
+%%   \begin{corr}[title=..., stars=.., ...]  statement  \axsol  solution  \end{corr}
+\newif\ifaxmark
+\newcommand\axsol{\tcblower\noindent{\sffamily\bfseries\color{axdark}\axlbl@sol\,:}\par\nobreak\smallskip\nobreak\@beginparpenalty=\@M\relax}
+\NewDocumentEnvironment{corr}{O{}}{%
+  \begingroup\axresetmeta\pgfkeys{/axm/exo/.cd,#1}\axmarktrue
+  \refstepcounter{axexo}\axaddpts\axx@tocentry
+  \begin{tcolorbox}[axbox,lowerbox=visible,colbacklower=axmid!35!white,collower=black,
+    title={\axexoheader{\axlbl@exo}{}}]%
+}{\end{tcolorbox}\endgroup}
+
+%% ------------------------------------------------ QCM (4 choices, 1..4 correct)
+\newcommand\axrag{\ifaxar\raggedleft\else\raggedright\fi}% ragged toward the reading end
+\newenvironment{qcm}{\par\smallskip%
+  \begin{enumerate}[label=\textbf{\axlbl@q\arabic*\axlbl@qsep},leftmargin=*,itemsep=8pt]}%
+  {\end{enumerate}}
+%% \qitem[AC]{question}{A}{B}{C}{D}: the optional list of correct letters is only
+%% displayed inside a `corr` environment (ticked boxes in green); ignored in `exo`.
+\newcommand\axchoice[3]{% #1 = letter key, #2 = printed label, #3 = text
+  \leavevmode
+  \ifaxmark
+    \edef\axq@tmp{\noexpand\in@{#1}{\axq@keys}}\axq@tmp
+    \ifin@ \textcolor{axgreen}{\textbf{$\blacksquare$\,#2)}}\,\textcolor{axgreen}{#3}\else $\square$\,#2) #3\fi
+  \else $\square$\,#2) #3\fi}
+\NewDocumentCommand\qitem{O{} m m m m m}{\def\axq@keys{#1}\item #2\par\nopagebreak\vspace{3pt}%
+  {\renewcommand{\arraystretch}{1.2}%
+   \begin{tabular}{@{}>{\axrag\arraybackslash}p{.46\linewidth}@{\hspace{2mm}}>{\axrag\arraybackslash}p{.46\linewidth}@{}}
+   \axchoice{A}{\axlbl@A}{#3} & \axchoice{B}{\axlbl@B}{#4} \\
+   \axchoice{C}{\axlbl@C}{#5} & \axchoice{D}{\axlbl@D}{#6} \end{tabular}}}
+%% \axanswerkey{1/AC, 2/B, 3/ABD}  -> compact answer grid for the corrigé
+\newcommand\axanswerkey[1]{\par\smallskip\begin{multicols}{4}\noindent
+  \foreach \qn/\qa in {#1}{\textbf{\axlbl@q\qn}\,$\to$\,\textbf{\axltr{\qa}}\par}%
+  \end{multicols}}
+
+%% --------------------------------------------------- POINTS CHECK (log only)
+\newcommand\axtotal{\pgfmathprintnumber[fixed]{\axx@tot}\,\axlbl@pts}
+\AtEndDocument{\ifx\axs@bareme\@empty\else
+  \pgfmathparse{abs(\axx@tot-\axs@bareme)>0.001}%
+  \ifdim\pgfmathresult pt>0pt
+    \PackageWarning{axiomath}{Sum of pts is \axx@tot\space but bareme=\axs@bareme}%
+  \fi\fi}
+%% ================================================ v2.3: RAPPELS, SOMMAIRE, FIGURES
+%% \sommaire : mini table of contents of the exercises (title + difficulty), compile twice.
+%% \begin{rappels} ... \end{rappels} : the course reminder that opens every série.
+\ifaxar\def\axlbl@rappels{تذكير}\def\axlbl@sommaire{المحتوى}\else\def\axlbl@rappels{Rappels}\def\axlbl@sommaire{Sommaire}\fi
+\newcommand\axx@tocentry{\begingroup
+  \protected@edef\axx@w{\endgroup\noexpand\addtocontents{axt}{\noexpand\protect\noexpand\axtocline
+    {\theaxexo}{\unexpanded\expandafter{\axe@title}}{\axe@stars}{\noexpand\thepage}}}\axx@w}
+\newcommand\axtocline[4]{\par\noindent{\small\textbf{\axlbl@exo\ #1}\ifx\relax#2\relax\else\ -- #2\fi
+  \ifx\relax#3\relax\else\ \axstars{#3}\fi\dotfill#4}\par}
+\newcommand\sommaire{\par\noindent{\sffamily\bfseries\small\color{axdark}\axlbl@sommaire}\par\vspace{1pt}%
+  {\color{axmain}\hrule height 0.4pt}\vspace{3pt}\@starttoc{axt}\vspace{4pt}}
+\newenvironment{rappels}{\begin{tcolorbox}[axbox,colback=axlight!50!white,
+  title={\sffamily\bfseries\color{axdark}\axlbl@rappels}]}{\end{tcolorbox}}
+%% Figures (both renderings): the weight of a line says what it is (design skill §4b)
+\tikzset{
+  main/.style={line width=0.9pt}, thin/.style={line width=0.4pt},
+  hidden/.style={line width=0.4pt, dash pattern=on 3pt off 2pt},
+  constr/.style={line width=0.4pt, dash pattern=on 2pt off 1.5pt},
+  path/.style={line width=0.4pt, dash pattern=on 4pt off 2pt},
+  axis/.style={line width=0.45pt, -{Stealth[length=1.8mm,width=1.2mm]}},
+  vec/.style={line width=0.7pt, -{Stealth[length=1.8mm,width=1.2mm]}},
+  pt/.style={circle, fill, inner sep=0pt, minimum size=2.6pt},
+  lbl/.style={font=\itshape, inner sep=1.5pt}}
+\usetikzlibrary{arrows.meta,patterns}
+\newcommand\axx@mirhead{}
+
+%% ================================================ v2.3: MIR RENDERING  (\usepackage[...,mir]{axiomath})
+%% A page of a Mir Publishers problem book (Berman, Kutepov-Rubanov): Literaturnaya for text and
+%% mathematical letters, black ink, problems numbered in bold and run in, asterisk on hard ones,
+%% spaced capitals, thin rules. Same commands; the corrigé keeps every box (prop, \ib), drawn in black.
+\newif\ifaxmir@lit   % outside \ifaxmir: a skipped \newif would unbalance the conditionals
+\ifaxmir
+  % ---- font: latex/fonts/literaturnaya/ (or \AxMirFontDir, fonts/literaturnaya/, ./)
+  \def\axmir@try#1{\ifaxmir@lit\else
+    \IfFileExists{#1Literaturnaya-Regular.otf}{\def\axmir@dir{#1}\def\axmir@ext{.otf}\axmir@littrue}{%
+    \IfFileExists{#1Literaturnaya-Regular.ttf}{\def\axmir@dir{#1}\def\axmir@ext{.ttf}\axmir@littrue}{}}\fi}
+  \ifdefined\AxMirFontDir\axmir@try{\AxMirFontDir}\fi
+  \axmir@try{latex/fonts/literaturnaya/}\axmir@try{fonts/literaturnaya/}\axmir@try{./}
+  \ifaxmir@lit
+    \IfFileExists{\axmir@dir Literaturnaya-Italic\axmir@ext}
+      {\def\axmir@it{ItalicFont=*-Italic}}{\def\axmir@it{ItalicFont=*-Regular, ItalicFeatures={FakeSlant=0.2}}}
+    \IfFileExists{\axmir@dir Literaturnaya-Bold\axmir@ext}
+      {\def\axmir@bf{BoldFont=*-Bold}}{\def\axmir@bf{BoldFont=*-Regular, BoldFeatures={FakeBold=2.6}}}
+    \IfFileExists{\axmir@dir Literaturnaya-BoldItalic\axmir@ext}
+      {\def\axmir@bi{BoldItalicFont=*-BoldItalic}}{\def\axmir@bi{BoldItalicFont=*-Regular, BoldItalicFeatures={FakeSlant=0.2,FakeBold=2.6}}}
+    \edef\axmir@opts{Path=\axmir@dir, Extension=\axmir@ext, UprightFont=*-Regular,
+      \unexpanded\expandafter{\axmir@it}, \unexpanded\expandafter{\axmir@bf}, \unexpanded\expandafter{\axmir@bi}, Ligatures=TeX}
+    \expandafter\setmainfont\expandafter[\axmir@opts]{Literaturnaya}
+    \expandafter\setsansfont\expandafter[\axmir@opts]{Literaturnaya}
+    \RequirePackage{newunicodechar}
+    \newunicodechar{œ}{oe}\newunicodechar{Œ}{OE}
+    \RequirePackage[italic,defaultmathsizes,nolessnomore]{mathastext}
+    % XeTeX: mathastext leaves digits, + and = in Computer Modern; put them in Literaturnaya too
+    \AtBeginDocument{\count@=`0 \loop\Umathcode\count@="0 \symmtoperatorfont\count@
+      \advance\count@\@ne\ifnum\count@<`:\repeat
+      \Umathcode`+="2 \symmtoperatorfont`+ \Umathcode`=="3 \symmtoperatorfont`=}
+    \def\axmir@sc#1{\MakeUppercase{\fontsize{0.82\dimexpr\f@size pt}{\f@baselineskip}\selectfont #1}}
+  \else
+    \IfFontExistsTF{Latin Modern Roman}{\setmainfont{Latin Modern Roman}\setsansfont{Latin Modern Roman}}{}
+    \def\axmir@sc#1{\textsc{#1}}
+    \PackageWarningNoLine{axiomath}{mir: Literaturnaya not found (latex/fonts/literaturnaya/): using Latin Modern}
+  \fi
+  % ---- ink
+  \colorlet{axmain}{black}\colorlet{axdark}{black}\colorlet{axlight}{white}\colorlet{axmid}{black!12}
+  \colorlet{axpurple}{black}\colorlet{axpurplelight}{white}\colorlet{axorange}{black}
+  \colorlet{axgreen}{black}\colorlet{axgrey}{black!80}\colorlet{axgold}{black}
+  % ---- page: italic running head with the title, page number top right, no rules
+  \geometry{left=2.6cm,right=2.6cm,top=2.4cm,bottom=2.4cm,headheight=14pt,headsep=0.8cm}
+  \renewcommand\axapplyheader{\pagestyle{fancy}\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
+    \fancyhead[C]{\small\itshape\axs@title}\fancyhead[R]{\small\thepage}}
+  \fancypagestyle{axfirst}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{\small\thepage}}
+  \setlength{\parindent}{1.2em}\linespread{1.06}
+  \setlist[enumerate,1]{label=\arabic*.,leftmargin=1.8em,itemsep=1pt,topsep=2pt}
+  \setlist[enumerate,2]{label=\alph*),leftmargin=1.6em,itemsep=0pt,topsep=1pt}
+  \setlist[enumerate,3]{label=\roman*),leftmargin=1.6em}
+  \setlist[itemize]{label=--,leftmargin=1.6em,itemsep=0pt,topsep=2pt}
+  % ---- title block
+  \renewcommand\axmaketitle{\thispagestyle{axfirst}%
+    \begin{center}
+      {\small\axmir@sc{AxioMath}\ --\ \axmir@sc{\axx@levellabel}}\par\medskip
+      {\Large\axmir@sc{\axs@title}}\par
+      \ifx\axs@subtitle\@empty\else\smallskip{\itshape\axs@subtitle}\par\fi
+      \ifaxcorr\smallskip{\axmir@sc{\axlbl@corrige}}\par\fi
+      \ifx\axs@info\@empty\else\smallskip{\small\axs@info}\par\fi
+    \end{center}\vspace{2pt}\noindent\rule{\textwidth}{0.4pt}\par\vspace{2pt}%
+    {\footnotesize\itshape Les problèmes marqués d'un astérisque sont plus difficiles.\par}\vspace{6pt}}
+  % ---- problems: bold number, run in, asterisk if stars >= 3, points in italics
+  \renewcommand\axx@mirhead{%
+    \par\addvspace{1.1ex}\noindent\textbf{\theaxexo.\ifx\axe@stars\@empty\else\ifnum\axe@stars>2 \rlap{$^{*}$}\fi\fi}%
+    \ifx\axe@pts\@empty\else\ {\itshape(\axe@pts\,\axlbl@pts)}\fi\enspace\ignorespaces}
+  \RenewDocumentEnvironment{exo}{O{}}{\begingroup\axresetmeta\pgfkeys{/axm/exo/.cd,#1}%
+    \refstepcounter{axexo}\axaddpts\axx@tocentry\axx@mirhead}{\par\endgroup}
+  \RenewDocumentEnvironment{corr}{O{}}{\begingroup\axresetmeta\pgfkeys{/axm/exo/.cd,#1}\axmarktrue
+    \refstepcounter{axexo}\axaddpts\axx@tocentry\axx@mirhead}{\par\endgroup}
+  \renewcommand\axsol{\par\smallskip\noindent{\itshape Solution%
+    \ifx\axe@title\@empty\else\ (\axe@title)\fi.}\par\smallskip\@beginparpenalty=\@M\relax}
+  % ---- corrigé boxes: kept, thin black frames
+  \renewtcolorbox{prop}[1][Propriété]{enhanced, breakable, sharp corners, boxrule=0.4pt,
+    colback=white, colframe=black, left=6pt, right=6pt, top=3pt, bottom=3pt, before skip=6pt, after skip=6pt,
+    before upper={{\bfseries #1.}\ }}
+  \renewcommand{\ib}[1]{\tcbox[on line, colback=white, colframe=black, boxrule=0.4pt, sharp corners,
+    boxsep=1.5pt, left=2pt, right=2pt, top=1pt, bottom=1pt]{#1}}
+  \renewenvironment{rappels}{\par\smallskip\noindent\rule{\textwidth}{0.4pt}\par\vspace{3pt}%
+    \small\noindent\textbf{\axlbl@rappels.}\ \ignorespaces}{\par\vspace{3pt}\noindent\rule{\textwidth}{0.4pt}\par\medskip}
+  \renewcommand\sommaire{\par\noindent{\small\axmir@sc{\axlbl@sommaire}}\par\vspace{2pt}\@starttoc{axt}\vspace{2pt}}
+  \renewcommand\axtocline[4]{\par\noindent{\small #1.\ifx\relax#3\relax\else\ifnum#3>2 $^{*}$\fi\fi\
+    \ifx\relax#2\relax\else #2\fi\dotfill#4}\par}
+  % ---- QCM: plain letters, correct answers in bold in the corrigé
+  \renewcommand\axchoice[3]{\leavevmode\ifaxmark\edef\axq@tmp{\noexpand\in@{#1}{\axq@keys}}\axq@tmp
+    \ifin@\textbf{#2)\ #3}\else #2)\ #3\fi\else #2)\ #3\fi}
+\fi
+\endinput

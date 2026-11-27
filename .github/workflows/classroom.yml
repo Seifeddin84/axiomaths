@@ -1,0 +1,52 @@
+# Posts the pupils' handouts of inbox/classroom/ to Google Classroom as DRAFTS (scripts/classroom_post.py).
+# - pull request touching inbox/classroom/: checks every post.yaml (no Google call, no secret needed)
+# - merge into main: creates the drafts for the post.yaml files of that merge (Seifeddine publishes them)
+# - manual run (Actions tab → Classroom drafts → Run workflow): everything not posted yet (re-running is safe)
+# Secrets: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN (see scripts/classroom_post.py --auth).
+name: Classroom drafts
+
+on:
+  pull_request:
+    paths: ["inbox/classroom/**"]
+  push:
+    branches: [main]
+    paths: ["inbox/classroom/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  classroom:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements-classroom.txt
+
+      - name: Check post.yaml (pull request)
+        if: github.event_name == 'pull_request'
+        run: python scripts/classroom_post.py --check --all
+
+      - name: Create drafts for this merge
+        if: github.event_name == 'push'
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+        run: |
+          posts=$(git diff --name-only --diff-filter=AM HEAD^ HEAD -- 'inbox/classroom/*/*/post.yaml' 'inbox/classroom/*/*/*.pdf' \
+                  | xargs -r -n1 dirname | sort -u | sed 's|$|/post.yaml|')
+          python scripts/classroom_post.py $posts
+
+      - name: Create drafts for everything (manual run)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+        run: python scripts/classroom_post.py --all

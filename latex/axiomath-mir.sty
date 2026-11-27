@@ -1,0 +1,10 @@
+%% axiomath-mir.sty — kept for compatibility: the Mir rendering is now an option of axiomath.sty.
+%%     \usepackage[level=1]{axiomath-mir}   ==   \usepackage[level=1,mir]{axiomath}
+%% See latex/MIR_MODE.md.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{axiomath-mir}[2026/11/27 alias for axiomath with the mir option]
+\RequirePackage{xkeyval}
+\DeclareOptionX*{\PassOptionsToPackage{\CurrentOption}{axiomath}}
+\ProcessOptionsX\relax
+\RequirePackage[mir]{axiomath}
+\endinput
