@@ -252,6 +252,7 @@ average pupil**: detailed, clean, nothing skipped.
 | `check_katex.mjs` | parses all formulas with KaTeX (needs `npm ci`) |
 | `scripts/inbox_convert.py` | converts the `.tex` exercises in `inbox/tex/` (from `_maths_tutoring`) to site exercises — see §11 |
 | `create_exercise.py` | legacy interactive generator — outdated naming/sections, don't use |
+| `.claude/skills/axiomath-design/` | design system + UI audit checklist — read it before any change to `src/` UI, CSS or Tailwind |
 
 ## 9b. Wiki des mathématiciens (`mathematicians/*.md`, page `/resources/mathematicians`)
 
