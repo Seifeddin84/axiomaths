@@ -267,7 +267,7 @@ average pupil**: detailed, clean, nothing skipped.
 
 ## 10. Known quirks
 
-- UID 107 does not exist (gap); #70 and #74 are `.mdx`.
+- UIDs run 1–439 with no gap; #70 and #74 are `.mdx`.
 - Collège 9ème files #62–66 have `section: "التاسعة أساسي"` (harmless; validator ignores collège sections).
 
 ## 11. Inbox hand-off from `_maths_tutoring`

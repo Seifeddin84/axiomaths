@@ -63,7 +63,7 @@ CANONICAL_CHAPTERS = {
         "Activités Numériques",
         "Angles",
         "Devoirs",
-        "Equations et Inéquations du Premier Degré à une Inconnu",
+        "Equations et Inéquations du Premier Degré à une Inconnue",
         "Exploitation de l'Information",
         "Fonctions Linéaires et Affines",
         "Quart de Tour",
