@@ -1,6 +1,7 @@
 # MIR_MODE.md — handouts for strong pupils in the style of the Mir books
 
-For the `_maths_tutoring` Claude Project (copy this file and `latex/axiomath-mir.sty` into its files).
+For the `_maths_tutoring` Claude Project: copy this file, `latex/axiomath.sty` (v2.3, the repo copy is now the reference)
+and the folder `latex/fonts/literaturnaya/` into its files.
 Decided by Seifeddine on 2026-11-27. Models: G. N. Berman, *A Problem Book in Mathematical Analysis*;
 A. Kutepov & A. Rubanov, *Problems in Geometry*; M. Postnikov, *Lie Groups and Lie Algebras* (Mir Publishers, Moscow).
 
@@ -8,32 +9,32 @@ A. Kutepov & A. Rubanov, *Problems in Geometry*; M. Postnikov, *Lie Groups and L
 
 | audience | package | look |
 |---|---|---|
-| every class by default (weak and average pupils, collège, lycée) | `\usepackage[...]{axiomath}` | coloured handout |
-| **lycée pilote**, strong pupils, preparation for competitions | `\usepackage[...]{axiomath-mir}` | Mir: black ink, Computer Modern |
+| every class by default (weak and average pupils, collège, lycée) | `\usepackage[level=...]{axiomath}` | coloured handout |
+| **lycée pilote**, strong pupils, preparation for competitions | `\usepackage[level=...,mir]{axiomath}` | Mir: black ink, Literaturnaya |
 
 One handout = one style; never mix the two in one PDF. When Seifeddine says « pilote », « élèves forts » or « style
 Mir », use Mir mode; otherwise the coloured package.
 
-## 2. How: one word
+## 2. How: one word, `mir`
 
 ```latex
 \documentclass[12pt,a4paper]{article}
-\usepackage[level=1p]{axiomath-mir}          % instead of \usepackage[level=1p,color=...]{axiomath}
-\axsetup{title={Thalès et calcul numérique}, classe={1\up{ère} année -- lycée pilote},
-         sous-titre={Série de révision n\textsuperscript{o}\,3}, corrige}   % drop "corrige" for the pupils' sheet
+\usepackage[level=1,mir]{axiomath}          % drop ",mir" and the same file gives the coloured handout
+\axsetup{title={Thalès et calcul numérique}, serie=3,
+         classe={1\textsuperscript{ère} année -- lycée pilote}, corrige}   % "corrige" only on the corrigé
 \begin{document}
-\sommaire                                   % mini table of contents (compile twice)
-\begin{rappels} ... \end{rappels}           % the reminder that opens every handout
-\section{Le théorème de Thalès et sa réciproque}
-\begin{corr}[title={...}, stars=4, source={Axiomaths}] statement \axsol solution \end{corr}
-...
+\axmaketitle
+\sommaire                                    % mini table of contents of the exercises (compile twice)
+\begin{rappels} ... \end{rappels}            % the reminder that opens every série
+\begin{exo}[title={...}, stars=4] statement \end{exo}                    % pupils' sheet
+\begin{corr}[title={...}, stars=4] statement \axsol solution \end{corr}  % corrigé
 \end{document}
 ```
 
-`axiomath-mir.sty` has **the same commands** as `axiomath.sty` (`\axsetup`, `corr`, `\axsol`, `prop`, `\ib`, `qcm`,
-`\qitem`, `\axanswerkey`, `\vect`, `axmain/axdark/axlight`), so the exercise text does not change. It adds `classe`,
-`sous-titre`, `rappels` and `\sommaire`; the coloured package should get the same three (see §6).
-Full example: `latex/examples/serie-pilote-exemple.tex` (4 exercises of the bank, énoncé and corrigé).
+Everything is in `latex/axiomath.sty` v2.3 (Seifeddine's v2.2 + the `mir` option, `rappels`, `\sommaire`,
+`classe`, `sous-titre`, `\og`/`\fg`, the figure styles). `latex/axiomath-mir.sty` is only an alias
+(`\usepackage{axiomath-mir}` = `\usepackage[mir]{axiomath}`). Compile with **xelatex** (as always for axiomath),
+twice. Examples: `latex/examples/serie-pilote-enonce.tex` and `serie-pilote-corrige.tex` (4 bank exercises).
 
 ## 3. What never changes (both styles, every level)
 
@@ -59,8 +60,8 @@ Full example: `latex/examples/serie-pilote-exemple.tex` (4 exercises of the bank
 - **Sections** numbered like Kutepov–Rubanov: « 15. Prismes et parallélépipèdes ». Use them to group the problems
   by idea; the `\sommaire` lists them.
 - **Problems** numbered continuously through the handout in bold (« 12. »), no title printed, the statement starts on
-  the same line. A hard problem (`stars` ≥ 3) gets an asterisk, as in Berman (« 155*. »). The `title` key is still
-  required: the site and the corrigé (« Solution (title). ») use it.
+  the same line. A hard problem (`stars` ≥ 3) gets an asterisk, as in Berman (« 155*. »); points, if any, in italics.
+  The `title` key is still required: the sommaire, the site and the corrigé (« Solution (title). ») use it.
 - **Questions**: `enumerate` gives « 1. », « a) », « i) ». Families of short items may share one problem, Berman-style:
   « Déterminer les domaines de définition : (1) … ; (2) … ; (3) … ».
 - **Wording for strong pupils**: short and exact, imperative (« Démontrer que… », « Calculer… », « En déduire… »),
@@ -95,9 +96,9 @@ Full example: `latex/examples/serie-pilote-exemple.tex` (4 exercises of the bank
 3. Each exercise as its own inbox file with `% audience: "pilote"`; the two PDFs + `post.yaml` in
    `inbox/classroom/<level>/<batch>/`.
 
-## 6. Open points
+## 6. Notes
 
-- `axiomath-mir.sty` is a separate file with the same commands, because `axiomath.sty` itself is not in the repo.
-  When it is, merge both into one package with a `mir` option (`\usepackage[level=1p,mir]{axiomath}`).
-- Add `classe`, `sous-titre`, `rappels` and `\sommaire` to `axiomath.sty` (coloured versions), so every handout of
-  every level opens with the reminder and the mini table of contents.
+- The `mir` option replaces the banner, the coloured boxes, the stars and the page decoration; it keeps every command,
+  the QCM (correct answers in bold in the corrigé) and the Arabic levels (Arabic text keeps its Arabic font).
+- The free Literaturnaya has one style: italic is slanted and bold is thickened until true files are added
+  (`Literaturnaya-Italic`, `-Bold`, `-BoldItalic` in the font folder; the package uses them automatically).

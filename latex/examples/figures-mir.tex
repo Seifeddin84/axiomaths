@@ -1,11 +1,11 @@
 % The Mir figure styles of axiomath-mir.sty (main, thin, hidden, constr, path, axis, vec, pt, lbl).
 % Compile from the repo root:  TEXINPUTS=latex//: xelatex latex/examples/figures-mir.tex
 \documentclass[11pt,a4paper]{article}
-\usepackage[level=1p]{axiomath-mir}
+\usepackage[level=1,mir]{axiomath}
 \axsetup{title={Figures dans le style Mir}}
-\pagestyle{empty}
+
 \begin{document}
-\thispagestyle{empty}
+\axmaketitle
 \begin{center}\begin{minipage}[b]{0.45\textwidth}\centering
 \begin{tikzpicture}[scale=0.62]
   \coordinate (A) at (1,3); \coordinate (B) at (5,3); \coordinate (C) at (6,0); \coordinate (D) at (0,0);

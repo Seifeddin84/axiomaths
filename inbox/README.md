@@ -40,9 +40,10 @@ inbox/
    - every série and devoir opens with a **reminder** (`rappels`) and a **mini table of contents** (`\sommaire`);
    - **corrigés are always detailed with boxes**, for every level and every audience: reminder boxes (`prop`),
      framed key results (`\ib`), one step per line, `Idée :` / `Piège :`. Only the styling changes;
-   - **audience decides the styling**: `\usepackage{axiomath}` (colours) by default; for lycée pilote and strong
-     pupils `\usepackage{axiomath-mir}` (Mir rendering, black, Computer Modern), same commands, see `MIR_MODE.md`.
-     Then add `% audience: "pilote"` to each exercise file.
+   - **audience decides the styling**: `\usepackage[level=..]{axiomath}` (colours) by default; for lycée pilote and
+     strong pupils `\usepackage[level=..,mir]{axiomath}` (Mir rendering: black, Literaturnaya), same commands, see
+     `latex/MIR_MODE.md`. The reference `axiomath.sty` is `latex/axiomath.sty` (v2.3). Then add `% audience: "pilote"`
+     to each exercise file.
 
 ## File format
 

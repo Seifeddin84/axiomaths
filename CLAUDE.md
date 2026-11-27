@@ -87,7 +87,7 @@ photos/screenshots or by generating new ones in the house style.
 - **Devoirs** (page `/devoirs`) : un PDF + un YAML dans `public/exams/` (`exams.ts` lit les `.yaml`).
   Champ optionnel `corrige_filename` : le PDF du corrigé, affiché par le bouton « Corrigé ». Le devoir va aussi,
   exercice par exercice, dans la banque (R1).
-- `axiomath.sty` v2.0 ne contient pas `prop` ni `\ib` : ajouter `bloc_axiomath_prop.tex` avant de compiler un corrigé.
+- `axiomath.sty` de référence : `latex/axiomath.sty` v2.3 (contient `prop`, `\ib`, `rappels`, `\sommaire`, l'option `mir`) ; compiler avec xelatex.
 
 ## 3. Filename & UID
 
@@ -253,7 +253,7 @@ average pupil**: detailed, clean, nothing skipped.
 | `scripts/inbox_convert.py` | converts the `.tex` exercises in `inbox/tex/` (from `_maths_tutoring`) to site exercises — see §11 |
 | `create_exercise.py` | legacy interactive generator — outdated naming/sections, don't use |
 | `scripts/classroom_post.py` | posts `inbox/classroom/*/*/post.yaml` to Google Classroom as drafts (`--check` validates; run by `.github/workflows/classroom.yml` on merge) |
-| `latex/axiomath-mir.sty` | Mir rendering of the handouts (same commands as `axiomath.sty`); rules in `latex/MIR_MODE.md`, example in `latex/examples/` |
+| `latex/axiomath.sty` | Seifeddine's handout package v2.3 (xelatex); option `mir` = Mir rendering for lycée pilote (`latex/MIR_MODE.md`, examples in `latex/examples/`, font in `latex/fonts/literaturnaya/`); `axiomath-mir.sty` is an alias |
 
 ## 9b. Wiki des mathématiciens (`mathematicians/*.md`, page `/resources/mathematicians`)
 
@@ -291,8 +291,8 @@ file per exercise itself (`inbox/README.md`, rule 3).
 **Automatic hand-off (rules 6–8 of `inbox/README.md`, 2026-11-27):** every exercise of every série/devoir reaches the
 inbox without asking; the pupils' PDFs + `post.yaml` go to `inbox/classroom/<level>/<batch>/` and are posted to Classroom
 as **drafts** when the PR is merged (`.github/workflows/classroom.yml`, `scripts/classroom_post.py`). Corrigés are always
-detailed with boxes at every level; only the styling changes: `axiomath.sty` (colours) or `latex/axiomath-mir.sty` (Mir,
-for lycée pilote; `MIR_MODE.md`). Exercises with `% audience: "pilote"` get `audience: "pilote"` and the tag `pilote`.
+detailed with boxes at every level; only the styling changes: `latex/axiomath.sty` (colours) or with the `mir` option
+(Mir, for lycée pilote; `latex/MIR_MODE.md`). Exercises with `% audience: "pilote"` get `audience: "pilote"` and the tag `pilote`.
 
 Workflow for a batch (Seifeddine says "new batch", or `git ls-remote --heads origin 'inbox/*'`):
 

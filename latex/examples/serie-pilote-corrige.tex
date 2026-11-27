@@ -1,17 +1,19 @@
-% Example of a lycée pilote series in Mir mode (Thalès + activités numériques, exercises of the bank).
-% Compile from the repo root:  TEXINPUTS=latex//: xelatex latex/examples/serie-pilote-exemple.tex  (twice, for the sommaire)
+% Example of a lycée pilote série in MIR rendering (4 exercises of the bank).
+% Compile from the repo root, twice (for the sommaire):  TEXINPUTS=latex//: xelatex latex/examples/serie-pilote-corrige.tex
+% Same file with \usepackage[level=1]{axiomath} (no "mir") = the coloured handout.
 \documentclass[12pt,a4paper]{article}
-\usepackage[level=1p]{axiomath-mir}
-\axsetup{title={Thalès et calcul numérique}, classe={1\up{ère} année -- lycée pilote}, sous-titre={Série de révision n\textsuperscript{o}\,3}}   % add ", corrige" for the corrigé
+\usepackage[level=1,mir]{axiomath}
+\axsetup{title={Thalès et calcul numérique}, serie=3, classe={1\textsuperscript{ère} année -- lycée pilote}, corrige}
 \begin{document}
+\axmaketitle
 \sommaire
 \begin{rappels}
 \emph{Thalès.} Si $M\in(AB)$, $N\in(AC)$ et $(MN)\parallel(BC)$, alors $\dfrac{AM}{AB}=\dfrac{AN}{AC}=\dfrac{MN}{BC}$ ;
 réciproquement, si $\dfrac{AM}{AB}=\dfrac{AN}{AC}$ et si les points sont dans le même ordre, $(MN)\parallel(BC)$.
-\emph{Racines.} Pour $a\ge0$, $b>0$ : $\sqrt{ab}=\sqrt a\,\sqrt b$, $\sqrt{a/b}=\sqrt a/\sqrt b$ ; on rend un dénominateur rationnel avec la quantité conjuguée.
+\emph{Racines.} Pour $a\geq0$, $b>0$ : $\sqrt{ab}=\sqrt a\,\sqrt b$ et $\sqrt{a/b}=\sqrt a/\sqrt b$ ; on rend un dénominateur
+rationnel avec la quantité conjuguée.
 \end{rappels}
-\section{Le théorème de Thalès et sa réciproque}
-\begin{corr}[title={Aires dans un trapèze}, stars=4, source={Axiomaths}]
+\begin{corr}[title={Aires dans un trapèze}, stars=4]
 $ABCD$ est un trapèze de bases $[AB]$ et $[DC]$, avec $AB=a<DC=b$. Ses diagonales se coupent en $O$. On note $S_1$, $S_2$, $S_3$ et $S_4$ les aires des triangles $OAB$, $OCD$, $OAD$ et $OBC$.
 
 \begin{center}
@@ -19,7 +21,8 @@ $ABCD$ est un trapèze de bases $[AB]$ et $[DC]$, avec $AB=a<DC=b$. Ses diagonal
   \coordinate (D) at (0,0); \coordinate (C) at (6,0); \coordinate (A) at (1,3); \coordinate (B) at (5,3); \coordinate (O) at (3,1.8);
   \coordinate (H) at (3,0); \coordinate (Hp) at (3,3);
     \draw[thick] (A)--(B)--(C)--(D)--cycle; \draw[gray] (A)--(C); \draw[gray] (B)--(D); \draw[dashed] (Hp)--(H);
-  \foreach \p/\pos in {A/above left,B/above right,C/below right,D/below left,O/right,H/below,Hp/above}{\fill (\p) circle (2pt) node[\pos]{$\p$};}
+  \foreach \p/\pos in {A/above left,B/above right,C/below right,D/below left,O/right,H/below}{\fill (\p) circle (2pt) node[\pos]{$\p$};}
+  \fill (Hp) circle (2pt) node[above]{$H'$};
   \node at (3,2.5) {\footnotesize$S_1$}; \node at (3,0.7) {\footnotesize$S_2$}; \node at (1.75,1.5) {\footnotesize$S_3$}; \node at (4.25,1.5) {\footnotesize$S_4$};
 \end{tikzpicture}
 \end{center}
@@ -73,7 +76,8 @@ Aire d'un triangle : \ib{$\dfrac12\times\text{base}\times\text{hauteur}$}. Deux 
 
 \textbf{Piège :} écrire $\dfrac{S_1}{S_2}=\dfrac ab$ (rapport des aires et non des longueurs), ou croire que les quatre triangles ont la même aire.
 \end{corr}
-\begin{corr}[title={Une droite par le centre de gravité}, stars=4, source={Axiomaths}]
+
+\begin{corr}[title={Une droite par le centre de gravité}, stars=4]
 $ABC$ est un triangle, $I$ le milieu de $[BC]$ et $G$ le point de $[AI]$ tel que $AG=\dfrac23AI$. Une droite $d$ passant par $G$, mais pas par $A$, coupe $[AB]$ en $M$ et $[AC]$ en $N$. Les parallèles à $d$ passant par $B$ et par $C$ coupent la droite $(AI)$ en $U$ et $V$ ; on admet que $U$ et $V$ sont sur la demi-droite $[AI)$, au-delà de $G$.
 
 \begin{center}
@@ -147,8 +151,7 @@ $ABC$ est un triangle, $I$ le milieu de $[BC]$ et $G$ le point de $[AI]$ tel que
 \textbf{Piège :} écrire Thalès dans le triangle $ABC$ : la droite $(MN)$ n'est pas parallèle à $(BC)$ en général.
 \end{corr}
 
-\section{Activités numériques}
-\begin{corr}[title={Racines irrationnelles}, stars=4, source={Axiomaths}]
+\begin{corr}[title={Racines irrationnelles}, stars=4]
 Un nombre est \emph{rationnel} s'il s'écrit $\dfrac pq$ avec $p$, $q$ entiers, $q\neq0$, la fraction étant irréductible ($p$ et $q$ n'ont pas de diviseur commun autre que $1$).
 \begin{enumerate}
   \item Montrer que si le carré d'un entier $n$ est pair, alors $n$ est pair. [Étudier le cas $n$ impair.]
@@ -205,7 +208,8 @@ Pour montrer qu'une propriété est vraie, on suppose qu'elle est \textbf{fausse
 
 \textbf{Piège :} pour $\sqrt6$, on aboutit à $2m^2=3q^2$ : il faut encore justifier que $q$ est pair (le facteur $3$ est impair).
 \end{corr}
-\begin{corr}[title={PGCD et divisibilité par 2, 4, 8}, stars=4, source={Axiomaths}]
+
+\begin{corr}[title={PGCD et divisibilité par 2, 4, 8}, stars=4]
 Pour tout entier naturel $n$, on pose $d_n=\mathrm{PGCD}(n+2,\ n^2+4)$.
 \begin{enumerate}
   \item Calculer $d_n$ pour $n=0,1,2,\dots,8$.
@@ -253,4 +257,5 @@ Pour tous entiers $a$, $b$ et $q$ : \ib{$\mathrm{PGCD}(a,b)=\mathrm{PGCD}(b,\,a-
 
 \textbf{Piège :} croire que $d_n=1$ pour tout $n$ (par exemple $d_6=8$).
 \end{corr}
+
 \end{document}
