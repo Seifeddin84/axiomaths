@@ -8,7 +8,7 @@ source: "Project Euler, problème 318 « 2011 Nines » (adapté)"
 title: "Presque un entier"
 country: "Tunisie"
 year: 2026
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: null
 tags: ["radicaux", "conjugue", "puissances", "partie-entiere", "defi"]

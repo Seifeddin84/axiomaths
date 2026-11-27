@@ -8,7 +8,7 @@ source: "URSS : Olympiade 1990, classe de 9e (B. Chinik, Kichinev)"
 title: "Trois parallèles par un point"
 country: "Tunisie"
 year: 2026
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: null
 tags: ["thales", "parallelisme", "rapports", "defi"]

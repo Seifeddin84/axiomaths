@@ -8,7 +8,7 @@ source: "Vietnam : High School for Gifted Students (HNUE), Second Entrance Mock 
 title: "Sous la racine, un carré caché"
 country: "Tunisie"
 year: 2026
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: null
 tags: ["radicaux", "denestage", "carre-cache", "defi"]

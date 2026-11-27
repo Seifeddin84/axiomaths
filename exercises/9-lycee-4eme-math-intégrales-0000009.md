@@ -8,7 +8,7 @@ source: "Aix Marseille, série C & E, 1973, exercice 1"
 title: "Intégrale et linéarisation trigonométrique"
 country: "France"
 year: 1973
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: 4
 tags: ["intégrale", "trigonométrie", "linéarisation"]

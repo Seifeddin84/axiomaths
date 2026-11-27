@@ -4,14 +4,16 @@ school: "lycee"
 level: "4eme"
 section: "Mathématiques"
 chapter: "Intégrales"
-source: "Série d'exercices — Intégrales"
+source: "Axiomaths"
 title: "Intégrales de Wallis : sinⁿ⁺¹(t)cos²(t)"
 country: "Tunisie"
-year: null
-professor: null
+year: 2026
+professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
 tags: ["integrales", "integration-par-parties", "suites-reelles", "recurrence", "wallis"]
+provenance: adapted
+adapted_from: "Série d'exercices — Intégrales"
 ---
 
 Soit la suite $(I_n)$ définie pour tout $n \in \mathbb{N}$ par $I_n = \displaystyle\int_0^{\frac{\pi}{2}} \sin^{n+1}(t)\cos^2(t)\,dt$.

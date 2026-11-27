@@ -8,7 +8,7 @@ source: "Révision hiver 2025"
 title: "Forme algébrique - Module"
 country: "Tunisie"
 year: 2025
-professor: "Axiomaths"
+professor: null
 difficulty: "Facile"
 points: 3
 tags: ["module", "forme algébrique"]

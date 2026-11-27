@@ -8,7 +8,7 @@ source: "Examen Terminale, Clermont-Ferrand & Grenoble remplacement, série E, 1
 title: "Équation polynomiale et somme trigonométrique"
 country: "France"
 year: 1973
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: 5
 tags: ["équation", "polynôme", "trigonométrie", "somme", "nombre complexe"]

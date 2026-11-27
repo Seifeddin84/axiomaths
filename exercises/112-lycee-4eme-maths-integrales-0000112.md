@@ -4,14 +4,16 @@ school: "lycee"
 level: "4eme"
 section: "Mathématiques"
 chapter: "Intégrales"
-source: "Série d'exercices — Intégrales (Exercice N°4)"
+source: "Axiomaths"
 title: "Étude de ln(x)/(1+x²) et fonction définie par une intégrale"
 country: "Tunisie"
-year: null
-professor: null
+year: 2026
+professor: "Axiomaths"
 difficulty: "Difficile"
 points: null
 tags: ["integrales", "logarithme-neperien", "aire", "integration-par-parties", "fonction-integrale", "encadrement"]
+provenance: adapted
+adapted_from: "Série d'exercices — Intégrales (Exercice N°4)"
 ---
 
 ### Partie A

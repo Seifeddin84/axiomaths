@@ -8,7 +8,7 @@ source: "Résultat classique (cas particulier du théorème de Routh). Pour l'hi
 title: "Le triangle de Feynman"
 country: "Tunisie"
 year: 2026
-professor: "Axiomaths"
+professor: null
 difficulty: "Difficile"
 points: null
 tags: ["thales", "aires", "feynman", "cevienne", "defi"]

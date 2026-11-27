@@ -8,7 +8,7 @@ source: "Révision hiver 2025"
 title: "Affixes et représentation géométrique"
 country: "Tunisie"
 year: 2025
-professor: "Axiomaths"
+professor: null
 difficulty: "Facile"
 points: 3
 tags: ["affixe", "conjugué"]

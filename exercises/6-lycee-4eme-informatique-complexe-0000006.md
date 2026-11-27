@@ -8,7 +8,7 @@ source: "Révision hiver 2025"
 title: "Équation second degré"
 country: "Tunisie"
 year: 2025
-professor: "Axiomaths"
+professor: null
 difficulty: "Facile"
 points: 4
 tags: ["équation", "module"]
