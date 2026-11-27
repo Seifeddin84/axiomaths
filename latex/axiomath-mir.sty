@@ -44,18 +44,34 @@
 \RequirePackage{amsmath,amssymb}
 \ifPDFTeX\else
   \RequirePackage{fontspec}
-  \IfFileExists{latex/fonts/literaturnaya/Literaturnaya-Regular.otf}{\def\axmir@ext{.otf}\axmir@littrue}{%
-    \IfFileExists{latex/fonts/literaturnaya/Literaturnaya-Regular.ttf}{\def\axmir@ext{.ttf}\axmir@littrue}{}}
+  % font folder: \AxMirFontDir if defined before \usepackage, else latex/fonts/literaturnaya/, else fonts/literaturnaya/, else ./
+  \def\axmir@try#1{\ifaxmir@lit\else
+    \IfFileExists{#1Literaturnaya-Regular.otf}{\def\axmir@dir{#1}\def\axmir@ext{.otf}\axmir@littrue}{%
+    \IfFileExists{#1Literaturnaya-Regular.ttf}{\def\axmir@dir{#1}\def\axmir@ext{.ttf}\axmir@littrue}{}}\fi}
+  \ifdefined\AxMirFontDir\axmir@try{\AxMirFontDir}\fi
+  \axmir@try{latex/fonts/literaturnaya/}\axmir@try{fonts/literaturnaya/}\axmir@try{./}
 \fi
 \ifaxmir@lit
-  \setmainfont{Literaturnaya}[Path=latex/fonts/literaturnaya/, Extension=\axmir@ext,
-    UprightFont=*-Regular, ItalicFont=*-Italic, BoldFont=*-Bold, BoldItalicFont=*-BoldItalic,
-    Ligatures=TeX]
-  % mathematical letters and digits in the text face (Mir books never mixed two families)
+  % true italic / bold if present, otherwise slanted / emboldened Book (the free revival has one style)
+  \IfFileExists{\axmir@dir Literaturnaya-Italic\axmir@ext}
+    {\def\axmir@it{ItalicFont=*-Italic}}{\def\axmir@it{ItalicFont=*-Regular, ItalicFeatures={FakeSlant=0.2}}}
+  \IfFileExists{\axmir@dir Literaturnaya-Bold\axmir@ext}
+    {\def\axmir@bf{BoldFont=*-Bold}}{\def\axmir@bf{BoldFont=*-Regular, BoldFeatures={FakeBold=2.6}}}
+  \IfFileExists{\axmir@dir Literaturnaya-BoldItalic\axmir@ext}
+    {\def\axmir@bi{BoldItalicFont=*-BoldItalic}}{\def\axmir@bi{BoldItalicFont=*-Regular, BoldItalicFeatures={FakeSlant=0.2,FakeBold=2.6}}}
+  \edef\axmir@opts{Path=\axmir@dir, Extension=\axmir@ext, UprightFont=*-Regular,
+    \unexpanded\expandafter{\axmir@it}, \unexpanded\expandafter{\axmir@bf}, \unexpanded\expandafter{\axmir@bi}, Ligatures=TeX}
+  \expandafter\setmainfont\expandafter[\axmir@opts]{Literaturnaya}
+  % small caps do not exist in the font: the title block uses spaced capitals instead (see \axmir@sc)
+  \def\axmir@sc#1{\MakeUppercase{\fontsize{0.82\dimexpr\f@size pt}{\f@baselineskip}\selectfont #1}}
+  \RequirePackage{newunicodechar}
+  \newunicodechar{œ}{oe}\newunicodechar{Œ}{OE}\newunicodechar{·}{\,--\,}
+  % mathematical letters and digits in the text face, as in the Mir books
   \RequirePackage[italic,defaultmathsizes,nolessnomore]{mathastext}
 \else
   \ifPDFTeX\RequirePackage[T1]{fontenc}\RequirePackage[utf8]{inputenc}\fi
   \RequirePackage{lmodern}
+  \def\axmir@sc#1{\textsc{#1}}
   \PackageWarningNoLine{axiomath-mir}{Literaturnaya not found (compile with xelatex and put the font files in
     latex/fonts/literaturnaya/): using Latin Modern}
 \fi
@@ -119,10 +135,10 @@
 \AtBeginDocument{%
   \thispagestyle{axmirfirst}%
   \begin{center}
-    {\small\scshape AxioMath\ifx\axmir@classe\@empty\else\ \textperiodcentered\ \axmir@classe\fi}\par\medskip
-    {\Large\scshape \axmir@title}\par
+    {\small\axmir@sc{AxioMath}\ifx\axmir@classe\@empty\else\ --\ \axmir@sc{\axmir@classe}\fi}\par\medskip
+    {\Large\axmir@sc{\axmir@title}}\par
     \ifx\axmir@subtitle\@empty\else\smallskip{\itshape\axmir@subtitle}\par\fi
-    \ifaxcorrige\smallskip{\scshape Corrigé}\par\fi
+    \ifaxcorrige\smallskip{\axmir@sc{Corrigé}}\par\fi
   \end{center}
   \vspace{2pt}\noindent\rule{\textwidth}{0.4pt}\vspace{6pt}\par}
 
@@ -135,7 +151,7 @@
 % ---------- mini table of contents ----------
 \titlecontents{section}[1.6em]{\small}{\contentslabel{1.6em}}{}{\titlerule*[0.6pc]{.}\contentspage}
 \newcommand{\sommaire}{%
-  \begingroup\small\noindent{\scshape Sommaire}\par\vspace{2pt}
+  \begingroup\small\noindent{\axmir@sc{Sommaire}}\par\vspace{2pt}
   \@starttoc{toc}\endgroup\par\vspace{2pt}}
 
 % ---------- reminder that opens every series: unboxed, between thin rules ----------
@@ -176,7 +192,7 @@
   colback=white, colframe=black, colbacktitle=white, coltitle=black,
   left=6pt, right=6pt, top=3pt, bottom=3pt, toptitle=2pt, bottomtitle=2pt,
   titlerule=0.4pt, fonttitle=\normalfont,
-  title={\textsc{Rappel}\if\relax\detokenize{#1}\relax\else.\ \textbf{#1}\fi},
+  title={\axmir@sc{Rappel}\if\relax\detokenize{#1}\relax\else.\ \textbf{#1}\fi},
   before skip=6pt, after skip=6pt}
 \setlength{\fboxrule}{0.4pt}\setlength{\fboxsep}{3pt}
 % \ib{$...$} (text or display maths, as in the handouts) and $\ib{...}$ both work

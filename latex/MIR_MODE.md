@@ -48,11 +48,14 @@ Full example: `latex/examples/serie-pilote-exemple.tex` (4 exercises of the bank
 
 ## 4. The Mir page (what `axiomath-mir.sty` does, and what you write)
 
-- **Typography**: **Literaturnaya**, the Soviet book face used for most Mir books (1950–1990), for the text *and* the
-  mathematical letters (`mathastext`), as in Berman or Kutepov–Rubanov. Compile with **xelatex**, the font files in
-  `latex/fonts/literaturnaya/` (`Literaturnaya-Regular`, `-Italic`, `-Bold`, `-BoldItalic`, `.otf` or `.ttf`). Without
-  them, or with pdflatex, the package falls back to Latin Modern and warns. Black only, small-caps title block
-  between thin rules, small italic running head with the title, page number at the top right.
+- **Typography**: **Literaturnaya**, the Soviet book face of most Mir books (1950–1990), for the text *and* the
+  mathematical letters (`mathastext`), as in Berman or Kutepov–Rubanov. The font is in the repo:
+  `latex/fonts/literaturnaya/Literaturnaya-Regular.ttf` (free revival by Marath Salychow, CC BY 3.0, French accents
+  added for AxioMath; see its README). **Compile with `xelatex`** (twice, for the `\sommaire`), from the repo root or
+  with the font folder copied next to the `.tex` (`fonts/literaturnaya/` or the same folder; or set
+  `\newcommand{\AxMirFontDir}{path/}` before `\usepackage`). Italic and bold are slanted / emboldened from the Book
+  style until true italic and bold files are added. With pdflatex the package falls back to Latin Modern and warns.
+  Black only, spaced capitals for the title block between thin rules, small italic running head, page number top right.
 - **Sections** numbered like Kutepov–Rubanov: « 15. Prismes et parallélépipèdes ». Use them to group the problems
   by idea; the `\sommaire` lists them.
 - **Problems** numbered continuously through the handout in bold (« 12. »), no title printed, the statement starts on
@@ -87,7 +90,7 @@ Full example: `latex/examples/serie-pilote-exemple.tex` (4 exercises of the bank
 
 ## 5. Before the PR
 
-1. `pdflatex` twice (the `\sommaire` needs it): 0 errors, no overfull box.
+1. `xelatex` twice (the `\sommaire` needs it): 0 errors, no « Missing character » in the log, no overfull box.
 2. The pupils' PDF (without `corrige`) shows no solution; the corrigé shows every `prop` box and `\ib` frame.
 3. Each exercise as its own inbox file with `% audience: "pilote"`; the two PDFs + `post.yaml` in
    `inbox/classroom/<level>/<batch>/`.
