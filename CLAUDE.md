@@ -19,8 +19,10 @@ photos/screenshots or by generating new ones in the house style.
   (a−b)³, #88 index typo), which is why this rule exists.
 - **Never invent missing content.** If a photo is cut off (left margin, last
   line, missing statement), skip that exercise and say what's missing in the PR.
-- **Never merge or publish PR #1** (`audit/theme-and-performance`, old theme refactor + tutor app + colliding
-  UIDs 111–126). Decided by Seifeddine on 2026-11-20: it stays open as an archive only, whatever "merge all" says.
+- **PR #1 (`audit/theme-and-performance`) is a dead end: ignore it completely and never talk about it.**
+  Never merge, publish, review, rebase, list, summarise or mention it (not in replies, PR descriptions, commit
+  messages or questions), and never ask what to do with it. Leave it out silently of any list of open PRs, and
+  whatever "merge all" says. Decided by Seifeddine on 2026-11-20, reinforced on 2026-11-27.
 - List every judgement call (fixed typo, corrected statement, guessed section
   or source) in the PR description so it can be reviewed.
 
