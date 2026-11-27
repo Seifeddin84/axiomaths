@@ -50,7 +50,7 @@ DIFFICULTIES = {"Facile", "Moyen", "Difficile"}
 KNOWN_KEYS = {
     "uid", "school", "level", "section", "chapter", "chapter_slug", "title", "difficulty", "points",
     "tags", "source", "professor", "year", "country", "type", "recommended",
-    "provenance", "dressing", "rung", "batch", "defi",
+    "provenance", "dressing", "rung", "batch", "defi", "audience",
 }
 SECTION_ALIASES = {
     "maths": "Mathématiques", "math": "Mathématiques", "mathematiques": "Mathématiques",
@@ -758,6 +758,13 @@ def normalise_meta(meta: dict, res: Result, src_level_dir: str) -> dict:
         res.warnings.append("'recommended' ignored: only the manager sets it")
     if meta.get("defi") is True:
         out["defi"] = True
+    aud = str(meta.get("audience") or "").strip().lower()
+    if aud == "pilote":                  # written for strong pupils (Mir handout): tagged so the site can filter it
+        out["audience"] = "pilote"
+        if "pilote" not in out["tags"]:
+            out["tags"].append("pilote")
+    elif aud not in ("", "standard"):
+        res.warnings.append(f"audience {aud!r} unknown (use \"pilote\" or leave it out)")
     if meta.get("chapter_slug"):
         out["chapter_slug"] = str(meta["chapter_slug"])
     return out
@@ -775,6 +782,8 @@ def build_frontmatter(uid: str, m: dict) -> str:
             lines.append(f"{k}: {j(m[k])}")
     if m.get("defi"):
         lines.append("defi: true")
+    if m.get("audience"):
+        lines.append(f"audience: {j(m['audience'])}")
     lines.append("---")
     return "\n".join(lines)
 
