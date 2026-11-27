@@ -1,0 +1,55 @@
+% The Mir figure styles of axiomath-mir.sty (main, thin, hidden, constr, path, axis, vec, pt, lbl).
+% Compile from the repo root:  TEXINPUTS=latex//: pdflatex latex/examples/figures-mir.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[level=1p]{axiomath-mir}
+\axsetup{title={Figures dans le style Mir}}
+\pagestyle{empty}
+\begin{document}
+\thispagestyle{empty}
+\begin{center}\begin{minipage}[b]{0.45\textwidth}\centering
+\begin{tikzpicture}[scale=0.62]
+  \coordinate (A) at (1,3); \coordinate (B) at (5,3); \coordinate (C) at (6,0); \coordinate (D) at (0,0);
+  \coordinate (O) at (3,1.8); \coordinate (H) at (3,0); \coordinate (H') at (3,3);
+  \draw[main] (A)--(B)--(C)--(D)--cycle;
+  \draw[thin] (A)--(C) (B)--(D);
+  \draw[constr] (H')--(H);
+  \foreach \p/\a in {A/above left,B/above right,C/below right,D/below left,O/right,H/below}{\node[pt] at (\p){}; \node[lbl,\a] at (\p){$\p$};}
+  \node[pt] at (H'){}; \node[lbl,above] at (H'){$H'$};
+  \node[lbl] at (3,2.45){$S_1$}; \node[lbl] at (3,0.75){$S_2$}; \node[lbl] at (1.9,1.5){$S_3$}; \node[lbl] at (4.1,1.5){$S_4$};
+\end{tikzpicture}\par\smallskip{\small Fig.~1}\end{minipage}\hfill\begin{minipage}[b]{0.5\textwidth}\centering
+\begin{tikzpicture}[scale=0.8]
+  % right prism ABCD A1B1C1D1, oblique projection; hidden edges dashed; section A C1 ... drawn heavy
+  \coordinate (A) at (0,0); \coordinate (B) at (3,0); \coordinate (C) at (4.2,1.1); \coordinate (D) at (1.2,1.1);
+  \coordinate (A1) at (0,3); \coordinate (B1) at (3,3); \coordinate (C1) at (4.2,4.1); \coordinate (D1) at (1.2,4.1);
+  \coordinate (M) at ($(B)!0.5!(B1)$); \coordinate (N) at ($(D)!0.5!(D1)$);
+  \draw[main] (A)--(B)--(C)--(C1)--(D1)--(A1)--cycle (A1)--(B1)--(C1) (B)--(B1);
+  \draw[hidden] (A)--(D)--(C) (D)--(D1);
+  \fill[pattern=north east lines, pattern color=black!70] (A)--(M)--(C1)--(N)--cycle;
+  \draw[main] (A)--(M)--(C1); \draw[hidden] (A)--(N)--(C1);
+  \draw[constr] (A)--(C1);
+  \foreach \p/\t/\a in {A/A/below left,B/B/below right,C/C/right,D/D/left,A1/A_1/left,B1/B_1/above left,C1/C_1/above right,D1/D_1/above}{\node[lbl,\a] at (\p){$\t$};}
+  \node[lbl,right] at (M){$M$}; \node[lbl,left] at (N){$N$};
+  \node[lbl] at (1.7,-0.4){$a$};
+\end{tikzpicture}\par\smallskip{\small Fig.~2}\end{minipage}\end{center}
+\medskip
+\begin{center}\begin{minipage}[b]{0.55\textwidth}\centering
+\begin{tikzpicture}[scale=0.75]
+  \draw[axis] (-0.3,0)--(8.3,0) node[lbl,below]{$x$};
+  \draw[axis] (0,-0.3)--(0,3.6) node[lbl,left]{$y$};
+  \node[lbl,below left] at (0,0){$O$};
+  \draw[main] (0,0) parabola bend (4,3) (8,0);
+  \draw[vec] (0,0)--(1.3,1.5) node[lbl,above left]{$\vec v_0$};
+  \draw[thin] (0.8,0) arc (0:49:0.8); \node[lbl] at (1.05,0.35){$\alpha$};
+  \node[pt] at (4,3){}; \draw[vec] (4,3)--(4,2.1) node[lbl,right]{$m\vec g$};
+  \draw[constr] (4,3)--(4,0) node[lbl,below]{$\dfrac{x_m}{2}$};
+\end{tikzpicture}\par\smallskip{\small Fig.~3}\end{minipage}\hfill\begin{minipage}[b]{0.4\textwidth}\centering
+\begin{tikzpicture}[scale=0.75]
+  \fill[pattern=north east lines] (-0.9,4) rectangle (0.9,4.25); \draw[thin] (-0.9,4)--(0.9,4);
+  \draw[constr] (0,4)--(0,0.4);
+  \draw[main] (0,4)--({3.3*sin(35)},{4-3.3*cos(35)}) coordinate (P);
+  \node[pt,minimum size=5pt] at (P){};
+  \draw[path] (P) arc (-55:-125:{3.3});
+  \draw[thin] (0,3) arc (-90:-55:1); \node[lbl] at (0.3,2.65){$\alpha$};
+  \node[lbl,below right] at (P){$m$}; \node[lbl] at (1.25,2.85){$l$};
+\end{tikzpicture}\par\smallskip{\small Fig.~4}\end{minipage}\end{center}
+\end{document}

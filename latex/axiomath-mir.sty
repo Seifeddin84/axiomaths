@@ -35,10 +35,30 @@
   \ifx\axmir@key\axmir@lv\def\axmir@level{#2}\fi}
 \ProcessOptions\relax
 
-\RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{lmodern}               % Latin Modern = Computer Modern: text and maths match
+% ---------- font: Literaturnaya, the face of the Mir books (1950-1990) ----------
+% With XeLaTeX/LuaLaTeX and the font files in latex/fonts/literaturnaya/ (Regular, Italic, Bold, BoldItalic;
+% .otf or .ttf), text AND mathematical letters are set in Literaturnaya, as in Berman or Kutepov-Rubanov.
+% Otherwise (pdfLaTeX, or files missing) Latin Modern is used, with a warning.
+\newif\ifaxmir@lit \axmir@litfalse
+\RequirePackage{iftex}
 \RequirePackage{amsmath,amssymb}
+\ifPDFTeX\else
+  \RequirePackage{fontspec}
+  \IfFileExists{latex/fonts/literaturnaya/Literaturnaya-Regular.otf}{\def\axmir@ext{.otf}\axmir@littrue}{%
+    \IfFileExists{latex/fonts/literaturnaya/Literaturnaya-Regular.ttf}{\def\axmir@ext{.ttf}\axmir@littrue}{}}
+\fi
+\ifaxmir@lit
+  \setmainfont{Literaturnaya}[Path=latex/fonts/literaturnaya/, Extension=\axmir@ext,
+    UprightFont=*-Regular, ItalicFont=*-Italic, BoldFont=*-Bold, BoldItalicFont=*-BoldItalic,
+    Ligatures=TeX]
+  % mathematical letters and digits in the text face (Mir books never mixed two families)
+  \RequirePackage[italic,defaultmathsizes,nolessnomore]{mathastext}
+\else
+  \ifPDFTeX\RequirePackage[T1]{fontenc}\RequirePackage[utf8]{inputenc}\fi
+  \RequirePackage{lmodern}
+  \PackageWarningNoLine{axiomath-mir}{Literaturnaya not found (compile with xelatex and put the font files in
+    latex/fonts/literaturnaya/): using Latin Modern}
+\fi
 \RequirePackage{xcolor}
 \RequirePackage{tikz}
 \usetikzlibrary{calc,arrows.meta,patterns,angles,quotes}
@@ -53,7 +73,19 @@
 
 % ---------- ink: everything black (figures written for the coloured package stay black) ----------
 \colorlet{axmain}{black}\colorlet{axdark}{black}\colorlet{axlight}{white}
-\tikzset{every picture/.style={line width=0.5pt, >={Stealth[length=2mm]}}}
+% Figure styles of the Mir books (see .claude/skills/axiomath-design §4b): the weight of a line says what it is.
+\tikzset{
+  every picture/.style={line width=0.45pt, >={Stealth[length=1.8mm,width=1.2mm]}},
+  main/.style={line width=0.9pt},                          % the object of the problem: solid, the heaviest
+  thin/.style={line width=0.4pt},                          % secondary lines, diagonals
+  hidden/.style={line width=0.4pt, dash pattern=on 3pt off 2pt},        % hidden edges of solids
+  constr/.style={line width=0.4pt, dash pattern=on 2pt off 1.5pt},      % heights, projections, reference lines
+  path/.style={line width=0.4pt, dash pattern=on 4pt off 2pt},          % trajectories, arcs of motion
+  axis/.style={line width=0.45pt, ->},                     % axes: thin, small sharp head
+  vec/.style={line width=0.7pt, ->},                       % vectors and forces
+  pt/.style={circle, fill, inner sep=0pt, minimum size=2.6pt},          % a point that matters
+  lbl/.style={font=\itshape, inner sep=1.5pt},             % labels: italic, close to their point
+}
 
 % ---------- usual shortcuts (provided only if missing) ----------
 \providecommand{\R}{\mathbb{R}}\providecommand{\N}{\mathbb{N}}\providecommand{\Z}{\mathbb{Z}}

@@ -48,8 +48,11 @@ Full example: `latex/examples/serie-pilote-exemple.tex` (4 exercises of the bank
 
 ## 4. The Mir page (what `axiomath-mir.sty` does, and what you write)
 
-- **Typography**: Computer Modern for text and formulas (one family), black only, small-caps title block between
-  thin rules, small italic running head with the title, page number at the top right.
+- **Typography**: **Literaturnaya**, the Soviet book face used for most Mir books (1950–1990), for the text *and* the
+  mathematical letters (`mathastext`), as in Berman or Kutepov–Rubanov. Compile with **xelatex**, the font files in
+  `latex/fonts/literaturnaya/` (`Literaturnaya-Regular`, `-Italic`, `-Bold`, `-BoldItalic`, `.otf` or `.ttf`). Without
+  them, or with pdflatex, the package falls back to Latin Modern and warns. Black only, small-caps title block
+  between thin rules, small italic running head with the title, page number at the top right.
 - **Sections** numbered like Kutepov–Rubanov: « 15. Prismes et parallélépipèdes ». Use them to group the problems
   by idea; the `\sommaire` lists them.
 - **Problems** numbered continuously through the handout in bold (« 12. »), no title printed, the statement starts on
@@ -60,11 +63,26 @@ Full example: `latex/examples/serie-pilote-exemple.tex` (4 exercises of the bank
 - **Wording for strong pupils**: short and exact, imperative (« Démontrer que… », « Calculer… », « En déduire… »),
   fewer intermediate steps than the standard sheet, no hint in brackets in the statement (hints belong in the
   corrigé's `Idée :`). The difficulty can be higher; the corrigé stays as detailed as for anyone.
-- **Figures**: the Mir-book figure rule (`.claude/skills/axiomath-design/SKILL.md` §4b): thin uniform black lines
-  (`line width=0.5pt`, main object `0.9pt`), dashed construction lines, italic labels close to their point
-  (`$H'$`, not a coordinate name: `node{$\p$}` prints « Hp » for a coordinate called `Hp`), small dots only where
-  meaningful, no fill, caption « Fig. n » under the figure:
+- **Figures**: the Mir-book figure rule (`.claude/skills/axiomath-design/SKILL.md` §4b). **The weight of a line says
+  what it is**; `axiomath-mir.sty` defines the TikZ styles, use them instead of raw widths:
+
+  | style | line | for |
+  |---|---|---|
+  | `main` | solid 0.9 pt | the object of the problem: the polygon, the visible edges of a solid, the curve studied, a rod |
+  | `thin` | solid 0.4 pt | secondary lines: diagonals, chords, the second curve |
+  | `hidden` | dashed 0.4 pt (3–2) | hidden edges of a solid (space geometry: always dashed, never omitted) |
+  | `constr` | dashed 0.4 pt (2–1.5) | heights, projections onto the axes, reference verticals, construction lines |
+  | `path` | dashed 0.4 pt (4–2) | trajectories and arcs of motion (pendulum swing) |
+  | `axis` / `vec` | 0.45 / 0.7 pt with a small sharp head | axes / vectors and forces |
+  | `pt`, `lbl` | small filled dot, italic label | a point that matters, its name close to it |
+
+  A section of a solid is drawn `main` on the visible faces, `hidden` behind, and hatched (`pattern=north east lines`),
+  never filled with colour. A fixed support (pendulum, wall) is a thin line with hatching. Angles: small `thin` arcs
+  with an italic Greek letter. Caption « Fig. n » under the figure, small upright:
   `\begin{center} ...tikzpicture... \par\smallskip{\small Fig.~1}\end{center}`.
+  **Labels are written, not computed**: `node{$H'$}`, `node{$A_1$}`; a loop `node{$\p$}` over coordinates called `Hp`
+  or `A1` prints « Hp », « A1 » (bug of exercise #369). Use `\foreach \p/\t in {Hp/H',A1/A_1}` and print `$\t$`.
+  Example of all styles: `latex/examples/figures-mir.tex`.
 - **QCM** in Mir mode: numbered (1), (2)…, options A–D on one line; the answer key appears only in the corrigé.
 
 ## 5. Before the PR
